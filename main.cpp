@@ -22,18 +22,27 @@ AELogEntry* makeQueue(int length, const std::string& prefix) {
 
 
 
-void writeQueue(AELogEntry* queue, std::atomic<int>& filledCount) {
+void writeQueue(AELogEntry* queue, std::atomic<int>& filledCount, std::atomic<AELogEntry*>& lastptr, std::atomic<bool>& stop) {
+    
+    while (!stop) {
 
+
+
+
+    }
+    
 }
 
 
 
 int main() {
+    int queuesize = 1000;
     cout << "make vector of pointers of allocated memory\n";
     std::vector<AELogEntry*> entrypVector;
     entrypVector.reserve(1024);
-    cout << "make a 1000item queue\n";
+    cout << "make a "<< queuesize<<" item queue\n";
     AELogEntry* queue = makeQueue(1000, "1_");
+    queue[queuesize - 1].m_nextnode = queue;
     cout << "add queue to vector\n";
     entrypVector.push_back(queue);
     cout<<"spawn thread to write from queue\n";
