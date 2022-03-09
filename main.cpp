@@ -7,10 +7,12 @@ using std::cout;
 AELogEntry* makeQueue(int length, const std::string& prefix) {
     AELogEntry* result = new AELogEntry[length];
     for (int i = 0; i < length-1; i++) {
+        result[i].m_logmessage.reserve(1024);
         result[i].m_logmessage = prefix + std::to_string(i);
         result[i].m_nextnode = (&result[i]) + 1;
         result[i].m_ready = false;
     }
+    result[length - 1].m_logmessage.reserve(1024);
     result[length-1].m_logmessage = prefix + std::to_string(length-1);
     result[length-1].m_nextnode = nullptr;
     result[length-1].m_ready = false;
@@ -18,47 +20,34 @@ AELogEntry* makeQueue(int length, const std::string& prefix) {
 }
 
 
+
+
+void writeQueue(AELogEntry* queue, std::atomic<int>& filledCount) {
+
+}
+
+
+
 int main() {
-    int queuesize = 10;
-	int queuesize2 = 10;
-    AELogEntry* nodelist = makeQueue(queuesize, "1_");
-	
-	
-	
+    cout << "make vector of pointers of allocated memory\n";
+    std::vector<AELogEntry*> entrypVector;
+    entrypVector.reserve(1024);
+    cout << "make a 1000item queue\n";
+    AELogEntry* queue = makeQueue(1000, "1_");
+    cout << "add queue to vector\n";
+    entrypVector.push_back(queue);
+    cout<<"spawn thread to write from queue\n";
+    
 
-    AELogEntry* node = nodelist;
 
-    //nodelist[queuesize - 1].m_nextnode = node;
-    while (true) {
-        cout << "Node #" << node->m_logmessage << "; Address: " << node << '\n';
-        if(node->m_nextnode){
-			node = node->m_nextnode;
-		}
-		else{
-			break;
-		}
-		
-		
-    }
-	cout<<"------------------------\n";
-	AELogEntry* nodelist2 = makeQueue(queuesize2, "2_");
-	nodelist[queuesize-1].m_nextnode = nodelist2;
-	node = nodelist;
-	while (true) {
-        cout << "Node #" << node->m_logmessage << "; Address: " << node << '\n';
-        if(node->m_nextnode){
-			node = node->m_nextnode;
-		}
-		else{
-			break;
-		}
-		
-		
+    cout << "Deallocation queues\n";
+    for (int i = 0; i < entrypVector.size(); i++) {
+        delete[] entrypVector[i];
     }
 	
 	cout<<"Press enter to continue . . .";
+
+
     std::cin.get();
-    delete[] nodelist;
-	delete[] nodelist2;
     return 0;
 }

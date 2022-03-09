@@ -4,6 +4,7 @@
 #include "AEFileWriter.hpp"
 #include <thread>
 #include <atomic>
+#include <thread>
 
 struct AELogEntry {
 	///message of the log
