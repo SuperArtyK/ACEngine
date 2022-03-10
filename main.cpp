@@ -58,12 +58,11 @@ void writeQueue(AELogEntry* queue, std::atomic<int>& filledCount, std::atomic<bo
 
 int main() {
 	
-
-	AEFileWriter myfw("./temp/myfile", AEFW_FLAG_TRUNCATE);
+	AEFileWriter myfw("myfile", AEFW_FLAG_TRUNCATE);
 	std::vector<char> mych{ '1', '2', '3', '4','\n','\0', };
 
-	myfw.writeStrToFile(mych);
-
+	myfw.writeToFile(mych);
+	myfw.closeFile();
 	cout << std::is_same<const int, int>::value << '\n';
 
 	int queuesize = 1000;

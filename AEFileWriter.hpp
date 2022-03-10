@@ -101,7 +101,7 @@ public:
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary
 	/// Difference with writeDataToFile_Ref(): uses (const) pointer to the variable/data
-	/// Doesn't work(fine) with literals
+	/// @note Doesn't work(fine) with literals
 	/// </summary>
 	/// <param name="cdata">(pointer to) object to write</param>
 	/// <param name="dcount">number of elements in an object</param>
@@ -124,9 +124,9 @@ public:
 	}
 
 	/// <summary>
-	/// Write binary data, as is, to file, and flush if necessary
-	/// Difference with writeDataToFile_Ptr(): uses (const) reference to the variable
-	/// Which works with literals
+	/// Write binary data, as is, to file, and flush if necessary.
+	/// Difference with writeDataToFile_Ptr(): uses (const) reference to the variable.
+	/// @note Works with literals
 	/// </summary>
 	/// <param name="cdata">(pointer to) object to write</param>
 	/// <param name="tsize">size of the variable, default is the sizeof()</param>
@@ -136,6 +136,15 @@ public:
 		writeDataToFile_Ptr(&cdata, 1, tsize, useAutoFlush);
 	}
 
+	/// <summary>
+	/// Determines type of the data passed and uses according procedure to write it to file
+	/// @note character string types(vector char, std::string, char*) do not include null-termination character
+	/// Invokes other member functions
+	/// </summary>
+	/// <param name="cdata">(pointer to) object to write</param>
+	/// <param name="tsize">size of the variable, default is the sizeof()</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	
 	template<typename T>
 	inline void writeToFile(const T& var, const bool useAutoFlush = true){
 		//char array for formatting
@@ -148,26 +157,32 @@ public:
 		
 		//checks for types that don't require formatting with sprintf
 		//single chars
-		if constexpr(std::is_same<T, char>::value || std::is_same<T, unsigned char>::value){
+		if constexpr(std::is_same<T, char>::value || std::is_same<T, unsigned char>::value ||
+			//const versions
+			std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value){
+			
 			//the type is well, char
 			writeDataToFile_Ptr(&var, 1, sizeof(char), useAutoFlush);
 			return;
 		}
 		//c-strings
 		else if constexpr (std::is_same<T, char*>::value || std::is_same<T, unsigned char*>::value || 
+			//const versions
 			std::is_same<T, const char*>::value || std::is_same<T, const unsigned char*>::value) {
 			//no null-terminating char
 			//use writeStrToFile() directly instead
-			writeStrToFile((const char*)var);
+			writeStrToFile((const char*)var, false, useAutoFlush);
 			return;
 		}
 		//std::vector's of char or std::string's
 		//no unsigned char because you cannot just
 		//cast std::vector of unsigned char to std::vector of char
-		else if constexpr (std::is_same<T, std::vector<char>>::value || std::is_same<T, std::string>::value) {
+		else if constexpr (std::is_same<T, std::vector<char>>::value || std::is_same<T, std::string>::value ||
+			//const versions
+			std::is_same<T, const std::vector<char>>::value || std::is_same<T, const std::string>::value) {
 			//no null-terminating char
 			//use writeStrToFile() directly instead
-			writeStrToFile(var);
+			writeStrToFile(var, false, useAutoFlush);
 			return;
 		}
 
@@ -175,22 +190,30 @@ public:
 		// integer types:
 		
 		//shorts and signed ints and booleans
-		else if constexpr (std::is_same<T, short>::value || std::is_same<T, unsigned short>::value || std::is_same<T, int>::value || std::is_same<T, bool>::value) {
+		else if constexpr (std::is_same<T, short>::value || std::is_same<T, unsigned short>::value || std::is_same<T, int>::value || std::is_same<T, bool>::value ||
+			//const versions
+			std::is_same<T, const short>::value || std::is_same<T, const unsigned short>::value || std::is_same<T, const int>::value || std::is_same<T, const bool>::value) {
 			
 			sprintf(formArr, "%d", (int)var);
 		}
 		//unsigned ints
-		else if constexpr (std::is_same<T, unsigned int>::value) {
+		else if constexpr (std::is_same<T, unsigned int>::value || 
+			//const versions
+			std::is_same<T, const unsigned int>::value ) {
 			
 			sprintf(formArr, "%u", var);
 		}
 		//signed longs and long longs
-		else if constexpr (std::is_same<T, long int>::value || std::is_same<T, long long int>::value) {
+		else if constexpr (std::is_same<T, long int>::value || std::is_same<T, long long int>::value ||
+			//const versions
+			std::is_same<T, const long int>::value || std::is_same<T, const long long int>::value) {
 			
 			sprintf(formArr, "%lld", (long long int)var);
 		}
 		//unsigned long and long longs
-		else if constexpr (std::is_same<T, unsigned long int>::value || std::is_same<T, unsigned long long int>::value) {
+		else if constexpr (std::is_same<T, unsigned long int>::value || std::is_same<T, unsigned long long int>::value ||
+			//const versions
+			std::is_same<T, const unsigned long int>::value || std::is_same<T, const unsigned long long int>::value) {
 			
 			sprintf(formArr, "%llu", (unsigned long long int)var);
 		}
@@ -199,16 +222,25 @@ public:
 		// default precision(6), use sprintf on your array and writeStrToFile manually
 		
 		//float and double
-		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value) {
+		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
+			//const versions
+			std::is_same<T, const float>::value || std::is_same<T, const double>::value) {
 
 			sprintf(formArr, "%f", var);
 		}
-		else if constexpr (std::is_same<T, long double>::value) {
+		else if constexpr (std::is_same<T, long double>::value ||
+			//const versions
+			std::is_same<T, const long double>::value) {
 
 			sprintf(formArr, "%L", var);
 		}
-
-
+		//none above applies, custom type
+		else{
+			writeDataToFile_Ref(var);
+			printf("None of the types apply!\n");
+			return;
+		}
+		writeStrToFile(formArr, false, useAutoFlush);
 	}
 
 	/// <summary>
