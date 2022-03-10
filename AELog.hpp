@@ -11,8 +11,15 @@ struct AELogEntry {
 	std::string m_logmessage;
 	///next node of the log
 	AELogEntry* m_nextnode = nullptr;
-	///atomic flag to show that AELogEntry is ready to be written
-	std::atomic<bool> m_ready;
+	///order number of the entry, required for consequent writing
+	///and thread-safety of the log
+	///-1 ignores node
+	///checked first before waiting for 
+	std::atomic<int> m_ordernum = -1;
+	///atomic flag to show that AELogEntry is ready to be written -- 1
+	///or it is being written currently to -- 2
+	///or a it's a free node -- 0
+	std::atomic<char> m_status;
 };
 
 
