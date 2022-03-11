@@ -38,7 +38,9 @@ void writeQueue(AELogEntry* queue, std::atomic<int>& filledCount, std::atomic<bo
 		if(filledCount){
 			if(itemPtr->m_ordernum == ordernum){
 			//if the queue entry is correct to be written
-				
+				while(itemPtr->m_status != 1){
+					myfr.sleep();
+				}
 			}
 			else{
 				itemPtr = itemPtr->m_nextnode;
@@ -46,7 +48,9 @@ void writeQueue(AELogEntry* queue, std::atomic<int>& filledCount, std::atomic<bo
 			
 		}
 		else{
-
+			while(filledCount != 1){
+					myfr.sleep();
+				}
 			
 		}
 		
