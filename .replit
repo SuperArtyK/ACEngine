@@ -1,10 +1,9 @@
-compile = ["make", "-s"]
-run = "./main"
+run = "./build.sh"
 entrypoint = "main.cpp"
-hidden = ["main", "**/*.o", ".ccls-cache", "Makefile"]
+hidden = ["main", "**/*.o", ".ccls-cache"]
 
 [languages.cpp]
-pattern = "**/*.{cpp,h}"
+pattern = "**/*.{cpp,h,hpp}"
 
 [languages.cpp.languageServer]
 start = "ccls"
@@ -13,7 +12,7 @@ start = "ccls"
 support = true
 
 [debugger.compile]
-command = ["make"]
+command = ["./build.sh"]
 noFileArgs = true
 
 [debugger.interactive]
