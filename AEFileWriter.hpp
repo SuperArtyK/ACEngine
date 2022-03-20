@@ -49,7 +49,7 @@ public:
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening: 0 -- nothing, 1 -- append to end; 2 -- clear file when opening</param>
-	/// <param name="af_interval">interval between automatic file flushing in file writes</param>
+	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	AEFileWriter(const std::string& filename = "", const unsigned char flags = AEFW_FLAG_APPEND, const std::size_t af_interval = 1) :
 		m_filestr(nullptr), m_writtenEntries(0),
 		m_autoflushInterval(af_interval), m_lastError(0) {

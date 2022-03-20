@@ -26,19 +26,35 @@ struct AELogEntry {
 
 #define AELG_DEFAULT_QUEUE_SIZE 10
 
-
 class AELog {
 public:
 
-	AELog() {
-
-
+	AELog(const std::string& filename, const unsigned int initQueueSize = AELG_DEFAULT_QUEUE_SIZE) : m_logWriter( filename, AEFW_FLAG_APPEND, 10), queue(new AELogEntry [initQueueSize]), filledCount(0), m_exitTrd(false){
+		//we WONT need any more, unless you have 480PB of free ram and ready to process 6*10^15 entries
+		m_allocTable.reserve(32);
+		m_allocTable.push_back(queue);
 	}
-
+	~AELog(){
+		for(int i = 0; i< m_allocTable.size();i++){
+			delete[] m_allocTable[i];
+		}
+	}
+	void writeLog(const std::string& text){
+		
+	}
+	std::string getFileName() const {
+		return	m_logWriter.getFileName();
+	}
 private:
+	AEFileWriter m_logWriter;
+	std::vector<AELogEntry*> m_allocTable;
+	AELogEntry* queue;
+	std::atomic<uint> filledCount;
+	std::atomic<bool> m_exitTrd;
 	
-
-	AELogEntry m_logQueue;
+	
+	
+	
 
 
 };
