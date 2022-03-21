@@ -3,13 +3,15 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            "command": "cd",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}",
+                "&&",
+                "make",
+                "clean",
+				"&&",
+				"make",
+				"-s",
             ],
             "options": {
                 "cwd": "${fileDirname}"

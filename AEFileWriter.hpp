@@ -41,7 +41,8 @@
 #define AEFW_ERR_WRT_FILE_NULL 11
 
 
-
+///File writer. Err, Writes data to given file
+///Hungarian notation is fw
 class AEFileWriter{
 public:
 	/// <summary>
@@ -51,8 +52,8 @@ public:
 	/// <param name="flags">Flags for file opening: 0 -- nothing, 1 -- append to end; 2 -- clear file when opening</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	AEFileWriter(const std::string& filename = "", const unsigned char flags = AEFW_FLAG_APPEND, const std::size_t af_interval = 1) :
-		m_filestr(nullptr), m_writtenEntries(0),
-		m_autoflushInterval(af_interval), m_lastError(0) {
+		m_fpFilestr(nullptr), m_ullWrittenEntries(0),
+		m_autoflushInterval(af_interval), m_ucLastError(0) {
 
 		this->openFile(filename, flags);
 	}
@@ -109,16 +110,16 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	void writeDataToFile_Ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char), const bool useAutoFlush = true){
 		if(isOpen()){
-			fwrite(cdata, dsize, dcount, m_filestr);
+			fwrite(cdata, dsize, dcount, m_fpFilestr);
 			if(useAutoFlush){
-				if(!(++m_writtenEntries % m_autoflushInterval)){
+				if(!(++m_ullWrittenEntries % m_autoflushInterval)){
 					flushFile();
 				}
 			}
 
 		}
 		else{
-			m_lastError = AEFW_ERR_WRT_FILE_NULL;
+			m_ucLastError = AEFW_ERR_WRT_FILE_NULL;
 			return;
 		}
 	}
@@ -261,16 +262,16 @@ public:
 
 	bool openFile(const char* str, const unsigned char flags = AEFW_FLAG_APPEND){
 		if(strlen(str)){
-			m_filename = str;
+			m_sFilename = str;
 			switch(flags){
 
 
 				case AEFW_FLAG_APPEND://cursor at end, allow changing cursor position
 					openFileDirectly(str, "r+b");
-					if(!m_filestr){//couldnt open, force create
+					if(!m_fpFilestr){//couldnt open, force create
 						openFileDirectly(str, "wb");
 					}
-					fseek(m_filestr, 0L, SEEK_END);
+					fseek(m_fpFilestr, 0L, SEEK_END);
 					break;
 
 				case AEFW_FLAG_APPEND_NO_CURSOR_MOVE://only appending, not allowing to change cursor position
@@ -289,13 +290,13 @@ public:
 
 
 			}
-			if(!m_filestr){//file is still somehow nonexistent
+			if(!m_fpFilestr){//file is still somehow nonexistent
 				return false;
 			}
 			return true;
 		}
 		else{
-			m_filename.clear();
+			m_sFilename.clear();
 			return false;
 		}
 
@@ -303,31 +304,31 @@ public:
 	
 	///Flushes the opened file. That's it.
 	inline void flushFile() const{
-		if(m_filestr)
-			fflush(m_filestr);
+		if(m_fpFilestr)
+			fflush(m_fpFilestr);
 	}
 
 	///close current file. return 0 if closed
 	inline bool closeFile(){
-		if(m_filestr)
-			fclose(m_filestr);
-		m_filestr = nullptr;
-		return bool(this->m_filestr);//null if closed, something other if opened
+		if(m_fpFilestr)
+			fclose(m_fpFilestr);
+		m_fpFilestr = nullptr;
+		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 
 	///checks if file is open, true if it is, false otherwise
 	inline bool isOpen() const{
-		return bool(this->m_filestr);//null if closed, something other if opened
+		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 	
 	///returns last error of writer
 	inline unsigned char getLastError() const{
-		return this->m_lastError;
+		return this->m_ucLastError;
 	}
 	
 	///returns name of currently open file
 	inline std::string getFileName() const{
-		return this->m_filename;
+		return this->m_sFilename;
 	}
 	
 	/// Interval in file writings before flush.
@@ -351,21 +352,21 @@ private:
 #ifdef _MSC_VER 
 		fopen_s(&m_filestr, fname, flags);
 #else
-		m_filestr = fopen(fname, flags);
+		m_fpFilestr = fopen(fname, flags);
 #endif // _MSC_VER 
 
 	}
 
 	///full filename
-	std::string m_filename;
+	std::string m_sFilename;
 	///counter for file entries written by this writer
-	size_t m_writtenEntries;
+	size_t m_ullWrittenEntries;
 	///object for file writing
-	FILE* m_filestr;
+	FILE* m_fpFilestr;
 	///writer's error indicator
 	///Values are AEFW_ERR_* macros
 	///More info in the docs
-	unsigned char m_lastError;
+	unsigned char m_ucLastError;
 
 };
 
