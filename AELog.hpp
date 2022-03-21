@@ -141,6 +141,7 @@ public:
 	}
 
 private:
+	///allocates queue of AELogEntry with size 'size' and returns ptr to first element
 	AELogEntry *makeQueue(const std::size_t size) const
 	{
 		AELogEntry *result = new AELogEntry[size];
@@ -165,10 +166,15 @@ private:
 	std::atomic<std::size_t> m_ullFilledCount;
 	/// flag if to stop the write thread
 	std::atomic<bool> m_bExitTrd;
-	std::size_t m_ullQSize;
+	/// size of the whole queue
+	int m_ullQSize;
+	/// mutex to lock when allocating new chunks
 	std::mutex m_mtx;
+	/// order number for next queue entry
 	std::atomic<std::size_t> m_ullOrderNum;
+	/// last node of the whole queue
 	AELogEntry* m_lepLastNode;
+	/// current node for queue entry
 	std::atomic<AELogEntry *> m_lepCurrentNode;
 };
 

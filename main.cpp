@@ -10,11 +10,7 @@ using std::cout;
 
 int main()
 {
-
-	
-	AEFileWriter myfw("path/to/log/temp.txt");
-	myfw.writeString("it works123!\nHello AEFileWriter!");
-	myfw.closeFile();
+	cout<<sizeof(AELogEntry);
 
 	// cout<<"Press enter to continue . . .";
 	// std::cin.get();
