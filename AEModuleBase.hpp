@@ -42,4 +42,6 @@ protected:
 	static inline static inline std::atomic<std::size_t> m_ullModulesAlive = 0;
 };
 
+//ADD_MODULE_TO_ENGINE(__AEModuleBase)
+
 #endif // !AEMODULEBASE_HPP

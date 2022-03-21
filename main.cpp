@@ -11,11 +11,10 @@ using std::cout;
 int main()
 {
 
-	AELog mylg("temp",1);
-	for (int i = 0; i < 20; i++){
-		mylg.writeToLog("12345", AELOG_TYPE_INFO, "Engine");
-	}
-
+	
+	AEFileWriter myfw("path/to/log/temp.txt");
+	myfw.writeString("it works123!\nHello AEFileWriter!");
+	myfw.closeFile();
 
 	// cout<<"Press enter to continue . . .";
 	// std::cin.get();

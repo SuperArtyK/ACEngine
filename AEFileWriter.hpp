@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <filesystem>
-
+#include "AEModuleBase.hpp"
 
 
 
@@ -43,7 +43,7 @@
 
 ///File writer. Err, Writes data to given file
 ///Hungarian notation is fw
-class AEFileWriter{
+class AEFileWriter : public __AEModuleBase<AEFileWriter>{
 public:
 	/// <summary>
 	/// Class constructor
@@ -55,7 +55,7 @@ public:
 		m_fpFilestr(nullptr), m_ullWrittenEntries(0),
 		m_autoflushInterval(af_interval), m_ucLastError(0) {
 
-		this->openFile(filename, flags);
+		this->open(filename, flags);
 	}
 
 	~AEFileWriter(){
@@ -68,8 +68,8 @@ public:
 	/// <param name="str">String to write</param>
 	/// <param name="includeNull">Flag to include 1 null-terminating character in the string</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	inline void writeStrToFile(const std::string& str, const bool includeNull = false, const bool useAutoFlush = true){
-		this->writeDataToFile_Ptr(str.c_str(), str.size() + ((includeNull)?1:0), sizeof(char), useAutoFlush);
+	inline void writeString(const std::string& str, const bool includeNull = false, const bool useAutoFlush = true){
+		this->writeData_ptr(str.c_str(), str.size() + ((includeNull)?1:0), sizeof(char), useAutoFlush);
 	}
 
 
@@ -79,11 +79,11 @@ public:
 	/// <param name="str">String(in form of vector<char>) to write</param>
 	/// <param name="includeNull">Flag to include 1 null-terminating character in the string</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	inline void writeStrToFile(const std::vector<char>& str, const bool includeNull = false, const bool useAutoFlush = true){
+	inline void writeString(const std::vector<char>& str, const bool includeNull = false, const bool useAutoFlush = true){
 		// since vector may actually have NULL-terminating char
 		// remove it if includeNull is false
 		// decrease str.size() by 1
-		this->writeDataToFile_Ptr(str.data(), str.size() - ( ( !includeNull && str[str.size()-1] == '\0' )?1:0), sizeof(char), useAutoFlush);
+		this->writeData_ptr(str.data(), str.size() - ( ( !includeNull && str[str.size()-1] == '\0' )?1:0), sizeof(char), useAutoFlush);
 	}
 
 
@@ -94,21 +94,21 @@ public:
 	/// <param name="dcount">length of string</param>
 	/// <param name="includeNull">Flag to include 1 null-terminating character in the string</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	inline void writeStrToFile(const char* cdata, const bool includeNull = false, const bool useAutoFlush = true){
-		this->writeDataToFile_Ptr(cdata, strlen(cdata) + ((includeNull) ? 1 : 0), sizeof(char), useAutoFlush);
+	inline void writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = true){
+		this->writeData_ptr(cdata, strlen(cdata) + ((includeNull) ? 1 : 0), sizeof(char), useAutoFlush);
 	}
 
 
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary
-	/// Difference with writeDataToFile_Ref(): uses (const) pointer to the variable/data
+	/// Difference with writeData_ref(): uses (const) pointer to the variable/data
 	/// @note Doesn't work(fine) with literals
 	/// </summary>
 	/// <param name="cdata">(pointer to) object to write</param>
 	/// <param name="dcount">number of elements in an object</param>
 	/// <param name="dsize">size, in bytes, for each element</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	void writeDataToFile_Ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char), const bool useAutoFlush = true){
+	void writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char), const bool useAutoFlush = true){
 		if(isOpen()){
 			fwrite(cdata, dsize, dcount, m_fpFilestr);
 			if(useAutoFlush){
@@ -126,15 +126,15 @@ public:
 
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary.
-	/// Difference with writeDataToFile_Ptr(): uses (const) reference to the variable.
+	/// Difference with writeData_ptr(): uses (const) reference to the variable.
 	/// @note Works with literals
 	/// </summary>
 	/// <param name="cdata">(pointer to) object to write</param>
 	/// <param name="tsize">size of the variable, default is the sizeof()</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	template<typename T>
-	void writeDataToFile_Ref(const T& cdata, const std::size_t tsize = sizeof(T), const bool useAutoFlush = true){
-		writeDataToFile_Ptr(&cdata, 1, tsize, useAutoFlush);
+	void writeData_ref(const T& cdata, const std::size_t tsize = sizeof(T), const bool useAutoFlush = true){
+		writeData_ptr(&cdata, 1, tsize, useAutoFlush);
 	}
 
 	/// <summary>
@@ -147,7 +147,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	
 	template<typename T>
-	inline void writeToFile(const T& var, const bool useAutoFlush = true){
+	inline void write(const T& var, const bool useAutoFlush = true){
 		//char array for formatting
 		//classic 4*size of the variable
 		char formArr[sizeof(var)*4];
@@ -163,7 +163,7 @@ public:
 			std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value){
 			
 			//the type is well, char
-			writeDataToFile_Ptr(&var, 1, sizeof(char), useAutoFlush);
+			writeData_ptr(&var, 1, sizeof(char), useAutoFlush);
 			return;
 		}
 		//c-strings
@@ -171,8 +171,8 @@ public:
 			//const versions
 			std::is_same<T, const char*>::value || std::is_same<T, const unsigned char*>::value) {
 			//no null-terminating char
-			//use writeStrToFile() directly instead
-			writeStrToFile((const char*)var, false, useAutoFlush);
+			//use writeString() directly instead
+			writeString((const char*)var, false, useAutoFlush);
 			return;
 		}
 		//std::vector's of char or std::string's
@@ -182,8 +182,8 @@ public:
 			//const versions
 			std::is_same<T, const std::vector<char>>::value || std::is_same<T, const std::string>::value) {
 			//no null-terminating char
-			//use writeStrToFile() directly instead
-			writeStrToFile(var, false, useAutoFlush);
+			//use writeString() directly instead
+			writeString(var, false, useAutoFlush);
 			return;
 		}
 
@@ -220,7 +220,7 @@ public:
 		}
 		
 		//float types:
-		// default precision(6), use sprintf on your array and writeStrToFile manually
+		// default precision(6), use sprintf on your array and writeString manually
 		
 		//float and double
 		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
@@ -237,11 +237,11 @@ public:
 		}
 		//none above applies, custom type
 		else{
-			writeDataToFile_Ref(var);
+			writeData_ref(var);
 			printf("None of the types apply!\n");
 			return;
 		}
-		writeStrToFile(formArr, false, useAutoFlush);
+		writeString(formArr, false, useAutoFlush);
 	}
 
 	/// <summary>
@@ -250,38 +250,43 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
-	inline bool openFile(const std::string& str, const unsigned char flags = AEFW_FLAG_APPEND){
-		return this->openFile(str.c_str(), flags);
+	inline bool open(const std::string& str, const unsigned char flags = AEFW_FLAG_APPEND){
+		return this->open(str.c_str(), flags);
 	}
-	 /// <summary>
+	/// <summary>
 	/// Open(and create) file with given name and flag
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
 
-	bool openFile(const char* str, const unsigned char flags = AEFW_FLAG_APPEND){
+	bool open(const char* str, const unsigned char flags = AEFW_FLAG_APPEND){
 		if(strlen(str)){
 			m_sFilename = str;
+			std::size_t found = m_sFilename.rfind("/");
+			if (found!=std::string::npos){
+				std::filesystem::create_directories(m_sFilename.substr(0,found));
+			}
+			
 			switch(flags){
 
 
 				case AEFW_FLAG_APPEND://cursor at end, allow changing cursor position
-					openFileDirectly(str, "r+b");
+					openDirectly(str, "r+b");
 					if(!m_fpFilestr){//couldnt open, force create
-						openFileDirectly(str, "wb");
+						openDirectly(str, "wb");
 					}
 					fseek(m_fpFilestr, 0L, SEEK_END);
 					break;
 
 				case AEFW_FLAG_APPEND_NO_CURSOR_MOVE://only appending, not allowing to change cursor position
-					openFileDirectly(str, "ab");
+					openDirectly(str, "ab");
 					break;
 
 
 				case AEFW_FLAG_NOFLAGS://no flags, defaulting to truncation
 				case AEFW_FLAG_TRUNCATE://truncate file
-					openFileDirectly(str, "wb");
+					openDirectly(str, "wb");
 					break;
 
 				default:
@@ -344,7 +349,7 @@ private:
 	/// </summary>
 	/// <param name="fname"></param>
 	/// <param name="flags"></param>
-	inline void openFileDirectly(const char* fname, const char* flags) {
+	inline void openDirectly(const char* fname, const char* flags) {
 		//safety, so our compiler shut ups about the unsafe and deprecated function
 		//and trigger only on vc++
 
@@ -369,6 +374,8 @@ private:
 	unsigned char m_ucLastError;
 
 };
+
+ADD_MODULE_TO_ENGINE(AEFileWriter)
 
 #endif //!_AEFILEWRITER_HPP
 

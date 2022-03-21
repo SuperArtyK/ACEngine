@@ -1,9 +1,10 @@
 #ifndef _AELOG_HPP
 #define _AELOG_HPP
 
-#include "AEFileWriter.hpp"
 #include "AELog_types.hpp"
 #include "AEModuleBase.hpp"
+#include "AEFileWriter.hpp"
+#include <iostream>
 #include <thread>
 #include <atomic>
 #include <thread>
@@ -25,7 +26,6 @@
 
 ///log entry for the, well, logger
 ///Hungarian notation is le
-//m_cstaleptrQueu
 struct AELogEntry {
 	//some stuff doesnt need to be atomic
 	//bc we are setting these before writer reads them anyway
