@@ -11,7 +11,7 @@ Yet to release working version.
 - Control console's window properties
 - Control characters on the screen: write them/change color individually and in bulk
 - Be able to disable modules and parts of code when needed (if unecessary for module operation)
-- Make it work on NCurses/PDC
+- Make it work on NCurses/pdcurses for crossplatform compilation
 #####Optional
 - Play and synthesize sound
 - Optional toolkit of functions(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [original engine](https://github.com/SuperArtyK/console_engine_win32 "original") )
