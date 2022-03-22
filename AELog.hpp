@@ -72,6 +72,8 @@ public:
 		m_vecAllocTable.push_back(m_lepQueue);
 	}
 	~AELog(){
+		m_bExitTrd = true;
+		m_trdWriter.join();
 		devcout("Destroying logger with filename: \"" << m_fwLogWriter.getFileName() << "\"\n");
 		for(int i = 0; i< m_vecAllocTable.size();i++){
 			devcout("Freeing ptr " << m_vecAllocTable[i]<<'\n');
@@ -176,6 +178,7 @@ private:
 	AELogEntry* m_lepLastNode;
 	/// current node for queue entry
 	std::atomic<AELogEntry *> m_lepCurrentNode;
+	std::thread m_trdWriter;
 };
 
 ADD_MODULE_TO_ENGINE(AELog)
