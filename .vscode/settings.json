@@ -69,5 +69,12 @@
 		"valarray": "cpp",
 		"variant": "cpp"
 	},
-	"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
+	"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/home/artyk/coding/AELogger_new",
+			"binaryPath": "/home/artyk/coding/AELogger_new/main",
+			"binaryArgs": []
+		}
+	]
 }

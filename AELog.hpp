@@ -11,7 +11,9 @@
 #include <ctime>
 #include <mutex>
 
-#define AE_DEBUG_COUT
+/// If-def Flag: Use debug (cout) output made with devcout() macro in code
+/// @warning Multithreaded stuff can rip the cout output
+//#define AE_DEBUG_COUT
 
 #ifdef AE_DEBUG_COUT
 #define devcout(x) std::cout << x
@@ -19,16 +21,13 @@
 #define devcout(x)
 #endif
 
-///macro for ordernum to be ignored by log writer
+/// macro for entry order-number to be ignored by log writer
 #define AELE_INVALID_ENTRY_ORDERNUM 0
 
-
-
-///log entry for the, well, logger
-///Hungarian notation is le
+///Log entry struct for the, well, logger.
+///Hungarian notation is "le".
+///Flags start with AELE_
 struct AELogEntry {
-	//some stuff doesnt need to be atomic
-	//bc we are setting these before writer reads them anyway
 
 	/// message of the log
 	std::string m_sLogMessage;
@@ -58,6 +57,11 @@ struct AELogEntry {
 
 #define AELG_DEFAULT_QUEUE_SIZE 10
 
+//TODO: order vars properly to avoid byte-padding
+
+///Default engine's file logger. Err, logs messages to given file
+///Hungarian notatios is 'lg'
+///Flags start with AELOG_
 class AELog : __AEModuleBase<AELog> {
 public:
 	AELog(const std::string &filename, const unsigned int initQueueSize = AELG_DEFAULT_QUEUE_SIZE) : 
@@ -80,60 +84,62 @@ public:
 			delete[] m_vecAllocTable[i];
 			
 		}
+		m_fwLogWriter.closeFile();
 		m_vecAllocTable.clear();
 	}
 
 	void writeToLog(const std::string &l_strMessg, const char l_iType = AELOG_TYPE_INFO, const std::string &l_sModuleName = "Engine"){
-		//unfortunately all entries made when object was destructing
-		//should be discarded
-		devcout("Trying to write to log. Checking status...\n");
+		// unfortunately all entries made when object was destructing
+		// should be discarded
+		//  WTL, short for writeToLog
+		devcout("WTL:Trying to write to log. Checking status...\n");
 		if (!m_bExitTrd){
-			devcout("Writing thread isn't exiting/hasn't exited, continuing with procedure...\n");
+			devcout("WTL:Writing thread isn't exiting/hasn't exited, continuing with procedure...\n");
 			// check if next node is populated
-			devcout("Checking size of queue: " << m_ullFilledCount << " currently filled out of " << m_ullQSize << '\n');
+			devcout("WTL:Checking size of queue: " << m_ullFilledCount << " currently filled out of " << m_ullQSize << '\n');
 			if (m_ullFilledCount == m_ullQSize)
 			{
-				devcout("-Queue is full, starting allocation sequence\n");
+				devcout("WTL:-Queue is full, starting allocation sequence\n");
 				// oh boy, it is
 				// le mutex to prevent access
-				devcout("--Mutex lock\n");
+				devcout("WTL:--Mutex lock\n");
 				m_mtx.lock();
 				//allocate same amount of memory
-				devcout("--Allocating " << m_ullQSize<<" entries\n");
+				devcout("WTL:--Allocating " << m_ullQSize << " entries\n");
 				AELogEntry *temp = makeQueue(m_ullQSize);
-				devcout("--Changing pointers...\n");
+				devcout("WTL:--Changing pointers...\n");
 				m_lepLastNode->m_lepNextNode = temp;
 				m_lepLastNode = temp + m_ullQSize - 1;
-				devcout("--m_lepLastNode->m_lepNextNode now points at " << m_lepLastNode->m_lepNextNode << '\n'
-					<< "--m_lepLastNode now points to " << m_lepLastNode<<'\n');
+				devcout("WTL:--m_lepLastNode->m_lepNextNode now points at " << m_lepLastNode->m_lepNextNode << '\n'
+					<< "WTL:--m_lepLastNode now points to " << m_lepLastNode<<'\n');
 
-				devcout("--Adding ptr to m_vecAllocTable...\n");
+				devcout("WTL:--Adding ptr to m_vecAllocTable...\n");
 				m_vecAllocTable.push_back(temp);
-				devcout("--Increasing queue size counter...\n");
+				devcout("WTL:--Increasing queue size counter...\n");
 				m_ullQSize *= 2;
-				devcout("--Unlocking mutex\n");
+				devcout("WTL:--Unlocking mutex\n");
 				m_mtx.unlock();
-				devcout("-Allocation sequence complete\n");
+				devcout("WTL:-Allocation sequence complete\n");
 			}
-			devcout("-Checking string: ");
+			devcout("WTL:-Checking string: ");
 			if(!l_strMessg.empty()){
 				devcout("non-empty\n--Writing to the cell(" << (m_lepCurrentNode.load())<<")...\n");
 				m_ullFilledCount++;
-				devcout("--Incremented m_ullFilledCount. It is: " << m_ullFilledCount << '\n');
+				devcout("WTL:--Incremented m_ullFilledCount. It is: " << m_ullFilledCount << '\n');
 				(m_lepCurrentNode.load())->m_ullOrderNum = ++(this->m_ullOrderNum);
-				devcout("--Incremented m_ullOrderNum. It is: " << m_ullOrderNum << '\n');
+				devcout("WTL:--Incremented m_ullOrderNum. It is: " << m_ullOrderNum << '\n');
 				(m_lepCurrentNode.load())->m_sLogMessage = l_strMessg;
 				(m_lepCurrentNode.load())->m_sModuleName = l_sModuleName;
 				(m_lepCurrentNode.load())->m_tmLogTime = time(NULL);
-				devcout("--Written data. Ready to deploy\n");
+				devcout("WTL:--Written data. Ready to deploy\n");
 				(m_lepCurrentNode.load())->m_bStatus = true;
-				devcout("--Incrementing m_lepCurrentNode...\n");
+				devcout("WTL:--Incrementing m_lepCurrentNode...\n");
 				m_lepCurrentNode = (m_lepCurrentNode.load())->m_lepNextNode;
-				devcout("-Entry is fully written and ready\n");
+				devcout("WTL:-Entry is fully written and ready\n");
 			}
 		}
 		else{
-			devcout("Writing thread is exiting/has exited, aborting the procedure...\n");
+			devcout("WTL:Writing thread is exiting/has exited, aborting the procedure...\n");
 		}
 	}
 
@@ -158,6 +164,10 @@ private:
 		return result;
 	}
 
+	void writerThread(){
+		
+	}
+	
 	/// file writer for logs
 	AEFileWriter m_fwLogWriter;
 	/// list of all heap-allocated pointers
@@ -178,6 +188,7 @@ private:
 	AELogEntry* m_lepLastNode;
 	/// current node for queue entry
 	std::atomic<AELogEntry *> m_lepCurrentNode;
+	/// writer thread of the logger
 	std::thread m_trdWriter;
 };
 
