@@ -5,7 +5,7 @@ override CXXFLAGS += -g -Wno-everything -std=c++17 $(IDIRENGINE)
 SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print)
 OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 
-main: 
+main:
 	$(CXX) $(CXXFLAGS) $(SRCS) -o main
 
 clean:

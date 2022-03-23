@@ -1,15 +1,16 @@
 #ifndef _AELOG_HPP
 #define _AELOG_HPP
 
+
+#include <iostream>
+#include <ctime>
+#include <mutex>
+#include "typedefs.hpp"
 #include "AELog_types.hpp"
 #include "AEModuleBase.hpp"
 #include "AEFileWriter.hpp"
-#include <iostream>
-#include <thread>
-#include <atomic>
-#include <thread>
-#include <ctime>
-#include <mutex>
+#include "AEFrame.hpp"
+
 
 /// If-def Flag: Use debug (cout) output made with devcout() macro in code
 /// @warning Multithreaded stuff can rip the cout output
@@ -43,15 +44,19 @@ struct AELogEntry {
 	/// and thread-safety of the log
 	/// -1 ignores node
 	/// checked first before waiting for status
-	std::atomic<std::size_t> m_ullOrderNum;
+	std::atomic<biguint> m_ullOrderNum;
 
 	/// type of the log
 	/// refer to aelog_types.hpp
-	unsigned char m_ucLogType;
+	smalluint m_ucLogType;
 
 	/// atomic flag to show that AELogEntry is ready to be written
 	/// or not 
 	std::atomic<bool> m_bStatus;
+
+	const static AELogEntry clear(){
+		return {"","",0,nullptr,AELE_INVALID_ENTRY_ORDERNUM,AELOG_TYPE_INFO,false};
+	}
 };
 
 
@@ -147,11 +152,11 @@ public:
 	{
 		return	m_fwLogWriter.getFileName();
 	}
-	static void writerThread();
+
 
 private:
 	///allocates queue of AELogEntry with size 'size' and returns ptr to first element
-	AELogEntry *makeQueue(const std::size_t size) const
+	AELogEntry *makeQueue(const biguint size) const
 	{
 		AELogEntry *result = new AELogEntry[size];
 		for (int i = 0; i < size; i++)
@@ -165,7 +170,105 @@ private:
 		return result;
 	}
 
-	
+	void writerThread(){
+		//WriterThreaD
+		devcout("WTD:Entered writer thread\n");
+		// node-runner
+		AELogEntry *l_lepNode = m_lepQueue;
+		AEFrame myfr(100);
+		biguint l_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM+1;
+		devcout("WTD:-Allocated variables\n");
+		devcout("WTD:Starting Loop");
+		while (!m_bExitTrd)
+		{
+			devcout("WTD:-Loop repeat. m_bExitTrd is not true");
+			devcout("WTD:-Checking queue filling...");
+			if (m_ullFilledCount > 0)
+			{
+				devcout("filled.");
+				devcout("WTD:-Writing...\n");
+				// traverse to next available node
+
+				devcout("WTD:--Trying to find next populated node\n");
+				while(l_lepNode->m_ullOrderNum != l_ullOrderNum){
+					l_lepNode = l_lepNode->m_lepNextNode;
+				}
+				//waiting for node to be "ready"
+				devcout("WTD:--Waiting for entry to be ready");
+				while (!l_lepNode->m_bStatus)
+				{
+					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
+				}
+
+				devcout("WTD:--Preparing...\n");
+				//time of log
+				tm tstruct;
+				char buff[80];
+#if _MSC_VER && !__INTEL_COMPILER
+//compiler is msvc for sure
+//we need that to avoid 'unsecure function' errors
+//without disabling them
+				localtime_s(&tstruct, &l_lepNode->m_tmLogTime);
+#else
+				tstruct = *localtime(&l_lepNode->m_tmLogTime);
+#endif
+				strftime(buff, sizeof(buff), "[ %Y-%m-%d.%X ] [", &tstruct);
+				m_fwLogWriter.writeString(buff);
+				m_fwLogWriter.writeString(checkLogType(l_lepNode->m_ucLogType));
+				m_fwLogWriter.writeString("] [");
+				m_fwLogWriter.writeString(l_lepNode->m_sModuleName);
+				m_fwLogWriter.writeString("]: ");
+				m_fwLogWriter.writeString(l_lepNode->m_sLogMessage);
+				devcout("WTD:-Written Entry. Cleaning up\n");
+				
+				l_lepNode->m_bStatus = false;
+				l_lepNode->m_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM;
+			}
+			else
+			{
+				/* code */
+			}
+			
+		}
+	}
+
+	inline static const char* checkLogType(const smallint logtype){
+			switch (logtype)
+			{
+
+			case AELOG_TYPE_WARN:
+				return "WARN";
+				break;
+
+			case AELOG_TYPE_ERROR:
+				return "ERROR";
+				break;
+
+			// also AELOG_TYPE_FERROR
+			case AELOG_TYPE_FATAL_ERROR:
+				return "FATAL_ERROR";
+				break;
+
+			// also AELOG_TYPE_SWARN
+			case AELOG_TYPE_SEVERE_WARNING:
+				return "SWARN";
+				break;
+
+			case AELOG_TYPE_OK:
+				return "OK";
+				break;
+
+			case AELOG_TYPE_SUCCESS:
+				return "SUCCESS";
+				break;
+
+			// AELOG_TYPE_INFO by default
+			default:
+				return "INFO";
+				break;
+			}
+	}
+
 
 	/// file writer for logs
 	AEFileWriter m_fwLogWriter;
@@ -174,7 +277,7 @@ private:
 	/// pointer to the first allocation, and the queue
 	std::atomic<AELogEntry *> m_lepQueue;
 	/// amount of filled entries in the queue
-	std::atomic<std::size_t> m_ullFilledCount;
+	std::atomic<biguint> m_ullFilledCount;
 	/// flag if to stop the write thread
 	std::atomic<bool> m_bExitTrd;
 	/// size of the whole queue
@@ -182,7 +285,7 @@ private:
 	/// mutex to lock when allocating new chunks
 	std::mutex m_mtx;
 	/// order number for next queue entry
-	std::atomic<std::size_t> m_ullOrderNum;
+	std::atomic<biguint> m_ullOrderNum;
 	/// last node of the whole queue
 	AELogEntry* m_lepLastNode;
 	/// current node for queue entry

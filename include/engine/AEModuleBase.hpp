@@ -3,6 +3,7 @@
 
 #include <string>
 #include <atomic>
+#include "typedefs.hpp"
 
 //file meaning: base class for all modules
 
@@ -25,7 +26,7 @@ public:
 		m_ullModulesAlive--;
 	}
 
-	static inline std::size_t getAliveModuleAmt() {
+	static inline biguint getAliveModuleAmt() {
 		return m_ullModulesAlive.load();
 	}
 
@@ -38,7 +39,7 @@ protected:
 	/// same as named in code
 	static inline const std::string m_sModulename = getTypeName<T>();
 	/// amount of alive modules
-	static inline static inline std::atomic<std::size_t> m_ullModulesAlive = 0;
+	static inline static inline std::atomic<biguint> m_ullModulesAlive = 0;
 };
 
 //ADD_MODULE_TO_ENGINE(__AEModuleBase)

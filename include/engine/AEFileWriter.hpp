@@ -1,25 +1,24 @@
 #ifndef _AEFILEWRITER_HPP
 #define _AEFILEWRITER_HPP
 
+
+
 #include <cstring>
-#include <string>
 #include <vector>
 #include <filesystem>
 #include "AEModuleBase.hpp"
 
-
-
 //File flags
 
 ///Write cursor at the end of the file, adding to the file
-#define AEFW_FLAG_APPEND (unsigned char)1
+#define AEFW_FLAG_APPEND 1
 ///Write cursor at the end of the file, adding to the file
 ///Changing the cursor position(fseek)/writing anywhere else is not allowed
-#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE (unsigned char)2
+#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE 2
 ///Write cursor at the start of the file, truncating the contents if existed
-#define AEFW_FLAG_TRUNCATE (unsigned char)3
+#define AEFW_FLAG_TRUNCATE 3
 ///No Write flags
-#define AEFW_FLAG_NOFLAGS (unsigned char)255
+#define AEFW_FLAG_NOFLAGS 255
 
 //Error flags
 
@@ -52,7 +51,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening: 0 -- nothing, 1 -- append to end; 2 -- clear file when opening</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
-	AEFileWriter(const std::string& filename = "", const unsigned char flags = AEFW_FLAG_APPEND, const std::size_t af_interval = 1) :
+	AEFileWriter(const std::string& filename = "", const smalluint flags = AEFW_FLAG_APPEND, const biguint af_interval = 1) :
 		m_fpFilestr(nullptr), m_ullWrittenEntries(0),
 		m_autoflushInterval(af_interval), m_ucLastError(0) {
 
@@ -109,7 +108,7 @@ public:
 	/// <param name="dcount">number of elements in an object</param>
 	/// <param name="dsize">size, in bytes, for each element</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	void writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char), const bool useAutoFlush = true){
+	void writeData_ptr(const void* cdata, const biguint dcount, const biguint dsize = sizeof(char), const bool useAutoFlush = true){
 		if(isOpen()){
 			fwrite(cdata, dsize, dcount, m_fpFilestr);
 			if(useAutoFlush){
@@ -134,7 +133,7 @@ public:
 	/// <param name="tsize">size of the variable, default is the sizeof()</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	template<typename T>
-	void writeData_ref(const T& cdata, const std::size_t tsize = sizeof(T), const bool useAutoFlush = true){
+	void writeData_ref(const T& cdata, const biguint tsize = sizeof(T), const bool useAutoFlush = true){
 		writeData_ptr(&cdata, 1, tsize, useAutoFlush);
 	}
 
@@ -159,18 +158,18 @@ public:
 		
 		//checks for types that don't require formatting with sprintf
 		//single chars
-		if constexpr(std::is_same<T, char>::value || std::is_same<T, unsigned char>::value ||
+		if constexpr(std::is_same<T, char>::value || std::is_same<T, smalluint>::value ||
 			//const versions
-			std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value){
+			std::is_same<T, const char>::value || std::is_same<T, const smalluint>::value){
 			
 			//the type is well, char
 			writeData_ptr(&var, 1, sizeof(char), useAutoFlush);
 			return;
 		}
 		//c-strings
-		else if constexpr (std::is_same<T, char*>::value || std::is_same<T, unsigned char*>::value || 
+		else if constexpr (std::is_same<T, char*>::value || std::is_same<T, smalluint*>::value || 
 			//const versions
-			std::is_same<T, const char*>::value || std::is_same<T, const unsigned char*>::value) {
+			std::is_same<T, const char*>::value || std::is_same<T, const smalluint*>::value) {
 			//no null-terminating char
 			//use writeString() directly instead
 			writeString((const char*)var, false, useAutoFlush);
@@ -251,7 +250,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
-	inline bool open(const std::string& str, const unsigned char flags = AEFW_FLAG_APPEND){
+	inline bool open(const std::string& str, const smalluint flags = AEFW_FLAG_APPEND){
 		return this->open(str.c_str(), flags);
 	}
 	/// <summary>
@@ -261,10 +260,10 @@ public:
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
 
-	bool open(const char* str, const unsigned char flags = AEFW_FLAG_APPEND){
+	bool open(const char* str, const smalluint flags = AEFW_FLAG_APPEND){
 		if(strlen(str)){
 			m_sFilename = str;
-			std::size_t found = m_sFilename.rfind("/");
+			biguint found = m_sFilename.rfind("/");
 			if (found!=std::string::npos){
 				std::filesystem::create_directories(m_sFilename.substr(0,found));
 			}
@@ -328,7 +327,7 @@ public:
 	}
 	
 	///returns last error of writer
-	inline unsigned char getLastError() const{
+	inline smalluint getLastError() const{
 		return this->m_ucLastError;
 	}
 	
@@ -340,7 +339,7 @@ public:
 	/// Interval in file writings before flush.
 	/// Set to 1 -- flush every time;
 	/// Set to 0 -- never auto-flush
-	size_t m_autoflushInterval;
+	biguint m_autoflushInterval;
 private:
 	/// <summary>
 	/// opens file with given name and flags
@@ -366,13 +365,13 @@ private:
 	///full filename
 	std::string m_sFilename;
 	///counter for file entries written by this writer
-	size_t m_ullWrittenEntries;
+	biguint m_ullWrittenEntries;
 	///object for file writing
 	FILE* m_fpFilestr;
 	///writer's error indicator
 	///Values are AEFW_ERR_* macros
 	///More info in the docs
-	unsigned char m_ucLastError;
+	smalluint m_ucLastError;
 
 };
 

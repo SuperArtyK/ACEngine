@@ -4,7 +4,6 @@
 #define AEFRAME_HPP
 
 #include <thread>
-#include <chrono>
 #include "typedefs.hpp"
 #include "AEModuleBase.hpp"
 
