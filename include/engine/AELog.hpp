@@ -147,6 +147,7 @@ public:
 	{
 		return	m_fwLogWriter.getFileName();
 	}
+	static void writerThread();
 
 private:
 	///allocates queue of AELogEntry with size 'size' and returns ptr to first element
@@ -164,10 +165,8 @@ private:
 		return result;
 	}
 
-	void writerThread(){
-		
-	}
 	
+
 	/// file writer for logs
 	AEFileWriter m_fwLogWriter;
 	/// list of all heap-allocated pointers

@@ -6,12 +6,11 @@
 
 //file meaning: base class for all modules
 
-
 template <typename T>
-const std::string getTypeName();
+inline const std::string getTypeName();
 
 /// adds module name to inherit from __AEModuleBase
-#define ADD_MODULE_TO_ENGINE(T) template <> const std::string getTypeName<T>() { return #T; }
+#define ADD_MODULE_TO_ENGINE(T) template <> inline const std::string getTypeName<T>() { return #T; }
 
 
 template<typename T>
