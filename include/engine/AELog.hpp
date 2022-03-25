@@ -1,5 +1,8 @@
-#ifndef _AELOG_HPP
-#define _AELOG_HPP
+
+#pragma once
+
+#ifndef AELOG_HPP
+#define AELOG_HPP
 
 
 #include <iostream>
@@ -7,57 +10,23 @@
 #include <mutex>
 #include "typedefs.hpp"
 #include "AELog_types.hpp"
+#include "custom_types.hpp"
 #include "AEModuleBase.hpp"
 #include "AEFileWriter.hpp"
 #include "AEFrame.hpp"
 
 
+
 /// If-def Flag: Use debug (cout) output made with devcout() macro in code
 /// @warning Multithreaded stuff can rip the cout output
-//#define AE_DEBUG_COUT
+#define AE_DEBUG_COUT
 
 #ifdef AE_DEBUG_COUT
-#define devcout(x) std::cout << x
+#define devcout(x) std::cout <<"DEBUG::"<<__FUNCTION__<<"::" x <<'\n'
 #else
 #define devcout(x)
 #endif
 
-/// macro for entry order-number to be ignored by log writer
-#define AELE_INVALID_ENTRY_ORDERNUM 0
-
-///Log entry struct for the, well, logger.
-///Hungarian notation is "le".
-///Flags start with AELE_
-struct AELogEntry {
-
-	/// message of the log
-	std::string m_sLogMessage;
-	/// module that issued the log entry
-	std::string m_sModuleName;
-	/// time when log entry created
-	std::time_t m_tmLogTime;
-
-	/// next log entry (node)
-	AELogEntry* m_lepNextNode = nullptr;
-	
-	/// order number of the entry, required for consequent writing
-	/// and thread-safety of the log
-	/// -1 ignores node
-	/// checked first before waiting for status
-	std::atomic<biguint> m_ullOrderNum;
-
-	/// type of the log
-	/// refer to aelog_types.hpp
-	smalluint m_ucLogType;
-
-	/// atomic flag to show that AELogEntry is ready to be written
-	/// or not 
-	std::atomic<bool> m_bStatus;
-
-	const static AELogEntry clear(){
-		return {"","",0,nullptr,AELE_INVALID_ENTRY_ORDERNUM,AELOG_TYPE_INFO,false};
-	}
-};
 
 
 #define AELG_DEFAULT_QUEUE_SIZE 10
@@ -70,22 +39,24 @@ struct AELogEntry {
 class AELog : __AEModuleBase<AELog> {
 public:
 	AELog(const std::string &filename, const unsigned int initQueueSize = AELG_DEFAULT_QUEUE_SIZE) : 
-	m_fwLogWriter(filename, AEFW_FLAG_APPEND, 10), m_lepQueue(makeQueue(initQueueSize)), m_ullFilledCount(0), m_bExitTrd(false), 
-	m_ullQSize(initQueueSize), m_lepLastNode(m_lepQueue.load()+initQueueSize), m_lepCurrentNode(m_lepQueue.load()), m_ullOrderNum(AELE_INVALID_ENTRY_ORDERNUM)
+	m_fwLogWriter(filename, AEFW_FLAG_APPEND, 10), m_ullOrderNum(AELE_INVALID_ENTRY_ORDERNUM), 
+	m_lepQueue(makeQueue(initQueueSize)), m_lepCurrentNode(m_lepQueue.load()), m_lepLastNode(m_lepQueue.load()+initQueueSize), 
+	m_iFilledCount(0), m_iQSize(initQueueSize), m_bExitTrd(false)
 	{
 		//we probably WONT need any more, unless you have spare 1.25PB of ram to use
-		devcout("Creating logger with filename: \"" << filename << "\"; and queue size of: " << initQueueSize << '\n');
-		devcout("Estimated memory usage: " << (sizeof(AELog) + sizeof(AELogEntry) * initQueueSize * 1024) << "bytes\n");
+		devcout("Creating logger with filename: \"" << filename << "\"; and queue size of: " << initQueueSize);
+		devcout("Estimated memory usage: " << (sizeof(AELog) + sizeof(AELogEntry) * initQueueSize * 1024) << "bytes");
 		m_lepLastNode->m_lepNextNode = m_lepQueue;
 		m_vecAllocTable.reserve(48);
 		m_vecAllocTable.push_back(m_lepQueue);
 	}
 	~AELog(){
 		m_bExitTrd = true;
-		m_trdWriter.join();
-		devcout("Destroying logger with filename: \"" << m_fwLogWriter.getFileName() << "\"\n");
+		if (m_trdWriter.joinable())
+			m_trdWriter.join();
+		devcout("Destroying logger with filename: \"" << m_fwLogWriter.getFileName() << "\"");
 		for(int i = 0; i< m_vecAllocTable.size();i++){
-			devcout("Freeing ptr " << m_vecAllocTable[i]<<'\n');
+			devcout("Freeing allocated queue ptr at " << m_vecAllocTable[i]);
 			delete[] m_vecAllocTable[i];
 			
 		}
@@ -93,58 +64,61 @@ public:
 		m_vecAllocTable.clear();
 	}
 
-	void writeToLog(const std::string &l_strMessg, const char l_iType = AELOG_TYPE_INFO, const std::string &l_sModuleName = "Engine"){
+	void writeToLog(const std::string &l_strMessg, const smalluint l_iType = AELOG_TYPE_INFO, const std::string &l_sModuleName = "Engine"){
 		// unfortunately all entries made when object was destructing
 		// should be discarded
-		//  WTL, short for writeToLog
-		devcout("WTL:Trying to write to log. Checking status...\n");
+		devcout("Trying to write to log. Checking status...");
 		if (!m_bExitTrd){
-			devcout("WTL:Writing thread isn't exiting/hasn't exited, continuing with procedure...\n");
+			devcout("Writing thread isn't exiting/hasn't exited, continuing with procedure...");
 			// check if next node is populated
-			devcout("WTL:Checking size of queue: " << m_ullFilledCount << " currently filled out of " << m_ullQSize << '\n');
-			if (m_ullFilledCount == m_ullQSize)
+			devcout("Checking queue: " << m_iFilledCount << " currently filled out of " << m_iQSize);
+			if (m_iFilledCount == m_iQSize)
 			{
-				devcout("WTL:-Queue is full, starting allocation sequence\n");
+				devcout("-Queue is full, starting allocation sequence");
 				// oh boy, it is
 				// le mutex to prevent access
-				devcout("WTL:--Mutex lock\n");
+				devcout("--Mutex lock");
 				m_mtx.lock();
 				//allocate same amount of memory
-				devcout("WTL:--Allocating " << m_ullQSize << " entries\n");
-				AELogEntry *temp = makeQueue(m_ullQSize);
-				devcout("WTL:--Changing pointers...\n");
+				devcout("--Allocating " << m_iQSize << " entries");
+				AELogEntry *temp = makeQueue(m_iQSize);
+				devcout("--Changing pointers...");
 				m_lepLastNode->m_lepNextNode = temp;
-				m_lepLastNode = temp + m_ullQSize - 1;
-				devcout("WTL:--m_lepLastNode->m_lepNextNode now points at " << m_lepLastNode->m_lepNextNode << '\n'
-					<< "WTL:--m_lepLastNode now points to " << m_lepLastNode<<'\n');
+				m_lepLastNode = temp + m_iQSize - 1;
+				devcout("--m_lepLastNode->m_lepNextNode now points at " << m_lepLastNode->m_lepNextNode);
+				devcout("--m_lepLastNode now points to " << m_lepLastNode);
 
-				devcout("WTL:--Adding ptr to m_vecAllocTable...\n");
+				devcout("--Adding ptr to m_vecAllocTable...");
 				m_vecAllocTable.push_back(temp);
-				devcout("WTL:--Increasing queue size counter...\n");
-				m_ullQSize *= 2;
-				devcout("WTL:--Unlocking mutex\n");
+				devcout("--Increasing queue size counter...");
+				m_iQSize *= 2;
+				devcout("--Unlocking mutex");
 				m_mtx.unlock();
-				devcout("WTL:-Allocation sequence complete\n");
+				devcout("-Allocation sequence complete");
 			}
-			devcout("WTL:-Checking string: ");
+			devcout("-Checking string...");
 			if(!l_strMessg.empty()){
-				devcout("non-empty\n--Writing to the cell(" << (m_lepCurrentNode.load())<<")...\n");
-				m_ullFilledCount++;
-				devcout("WTL:--Incremented m_ullFilledCount. It is: " << m_ullFilledCount << '\n');
-				(m_lepCurrentNode.load())->m_ullOrderNum = ++(this->m_ullOrderNum);
-				devcout("WTL:--Incremented m_ullOrderNum. It is: " << m_ullOrderNum << '\n');
-				(m_lepCurrentNode.load())->m_sLogMessage = l_strMessg;
-				(m_lepCurrentNode.load())->m_sModuleName = l_sModuleName;
-				(m_lepCurrentNode.load())->m_tmLogTime = time(NULL);
-				devcout("WTL:--Written data. Ready to deploy\n");
-				(m_lepCurrentNode.load())->m_bStatus = true;
-				devcout("WTL:--Incrementing m_lepCurrentNode...\n");
-				m_lepCurrentNode = (m_lepCurrentNode.load())->m_lepNextNode;
-				devcout("WTL:-Entry is fully written and ready\n");
+				AELogEntry * const temp = m_lepCurrentNode.load();
+				devcout("-non-empty");
+				devcout("--Writing to the cell(" << temp << ")...");
+				m_iFilledCount++;
+
+				devcout("--Incremented m_iFilledCount. It is: " << m_iFilledCount);
+				temp->m_ullOrderNum = ++(this->m_ullOrderNum);
+				devcout("--Incremented m_ullOrderNum. It is: " << m_ullOrderNum);
+				temp->m_sLogMessage = l_strMessg;
+				temp->m_sModuleName = l_sModuleName;
+				temp->m_tmLogTime = time(NULL);
+				temp->m_ucLogType = l_iType;
+				devcout("--Written data. Ready to deploy");
+				temp->m_bStatus = true;
+				devcout("--Incrementing m_lepCurrentNode...");
+				m_lepCurrentNode = temp->m_lepNextNode;
+				devcout("-Entry is fully written and ready");
 			}
 		}
 		else{
-			devcout("WTL:Writing thread is exiting/has exited, aborting the procedure...\n");
+			devcout("Writing thread is exiting/has exited, aborting the procedure...");
 		}
 	}
 
@@ -172,35 +146,35 @@ private:
 
 	void writerThread(){
 		//WriterThreaD
-		devcout("WTD:Entered writer thread\n");
+		devcout("Entered writer thread");
 		// node-runner
 		AELogEntry *l_lepNode = m_lepQueue;
 		AEFrame myfr(100);
 		biguint l_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM+1;
-		devcout("WTD:-Allocated variables\n");
-		devcout("WTD:Starting Loop");
+		devcout("-Allocated variables");
+		devcout("Starting Loop");
 		while (!m_bExitTrd)
 		{
-			devcout("WTD:-Loop repeat. m_bExitTrd is not true");
-			devcout("WTD:-Checking queue filling...");
-			if (m_ullFilledCount > 0)
+			devcout("-Loop repeat. m_bExitTrd is not true");
+			devcout("-Checking queue filling...");
+			if (m_iFilledCount > 0)
 			{
-				devcout("filled.");
-				devcout("WTD:-Writing...\n");
+				devcout("queue is filled.");
+				devcout("-Writing...");
 				// traverse to next available node
 
-				devcout("WTD:--Trying to find next populated node\n");
+				devcout("--Trying to find next populated node");
 				while(l_lepNode->m_ullOrderNum != l_ullOrderNum){
 					l_lepNode = l_lepNode->m_lepNextNode;
 				}
 				//waiting for node to be "ready"
-				devcout("WTD:--Waiting for entry to be ready");
+				devcout("--Waiting for entry to be ready");
 				while (!l_lepNode->m_bStatus)
 				{
 					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
 				}
 
-				devcout("WTD:--Preparing...\n");
+				devcout("--Preparing...");
 				//time of log
 				tm tstruct;
 				char buff[80];
@@ -213,20 +187,27 @@ private:
 				tstruct = *localtime(&l_lepNode->m_tmLogTime);
 #endif
 				strftime(buff, sizeof(buff), "[ %Y-%m-%d.%X ] [", &tstruct);
+				devcout("--Got time of the entry");
+				devcout("--Writing...");
 				m_fwLogWriter.writeString(buff);
 				m_fwLogWriter.writeString(checkLogType(l_lepNode->m_ucLogType));
 				m_fwLogWriter.writeString("] [");
 				m_fwLogWriter.writeString(l_lepNode->m_sModuleName);
 				m_fwLogWriter.writeString("]: ");
 				m_fwLogWriter.writeString(l_lepNode->m_sLogMessage);
-				devcout("WTD:-Written Entry. Cleaning up\n");
+				devcout("-Written Entry. Cleaning up");
 				
 				l_lepNode->m_bStatus = false;
 				l_lepNode->m_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM;
 			}
 			else
 			{
-				/* code */
+				// waiting for node to be "ready"
+				devcout("--Queue seems to be empty. Waiting...");
+				while (!l_lepNode->m_bStatus)
+				{
+					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
+				}
 			}
 			
 		}
@@ -272,29 +253,29 @@ private:
 
 	/// file writer for logs
 	AEFileWriter m_fwLogWriter;
-	/// list of all heap-allocated pointers
-	std::vector<AELogEntry *> m_vecAllocTable;
-	/// pointer to the first allocation, and the queue
-	std::atomic<AELogEntry *> m_lepQueue;
-	/// amount of filled entries in the queue
-	std::atomic<biguint> m_ullFilledCount;
-	/// flag if to stop the write thread
-	std::atomic<bool> m_bExitTrd;
-	/// size of the whole queue
-	int m_ullQSize;
 	/// mutex to lock when allocating new chunks
 	std::mutex m_mtx;
-	/// order number for next queue entry
-	std::atomic<biguint> m_ullOrderNum;
-	/// last node of the whole queue
-	AELogEntry* m_lepLastNode;
-	/// current node for queue entry
-	std::atomic<AELogEntry *> m_lepCurrentNode;
+	/// list of all heap-allocated pointers
+	std::vector<AELogEntry *> m_vecAllocTable;
 	/// writer thread of the logger
 	std::thread m_trdWriter;
+	/// order number for next queue entry
+	std::atomic<biguint> m_ullOrderNum;
+	/// pointer to the first allocation, and the queue
+	std::atomic<AELogEntry *> m_lepQueue;
+	/// current node for queue entry
+	std::atomic<AELogEntry *> m_lepCurrentNode;
+	/// last node of the whole queue
+	AELogEntry *m_lepLastNode;
+	/// amount of filled entries in the queue
+	std::atomic<int> m_iFilledCount;
+	/// size of the whole queue
+	int m_iQSize;
+	/// flag if to stop the write thread
+	std::atomic<bool> m_bExitTrd;
 };
 
 ADD_MODULE_TO_ENGINE(AELog)
 
 
-#endif //!_AELOG_HPP
+#endif //!AELOG_HPP

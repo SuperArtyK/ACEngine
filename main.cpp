@@ -11,12 +11,8 @@ using std::cout;
 int main()
 {
 
-	time_t now = time(0);
-	struct tm tstruct;
-	char buff[80];
-	tstruct = *localtime(&now);
-	strftime(buff, sizeof(buff), "[ %Y-%m-%d.%X ]", &tstruct);
-	cout << sizeof(biguint)<<' '<<sizeof(std::size_t);
+	AELog mylg("templog");
+	mylg.writeToLog("hello logger!", AELOG_TYPE_INFO);
 	// cout<<"Press enter to continue . . .";
 	// std::cin.get();
 	return 0;

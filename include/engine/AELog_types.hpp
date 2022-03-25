@@ -1,3 +1,6 @@
+
+#pragma once
+
 #ifndef AELOG_TYPES_HPP
 #define AELOG_TYPES_HPP
 

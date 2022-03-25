@@ -1,3 +1,6 @@
+
+#pragma once
+
 #ifndef AEMODULEBASE_HPP
 #define AEMODULEBASE_HPP
 

@@ -1,5 +1,8 @@
-#ifndef _AEFILEWRITER_HPP
-#define _AEFILEWRITER_HPP
+
+#pragma once
+
+#ifndef AEFILEWRITER_HPP
+#define AEFILEWRITER_HPP
 
 
 
@@ -52,8 +55,8 @@ public:
 	/// <param name="flags">Flags for file opening: 0 -- nothing, 1 -- append to end; 2 -- clear file when opening</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	AEFileWriter(const std::string& filename = "", const smalluint flags = AEFW_FLAG_APPEND, const biguint af_interval = 1) :
-		m_fpFilestr(nullptr), m_ullWrittenEntries(0),
-		m_autoflushInterval(af_interval), m_ucLastError(0) {
+		m_autoflushInterval(af_interval), m_ullWrittenEntries(0), m_fpFilestr(nullptr),
+		m_ucLastError(0) {
 
 		this->open(filename, flags);
 	}
@@ -377,7 +380,7 @@ private:
 
 ADD_MODULE_TO_ENGINE(AEFileWriter)
 
-#endif //!_AEFILEWRITER_HPP
+#endif //!AEFILEWRITER_HPP
 
 
 
