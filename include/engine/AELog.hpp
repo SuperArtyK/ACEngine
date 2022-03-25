@@ -204,7 +204,7 @@ private:
 			{
 				// waiting for node to be "ready"
 				devcout("--Queue seems to be empty. Waiting...");
-				while (!l_lepNode->m_bStatus)
+				while (m_iFilledCount == 0 && !m_bExitTrd)
 				{
 					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
 				}

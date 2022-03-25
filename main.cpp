@@ -5,6 +5,15 @@
 #include "AELog.hpp"
 using std::cout;
 
+bool exitthread = false;
+AELog g_mylg("log.txt");
+void worker(const std::string name){
+	biguint counter = 0;
+	while(!exitthread){
+		g_mylg.writeToLog(name+" log entry "+std::to_string(counter++));
+	}
+}
+
 
 
 
@@ -17,7 +26,7 @@ int main()
 	mylg.writeToLog("Coding at night is great!", AELOG_TYPE_WARN, "ArtyK's Brain");
 
 
-	//cout<<"Press enter to continue . . .";
-	//std::cin.get();
+	cout<<"Press enter to continue . . .";
+	std::cin.get();
 	return 0;
 }

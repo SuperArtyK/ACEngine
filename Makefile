@@ -1,6 +1,6 @@
 CXX = g++
 IDIRENGINE = $(shell find -type d | grep 'src\|include' | awk '{print"-I"$$0}' )
-override CXXFLAGS += -Wall -Wextra -std=c++17 $(IDIRENGINE)
+override CXXFLAGS += -Wall -Wextra -std=c++17 $(IDIRENGINE) -pthread
 
 SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print)
 OBJS = $(patsubst %.cpp, %.o, $(SRCS))
