@@ -39,7 +39,7 @@ protected:
 	/// same as named in code
 	static inline const std::string m_sModulename = getTypeName<T>();
 	/// amount of alive modules
-	static inline static inline std::atomic<biguint> m_ullModulesAlive = 0;
+	static inline std::atomic<biguint> m_ullModulesAlive = 0;
 };
 
 //ADD_MODULE_TO_ENGINE(__AEModuleBase)
