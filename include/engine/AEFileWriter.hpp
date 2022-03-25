@@ -40,7 +40,7 @@
 ///aka file not open.
 ///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_ELSE,
 ///if we continue to access the writer.
-#define AEFW_ERR_WRT_FILE_NULL 11
+#define AEFW_ERR_WRT_FILE_NULL 4
 
 
 ///File writer. Err, Writes data to given file
@@ -56,7 +56,7 @@ public:
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	AEFileWriter(const std::string& filename = "", const smalluint flags = AEFW_FLAG_APPEND, const biguint af_interval = 1) :
 		m_autoflushInterval(af_interval), m_ullWrittenEntries(0), m_fpFilestr(nullptr),
-		m_ucLastError(0) {
+		m_ucLastError(AEFW_ERR_NOERROR) {
 
 		this->open(filename, flags);
 	}
@@ -119,7 +119,7 @@ public:
 					flushFile();
 				}
 			}
-
+			m_ucLastError = AEFW_ERR_NOERROR;
 		}
 		else{
 			m_ucLastError = AEFW_ERR_WRT_FILE_NULL;
@@ -241,7 +241,7 @@ public:
 		//none above applies, custom type
 		else{
 			writeData_ref(var);
-			printf("None of the types apply!\n");
+			//printf("None of the types apply!\n");
 			return;
 		}
 		writeString(formArr, false, useAutoFlush);
@@ -293,18 +293,18 @@ public:
 					break;
 
 				default:
-
+					m_ucLastError = AEFW_ERR_FILE_WRONG_FLAG;
 					break;
-
-
 			}
 			if(!m_fpFilestr){//file is still somehow nonexistent
+				m_ucLastError = AEFW_ERR_FILE_ELSE;
 				return false;
 			}
 			return true;
 		}
 		else{
 			m_sFilename.clear();
+			m_ucLastError = AEFW_ERR_FILE_NAME_EMPTY;
 			return false;
 		}
 
