@@ -1,6 +1,9 @@
 clear
 make clean -s
-make
-chmod +x main
-echo '----------------build complete'
-./main
+make debug64
+chmod +x ./build/64Debug/ACEngine
+echo '----------------'
+echo '-build complete-'
+echo '----------------'
+echo ''
+./build/64Debug/ACEngine

@@ -6,8 +6,10 @@ SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp
 OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 
 
-main:
-	$(CXX) $(CXXFLAGS) $(SRCS) -g -o main
+
+
+main: debug64
+	
 
 debug32:
 	$(CXX) $(CXXFLAGS) $(SRCS) -g  -m32 -o ./build/32Debug/ACEngine

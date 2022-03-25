@@ -5,5 +5,6 @@
 		pkgs.gdb
 		pkgs.gnumake
 		pkgs.file
+		pkgs.stdenv_32bit
 	];
 }
