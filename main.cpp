@@ -12,8 +12,12 @@ int main()
 {
 
 	AELog mylg("templog");
-	mylg.writeToLog("hello logger!", AELOG_TYPE_INFO);
-	// cout<<"Press enter to continue . . .";
-	// std::cin.get();
+	mylg.writeToLog("Hello AELog!", AELOG_TYPE_INFO);
+	mylg.writeToLog(("First module of the ArtyK's Console Engine is working!"), AELOG_TYPE_SUCCESS);
+	mylg.writeToLog("Coding at night is great!", AELOG_TYPE_WARN, "ArtyK's Brain");
+
+
+	//cout<<"Press enter to continue . . .";
+	//std::cin.get();
 	return 0;
 }

@@ -39,7 +39,7 @@
 class AELog : __AEModuleBase<AELog> {
 public:
 	AELog(const std::string &filename, const unsigned int initQueueSize = AELG_DEFAULT_QUEUE_SIZE) : 
-	m_fwLogWriter(filename, AEFW_FLAG_APPEND, 10), m_ullOrderNum(AELE_INVALID_ENTRY_ORDERNUM), 
+	m_fwLogWriter(filename, AEFW_FLAG_APPEND, 10), m_trdWriter(&AELog::writerThread, this),m_ullOrderNum(AELE_INVALID_ENTRY_ORDERNUM), 
 	m_lepQueue(makeQueue(initQueueSize)), m_lepCurrentNode(m_lepQueue.load()), m_lepLastNode(m_lepQueue.load()+initQueueSize), 
 	m_iFilledCount(0), m_iQSize(initQueueSize), m_bExitTrd(false)
 	{
@@ -145,7 +145,6 @@ private:
 	}
 
 	void writerThread(){
-		//WriterThreaD
 		devcout("Entered writer thread");
 		// node-runner
 		AELogEntry *l_lepNode = m_lepQueue;
@@ -153,28 +152,27 @@ private:
 		biguint l_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM+1;
 		devcout("-Allocated variables");
 		devcout("Starting Loop");
-		while (!m_bExitTrd)
+		while (!m_bExitTrd || m_iFilledCount > 0)
 		{
-			devcout("-Loop repeat. m_bExitTrd is not true");
+			devcout("-Loop repeat. m_bExitTrd is not true, or m_iFilledCount > 0");
 			devcout("-Checking queue filling...");
 			if (m_iFilledCount > 0)
 			{
-				devcout("queue is filled.");
-				devcout("-Writing...");
+				devcout("queue is filled: "<<m_iFilledCount);
 				// traverse to next available node
-
-				devcout("--Trying to find next populated node");
+				devcout("l_ullOrderNum = " << l_ullOrderNum);
+				devcout("-Trying to find next populated node");
 				while(l_lepNode->m_ullOrderNum != l_ullOrderNum){
 					l_lepNode = l_lepNode->m_lepNextNode;
 				}
 				//waiting for node to be "ready"
-				devcout("--Waiting for entry to be ready");
+				devcout("-Waiting for entry to be ready");
 				while (!l_lepNode->m_bStatus)
 				{
 					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
 				}
 
-				devcout("--Preparing...");
+				devcout("-Preparing...");
 				//time of log
 				tm tstruct;
 				char buff[80];
@@ -186,7 +184,7 @@ private:
 #else
 				tstruct = *localtime(&l_lepNode->m_tmLogTime);
 #endif
-				strftime(buff, sizeof(buff), "[ %Y-%m-%d.%X ] [", &tstruct);
+				strftime(buff, sizeof(buff), "\n[ %Y-%m-%d.%X ] [", &tstruct);
 				devcout("--Got time of the entry");
 				devcout("--Writing...");
 				m_fwLogWriter.writeString(buff);
@@ -199,6 +197,8 @@ private:
 				
 				l_lepNode->m_bStatus = false;
 				l_lepNode->m_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM;
+				m_iFilledCount--;
+				l_ullOrderNum++;
 			}
 			else
 			{
@@ -211,6 +211,8 @@ private:
 			}
 			
 		}
+		devcout("-Loop exited. m_bExitTrd is false, and m_iFilledCount == 0");
+		devcout("Probably closing. Exiting thread...");
 	}
 
 	inline static const char* checkLogType(const smallint logtype){
