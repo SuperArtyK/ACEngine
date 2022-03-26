@@ -24,8 +24,9 @@ public:
 	/// </summary>
 	/// <param name="fps">the delay in the format of framerate, defaults to the GAME_FPS</param>
 	/// @note if you pass it 0 or negative number it will disable the delay
-	explicit AEFrame(const float fps = GAME_FPS) : m_durDelay((fps <= 0) ? microsec(0) : microsec(biguint(1000000 / fps))),
-		m_tp(getsystime), m_bNoDelay((fps <= 0))
+	explicit AEFrame(const float fps = GAME_FPS) :
+		m_durDelay((fps <= 0) ? microsec(0) : millisec(biguint(1000.0f/fps))),
+		m_tp(getsystime()), m_bNoDelay((fps <= 0))
 	{
 	}
 
@@ -35,7 +36,7 @@ public:
 	void setfps(const float fps = GAME_FPS) {
 		if (fps <= 0) { m_bNoDelay = true; return; }
 		m_durDelay = microsec(biguint(1000000 / fps));
-		m_tp = getsystime;
+		m_tp = getsystime();
 	}
 
 	///makes the current thread sleep for a set delay
@@ -51,7 +52,7 @@ public:
 
 	///resets the time point time to current system time
 	void resettime() {
-		m_tp = getsystime;
+		m_tp = getsystime();
 	}
 	///returns framerate of AEFrame
 	inline int getframerate(void) const { return int((1.0 / m_durDelay.count())+0.5); }
@@ -71,7 +72,7 @@ private:
 	///delay between seconds
 	tduration<double> m_durDelay;
 	///the timepoint, that sets time when to wake up the thread
-	timepoint<std::chrono::system_clock, decltype(m_durDelay)> m_tp;
+	timepoint<systime, decltype(m_durDelay)> m_tp;
 	///flag if we don't need the delay
 	bool m_bNoDelay;
 };

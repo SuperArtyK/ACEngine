@@ -1,5 +1,5 @@
 clear
-make clean -s
+#make clean -s
 make debug64
 chmod +x ./build/64Debug/ACEngine
 echo '----------------'

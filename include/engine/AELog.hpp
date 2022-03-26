@@ -28,8 +28,10 @@
 #endif
 
 
-
-#define AELG_DEFAULT_QUEUE_SIZE 10
+///macro for AELog's default queue size if it was not given
+#define AELOG_DEFAULT_QUEUE_SIZE 10
+///macro for AELog::makeQueue()'s m_sLogMessage.reserve() value
+#define AELOG_DEFAULT_STRING_RESEVE 256
 
 //TODO: order vars properly to avoid byte-padding
 
@@ -38,30 +40,37 @@
 ///Flags start with AELOG_
 class AELog : __AEModuleBase<AELog> {
 public:
-	AELog(const std::string &filename, const unsigned int initQueueSize = AELG_DEFAULT_QUEUE_SIZE) : 
+	AELog(const std::string &filename, const unsigned int initQueueSize = AELOG_DEFAULT_QUEUE_SIZE) : 
 	m_fwLogWriter(filename, AEFW_FLAG_APPEND, 10), m_trdWriter(&AELog::writerThread, this),m_ullOrderNum(AELE_INVALID_ENTRY_ORDERNUM), 
-	m_lepQueue(makeQueue(initQueueSize)), m_lepCurrentNode(m_lepQueue.load()), m_lepLastNode(m_lepQueue.load()+initQueueSize), 
+	m_lepQueue(makeQueue(initQueueSize)), m_lepCurrentNode(m_lepQueue), m_lepLastNode(m_lepQueue+initQueueSize-1), 
 	m_iFilledCount(0), m_iQSize(initQueueSize), m_bExitTrd(false)
 	{
 		//we probably WONT need any more, unless you have spare 1.25PB of ram to use
 		devcout("Creating logger with filename: \"" << filename << "\"; and queue size of: " << initQueueSize);
-		devcout("Estimated memory usage: " << (sizeof(AELog) + sizeof(AELogEntry) * initQueueSize * 1024) << "bytes");
+		devcout("Estimated memory usage: " << (sizeof(AELog) + sizeof(AELogEntry) * initQueueSize * AELOG_DEFAULT_STRING_RESEVE) << "B");
 		m_lepLastNode->m_lepNextNode = m_lepQueue;
 		m_vecAllocTable.reserve(48);
 		m_vecAllocTable.push_back(m_lepQueue);
 	}
 	~AELog(){
-		m_bExitTrd = true;
-		if (m_trdWriter.joinable())
-			m_trdWriter.join();
 		devcout("Destroying logger with filename: \"" << m_fwLogWriter.getFileName() << "\"");
+		m_bExitTrd = true;
+		if (m_trdWriter.joinable()){
+			devcout("Thread is running and joinable. Joining...");
+			m_trdWriter.join();
+		}
+		devcout("Freeing allocated queues in m_vecAllocTable...");
+		devcout("m_vecAllocTable.size() = "<<m_vecAllocTable.size());
 		for(int i = 0; i< m_vecAllocTable.size();i++){
 			devcout("Freeing allocated queue ptr at " << m_vecAllocTable[i]);
 			delete[] m_vecAllocTable[i];
 			
 		}
 		m_fwLogWriter.closeFile();
+		devcout("Closed file writing");
 		m_vecAllocTable.clear();
+		devcout("Cleared allocation table m_vecAllocTable");
+		
 	}
 
 	void writeToLog(const std::string &l_strMessg, const smalluint l_iType = AELOG_TYPE_INFO, const std::string &l_sModuleName = "Engine"){
@@ -82,12 +91,14 @@ public:
 				//allocate same amount of memory
 				devcout("--Allocating " << m_iQSize << " entries");
 				AELogEntry *temp = makeQueue(m_iQSize);
+
+
+				
 				devcout("--Changing pointers...");
 				m_lepLastNode->m_lepNextNode = temp;
-				m_lepLastNode = temp + m_iQSize - 1;
-				devcout("--m_lepLastNode->m_lepNextNode now points at " << m_lepLastNode->m_lepNextNode);
-				devcout("--m_lepLastNode now points to " << m_lepLastNode);
-
+				m_lepLastNode = &temp[m_iQSize - 1];
+				temp[m_iQSize - 1].m_lepNextNode = m_lepQueue;
+				m_lepCurrentNode = temp;
 				devcout("--Adding ptr to m_vecAllocTable...");
 				m_vecAllocTable.push_back(temp);
 				devcout("--Increasing queue size counter...");
@@ -98,14 +109,16 @@ public:
 			}
 			devcout("-Checking string...");
 			if(!l_strMessg.empty()){
-				AELogEntry * const temp = m_lepCurrentNode.load();
 				devcout("-non-empty");
+				
+				AELogEntry * const temp = m_lepCurrentNode.load();
 				devcout("--Writing to the cell(" << temp << ")...");
-				m_iFilledCount++;
-
+				temp->m_ullOrderNum = ++m_ullOrderNum;
+				devcout("--Incremented m_ullOrderNum. It is: " << temp->m_ullOrderNum);
 				devcout("--Incremented m_iFilledCount. It is: " << m_iFilledCount);
-				temp->m_ullOrderNum = ++(this->m_ullOrderNum);
-				devcout("--Incremented m_ullOrderNum. It is: " << m_ullOrderNum);
+				
+				m_iFilledCount++;
+				
 				temp->m_sLogMessage = l_strMessg;
 				temp->m_sModuleName = l_sModuleName;
 				temp->m_tmLogTime = time(NULL);
@@ -113,7 +126,8 @@ public:
 				devcout("--Written data. Ready to deploy");
 				temp->m_bStatus = true;
 				devcout("--Incrementing m_lepCurrentNode...");
-				m_lepCurrentNode = temp->m_lepNextNode;
+				m_lepCurrentNode = m_lepCurrentNode.load()->m_lepNextNode;
+				devcout("Next node will be at: "<<(biguint)temp->m_lepNextNode);
 				devcout("-Entry is fully written and ready");
 			}
 		}
@@ -135,12 +149,13 @@ private:
 		AELogEntry *result = new AELogEntry[size];
 		for (int i = 0; i < size; i++)
 		{
-			result[i].m_sLogMessage.reserve(1024);
-			result[i].m_lepNextNode = result+i+1;//point to next node
+			result[i].m_sLogMessage.reserve(AELOG_DEFAULT_STRING_RESEVE);
+			result[i].m_sModuleName.reserve(12);//usually more than enough
+			result[i].m_lepNextNode = &result[i+1];//point to next node
 			result[i].m_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM;
 			result[i].m_bStatus = false;
 		}
-		result[size - 1].m_lepNextNode = result;
+		result[size - 1].m_lepNextNode = &result[0];
 		return result;
 	}
 
@@ -163,6 +178,7 @@ private:
 				devcout("l_ullOrderNum = " << l_ullOrderNum);
 				devcout("-Trying to find next populated node");
 				while(l_lepNode->m_ullOrderNum != l_ullOrderNum){
+					devcout("l_lepNode->m_ullOrderNum = "<<l_lepNode->m_ullOrderNum);
 					l_lepNode = l_lepNode->m_lepNextNode;
 				}
 				//waiting for node to be "ready"
@@ -264,7 +280,7 @@ private:
 	/// order number for next queue entry
 	std::atomic<biguint> m_ullOrderNum;
 	/// pointer to the first allocation, and the queue
-	std::atomic<AELogEntry *> m_lepQueue;
+	AELogEntry * m_lepQueue;
 	/// current node for queue entry
 	std::atomic<AELogEntry *> m_lepCurrentNode;
 	/// last node of the whole queue
