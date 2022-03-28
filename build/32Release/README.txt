@@ -1,1 +1,0 @@
-This directory contains 32bit release binaries.

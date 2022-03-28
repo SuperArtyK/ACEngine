@@ -1,1 +1,0 @@
-This directory contains 64bit release binaries.

@@ -353,12 +353,12 @@ private:
 	/// <param name="fname"></param>
 	/// <param name="flags"></param>
 	inline void openDirectly(const char* fname, const char* flags) {
-		//safety, so our compiler shut ups about the unsafe and deprecated function
+		//safety, so our compiler shuts up about the unsafe and deprecated function
 		//and trigger only on vc++
 
 // our compiler is vc++
 #ifdef _MSC_VER 
-		fopen_s(&m_filestr, fname, flags);
+		fopen_s(&m_fpFilestr, fname, flags);
 #else
 		m_fpFilestr = fopen(fname, flags);
 #endif // _MSC_VER 
@@ -379,6 +379,7 @@ private:
 };
 
 ADD_MODULE_TO_ENGINE(AEFileWriter)
+
 
 #endif //!AEFILEWRITER_HPP
 
