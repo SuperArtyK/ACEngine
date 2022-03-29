@@ -1,10 +1,14 @@
+#!/bin/bash
+
+buildpath=./x64/Debug/ACEngine
+buildtarget=debug64
 clear
 #make clean -s
-make debug64 && \
-chmod +x ./build/64Debug/ACEngine && \
+make $buildtarget && \
+chmod +x $buildpath && \
 echo '----------------' && \
 echo '-build complete-' && \
 echo '----------------' && \
 echo '' && \
-./build/64Debug/ACEngine
+$buildpath
 
