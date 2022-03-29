@@ -40,10 +40,13 @@ public:
 protected:
 	/// name of the module it is assigned
 	/// same as named in code
-	static inline const std::string m_sModulename = getTypeName<T>();
+	static const std::string m_sModulename;
 	/// amount of alive modules
 	static inline std::atomic<biguint> m_ullModulesAlive = 0;
 };
+template<typename T>
+const std::string __AEModuleBase<T>::m_sModulename = getTypeName<T>();
+
 
 //ADD_MODULE_TO_ENGINE(__AEModuleBase)
 
