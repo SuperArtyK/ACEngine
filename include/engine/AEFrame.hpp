@@ -4,12 +4,12 @@
 #ifndef AEFRAME_HPP
 #define AEFRAME_HPP
 
+//code for AEFrame module
+//frame delay
 #include <thread>
 #include "typedefs.hpp"
+#include "global_vars.hpp"
 #include "AEModuleBase.hpp"
-
-#define GAME_FPS 66
-
 
  /// \brief This module is used for creating delays(in FPS format) in the engine.
  /// It is great if used in loops, as it makes them have delay of AEFrame, if body executes fasted than the delay time.

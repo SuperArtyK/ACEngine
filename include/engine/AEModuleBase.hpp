@@ -1,8 +1,8 @@
 
 #pragma once
 
-#ifndef AEMODULEBASE_HPP
-#define AEMODULEBASE_HPP
+#ifndef ENGINE_AEMODULEBASE_HPP
+#define ENGINE_AEMODULEBASE_HPP
 
 #include <string>
 #include <atomic>
@@ -50,4 +50,4 @@ const std::string __AEModuleBase<T>::m_sModulename = getTypeName<T>();
 
 //ADD_MODULE_TO_ENGINE(__AEModuleBase)
 
-#endif // !AEMODULEBASE_HPP
+#endif // !ENGINE_AEMODULEBASE_HPP

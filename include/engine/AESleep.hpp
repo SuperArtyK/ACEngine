@@ -1,12 +1,13 @@
 
 #pragma once
 
-#ifndef AESLEEP_HPP
-#define AESLEEP_HPP
+#ifndef ENGINE_AESLEEP_HPP
+#define ENGINE_AESLEEP_HPP
 
 #include <thread>
 #include <chrono>
 #include "typedefs.hpp"
+#include "global_vars.hpp"
 #include "AEModuleBase.hpp"
 
 /// \brief This module is used to create custom but accurate delays, unlike AEFrame that has only fixed delay(unless called setfps() to change it).
@@ -36,4 +37,4 @@ private:
 
 ADD_MODULE_TO_ENGINE(AESleep)
 
-#endif // !AESLEEP_HPP
+#endif // !ENGINE_AESLEEP_HPP

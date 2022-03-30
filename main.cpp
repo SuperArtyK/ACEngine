@@ -2,16 +2,15 @@
 #include <iostream>
 #include <atomic>
 #include <mutex>
-#include "AELog.hpp"
+//#include "AELog.hpp"
+#include "AEFileReader.hpp"
 #include "AESleep.hpp"
 using std::cout;
 
 
-
-
 int main(int argc, char** argv)
 {
-	cout << getTypeName<AEFileWriter>()<<'\n';
+	cout << getTypeName<AESleep>()<<'\n';
 	
 	cout<<"Press enter to continue . . .";
 

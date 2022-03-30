@@ -1,11 +1,10 @@
 
 #pragma once
 
-#ifndef CUSTOM_TYPES_HPP
-#define CUSTOM_TYPES_HPP
+#ifndef ENGINE_CUSTOM_TYPES_HPP
+#define ENGINE_CUSTOM_TYPES_HPP
 
 //custom-defined types go here
-
 #include <ctime>
 #include <string>
 #include <atomic>
@@ -51,4 +50,4 @@ struct AELogEntry
 	}
 };
 
-#endif // !CUSTOM_TYPES_HPP
+#endif // !ENGINE_CUSTOM_TYPES_HPP

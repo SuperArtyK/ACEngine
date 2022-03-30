@@ -1,9 +1,8 @@
 
 #pragma once
 
-#ifndef AELOG_HPP
-#define AELOG_HPP
-
+#ifndef ENGINE_AELOG_HPP
+#define ENGINE_AELOG_HPP
 
 #include <iostream>
 #include <ctime>
@@ -296,4 +295,4 @@ private:
 ADD_MODULE_TO_ENGINE(AELog)
 
 
-#endif //!AELOG_HPP
+#endif //!ENGINE_AELOG_HPP

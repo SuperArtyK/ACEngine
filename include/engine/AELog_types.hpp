@@ -1,8 +1,8 @@
 
 #pragma once
 
-#ifndef AELOG_TYPES_HPP
-#define AELOG_TYPES_HPP
+#ifndef ENGINE_AELOG_TYPES_HPP
+#define ENGINE_AELOG_TYPES_HPP
 
 // logger types, don't touch
 /// logger info message type
@@ -24,4 +24,4 @@
 /// logger success message type
 #define AELOG_TYPE_SUCCESS 6
 
-#endif // !AELOG_TYPES_HPP
+#endif // !ENGINE_AELOG_TYPES_HPP

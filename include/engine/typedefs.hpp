@@ -1,13 +1,14 @@
+
 #pragma once
 
-#ifndef TYPEDEFS_HPP
-#define TYPEDEFS_HPP
+#ifndef ENGINE_TYPEDEFS_HPP
+#define ENGINE_TYPEDEFS_HPP
 
 #include <chrono>
 #include <limits>
 
 // a few typedefs so I'll type less code
-//
+
 // numbers
 /// short for small unsigned int
 typedef unsigned char smalluint;
@@ -94,4 +95,4 @@ typedef std::chrono::milliseconds millisec;
 /// thread's sleep_until
 #define sleepuntil std::this_thread::sleep_until
 
-#endif // !TYPEDEFS_HPP
+#endif // !ENGINE_TYPEDEFS_HPP

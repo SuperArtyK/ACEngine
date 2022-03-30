@@ -1,10 +1,8 @@
 
 #pragma once
 
-#ifndef AEFILEWRITER_HPP
-#define AEFILEWRITER_HPP
-
-
+#ifndef ENGINE_AEFILEWRITER_HPP
+#define ENGINE_AEFILEWRITER_HPP
 
 #include <cstring>
 #include <vector>
@@ -40,7 +38,7 @@
 ///aka file not open.
 ///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_ELSE,
 ///if we continue to access the writer.
-#define AEFW_ERR_WRT_FILE_NULL 4
+#define AEFW_ERR_WRITE_FILE_NULL 4
 
 
 ///File writer. Err, Writes data to given file
@@ -55,10 +53,10 @@ public:
 	/// <param name="flags">Flags for file opening: 0 -- nothing, 1 -- append to end; 2 -- clear file when opening</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	AEFileWriter(const std::string& filename = "", const smalluint flags = AEFW_FLAG_APPEND, const biguint af_interval = 1) :
-		m_autoflushInterval(af_interval), m_ullWrittenEntries(0), m_fpFilestr(nullptr),
+		m_autoflushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_ucLastError(AEFW_ERR_NOERROR) {
 
-		this->open(filename, flags);
+		this->open(filename.c_str(), flags);
 	}
 
 	~AEFileWriter(){
@@ -115,14 +113,14 @@ public:
 		if(isOpen()){
 			fwrite(cdata, dsize, dcount, m_fpFilestr);
 			if(useAutoFlush){
-				if(!(++m_ullWrittenEntries % m_autoflushInterval)){
+				if(!(++m_ullTotalWrites % m_autoflushInterval)){
 					flushFile();
 				}
 			}
 			m_ucLastError = AEFW_ERR_NOERROR;
 		}
 		else{
-			m_ucLastError = AEFW_ERR_WRT_FILE_NULL;
+			m_ucLastError = AEFW_ERR_WRITE_FILE_NULL;
 			return;
 		}
 	}
@@ -140,6 +138,8 @@ public:
 		writeData_ptr(&cdata, 1, tsize, useAutoFlush);
 	}
 
+//TODO: Maybe rewrite to million template overloads
+//idk
 	/// <summary>
 	/// Determines type of the data passed and uses according procedure to write it to file
 	/// @note character string types(vector char, std::string, char*) do not include null-termination character
@@ -148,9 +148,9 @@ public:
 	/// <param name="cdata">(pointer to) object to write</param>
 	/// <param name="tsize">size of the variable, default is the sizeof()</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	
 	template<typename T>
 	inline void write(const T& var, const bool useAutoFlush = true){
+
 		//char array for formatting
 		//classic 4*size of the variable
 		char formArr[sizeof(var)*4];
@@ -262,7 +262,6 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
-
 	bool open(const char* str, const smalluint flags = AEFW_FLAG_APPEND){
 		if(strlen(str)){
 			m_sFilename = str;
@@ -338,6 +337,11 @@ public:
 	inline std::string getFileName() const{
 		return this->m_sFilename;
 	}
+
+	///retuns total write requests made to file
+	inline biguint getTotalWrites() const{
+		return this->m_ullTotalWrites;
+	}
 	
 	/// Interval in file writings before flush.
 	/// Set to 1 -- flush every time;
@@ -345,10 +349,9 @@ public:
 	biguint m_autoflushInterval;
 private:
 	/// <summary>
-	/// opens file with given name and flags
-	/// needed so i dont need to retype ifdef for each
-	/// of file openings
-	/// cleaner
+	/// Opens file with given name and flags.
+	/// Needed so i dont need to retype ifdef for each of file openings
+	/// Makes code cleaner.
 	/// </summary>
 	/// <param name="fname"></param>
 	/// <param name="flags"></param>
@@ -356,10 +359,11 @@ private:
 		//safety, so our compiler shuts up about the unsafe and deprecated function
 		//and trigger only on vc++
 
-// our compiler is vc++
+//if our compiler is vc++
 #ifdef _MSC_VER 
 		fopen_s(&m_fpFilestr, fname, flags);
 #else
+//or some other stuff
 		m_fpFilestr = fopen(fname, flags);
 #endif // _MSC_VER 
 
@@ -367,8 +371,8 @@ private:
 
 	///full filename
 	std::string m_sFilename;
-	///counter for file entries written by this writer
-	biguint m_ullWrittenEntries;
+	///counter for total write requests for file
+	biguint m_ullTotalWrites;
 	///object for file writing
 	FILE* m_fpFilestr;
 	///writer's error indicator
@@ -381,7 +385,4 @@ private:
 ADD_MODULE_TO_ENGINE(AEFileWriter)
 
 
-#endif //!AEFILEWRITER_HPP
-
-
-
+#endif //!ENGINE_AEFILEWRITER_HPP
