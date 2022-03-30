@@ -14,27 +14,30 @@
 //Error flags
 
 ///indicator that everything is good
-#define AERW_ERR_NOERROR 0
+#define AEFR_ERR_NOERROR 0
 
 
 //file creation/manipulation
 ///If the file name is empty
-#define AERW_ERR_FILE_NAME_EMPTY 1
+#define AEFR_ERR_FILE_NAME_EMPTY 1
 ///If the file couldn't be opened for some other reason, like missing permissions to access files
-#define AERW_ERR_FILE_ELSE 2
+#define AEFR_ERR_FILE_ELSE 2
 ///If the file object we're trying to read from is null,
 ///aka file not open.
-///Usually will come after AERW_ERR_FILE_NAME_EMPTY or AERW_ERR_FILE_ELSE,
+///Usually will come after AEFR_ERR_FILE_NAME_EMPTY or AEFR_ERR_FILE_ELSE,
 ///if we continue to access the reader.
-#define AERW_ERR_READ_FILE_NULL 3
+#define AEFR_ERR_READ_FILE_NULL 3
 ///Raised if encountered EOF when reaing a file
-#define AERW_ERR_EOF 4
+#define AEFR_ERR_EOF 4
 
+/// File reader. Err, reads data from given file
+/// Hungarian notation is fr
+/// Flags start with AEFR_
 class AEFileReader : public __AEModuleBase<AEFileReader>{
 public:
 	explicit AEFileReader(const std::string& filename = "") :
 	m_ullReadBytes(0), m_fpFilestr(nullptr),
-		m_ucLastError(AERW_ERR_NOERROR) {
+		m_ucLastError(AEFR_ERR_NOERROR) {
 
 		this->open(filename.c_str());
 	}
@@ -64,15 +67,15 @@ public:
 //or some other stuff
 		m_fpFilestr = fopen(str, "r");
 #endif // _MSC_VER 
-			if(!m_fpFilestr){//file is still somehow nonexistent
-				m_ucLastError = AERW_ERR_FILE_ELSE;
+			if(!m_fpFilestr){//file is still somehow not opened
+				m_ucLastError = AEFR_ERR_FILE_ELSE;
 				return false;
 			}
 			return true;
 		}
 		else{
 			m_sFilename.clear();
-			m_ucLastError = AERW_ERR_FILE_NAME_EMPTY;
+			m_ucLastError = AEFR_ERR_FILE_NAME_EMPTY;
 			return false;
 		}
 
@@ -86,20 +89,69 @@ public:
 		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 
-//readers
-	void readBytes(void* arr, const biguint amount) {
+	// readers
+	/// <summary>
+	/// Reads <amount> bytes from opened file to <arr>
+	/// </summary>
+	/// @warning Function doesn't do any safety checks for array. It just writes to memory address
+	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
+	/// <param name="arr">Array in memory to read data to. It *has* to be same size/bigger than amount</param>
+	/// <param name="amount">Amount of bytes to read</param></param>
+	inline void readBytes(void* arr, const biguint amount) {
 		if(m_fpFilestr){
 			m_ullReadBytes = fread(arr, 1, amount, m_fpFilestr);
 			if(amount != m_ullReadBytes){
-				m_ucLastError = AERW_ERR_EOF;
+				m_ucLastError = AEFR_ERR_EOF;
 			}
 		}
 		else{
-			m_ucLastError = AERW_ERR_READ_FILE_NULL;
+			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
 		}
 	}
+	// lazy :)
+	/// <summary>
+	/// Reads <amount> of character from opened file to string <str>
+	/// </summary>
+	/// @warning Function doesn't do any safety checks for array. It just writes to memory address
+	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
+	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
+	/// <param name="str">Array in memory to read data to. It *has* to be same size/bigger than amount</param>
+	/// <param name="amount">Amount of bytes to read</param></param>
+	inline void readString(char* str, const biguint amount){
+		readBytes(str, amount * sizeof(char));
+	}
 
-
+	/// <summary>
+	/// Reads <amount> of character from opened file to string <str>
+	/// </summary>
+	/// @warning Function doesn't do any safety checks for array. It just writes to memory address
+	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
+	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
+	/// <param name="str">Array in memory to read data to. It *has* to be same size/bigger than amount</param>
+	/// <param name="amount">Amount of bytes to read</param></param>
+	inline void readString(std::string& str, const biguint amount)
+	{
+		if(str.size()<amount){
+			str.resize(amount); // just to be sure
+		}
+		// evil hack, avoid c_str, use address of first element
+		readBytes(&str[0], amount * sizeof(char));
+	}
+	/// sets read cursor position to <offset> from <origin>
+	/// See SEEK_SET, SEEK_CUR and SEEK_END for more details
+	// ex: 1 from SEEK_SET is 1 byte from beginning == 2nd byte in file
+	inline void changeCursorPos(const bigint offset, const int origin = SEEK_CUR){
+		if(m_fpFilestr){
+			fseek(m_fpFilestr, offset, origin);
+			if(feof(m_fpFilestr)){
+				m_ucLastError = AEFR_ERR_EOF;
+			}
+		}
+		else{
+			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
+		}
+		
+	}
 
 //getters
 	///checks if file is open, true if it is, false otherwise
@@ -121,7 +173,28 @@ public:
 		return this->m_ullReadBytes;
 	}
 
+	inline bigint getFileSize(){
+		if(m_fpFilestr){
+			bigint temp = ftell(m_fpFilestr);
+			fseek(m_fpFilestr, 0, SEEK_END);
+			
+		}
+		else{
+			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
+			return 0;
+		}
+	}
 
+	inline bigint getCursorPos() {
+		if (m_fpFilestr)
+		{
+		}
+		else
+		{
+			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
+			return 0;
+		}
+	}
 
 
 private:
@@ -132,7 +205,7 @@ private:
 	///object for file writing
 	FILE* m_fpFilestr;
 	///writer's error indicator
-	///Values are AERW_ERR_* macros
+	///Values are AEFR_ERR_* macros
 	///More info in the docs
 	smalluint m_ucLastError;
 };

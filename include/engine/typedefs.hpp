@@ -5,7 +5,7 @@
 #define ENGINE_TYPEDEFS_HPP
 
 #include <chrono>
-#include <limits>
+#include <climits>
 
 // a few typedefs so I'll type less code
 

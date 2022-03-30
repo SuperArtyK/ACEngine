@@ -9,6 +9,7 @@
 #include <filesystem>
 #include "AEModuleBase.hpp"
 
+
 //File flags
 
 ///Write cursor at the end of the file, adding to the file
@@ -109,7 +110,7 @@ public:
 	/// <param name="dcount">number of elements in an object</param>
 	/// <param name="dsize">size, in bytes, for each element</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	void writeData_ptr(const void* cdata, const biguint dcount, const biguint dsize = sizeof(char), const bool useAutoFlush = true){
+	void writeData_ptr(const char* cdata, const biguint dcount, const biguint dsize = sizeof(char), const bool useAutoFlush = true){
 		if(isOpen()){
 			fwrite(cdata, dsize, dcount, m_fpFilestr);
 			if(useAutoFlush){
@@ -134,7 +135,7 @@ public:
 	/// <param name="tsize">size of the variable, default is the sizeof()</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	template<typename T>
-	void writeData_ref(const T& cdata, const biguint tsize = sizeof(T), const bool useAutoFlush = true){
+	inline void writeData_ref(const T& cdata, const biguint tsize = sizeof(T), const bool useAutoFlush = true){
 		writeData_ptr(&cdata, 1, tsize, useAutoFlush);
 	}
 
@@ -345,7 +346,8 @@ public:
 	
 	/// Interval in file writings before flush.
 	/// Set to 1 -- flush every time;
-	/// Set to 0 -- never auto-flush
+	/// Set to BINT_MAX macro -- (practically) never explicitly auto-flush,
+	/// flushing falls back to whatever OS does.
 	biguint m_autoflushInterval;
 private:
 	/// <summary>
