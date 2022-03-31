@@ -343,7 +343,10 @@ public:
 	inline biguint getTotalWrites() const{
 		return this->m_ullTotalWrites;
 	}
-	
+	///refreshes error status variable and sets it to AEFW_ERR_NOERROR
+	inline void refreshErr(){
+		this->m_ucLastError = AEFW_ERR_NOERROR;
+	}
 	/// Interval in file writings before flush.
 	/// Set to 1 -- flush every time;
 	/// Set to BINT_MAX macro -- (practically) never explicitly auto-flush,

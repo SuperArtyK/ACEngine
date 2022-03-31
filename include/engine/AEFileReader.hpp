@@ -15,8 +15,6 @@
 
 ///indicator that everything is good
 #define AEFR_ERR_NOERROR 0
-
-
 //file creation/manipulation
 ///If the file name is empty
 #define AEFR_ERR_FILE_NAME_EMPTY 1
@@ -132,10 +130,12 @@ public:
 	inline void readString(std::string& str, const biguint amount)
 	{
 		if(str.size()<amount){
-			str.resize(amount); // just to be sure
+			str.resize(amount); // just to be sure it's big enough
 		}
 		// evil hack, avoid c_str, use address of first element
-		readBytes(&str[0], amount * sizeof(char));
+		//readBytes(&str[0], amount * sizeof(char));
+		//use c++17 feature instead; string::data has non-const overload
+		readBytes(str.data(), amount * sizeof(char));
 	}
 	/// sets read cursor position to <offset> from <origin>
 	/// See SEEK_SET, SEEK_CUR and SEEK_END for more details
@@ -196,7 +196,10 @@ public:
 		}
 	}
 
-
+	///refreshes error status variable and sets it to AEFW_ERR_NOERROR
+	inline void refreshErr(){
+		this->m_ucLastError = AEFR_ERR_NOERROR;
+	}
 private:
 	///full filename
 	std::string m_sFilename;

@@ -73,66 +73,7 @@ public:
 	}
 
 	void writeToLog(const std::string &l_strMessg, const smalluint l_iType = AELOG_TYPE_INFO, const std::string &l_sModuleName = "Engine"){
-		// unfortunately all entries made when object was destructing
-		// should be discarded
-		devcout("Trying to write to log. Checking status...");
-		if (!m_bExitTrd){
-			devcout("Writing thread isn't exiting/hasn't exited, continuing with procedure...");
-			// check if next node is populated
-			devcout("Checking queue: " << m_iFilledCount << " currently filled out of " << m_iQSize);
-			if (m_iFilledCount == m_iQSize)
-			{
-				devcout("-Queue is full, starting allocation sequence");
-				// oh boy, it is
-				// le mutex to prevent access
-				devcout("--Mutex lock");
-				m_mtx.lock();
-				//allocate same amount of memory
-				devcout("--Allocating " << m_iQSize << " entries");
-				AELogEntry *temp = makeQueue(m_iQSize);
-
-
-				
-				devcout("--Changing pointers...");
-				m_lepLastNode->m_lepNextNode = temp;
-				m_lepLastNode = &temp[m_iQSize - 1];
-				temp[m_iQSize - 1].m_lepNextNode = m_lepQueue;
-				m_lepCurrentNode = temp;
-				devcout("--Adding ptr to m_vecAllocTable...");
-				m_vecAllocTable.push_back(temp);
-				devcout("--Increasing queue size counter...");
-				m_iQSize *= 2;
-				devcout("--Unlocking mutex");
-				m_mtx.unlock();
-				devcout("-Allocation sequence complete");
-			}
-			devcout("-Checking string...");
-			if(!l_strMessg.empty()){
-				devcout("-non-empty");
-				
-				AELogEntry * const temp = m_lepCurrentNode.load();
-				devcout("--Writing to the cell(" << temp << ")...");
-				temp->m_ullOrderNum = ++m_ullOrderNum;
-				devcout("--Incremented m_ullOrderNum. It is: " << temp->m_ullOrderNum);
-				devcout("--Incremented m_iFilledCount. It is: " << m_iFilledCount);
-				
-				m_iFilledCount++;
-				
-				temp->m_sLogMessage = l_strMessg;
-				temp->m_sModuleName = l_sModuleName;
-				temp->m_tmLogTime = time(NULL);
-				temp->m_ucLogType = l_iType;
-				devcout("--Written data. Ready to deploy");
-				temp->m_bStatus = true;
-				devcout("--Incrementing m_lepCurrentNode...");
-				m_lepCurrentNode = m_lepCurrentNode.load()->m_lepNextNode;
-				devcout("Next node will be at: "<<(biguint)temp->m_lepNextNode);
-				devcout("-Entry is fully written and ready");
-			}
-		}
-		else{
-			devcout("Writing thread is exiting/has exited, aborting the procedure...");
-		}
+		
 	}
 
 	inline std::string getFileName() const
@@ -159,75 +100,7 @@ private:
 	}
 
 	void writerThread(){
-		devcout("Entered writer thread");
-		// node-runner
-		AELogEntry *l_lepNode = m_lepQueue;
-		AEFrame myfr(100);
-		biguint l_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM+1;
-		devcout("-Allocated variables");
-		devcout("Starting Loop");
-		while (!m_bExitTrd || m_iFilledCount > 0)
-		{
-			devcout("-Loop repeat. m_bExitTrd is not true, or m_iFilledCount > 0");
-			devcout("-Checking queue filling...");
-			if (m_iFilledCount > 0)
-			{
-				devcout("queue is filled: "<<m_iFilledCount);
-				// traverse to next available node
-				devcout("l_ullOrderNum = " << l_ullOrderNum);
-				devcout("-Trying to find next populated node");
-				while(l_lepNode->m_ullOrderNum != l_ullOrderNum){
-					devcout("l_lepNode->m_ullOrderNum = "<<l_lepNode->m_ullOrderNum);
-					l_lepNode = l_lepNode->m_lepNextNode;
-				}
-				//waiting for node to be "ready"
-				devcout("-Waiting for entry to be ready");
-				while (!l_lepNode->m_bStatus)
-				{
-					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
-				}
-
-				devcout("-Preparing...");
-				//time of log
-				tm tstruct;
-				char buff[80];
-#if _MSC_VER && !__INTEL_COMPILER
-//compiler is msvc for sure
-//we need that to avoid 'unsecure function' errors
-//without disabling them
-				localtime_s(&tstruct, &l_lepNode->m_tmLogTime);
-#else
-				tstruct = *localtime(&l_lepNode->m_tmLogTime);
-#endif
-				strftime(buff, sizeof(buff), "\n[ %Y-%m-%d.%X ] [", &tstruct);
-				devcout("--Got time of the entry");
-				devcout("--Writing...");
-				m_fwLogWriter.writeString(buff);
-				m_fwLogWriter.writeString(checkLogType(l_lepNode->m_ucLogType));
-				m_fwLogWriter.writeString("] [");
-				m_fwLogWriter.writeString(l_lepNode->m_sModuleName);
-				m_fwLogWriter.writeString("]: ");
-				m_fwLogWriter.writeString(l_lepNode->m_sLogMessage);
-				devcout("-Written Entry. Cleaning up");
-				
-				l_lepNode->m_bStatus = false;
-				l_lepNode->m_ullOrderNum = AELE_INVALID_ENTRY_ORDERNUM;
-				m_iFilledCount--;
-				l_ullOrderNum++;
-			}
-			else
-			{
-				// waiting for node to be "ready"
-				devcout("--Queue seems to be empty. Waiting...");
-				while (m_iFilledCount == 0 && !m_bExitTrd)
-				{
-					myfr.sleep(); // sleep 1+ms; usually 1 should be enough
-				}
-			}
-			
-		}
-		devcout("-Loop exited. m_bExitTrd is false, and m_iFilledCount == 0");
-		devcout("Probably closing. Exiting thread...");
+		
 	}
 
 	inline static const char* checkLogType(const smallint logtype){

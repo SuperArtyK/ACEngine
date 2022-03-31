@@ -43,7 +43,7 @@ type = "request"
 
 [debugger.interactive.launchMessage.arguments]
 MIMode = "gdb"
-arg = []
+arg = ["-std=c++17"]
 cwd = "."
 environment = []
 externalConsole = false
