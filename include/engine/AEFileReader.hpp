@@ -89,7 +89,7 @@ public:
 
 	// readers
 	/// <summary>
-	/// Reads <amount> bytes from opened file to <arr>
+	/// Reads <amount> bytes from opened file to array in memory<arr>
 	/// </summary>
 	/// @warning Function doesn't do any safety checks for array. It just writes to memory address
 	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
@@ -106,9 +106,32 @@ public:
 			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
 		}
 	}
+
+	/// <summary>
+	/// Reads <amount> bytes from opened file to std::vector<unsigned char><arr>
+	/// Resizes given std::vector<unsigned char> to hold (at least) <amount> of chars.
+	/// </summary>
+	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
+	/// <param name="arr">Array in memory to read data to. It *has* to be same size/bigger than amount</param>
+	/// <param name="amount">Amount of bytes to read</param></param>
+	inline void readBytes(std::vector<smalluint>& arr, const biguint amount) {
+		if(m_fpFilestr){
+			if(arr.size()<amount){
+				arr.resize(amount); // just to be sure it's big enough
+			}
+			m_ullReadBytes = fread(arr.data(), 1, amount, m_fpFilestr);
+			if(amount != m_ullReadBytes){
+				m_ucLastError = AEFR_ERR_EOF;
+			}
+		}
+		else{
+			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
+		}
+	}
+
 	// lazy :)
 	/// <summary>
-	/// Reads <amount> of character from opened file to string <str>
+	/// Reads <amount> of character from opened file to c-string <str>
 	/// </summary>
 	/// @warning Function doesn't do any safety checks for array. It just writes to memory address
 	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
@@ -120,14 +143,33 @@ public:
 	}
 
 	/// <summary>
-	/// Reads <amount> of character from opened file to string <str>
+	/// Reads <amount> of character from opened file to std::string <str>
+	/// Resizes given std::string to hold (at least) <amount> of chars.
 	/// </summary>
-	/// @warning Function doesn't do any safety checks for array. It just writes to memory address
 	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
 	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
-	/// <param name="str">Array in memory to read data to. It *has* to be same size/bigger than amount</param>
+	/// <param name="str">std::tring to read data to. It *has* to be same size/bigger than amount</param>
 	/// <param name="amount">Amount of bytes to read</param></param>
 	inline void readString(std::string& str, const biguint amount)
+	{
+		if(str.size()<amount){
+			str.resize(amount); // just to be sure it's big enough
+		}
+		// evil hack, avoid c_str, use address of first element
+		//readBytes(&str[0], amount * sizeof(char));
+		//use c++17 feature instead; string::data has non-const overload
+		readBytes(str.data(), amount * sizeof(char));
+	}
+
+	/// <summary>
+	/// Reads <amount> of character from opened file to std::vector<char> <str>
+	/// Resizes given std::vector<char> to hold (at least) <amount> of chars.
+	/// </summary>
+	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
+	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
+	/// <param name="str">std::vector<char> to read data to. It *has* to be same size/bigger than amount</param>
+	/// <param name="amount">Amount of bytes to read</param></param>
+	inline void readString(std::vector<char>& str, const biguint amount)
 	{
 		if(str.size()<amount){
 			str.resize(amount); // just to be sure it's big enough
@@ -145,7 +187,7 @@ public:
 	}
 	
 	///returns last error of reader
-	inline smalluint getLastError() const{
+	inline int getLastError() const{
 		return this->m_ucLastError;
 	}
 	

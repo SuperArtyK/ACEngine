@@ -61,6 +61,7 @@ public:
 		flushFile();
 		closeFile();
 	}
+
 	/// <summary>
 	/// Write std::string, as is, to file, and flush if necessary
 	/// </summary>
@@ -70,7 +71,6 @@ public:
 	inline void writeString(const std::string& str, const bool includeNull = false, const bool useAutoFlush = true){
 		this->writeData_ptr(str.c_str(), str.size() + ((includeNull)?1:0), sizeof(char), useAutoFlush);
 	}
-
 
 	/// <summary>
 	/// Write std::vector of char (string), as is, to file, and flush if necessary
@@ -85,7 +85,6 @@ public:
 		this->writeData_ptr(str.data(), str.size() - ( ( !includeNull && str[str.size()-1] == '\0' )?1:0), sizeof(char), useAutoFlush);
 	}
 
-
 	/// <summary>
 	/// Write c-string, as is, to file, and flush if necessary
 	/// </summary>
@@ -96,7 +95,6 @@ public:
 	inline void writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = true){
 		this->writeData_ptr(cdata, strlen(cdata) + ((includeNull) ? 1 : 0), sizeof(char), useAutoFlush);
 	}
-
 
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary
@@ -190,7 +188,6 @@ public:
 
 		//stuff that needs formatting
 		// integer types:
-		
 		//shorts and signed ints and booleans
 		else if constexpr (std::is_same<T, short>::value || std::is_same<T, unsigned short>::value || std::is_same<T, int>::value || std::is_same<T, bool>::value ||
 			//const versions
@@ -219,10 +216,8 @@ public:
 			
 			sprintf(formArr, "%llu", (unsigned long long int)var);
 		}
-		
 		//float types:
 		// default precision(6), use sprintf on your array and writeString manually
-		
 		//float and double
 		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
 			//const versions
@@ -254,6 +249,7 @@ public:
 	inline bool open(const std::string& str, const smalluint flags = AEFW_FLAG_APPEND){
 		return this->open(str.c_str(), flags);
 	}
+	
 	/// <summary>
 	/// Open(and create) file with given name and flag
 	/// </summary>
@@ -327,7 +323,7 @@ public:
 	}
 	
 	///returns last error of writer
-	inline smalluint getLastError() const{
+	inline int getLastError() const{
 		return this->m_ucLastError;
 	}
 	
@@ -421,7 +417,6 @@ private:
 	///Values are AEFW_ERR_* macros
 	///More info in the docs
 	smalluint m_ucLastError;
-
 };
 
 ADD_MODULE_TO_ENGINE(AEFileWriter)
