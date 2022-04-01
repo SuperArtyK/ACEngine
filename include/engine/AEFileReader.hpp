@@ -19,10 +19,10 @@
 ///If the file name is empty
 #define AEFR_ERR_FILE_NAME_EMPTY 1
 ///If the file couldn't be opened for some other reason, like missing permissions to access files
-#define AEFR_ERR_FILE_ELSE 2
+#define AEFR_ERR_FILE_OPEN_ELSE 2
 ///If the file object we're trying to read from is null,
 ///aka file not open.
-///Usually will come after AEFR_ERR_FILE_NAME_EMPTY or AEFR_ERR_FILE_ELSE,
+///Usually will come after AEFR_ERR_FILE_NAME_EMPTY or AEFR_ERR_FILE_OPEN_ELSE,
 ///if we continue to access the reader.
 #define AEFR_ERR_READ_FILE_NULL 3
 ///Raised if encountered EOF when reaing a file
@@ -50,7 +50,7 @@ public:
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
-	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
+	/// <returns>True if file is open(by currently used reader), false otherwise</returns>
 	bool open(const char* str){
 		if(strlen(str)){
 			m_sFilename = str;
@@ -66,7 +66,7 @@ public:
 		m_fpFilestr = fopen(str, "r");
 #endif // _MSC_VER 
 			if(!m_fpFilestr){//file is still somehow not opened
-				m_ucLastError = AEFR_ERR_FILE_ELSE;
+				m_ucLastError = AEFR_ERR_FILE_OPEN_ELSE;
 				return false;
 			}
 			return true;
@@ -137,29 +137,14 @@ public:
 		//use c++17 feature instead; string::data has non-const overload
 		readBytes(str.data(), amount * sizeof(char));
 	}
-	/// sets read cursor position to <offset> from <origin>
-	/// See SEEK_SET, SEEK_CUR and SEEK_END for more details
-	// ex: 1 from SEEK_SET is 1 byte from beginning == 2nd byte in file
-	inline void changeCursorPos(const bigint offset, const int origin = SEEK_CUR){
-		if(m_fpFilestr){
-			fseek(m_fpFilestr, offset, origin);
-			if(feof(m_fpFilestr)){
-				m_ucLastError = AEFR_ERR_EOF;
-			}
-		}
-		else{
-			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
-		}
-		
-	}
-
-//getters
+	
+//getters and setters
 	///checks if file is open, true if it is, false otherwise
 	inline bool isOpen() const{
 		return bool(this->m_fpFilestr);//nullptr if closed, something other if opened
 	}
 	
-	///returns last error of writer
+	///returns last error of reader
 	inline smalluint getLastError() const{
 		return this->m_ucLastError;
 	}
@@ -172,12 +157,21 @@ public:
 	inline biguint getReadBytes() const{
 		return this->m_ullReadBytes;
 	}
+	
+	///refreshes error status variable and sets it to AEFW_ERR_NOERROR
+	inline void refreshErr(){
+		this->m_ucLastError = AEFR_ERR_NOERROR;
+	}
 
+	///retursn size of the file in bytes
 	inline bigint getFileSize(){
 		if(m_fpFilestr){
-			bigint temp = ftell(m_fpFilestr);
-			fseek(m_fpFilestr, 0, SEEK_END);
-			
+			const bigint temp[2] = {
+				ftell(m_fpFilestr),//get current position
+				fseek(m_fpFilestr, 0, SEEK_END) + ftell(m_fpFilestr),//eval to end pos of file. If everything is alright, fseek evaluates to 0, and everything's great
+			};
+			return temp[1] +// end pos
+				fseek(m_fpFilestr, temp[0], SEEK_SET); // evaluate to 0 if everything is alright
 		}
 		else{
 			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
@@ -185,21 +179,35 @@ public:
 		}
 	}
 
+	///returns current read cursor position, starting from 0 as beginning
 	inline bigint getCursorPos() {
-		if (m_fpFilestr)
-		{
+		if (m_fpFilestr){
+			return ftell(m_fpFilestr);
 		}
-		else
-		{
+		else{
 			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
 			return 0;
 		}
 	}
 
-	///refreshes error status variable and sets it to AEFW_ERR_NOERROR
-	inline void refreshErr(){
-		this->m_ucLastError = AEFR_ERR_NOERROR;
+	/// sets read cursor position to <offset> from <origin>
+	/// See SEEK_SET, SEEK_CUR and SEEK_END for more details
+	/// @warning If cursor is reqeusted to be set further than file size, error flag is set to AEFR_ERR_EOF. (I mean, you get EOF when you try to read a byte with cursor outside of file.)
+	// ex: 1 from SEEK_SET is 1 byte from beginning == 2nd byte in file
+	inline void setCursorPos(const bigint offset, const int origin = SEEK_CUR){
+		if(m_fpFilestr){
+			fseek(m_fpFilestr, offset, origin);
+			if(feof(m_fpFilestr)){
+				m_ucLastError = AEFR_ERR_EOF;
+			}
+		}
+		else{
+			m_ucLastError = AEFR_ERR_READ_FILE_NULL;
+		}
+		
 	}
+
+
 private:
 	///full filename
 	std::string m_sFilename;
@@ -207,7 +215,7 @@ private:
 	biguint m_ullReadBytes;
 	///object for file writing
 	FILE* m_fpFilestr;
-	///writer's error indicator
+	///reader's error indicator
 	///Values are AEFR_ERR_* macros
 	///More info in the docs
 	smalluint m_ucLastError;

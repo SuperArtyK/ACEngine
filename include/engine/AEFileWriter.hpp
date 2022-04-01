@@ -13,31 +13,28 @@
 //File flags
 
 ///Write cursor at the end of the file, adding to the file
+///Cursor change allowed
 #define AEFW_FLAG_APPEND 1
 ///Write cursor at the end of the file, adding to the file
-///Changing the cursor position(fseek)/writing anywhere else is not allowed
+///Changing the cursor position/writing anywhere else (than eof) is not allowed
 #define AEFW_FLAG_APPEND_NO_CURSOR_MOVE 2
 ///Write cursor at the start of the file, truncating the contents if existed
 #define AEFW_FLAG_TRUNCATE 3
 ///No Write flags
 #define AEFW_FLAG_NOFLAGS 255
-
 //Error flags
-
 ///indicator that everything is good
 #define AEFW_ERR_NOERROR 0
-
-
 //file creation/manipulation
 ///If the file name is empty
 #define AEFW_ERR_FILE_NAME_EMPTY 1
 ///If the flag given is wrong during the creation(creates file anyway, assuming AEFW_FLAG_NOFLAGS)
 #define AEFW_ERR_FILE_WRONG_FLAG 2
 ///If the file couldn't be created for some other reason, like missing permissions to access files
-#define AEFW_ERR_FILE_ELSE 3
+#define AEFW_ERR_FILE_OPEN_ELSE 3
 ///If the file object we're trying to write to is null,
 ///aka file not open.
-///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_ELSE,
+///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_OPEN_ELSE,
 ///if we continue to access the writer.
 #define AEFW_ERR_WRITE_FILE_NULL 4
 
@@ -297,7 +294,7 @@ public:
 					break;
 			}
 			if(!m_fpFilestr){//file is still somehow nonexistent
-				m_ucLastError = AEFW_ERR_FILE_ELSE;
+				m_ucLastError = AEFW_ERR_FILE_OPEN_ELSE;
 				return false;
 			}
 			return true;
@@ -347,6 +344,48 @@ public:
 	inline void refreshErr(){
 		this->m_ucLastError = AEFW_ERR_NOERROR;
 	}
+
+	///retursn size of the file in bytes
+	inline bigint getFileSize(){
+		if(m_fpFilestr){
+			const bigint temp[2] = {
+				ftell(m_fpFilestr),//get current position
+				fseek(m_fpFilestr, 0, SEEK_END) + ftell(m_fpFilestr),//eval to end pos of file. If everything is alright, fseek evaluates to 0, and everything's great
+			};
+			return temp[1] +// end pos
+				fseek(m_fpFilestr, temp[0], SEEK_SET); // evaluate to 0 if everything is alright
+		}
+		else{
+			m_ucLastError = AEFW_ERR_WRITE_FILE_NULL;
+			return 0;
+		}
+	}
+
+	///returns current read cursor position, starting from 0 as beginning
+	inline bigint getCursorPos() {
+		if (m_fpFilestr){
+			return ftell(m_fpFilestr);
+		}
+		else{
+			m_ucLastError = AEFW_ERR_WRITE_FILE_NULL;
+			return 0;
+		}
+	}
+
+	/// sets read cursor position to <pos> from <origin>
+	/// See SEEK_SET, SEEK_CUR and SEEK_END for more details
+	/// @note If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written.
+	// ex: 1 from SEEK_SET is 1 byte from beginning == 2nd byte in file
+	inline void setCursorPos(const bigint pos, const int origin = SEEK_CUR){
+		if(m_fpFilestr){
+			fseek(m_fpFilestr, pos, origin);
+		}
+		else{
+			m_ucLastError = AEFW_ERR_WRITE_FILE_NULL;
+		}
+		
+	}
+
 	/// Interval in file writings before flush.
 	/// Set to 1 -- flush every time;
 	/// Set to BINT_MAX macro -- (practically) never explicitly auto-flush,
@@ -363,7 +402,6 @@ private:
 	inline void openDirectly(const char* fname, const char* flags) {
 		//safety, so our compiler shuts up about the unsafe and deprecated function
 		//and trigger only on vc++
-
 //if our compiler is vc++
 #ifdef _MSC_VER 
 		fopen_s(&m_fpFilestr, fname, flags);
@@ -371,7 +409,6 @@ private:
 //or some other stuff
 		m_fpFilestr = fopen(fname, flags);
 #endif // _MSC_VER 
-
 	}
 
 	///full filename

@@ -11,15 +11,10 @@ using std::cout;
 
 int main(int argc, char** argv)
 {
-	AEFileWriter myfw("myfile.bin", AEFW_FLAG_TRUNCATE, BUINT_MAX);
-	myfw.writeString(std::string("Hello AEFileWriter and AEFileReader!"));
-	myfw.closeFile();
-
-	cout << getTypeName<AESleep>() << '\n';
-
-	cout<<"Press enter to continue . . .";
-
-	
+	AEFileWriter myfw("temp");
+	myfw.writeString("This is an apple");
+	myfw.setCursorPos(9, SEEK_SET);
+	myfw.writeString(" sam");
 	std::cin.get();
 	return 0;
 }
