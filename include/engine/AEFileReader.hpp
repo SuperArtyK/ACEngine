@@ -87,7 +87,7 @@ public:
 		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 
-	// readers
+// readers
 	/// <summary>
 	/// Reads <amount> bytes from opened file to array in memory<arr>
 	/// </summary>
@@ -137,7 +137,7 @@ public:
 	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
 	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
 	/// <param name="str">Array in memory to read data to. It *has* to be same size/bigger than amount</param>
-	/// <param name="amount">Amount of bytes to read</param></param>
+	/// <param name="amount">Amount of bytes to read. Shall be greater than 0</param></param>
 	inline void readString(char* str, const biguint amount){
 		readBytes(str, amount * sizeof(char));
 	}
@@ -149,9 +149,8 @@ public:
 	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
 	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
 	/// <param name="str">std::tring to read data to. It *has* to be same size/bigger than amount</param>
-	/// <param name="amount">Amount of bytes to read</param></param>
-	inline void readString(std::string& str, const biguint amount)
-	{
+	/// <param name="amount">Amount of bytes to read. Shall be greater than 0</param></param>
+	inline void readString(std::string& str, const biguint amount){
 		if(str.size()<amount){
 			str.resize(amount); // just to be sure it's big enough
 		}
@@ -168,9 +167,8 @@ public:
 	/// @note If encountered end of file(eof) when reading bytes, error flag AEFR_ERR_EOF is set. All bytes before eof are read.
 	/// @note Function doesn't check for non-ascii characters, deal with them yourself.
 	/// <param name="str">std::vector<char> to read data to. It *has* to be same size/bigger than amount</param>
-	/// <param name="amount">Amount of bytes to read</param></param>
-	inline void readString(std::vector<char>& str, const biguint amount)
-	{
+	/// <param name="amount">Amount of bytes to read. Shall be greater than 0</param></param>
+	inline void readString(std::vector<char>& str, const biguint amount){
 		if(str.size()<amount){
 			str.resize(amount); // just to be sure it's big enough
 		}
@@ -179,7 +177,104 @@ public:
 		//use c++17 feature instead; string::data has non-const overload
 		readBytes(str.data(), amount * sizeof(char));
 	}
-	
+	//TODO: Maybe rewrite to million template overloads
+//idk
+	/// <summary>
+	/// Determines type of the data passed and uses according procedure to read to it from file
+	/// Invokes other member functions
+	/// @note character string types(vector char, std::string, char*) do not include null-termination character
+	/// </summary>
+	/// <param name="var">variable to read to</param>
+	/// <param name="amount">Optional: amount of data to read. Required if passing string types(std::string, c-string, std::vector [unsigned] char)</param>
+	template<typename T>
+	inline void read(const T& var, const bool isbinary = false, const biguint amount = 0){
+
+		//char array for formatting
+		//classic 4*size of the variable
+		char formArr[sizeof(var)*4];
+		
+		//great line of if's to check the types
+		//since we don't have a constexpr version of switch
+		//and we don't need it anyway
+		
+		//checks for types that don't require formatting with sprintf
+		//single chars
+		if constexpr(std::is_same<T, char>::value || std::is_same<T, unsigned char>::value ||
+			//const versions
+			std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value){
+			
+			//the type is well, char
+			writeData_ptr(&var, 1, sizeof(char), useAutoFlush);
+			return;
+		}
+		//c-strings
+		else if constexpr (std::is_same<typename std::decay<T>::type, char*>::value || std::is_same<typename std::decay<T>::type, unsigned char*>::value || 
+			//const versions
+			std::is_same<typename std::decay<T>::type, const char*>::value || std::is_same<typename std::decay<T>::type, const unsigned char*>::value ||
+			//std::vector's of char or std::string's
+			std::is_same<T, std::vector<char>>::value || std::is_same<T, std::string>::value ||
+			//const versions
+			std::is_same<T, const std::vector<char>>::value || std::is_same<T, const std::string>::value) {
+			//no null-terminating char
+			//use writeString() directly instead
+			writeString(var, false, useAutoFlush);
+			return;
+		}
+
+		//stuff that needs formatting
+		// integer types:
+		//shorts and signed ints and booleans
+		else if constexpr (std::is_same<T, short>::value || std::is_same<T, unsigned short>::value || std::is_same<T, int>::value || std::is_same<T, bool>::value ||
+			//const versions
+			std::is_same<T, const short>::value || std::is_same<T, const unsigned short>::value || std::is_same<T, const int>::value || std::is_same<T, const bool>::value) {
+			
+			sprintf(formArr, "%d", (int)var);
+		}
+		//unsigned ints
+		else if constexpr (std::is_same<T, unsigned int>::value || 
+			//const versions
+			std::is_same<T, const unsigned int>::value ) {
+			
+			sprintf(formArr, "%u", var);
+		}
+		//signed longs and long longs
+		else if constexpr (std::is_same<T, long int>::value || std::is_same<T, long long int>::value ||
+			//const versions
+			std::is_same<T, const long int>::value || std::is_same<T, const long long int>::value) {
+			
+			sprintf(formArr, "%lld", (long long int)var);
+		}
+		//unsigned long and long longs
+		else if constexpr (std::is_same<T, unsigned long int>::value || std::is_same<T, unsigned long long int>::value ||
+			//const versions
+			std::is_same<T, const unsigned long int>::value || std::is_same<T, const unsigned long long int>::value) {
+			
+			sprintf(formArr, "%llu", (unsigned long long int)var);
+		}
+		//float types:
+		// default precision(6), use sprintf on your array and writeString manually
+		//float and double
+		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
+			//const versions
+			std::is_same<T, const float>::value || std::is_same<T, const double>::value) {
+
+			sprintf(formArr, "%f", var);
+		}
+		else if constexpr (std::is_same<T, long double>::value ||
+			//const versions
+			std::is_same<T, const long double>::value) {
+
+			sprintf(formArr, "%L", var);
+		}
+		//none above applies, custom type
+		else{
+			writeData_ref(var);
+			//printf("None of the types apply!\n");
+			return;
+		}
+		writeString(formArr, false, useAutoFlush);
+	}
+
 //getters and setters
 	///checks if file is open, true if it is, false otherwise
 	inline bool isOpen() const{

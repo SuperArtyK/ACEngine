@@ -82,7 +82,7 @@ public:
 		// since vector may actually have NULL-terminating char
 		// remove it if includeNull is false
 		// decrease str.size() by 1
-		this->writeData_ptr(str.data(), str.size() - ( ( !includeNull && str[str.size()-1] == '\0' )?1:0), sizeof(char), useAutoFlush);
+		this->writeData_ptr(str.data(), ((includeNull)?str.size():strlen(str.data())), sizeof(char), useAutoFlush);
 	}
 
 	/// <summary>
@@ -141,8 +141,7 @@ public:
 	/// @note character string types(vector char, std::string, char*) do not include null-termination character
 	/// Invokes other member functions
 	/// </summary>
-	/// <param name="cdata">(pointer to) object to write</param>
-	/// <param name="tsize">size of the variable, default is the sizeof()</param>
+	/// <param name="var">variable/object to write</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	template<typename T>
 	inline void write(const T& var, const bool useAutoFlush = true){
@@ -157,27 +156,20 @@ public:
 		
 		//checks for types that don't require formatting with sprintf
 		//single chars
-		if constexpr(std::is_same<T, char>::value || std::is_same<T, smalluint>::value ||
+		if constexpr(std::is_same<T, char>::value || std::is_same<T, unsigned char>::value ||
 			//const versions
-			std::is_same<T, const char>::value || std::is_same<T, const smalluint>::value){
+			std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value){
 			
 			//the type is well, char
 			writeData_ptr(&var, 1, sizeof(char), useAutoFlush);
 			return;
 		}
 		//c-strings
-		else if constexpr (std::is_same<T, char*>::value || std::is_same<T, smalluint*>::value || 
+		else if constexpr (std::is_same<typename std::decay<T>::type, char*>::value || std::is_same<typename std::decay<T>::type, unsigned char*>::value || 
 			//const versions
-			std::is_same<T, const char*>::value || std::is_same<T, const smalluint*>::value) {
-			//no null-terminating char
-			//use writeString() directly instead
-			writeString((const char*)var, false, useAutoFlush);
-			return;
-		}
-		//std::vector's of char or std::string's
-		//no unsigned char because you cannot just
-		//cast std::vector of unsigned char to std::vector of char
-		else if constexpr (std::is_same<T, std::vector<char>>::value || std::is_same<T, std::string>::value ||
+			std::is_same<typename std::decay<T>::type, const char*>::value || std::is_same<typename std::decay<T>::type, const unsigned char*>::value ||
+			//std::vector's of char or std::string's
+			std::is_same<T, std::vector<char>>::value || std::is_same<T, std::string>::value ||
 			//const versions
 			std::is_same<T, const std::vector<char>>::value || std::is_same<T, const std::string>::value) {
 			//no null-terminating char

@@ -3,7 +3,7 @@
 #include <atomic>
 #include <mutex>
 //#include "AELog.hpp"
-#include "AEFileReader.hpp"
+//#include "AEFileReader.hpp"
 #include "AEFileWriter.hpp"
 #include "AESleep.hpp"
 using std::cout;
@@ -11,12 +11,8 @@ using std::cout;
 
 int main(int argc, char** argv)
 {
-	AEFileReader myrw("temp");
-	std::vector<char> str;
-	myrw.readString(str,10);
-	for(int i = 0; i<10; i++){
-		cout<<(int)str[i]<<' ';
-	}
+	AEFileWriter myfw("temp", AEFW_FLAG_TRUNCATE);
+	myfw.write(12345.6789111);
 	std::cin.get();
 	return 0;
 }
