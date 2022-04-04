@@ -89,6 +89,16 @@ typedef std::chrono::milliseconds millisec;
 /// chrono's microseconds
 //#define microsec std::chrono::microseconds
 
+//compiler-related macros
+
+#ifdef _MSC_VER 
+///if our compiler is vc++, make sprintf sprintf_s, so compiler shuts up
+///about it's warning
+#define sprintf sprintf_s
+#endif // _MSC_VER 
+
+
+
 
 
 // thread

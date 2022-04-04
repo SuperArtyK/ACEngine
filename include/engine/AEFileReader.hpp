@@ -31,7 +31,7 @@
 /// File reader. Err, reads data from given file
 /// Hungarian notation is fr
 /// Flags start with AEFR_
-class AEFileReader : public __AEModuleBase<AEFileReader>{
+class AEFileReader : public __AEBasicModule<AEFileReader>{
 public:
 	explicit AEFileReader(const std::string& filename = "") :
 	m_ullReadBytes(0), m_fpFilestr(nullptr),
@@ -185,30 +185,22 @@ public:
 	/// @note character string types(vector char, std::string, char*) do not include null-termination character
 	/// </summary>
 	/// <param name="var">variable to read to</param>
-	/// <param name="amount">Optional: amount of data to read. Required if passing string types(std::string, c-string, std::vector [unsigned] char)</param>
+	/// <param name="amount">Amount of data to read. Required if passing string types(std::string, c-string, std::vector [unsigned] char), not checked otherwise.</param>
+	/// <param name="isbinary">Flag if data to read should be interpreted as binary</param>
 	template<typename T>
-	inline void read(const T& var, const bool isbinary = false, const biguint amount = 0){
+	void read(T& var, const biguint amount = 0, const bool isbinary = false){
 
-		//char array for formatting
-		//classic 4*size of the variable
-		char formArr[sizeof(var)*4];
-		
-		//great line of if's to check the types
-		//since we don't have a constexpr version of switch
-		//and we don't need it anyway
-		
-		//checks for types that don't require formatting with sprintf
-		//single chars
-		if constexpr(std::is_same<T, char>::value || std::is_same<T, unsigned char>::value ||
+		//if asked for binary or char, just read to memory what is in file
+		if constexpr (isbinary || std::is_same<T, char>::value || 
+			std::is_same<T, unsigned char>::value ||
 			//const versions
-			std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value){
-			
-			//the type is well, char
-			writeData_ptr(&var, 1, sizeof(char), useAutoFlush);
+			std::is_same<T, const char>::value || 
+			std::is_same<T, const unsigned char>::value) {
+			//readBytes(&var, sizeof(var));
 			return;
 		}
-		//c-strings
-		else if constexpr (std::is_same<typename std::decay<T>::type, char*>::value || std::is_same<typename std::decay<T>::type, unsigned char*>::value || 
+		//strings		c-strings
+		if constexpr (std::is_same<typename std::decay<T>::type, char*>::value || std::is_same<typename std::decay<T>::type, unsigned char*>::value ||
 			//const versions
 			std::is_same<typename std::decay<T>::type, const char*>::value || std::is_same<typename std::decay<T>::type, const unsigned char*>::value ||
 			//std::vector's of char or std::string's
@@ -217,62 +209,10 @@ public:
 			std::is_same<T, const std::vector<char>>::value || std::is_same<T, const std::string>::value) {
 			//no null-terminating char
 			//use writeString() directly instead
-			writeString(var, false, useAutoFlush);
+			readString(var, amount);
 			return;
 		}
 
-		//stuff that needs formatting
-		// integer types:
-		//shorts and signed ints and booleans
-		else if constexpr (std::is_same<T, short>::value || std::is_same<T, unsigned short>::value || std::is_same<T, int>::value || std::is_same<T, bool>::value ||
-			//const versions
-			std::is_same<T, const short>::value || std::is_same<T, const unsigned short>::value || std::is_same<T, const int>::value || std::is_same<T, const bool>::value) {
-			
-			sprintf(formArr, "%d", (int)var);
-		}
-		//unsigned ints
-		else if constexpr (std::is_same<T, unsigned int>::value || 
-			//const versions
-			std::is_same<T, const unsigned int>::value ) {
-			
-			sprintf(formArr, "%u", var);
-		}
-		//signed longs and long longs
-		else if constexpr (std::is_same<T, long int>::value || std::is_same<T, long long int>::value ||
-			//const versions
-			std::is_same<T, const long int>::value || std::is_same<T, const long long int>::value) {
-			
-			sprintf(formArr, "%lld", (long long int)var);
-		}
-		//unsigned long and long longs
-		else if constexpr (std::is_same<T, unsigned long int>::value || std::is_same<T, unsigned long long int>::value ||
-			//const versions
-			std::is_same<T, const unsigned long int>::value || std::is_same<T, const unsigned long long int>::value) {
-			
-			sprintf(formArr, "%llu", (unsigned long long int)var);
-		}
-		//float types:
-		// default precision(6), use sprintf on your array and writeString manually
-		//float and double
-		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
-			//const versions
-			std::is_same<T, const float>::value || std::is_same<T, const double>::value) {
-
-			sprintf(formArr, "%f", var);
-		}
-		else if constexpr (std::is_same<T, long double>::value ||
-			//const versions
-			std::is_same<T, const long double>::value) {
-
-			sprintf(formArr, "%L", var);
-		}
-		//none above applies, custom type
-		else{
-			writeData_ref(var);
-			//printf("None of the types apply!\n");
-			return;
-		}
-		writeString(formArr, false, useAutoFlush);
 	}
 
 //getters and setters

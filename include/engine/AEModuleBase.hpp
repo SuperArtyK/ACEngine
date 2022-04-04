@@ -8,7 +8,7 @@
 #include <atomic>
 #include "typedefs.hpp"
 
-//file meaning: base class for all modules
+//file meaning: base classes for all modules
 
 template <typename T>
 inline const char* getTypeName() { return "getTypeName"; }
@@ -16,16 +16,21 @@ inline const char* getTypeName() { return "getTypeName"; }
 /// adds module name to inherit from __AEModuleBase
 #define ADD_MODULE_TO_ENGINE(T) template <> inline const char* getTypeName<T>() { return #T; }
 
-
+/// <summary>
+/// This is a base class for all basic modules, meaning that the module
+/// is not using other modules to work. Intended to be inherited from in class declaration,
+/// not direct usage.
+/// </summary>
+/// <typeparam name="T">Module's class name</typeparam>
 template<typename T>
-class __AEModuleBase
+class __AEBasicModule
 {
 public:
-	__AEModuleBase(){
+	__AEBasicModule(){
 		m_ullModulesAlive++;
 	}
 
-	virtual ~__AEModuleBase(){
+	virtual ~__AEBasicModule(){
 		m_ullModulesAlive--;
 	}
 
@@ -45,7 +50,12 @@ protected:
 	static inline std::atomic<biguint> m_ullModulesAlive = 0;
 };
 template<typename T>
-const std::string __AEModuleBase<T>::m_sModulename = getTypeName<T>();
+const std::string __AEBasicModule<T>::m_sModulename = getTypeName<T>();
+
+
+
+
+
 
 
 //ADD_MODULE_TO_ENGINE(__AEModuleBase)

@@ -42,7 +42,7 @@
 ///File writer. Err, Writes data to given file
 ///Hungarian notation is fw
 ///Flags start with AEFW_
-class AEFileWriter : public __AEModuleBase<AEFileWriter>{
+class AEFileWriter : public __AEBasicModule<AEFileWriter>{
 public:
 	/// <summary>
 	/// Class constructor

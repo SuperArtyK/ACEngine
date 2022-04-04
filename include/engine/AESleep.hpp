@@ -13,7 +13,7 @@
 /// \brief This module is used to create custom but accurate delays, unlike AEFrame that has only fixed delay(unless called setfps() to change it).
 /// This module is not inherited from the base class, as it needs to be very fast, faster than the base class even,
 /// and without much of dependencies.
-class AESleep : __AEModuleBase<AESleep> {
+class AESleep : __AEBasicModule<AESleep> {
 public:
 	/// <summary>
 	/// Class constructor

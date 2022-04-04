@@ -37,7 +37,7 @@
 ///Default engine's file logger. Err, logs messages to given file
 ///Hungarian notatios is 'lg'
 ///Flags start with AELOG_
-class AELog : __AEModuleBase<AELog> {
+class AELog : __AEBasicModule<AELog> {
 public:
 	AELog(const std::string &filename, const unsigned int initQueueSize = AELOG_DEFAULT_QUEUE_SIZE) : 
 	m_fwLogWriter(filename, AEFW_FLAG_APPEND, 10), m_trdWriter(&AELog::writerThread, this),m_ullOrderNum(AELE_INVALID_ENTRY_ORDERNUM), 

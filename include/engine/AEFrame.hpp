@@ -16,7 +16,7 @@
  /// This module is not inherited from the base class, as it needs to be very fast, faster than the base class even,
  /// and without much of dependencies.
  /// Hungarian notation is fr
-class AEFrame : public __AEModuleBase<AEFrame>{
+class AEFrame : public __AEBasicModule<AEFrame>{
 public:
 
 	/// <summary>

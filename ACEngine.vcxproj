@@ -155,6 +155,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\engine\AEFileReader.hpp" />
     <ClInclude Include="include\engine\AEFileWriter.hpp" />
     <ClInclude Include="include\engine\AEFrame.hpp" />
     <ClInclude Include="include\engine\AELog.hpp" />
@@ -162,7 +163,12 @@
     <ClInclude Include="include\engine\AEModuleBase.hpp" />
     <ClInclude Include="include\engine\AESleep.hpp" />
     <ClInclude Include="include\engine\custom_types.hpp" />
+    <ClInclude Include="include\engine\global_vars.hpp" />
     <ClInclude Include="include\engine\typedefs.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="include\engine\README.txt" />
+    <Text Include="src\engine\README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -50,5 +50,19 @@
     <ClInclude Include="include\engine\typedefs.hpp">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
+    <ClInclude Include="include\engine\AEFileReader.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\engine\global_vars.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="include\engine\README.txt">
+      <Filter>Header Files\engine</Filter>
+    </Text>
+    <Text Include="src\engine\README.txt">
+      <Filter>Source Files\engine</Filter>
+    </Text>
   </ItemGroup>
 </Project>
