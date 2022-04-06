@@ -95,6 +95,8 @@ typedef std::chrono::milliseconds millisec;
 ///if our compiler is vc++, make sprintf sprintf_s, so compiler shuts up
 ///about it's warning
 #define sprintf sprintf_s
+#define fscanf fscanf_s
+
 #endif // _MSC_VER 
 
 

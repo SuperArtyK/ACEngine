@@ -12,8 +12,9 @@ using std::cout;
 int main(int argc, char** argv)
 {
 	AEFileReader myfw("temp");
-	char temp;
+	int temp;
 	myfw.read(temp);
+	cout<<temp;
 	std::cin.get();
 	return 0;
 }

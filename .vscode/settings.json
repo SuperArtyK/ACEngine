@@ -68,7 +68,8 @@
 		"cinttypes": "cpp",
 		"valarray": "cpp",
 		"variant": "cpp",
-		"climits": "cpp"
+		"climits": "cpp",
+		"hash_map": "cpp"
 	},
 	"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
 	"makefile.launchConfigurations": [

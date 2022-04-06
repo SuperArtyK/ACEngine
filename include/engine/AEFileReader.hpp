@@ -191,14 +191,19 @@ public:
 	void read(T& var, const biguint amount = 0, const bool isbinary = false){
 
 		//if asked for binary or char, just read to memory what is in file
-		if constexpr (isbinary || std::is_same<T, char>::value || 
+		if constexpr (std::is_same<T, char>::value || 
 			std::is_same<T, unsigned char>::value ||
 			//const versions
 			std::is_same<T, const char>::value || 
-			std::is_same<T, const unsigned char>::value) {
-			//readBytes(&var, sizeof(var));
+			std::is_same<T, const unsigned char>::value ||
+			std::is_same<T, bool>::value) {
+			readBytes(&var, sizeof(var));
 			return;
 		}
+		if(isbinary){
+			readBytes(&var, sizeof(var));
+		}
+
 		//strings		c-strings
 		if constexpr (std::is_same<typename std::decay<T>::type, char*>::value || std::is_same<typename std::decay<T>::type, unsigned char*>::value ||
 			//const versions
@@ -212,6 +217,51 @@ public:
 			readString(var, amount);
 			return;
 		}
+
+		//char array for formatting
+		//classic 4*size of the variable
+		char formArr[sizeof(var)*4];
+
+		if constexpr (std::is_same<T, int>::value || std::is_same<T, const int>::value) {
+			fscanf(m_fpFilestr, "%d", &var);
+		}
+		//unsigned ints
+		else if constexpr (std::is_same<T, unsigned int>::value || 
+			//const versions
+			std::is_same<T, const unsigned int>::value ) {
+			
+			sprintf(formArr, "%u", var);
+		}
+		//signed longs and long longs
+		else if constexpr (std::is_same<T, long int>::value || std::is_same<T, long long int>::value ||
+			//const versions
+			std::is_same<T, const long int>::value || std::is_same<T, const long long int>::value) {
+			
+			sprintf(formArr, "%lld", (long long int)var);
+		}
+		//unsigned long and long longs
+		else if constexpr (std::is_same<T, unsigned long int>::value || std::is_same<T, unsigned long long int>::value ||
+			//const versions
+			std::is_same<T, const unsigned long int>::value || std::is_same<T, const unsigned long long int>::value) {
+			
+			sprintf(formArr, "%llu", (unsigned long long int)var);
+		}
+		//float types:
+		// default precision(6), use sprintf on your array and writeString manually
+		//float and double
+		else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
+			//const versions
+			std::is_same<T, const float>::value || std::is_same<T, const double>::value) {
+
+			sprintf(formArr, "%f", var);
+		}
+		else if constexpr (std::is_same<T, long double>::value ||
+			//const versions
+			std::is_same<T, const long double>::value) {
+
+			sprintf(formArr, "%L", var);
+		}
+
 
 	}
 
