@@ -5,7 +5,8 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    while(1)
+    std::cout << "Hello ACEngine!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
