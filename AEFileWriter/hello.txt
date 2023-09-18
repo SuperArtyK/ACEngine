@@ -1,0 +1,5 @@
+My name is: ArtyK;
+18 is my age;
+® is my favourite byte;
+1 -> is file open;
+Total write requests up to this point: 8
