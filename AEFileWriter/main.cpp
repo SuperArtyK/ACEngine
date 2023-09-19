@@ -1,18 +1,41 @@
 #include "AEFileWriter.hpp"
 #include <iostream>
+#include <iomanip>
+using namespace std;
+
 
 int main() {
 	AEFileWriter myfw;
 	myfw.open("hello.txt");
-	myfw.writeString("My name is: ArtyK;\n");
-	myfw.write(18);
-	myfw.writeString(" is my age;\n");
-	myfw.writeByte(0xAE);
-	myfw.writeString(" is my favourite byte;\n");
-	myfw.write(myfw.isOpen());
-	myfw.writeString(" -> is file open?;\n");
-	myfw.writeString("Total write requests up to this point: ");
-	myfw.write(myfw.getTotalWrites());
+
+	myfw.writeInt(10); // 10
+	myfw.writeChar('\n');
+	myfw.writeInt(LLONG_MIN); // -2^63
+	myfw.writeChar('\n');
+	myfw.writeInt(LLONG_MAX); // 2^63-1
+	myfw.writeChar('\n');
+	myfw.writeUInt(0); // 0
+	myfw.writeChar('\n');
+	myfw.writeUInt(ULLONG_MAX); // 2^64-1
+	myfw.writeChar('\n');
+	myfw.writeFloat(12.0f); //12.000000
+	myfw.writeChar('\n');
+	myfw.writeFloat(FLT_MAX);
+	myfw.writeChar('\n');
+	myfw.writeFloat(-FLT_MAX);
+	myfw.writeChar('\n');
+	myfw.writeFloat(DBL_MAX);
+	myfw.writeChar('\n');
+	myfw.writeFloat(-DBL_MAX);
+	myfw.writeChar('\n');
+	myfw.writeFloat(LDBL_MAX);
+	myfw.writeChar('\n');
+	myfw.writeFloat(-LDBL_MAX);
+	myfw.writeChar('\n');
+	myfw.writeBool(false);
+	myfw.writeChar('\n');
+	myfw.writeBool(true);
+	myfw.writeChar('\n');
 	myfw.flushFile();
 	myfw.closeFile();
 	return 0;

@@ -28,7 +28,6 @@
 
 
 //File flags
-
 ///Write cursor at the end of the file, adding to the file
 ///Cursor change allowed
 #define AEFW_FLAG_APPEND 1
@@ -43,6 +42,7 @@
 ///indicator that everything is good
 #define AEFW_ERR_NOERROR 0
 
+//error flags
 ///If the file object we're trying to write to is null,
 ///aka file not open.
 ///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_OPEN_ELSE,
@@ -55,6 +55,7 @@
 #define AEFW_ERR_FILE_WRONG_FLAG -3
 ///If the file couldn't be created for some other reason, like missing permissions to access files
 #define AEFW_ERR_FILE_OPEN_ELSE -4
+
 
 //TODO: add separate functions for different types
 
@@ -156,6 +157,84 @@ public:
 	}
 
 
+//write ints
+	/// <summary>
+	/// Writes the (signed) integer as text to open file
+	/// </summary>
+	/// <param name="num">The signed integer to be written</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	inline void writeInt(const long long num, const bool useAutoFlush = true) {
+		char buf[21]{};
+		snprintf(buf, sizeof(buf), "%lld", num);
+		this->writeString(buf, false, useAutoFlush);
+	}
+	
+	/// <summary>
+	/// Writes the (unsigned) integer as text to open file
+	/// </summary>
+	/// <param name="num">The unsigned integer to be written</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	inline void writeUInt(const unsigned long long num, const bool useAutoFlush = true) {
+		char buf[21]{};
+		snprintf(buf, sizeof(buf), "%llu", num);
+		this->writeString(buf, false, useAutoFlush);
+	}
+
+//write floats
+	
+	/// <summary>
+	/// Writes the float value as text to the opened file
+	/// </summary>
+	/// <typeparam name="T">The floating point type of the variable</typeparam>
+	/// <param name="num">The float number itself</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	template<typename T>
+	inline void writeFloat(const T num, const bool useAutoFlush = true) {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileWriter::writeFloat!");
+
+		if constexpr (std::is_same<T, float>::value) { // float
+			char buf[FLT_MAX_10_EXP + FLT_DIG + 4]{}; // juuust 1 more than max of float value, so with -FLT_MAX it will have a trailing null
+			snprintf(buf, sizeof(buf), "%.*f", FLT_DIG, num);
+			this->writeString(buf, false, useAutoFlush);
+		}
+		else if constexpr (std::is_same<T, double>::value) { // double
+			char buf[DBL_MAX_10_EXP + DBL_DIG + 4]{};
+			snprintf(buf, sizeof(buf), "%.*f", DBL_DIG, num);
+			this->writeString(buf, false, useAutoFlush);
+		}
+		else if constexpr (std::is_same<T, long double>::value) { // long double
+			char buf[LDBL_MAX_10_EXP + LDBL_DIG + 4]{};
+			snprintf(buf, sizeof(buf), "%.*f", LDBL_DIG, num);
+			this->writeString(buf, false, useAutoFlush);
+		}
+
+	}
+
+	/// <summary>
+	/// Writes the boolean to file as text (true/false)
+	/// </summary>
+	/// <param name="num">The bool to be written</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	inline void writeBool(const bool num, const bool useAutoFlush = true) {
+		if (num) {
+			this->writeString("true", false, useAutoFlush);
+		}
+		else {
+			this->writeString("false", false, useAutoFlush);
+		}
+
+	}
+
+	/// <summary>
+	/// Writes the single (ascii) character to the file.
+	/// Essentially, it's the same as AEFileWriter::writeByte()
+	/// </summary>
+	/// <param name="c">The char to be written</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	inline void writeChar(const char c, const bool useAutoFlush = true) {
+		this->writeByte(c, useAutoFlush); //err...same thing.
+	}
+
 //write binary
 	/// <summary>
 	/// Shortcut for the AEFileWriter::writerData_ptr()
@@ -172,7 +251,7 @@ public:
 	/// </summary>
 	/// <param name="cdata">byte value</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
-	inline void writeByte(const char cdata, const bool useAutoFlush = true) {
+	inline void writeByte(const unsigned char cdata, const bool useAutoFlush = true) {
 		this->writeData_ptr(&cdata, 1, 1, useAutoFlush);
 	}
 
