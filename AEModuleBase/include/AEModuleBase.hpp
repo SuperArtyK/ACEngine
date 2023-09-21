@@ -1,0 +1,92 @@
+
+#pragma once
+
+#ifndef ENGINE_AEMODULEBASE_HPP
+#define ENGINE_AEMODULEBASE_HPP
+
+#include <string>
+#include <atomic>
+#include "../../ACEngine/include/AETypedefs.hpp"
+
+//file meaning: base classes for all modules
+
+template <typename T>
+inline const char* getTypeName() { return "getTypeName"; }
+
+/// adds module name to inherit from __AEModuleBase
+#define REGISTER_CLASS(T) template <> inline const char* getTypeName<T>() { return #T; }
+
+// Usage to register the class:
+// add REGISTER_CLASS(<classname>)
+// after the class definition
+
+/// <summary>
+/// This is a base class for all basic modules, meaning that the module is not using other modules to work. 
+/// Intended to be inherited from in class declaration, not direct usage.
+/// Usage: class [classname] : public __AEBasicModule<[classname]>
+/// </summary>
+/// <typeparam name="T">Module's class name</typeparam>
+template<typename T>
+class __AEBasicModule
+{
+public:
+
+	/// <summary>
+	/// Basic constructor that increases module count
+	/// </summary>
+	__AEBasicModule(){
+		m_ullModulesAlive++;
+	}
+
+	//TODO: Add docs, format it correctly for this engine!
+
+	/// <summary>
+	/// Basic copy constructor that increases module count
+	/// </summary>
+	/// <param name="val"></param>
+	__AEBasicModule(const __AEBasicModule<T>& val) {
+		m_ullModulesAlive++;
+	}
+
+	/// <summary>
+	/// Basic destructor that decreases module count
+	/// </summary>
+	virtual ~__AEBasicModule(){
+		m_ullModulesAlive--;
+	}
+	
+	/// <summary>
+	/// Returns the amount of instances of the module currently existing
+	/// </summary>
+	/// <returns>Unsigned long long of the module amount</returns>
+	static inline ullint getModuleAmount() {
+		return m_ullModulesAlive.load();
+	}
+	
+	/// <summary>
+	/// Returns the name of the registered module
+	/// </summary>
+	/// <returns></returns>
+	static inline std::string getModuleName() {
+		return m_sModulename;
+	}
+
+protected:
+
+	/// <summary>
+	/// Name of the module (class), same as in code
+	/// </summary>
+	static const std::string m_sModulename;
+	/// <summary>
+	/// amount of alive module instances
+	/// </summary>
+	static inline std::atomic<ullint> m_ullModulesAlive = 0;
+};
+
+/// sets up the static variable values for the base class (and inherited classes)
+template<typename T>
+const std::string __AEBasicModule<T>::m_sModulename = getTypeName<T>();
+
+//REGISTER_CLASS(__AEModuleBase)
+
+#endif // !ENGINE_AEMODULEBASE_HPP
