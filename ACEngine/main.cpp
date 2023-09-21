@@ -1,5 +1,8 @@
-
 #include <iostream>
+#include "../AEFileWriter/include/AEFileWriter.hpp"
+#include "../AEModuleBase/include/AEModuleBase.hpp"
+#include "AETypedefs.hpp"
+
 
 int main()
 {
