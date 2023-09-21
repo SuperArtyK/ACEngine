@@ -57,8 +57,15 @@
 #define AEFW_ERR_FILE_OPEN_ELSE -4
 
 
-//TODO: add separate functions for different types
+/// A macro to check if the given type T is about the same as Y
+/// @note It decays both types and omits const-ness
+#define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
+
+//TODO: cleanup the AEFileWriter::write() to use internal type functions
+//TODO: cleanup the code for performance/readability
+//TODO: add docs
+//TODO: add std::vector<unsigned char> version of the writeBytes
 
 ///File writer. Err, Writes data to given file
 ///Hungarian notation is fw
@@ -73,7 +80,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
-	AEFileWriter(const std::string& filename = "", const uint8_t flags = AEFW_FLAG_APPEND, const uint64_t af_interval = 1) :
+	AEFileWriter(const std::string& filename = "", const uint8_t flags = AEFW_FLAG_NOFLAGS, const uint64_t af_interval = 1) :
 		m_autoflushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_ucLastError(AEFW_ERR_NOERROR) {
 
@@ -109,17 +116,18 @@ public:
 	bool open(const char* str, const uint8_t flags = AEFW_FLAG_APPEND); //defined below class
 
 //write stuff
-	//TODO: Maybe rewrite to million template overloads
-	//idk
 	/// <summary>
-	/// Determines type of the data passed and uses according procedure to write it to file
-	/// @note character string types(vector char, std::string, char*) do not include null-termination character
-	/// Invokes other member functions
+	/// Generic function for writing data. Invokes proper write functions for built-in types
+	/// @note String types don't include null-termination characters. Use separate functions for that control.
+	/// @note Supported types: char, bool, integers, floats, strings; everything else is treated as binary stream.
 	/// </summary>
-	/// <param name="var">variable/object to write</param>
+	/// <typeparam name="T">Type of the variable to be written</typeparam>
+	/// <param name="var">Variable/data piece to be written</param>
+	/// <param name="datasz">Size of the data, in bytes. Only used if the T is a pointer to a binary stream, then it must be non-zero</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	template<typename T>
-	inline void write(const T& var, const bool useAutoFlush = true); // defined below class
+	inline void write(const T& var, const size_t datasz = 0, const bool useAutoFlush = true); // defined below class
+
 
 //write string
 	/// <summary>
@@ -237,7 +245,8 @@ public:
 
 //write binary
 	/// <summary>
-	/// Shortcut for the AEFileWriter::writerData_ptr()
+	/// Write a stream of bytes to file
+	/// @note Basically just a shortcut for the AEFileWriter::writerData_ptr()
 	/// </summary>
 	/// <param name="cdata">pointer to stream of bytes</param>
 	/// <param name="dsize">size of that stream</param>
@@ -400,6 +409,7 @@ public:
 	uint64_t m_autoflushInterval;
 
 
+
 private:
 
 //crosscompile crap
@@ -434,9 +444,10 @@ private:
 	uint8_t m_ucLastError;
 };
 
+
+
 // inline function definitions
 // (so the class declaration isn't cluttered
-
 
 // write data as binary function
 // uses const char
@@ -461,94 +472,56 @@ void AEFileWriter::writeData_ptr(const void* cdata, const uint64_t dcount, const
 
 // write stuff dependant on data
 template<typename T>
-inline void AEFileWriter::write(const T& var, const bool useAutoFlush) {
+inline void AEFileWriter::write(const T& var, const size_t datasz, const bool useAutoFlush) {
 
-	//char array for formatting
-	//classic 4*size of the variable
-	char formArr[sizeof(var) * 4]{};
-
-	//great line of if's to check the types
-	//since we don't have a constexpr version of switch
-	//and we don't need it anyway
-
-	//checks for types that don't require formatting with snprintf
-	//single chars
-	if constexpr (std::is_same<T, char>::value || std::is_same<T, unsigned char>::value ||
-		//const versions
-		std::is_same<T, const char>::value || std::is_same<T, const unsigned char>::value) {
-
-		//the type is well, char
-		this->writeData_ptr(&var, 1, sizeof(char), useAutoFlush);
+	//open file?
+	if (!this->isOpen()) {
+		this->m_ucLastError = AEFW_ERR_WRITE_FILE_NULL;
 		return;
 	}
-	//c-strings
-	else if constexpr (std::is_same<typename std::decay<T>::type, char*>::value || std::is_same<typename std::decay<T>::type, unsigned char*>::value ||
-		//const versions
-		std::is_same<typename std::decay<T>::type, const char*>::value || std::is_same<typename std::decay<T>::type, const unsigned char*>::value ||
-		//std::vector's of char or std::string's
-		std::is_same<T, std::vector<char>>::value || std::is_same<T, std::string>::value ||
-		//const versions
-		std::is_same<T, const std::vector<char>>::value || std::is_same<T, const std::string>::value) {
-		//no null-terminating char
-		//use writeString() directly instead
+
+	// check for bool and char first
+	// because they trip the std::is_integral<T>
+	// and we dont want that  
+
+	if constexpr (IS_SAME_NOC(T, bool)) { //bool type
+		this->writeBool(var);
+	}
+	// check also for unsigned char - since they call the same function anyway
+	else if constexpr (IS_SAME_NOC(T, char) || IS_SAME_NOC(T, unsigned char)) { //char type
+		this->writeByte(var, useAutoFlush);
+	}
+
+	// now everything else
+	else if constexpr (std::is_integral<T>::value) { //integral type
+		if constexpr (std::is_unsigned<T>::value) { // what about unsigned?
+			this->writeUInt(var, useAutoFlush);
+		}
+		else { // or signed?
+			this->writeInt(var, useAutoFlush);
+		}
+	}
+	else if constexpr (std::is_floating_point<T>::value) { // float types
+		this->writeFloat(var, useAutoFlush);
+	}
+	else if constexpr (IS_SAME_NOC(T, char*) || IS_SAME_NOC(T, std::string) || IS_SAME_NOC(T, std::vector<char>)) { // strings
 		this->writeString(var, false, useAutoFlush);
-		return;
 	}
 
-	//stuff that needs formatting
-	// integer types:
-	//shorts and signed ints and booleans
-	else if constexpr (std::is_same<T, short>::value || std::is_same<T, unsigned short>::value || std::is_same<T, int>::value || std::is_same<T, bool>::value ||
-		//const versions
-		std::is_same<T, const short>::value || std::is_same<T, const unsigned short>::value || std::is_same<T, const int>::value || std::is_same<T, const bool>::value) {
+	// alright. If it's not fundamental types
+	// then maybe it's a binary data to be written 
 
-		snprintf(formArr, sizeof(formArr), "%d", (int)var);
-		
+	//pointer to data
+	else if constexpr (std::is_pointer<T>::value && datasz > 0) { //and check if data stream size is not 0
+		this->writeData_ptr(var, 1, datasz, useAutoFlush);
 	}
-	//unsigned ints
-	else if constexpr (std::is_same<T, unsigned int>::value ||
-		//const versions
-		std::is_same<T, const unsigned int>::value) {
-
-		snprintf(formArr, sizeof(formArr), "%u", var);
-	}
-	//signed longs and long longs
-	else if constexpr (std::is_same<T, long int>::value || std::is_same<T, long long int>::value ||
-		//const versions
-		std::is_same<T, const long int>::value || std::is_same<T, const long long int>::value) {
-
-		snprintf(formArr, sizeof(formArr), "%lld", (long long int)var);
-	}
-	//unsigned long and long longs
-	else if constexpr (std::is_same<T, unsigned long int>::value || std::is_same<T, unsigned long long int>::value ||
-		//const versions
-		std::is_same<T, const unsigned long int>::value || std::is_same<T, const unsigned long long int>::value) {
-
-		snprintf(formArr, sizeof(formArr), "%llu", (unsigned long long int)var);
-	}
-	//float types:
-	// default precision(6), use snprintf on your array and writeString manually
-	//float and double
-	else if constexpr (std::is_same<T, float>::value || std::is_same<T, double>::value ||
-		//const versions
-		std::is_same<T, const float>::value || std::is_same<T, const double>::value) {
-
-		snprintf(formArr, sizeof(formArr), "%f", var);
-	}
-	else if constexpr (std::is_same<T, long double>::value ||
-		//const versions
-		std::is_same<T, const long double>::value) {
-
-		snprintf(formArr, sizeof(formArr), "%L", var);
-	}
-	//none above applies, custom type
+	//or...direct object -> pass it as reference
 	else {
-		this->writeData_ref(var);
-		//printf("None of the types apply!\n");
-		return;
+		this->writeData_ref(var, sizeof(T), useAutoFlush);
 	}
-	this->writeString(formArr, false, useAutoFlush);
+
 }
+
 
 
 // open file with flags
