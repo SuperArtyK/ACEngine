@@ -13,7 +13,7 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\engine">
+    <Filter Include="Header Files\engine modules">
       <UniqueIdentifier>{2504e1cb-5b5c-4072-9193-e763df1d3580}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -24,7 +24,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AETypedefs.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
