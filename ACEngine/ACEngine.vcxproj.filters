@@ -26,11 +26,13 @@
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="include\AETypedefs.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -15,7 +15,7 @@
 #include <limits>
 #include <cstdio>
 #include <stdexcept>
-#include "../../ACEngine/include/AETypedefs.hpp">
+#include "include/AETypedefs.hpp">
 
 // stuff for crosscompilation and 64bit access
 // dont touch

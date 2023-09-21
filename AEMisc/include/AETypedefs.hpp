@@ -47,5 +47,7 @@ typedef unsigned long uint;
 /// unsigned int min
 #define UINT_MIN 0
 
+/// unsigned short min
+#define USHRT_MIN 0
 
 #endif // !ENGINE_TYPEDEFS_HPP

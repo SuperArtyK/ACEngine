@@ -6,7 +6,7 @@
 
 #include <string>
 #include <atomic>
-#include "../../ACEngine/include/AETypedefs.hpp"
+#include "include/AETypedefs.hpp"
 
 //file meaning: base classes for all modules
 

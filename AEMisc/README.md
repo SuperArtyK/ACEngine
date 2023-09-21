@@ -1,0 +1,2 @@
+# AEMisc
+This is a project that contains the miscelanneous code and stuff for the engine, that cannot be attributed to a single module. Stuff like global engine variables, utilities, typedefs, macros, etc
