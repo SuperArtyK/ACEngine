@@ -15,7 +15,7 @@
 #include <limits>
 #include <cstdio>
 #include <stdexcept>
-#include "../ACEngine/include/AETypedefs.hpp"
+#include "../../ACEngine/include/AETypedefs.hpp">
 
 // stuff for crosscompilation and 64bit access
 // dont touch
@@ -283,7 +283,7 @@ public:
 	/// <param name="dcount">number of elements in an object</param>
 	/// <param name="dsize">size, in bytes, for each element</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	void writeData_ptr(const void* cdata, const ullint dcount, const ullint dsize = sizeof(char), const bool useAutoFlush = true); //defined below class
+	inline void writeData_ptr(const void* cdata, const ullint dcount, const ullint dsize = sizeof(char), const bool useAutoFlush = true); //defined below class
 
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary.
@@ -459,7 +459,7 @@ private:
 
 // write data as binary function
 // uses const char
-void AEFileWriter::writeData_ptr(const void* cdata, const ullint dcount, const ullint dsize, const bool useAutoFlush) {
+inline void AEFileWriter::writeData_ptr(const void* cdata, const ullint dcount, const ullint dsize, const bool useAutoFlush) {
 	
 	if (isOpen()) {
 		fwrite(cdata, dsize, dcount, m_fpFilestr);

@@ -73,22 +73,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(ProjectDir)include\;$(IncludePath)</IncludePath>
+    <SourcePath>$(SolutionDir)ACEngine\src\;$(SolutionDir)AEModuleBase\src\;$(SolutionDir)AEFileWriter\src\;
+$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)ACEngine\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(ProjectDir)include\;$(IncludePath)</IncludePath>
+    <SourcePath>$(SolutionDir)ACEngine\src\;$(SolutionDir)AEModuleBase\src\;$(SolutionDir)AEFileWriter\src\;
+$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)ACEngine\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(ProjectDir)include\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)ACEngine\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
+    <SourcePath>$(SolutionDir)ACEngine\src\;$(SolutionDir)AEModuleBase\src\;$(SolutionDir)AEFileWriter\src\;
+$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)include\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)ACEngine\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
+    <SourcePath>$(SolutionDir)ACEngine\src\;$(SolutionDir)AEModuleBase\src\;$(SolutionDir)AEFileWriter\src\;
+$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -164,7 +168,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_ACEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />

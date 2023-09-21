@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "AEModuleBase.hpp"
+#include "include/AEModuleBase.hpp"
 
 class Test : public __AEBasicModule<Test> {
 
