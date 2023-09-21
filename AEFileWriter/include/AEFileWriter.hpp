@@ -62,7 +62,6 @@
 #define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
 
-//TODO: cleanup the AEFileWriter::write() to use internal type functions
 //TODO: cleanup the code for performance/readability
 //TODO: add docs
 //TODO: add std::vector<unsigned char> version of the writeBytes
@@ -141,7 +140,7 @@ public:
 	}
 
 	/// <summary>
-	/// Write std::vector of char (string), as is, to file, and flush if necessary
+	/// Write std::vector<char> (string), as is, to file, and flush if necessary
 	/// </summary>
 	/// <param name="str">String(in form of vector<char>) to write</param>
 	/// <param name="includeNull">Flag to include the null-terminating character in the end</param>
@@ -189,7 +188,6 @@ public:
 	}
 
 //write floats
-	
 	/// <summary>
 	/// Writes the float value as text to the opened file
 	/// </summary>
@@ -245,7 +243,7 @@ public:
 
 //write binary
 	/// <summary>
-	/// Write a stream of bytes to file
+	/// Write a stream of bytes to file, from pointer
 	/// @note Basically just a shortcut for the AEFileWriter::writerData_ptr()
 	/// </summary>
 	/// <param name="cdata">pointer to stream of bytes</param>
@@ -253,6 +251,15 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
 	inline void writeBytes(const void* cdata, const uint64_t dsize, const bool useAutoFlush = true) {
 		this->writeData_ptr(cdata, 1, dsize, useAutoFlush);
+	}
+
+	/// <summary>
+	/// Write a stream of bytes to file, from vector
+	/// </summary>
+	/// <param name="cdata">A vector to the data bytes</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in autoflush_interval</param>
+	inline void writeBytes(const std::vector<unsigned char>& cdata, const bool useAutoFlush = true) {
+		this->writeData_ptr(cdata.data(), 1, cdata.size(), useAutoFlush);
 	}
 
 	/// <summary>
@@ -345,6 +352,7 @@ public:
 		return this->m_sFilename;
 	}
 
+
 //file cursor stuff
 	/// <summary>
 	/// Returns current write cursor position
@@ -407,7 +415,6 @@ public:
 	/// 1 -- flush every write operation, etc.
 	/// </summary>
 	uint64_t m_autoflushInterval;
-
 
 
 private:
@@ -513,7 +520,10 @@ inline void AEFileWriter::write(const T& var, const size_t datasz, const bool us
 
 	//pointer to data
 	else if constexpr (std::is_pointer<T>::value && datasz > 0) { //and check if data stream size is not 0
-		this->writeData_ptr(var, 1, datasz, useAutoFlush);
+		this->writeBytes(var, datasz, useAutoFlush);
+	}
+	else if constexpr (IS_SAME_NOC(T, std::vector<unsigned char>)) {
+		this->writeBytes(var, useAutoFlush);
 	}
 	//or...direct object -> pass it as reference
 	else {
