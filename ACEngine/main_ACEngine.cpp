@@ -2,6 +2,7 @@
 #include "include/AEFileWriter.hpp"
 #include "include/AEModuleBase.hpp"
 #include "include/AETypedefs.hpp"
+#include "include/AEFlags.hpp"
 
 
 int main()

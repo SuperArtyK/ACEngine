@@ -16,6 +16,7 @@
 #include <cstdio>
 #include <stdexcept>
 #include "include/AETypedefs.hpp"
+#include "include/AEFlags.hpp"
 
 // stuff for crosscompilation and 64bit access
 // dont touch
@@ -27,6 +28,8 @@
 #define fseek fseeko
 #endif
 
+
+//Do NOT touch!
 
 //File flags
 ///Write cursor at the end of the file, adding to the file
@@ -57,15 +60,6 @@
 ///If the file couldn't be created for some other reason, like missing permissions to access files
 #define AEFW_ERR_FILE_OPEN_ELSE -4
 
-
-//misc flags
-/// Macro to enable the auto-flushing mechanism
-/// Undefine to disable the feature
-#define AEFW_AUTOFLUSH_ENABLE 
-/// Macro for the default "use auto-flush" argument value
-#define AEFW_DEFAULT_AUTOFLUSH true
-/// Macro for the default auto-flush amount value
-#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL 1
 
 /// A macro to check if the given type T is about the same as Y
 /// @note It decays both types and omits const-ness
