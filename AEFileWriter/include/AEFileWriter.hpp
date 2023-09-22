@@ -58,14 +58,21 @@
 #define AEFW_ERR_FILE_OPEN_ELSE -4
 
 
+//misc flags
+/// Macro to enable the auto-flushing mechanism
+/// Undefine to disable the feature
+#define AEFW_AUTOFLUSH_ENABLE 
+/// Macro for the default "use auto-flush" argument value
+#define AEFW_DEFAULT_AUTOFLUSH true
+/// Macro for the default auto-flush amount value
+#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL 1
+
 /// A macro to check if the given type T is about the same as Y
 /// @note It decays both types and omits const-ness
 #define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
 
 //TODO: cleanup the code for performance/readability
-//TODO: add docs
-//TODO: add std::vector<unsigned char> version of the writeBytes
 
 ///File writer. Err, Writes data to given file
 ///Hungarian notation is fw
@@ -80,7 +87,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
-	AEFileWriter(const std::string& filename = "", const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = 1) :
+	AEFileWriter(const std::string& filename = "", const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_ucLastError(AEFW_ERR_NOERROR) {
 
@@ -103,7 +110,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
-	inline bool open(const std::string& str, const ucint flags = AEFW_FLAG_APPEND) {
+	inline bool open(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS) {
 		return this->open(str.c_str(), flags);
 	}
 
@@ -113,7 +120,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param></param>
 	/// <returns>True if file is open(by currently used writer), false otherwise</returns>
-	bool open(const char* str, const ucint flags = AEFW_FLAG_APPEND); //defined below class
+	bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS); //defined below class
 
 //write stuff
 	/// <summary>
@@ -126,7 +133,7 @@ public:
 	/// <param name="datasz">Size of the data, in bytes. Only used if the T is a pointer to a binary stream, then it must be non-zero</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
 	template<typename T>
-	inline void write(const T& var, const size_t datasz = 0, const bool useAutoFlush = true); // defined below class
+	inline void write(const T& var, const size_t datasz = 0, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH); // defined below class
 
 
 //write string
@@ -136,7 +143,7 @@ public:
 	/// <param name="str">String to write</param>
 	/// <param name="includeNull">Flag to include 1 null-terminating character in the string</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeString(const std::string& str, const bool includeNull = false, const bool useAutoFlush = true) {
+	inline void writeString(const std::string& str, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		this->writeData_ptr(str.c_str(), str.size() + ((includeNull) ? 1 : 0), sizeof(char), useAutoFlush);
 	}
 
@@ -146,7 +153,7 @@ public:
 	/// <param name="str">String(in form of vector<char>) to write</param>
 	/// <param name="includeNull">Flag to include the null-terminating character in the end</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeString(const std::vector<char>& str, const bool includeNull = false, const bool useAutoFlush = true) {
+	inline void writeString(const std::vector<char>& str, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		// since vector may actually have NULL-terminating char
 		// remove it if includeNull is false
 		// decrease str.size() by 1
@@ -160,7 +167,7 @@ public:
 	/// <param name="dcount">length of string</param>
 	/// <param name="includeNull">Flag to include the null-terminating character at the end of the string</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = true) {
+	inline void writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		this->writeData_ptr(cdata, strlen(cdata) + ((includeNull) ? 1 : 0), sizeof(char), useAutoFlush);
 	}
 
@@ -171,7 +178,7 @@ public:
 	/// </summary>
 	/// <param name="num">The signed integer to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeInt(const llint num, const bool useAutoFlush = true) {
+	inline void writeInt(const llint num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		char buf[21]{};
 		snprintf(buf, sizeof(buf), "%lld", num);
 		this->writeString(buf, false, useAutoFlush);
@@ -182,7 +189,7 @@ public:
 	/// </summary>
 	/// <param name="num">The unsigned integer to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeUInt(const ullint num, const bool useAutoFlush = true) {
+	inline void writeUInt(const ullint num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		char buf[21]{};
 		snprintf(buf, sizeof(buf), "%llu", num);
 		this->writeString(buf, false, useAutoFlush);
@@ -196,7 +203,7 @@ public:
 	/// <param name="num">The float number itself</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
 	template<typename T>
-	inline void writeFloat(const T num, const bool useAutoFlush = true) {
+	inline void writeFloat(const T num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileWriter::writeFloat!");
 
 		if constexpr (std::is_same<T, float>::value) { // float
@@ -222,7 +229,7 @@ public:
 	/// </summary>
 	/// <param name="num">The bool to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeBool(const bool num, const bool useAutoFlush = true) {
+	inline void writeBool(const bool num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		if (num) {
 			this->writeString("true", false, useAutoFlush);
 		}
@@ -238,7 +245,7 @@ public:
 	/// </summary>
 	/// <param name="c">The char to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeChar(const char c, const bool useAutoFlush = true) {
+	inline void writeChar(const char c, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		this->writeByte(c, useAutoFlush); //err...same thing.
 	}
 
@@ -250,7 +257,7 @@ public:
 	/// <param name="cdata">pointer to stream of bytes</param>
 	/// <param name="dsize">size of that stream</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeBytes(const void* cdata, const ullint dsize, const bool useAutoFlush = true) {
+	inline void writeBytes(const void* cdata, const ullint dsize, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		this->writeData_ptr(cdata, 1, dsize, useAutoFlush);
 	}
 
@@ -259,7 +266,7 @@ public:
 	/// </summary>
 	/// <param name="cdata">A vector to the data bytes</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeBytes(const std::vector<unsigned char>& cdata, const bool useAutoFlush = true) {
+	inline void writeBytes(const std::vector<unsigned char>& cdata, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		this->writeData_ptr(cdata.data(), 1, cdata.size(), useAutoFlush);
 	}
 
@@ -268,7 +275,7 @@ public:
 	/// </summary>
 	/// <param name="cdata">byte value</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeByte(const unsigned char cdata, const bool useAutoFlush = true) {
+	inline void writeByte(const unsigned char cdata, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		this->writeData_ptr(&cdata, 1, 1, useAutoFlush);
 	}
 
@@ -283,7 +290,7 @@ public:
 	/// <param name="dcount">number of elements in an object</param>
 	/// <param name="dsize">size, in bytes, for each element</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
-	inline void writeData_ptr(const void* cdata, const ullint dcount, const ullint dsize = sizeof(char), const bool useAutoFlush = true); //defined below class
+	inline void writeData_ptr(const void* cdata, const ullint dcount, const ullint dsize = sizeof(char), const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH); //defined below class
 
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary.
@@ -294,7 +301,7 @@ public:
 	/// <param name="tsize">size of the variable, default is the sizeof()</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes specified in m_ullFlushInterval</param>
 	template<typename T>
-	inline void writeData_ref(const T& cdata, const ullint tsize = sizeof(T), const bool useAutoFlush = true) {
+	inline void writeData_ref(const T& cdata, const ullint tsize = sizeof(T), const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		writeData_ptr(&cdata, 1, tsize, useAutoFlush);
 	}
 
@@ -419,6 +426,19 @@ public:
 
 
 private:
+	/// <summary>
+	/// Checks for and performs the auto-flush operation if required.
+	/// @note Does nothing if AEFW_AUTOFLUSH_ENABLE is not defined
+	/// </summary>
+	inline void autoFlush() {
+#ifdef AEFW_AUTOFLUSH_ENABLE
+		if (!(m_ullTotalWrites % m_ullFlushInterval)) {
+			flushFile();
+		}
+#endif // !AEFW_AUTOFLUSH_ENABLE
+
+	//otherwise we don't do anything
+	}
 
 //crosscompile crap
 	/// <summary>
@@ -463,10 +483,9 @@ inline void AEFileWriter::writeData_ptr(const void* cdata, const ullint dcount, 
 	
 	if (isOpen()) {
 		fwrite(cdata, dsize, dcount, m_fpFilestr);
+		m_ullTotalWrites++;
 		if (useAutoFlush) {
-			if (!(++m_ullTotalWrites % m_ullFlushInterval)) {
-				flushFile();
-			}
+			this->autoFlush();
 		}
 		this->m_ucLastError = AEFW_ERR_NOERROR;
 	}
