@@ -1,6 +1,6 @@
 #include "include/AEFileWriter.hpp"
 #include <iostream>
-#include <iomanip>
+#include <iomanip>	
 using namespace std;
 
 
@@ -8,8 +8,22 @@ using namespace std;
 template<typename T1, typename T2>
 bool is_almost_same_v = std::is_same<const T1, const T2>::value;
 
+struct Tempstruct {
+	short a = 12345;
+	unsigned short b = 54321;
+	char c = 'A';
+	float d = 12345.67890f;
+};
+
 
 int main() {
+
+
+	std::vector<char> a{ 'a','b','c','\0','d','e','f','\0' };
+	std::string b = "abc\0def";
+	const char* c = "abc\0def";
+	const Tempstruct d;
+
 
 	AEFileWriter myfw;
 	myfw.open("hello.txt");
@@ -41,6 +55,18 @@ int main() {
 	myfw.write(false);
 	myfw.write('\n');
 	myfw.write(true);
+	myfw.write('\n');
+	myfw.write((unsigned char)0xAE);
+	myfw.write('\n');
+	myfw.write(a);
+	myfw.write('\n');
+	myfw.write(b);
+	myfw.write('\n');
+	myfw.write(c);
+	myfw.write('\n');
+	myfw.write(sizeof(Tempstruct));
+	myfw.write('\n');
+	myfw.write(d);
 	myfw.write('\n');
 	myfw.flushFile();
 	myfw.closeFile();
