@@ -35,31 +35,31 @@
 //File flags
 ///Write cursor at the end of the file, adding to the file
 ///Cursor change allowed
-#define AEFW_FLAG_APPEND (ucint)1
+#define AEFW_FLAG_APPEND 1
 ///Write cursor at the end of the file, adding to the file
 ///Changing the cursor position/writing anywhere else (than eof) is not allowed
-#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE (ucint)2 
+#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE 2 
 ///Write cursor at the start of the file, truncating the contents if existed
-#define AEFW_FLAG_TRUNCATE (ucint)3
+#define AEFW_FLAG_TRUNCATE 3
 ///No Write flags; Same as truncate (fopen)
-#define AEFW_FLAG_NOFLAGS (ucint)255
+#define AEFW_FLAG_NOFLAGS 255
 
 
 //Error flags
 ///Indicator that everything is good
-#define AEFW_ERR_NOERROR (ucint)0
+#define AEFW_ERR_NOERROR 0
 ///If the file object we're trying to write to is null,
 ///aka file not open.
 ///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_OPEN_ELSE,
 ///if we continue to access the writer.
-#define AEFW_ERR_NOT_OPEN (ucint)-1
+#define AEFW_ERR_NOT_OPEN -1
 //file creation/manipulation
 ///If the file name is empty
-#define AEFW_ERR_FILE_NAME_EMPTY (ucint)-2
+#define AEFW_ERR_FILE_NAME_EMPTY -2
 ///If the flag given is wrong during the creation(creates file anyway, assuming AEFW_FLAG_NOFLAGS)
-#define AEFW_ERR_FILE_WRONG_FLAG (ucint)-3
+#define AEFW_ERR_FILE_WRONG_FLAG -3
 ///If the file couldn't be created for some other reason, like missing permissions to access files
-#define AEFW_ERR_FILE_OPEN_ELSE (ucint)-4
+#define AEFW_ERR_FILE_OPEN_ELSE -4
 
 
 //TODO: move this to a separate utils file....or leave it here?
@@ -85,7 +85,7 @@ public:
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	AEFileWriter(const std::string& filename, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
-		m_ucLastError(AEFW_ERR_NOERROR) {
+		m_cLastError(AEFW_ERR_NOERROR) {
 
 		this->open(filename.c_str(), flags);
 	}
@@ -98,7 +98,7 @@ public:
 	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
 	AEFileWriter(const char* filename = "", const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
-		m_ucLastError(AEFW_ERR_NOERROR) {
+		m_cLastError(AEFW_ERR_NOERROR) {
 
 		this->open(filename, flags);
 	}
@@ -109,12 +109,12 @@ public:
 	/// <param name="fw">Object to be moved</param>
 	AEFileWriter(AEFileWriter&& fw) noexcept :
 		m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(fw.m_sFilename),
-		m_ullTotalWrites(fw.m_ullTotalWrites), m_fpFilestr(fw.m_fpFilestr), m_ucLastError(fw.m_ucLastError), m_ucFlags(fw.m_ucFlags) {
+		m_ullTotalWrites(fw.m_ullTotalWrites), m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_ucFlags(fw.m_ucFlags) {
 
 		fw.m_ullFlushInterval = 0;
 		fw.m_ullTotalWrites = 0;
 		fw.m_fpFilestr = nullptr;
-		fw.m_ucLastError = 0;
+		fw.m_cLastError = 0;
 		fw.m_sFilename.clear();
 		fw.m_ucFlags = 0;
 	}
@@ -146,7 +146,7 @@ public:
 	/// <summary>
 	/// Open(and create) file with given name and flag. 
 	/// On success sets AEFileWriter::m_ucFlags to passed flag value.
-	/// @note Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
+	/// @warn Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
 	/// </summary>
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
@@ -177,7 +177,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	inline void writeString(const std::string& str, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
 
@@ -193,7 +193,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	inline void writeString(const std::vector<char>& str, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
 		this->writeData_ptr(str.data(), str.size(), sizeof(char), useAutoFlush);
@@ -207,7 +207,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	inline void writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
 		this->writeData_ptr(cdata, strlen(cdata) + includeNull, sizeof(char), useAutoFlush);
@@ -222,7 +222,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	inline void writeInt(const llint num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
 
@@ -238,7 +238,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	inline void writeUInt(const ullint num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
 
@@ -260,7 +260,7 @@ public:
 
 		//check for the opened file here, before potentially setting 300+ digits for nothing
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
 
@@ -343,6 +343,7 @@ public:
 	/// Write binary data, as is, to file, and flush if necessary
 	/// Difference with writeData_ref(): uses (const) pointer to the variable/data
 	/// @note Doesn't work with literals
+	/// @note If file is closed, sets last error flat to AEFW_ERR_NOT_OPEN
 	/// </summary>
 	/// <param name="cdata">Pointer to object to write</param>
 	/// <param name="dcount">Number of elements in an object</param>
@@ -374,7 +375,7 @@ public:
 			fflush(this->m_fpFilestr);
 		}
 		else {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 		}
 	}
 
@@ -399,17 +400,17 @@ public:
 
 	/// <summary>
 	/// Returns size of the file in bytes.
-	/// @warn Doesn't work and returns 0 if the flag used to open file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
-	/// <returns>File size in bytes if file is open, if not -- AEFW_ERR_WRITE_FILE_NULL (+last error status set to the same thing).</returns>
-	inline llint getFileSize() {
+	/// <returns>File size in bytes if file is open, if not -- AEFW_ERR_NOT_OPEN.</returns>
+	inline llint getFileSize() const {
 
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			//this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return AEFW_ERR_NOT_OPEN;
 		}
-		if (this->m_ucFlags != AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
-			return 0;
+		if (this->m_ucFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
+			return AEFW_ERR_FILE_WRONG_FLAG;
 		}
 
 		const llint curpos = ftell(this->m_fpFilestr); // get current position
@@ -418,7 +419,6 @@ public:
 		fseek(this->m_fpFilestr, curpos, SEEK_SET); // return to original pos
 
 		return endpos;
-
 	}
 
 	/// <summary>
@@ -433,16 +433,16 @@ public:
 //file cursor stuff
 	/// <summary>
 	/// Returns current write cursor position
-	/// @warn Doesn't work and returns 0 if the flag used to open file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
-	/// <returns>Write cursor pos, starting from 0 if file is open, if not -- AEFW_ERR_WRITE_FILE_NULL (+last error status set to the same thing).</returns>
-	inline llint getCursorPos() {
+	/// <returns>Write cursor pos, starting from 0 if file is open, if not -- AEFW_ERR_NOT_OPEN (+last error status set to the same thing).</returns>
+	inline llint getCursorPos() const {
 		if (!this->m_fpFilestr) {
-			//this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			//this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return AEFW_ERR_NOT_OPEN;
 		}
-		if (this->m_ucFlags != AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
-			return 0;
+		if (this->m_ucFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
+			return AEFW_ERR_FILE_WRONG_FLAG;
 		}
 
 		return ftell(this->m_fpFilestr);
@@ -451,21 +451,21 @@ public:
 	/// <summary>
 	/// Sets read cursor position to <pos> from <origin>
 	/// @note If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written.
-	/// @warn Doesn't work if the flag used to open file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
-	inline void setCursorPos(const llint pos, const int origin = SEEK_CUR) {
+	/// <returns>0 on success, AEFW_ERR_NOT_OPEN if file's closed, or other things that fseek can return</returns>
+	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const {
 
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
-			return;
+			return AEFW_ERR_NOT_OPEN;
 		}
-		if (this->m_ucFlags != AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
-			return;
+		if (this->m_ucFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
+			return AEFW_ERR_FILE_WRONG_FLAG;
 		}
-		fseek(this->m_fpFilestr, pos, origin);
-
+		
+		return fseek(this->m_fpFilestr, pos, origin);
 	}
 
 
@@ -474,8 +474,8 @@ public:
 	/// Returns the last error of the writer
 	/// </summary>
 	/// <returns>Values of AEFW_ERR_* error codes</returns>
-	inline int getLastError() const {
-		return this->m_ucLastError;
+	inline cint getLastError() const {
+		return this->m_cLastError;
 	}
 
 	/// <summary>
@@ -490,7 +490,7 @@ public:
 	/// Clears last error status variable and sets it to AEFW_ERR_NOERROR
 	/// </summary>
 	inline void clearError() {
-		this->m_ucLastError = AEFW_ERR_NOERROR;
+		this->m_cLastError = AEFW_ERR_NOERROR;
 	}
 
 	
@@ -545,7 +545,7 @@ private:
 	/// Object for file writing
 	FILE* m_fpFilestr;
 	/// Writer's last error indicator; Values are AEFW_ERR_* macros
-	ucint m_ucLastError;
+	cint m_cLastError;
 	/// Flags that were used to open the file
 	ucint m_ucFlags;
 };
@@ -561,7 +561,7 @@ REGISTER_CLASS(AEFileWriter);
 inline void AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) {
 	
 	if (!this->m_fpFilestr) {
-		this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+		this->m_cLastError = AEFW_ERR_NOT_OPEN;
 		return;
 	}
 
@@ -570,7 +570,7 @@ inline void AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dco
 	if (useAutoFlush) {
 		this->autoFlush();
 	}
-	this->m_ucLastError = AEFW_ERR_NOERROR;
+	this->m_cLastError = AEFW_ERR_NOERROR;
 }
 
 // write stuff dependant on data
@@ -579,7 +579,7 @@ inline void AEFileWriter::write(const T& var, const size_t datasz, const bool us
 
 	//open file?
 	if (!this->m_fpFilestr) {
-		this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+		this->m_cLastError = AEFW_ERR_NOT_OPEN;
 		return;
 	}
 
@@ -641,7 +641,7 @@ bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_inte
 
 	if (!strlen(str)) {
 		this->m_sFilename.clear();
-		this->m_ucLastError = AEFW_ERR_FILE_NAME_EMPTY;
+		this->m_cLastError = AEFW_ERR_FILE_NAME_EMPTY;
 		return false;
 	}
 
@@ -676,13 +676,13 @@ bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_inte
 		break;
 
 	default:
-		this->m_ucLastError = AEFW_ERR_FILE_WRONG_FLAG; //wrong flag, not opening the file
+		this->m_cLastError = AEFW_ERR_FILE_WRONG_FLAG; //wrong flag, not opening the file
 		return false;
 	}
 
 	// last check, to see if everything is okay
 	if (!this->m_fpFilestr) {
-		this->m_ucLastError = AEFW_ERR_FILE_OPEN_ELSE; //file is still somehow nonexistent
+		this->m_cLastError = AEFW_ERR_FILE_OPEN_ELSE; //file is still somehow nonexistent
 		return false;
 	}
 
