@@ -62,12 +62,11 @@
 #define AEFW_ERR_FILE_OPEN_ELSE (ucint)-4
 
 
+//TODO: move this to a separate utils file....or leave it here?
 /// A macro to check if the given type T is about the same as Y
 /// @note It decays both types and omits const-ness
 #define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
-
-//TODO: cleanup the code for performance/readability
 
 /// <summary>
 /// ArtyK's Engine File Writer. Umm, it writes data to given file.
@@ -120,13 +119,14 @@ public:
 		fw.m_ucFlags = 0;
 	}
 
+	//we don't need those
 	AEFileWriter(const AEFileWriter&) = delete;
 	AEFileWriter& operator=(const AEFileWriter&) = delete;
 
 	/// <summary>
 	/// Default Destructor. Just flushes and closes the file.
 	/// </summary>
-	~AEFileWriter() {
+	~AEFileWriter() {	
 		this->flushFile();
 		this->closeFile();
 	}
@@ -139,8 +139,8 @@ public:
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
-	inline bool open(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS) {
-		return this->open(str.c_str(), flags);
+	inline bool open(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
+		return this->open(str.c_str(), flags, af_interval);
 	}
 
 	/// <summary>
@@ -151,7 +151,7 @@ public:
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
-	bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS); //defined below class 
+	bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
 //write stuff
 	//TODO: Add a way to add custom types to this generic write function.
@@ -438,7 +438,7 @@ public:
 	/// <returns>Write cursor pos, starting from 0 if file is open, if not -- AEFW_ERR_WRITE_FILE_NULL (+last error status set to the same thing).</returns>
 	inline llint getCursorPos() {
 		if (!this->m_fpFilestr) {
-			this->m_ucLastError = AEFW_ERR_NOT_OPEN;
+			//this->m_ucLastError = AEFW_ERR_NOT_OPEN;
 			return AEFW_ERR_NOT_OPEN;
 		}
 		if (this->m_ucFlags != AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
@@ -633,7 +633,12 @@ inline void AEFileWriter::write(const T& var, const size_t datasz, const bool us
 
 // open file with flags
 // uses const char* as all normal string function do
-bool AEFileWriter::open(const char* str, const ucint flags) {
+bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_interval) {
+
+	if (this->m_fpFilestr) { // open already -> pls close
+		this->closeFile();
+	}
+
 	if (!strlen(str)) {
 		this->m_sFilename.clear();
 		this->m_ucLastError = AEFW_ERR_FILE_NAME_EMPTY;
@@ -683,6 +688,7 @@ bool AEFileWriter::open(const char* str, const ucint flags) {
 
 	//then everything is good, 
 	this->m_ucFlags = flags;
+	this->m_ullFlushInterval = af_interval;
 	return true;
 }
 

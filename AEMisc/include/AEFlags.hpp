@@ -13,7 +13,7 @@
 /// Macro for the default "use auto-flush" argument value
 #define AEFW_DEFAULT_AUTOFLUSH true
 /// Macro for the default auto-flush amount value
-#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL 1
+#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL (ullint)-1
 
 
 

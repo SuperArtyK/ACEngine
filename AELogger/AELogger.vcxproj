@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6b7776bf-e03a-4b73-8b3a-38bc5b114387}</ProjectGuid>
-    <RootNamespace>ACEngine</RootNamespace>
+    <ProjectGuid>{131fbc46-573b-4e17-b9e6-0838ef58a620}</ProjectGuid>
+    <RootNamespace>AELogger</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -73,28 +73,28 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -110,7 +110,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -130,7 +130,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -146,7 +146,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -164,14 +164,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main_ACEngine.cpp" />
+    <ClCompile Include="main_AELogger.cpp" />
+    <ClCompile Include="src\AELogger.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />
-    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md" />
+    <ClInclude Include="include\AELogger.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
