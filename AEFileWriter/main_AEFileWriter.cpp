@@ -28,6 +28,12 @@ int main() {
 	AEFileWriter myfw;
 	myfw.open("hello.txt");
 
+	myfw.write("The name of the module is: ");
+	myfw.write(myfw.getModuleName());
+	myfw.write("\nAnd the alive amount of such modules is: ");
+	myfw.write(myfw.getModuleAmount());
+	myfw.write('\n');
+
 	myfw.write(10); // 10
 	myfw.write('\n');
 	myfw.write(LLONG_MIN); // -2^63

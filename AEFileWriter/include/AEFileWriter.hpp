@@ -17,6 +17,7 @@
 #include <stdexcept>
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
+#include "include/AEModuleBase.hpp"
 
 // stuff for crosscompilation and 64bit access
 // dont touch
@@ -73,7 +74,7 @@
 /// Hungarian notation is fw
 /// Flags start with AEFW_
 /// </summary>
-class AEFileWriter {
+class AEFileWriter : public __AEBasicModule<AEFileWriter> {
 public:
 
 //construction
@@ -549,6 +550,7 @@ private:
 	ucint m_ucFlags;
 };
 
+REGISTER_CLASS(AEFileWriter);
 
 
 // inline function definitions
