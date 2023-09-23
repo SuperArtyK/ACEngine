@@ -21,10 +21,11 @@
 #define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
 ///This namespace contains all of things that any of the part of program can use, and is useful.
-///Such things are -- handles to windows, app names, status(we're starter or closing), flags, functions, etc.
+///Such things as flags, utilities, handles to windows, status(we're starting or closing), etc.
+///Basically everything for everyone and public access
 namespace ace {
 
-	///global useful functions
+	///Global usefull utilities
 	namespace utils {
 
 		/// <summary>

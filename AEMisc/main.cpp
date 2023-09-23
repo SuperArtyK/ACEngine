@@ -9,7 +9,7 @@ using std::endl;
 
 int main() {
 	
-
+	cout << std::numeric_limits<long double>::digits10 << endl;
 	std::string testv = ace::utils::getCurrentDate();
 	cout << ace::utils::boolToString(false) << "; " << ace::utils::boolToString(true) << endl;
 	cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;

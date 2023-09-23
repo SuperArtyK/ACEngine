@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AEFlags.hpp" />
+    <ClInclude Include="include\AEMath.hpp" />
     <ClInclude Include="include\AETypedefs.hpp" />
     <ClInclude Include="include\AEUtils.hpp" />
   </ItemGroup>
