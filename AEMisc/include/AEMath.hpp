@@ -88,7 +88,7 @@ namespace ace::math {
 		static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
 		return (num < 0) ? T(num + Y(0.5)) * -1 : T(num + Y(0.5));
 	}
-
+	
 	/// <summary>
 	/// Calculates the absolute value of given float of type T
 	/// </summary>
@@ -110,7 +110,7 @@ namespace ace::math {
 	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
 	/// <returns>True if both numbers are equal, false otherwise</returns>
 	template<typename T>
-	constexpr inline bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) {
+	constexpr bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
 		return (num - num2) < _epsilon &&
 			-(num - num2) < _epsilon;

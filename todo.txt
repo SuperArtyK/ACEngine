@@ -7,7 +7,7 @@ AETimer
 AEVector
 
 Add/transfer file docs from the past engine 
-Add the look up table of trigonometric values from previous engine, and add more apporximation between degrees (like approx value of 0.5 degrees)
+Add the look up table of trigonometric values from previous engine -- done!
 Add the global variable list from the past engine
 And maybe add the global modules too
 
