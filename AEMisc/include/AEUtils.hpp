@@ -16,9 +16,22 @@
 /// Macro for the check if modulo of x and y results in 0
 #define mod0(x,y) !(x%y)
 
-/// A macro to check if the given type T is about the same as Y
+/// Macro to check if the given type T is about the same as Y
 /// @note It decays both types and omits const-ness
 #define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
+
+/// Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!"
+#define UTF8(x) u8 ## x //converts the "string" to the u8"string"
+/// Macro to convert the "string literal" to L"wide string literal"
+#define WSTR(x) L ## x //converts the "string" to the L"string"
+
+//other stuff
+/// Macro for newline char
+#define NLC '\n'
+
+/// Macro for newline string
+#define NLS "\n"
+
 
 ///This namespace contains all of things that any of the part of program can use, and is useful.
 ///Such things as flags, utilities, handles to windows, status(we're starting or closing), etc.
