@@ -7,7 +7,7 @@
 #include "include/AEFileWriter.hpp"
 
 
-class AELogger : public __AEBasicModule<AELogger> {
+class AELogger : public __AEModuleBase<AELogger> {
 
 public:
 

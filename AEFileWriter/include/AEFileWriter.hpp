@@ -73,7 +73,7 @@
 /// Hungarian notation is fw
 /// Flags start with AEFW_
 /// </summary>
-class AEFileWriter : public __AEBasicModule<AEFileWriter> {
+class AEFileWriter : public __AEModuleBase<AEFileWriter> {
 public:
 
 //construction

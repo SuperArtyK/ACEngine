@@ -27,14 +27,14 @@ inline const char* getTypeName() { return "getTypeName"; }
 /// </summary>
 /// <typeparam name="T">Module's class name</typeparam>
 template<typename T>
-class __AEBasicModule
+class __AEModuleBase
 {
 public:
 
 	/// <summary>
 	/// Basic constructor that increases module count
 	/// </summary>
-	__AEBasicModule(){
+	__AEModuleBase(){
 		m_ullModulesAlive++;
 	}
 
@@ -44,14 +44,14 @@ public:
 	/// Basic copy constructor that increases module count
 	/// </summary>
 	/// <param name="val"></param>
-	__AEBasicModule(const __AEBasicModule<T>& val) {
+	__AEModuleBase(const __AEModuleBase<T>& val) {
 		m_ullModulesAlive++;
 	}
 
 	/// <summary>
 	/// Basic destructor that decreases module count
 	/// </summary>
-	virtual ~__AEBasicModule(){
+	virtual ~__AEModuleBase(){
 		m_ullModulesAlive--;
 	}
 	
@@ -85,7 +85,7 @@ protected:
 
 /// sets up the static variable values for the base class (and inherited classes)
 template<typename T>
-const std::string __AEBasicModule<T>::m_sModulename = getTypeName<T>();
+const std::string __AEModuleBase<T>::m_sModulename = getTypeName<T>();
 
 //REGISTER_CLASS(__AEModuleBase)
 

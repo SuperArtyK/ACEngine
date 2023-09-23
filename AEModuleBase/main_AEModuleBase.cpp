@@ -2,7 +2,7 @@
 #include <iostream>
 #include "include/AEModuleBase.hpp"
 
-class Test : public __AEBasicModule<Test> {
+class Test : public __AEModuleBase<Test> {
 
 public:
     Test(int s) {
