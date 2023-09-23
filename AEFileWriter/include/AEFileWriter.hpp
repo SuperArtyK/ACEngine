@@ -18,6 +18,7 @@
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
 #include "include/AEModuleBase.hpp"
+#include "include/AEUtils.hpp"
 
 // stuff for crosscompilation and 64bit access
 // dont touch
@@ -60,12 +61,6 @@
 #define AEFW_ERR_FILE_WRONG_FLAG -3
 ///If the file couldn't be created for some other reason, like missing permissions to access files
 #define AEFW_ERR_FILE_OPEN_ELSE -4
-
-
-//TODO: move this to a separate utils file....or leave it here?
-/// A macro to check if the given type T is about the same as Y
-/// @note It decays both types and omits const-ness
-#define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
 
 /// <summary>

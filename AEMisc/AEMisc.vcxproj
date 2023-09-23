@@ -172,6 +172,7 @@
   <ItemGroup>
     <ClInclude Include="include\AEFlags.hpp" />
     <ClInclude Include="include\AETypedefs.hpp" />
+    <ClInclude Include="include\AEUtils.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
