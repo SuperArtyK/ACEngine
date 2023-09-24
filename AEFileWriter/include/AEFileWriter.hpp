@@ -359,7 +359,7 @@ public:
 	/// <summary>
 	/// Flushes the opened file. That's it. If file isn't open, sets the last error status to AEFW_ERR_NOT_OPEN.
 	/// </summary>
-	inline void flushFile() {
+	inline void flushFile(void) {
 		if (this->m_fpFilestr) {
 			fflush(this->m_fpFilestr);
 		}
@@ -371,7 +371,7 @@ public:
 	/// <summary>
 	/// Closes the currently opened file. In addition, clears the last error status.
 	/// </summary>
-	inline void closeFile() {
+	inline void closeFile(void) {
 		if (this->m_fpFilestr)
 			fclose(this->m_fpFilestr);
 		this->m_fpFilestr = nullptr;
@@ -383,7 +383,7 @@ public:
 	/// Checks if a file is open by this file-writer.
 	/// </summary>
 	/// <returns>True if file is open, false if otherwise</returns>
-	inline bool isOpen() const {
+	inline bool isOpen(void) const {
 		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 
@@ -392,7 +392,7 @@ public:
 	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>File size in bytes if file is open, if not -- AEFW_ERR_NOT_OPEN.</returns>
-	inline llint getFileSize() const {
+	inline llint getFileSize(void) const {
 
 		if (!this->m_fpFilestr) {
 			//this->m_cLastError = AEFW_ERR_NOT_OPEN;
@@ -414,7 +414,7 @@ public:
 	/// Returns name of currently open file
 	/// </summary>
 	/// <returns>File name and its additional path(if was included in opening operation)</returns>
-	inline std::string getFileName() const {
+	inline std::string getFileName(void) const {
 		return this->m_sFilename;
 	}
 
@@ -425,7 +425,7 @@ public:
 	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>Write cursor pos, starting from 0 if file is open, if not -- AEFW_ERR_NOT_OPEN (+last error status set to the same thing).</returns>
-	inline llint getCursorPos() const {
+	inline llint getCursorPos(void) const {
 		if (!this->m_fpFilestr) {
 			//this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return AEFW_ERR_NOT_OPEN;
@@ -463,7 +463,7 @@ public:
 	/// Returns the last error of the writer
 	/// </summary>
 	/// <returns>Values of AEFW_ERR_* error codes</returns>
-	inline cint getLastError() const {
+	inline cint getLastError(void) const {
 		return this->m_cLastError;
 	}
 
@@ -471,14 +471,14 @@ public:
 	/// Returns total write requests made to file
 	/// </summary>
 	/// <returns>Amount of times the write operation has been called on the AEFileWriter instance</returns>
-	inline ullint getTotalWrites() const {
+	inline ullint getTotalWrites(void) const {
 		return this->m_ullTotalWrites;
 	}
 
 	/// <summary>
 	/// Clears last error status variable and sets it to AEFW_ERR_NOERROR
 	/// </summary>
-	inline void clearError() {
+	inline void clearError(void) {
 		this->m_cLastError = AEFW_ERR_NOERROR;
 	}
 	

@@ -93,10 +93,10 @@ typedef std::chrono::steady_clock SteadyTime;
 #define timeDur std::chrono::duration
 
 /// A macro as the shortcut of chrono's milliseconds
-#define millisec(x) std::chrono::milliseconds(x)
+#define milliSec(x) std::chrono::milliseconds(x)
 
 /// A macro as the shortcut of chrono's microseconds
-#define microsec(x) std::chrono::microseconds(x)
+#define microSec(x) std::chrono::microseconds(x)
 
 
 //thread

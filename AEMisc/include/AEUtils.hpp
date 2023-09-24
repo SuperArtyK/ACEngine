@@ -147,7 +147,7 @@ namespace ace {
 		/// Retrieves the current date and time
 		/// </summary>
 		/// <returns>const char* of the current date in YYYY-MM-DD.HH:mm:SS format</returns>
-		inline std::string getCurrentDate() {//
+		inline std::string getCurrentDate(void) {//
 			time_t now = time(0);
 			struct tm tstruct;
 #ifdef _WIN32
@@ -171,9 +171,24 @@ namespace ace {
 			return oss.str();
 		}
 
-	}
-	
+		/// <summary>
+		/// Convenient sleep function to sleep the thread for ms milliseconds
+		/// @note May be inaccurate in delay (as...all sleep functions are)
+		/// </summary>
+		/// <param name="ms">The amount of milliseconds to sleep</param>
+		inline void sleepMS(const int ms) {
+			sleepFor(milliSec(ms));
+		}
 
+		/// <summary>
+		/// Convenient sleep function to sleep the thread for ms microseconds
+		/// @note May be inaccurate in delay (as...all sleep functions are)
+		/// </summary>
+		/// <param name="ms">The amount of microseconds to sleep</param>
+		inline void sleepUS(const int us) {
+			sleepFor(microSec(us));
+		}
+	}	
 }
 
 #endif // !ENGINE_UTILS_HPP

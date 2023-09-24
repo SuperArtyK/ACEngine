@@ -43,7 +43,7 @@ public:
 	/// <summary>
 	/// Close the file, if it was opened. That's it.
 	/// </summary>
-	void closeLog() {
+	void closeLog(void) {
 		this->m_fwLogger.closeFile();
 	}
 
@@ -51,7 +51,7 @@ public:
 	/// Get the name of the log file
 	/// </summary>
 	/// <returns>std::string of the name of opened log file</returns>
-	std::string getLogName() const {
+	std::string getLogName(void) const {
 		return m_fwLogger.getFileName();
 	}
 	
@@ -59,7 +59,7 @@ public:
 	/// Get the amount of log entries done to an opened log file
 	/// </summary>
 	/// <returns>ullint of the amount of times logger written to a file</returns>
-	ullint getEntryCount() const {
+	ullint getEntryCount(void) const {
 		return m_fwLogger.getTotalWrites();
 	}
 
@@ -67,7 +67,7 @@ public:
 	/// Get the last error status code
 	/// </summary>
 	/// <returns>ucint of the error code by the filewriter/logger</returns>
-	ucint getLastError() const {
+	ucint getLastError(void) const {
 		return m_fwLogger.getLastError();
 	}
 

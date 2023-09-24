@@ -11,7 +11,7 @@
 //file meaning: base classes for all modules
 
 template <typename T>
-inline const char* getTypeName() { return "getTypeName"; }
+inline const char* getTypeName(void) { return "getTypeName"; }
 
 /// adds module name to inherit from __AEModuleBase
 #define REGISTER_CLASS(T) template <> inline const char* getTypeName<T>() { return #T; }
@@ -59,7 +59,7 @@ public:
 	/// Returns the amount of instances of the module currently existing
 	/// </summary>
 	/// <returns>Unsigned long long of the module amount</returns>
-	static inline ullint getModuleAmount() {
+	static inline ullint getModuleAmount(void) {
 		return m_ullModulesAlive.load();
 	}
 	
@@ -67,7 +67,7 @@ public:
 	/// Returns the name of the registered module
 	/// </summary>
 	/// <returns></returns>
-	static inline std::string getModuleName() {
+	static inline std::string getModuleName(void) {
 		return m_sModulename;
 	}
 
