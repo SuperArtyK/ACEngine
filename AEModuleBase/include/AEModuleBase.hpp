@@ -38,8 +38,6 @@ public:
 		m_ullModulesAlive++;
 	}
 
-	//TODO: Add docs, format it correctly for this engine!
-
 	/// <summary>
 	/// Basic copy constructor that increases module count
 	/// </summary>

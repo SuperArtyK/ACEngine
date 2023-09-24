@@ -25,6 +25,7 @@ int main() {
 	std::srand(std::time(NULL));
 	AEFrame myfr(60);
 	AEFileWriter myfw("acenginetest.txt", AEFW_FLAG_TRUNCATE, 1);
+	AETimer mytm(10000);
 	int a = 0;
 
 	timePoint<HighResTime> tp1;
@@ -35,6 +36,8 @@ int main() {
 		myfw.writeString("Hello AEFileWriter!\n");
 		myfw.flushFile();
 		std::cout << ace::math::cosDeg(a) << " " << ace::math::cosDeg_table(a)<<NLC;
+		std::cout << "The timer tick is: " << mytm.getTick() << NLC;
+		std::cout << "The timer's world time is: " << mytm.getWorldTime() << " seconds" << NLC;
 		std::cout << "The time it took to run the loop is: ";
 		std::cout << calculateTime(tp1, getHighResTime(), float)<<NLC;
 		myfr.sleep();

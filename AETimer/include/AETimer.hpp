@@ -10,11 +10,6 @@
 #include <atomic>
 
 
-
-//todo: add docs
-
-
-
 /// <summary>
 /// ArtyK's Engine Timer. The engine's internal timer for..timing events or anything, with variable tick speed.
 /// Just create it and look at the ticks of the timer from anywhere in the program...that you can access it.
