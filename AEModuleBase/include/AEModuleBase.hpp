@@ -43,9 +43,8 @@ public:
 	/// <summary>
 	/// Basic copy constructor that increases module count
 	/// </summary>
-	/// <param name="val"></param>
+	/// <param name="val">The value to be copied...useless since we have nothing to copy lol (but we need it)</param>
 	__AEModuleBase(const __AEModuleBase<T>& val) {
-		*this = val;
 		m_ullModulesAlive++;
 	}
 

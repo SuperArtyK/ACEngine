@@ -5,7 +5,7 @@
 int main()
 {
     AEFrame a(60);
-    a.setFps(30);
+    a.setFps(5);
     AEFrame myfr = a;
     std::cout << myfr.getModuleAmount() << " " << myfr.getModuleName() << '\n';
     while (1) {
