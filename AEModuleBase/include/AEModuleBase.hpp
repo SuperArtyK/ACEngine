@@ -14,7 +14,7 @@ template <typename T>
 inline const char* getTypeName(void) { return "getTypeName"; }
 
 /// adds module name to inherit from __AEModuleBase
-#define REGISTER_CLASS(T) template <> inline const char* getTypeName<T>() { return #T; }
+#define REGISTER_CLASS(T) template <> constexpr const char* getTypeName<T>() { return #T; }
 
 // Usage to register the class:
 // add REGISTER_CLASS(<classname>)
@@ -23,7 +23,7 @@ inline const char* getTypeName(void) { return "getTypeName"; }
 /// <summary>
 /// This is a base class for all basic modules, meaning that the module is not using other modules to work. 
 /// Intended to be inherited from in class declaration, not direct usage.
-/// Usage: class [classname] : public __AEBasicModule<[classname]>
+/// Usage: class [classname] : public __AEModuleBase<[classname]>
 /// </summary>
 /// <typeparam name="T">Module's class name</typeparam>
 template<typename T>
@@ -45,6 +45,7 @@ public:
 	/// </summary>
 	/// <param name="val"></param>
 	__AEModuleBase(const __AEModuleBase<T>& val) {
+		*this = val;
 		m_ullModulesAlive++;
 	}
 

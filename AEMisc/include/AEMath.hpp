@@ -25,7 +25,7 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate sine from</param>
 	/// <returns>Float of sine results</returns>
-	inline float sinDeg(float degrees) {
+	inline float sinDeg(const float degrees) {
 		return sinf(torad(degrees));
 	}
 
@@ -34,7 +34,7 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cosine from</param>
 	/// <returns>Float of cosine results</returns>
-	inline float cosDeg(float degrees) {
+	inline float cosDeg(const float degrees) {
 		return cosf(torad(degrees));
 	}
 
@@ -43,7 +43,7 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate tangent from</param>
 	/// <returns>Float of tangent results</returns>
-	inline float tanDeg(float degrees) {
+	inline float tanDeg(const float degrees) {
 		return tanf(torad(degrees));
 	}
 
@@ -52,7 +52,7 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cotangent from</param>
 	/// <returns>Float of cotangent results</returns>
-	inline float cotDeg(float degrees) {
+	inline float cotDeg(const float degrees) {
 		return 1 / tanf(torad(degrees));
 	}
 
@@ -61,7 +61,7 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cosecant from</param>
 	/// <returns>Float of cosecant results</returns>
-	inline float cscDeg(float degrees) {
+	inline float cscDeg(const float degrees) {
 		return 1 / sinf(torad(degrees));
 	}
 
@@ -70,7 +70,7 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate secant from</param>
 	/// <returns>Float of secant results</returns>
-	inline float secDeg(float degrees) {
+	inline float secDeg(const float degrees) {
 		return 1 / cosf(torad(degrees));
 	}
 

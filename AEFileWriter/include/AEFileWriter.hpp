@@ -65,6 +65,7 @@
 
 /// <summary>
 /// ArtyK's Engine File Writer. Umm, it writes data to given file.
+/// Just create it and dump the gigabytes of data to your files.
 /// Hungarian notation is fw
 /// Flags start with AEFW_
 /// </summary>
