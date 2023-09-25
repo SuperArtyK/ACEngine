@@ -7,26 +7,37 @@
 #include <cmath>
 #include <limits>
 #include <type_traits>
+#include "AETypedefs.hpp"
 
 
 /// Macro to convert degrees value x to radians
-#define torad(x) x * ace::math::PI / 180.0f
+#define torad(x,typ) (x * ace::math::pi<typ>() / typ(180.0))
 
+#define todeg(x,typ) (x*typ(180.0)/ace::math::pi<typ>())
 ///Mathematical functions and other things usefull in math
 namespace ace::math {
 
 	//math stuff
 	
-	///Engine pi variable
-	constexpr float PI = 3.141592654f;
+	
+	/// <summary>
+	/// Engine pi variable
+	/// </summary>
+	/// <typeparam name="T">Type to convert pi to</typeparam>
+	/// <returns>Pi converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T pi(void) {
+		return T(3.141592653589793L);
+	}
 
 	/// <summary>
 	/// Calculates the sine of the given degrees
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate sine from</param>
 	/// <returns>Float of sine results</returns>
-	inline float sinDeg(const float degrees) {
-		return sinf(torad(degrees));
+	template<typename T = long double>
+	inline T sinDeg(const T degrees) {
+		return sin(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -34,8 +45,9 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cosine from</param>
 	/// <returns>Float of cosine results</returns>
-	inline float cosDeg(const float degrees) {
-		return cosf(torad(degrees));
+	template<typename T = long double>
+	inline T cosDeg(const T degrees) {
+		return cos(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -43,8 +55,9 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate tangent from</param>
 	/// <returns>Float of tangent results</returns>
-	inline float tanDeg(const float degrees) {
-		return tanf(torad(degrees));
+	template<typename T = long double>
+	inline T tanDeg(const T degrees) {
+		return tan(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -52,8 +65,9 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cotangent from</param>
 	/// <returns>Float of cotangent results</returns>
-	inline float cotDeg(const float degrees) {
-		return 1 / tanf(torad(degrees));
+	template<typename T = long double>
+	inline T cotDeg(const T degrees) {
+		return 1 / tan(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -61,8 +75,9 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cosecant from</param>
 	/// <returns>Float of cosecant results</returns>
-	inline float cscDeg(const float degrees) {
-		return 1 / sinf(torad(degrees));
+	template<typename T = long double>
+	inline T cscDeg(const T degrees) {
+		return 1 / sin(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -70,8 +85,9 @@ namespace ace::math {
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate secant from</param>
 	/// <returns>Float of secant results</returns>
-	inline float secDeg(const float degrees) {
-		return 1 / cosf(torad(degrees));
+	template<typename T = long double>
+	inline T secDeg(const T degrees) {
+		return 1 / cos(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -82,7 +98,7 @@ namespace ace::math {
 	/// <typeparam name="Y">The type of the float to round</typeparam>
 	/// <param name="num">The floating point number to round</param>
 	/// <returns>the rounded integer of type T, from the given float number</returns>
-	template<typename T, typename Y>
+	template<typename T = llint, typename Y = long double>
 	constexpr T roundToInt(const Y num) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integer types as the target rounding type in ace::math::roundtoint()!");
 		static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
@@ -95,7 +111,7 @@ namespace ace::math {
 	/// <typeparam name="T">The type of the float</typeparam>
 	/// <param name="num">The float to calculate absolute value of</param>
 	/// <returns>absolute value of the float as the type T</returns>
-	template<typename T>
+	template<typename T = long double>
 	constexpr inline T absval(const T num) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::absval()!");
 		return (num < 0) ? num - 1 : num;
@@ -109,7 +125,7 @@ namespace ace::math {
 	/// <param name="num2">The second float to compare</param>
 	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
 	/// <returns>True if both numbers are equal, false otherwise</returns>
-	template<typename T>
+	template<typename T = long double>
 	constexpr bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
 		return (num - num2) < _epsilon &&
@@ -122,7 +138,7 @@ namespace ace::math {
 	/// <typeparam name="T">The type of the float</typeparam>
 	/// <param name="num">The float value to calculate the square root from</param>
 	/// <returns>square root value from passed value of type T</returns>
-	template<typename T>
+	template<typename T = long double>
 	constexpr T fsqrt(const T num) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fsqrt()!");
 		T val[2] = { num,0 };
