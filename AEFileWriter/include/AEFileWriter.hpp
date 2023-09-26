@@ -147,7 +147,7 @@ public:
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
-	bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
+	inline bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
 //write stuff
 	//TODO: Add a way to add custom types to this generic write function.

@@ -119,7 +119,7 @@ public:
 
 	/// <summary>
 	/// Returns the fps goal of AEFrame instance in the AETimer
-	/// @note See AEFrame::getFrameRate()
+	/// @see AEFrame::getFrameRate()
 	/// </summary>
 	/// <returns>Rounded int of the approximated fps goal</returns>
 	inline double getFrameRate(void) const { 
@@ -128,7 +128,7 @@ public:
 
 	/// <summary>
 	/// Returns the maximum AEFrame's instance in the AETimer delay from the set fps, in seconds
-	/// @note See AEFrame::getDelay()
+	/// @see AEFrame::getDelay()
 	/// </summary>
 	/// <returns>double of the maximum AEFrame's instance in the AETimer delay in real-world seconds</returns>
 	inline double getDelay(void) const {
