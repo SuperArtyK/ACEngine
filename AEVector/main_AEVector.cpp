@@ -43,7 +43,8 @@ int main() {
 	cout << a.normalise() << "; " << b.normalise() << "; " << c.normalise() << NLC;
 	cout << (a != c) << NLC;
 	cout << a.dotProduct<float>(c)<<NLC;
-
+	cout << (a + c)<<NLC;
+	cout << (a * 3) << NLC;
 
     return 0;
 }

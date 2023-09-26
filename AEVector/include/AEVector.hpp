@@ -113,7 +113,35 @@ struct AEVector {
 		return AEVector<T, dimAmount>{};
 	}
 
+	template<typename Y>
+	constexpr AEVector<T, dimAmount>& operator+=(const AEVector<Y, dimAmount>& two) {
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			this->dims[i] += two.dims[i];
+		}
+		return *this;
+	}
+
+	template<typename Y>
+	constexpr const AEVector<T, dimAmount> operator+(const AEVector<Y, dimAmount>& two) const {
+		AEVector<T, dimAmount> a = *this;
+		return a.operator+=(two);
+	}
 	
+	template<typename Y>
+	constexpr AEVector<T, dimAmount>& operator*=(const Y two) {
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			this->dims[i] *= two;
+		}
+		return *this;
+	}
+
+	template<typename Y>
+	constexpr const AEVector<T, dimAmount> operator*(const Y two) const {
+		AEVector<T, dimAmount> a = *this;
+		return a.operator*=(two);
+	}
+
+
 
 };
 

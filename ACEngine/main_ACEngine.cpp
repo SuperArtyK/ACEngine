@@ -35,7 +35,7 @@ int main() {
 		std::cout << "Hello ACEngine! ";
 		myfw.writeString("Hello AEFileWriter!\n");
 		myfw.flushFile();
-		std::cout << ace::math::cosDeg(a) << " " << ace::math::cosDeg_table(a)<<NLC;
+		std::cout << ace::math::cosDeg<float>(a) << " " << ace::math::cosDeg_table(a)<<NLC;
 		std::cout << "The timer tick is: " << mytm.getTick() << NLC;
 		std::cout << "The timer's world time is: " << mytm.getWorldTime() << " seconds" << NLC;
 		std::cout << "The time it took to run the loop is: ";
