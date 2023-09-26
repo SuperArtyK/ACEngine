@@ -143,22 +143,33 @@ namespace ace {
 			return true;
 		}
 
+
 		/// <summary>
-		/// Retrieves the current date and time
+		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
 		/// </summary>
-		/// <returns>const char* of the current date in YYYY-MM-DD.HH:mm:SS format</returns>
-		inline std::string getCurrentDate(void) {//
-			time_t now = time(0);
+		/// <param name="timept">C time point</param>
+		/// <returns>std::string of the formatted string</returns>
+		inline std::string formatDate(const time_t timept) {
 			struct tm tstruct;
 #ifdef _WIN32
-			localtime_s(&tstruct, &now);
+			localtime_s(&tstruct, &timept);
 #else
-			tstruct = *localtime(&now);
+			tstruct = *localtime(&timept);
 #endif
 			char buff[20]{};
 			strftime(buff, sizeof(buff), "%Y-%m-%d.%X", &tstruct);
 			return buff;
 		}
+
+		/// <summary>
+		/// Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS
+		/// </summary>
+		/// <returns>std::stringof the current date in YYYY-MM-DD.HH:mm:SS format</returns>
+		inline std::string getCurrentDate(void) {//
+			return ace::utils::formatDate(time(NULL));
+		}
+
+		
 
 		/// <summary>
 		/// Converts the hex address value to string

@@ -43,7 +43,7 @@
 ///Write cursor at the start of the file, truncating the contents if existed
 #define AEFW_FLAG_TRUNCATE 3
 ///No Write flags; Same as truncate (fopen)
-#define AEFW_FLAG_NOFLAGS 255
+#define AEFW_FLAG_NOFLAGS 0
 
 
 //Error flags

@@ -3,7 +3,7 @@ Quick todo list of things to..do
 Transfer and adjust following modules from the past engine:
 AEFrame -- done!
 AESleep -- we have the ace::utils::sleepMS() and sleepUS()
-AETimer
+AETimer -- done!
 AEVector
 
 Add/transfer file docs from the past engine 
