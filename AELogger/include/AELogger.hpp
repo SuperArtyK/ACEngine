@@ -5,45 +5,53 @@
 
 #include "include/AEModuleBase.hpp"
 #include "include/AEFileWriter.hpp"
-#include <ctime>
+#include "include/AETypedefs.hpp"
 #include <vector>
 #include <atomic>
 #include <thread>
 #include <mutex>
-#include <iostream>
-#include <utility>
 
 
 //log types
+/// Macro for the AELogger's debug entry
 #define AELOG_TYPE_DEBUG 0
+/// Macro for the AELogger's informational entry
 #define AELOG_TYPE_INFO 1
+/// Macro for the AELogger's warning entry (something isn't right)
 #define AELOG_TYPE_WARN 2
+/// Macro for the AELogger's severe warning entry (something is wrong but it's not an error)
 #define AELOG_TYPE_SEVERE_WARN 3
+/// Macro for the AELogger's OK entry (something is good, like a check)
 #define AELOG_TYPE_OK 4
+/// Macro for the AELogger's successful entry (something done is successfull..like a module start)
 #define AELOG_TYPE_SUCCESS 5
+/// Macro for the AELogger's errorneus entry (something is bad..it's an error)
 #define AELOG_TYPE_ERROR 6
+/// Macro for the AELogger's fatally-errorenous entry (something critical is fatally-bad)
 #define AELOG_TYPE_FATAL_ERROR 7
-
-//log entry ordernum
-#define AELOG_ENTRY_INVALID_ORDERNUM ullint(-1)
-
-//log entry status
-
-//log entry is invalid
-#define AELOG_ENTRY_STATUS_INVALID 0
-//log entry is currently being set up and written to
-#define AELOG_ENTRY_STATUS_SETTING 1
-//log entry is ready to be read
-#define AELOG_ENTRY_STATUS_READY 2 
-//log entry is currently being read by the thread
-#define AELOG_ENTRY_STATUS_READING 3
-
+//other logger stuff
+/// Macro for the AELogger's default queue size (if none was provided)
 #define AELOG_DEFAULT_QUEUE_SIZE 1024
-
+/// Macro for the AELogger's default module name (if none was provided when calling the write-to-log request)
 #define AELOG_DEFAULT_MODULE_NAME "ACEngine"
 
+//log entry stuff
+/// Macro for the AELogEntry's order number to be invalid
+#define AELOG_ENTRY_INVALID_ORDERNUM ullint(-1)
+/// Macro for the AELogEntry's status to be: invalid
+#define AELOG_ENTRY_STATUS_INVALID 0
+/// Macro for the AELogEntry's status to be: currently being set up and written to
+#define AELOG_ENTRY_STATUS_SETTING 1
+/// Macro for the AELogEntry's status to be: currently read
+#define AELOG_ENTRY_STATUS_READY 2 
+/// Macro for the AELogEntry's status to be: currently being read by the log-writing thread
+#define AELOG_ENTRY_STATUS_READING 3
 
 
+
+/// <summary>
+/// The structure for the log entry data in the queue of AELogger
+/// </summary>
 struct AELogEntry {
 
 	/// The message of the log entry
@@ -78,33 +86,28 @@ struct AELogEntry {
 		}
 	}
 	
-	static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr) {
-		//damn, amt is really 0; get null!
-		if (amt == 0) {
-			return nullptr;
-		}
-		//allocate new log entry list
-		AELogEntry* leptr = new AELogEntry[amt]{};
-		for (std::size_t i = 0; i < amt; i++) {
-			leptr[i].m_lepNextNode = leptr + i + 1; //set the next node pointers for our linked list
-		}
-		//loop the last log entry to the beginning
-		if (oldqueue) {
-			leptr[amt - 1].m_lepNextNode = oldqueue; //beginning of old queue
-		}
-		else {
-			leptr[amt - 1].m_lepNextNode = leptr; //beginning of itself
-		}
-
-		return leptr;
-	}
+	/// <summary>
+	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
+	/// Optionally may loop the newly-allocated queue to the old queue
+	/// @note You should delete[] the pointer after you're done using it (unless you like mem-leaks)
+	/// @note If the amt is 0, throws the std::runtime exception
+	/// </summary>
+	/// <param name="amt">The amount of entries in the queue(size)</param>
+	/// <param name="oldqueue">The pointer to the old queue to loop the new queue to.</param>
+	/// <returns>Pointer to the first node of the allocated queue</returns>
+	static AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr);
 };
 
 
 //TODO: implement copy constructors and copy assignment
-//TODO: add threads to the AELogger
 
-
+/// <summary>
+/// The ArtyK's Engine's Logger module. It manages the writing to the log files.
+/// The log is written by requesting and filling the entry in the queue.
+/// The AELogger instance launches the separate thread that looks at the entries in the queue,
+/// retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.
+/// The queue can expand if it's too little. But....I don't know how to shrink it. 
+/// </summary>
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
@@ -129,26 +132,18 @@ public:
 	// I'll implement multithreading and multiple instances later
 	AELogger(const AELogger&) = delete;
 	AELogger& operator=(const AELogger&) = delete;
-	
 
-	inline void startWriter(void) {
-		if (this->m_trdWriter.joinable()) {
-			return; //we already are writing, dummy;
-		}
 
-		this->m_bStopTrd = false;
-		this->m_trdWriter = std::thread(&AELogger::parseEntries, this);
-		if (!this->m_trdWriter.joinable()) {
-			throw std::runtime_error("Could not start AETimer thread!");
-		}
-	}
+//util functions(threads, files)
+	/// <summary>
+	/// Starts the log-writing thread
+	/// </summary>
+	void startWriter(void);
 
-	inline void stopWriter(void) {
-		this->m_bStopTrd = true;
-		if (this->m_trdWriter.joinable()) {
-			this->m_trdWriter.join();
-		}
-	}
+	/// <summary>
+	/// Stops the log-writing thread (after flushing the log queue)
+	/// </summary>
+	void stopWriter(void);
 
 	/// <summary>
 	/// Open the file to start logging
@@ -157,15 +152,30 @@ public:
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	inline void openLog(const std::string& fname, const bool clearLog = false) {
 		this->m_fwLogger.open(fname, !clearLog * AEFW_FLAG_APPEND, 1);
+		this->startWriter();
 	}
 
 	/// <summary>
 	/// Close the file, if it was opened. That's it.
 	/// </summary>
 	inline void closeLog(void) {
+		this->stopWriter();
 		this->m_fwLogger.closeFile();
 	}
 
+
+//main utility function (bruh)
+	/// <summary>
+	/// Request an entry to be written to the opened log file
+	/// @note See AELOG_TYPE_* flags
+	/// </summary>
+	/// <param name="logmessg">The message of the requested log entry</param>
+	/// <param name="logtype">The type of the log entry</param>
+	/// <param name="logmodule">The module that invoked this request</param>
+	void writeToLog(const std::string& logmessg, const ucint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
+
+
+//getters of info
 	/// <summary>
 	/// Get the name of the log file
 	/// </summary>
@@ -173,7 +183,7 @@ public:
 	inline std::string getLogName(void) const {
 		return this->m_fwLogger.getFileName();
 	}
-	
+
 	/// <summary>
 	/// Get the amount of log entries done to an opened log file
 	/// </summary>
@@ -190,26 +200,38 @@ public:
 		return this->m_fwLogger.getLastError();
 	}
 
-	
-	void writeToLog(const std::string& logmessg, const ucint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
-
-	void parseEntries(void);
-
-	AELogEntry* ptrFromIndex(ullint num) {
-		num %= m_ullQueueSize;
-		ullint prevSize = 0;
-		for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
-			if (this->m_vAllocTable[i].first > num) {
-				return this->m_vAllocTable[i].second + (num-prevSize);
-			}
-			prevSize = this->m_vAllocTable[i].first;
-		}
-		return m_lepQueue;
+	/// <summary>
+	/// Checks if the current log file is open
+	/// </summary>
+	/// <returns>True if the file is open for writing, false otherwise</returns>
+	inline bool isOpen(void) const {
+		return this->m_fwLogger.isOpen();
 	}
 
+	/// <summary>
+	/// Checks if the log-writing thread is running
+	/// </summary>
+	/// <returns>True if it is working(was launched), false otherwise</returns>
+	inline bool isWriting(void) const {
+		return !this->m_bStopTrd;
+	}
 
 private:
+//functions
+	/// <summary>
+	/// Checks for the given index number and returns the pointer in the queue of log entries.
+	/// @note The index is wrapped around the max queue size.
+	/// </summary>
+	/// <param name="num">The index number of the log entry</param>
+	/// <returns>Pointer to the node of that index</returns>
+	AELogEntry* ptrFromIndex(ullint num);
 
+	/// <summary>
+	/// The function of the log writing thread to...read the entries, format them, write them, and clear them.
+	/// </summary>
+	void logWriterThread(void);
+
+//variables
 	/// The file writer to actually write text to opened log file
 	AEFileWriter m_fwLogger;
 	/// The mutex to lock when allocating new queue chunks
@@ -230,17 +252,17 @@ private:
 	AELogEntry* m_lepQueue;
 	/// The pointer to the last item in the queue
 	AELogEntry* m_lepLastNode;
-	/// Flag to stop the writing thread
+	/// The flag to stop the log-writing thread
 	std::atomic<bool> m_bStopTrd;
 
-	// we don't need to keep the separate variables for the name of the file
-	// and amount of log entries we did.
+	// And we don't need to keep the separate variables for the name of the file
+	// and amount of log entries we did, etc.
 	// All because we: 1) already have it through AEFileWriter
 	// And 2) we'll write to file only once, after formatting the strings
 };
 
 //aaand we have to register it too
-REGISTER_CLASS(AELogger)
+REGISTER_CLASS(AELogger);
 
 
 #endif // !ENGINE_AELOGGER_HPP

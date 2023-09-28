@@ -1,4 +1,31 @@
+
 #include "AELogger.hpp"
+#include <iostream>
+#include <utility>
+#include <ctime>
+
+
+AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
+	//damn, amt is really 0; get null!
+	if (amt == 0) {
+		throw std::runtime_error("queue size to allocate is 0!");
+	}
+	//allocate new log entry list
+	AELogEntry* leptr = new AELogEntry[amt]{};
+	for (std::size_t i = 0; i < amt; i++) {
+		leptr[i].m_lepNextNode = leptr + i + 1; //set the next node pointers for our linked list
+	}
+	//loop the last log entry to the beginning
+	if (oldqueue) {
+		leptr[amt - 1].m_lepNextNode = oldqueue; //beginning of old queue
+	}
+	else {
+		leptr[amt - 1].m_lepNextNode = leptr; //beginning of itself
+	}
+
+	return leptr;
+}
+
 
 //constructor
 AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint queuesize) :
@@ -25,41 +52,33 @@ AELogger::~AELogger() {
 	this->m_vAllocTable.clear();
 }
 
+void AELogger::stopWriter(void) {
+	this->m_bStopTrd = true;
+	if (this->m_trdWriter.joinable()) {
+		this->m_trdWriter.join();
+	}
+}
+
+void AELogger::startWriter(void) {
+	if (this->m_trdWriter.joinable()) {
+		return; //we already are writing, dummy;
+	}
+
+	this->m_bStopTrd = false;
+	this->m_trdWriter = std::thread(&AELogger::logWriterThread, this);
+	if (!this->m_trdWriter.joinable()) {
+		throw std::runtime_error("Could not start AETimer thread!");
+	}
+}
+
+
 // request a log entry and write to it
 void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, const std::string& logmodule) {
-	if (this->m_ullFilledCount <= this->m_ullQueueSize) {
-		if (logmessg.empty()) {
-			return; //na'ah, no empty messages
-		}
-		this->m_ullFilledCount.fetch_add(1);
-
-		//implementation: the allocation vector!
-		//instead of it having only the pointers to the allocated memory chunks of the log entries
-		//it would have the std::pair instead: pointer to chunk and the total amount of entries
-		//ex: {0xDEAD, 1024}, {0xBEEF, 1096} -> first pointer holds 1024 total entries, second holds 1096-1024=62 entries
-		//and instead of changing an atomic pointer, we'll increment a number, "current node number"
-		//and then check if the number(modulo of it with the m_ullQueueSize) is less than the 1st allocation in the vector, then 2nd, etc..untill we find a match
-		//then, to get the pointer to current node -> pointer of that allocation + number
-
-
-		//increment node number and get the pointer
-		AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
-		while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_bStatus != AELOG_ENTRY_STATUS_INVALID) {
-			ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
-		}
-
-
-		//populating it now!
-		ptr->m_ullOrderNum = this->m_ullLogOrderNum.fetch_add(1);
-		ptr->m_bStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
-
-		ptr->m_tmLogTime = std::time(NULL);
-		memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
-		memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 32) ? logmodule.size() : 31);
-		ptr->m_cLogType = logtype;
-		ptr->m_bStatus = AELOG_ENTRY_STATUS_READY;
+	if (!this->isOpen()) {
+		return; // file's closed/closing!
 	}
-	else {
+
+	if (this->m_ullFilledCount > this->m_ullQueueSize) {
 		std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
 		ullint qsize = this->m_ullQueueSize / 2;
 
@@ -70,14 +89,43 @@ void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, cons
 		this->m_lepLastNode->m_lepNextNode = newQueue;
 		this->m_lepLastNode = newQueue + qsize - 1;
 		this->m_vAllocTable.push_back({ this->m_ullQueueSize, newQueue });
-
 		
-
-		//throw std::runtime_error("AELog Queue is filled up!!!");
 	}
+
+	//TODO: implement decrease in log queue size
+	if (logmessg.empty()) {
+		return; //na'ah, no empty messages
+	}
+	this->m_ullFilledCount.fetch_add(1);
+
+	//implementation: the allocation vector!
+	//instead of it having only the pointers to the allocated memory chunks of the log entries
+	//it would have the std::pair instead: pointer to chunk and the total amount of entries
+	//ex: {0xDEAD, 1024}, {0xBEEF, 1096} -> first pointer holds 1024 total entries, second holds 1096-1024=62 entries
+	//and instead of changing an atomic pointer, we'll increment a number, "current node number"
+	//and then check if the number(modulo of it with the m_ullQueueSize) is less than the 1st allocation in the vector, then 2nd, etc..untill we find a match
+	//then, to get the pointer to current node -> pointer of that allocation + number
+
+
+	//increment node number and get the pointer
+	AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
+	while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_bStatus != AELOG_ENTRY_STATUS_INVALID) {
+		ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
+	}
+
+
+	//populating it now!
+	ptr->m_ullOrderNum = this->m_ullLogOrderNum.fetch_add(1);
+	ptr->m_bStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
+
+	ptr->m_tmLogTime = std::time(NULL);
+	memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
+	memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 32) ? logmodule.size() : 31);
+	ptr->m_cLogType = logtype;
+	ptr->m_bStatus = AELOG_ENTRY_STATUS_READY;
 }
 
-void AELogger::parseEntries(void) {
+void AELogger::logWriterThread(void) {
 
 	AELogEntry* ePtr = this->m_lepQueue;
 	ullint orderNum = 0;
@@ -115,4 +163,17 @@ void AELogger::parseEntries(void) {
 		//since we're done writing the entries, sleep and check if some appear again
 		ace::utils::sleepMS(100);
 	}
+}
+
+
+AELogEntry* AELogger::ptrFromIndex(ullint num) {
+	num %= m_ullQueueSize;
+	ullint prevSize = 0;
+	for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
+		if (this->m_vAllocTable[i].first > num) {
+			return this->m_vAllocTable[i].second + (num - prevSize);
+		}
+		prevSize = this->m_vAllocTable[i].first;
+	}
+	return m_lepQueue;
 }
