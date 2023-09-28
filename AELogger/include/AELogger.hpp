@@ -10,8 +10,9 @@
 #include <atomic>
 #include <thread>
 #include <mutex>
-#include "include/AEFrame.hpp"
 #include <iostream>
+#include <utility>
+
 
 //log types
 #define AELOG_TYPE_DEBUG 0
@@ -37,9 +38,11 @@
 //log entry is currently being read by the thread
 #define AELOG_ENTRY_STATUS_READING 3
 
-#define AELOG_DEFAULT_QUEUE_SIZE 512
+#define AELOG_DEFAULT_QUEUE_SIZE 1024
 
 #define AELOG_DEFAULT_MODULE_NAME "ACEngine"
+
+
 
 struct AELogEntry {
 
@@ -56,7 +59,7 @@ struct AELogEntry {
 	AELogEntry* m_lepNextNode = nullptr;
 	/// The type of the log entry
 	/// @see AELOG_TYPE_*
-	ucint m_ucLogType = AELOG_TYPE_DEBUG;
+	cint m_cLogType = AELOG_TYPE_DEBUG;
 	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
 	std::atomic<cint> m_bStatus = AELOG_ENTRY_STATUS_INVALID;
 	
@@ -75,7 +78,7 @@ struct AELogEntry {
 		}
 	}
 	
-	static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* const oldqueue = nullptr) {
+	static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr) {
 		//damn, amt is really 0; get null!
 		if (amt == 0) {
 			return nullptr;
@@ -98,7 +101,6 @@ struct AELogEntry {
 };
 
 
-
 //TODO: implement copy constructors and copy assignment
 //TODO: add threads to the AELogger
 
@@ -114,27 +116,26 @@ public:
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
-	AELogger(const std::string& fname, const bool clearLog = false) : 
-		m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1),
-		/*m_trdWriter definition,*/ m_ullOrderNum(0), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE)), m_lepCurrentNode(m_lepQueue.load()),
-		m_lepLastNode(m_lepQueue.load()+AELOG_DEFAULT_QUEUE_SIZE), m_ullFilledCount(0), m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_bStopTrd(false){
-		
-		
+	AELogger(const std::string& fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) :
+		m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0), m_lepQueue(AELogEntry::makeQueue(queuesize)),
+		m_lepLastNode(m_lepQueue + queuesize - 1), m_ullQueueSize(queuesize), m_bStopTrd(false) {
+
 
 		//add the allocated queue pointed to the list
 		//so we can free them later without memory leaks
 		this->m_vAllocTable.reserve(16);
-		this->m_vAllocTable.push_back(m_lepQueue);
+		this->m_vAllocTable.push_back({queuesize, m_lepQueue });
+		this->startWriter();
 	}
 
+	/// <summary>
+	/// Class destructor
+	/// </summary>
 	~AELogger() {
-		this->m_bStopTrd = false;
-		if (this->m_trdWriter.joinable()) {
-			this->m_trdWriter.join();
-		}
+		this->stopWriter();
 
-		for (int i = 0; i < this->m_vAllocTable.size(); i++) {
-			delete[] this->m_vAllocTable[i];
+		for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
+			delete[] this->m_vAllocTable[i].second;
 		}
 
 		this->m_fwLogger.closeFile();
@@ -146,9 +147,26 @@ public:
 	// I'll implement multithreading and multiple instances later
 	AELogger(const AELogger&) = delete;
 	AELogger& operator=(const AELogger&) = delete;
+	
 
+	inline void startWriter(void) {
+		if (this->m_trdWriter.joinable()) {
+			return; //we already are writing, dummy;
+		}
 
+		this->m_bStopTrd = false;
+		this->m_trdWriter = std::thread(&AELogger::parseEntries, this);
+		if (!this->m_trdWriter.joinable()) {
+			throw std::runtime_error("Could not start AETimer thread!");
+		}
+	}
 
+	inline void stopWriter(void) {
+		this->m_bStopTrd = true;
+		if (this->m_trdWriter.joinable()) {
+			this->m_trdWriter.join();
+		}
+	}
 
 	/// <summary>
 	/// Open the file to start logging
@@ -186,28 +204,42 @@ public:
 	/// Get the last error status code
 	/// </summary>
 	/// <returns>ucint of the error code by the filewriter/logger</returns>
-	inline ucint getLastError(void) const {
+	inline cint getLastError(void) const {
 		return this->m_fwLogger.getLastError();
 	}
 
-	
 	void writeToLog(const std::string& logmessg, const ucint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
 		if (this->m_ullFilledCount <= this->m_ullQueueSize) {
 			if (logmessg.empty()) {
-				return;
+				return; //na'ah, no empty messages
 			}
-			this->m_ullFilledCount++;
-			AELogEntry* ptr = this->m_lepCurrentNode.load();	
-			this->m_lepCurrentNode = this->m_lepCurrentNode.load()->m_lepNextNode;
-			ptr->m_ullOrderNum = this->m_ullOrderNum++;
+			this->m_ullFilledCount.fetch_add(1);
+
+			//implementation: the allocation vector!
+			//instead of it having only the pointers to the allocated memory chunks of the log entries
+			//it would have the std::pair instead: pointer to chunk and the total amount of entries
+			//ex: {0xDEAD, 1024}, {0xBEEF, 1096} -> first pointer holds 1024 total entries, second holds 1096-1024=62 entries
+			//and instead of changing an atomic pointer, we'll increment a number, "current node number"
+			//and then check if the number(modulo of it with the m_ullQueueSize) is less than the 1st allocation in the vector, then 2nd, etc..untill we find a match
+			//then, to get the pointer to current node -> pointer of that allocation + number
+
+
+			//increment node number and get the pointer
+			AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
+			while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_bStatus != AELOG_ENTRY_STATUS_INVALID) {
+				ptr = ptr->m_lepNextNode; //if current node is filled -> continue looking for unpopulated one
+			}
+
+			
+			//populating it now!
+			ptr->m_ullOrderNum = this->m_ullLogOrderNum.fetch_add(1);
 			ptr->m_bStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
 			ptr->m_tmLogTime = std::time(NULL);
 			memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
 			memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 32) ? logmodule.size() : 31);
-			ptr->m_ucLogType = logtype;
+			ptr->m_cLogType = logtype;
 			ptr->m_bStatus = AELOG_ENTRY_STATUS_READY;
-			
 		}
 		else {
 			throw std::runtime_error("AELog Queue is filled up!!!");
@@ -216,39 +248,54 @@ public:
 
 	void parseEntries(void) {
 		
-		AELogEntry* ePtr = this->m_lepQueue.load();
+		AELogEntry* ePtr = this->m_lepQueue;
 		ullint orderNum = 0;
 		char str[588]{};
-		AEFrame myfr(60);
-		while (this->m_ullFilledCount) {
-			
-			if (ePtr->m_ullOrderNum == orderNum) {
-				while (ePtr->m_bStatus != AELOG_ENTRY_STATUS_READY) {
-					myfr.sleep();
+		//and not stop untill it's done
+
+		while (!this->m_bStopTrd) {
+			while (this->m_ullFilledCount) {
+				if (ePtr->m_ullOrderNum == orderNum) {
+					
+					//got it!. Now wait untill it's ready
+					while (ePtr->m_bStatus != AELOG_ENTRY_STATUS_READY) {
+						ace::utils::sleepMS(30);
+					}
+					//the entry is minee!
+					ePtr->m_bStatus = AELOG_ENTRY_STATUS_READING;
+
+					//formatting and writing
+					snprintf(str, 588, "[%s] [%s] [%s]: %s\n", ace::utils::formatDate(ePtr->m_tmLogTime).c_str(), AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+					std::cout << str;
+
+					//cleanup
+					std::memset(str, NULL, 588); // clean the formatting buffer
+					std::memset(ePtr->m_sLogMessage, NULL, 512); // clean log message
+					std::memset(ePtr->m_sModuleName, NULL, 32); // clean module name
+					ePtr->m_bStatus = AELOG_ENTRY_STATUS_INVALID;
+					ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
+					this->m_ullFilledCount--;
+					orderNum++;
 				}
-				ePtr->m_bStatus = AELOG_ENTRY_STATUS_READING;
-
-
-				snprintf(str, 588, "[%s] [%s] [%s]: %s\n", ace::utils::formatDate(ePtr->m_tmLogTime).c_str(), AELogEntry::typeToString(ePtr->m_ucLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-				
-
-				std::cout << str;
-				
-				std::memset(str, NULL, 588); // clean the formatting buffer
-				std::memset(ePtr->m_sLogMessage, NULL, 512); // clean log message
-				std::memset(ePtr->m_sModuleName, NULL, 32); // clean module name
-				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
-				ePtr->m_bStatus = AELOG_ENTRY_STATUS_INVALID;
-				this->m_ullFilledCount--;
-				orderNum++;
+				//next node pls
+				ePtr = ePtr->m_lepNextNode;
 			}
 
-			ePtr = ePtr->m_lepNextNode;
-			
+			//since we're done writing the entries, sleep and check if some appear again
+			ace::utils::sleepMS(100);
 		}
-
-
 	}
+
+	AELogEntry* ptrFromIndex(ullint num) {
+		num %= m_ullQueueSize;
+		for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
+			if (this->m_vAllocTable[i].first > num) {
+				return this->m_vAllocTable[i].second + num;
+			}
+		}
+		return m_lepQueue;
+	}
+
 
 private:
 
@@ -256,15 +303,23 @@ private:
 	AEFileWriter m_fwLogger;
 	/// The mutex to lock when allocating new queue chunks
 	std::mutex m_mtxAllocLock;
-	/// The vector to all the allocated queue pieces
-	std::vector<AELogEntry*> m_vAllocTable;
+	/// The vector to all the allocated queue pieces and total amounts allocated
+	std::vector<std::pair<ullint, AELogEntry*>> m_vAllocTable;
+	/// The thread object for the file writing thread to...write a log file separately
 	std::thread m_trdWriter;
-	std::atomic<ullint> m_ullOrderNum;
+	/// The order number of the current node;
+	std::atomic<ullint> m_ullLogOrderNum;
+	/// The amount of nodes filled (should we allocate more?)
 	std::atomic<ullint> m_ullFilledCount;
-	std::atomic<AELogEntry*> m_lepQueue;
-	std::atomic<AELogEntry*> m_lepCurrentNode;
-	AELogEntry* m_lepLastNode;
+	/// The current node number the writeToLog is working with
+	std::atomic<ullint> m_ullNodeNumber;
+	/// The amount of entry spaces/size of the queue
 	ullint m_ullQueueSize;
+	/// The pointer to the first item in the queue
+	AELogEntry* m_lepQueue;
+	/// The pointer to the last item in the queue
+	AELogEntry* m_lepLastNode;
+	/// Flag to stop the writing thread
 	std::atomic<bool> m_bStopTrd;
 
 	// we don't need to keep the separate variables for the name of the file
