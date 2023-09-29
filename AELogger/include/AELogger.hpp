@@ -1,3 +1,10 @@
+
+/** @file AELogger/include/AELogger.hpp
+ *  This file contains the code for the engine's logger module, err...for logging data to file.
+ *
+ *  Should not cause everything to break :)
+ */
+
 #pragma once
 
 #ifndef ENGINE_AELOGGER_HPP

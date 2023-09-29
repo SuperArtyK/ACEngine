@@ -1,4 +1,11 @@
 
+/** @file AEModuleBase/include/AEModuleBase.hpp
+ *  This file contains the code for the module that all modules 
+ *  base on in the ArtyK's Console Engine(utility) class.
+ *
+ *  Should not cause everything to break :)
+ */
+
 #pragma once
 
 #ifndef ENGINE_AEMODULEBASE_HPP
@@ -9,6 +16,7 @@
 #include "include/AETypedefs.hpp"
 
 //file meaning: base classes for all modules
+
 
 template <typename T>
 inline const char* getTypeName(void) { return "getTypeName"; }

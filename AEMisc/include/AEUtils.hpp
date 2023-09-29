@@ -1,3 +1,10 @@
+
+/** @file AEMisc/include/AEUtils.hpp
+ *  This file contains engine function (hopefully useful)utilities.
+ *
+ *  Should not cause everything to break :)
+ */
+
 #pragma once
 
 #ifndef ENGINE_UTILS_HPP

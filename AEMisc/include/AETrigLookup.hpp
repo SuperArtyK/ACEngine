@@ -1,3 +1,13 @@
+
+/** @file AEMisc/include/AETrigLookup.hpp
+ *  This file contains the results for the trigonometric function lookup tables.
+ *  These will be insanely fast, almost as the direct memory access (since just value in array), 
+ *  but won't offer much of precision -- within 1 degree.
+ *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
+ *
+ *  Should not cause everything to break :)
+ */
+
 #pragma once
 
 #ifndef ENGINE_TRIG_LOOKUP_HPP
@@ -6,6 +16,8 @@
 #include <limits>
 #include "AETypedefs.hpp"
 
+
+#ifdef ENGINE_ENABLE_TRIG_LOOKUP
 
 /// A macro for the size of the trigonometric function lookup tables
 #define AETRIG_TABLE_SIZE 360
@@ -127,5 +139,7 @@ namespace ace {
 		}
 	}
 }
+
+#endif // ENGINE_ENABLE_TRIG_LOOKUP
 
 #endif // !ENGINE_TRIG_LOOKUP_HPP
