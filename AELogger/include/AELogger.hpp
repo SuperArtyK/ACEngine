@@ -177,7 +177,7 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	void writeToLog(const std::string& logmessg, const ucint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
+	void writeToLog(const std::string& logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file
@@ -188,7 +188,7 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	inline void writeToLogDebug(const std::string& logmessg, const ucint logtype = AELOG_TYPE_DEBUG, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
+	inline void writeToLogDebug(const std::string& logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
 #ifdef ENGINE_DEBUG
 		this->writeToLog("DEBUG->" + logmessg, logtype, logmodule);
 #endif // ENGINE_DEBUG

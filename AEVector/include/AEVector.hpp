@@ -63,7 +63,6 @@ struct AEVector {
 	}
 
 	const std::string toString() const {
-
 		std::string str = "[";
 		for (std::size_t i = 0; i < dimAmount - 1; i++) {
 			

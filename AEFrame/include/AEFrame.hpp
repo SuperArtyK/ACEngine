@@ -5,6 +5,7 @@
 
 #include "include/AETypedefs.hpp"
 #include "include/AEModuleBase.hpp"
+#include "include/AEFlags.hpp"
 
 /// <summary>
 /// This is the Engine's frame delay module. It allows to create precise delays for game loops.
@@ -24,7 +25,7 @@ public:
 	/// @note if you pass it 0 or negative number it will disable the delay untill a proper value is given
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
-	explicit AEFrame(const double fps) : m_tdChronoDelay((fps <= 0) ? microSec(0) : microSec(ullint(1000000.0 / fps))),
+	explicit AEFrame(const double fps = ENGINE_FPS) : m_tdChronoDelay((fps <= 0) ? microSec(0) : microSec(ullint(1000000.0 / fps))),
 		m_tpTimepoint(getSteadyTime()), m_fFPS(fps), m_bNoDelay((fps <= 0))
 	{}
 

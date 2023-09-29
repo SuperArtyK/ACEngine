@@ -30,14 +30,14 @@ AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 
 //constructor
 AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint queuesize) :
-	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0), m_lepQueue(AELogEntry::makeQueue(queuesize)),
-	m_lepLastNode(m_lepQueue + queuesize - 1), m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_bStopTrd(false) {
+	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
+	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bStopTrd(false) {
 
 
 	//add the allocated queue pointed to the list
 	//so we can free them later without memory leaks
 	this->m_vAllocTable.reserve(32);
-	this->m_vAllocTable.push_back({ queuesize, m_lepQueue });
+	this->m_vAllocTable.push_back({ queuesize, this->m_lepQueue });
 	this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
 	this->startWriter();
 }
@@ -80,7 +80,7 @@ void AELogger::stopWriter(void) {
 }
 
 // request a log entry and write to it
-void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, const std::string& logmodule) {
+void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const std::string& logmodule) {
 	if (!this->isOpen()) {
 		return; // file's closed/closing!
 	}
@@ -105,6 +105,7 @@ void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, cons
 	if (logmessg.empty()) {
 		return; //na'ah, no empty messages
 	}
+
 	this->m_ullFilledCount.fetch_add(1);
 
 	//implementation: the allocation vector!

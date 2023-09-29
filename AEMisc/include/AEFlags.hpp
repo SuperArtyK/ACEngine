@@ -9,6 +9,7 @@
 //Engine flags
 /// Macro to enable the debug-marked features of the engine. Independent from debug/release compiler builds
 #define ENGINE_DEBUG 1
+#define ENGINE_FPS 60.0
 
 //AEFileWriter flags
 /// Macro to enable the auto-flushing mechanism

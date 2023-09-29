@@ -8,6 +8,11 @@
 //#define _FILE_OFFSET_BITS 64
 
 
+
+#include "include/AETypedefs.hpp"
+#include "include/AEFlags.hpp"
+#include "include/AEModuleBase.hpp"
+#include "include/AEUtils.hpp"
 #include <cstring>
 #include <vector>
 #include <filesystem>
@@ -15,10 +20,6 @@
 #include <limits>
 #include <cstdio>
 #include <stdexcept>
-#include "include/AETypedefs.hpp"
-#include "include/AEFlags.hpp"
-#include "include/AEModuleBase.hpp"
-#include "include/AEUtils.hpp"
 
 // stuff for crosscompilation and 64bit access
 // dont touch
@@ -294,7 +295,7 @@ public:
 	/// <param name="c">The char to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	inline void writeChar(const char c, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
-		this->writeByte(c, useAutoFlush); //err...same thing.
+		this->writeByte((unsigned char)c, useAutoFlush); //err...same thing.
 	}
 
 //write binary
@@ -497,8 +498,8 @@ private:
 	/// </summary>
 	inline void autoFlush() {
 #ifdef AEFW_AUTOFLUSH_ENABLE
-		if (!(m_ullTotalWrites % m_ullFlushInterval)) {
-			flushFile();
+		if (!(this->m_ullTotalWrites % this->m_ullFlushInterval)) {
+			this->flushFile();
 		}
 #endif // !AEFW_AUTOFLUSH_ENABLE
 

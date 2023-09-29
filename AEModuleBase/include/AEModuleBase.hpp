@@ -35,7 +35,7 @@ public:
 	/// Basic constructor that increases module count
 	/// </summary>
 	__AEModuleBase(){
-		m_ullModulesAlive++;
+		this->m_ullModulesAlive++;
 	}
 
 	/// <summary>

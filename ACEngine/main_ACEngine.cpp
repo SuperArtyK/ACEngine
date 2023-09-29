@@ -25,10 +25,10 @@
 int main() {
 	
 	std::srand(std::time(NULL));
-	AEFrame myfr(60);
+	AEFrame myfr;
 	AEFileWriter myfw("acenginetest.txt", AEFW_FLAG_TRUNCATE, 1);
 	AETimer mytm(10000);
-	AEVector<std::size_t, 24> veca;
+	AEVector<std::size_t, 32> veca;
 	for (int i = 0; i < arrsize(veca.dims); i++) {
 		veca[i] = std::rand();
 	}

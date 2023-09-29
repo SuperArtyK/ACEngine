@@ -6,6 +6,7 @@
 #include "include/AEFrame.hpp"
 #include "include/AETypedefs.hpp"
 #include "include/AEModuleBase.hpp"
+#include "include/AEFlags.hpp"
 #include <thread>
 #include <atomic>
 
@@ -25,7 +26,7 @@ public:
 	/// Class constructor. Starts the timer automatically
 	/// </summary>
 	/// <param name="tps">The amount of ticks per second, as the float</param>
-	AETimer(const double tps) :
+	explicit AETimer(const double tps = ENGINE_FPS) :
 		m_frDelay(tps), m_ullTicks(0), m_bRunTrd(true) {
 		this->startThread();
 	}
@@ -114,7 +115,7 @@ public:
 	/// </summary>
 	/// <returns>double of the approximate world time the timer has counted (using it's ticks)</returns>
 	inline double getWorldTime(void) const {
-		return this->m_ullTicks * this->m_frDelay.getDelay();
+		return this->m_ullTicks.load() * this->m_frDelay.getDelay();
 	}
 
 	/// <summary>
