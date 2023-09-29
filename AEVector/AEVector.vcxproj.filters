@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Logo resources">
+      <UniqueIdentifier>{d6492e5e-f019-4f51-9c44-5e097c09b3eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AEVector.cpp">
@@ -23,5 +26,23 @@
     <ClInclude Include="include\AEVector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\resources\resource1.h">
+      <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\resources\consoleprog1.rc">
+      <Filter>Resource Files\Logo resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\logo.ico">
+      <Filter>Resource Files\Logo resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

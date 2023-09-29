@@ -109,7 +109,7 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		
 	}
 
-	//TODO: implement decrease in log queue size
+	/// @todo Implement decrease in log queue size
 	if (logmessg.empty()) {
 		return; //na'ah, no empty messages
 	}

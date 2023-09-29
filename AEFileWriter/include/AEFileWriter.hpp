@@ -44,47 +44,48 @@
 //Do NOT touch!
 
 //File flags
-///Write cursor at the end of the file, adding to the file
-///Cursor change allowed
+/// Macro to put the write cursor at the end of the file, appending to the file.
+/// Cursor change allowed
 #define AEFW_FLAG_APPEND 1
-///Write cursor at the end of the file, adding to the file
-///Changing the cursor position/writing anywhere else (than eof) is not allowed
+/// Macro to put the write cursor at the end of the file, appending to the file.
+/// @note Changing the cursor position/writing anywhere else (than eof) is not allowed
 #define AEFW_FLAG_APPEND_NO_CURSOR_MOVE 2 
-///Write cursor at the start of the file, truncating the contents if existed
+/// Macro to put the write cursor at the start of the file, truncating the contents if existed.
 #define AEFW_FLAG_TRUNCATE 3
-///No Write flags; Same as truncate (fopen)
+/// Macro for no write flags
+/// @note Same as AEFW_FLAG_TRUNCATE
 #define AEFW_FLAG_NOFLAGS 0
 
 
 //Error flags
-///Indicator that everything is good
+/// Indicator that everything is good.
 #define AEFW_ERR_NOERROR 0
-///If the file object we're trying to write to is null,
-///aka file not open.
-///Usually will come after AEFW_ERR_FILE_NAME_EMPTY or AEFW_ERR_FILE_OPEN_ELSE,
-///if we continue to access the writer.
+/// If the file object we're trying to write to not open, file pointer is null
+/// @note Functions that access the file will either return this flag or raise this flag
 #define AEFW_ERR_NOT_OPEN -1
 //file creation/manipulation
-///If the file name is empty
+/// Macro for the error if the file name is empty
 #define AEFW_ERR_FILE_NAME_EMPTY -2
-///If the flag given is wrong during the creation(creates file anyway, assuming AEFW_FLAG_NOFLAGS)
+/// Macro for the error if the given file flag is wrong and nonexistent
 #define AEFW_ERR_FILE_WRONG_FLAG -3
-///If the file couldn't be created for some other reason, like missing permissions to access files
+/// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files
 #define AEFW_ERR_FILE_OPEN_ELSE -4
 
 
 /// <summary>
-/// ArtyK's Engine File Writer. Umm, it writes data to given file.
+/// ArtyK's Engine File Writer; umm, it writes data to given file.
 /// Just create it and dump the gigabytes of data to your files.
 /// Hungarian notation is fw
 /// Flags start with AEFW_
+/// @warning This is not thread safe!
 /// </summary>
 class AEFileWriter : public __AEModuleBase<AEFileWriter> {
 public:
 
 //construction
 	/// <summary>
-	/// Class constructor
+	/// Class constructor -- creates the AEFileWriter instance and opens the file.
+	/// @see AEFileWriter::open()
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
@@ -97,7 +98,8 @@ public:
 	}
 
 	/// <summary>
-	/// Class constructor
+	/// Class constructor -- creates the AEFileWriter instance and opens the file.
+	/// @see AEFileWriter::open()
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
@@ -148,7 +150,8 @@ public:
 
 //open files
 	/// <summary>
-	/// Open(and create) file with given name and flag
+	/// Open(and create) file with given name and flag.
+	/// @note If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error
 	/// </summary>
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
@@ -161,6 +164,7 @@ public:
 	/// <summary>
 	/// Open(and create) file with given name and flag. 
 	/// On success sets AEFileWriter::m_ucFlags to passed flag value.
+	/// @note If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error
 	/// @warning Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
 	/// </summary>
 	/// <param name="str">Name of the file, with extension</param>
@@ -170,9 +174,9 @@ public:
 	inline bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
 //write stuff
-	//TODO: Add a way to add custom types to this generic write function.
+	
 	/// <summary>
-	/// Generic function for writing data. Invokes proper write functions for built-in types
+	/// Generic function for writing data, invoking proper write functions for built-in types.
 	/// @note String types don't include null-termination characters. Use separate functions for to control that
 	/// @note Supported types: char, bool, integers, floats, strings; everything else is treated as binary stream.
 	/// </summary>
@@ -180,6 +184,7 @@ public:
 	/// <param name="var">Variable/data piece to be written</param>
 	/// <param name="datasz">Size of the data, in bytes. Only used if the T is a pointer to a binary stream, then it must be non-zero</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
+	/// @todo Add a way to add custom types to this generic write function.
 	template<typename T>
 	inline void write(const T& var, const size_t datasz = 0, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH); // defined below class
 
@@ -232,7 +237,7 @@ public:
 
 //write ints
 	/// <summary>
-	/// Writes the (signed) integer as text to open file
+	/// Writes the (signed) integer as text to open file.
 	/// </summary>
 	/// <param name="num">The signed integer to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
@@ -248,7 +253,7 @@ public:
 	}
 	
 	/// <summary>
-	/// Writes the (unsigned) integer as text to open file
+	/// Writes the (unsigned) integer as text to open file.
 	/// </summary>
 	/// <param name="num">The unsigned integer to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
@@ -265,11 +270,12 @@ public:
 
 //write floats
 	/// <summary>
-	/// Writes the float value as text to the opened file
+	/// Writes the float value as text to the opened file.
 	/// </summary>
 	/// <typeparam name="T">The floating point type of the variable</typeparam>
 	/// <param name="num">The float number itself</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
+	/// @todo Add custom way to format the float number
 	template<typename T>
 	inline void writeFloat(const T num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileWriter::writeFloat!");
@@ -299,7 +305,7 @@ public:
 	}
 
 	/// <summary>
-	/// Writes the boolean to file as text (true/false)
+	/// Writes the boolean to file as text (true/false).
 	/// </summary>
 	/// <param name="num">The bool to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
@@ -309,7 +315,7 @@ public:
 
 	/// <summary>
 	/// Writes the single (ascii) character to the file.
-	/// Essentially, it's the same as AEFileWriter::writeByte()
+	/// @note Essentially, it's the same as AEFileWriter::writeByte()
 	/// </summary>
 	/// <param name="c">The char to be written</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
@@ -350,8 +356,8 @@ public:
 
 //write data
 	/// <summary>
-	/// Write binary data, as is, to file, and flush if necessary
-	/// Difference with writeData_ref(): uses (const) pointer to the variable/data
+	/// Write binary data, as is, to file, and flush if necessary.
+	/// Difference with writeData_ref(): uses (const) pointer to the variable/data.
 	/// @note Doesn't work with literals
 	/// @note If file is closed, sets last error flat to AEFW_ERR_NOT_OPEN
 	/// </summary>
@@ -390,7 +396,7 @@ public:
 	}
 
 	/// <summary>
-	/// Closes the currently opened file. In addition, clears the last error status.
+	/// Closes the currently opened file, and also, in addition, clears the last error status.
 	/// </summary>
 	inline void closeFile(void) {
 		if (this->m_fpFilestr)
@@ -432,7 +438,7 @@ public:
 	}
 
 	/// <summary>
-	/// Returns name of currently open file
+	/// Returns name of currently open file.
 	/// </summary>
 	/// <returns>File name and its additional path(if was included in opening operation)</returns>
 	inline std::string getFileName(void) const {
@@ -442,7 +448,7 @@ public:
 
 //file cursor stuff
 	/// <summary>
-	/// Returns current write cursor position
+	/// Returns current write cursor position.
 	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>Write cursor pos, starting from 0 if file is open, if not -- AEFW_ERR_NOT_OPEN (+last error status set to the same thing).</returns>
@@ -459,7 +465,7 @@ public:
 	}
 
 	/// <summary>
-	/// Sets read cursor position to pos from origin
+	/// Sets read cursor position to pos from origin.
 	/// @note If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written.
 	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
@@ -481,7 +487,7 @@ public:
 
 //misc stuff
 	/// <summary>
-	/// Returns the last error of the writer
+	/// Returns the last error of the writer.
 	/// </summary>
 	/// <returns>Values of AEFW_ERR_* error codes</returns>
 	inline cint getLastError(void) const {
@@ -489,7 +495,7 @@ public:
 	}
 
 	/// <summary>
-	/// Returns total write requests made to file
+	/// Returns total write requests made to file.
 	/// </summary>
 	/// <returns>Amount of times the write operation has been called on the AEFileWriter instance</returns>
 	inline ullint getTotalWrites(void) const {
@@ -497,14 +503,14 @@ public:
 	}
 
 	/// <summary>
-	/// Clears last error status variable and sets it to AEFW_ERR_NOERROR
+	/// Clears last error status variable and sets it to AEFW_ERR_NOERROR.
 	/// </summary>
 	inline void clearError(void) {
 		this->m_cLastError = AEFW_ERR_NOERROR;
 	}
 	
 	/// <summary>
-	/// Interval in write operations before automatic flush operation
+	/// Interval in write operations before automatic flush operation.
 	/// 1 -- flush every write operation, etc; -1 -- almost never
 	/// </summary>
 	ullint m_ullFlushInterval;

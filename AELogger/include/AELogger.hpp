@@ -107,10 +107,11 @@ struct AELogEntry {
 };
 
 
-//TODO: implement copy constructors and copy assignment
-
+/// @todo Implement copy constructors and copy assignment
+/// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
 /// <summary>
-/// The ArtyK's Engine's Logger module. It manages the writing to the log files.
+/// @brief The ArtyK's Engine's Logger module -- it manages the writing to the log files.
+/// 
 /// The log is written by requesting and filling the entry in the queue.
 /// The AELogger instance launches the separate thread that looks at the entries in the queue,
 /// retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.
@@ -123,7 +124,7 @@ public:
 //constructors
 	
 	/// <summary>
-	/// Class constructor. It opens the file to start the logging process
+	/// Class constructor -- it opens the file to start the logging process
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
@@ -139,7 +140,10 @@ public:
 	// we don't need the copy-constructor nor copy-assignment operators
 	// Okay, okay, fine, we don't need it *for now* 
 	// I'll implement multithreading and multiple instances later
+	
+	/// Deleted (for now) copy-constructor
 	AELogger(const AELogger&) = delete;
+	/// Deleted (for now) copy-assignment
 	AELogger& operator=(const AELogger&) = delete;
 
 
@@ -204,7 +208,7 @@ public:
 
 //getters of info
 	/// <summary>
-	/// Get the name of the log file
+	/// Get the name of the log file.
 	/// </summary>
 	/// <returns>std::string of the name of opened log file</returns>
 	inline std::string getLogName(void) const {
@@ -212,7 +216,7 @@ public:
 	}
 
 	/// <summary>
-	/// Get the amount of log entries done to an opened log file
+	/// Get the amount of log entries done to an opened log file.
 	/// </summary>
 	/// <returns>ullint of the amount of times logger written to a file</returns>
 	inline ullint getEntryCount(void) const {
@@ -220,7 +224,7 @@ public:
 	}
 
 	/// <summary>
-	/// Get the last error status code
+	/// Get the last error status code.
 	/// </summary>
 	/// <returns>ucint of the error code by the filewriter/logger</returns>
 	inline cint getLastError(void) const {
@@ -228,7 +232,7 @@ public:
 	}
 
 	/// <summary>
-	/// Checks if the current log file is open
+	/// Checks if the current log file is open.
 	/// </summary>
 	/// <returns>True if the file is open for writing, false otherwise</returns>
 	inline bool isOpen(void) const {
@@ -243,8 +247,11 @@ public:
 		return !this->m_bStopTrd;
 	}
 
+	/// <summary>
+	/// Writes the current status of the file logger instance (file name, and entries written)
+	/// </summary>
 	inline void writeStatus(void) {
-		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()), 
+		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()+1), 
 			AELOG_TYPE_INFO, m_sModulename);
 	}
 

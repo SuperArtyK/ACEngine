@@ -179,9 +179,16 @@
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
     <ClInclude Include="..\AETimer\include\AETimer.hpp" />
     <ClInclude Include="..\AEVector\include\AEVector.hpp" />
+    <ClInclude Include="..\resources\resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\resources\consoleprog1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

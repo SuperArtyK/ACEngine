@@ -16,11 +16,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -35,18 +31,6 @@
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -58,6 +42,17 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -102,13 +97,16 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> This is my C++ engine to create games and stuff in console. Rework of my previous <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine">console_engine</a> attempt</p>
 <p>The code is divided into projects to ease development and testing. (so I don't need to compile the whooole thing to test one thing...like I did last time lol).</p>
+<p>You can find the engine code documentation <a href="https://superartyk.github.io/ACEngine" title="ACEngine doxygen...docs">here</a></p>
 <h4><a class="anchor" id="autotoc_md9"></a>
 Current project list:</h4>
 <ul>
 <li>ACEngine &ndash; main project where everything is combined</li>
-<li>AEMisc &ndash; project where the miscellaneous things, global engine variables and utilities lie. Basically stuff that cannot be put into a module</li>
+<li>AEMisc &ndash; project where the miscellaneous things, global engine variables, and the general engine utilities. Basically stuff that cannot be put into a module</li>
 <li>AEModuleBase &ndash; project of the most basic module of the engine, implementing features for all engine modules.</li>
-<li><a class="el" href="db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer.">AEFileWriter</a> &ndash; project of file writer module. The fast and convenient file writer of the engine.</li>
+<li><a class="el" href="db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> &ndash; project of file writer module. The fast and convenient file writer of the engine (just wrapper of FILE api lol).</li>
+<li><a class="el" href="df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> &ndash; project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time</li>
+<li><a class="el" href="d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> &ndash; project of engine's logger. Allows to log (random) stuff to file</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md10"></a>
 DESIRED FEATURES</h2>
@@ -139,7 +137,7 @@ Optional</h4>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Sep 29 2023 01:32:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Fri Sep 29 2023 16:00:46 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

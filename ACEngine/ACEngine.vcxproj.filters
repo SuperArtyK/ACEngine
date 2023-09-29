@@ -19,13 +19,19 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{c47bdb08-dc0d-4cb2-9755-ba5ddcc59b9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Logo resources">
+      <UniqueIdentifier>{6a749277-ebe8-47af-b13d-b87d545c8bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\engine modules">
+      <UniqueIdentifier>{cf7ab554-be26-4d50-a125-0c5f97a1876f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_ACEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\AELogger\src\AELogger.cpp">
-      <Filter>Source Files\src</Filter>
+      <Filter>Source Files\src\engine modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,10 +68,23 @@
     <ClInclude Include="..\AEVector\include\AEVector.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
+    <ClInclude Include="..\resources\resource1.h">
+      <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\resources\consoleprog1.rc">
+      <Filter>Resource Files\Logo resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\logo.ico">
+      <Filter>Resource Files\Logo resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

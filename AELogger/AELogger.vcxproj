@@ -168,7 +168,17 @@
     <ClCompile Include="src\AELogger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AELogger.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\resources\consoleprog1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

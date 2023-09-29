@@ -18,9 +18,9 @@
 #include "include/AEFlags.hpp"
 
 /// <summary>
-/// This is the Engine's frame delay module. It allows to create precise delays for game loops.
-/// Hungarian notation is fr
-/// So instead of guessing the delay for the main game loop, and having unrealiable call to normal "sleep for x",
+/// @brief This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops.
+/// Hungarian notation is r
+/// So instead of guessing the delay for the main game loop, and having unreliable call to normal "sleep for x",
 /// you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier.
 /// @note To get this to work properly, make an object outside of the loop, and put the call to AEFrame::sleep() at the end of the loop.
 /// @note This works by looking at the time spent by the game loop and sleeping up to the time to meet the fps goal.
@@ -90,12 +90,12 @@ public:
 
 private:
 
-	///delay between seconds	
+	/// The time duration for the delay in sleeps	
 	timeDur<double> m_tdChronoDelay;
-	///the timepoint, that sets time when to wake up the thread
+	/// The timepoint, that sets time when to wake up the thread
 	timePoint<SteadyTime, decltype(m_tdChronoDelay)> m_tpTimepoint; 
 	double m_fFPS;
-	///flag if we don't need the delay
+	/// The flag if we don't need the delay, err, for some reason
 	bool m_bNoDelay;
 };
 

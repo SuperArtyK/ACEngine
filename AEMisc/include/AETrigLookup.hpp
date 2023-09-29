@@ -22,8 +22,11 @@
 /// A macro for the size of the trigonometric function lookup tables
 #define AETRIG_TABLE_SIZE 360
 
+
+
 namespace ace {
 
+	/// @todo Add the interpolated table trigonometric functions. (Approximate value between 2 degrees in a table)
 	namespace math {
 		/// A lookup table for sin values
 		constexpr float sinTable[AETRIG_TABLE_SIZE]{
@@ -137,6 +140,7 @@ namespace ace {
 		constexpr float secDeg_table(const float degrees) {
 			return secTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
 		}
+
 	}
 }
 

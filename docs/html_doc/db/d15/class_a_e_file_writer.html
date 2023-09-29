@@ -16,11 +16,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -35,18 +31,6 @@
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -58,6 +42,17 @@
 var searchBox = new SearchBox("searchBox", "../../search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -99,20 +94,24 @@ $(document).ready(function(){initNavTree('db/d15/class_a_e_file_writer.html','..
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle"><div class="title">AEFileWriter Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>ArtyK's Engine File Writer.  
+<p>ArtyK's Engine File Writer; umm, it writes data to given file.  
  <a href="../../db/d15/class_a_e_file_writer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for AEFileWriter:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for AEFileWriter:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
   <img src="../../db/d15/class_a_e_file_writer.png" usemap="#AEFileWriter_map" alt=""/>
   <map id="AEFileWriter_map" name="AEFileWriter_map">
@@ -123,10 +122,10 @@ Inheritance diagram for AEFileWriter:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9cc146782e47d0c12c8d3868851f0628"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a9cc146782e47d0c12c8d3868851f0628">AEFileWriter</a> (const std::string &amp;filename, const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706">ucint</a> flags=0, const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> af_interval=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a31fc18b4cb4e49a255bc64c99361cdf9">AEFW_DEFAULT_AUTOFLUSH_INTERVAL</a>)</td></tr>
-<tr class="memdesc:a9cc146782e47d0c12c8d3868851f0628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
+<tr class="memdesc:a9cc146782e47d0c12c8d3868851f0628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor &ndash; creates the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance and opens the file.  <br /></td></tr>
 <tr class="separator:a9cc146782e47d0c12c8d3868851f0628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab54cdba782965b0287572945b1b9590e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#ab54cdba782965b0287572945b1b9590e">AEFileWriter</a> (const char *filename=&quot;&quot;, const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706">ucint</a> flags=0, const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> af_interval=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a31fc18b4cb4e49a255bc64c99361cdf9">AEFW_DEFAULT_AUTOFLUSH_INTERVAL</a>)</td></tr>
-<tr class="memdesc:ab54cdba782965b0287572945b1b9590e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
+<tr class="memdesc:ab54cdba782965b0287572945b1b9590e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor &ndash; creates the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance and opens the file.  <br /></td></tr>
 <tr class="separator:ab54cdba782965b0287572945b1b9590e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1d00a7ef7ce003e5af827ca6583f3d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#aa1d00a7ef7ce003e5af827ca6583f3d8">AEFileWriter</a> (<a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a> &amp;&amp;fw) noexcept</td></tr>
 <tr class="memdesc:aa1d00a7ef7ce003e5af827ca6583f3d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
@@ -148,7 +147,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a24a9ffee37ef7923a0cf53f02bb0cf7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f1a6dabb82ddb9c1f25ff4f905998f1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2f1a6dabb82ddb9c1f25ff4f905998f1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a2f1a6dabb82ddb9c1f25ff4f905998f1">write</a> (const T &amp;var, const size_t datasz=0, const bool useAutoFlush=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
-<tr class="memdesc:a2f1a6dabb82ddb9c1f25ff4f905998f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic function for writing data.  <br /></td></tr>
+<tr class="memdesc:a2f1a6dabb82ddb9c1f25ff4f905998f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic function for writing data, invoking proper write functions for built-in types.  <br /></td></tr>
 <tr class="separator:a2f1a6dabb82ddb9c1f25ff4f905998f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33b2861b963e7893e600162b531db807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a33b2861b963e7893e600162b531db807">writeString</a> (const std::string &amp;str, const bool includeNull=false, const bool useAutoFlush=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
 <tr class="memdesc:a33b2861b963e7893e600162b531db807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write std::string, as is, to file, and flush if necessary.  <br /></td></tr>
@@ -170,7 +169,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4896fcb17109ca2e16992203532f9625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the float value as text to the opened file.  <br /></td></tr>
 <tr class="separator:a4896fcb17109ca2e16992203532f9625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09394330fc2067669793d90bcfb39c30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a09394330fc2067669793d90bcfb39c30">writeBool</a> (const bool num, const bool useAutoFlush=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
-<tr class="memdesc:a09394330fc2067669793d90bcfb39c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the boolean to file as text (true/false)  <br /></td></tr>
+<tr class="memdesc:a09394330fc2067669793d90bcfb39c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the boolean to file as text (true/false).  <br /></td></tr>
 <tr class="separator:a09394330fc2067669793d90bcfb39c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29c35bf06d26de8e041f50e79d2a568a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a29c35bf06d26de8e041f50e79d2a568a">writeChar</a> (const char c, const bool useAutoFlush=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
 <tr class="memdesc:a29c35bf06d26de8e041f50e79d2a568a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the single (ascii) character to the file.  <br /></td></tr>
@@ -185,7 +184,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a088458b0061fa78066d538eed708e38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one byte of data to the file.  <br /></td></tr>
 <tr class="separator:a088458b0061fa78066d538eed708e38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6340bb882a0cf6a1bf1d509fcaed8e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#ad6340bb882a0cf6a1bf1d509fcaed8e8">writeData_ptr</a> (const void *cdata, const std::size_t dcount, const std::size_t dsize=sizeof(char), const bool useAutoFlush=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
-<tr class="memdesc:ad6340bb882a0cf6a1bf1d509fcaed8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write binary data, as is, to file, and flush if necessary Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#a34d5fa2aea5f37524f106d49a6aec517" title="Write binary data, as is, to file, and flush if necessary.">writeData_ref()</a>: uses (const) pointer to the variable/data.  <br /></td></tr>
+<tr class="memdesc:ad6340bb882a0cf6a1bf1d509fcaed8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write binary data, as is, to file, and flush if necessary.  <br /></td></tr>
 <tr class="separator:ad6340bb882a0cf6a1bf1d509fcaed8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34d5fa2aea5f37524f106d49a6aec517"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a34d5fa2aea5f37524f106d49a6aec517"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a34d5fa2aea5f37524f106d49a6aec517">writeData_ref</a> (const T &amp;cdata, const std::size_t tsize=sizeof(T), const bool useAutoFlush=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
@@ -195,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab5e73460f54542a2935306829e25aeb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the opened file.  <br /></td></tr>
 <tr class="separator:ab5e73460f54542a2935306829e25aeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa867533a1f7d59543b0826d735c65058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#aa867533a1f7d59543b0826d735c65058">closeFile</a> (void)</td></tr>
-<tr class="memdesc:aa867533a1f7d59543b0826d735c65058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the currently opened file.  <br /></td></tr>
+<tr class="memdesc:aa867533a1f7d59543b0826d735c65058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the currently opened file, and also, in addition, clears the last error status.  <br /></td></tr>
 <tr class="separator:aa867533a1f7d59543b0826d735c65058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafc0386d4b05b2deac8c6486d575dc2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#aafc0386d4b05b2deac8c6486d575dc2a">isOpen</a> (void) const</td></tr>
 <tr class="memdesc:aafc0386d4b05b2deac8c6486d575dc2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a file is open by this file-writer.  <br /></td></tr>
@@ -221,22 +220,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a53c94479364f7072884a86cd6ab8a44f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a53c94479364f7072884a86cd6ab8a44f">clearError</a> (void)</td></tr>
 <tr class="memdesc:a53c94479364f7072884a86cd6ab8a44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears last error status variable and sets it to AEFW_ERR_NOERROR.  <br /></td></tr>
 <tr class="separator:a53c94479364f7072884a86cd6ab8a44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_____a_e_module_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_____a_e_module_base')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; AEFileWriter &gt;</a></td></tr>
-<tr class="memitem:a943275f2c7d5f75014de1813e5e97202 inherit pub_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a943275f2c7d5f75014de1813e5e97202">__AEModuleBase</a> ()</td></tr>
-<tr class="memdesc:a943275f2c7d5f75014de1813e5e97202 inherit pub_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor that increases module count.  <br /></td></tr>
-<tr class="separator:a943275f2c7d5f75014de1813e5e97202 inherit pub_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091ccf659518ddec7a6b66d29eea9bc0 inherit pub_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a091ccf659518ddec7a6b66d29eea9bc0">__AEModuleBase</a> (const <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a> &gt; &amp;val)</td></tr>
-<tr class="memdesc:a091ccf659518ddec7a6b66d29eea9bc0 inherit pub_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic copy constructor that increases module count.  <br /></td></tr>
-<tr class="separator:a091ccf659518ddec7a6b66d29eea9bc0 inherit pub_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e629bb4309049f07c3001bd30a364a inherit pub_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a79e629bb4309049f07c3001bd30a364a">~__AEModuleBase</a> ()</td></tr>
-<tr class="memdesc:a79e629bb4309049f07c3001bd30a364a inherit pub_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic destructor that decreases module count.  <br /></td></tr>
-<tr class="separator:a79e629bb4309049f07c3001bd30a364a inherit pub_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7d97323fe42d6fdea4ba5d417dce0f80"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7d97323fe42d6fdea4ba5d417dce0f80">getModuleAmount</a> (void)</td></tr>
+<tr class="memdesc:a7d97323fe42d6fdea4ba5d417dce0f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
+<tr class="separator:a7d97323fe42d6fdea4ba5d417dce0f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb62c4d5bd45769d540a8baad914a75"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7eb62c4d5bd45769d540a8baad914a75">getModuleName</a> (void)</td></tr>
+<tr class="memdesc:a7eb62c4d5bd45769d540a8baad914a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
+<tr class="separator:a7eb62c4d5bd45769d540a8baad914a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a791cbb67210a3bd64922ee4e909b427e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a791cbb67210a3bd64922ee4e909b427e">m_ullFlushInterval</a></td></tr>
-<tr class="memdesc:a791cbb67210a3bd64922ee4e909b427e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interval in write operations before automatic flush operation 1 &ndash; flush every write operation, etc; -1 &ndash; almost never.  <br /></td></tr>
+<tr class="memdesc:a791cbb67210a3bd64922ee4e909b427e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interval in write operations before automatic flush operation.  <br /></td></tr>
 <tr class="separator:a791cbb67210a3bd64922ee4e909b427e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:aa45ec53c98b28cc49c32f55cefdecc2f"><td class="memItemLeft" align="right" valign="top">static const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f">m_sModulename</a></td></tr>
+<tr class="memdesc:aa45ec53c98b28cc49c32f55cefdecc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the module (class), same as in code.  <br /></td></tr>
+<tr class="separator:aa45ec53c98b28cc49c32f55cefdecc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743510be245f7b22abe7959c190497df"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a743510be245f7b22abe7959c190497df">m_ullModulesAlive</a></td></tr>
+<tr class="memdesc:a743510be245f7b22abe7959c190497df"><td class="mdescLeft">&#160;</td><td class="mdescRight">amount of alive module instances  <br /></td></tr>
+<tr class="separator:a743510be245f7b22abe7959c190497df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -264,27 +271,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a5e2017549583ab1e0ea4ca096a706672"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706">ucint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a5e2017549583ab1e0ea4ca096a706672">m_ucFlags</a></td></tr>
 <tr class="memdesc:a5e2017549583ab1e0ea4ca096a706672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags that were used to open the file.  <br /></td></tr>
 <tr class="separator:a5e2017549583ab1e0ea4ca096a706672"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_methods_class_____a_e_module_base"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_____a_e_module_base')"><img src="../../closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; AEFileWriter &gt;</a></td></tr>
-<tr class="memitem:a7d97323fe42d6fdea4ba5d417dce0f80 inherit pub_static_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7d97323fe42d6fdea4ba5d417dce0f80">getModuleAmount</a> (void)</td></tr>
-<tr class="memdesc:a7d97323fe42d6fdea4ba5d417dce0f80 inherit pub_static_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
-<tr class="separator:a7d97323fe42d6fdea4ba5d417dce0f80 inherit pub_static_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eb62c4d5bd45769d540a8baad914a75 inherit pub_static_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7eb62c4d5bd45769d540a8baad914a75">getModuleName</a> (void)</td></tr>
-<tr class="memdesc:a7eb62c4d5bd45769d540a8baad914a75 inherit pub_static_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
-<tr class="separator:a7eb62c4d5bd45769d540a8baad914a75 inherit pub_static_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_static_attribs_class_____a_e_module_base"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_____a_e_module_base')"><img src="../../closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; AEFileWriter &gt;</a></td></tr>
-<tr class="memitem:aa45ec53c98b28cc49c32f55cefdecc2f inherit pro_static_attribs_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f">m_sModulename</a></td></tr>
-<tr class="memdesc:aa45ec53c98b28cc49c32f55cefdecc2f inherit pro_static_attribs_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the module (class), same as in code.  <br /></td></tr>
-<tr class="separator:aa45ec53c98b28cc49c32f55cefdecc2f inherit pro_static_attribs_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a743510be245f7b22abe7959c190497df inherit pro_static_attribs_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a743510be245f7b22abe7959c190497df">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:a743510be245f7b22abe7959c190497df inherit pro_static_attribs_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">amount of alive module instances  <br /></td></tr>
-<tr class="separator:a743510be245f7b22abe7959c190497df inherit pro_static_attribs_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ArtyK's Engine File Writer. </p>
-<p>Umm, it writes data to given file. Just create it and dump the gigabytes of data to your files. Hungarian notation is fw Flags start with AEFW_ </p>
+<div class="textblock"><p>ArtyK's Engine File Writer; umm, it writes data to given file. </p>
+<p>Just create it and dump the gigabytes of data to your files. Hungarian notation is fw Flags start with AEFW_ </p><dl class="section warning"><dt>Warning</dt><dd>This is not thread safe! </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00082">82</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -328,7 +318,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Class constructor. </p>
+<p>Class constructor &ndash; creates the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance and opens the file. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/d15/class_a_e_file_writer.html#a6695288dbad456d831c6fb6ef3612f2f" title="Open(and create) file with given name and flag.">AEFileWriter::open()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Name of the file, with extension</td></tr>
@@ -338,7 +329,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -382,7 +373,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Class constructor. </p>
+<p>Class constructor &ndash; creates the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance and opens the file. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/d15/class_a_e_file_writer.html#a6695288dbad456d831c6fb6ef3612f2f" title="Open(and create) file with given name and flag.">AEFileWriter::open()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Name of the file, with extension</td></tr>
@@ -392,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +420,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00116">116</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -486,7 +478,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Default Destructor. </p>
 <p>Just flushes and closes the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00143">143</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -560,6 +552,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Open(and create) file with given name and flag. </p>
+<dl class="section note"><dt>Note</dt><dd>If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>Name of the file, with extension</td></tr>
@@ -570,7 +563,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if file was able to be open for writing, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00157">157</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00160">160</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -615,7 +608,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Open(and create) file with given name and flag. </p>
-<p>On success sets <a class="el" href="../../db/d15/class_a_e_file_writer.html#a5e2017549583ab1e0ea4ca096a706672" title="Flags that were used to open the file.">AEFileWriter::m_ucFlags</a> to passed flag value. </p><dl class="section warning"><dt>Warning</dt><dd>Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables <a class="el" href="../../db/d15/class_a_e_file_writer.html#a671a21cda4150a7cdbc24f8fff319a9d" title="Returns current write cursor position.">AEFileWriter::getCursorPos()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a3e2712af677a148b7b95c15c7019cd62" title="Sets read cursor position to pos from origin.">AEFileWriter::setCursorPos()</a>, and <a class="el" href="../../db/d15/class_a_e_file_writer.html#a209a6a50b3eb266b6dac0367bf813e1f" title="Returns size of the file in bytes.">AEFileWriter::getFileSize()</a>, since they manipulate the cursor.</dd></dl>
+<p>On success sets <a class="el" href="../../db/d15/class_a_e_file_writer.html#a5e2017549583ab1e0ea4ca096a706672" title="Flags that were used to open the file.">AEFileWriter::m_ucFlags</a> to passed flag value. </p><dl class="section note"><dt>Note</dt><dd>If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables <a class="el" href="../../db/d15/class_a_e_file_writer.html#a671a21cda4150a7cdbc24f8fff319a9d" title="Returns current write cursor position.">AEFileWriter::getCursorPos()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a3e2712af677a148b7b95c15c7019cd62" title="Sets read cursor position to pos from origin.">AEFileWriter::setCursorPos()</a>, and <a class="el" href="../../db/d15/class_a_e_file_writer.html#a209a6a50b3eb266b6dac0367bf813e1f" title="Returns size of the file in bytes.">AEFileWriter::getFileSize()</a>, since they manipulate the cursor.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>Name of the file, with extension</td></tr>
@@ -626,7 +620,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if file was able to be open for writing, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00645">645</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00651">651</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -672,8 +666,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Generic function for writing data. </p>
-<p>Invokes proper write functions for built-in types </p><dl class="section note"><dt>Note</dt><dd>String types don't include null-termination characters. Use separate functions for to control that </dd>
+<p>Generic function for writing data, invoking proper write functions for built-in types. </p>
+<dl class="section note"><dt>Note</dt><dd>String types don't include null-termination characters. Use separate functions for to control that </dd>
 <dd>
 Supported types: char, bool, integers, floats, strings; everything else is treated as binary stream.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -690,8 +684,9 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo:</a></b></dt><dd>Add a way to add custom types to this generic write function. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00587">587</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00593">593</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -745,7 +740,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00194">194</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00199">199</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -793,7 +788,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00210">210</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00215">215</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -847,7 +842,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00224">224</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00229">229</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -894,7 +889,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00239">239</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00244">244</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -941,7 +936,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00255">255</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00260">260</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -995,8 +990,9 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo:</a></b></dt><dd>Add custom way to format the float number </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00274">274</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00280">280</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1030,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the boolean to file as text (true/false) </p>
+<p>Writes the boolean to file as text (true/false). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">num</td><td>The bool to be written</td></tr>
@@ -1043,7 +1039,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00306">306</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00312">312</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1078,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Writes the single (ascii) character to the file. </p>
-<p>Essentially, it's the same as <a class="el" href="../../db/d15/class_a_e_file_writer.html#a088458b0061fa78066d538eed708e38a" title="Writes one byte of data to the file.">AEFileWriter::writeByte()</a></p>
+<dl class="section note"><dt>Note</dt><dd>Essentially, it's the same as <a class="el" href="../../db/d15/class_a_e_file_writer.html#a088458b0061fa78066d538eed708e38a" title="Writes one byte of data to the file.">AEFileWriter::writeByte()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>The char to be written</td></tr>
@@ -1091,7 +1087,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00316">316</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00322">322</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1146,7 +1142,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00328">328</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00334">334</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1193,7 +1189,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00337">337</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00343">343</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1236,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00346">346</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00352">352</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1290,8 +1286,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Write binary data, as is, to file, and flush if necessary Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#a34d5fa2aea5f37524f106d49a6aec517" title="Write binary data, as is, to file, and flush if necessary.">writeData_ref()</a>: uses (const) pointer to the variable/data. </p>
-<dl class="section note"><dt>Note</dt><dd>Doesn't work with literals </dd>
+<p>Write binary data, as is, to file, and flush if necessary. </p>
+<p>Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#a34d5fa2aea5f37524f106d49a6aec517" title="Write binary data, as is, to file, and flush if necessary.">writeData_ref()</a>: uses (const) pointer to the variable/data. </p><dl class="section note"><dt>Note</dt><dd>Doesn't work with literals </dd>
 <dd>
 If file is closed, sets last error flat to AEFW_ERR_NOT_OPEN</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1304,7 +1300,7 @@ If file is closed, sets last error flat to AEFW_ERR_NOT_OPEN</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00570">570</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00576">576</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1351,7 +1347,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Write binary data, as is, to file, and flush if necessary. </p>
-<p>Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#ad6340bb882a0cf6a1bf1d509fcaed8e8" title="Write binary data, as is, to file, and flush if necessary Difference with writeData_ref(): uses (cons...">writeData_ptr()</a>: uses (const) reference to the variable. </p><dl class="section note"><dt>Note</dt><dd>Works with literals</dd></dl>
+<p>Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#ad6340bb882a0cf6a1bf1d509fcaed8e8" title="Write binary data, as is, to file, and flush if necessary.">writeData_ptr()</a>: uses (const) reference to the variable. </p><dl class="section note"><dt>Note</dt><dd>Works with literals</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The type of the data to be written</td></tr>
@@ -1367,7 +1363,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00374">374</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00380">380</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1398,7 +1394,7 @@ template&lt;typename T &gt; </div>
 <p>Flushes the opened file. </p>
 <p>That's it. If file isn't open, sets the last error status to AEFW_ERR_NOT_OPEN. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00383">383</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00389">389</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1426,10 +1422,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the currently opened file. </p>
-<p>In addition, clears the last error status. </p>
+<p>Closes the currently opened file, and also, in addition, clears the last error status. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00395">395</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00401">401</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1460,7 +1455,7 @@ template&lt;typename T &gt; </div>
 <p>Checks if a file is open by this file-writer. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if file is open, false if otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00407">407</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00413">413</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1492,7 +1487,7 @@ template&lt;typename T &gt; </div>
 <dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>File size in bytes if file is open, if not &ndash; AEFW_ERR_NOT_OPEN.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00416">416</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00422">422</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1523,7 +1518,7 @@ template&lt;typename T &gt; </div>
 <p>Returns name of currently open file. </p>
 <dl class="section return"><dt>Returns</dt><dd>File name and its additional path(if was included in opening operation)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00438">438</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00444">444</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1555,7 +1550,7 @@ template&lt;typename T &gt; </div>
 <dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Write cursor pos, starting from 0 if file is open, if not &ndash; AEFW_ERR_NOT_OPEN (+last error status set to the same thing).</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00449">449</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00455">455</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1605,7 +1600,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, AEFW_ERR_NOT_OPEN if file's closed, or other things that fseek can return</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00469">469</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00475">475</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1636,7 +1631,7 @@ template&lt;typename T &gt; </div>
 <p>Returns the last error of the writer. </p>
 <dl class="section return"><dt>Returns</dt><dd>Values of AEFW_ERR_* error codes</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00487">487</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00493">493</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1665,9 +1660,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns total write requests made to file. </p>
-<dl class="section return"><dt>Returns</dt><dd>Amount of times the write operation has been called on the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer.">AEFileWriter</a> instance</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Amount of times the write operation has been called on the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00495">495</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00501">501</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1697,7 +1692,7 @@ template&lt;typename T &gt; </div>
 
 <p>Clears last error status variable and sets it to AEFW_ERR_NOERROR. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00502">502</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00508">508</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1727,7 +1722,7 @@ template&lt;typename T &gt; </div>
 <p>Checks for and performs the auto-flush operation if required. </p>
 <dl class="section note"><dt>Note</dt><dd>Does nothing if AEFW_AUTOFLUSH_ENABLE is not defined </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00518">518</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00524">524</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1775,7 +1770,69 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00536">536</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00542">542</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7d97323fe42d6fdea4ba5d417dce0f80" name="a7d97323fe42d6fdea4ba5d417dce0f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d97323fe42d6fdea4ba5d417dce0f80">&#9670;&#160;</a></span>getModuleAmount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::getModuleAmount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the amount of instances of the module currently existing. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00068">68</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7eb62c4d5bd45769d540a8baad914a75" name="a7eb62c4d5bd45769d540a8baad914a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eb62c4d5bd45769d540a8baad914a75">&#9670;&#160;</a></span>getModuleName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::getModuleName </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the name of the registered module. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -1792,9 +1849,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Interval in write operations before automatic flush operation 1 &ndash; flush every write operation, etc; -1 &ndash; almost never. </p>
+<p>Interval in write operations before automatic flush operation. </p>
+<p>1 &ndash; flush every write operation, etc; -1 &ndash; almost never </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00510">510</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00516">516</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1820,7 +1878,7 @@ template&lt;typename T &gt; </div>
 
 <p>Full filename and relative path. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00551">551</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00557">557</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1846,7 +1904,7 @@ template&lt;typename T &gt; </div>
 
 <p>Counter for total write operations for file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00553">553</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00559">559</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1872,7 +1930,7 @@ template&lt;typename T &gt; </div>
 
 <p>Object for file writing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00555">555</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00561">561</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1898,7 +1956,7 @@ template&lt;typename T &gt; </div>
 
 <p>Writer's last error indicator; Values are AEFW_ERR_* macros. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00557">557</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00563">563</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1924,7 +1982,61 @@ template&lt;typename T &gt; </div>
 
 <p>Flags that were used to open the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00559">559</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00565">565</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa45ec53c98b28cc49c32f55cefdecc2f" name="aa45ec53c98b28cc49c32f55cefdecc2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45ec53c98b28cc49c32f55cefdecc2f">&#9670;&#160;</a></span>m_sModulename</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char *const <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::m_sModulename</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Name of the module (class), same as in code. </p>
+<p>sets up the static variable values for the base class (and inherited classes)</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a743510be245f7b22abe7959c190497df" name="a743510be245f7b22abe7959c190497df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a743510be245f7b22abe7959c190497df">&#9670;&#160;</a></span>m_ullModulesAlive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&gt; <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::m_ullModulesAlive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>amount of alive module instances </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -1937,7 +2049,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a></li>
-    <li class="footer">Generated on Fri Sep 29 2023 01:32:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Fri Sep 29 2023 16:00:45 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

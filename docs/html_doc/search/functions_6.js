@@ -14,6 +14,5 @@ var searchData=
   ['gettick_11',['getTick',['../da/d62/class_a_e_timer.html#a1cec78d39e2175a7e007f4f366f3b7ef',1,'AETimer']]],
   ['gettotalwrites_12',['getTotalWrites',['../db/d15/class_a_e_file_writer.html#ad28c05670a76dea696fa09b94820e122',1,'AEFileWriter']]],
   ['gettypename_13',['getTypeName',['../d7/d7f/_a_e_module_base_8hpp.html#ac8374a3d6ea0279fd3fc2a4092bace2c',1,'AEModuleBase.hpp']]],
-  ['gettypename_3c_20test3_20_3e_14',['getTypeName&lt; Test3 &gt;',['../da/d7d/main___a_e_module_base_8cpp.html#af2db7cf4aa8b4d08e4900a0b811e5e0b',1,'main_AEModuleBase.cpp']]],
-  ['getworldtime_15',['getWorldTime',['../da/d62/class_a_e_timer.html#ae6032d29635251a01259baa7af26f083',1,'AETimer']]]
+  ['getworldtime_14',['getWorldTime',['../da/d62/class_a_e_timer.html#ae6032d29635251a01259baa7af26f083',1,'AETimer']]]
 ];

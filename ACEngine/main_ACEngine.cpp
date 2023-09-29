@@ -1,3 +1,16 @@
+
+/** @file ACEngine/main_ACEngine.cpp
+ *  This file contains the testing code for the engine or..larger project code, like a game.
+ *  
+ *  @todo Add the global variable list from my older engine
+ *  @todo Add AEFileReader module to read files
+ *  @todo Add AELogParser to parse the engine's (AELogger) log files
+ *  @todo Add engine's file format, AEFile
+ *  @todo Transfer and adapt code from my previous engine attempt
+ *  
+ *  Should not cause everything to break :)
+ */
+
 #include <iostream>
 //aefw
 #include "include/AEFileWriter.hpp"
@@ -22,10 +35,15 @@
 #include <ctime>
 
 
+
+
+
+
+
 int main() {
 	
 	std::srand(std::time(NULL));
-	AEFrame myfr;
+	AEFrame myr;
 	AEFileWriter myfw("acenginetest.txt", AEFW_FLAG_TRUNCATE, 1);
 	AETimer mytm(10000);
 	AEVector<std::size_t, 32> veca;
@@ -65,7 +83,7 @@ int main() {
 
 		
 		
-		myfr.sleep();
+		myr.sleep();
 	}
 	myfw.closeFile();
 	

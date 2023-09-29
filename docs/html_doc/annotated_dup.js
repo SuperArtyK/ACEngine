@@ -6,7 +6,5 @@ var annotated_dup =
     [ "AELogEntry", "da/dea/struct_a_e_log_entry.html", "da/dea/struct_a_e_log_entry" ],
     [ "AELogger", "d8/dfc/class_a_e_logger.html", "d8/dfc/class_a_e_logger" ],
     [ "AETimer", "da/d62/class_a_e_timer.html", "da/d62/class_a_e_timer" ],
-    [ "AEVector", "dc/df6/struct_a_e_vector.html", "dc/df6/struct_a_e_vector" ],
-    [ "Tempstruct", "d7/d21/struct_tempstruct.html", "d7/d21/struct_tempstruct" ],
-    [ "Test3", "dc/d5e/class_test3.html", "dc/d5e/class_test3" ]
+    [ "AEVector", "dc/df6/struct_a_e_vector.html", "dc/df6/struct_a_e_vector" ]
 ];

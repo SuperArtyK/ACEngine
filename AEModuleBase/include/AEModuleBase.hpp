@@ -29,7 +29,7 @@ inline const char* getTypeName(void) { return "getTypeName"; }
 // after the class definition
 
 /// <summary>
-/// This is a base class for all basic modules, meaning that the module is not using other modules to work. 
+/// @brief This is a base class for all basic modules, meaning that the module is not using other modules to work. 
 /// Intended to be inherited from in class declaration, not direct usage.
 /// Usage: class [classname] : public __AEModuleBase<[classname]>
 /// </summary>
@@ -81,6 +81,7 @@ protected:
 
 	/// <summary>
 	/// Name of the module (class), same as in code
+	/// @todo Find a way to make it constexpr and compile-time evaluated 
 	/// </summary>
 	static const char* const m_sModulename;
 	/// <summary>

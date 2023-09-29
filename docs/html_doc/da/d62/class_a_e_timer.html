@@ -16,11 +16,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -35,18 +31,6 @@
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -58,6 +42,17 @@
 var searchBox = new SearchBox("searchBox", "../../search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -100,19 +95,22 @@ $(document).ready(function(){initNavTree('da/d62/class_a_e_timer.html','../../')
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle"><div class="title">AETimer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>ArtyK's Engine Timer.  
+<p>ArtyK's Engine Timer &ndash; the engine's internal timer for, um, timing events or anything, with variable tick speed.  
  <a href="../../da/d62/class_a_e_timer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for AETimer:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for AETimer:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
   <img src="../../da/d62/class_a_e_timer.png" usemap="#AETimer_map" alt=""/>
   <map id="AETimer_map" name="AETimer_map">
@@ -123,10 +121,10 @@ Inheritance diagram for AETimer:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aff4bda684228e5545d53fcea1a9f98f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3">AETimer</a> (const double tps=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a13fc7d33c0c580b1560eee3cc5cc43fc">ENGINE_FPS</a>)</td></tr>
-<tr class="memdesc:aff4bda684228e5545d53fcea1a9f98f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
+<tr class="memdesc:aff4bda684228e5545d53fcea1a9f98f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor &ndash; starts the timer automatically.  <br /></td></tr>
 <tr class="separator:aff4bda684228e5545d53fcea1a9f98f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b">AETimer</a> (const <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> &amp;tm)</td></tr>
-<tr class="memdesc:ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
+<tr class="memdesc:ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor &ndash; Just copies the data and then starts the timer if original timer was started.  <br /></td></tr>
 <tr class="separator:ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bdf64ddc743a1223164764b9cb15091"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a7bdf64ddc743a1223164764b9cb15091">operator=</a> (const <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> &amp;tm)</td></tr>
 <tr class="memdesc:a7bdf64ddc743a1223164764b9cb15091"><td class="mdescLeft">&#160;</td><td class="mdescRight">The copy assignment operator.  <br /></td></tr>
@@ -141,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a29f3aaf12a9832c55dff8875d94c4548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer thread and stops tick counting.  <br /></td></tr>
 <tr class="separator:a29f3aaf12a9832c55dff8875d94c4548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b1670463c8e475dbfc4aae63f12732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a12b1670463c8e475dbfc4aae63f12732">resetTime</a> (void)</td></tr>
-<tr class="memdesc:a12b1670463c8e475dbfc4aae63f12732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer time to 0.  <br /></td></tr>
+<tr class="memdesc:a12b1670463c8e475dbfc4aae63f12732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer's tick to 0.  <br /></td></tr>
 <tr class="separator:a12b1670463c8e475dbfc4aae63f12732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cec78d39e2175a7e007f4f366f3b7ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a1cec78d39e2175a7e007f4f366f3b7ef">getTick</a> (void) const</td></tr>
 <tr class="memdesc:a1cec78d39e2175a7e007f4f366f3b7ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current tick of the timer.  <br /></td></tr>
@@ -150,21 +148,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae6032d29635251a01259baa7af26f083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the approximate world time of the timer in seconds (from the ticks)  <br /></td></tr>
 <tr class="separator:ae6032d29635251a01259baa7af26f083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afacf85e84da0f9fbfbe5d85a57c12153"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#afacf85e84da0f9fbfbe5d85a57c12153">getFrameRate</a> (void) const</td></tr>
-<tr class="memdesc:afacf85e84da0f9fbfbe5d85a57c12153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fps goal of <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the Engine&#39;s frame delay module.">AEFrame</a> instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a>.  <br /></td></tr>
+<tr class="memdesc:afacf85e84da0f9fbfbe5d85a57c12153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fps goal of <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a>.  <br /></td></tr>
 <tr class="separator:afacf85e84da0f9fbfbe5d85a57c12153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0777fb9aa12a65cd1a64ca7ff173b010"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a0777fb9aa12a65cd1a64ca7ff173b010">getDelay</a> (void) const</td></tr>
-<tr class="memdesc:a0777fb9aa12a65cd1a64ca7ff173b010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the Engine&#39;s frame delay module.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> delay from the set fps, in seconds.  <br /></td></tr>
+<tr class="memdesc:a0777fb9aa12a65cd1a64ca7ff173b010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> delay from the set fps, in seconds.  <br /></td></tr>
 <tr class="separator:a0777fb9aa12a65cd1a64ca7ff173b010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_____a_e_module_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_____a_e_module_base')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; AETimer &gt;</a></td></tr>
-<tr class="memitem:a943275f2c7d5f75014de1813e5e97202 inherit pub_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a943275f2c7d5f75014de1813e5e97202">__AEModuleBase</a> ()</td></tr>
-<tr class="memdesc:a943275f2c7d5f75014de1813e5e97202 inherit pub_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor that increases module count.  <br /></td></tr>
-<tr class="separator:a943275f2c7d5f75014de1813e5e97202 inherit pub_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091ccf659518ddec7a6b66d29eea9bc0 inherit pub_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a091ccf659518ddec7a6b66d29eea9bc0">__AEModuleBase</a> (const <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> &gt; &amp;val)</td></tr>
-<tr class="memdesc:a091ccf659518ddec7a6b66d29eea9bc0 inherit pub_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic copy constructor that increases module count.  <br /></td></tr>
-<tr class="separator:a091ccf659518ddec7a6b66d29eea9bc0 inherit pub_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e629bb4309049f07c3001bd30a364a inherit pub_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a79e629bb4309049f07c3001bd30a364a">~__AEModuleBase</a> ()</td></tr>
-<tr class="memdesc:a79e629bb4309049f07c3001bd30a364a inherit pub_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic destructor that decreases module count.  <br /></td></tr>
-<tr class="separator:a79e629bb4309049f07c3001bd30a364a inherit pub_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -174,13 +162,21 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abb1ffee8b1b6b0ea87db6dc97a0609df"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#abb1ffee8b1b6b0ea87db6dc97a0609df">waitTicks</a> (const <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> &amp;timer, const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> tick)</td></tr>
 <tr class="memdesc:abb1ffee8b1b6b0ea87db6dc97a0609df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops and sleeps the thread untill the given timer goes through certain tick amount.  <br /></td></tr>
 <tr class="separator:abb1ffee8b1b6b0ea87db6dc97a0609df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_methods_class_____a_e_module_base"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_____a_e_module_base')"><img src="../../closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; AETimer &gt;</a></td></tr>
-<tr class="memitem:a7d97323fe42d6fdea4ba5d417dce0f80 inherit pub_static_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7d97323fe42d6fdea4ba5d417dce0f80">getModuleAmount</a> (void)</td></tr>
-<tr class="memdesc:a7d97323fe42d6fdea4ba5d417dce0f80 inherit pub_static_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
-<tr class="separator:a7d97323fe42d6fdea4ba5d417dce0f80 inherit pub_static_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eb62c4d5bd45769d540a8baad914a75 inherit pub_static_methods_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7eb62c4d5bd45769d540a8baad914a75">getModuleName</a> (void)</td></tr>
-<tr class="memdesc:a7eb62c4d5bd45769d540a8baad914a75 inherit pub_static_methods_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
-<tr class="separator:a7eb62c4d5bd45769d540a8baad914a75 inherit pub_static_methods_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d97323fe42d6fdea4ba5d417dce0f80"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7d97323fe42d6fdea4ba5d417dce0f80">getModuleAmount</a> (void)</td></tr>
+<tr class="memdesc:a7d97323fe42d6fdea4ba5d417dce0f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
+<tr class="separator:a7d97323fe42d6fdea4ba5d417dce0f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb62c4d5bd45769d540a8baad914a75"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a7eb62c4d5bd45769d540a8baad914a75">getModuleName</a> (void)</td></tr>
+<tr class="memdesc:a7eb62c4d5bd45769d540a8baad914a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
+<tr class="separator:a7eb62c4d5bd45769d540a8baad914a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:aa45ec53c98b28cc49c32f55cefdecc2f"><td class="memItemLeft" align="right" valign="top">static const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f">m_sModulename</a></td></tr>
+<tr class="memdesc:aa45ec53c98b28cc49c32f55cefdecc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the module (class), same as in code.  <br /></td></tr>
+<tr class="separator:aa45ec53c98b28cc49c32f55cefdecc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743510be245f7b22abe7959c190497df"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a743510be245f7b22abe7959c190497df">m_ullModulesAlive</a></td></tr>
+<tr class="memdesc:a743510be245f7b22abe7959c190497df"><td class="mdescLeft">&#160;</td><td class="mdescRight">amount of alive module instances  <br /></td></tr>
+<tr class="separator:a743510be245f7b22abe7959c190497df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -190,9 +186,9 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a7335b52c091653148486048de2eb0a23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a7335b52c091653148486048de2eb0a23">m_frDelay</a></td></tr>
-<tr class="memdesc:a7335b52c091653148486048de2eb0a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame-rater of the timer for proper delay in the tick-counting function loop.  <br /></td></tr>
-<tr class="separator:a7335b52c091653148486048de2eb0a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe2c92681bbe2eaaf8680ab25bf8c30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a></td></tr>
+<tr class="memdesc:a2fe2c92681bbe2eaaf8680ab25bf8c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frame-rater of the timer for proper delay in the tick-counting function loop.  <br /></td></tr>
+<tr class="separator:a2fe2c92681bbe2eaaf8680ab25bf8c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20051246d7891c71cc0ec19bb38af3fc"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a20051246d7891c71cc0ec19bb38af3fc">m_trdCounting</a></td></tr>
 <tr class="memdesc:a20051246d7891c71cc0ec19bb38af3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The thread that does the tick counting.  <br /></td></tr>
 <tr class="separator:a20051246d7891c71cc0ec19bb38af3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,22 +196,12 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:ab3676309b4854bf561c2d7bce3bc5849"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tick count variable.  <br /></td></tr>
 <tr class="separator:ab3676309b4854bf561c2d7bce3bc5849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306cbf2c0132d5ceb378442d7a894518"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a306cbf2c0132d5ceb378442d7a894518">m_bRunTrd</a></td></tr>
-<tr class="memdesc:a306cbf2c0132d5ceb378442d7a894518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to continue running the tick counting loop.  <br /></td></tr>
+<tr class="memdesc:a306cbf2c0132d5ceb378442d7a894518"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flag to continue running the tick counting loop.  <br /></td></tr>
 <tr class="separator:a306cbf2c0132d5ceb378442d7a894518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_static_attribs_class_____a_e_module_base"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_____a_e_module_base')"><img src="../../closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; AETimer &gt;</a></td></tr>
-<tr class="memitem:aa45ec53c98b28cc49c32f55cefdecc2f inherit pro_static_attribs_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f">m_sModulename</a></td></tr>
-<tr class="memdesc:aa45ec53c98b28cc49c32f55cefdecc2f inherit pro_static_attribs_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the module (class), same as in code.  <br /></td></tr>
-<tr class="separator:aa45ec53c98b28cc49c32f55cefdecc2f inherit pro_static_attribs_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a743510be245f7b22abe7959c190497df inherit pro_static_attribs_class_____a_e_module_base"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a743510be245f7b22abe7959c190497df">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:a743510be245f7b22abe7959c190497df inherit pro_static_attribs_class_____a_e_module_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">amount of alive module instances  <br /></td></tr>
-<tr class="separator:a743510be245f7b22abe7959c190497df inherit pro_static_attribs_class_____a_e_module_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ArtyK's Engine Timer. </p>
-<p>The engine's internal timer for..timing events or anything, with variable tick speed. Just create it and look at the ticks of the timer from anywhere in the program...that you can access it. Hungarian notation is tm </p>
+<div class="textblock"><p>ArtyK's Engine Timer &ndash; the engine's internal timer for, um, timing events or anything, with variable tick speed. </p>
+<p>Just create it and look at the ticks of the timer from anywhere in the program...that you can access it. Hungarian notation is tm </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -243,8 +229,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Class constructor. </p>
-<p>Starts the timer automatically</p>
+<p>Class constructor &ndash; starts the timer automatically. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tps</td><td>The amount of ticks per second, as the float</td></tr>
@@ -280,11 +265,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy constructor. </p>
-<p>Just makes copy of the data and then starts the timer if original timer was started.</p>
+<p>Copy constructor &ndash; Just copies the data and then starts the timer if original timer was started. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tm</td><td>The original <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> instance to make a copy of</td></tr>
+    <tr><td class="paramname">tm</td><td>The original <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> instance to make a copy of</td></tr>
   </table>
   </dd>
 </dl>
@@ -348,14 +332,14 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The copy assignment operator. </p>
-<p>Just makes copy of the data and then starts the timer if original timer was started.</p>
+<p>Just copies the data and then starts the timer if original timer was started.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tm</td><td>The original <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> instance to make a copy of</td></tr>
+    <tr><td class="paramname">tm</td><td>The original <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> instance to make a copy of</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the resulting <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> copy</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the resulting <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> copy</dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
@@ -446,7 +430,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Resets the timer time to 0. </p>
+<p>Resets the timer's tick to 0. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
@@ -540,7 +524,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the fps goal of <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the Engine&#39;s frame delay module.">AEFrame</a> instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a>. </p>
+<p>Returns the fps goal of <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dd7/class_a_e_frame.html#a6942b59f3af48046293610b8dca0d5ee" title="Returns the fps goal of AEFrame instance.">AEFrame::getFrameRate()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Rounded int of the approximated fps goal</dd></dl>
 
@@ -572,9 +556,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the Engine&#39;s frame delay module.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> delay from the set fps, in seconds. </p>
+<p>Returns the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> delay from the set fps, in seconds. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dd7/class_a_e_frame.html#a93ebcb549ac4f4ebfc0deda7939cb451" title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds.">AEFrame::getDelay()</a></dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>double of the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the Engine&#39;s frame delay module.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> delay in real-world seconds</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double of the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> delay in real-world seconds</dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00143">143</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
@@ -617,8 +601,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Stops and sleeps the thread untill the given timer hits the certain tick number. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timer</td><td>The instance of the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> to wait for</td></tr>
-    <tr><td class="paramname">tick</td><td>The <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> instance tick value to wait for</td></tr>
+    <tr><td class="paramname">timer</td><td>The instance of the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> to wait for</td></tr>
+    <tr><td class="paramname">tick</td><td>The <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> instance tick value to wait for</td></tr>
   </table>
   </dd>
 </dl>
@@ -664,8 +648,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Stops and sleeps the thread untill the given timer goes through certain tick amount. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timer</td><td>The instance of the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> to wait for</td></tr>
-    <tr><td class="paramname">tick</td><td>The amount of ticks to wait for in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer.">AETimer</a> instance</td></tr>
+    <tr><td class="paramname">timer</td><td>The instance of the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> to wait for</td></tr>
+    <tr><td class="paramname">tick</td><td>The amount of ticks to wait for in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> instance</td></tr>
   </table>
   </dd>
 </dl>
@@ -704,9 +688,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Field Documentation</h2>
-<a id="a7335b52c091653148486048de2eb0a23" name="a7335b52c091653148486048de2eb0a23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7335b52c091653148486048de2eb0a23">&#9670;&#160;</a></span>m_frDelay</h2>
+<a id="a7d97323fe42d6fdea4ba5d417dce0f80" name="a7d97323fe42d6fdea4ba5d417dce0f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d97323fe42d6fdea4ba5d417dce0f80">&#9670;&#160;</a></span>getModuleAmount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -715,7 +698,70 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a> AETimer::m_frDelay</td>
+          <td class="memname">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>  &gt;::getModuleAmount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the amount of instances of the module currently existing. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00068">68</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7eb62c4d5bd45769d540a8baad914a75" name="a7eb62c4d5bd45769d540a8baad914a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eb62c4d5bd45769d540a8baad914a75">&#9670;&#160;</a></span>getModuleName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>  &gt;::getModuleName </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the name of the registered module. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="a2fe2c92681bbe2eaaf8680ab25bf8c30" name="a2fe2c92681bbe2eaaf8680ab25bf8c30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">&#9670;&#160;</a></span>m_rDelay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a> AETimer::m_rDelay</td>
         </tr>
       </table>
   </td>
@@ -725,7 +771,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Frame-rater of the timer for proper delay in the tick-counting function loop. </p>
+<p>The frame-rater of the timer for proper delay in the tick-counting function loop. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00186">186</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
@@ -803,9 +849,63 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Flag to continue running the tick counting loop. </p>
+<p>The flag to continue running the tick counting loop. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa45ec53c98b28cc49c32f55cefdecc2f" name="aa45ec53c98b28cc49c32f55cefdecc2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45ec53c98b28cc49c32f55cefdecc2f">&#9670;&#160;</a></span>m_sModulename</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char *const <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>  &gt;::m_sModulename</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Name of the module (class), same as in code. </p>
+<p>sets up the static variable values for the base class (and inherited classes)</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a743510be245f7b22abe7959c190497df" name="a743510be245f7b22abe7959c190497df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a743510be245f7b22abe7959c190497df">&#9670;&#160;</a></span>m_ullModulesAlive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&gt; <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>  &gt;::m_ullModulesAlive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>amount of alive module instances </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -818,7 +918,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a></li>
-    <li class="footer">Generated on Fri Sep 29 2023 01:32:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Fri Sep 29 2023 16:00:45 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

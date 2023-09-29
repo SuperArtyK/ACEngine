@@ -35,6 +35,7 @@ var NAVTREE =
     [ "AETimer project", "db/d97/md__a_e_timer_2_r_e_a_d_m_e.html", null ],
     [ "AEVector project", "d4/d91/md__a_e_vector_2_r_e_a_d_m_e.html", null ],
     [ "LICENSE", "d2/d35/md__l_i_c_e_n_s_e.html", null ],
+    [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -57,7 +58,6 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
@@ -68,7 +68,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dc/d89/_a_e_typedefs_8hpp.html#ac2e8f598ba094050a1c4e13e721cb670"
+"dc/df6/struct_a_e_vector.html#a1d3495bd1142f0bb680f12a0968adfc6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

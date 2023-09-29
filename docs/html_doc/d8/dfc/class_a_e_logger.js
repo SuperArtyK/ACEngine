@@ -18,6 +18,8 @@ var class_a_e_logger =
     [ "writeStatus", "d8/dfc/class_a_e_logger.html#a23b9fc5df91ee85f382a9c72a88fa44a", null ],
     [ "ptrFromIndex", "d8/dfc/class_a_e_logger.html#a1ef18895f930b7ca28b98398a6633813", null ],
     [ "logWriterThread", "d8/dfc/class_a_e_logger.html#a5938787b6933f4b96ebff10643bd2497", null ],
+    [ "getModuleAmount", "d8/dfc/class_a_e_logger.html#a7d97323fe42d6fdea4ba5d417dce0f80", null ],
+    [ "getModuleName", "d8/dfc/class_a_e_logger.html#a7eb62c4d5bd45769d540a8baad914a75", null ],
     [ "m_fwLogger", "d8/dfc/class_a_e_logger.html#ae9895e282c5bdf81312106acd988e1d8", null ],
     [ "m_mtxAllocLock", "d8/dfc/class_a_e_logger.html#ae91d805ef8866461e0735c9f41f54c24", null ],
     [ "m_vAllocTable", "d8/dfc/class_a_e_logger.html#a92b4e7278fc54d861edeef1850e27510", null ],
@@ -29,5 +31,7 @@ var class_a_e_logger =
     [ "m_ullQueueSize", "d8/dfc/class_a_e_logger.html#a51b2cf8fe7285ae2f83816a26dafacde", null ],
     [ "m_lepQueue", "d8/dfc/class_a_e_logger.html#a26d4cea0c8e731068915f96b25a431c6", null ],
     [ "m_lepLastNode", "d8/dfc/class_a_e_logger.html#a5fb2a77428439b46c140f2d84132f2d0", null ],
-    [ "m_bStopTrd", "d8/dfc/class_a_e_logger.html#a1d67ae9da17063fcddae25bfca5b5a19", null ]
+    [ "m_bStopTrd", "d8/dfc/class_a_e_logger.html#a1d67ae9da17063fcddae25bfca5b5a19", null ],
+    [ "m_sModulename", "d8/dfc/class_a_e_logger.html#aa45ec53c98b28cc49c32f55cefdecc2f", null ],
+    [ "m_ullModulesAlive", "d8/dfc/class_a_e_logger.html#a743510be245f7b22abe7959c190497df", null ]
 ];

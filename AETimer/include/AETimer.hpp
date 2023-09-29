@@ -20,7 +20,7 @@
 
 
 /// <summary>
-/// ArtyK's Engine Timer. The engine's internal timer for..timing events or anything, with variable tick speed.
+/// @brief ArtyK's Engine Timer -- the engine's internal timer for, um, timing events or anything, with variable tick speed.
 /// Just create it and look at the ticks of the timer from anywhere in the program...that you can access it.
 /// Hungarian notation is tm
 /// </summary>
@@ -31,20 +31,20 @@ public:
 //constructors
 	
 	/// <summary>
-	/// Class constructor. Starts the timer automatically
+	/// Class constructor -- starts the timer automatically
 	/// </summary>
 	/// <param name="tps">The amount of ticks per second, as the float</param>
 	explicit AETimer(const double tps = ENGINE_FPS) :
-		m_frDelay(tps), m_ullTicks(0), m_bRunTrd(true) {
+		m_rDelay(tps), m_ullTicks(0), m_bRunTrd(true) {
 		this->startThread();
 	}
 
 	/// <summary>
-	/// Copy constructor. Just makes copy of the data and then starts the timer if original timer was started.
+	/// Copy constructor -- Just copies the data and then starts the timer if original timer was started.
 	/// </summary>
 	/// <param name="tm">The original AETimer instance to make a copy of</param>
 	AETimer(const AETimer& tm) :
-		m_frDelay(tm.m_frDelay), m_ullTicks(tm.m_ullTicks.load()), m_bRunTrd(tm.m_bRunTrd.load()) {
+		m_rDelay(tm.m_rDelay), m_ullTicks(tm.m_ullTicks.load()), m_bRunTrd(tm.m_bRunTrd.load()) {
 
 		if (this->m_bRunTrd) {
 			this->startThread();
@@ -52,12 +52,12 @@ public:
 	}
 
 	/// <summary>
-	/// The copy assignment operator. Just makes copy of the data and then starts the timer if original timer was started.
+	/// The copy assignment operator. Just copies the data and then starts the timer if original timer was started.
 	/// </summary>
 	/// <param name="tm">The original AETimer instance to make a copy of</param>
 	/// <returns>Reference to the resulting AETimer copy</returns>
 	AETimer& operator=(const AETimer& tm) {
-		this->m_frDelay = tm.m_frDelay;
+		this->m_rDelay = tm.m_rDelay;
 		this->m_ullTicks = tm.m_ullTicks.load();
 		this->m_bRunTrd = tm.m_bRunTrd.load();
 		if (this->m_bRunTrd) {
@@ -102,7 +102,7 @@ public:
 	}
 
 	/// <summary>
-	/// Resets the timer time to 0
+	/// Resets the timer's tick to 0
 	/// </summary>
 	inline void resetTime(void) {
 		this->m_ullTicks = 0;
@@ -123,7 +123,7 @@ public:
 	/// </summary>
 	/// <returns>double of the approximate world time the timer has counted (using it's ticks)</returns>
 	inline double getWorldTime(void) const {
-		return this->m_ullTicks.load() * this->m_frDelay.getDelay();
+		return this->m_ullTicks.load() * this->m_rDelay.getDelay();
 	}
 
 	/// <summary>
@@ -132,7 +132,7 @@ public:
 	/// </summary>
 	/// <returns>Rounded int of the approximated fps goal</returns>
 	inline double getFrameRate(void) const { 
-		return this->m_frDelay.getFrameRate(); 
+		return this->m_rDelay.getFrameRate(); 
 	}
 
 	/// <summary>
@@ -141,7 +141,7 @@ public:
 	/// </summary>
 	/// <returns>double of the maximum AEFrame's instance in the AETimer delay in real-world seconds</returns>
 	inline double getDelay(void) const {
-		return this->m_frDelay.getDelay();
+		return this->m_rDelay.getDelay();
 	}
 
 	/// <summary>
@@ -176,19 +176,19 @@ private:
 		//we don't care about a lot of sync, since...it's 1 byte
 		//and we just need approximate time to stop the timer
 		while (this->m_bRunTrd.load(std::memory_order_relaxed)) {
-			this->m_frDelay.sleep();
+			this->m_rDelay.sleep();
 			this->m_ullTicks++;
 			
 		}
 	}
 
-	/// Frame-rater of the timer for proper delay in the tick-counting function loop
-	AEFrame m_frDelay;
+	/// The frame-rater of the timer for proper delay in the tick-counting function loop
+	AEFrame m_rDelay;
 	/// The thread that does the tick counting
 	std::thread m_trdCounting;
 	/// The tick count variable
 	std::atomic<ullint> m_ullTicks;
-	/// Flag to continue running the tick counting loop
+	/// The flag to continue running the tick counting loop
 	std::atomic<bool> m_bRunTrd;
 
 

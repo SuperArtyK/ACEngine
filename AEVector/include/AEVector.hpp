@@ -14,15 +14,12 @@
 
 #include "include/AEMath.hpp"
 #include <ostream>
-
-//TODO: migrate code from old engine
-//TODO: add docs
-//TODO: clean up code
-//TODO: make code faster/easier to read
-
+#include <string>
 
 #define AEVEC_WRAP_DIMENSIONS
 
+/// @todo Add AEVector docs
+/// @todo Clean up AEVector code
 template<typename T, const std::size_t dimAmount>
 struct AEVector {
 

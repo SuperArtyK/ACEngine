@@ -4,12 +4,17 @@ This is my C++ engine to create games and stuff in console. Rework of my previou
 
 The code is divided into projects to ease development and testing. (so I don't need to compile the whooole thing to test one thing...like I did last time lol). 
 
+You can find the engine code documentation [here](https://superartyk.github.io/ACEngine "ACEngine doxygen...docs")
+
 ##### Current project list:
 
 * ACEngine -- main project where everything is combined
-* AEMisc -- project where the miscellaneous things, global engine variables and utilities lie.  Basically stuff that cannot be put into a module
+* AEMisc -- project where the miscellaneous things, global engine variables, and the general engine utilities.  Basically stuff that cannot be put into a module
 * AEModuleBase -- project of the most basic module of the engine, implementing features for all engine modules.
-* AEFileWriter -- project of file writer module. The fast and convenient file writer of the engine.
+* AEFileWriter -- project of file writer module. The fast and convenient file writer of the engine (just wrapper of FILE api lol).
+* AEFrame -- project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time
+* AELogger -- project of engine's logger. Allows to log (random) stuff to fileю
+* AETimer -- project of the engine's 
 
 ### DESIRED FEATURES
 

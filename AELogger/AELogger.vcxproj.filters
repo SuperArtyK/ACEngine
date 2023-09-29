@@ -16,6 +16,9 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{cde2c94f-3c6e-48c4-85a0-4d2fbe1e4a98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Logo resources">
+      <UniqueIdentifier>{bcb4e47a-a135-4832-9167-18d2544ad5db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AELogger.cpp">
@@ -29,5 +32,23 @@
     <ClInclude Include="include\AELogger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\resources\resource1.h">
+      <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\resources\consoleprog1.rc">
+      <Filter>Resource Files\Logo resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\logo.ico">
+      <Filter>Resource Files\Logo resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

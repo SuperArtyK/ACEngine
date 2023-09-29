@@ -16,11 +16,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -35,18 +31,6 @@
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -58,6 +42,17 @@
 var searchBox = new SearchBox("searchBox", "../../search/",'.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -168,24 +163,24 @@ $(document).ready(function(){initNavTree('de/d72/_a_e_frame_8hpp_source.html','.
 <div class="ttc" id="a_a_e_typedefs_8hpp_html_a9617f7f0337791e090da1a53ce2f2300"><div class="ttname"><a href="../../dc/d89/_a_e_typedefs_8hpp.html#a9617f7f0337791e090da1a53ce2f2300">SteadyTime</a></div><div class="ttdeci">std::chrono::steady_clock SteadyTime</div><div class="ttdoc">A shortcut for chrono's steady time.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00080">AETypedefs.hpp:80</a></div></div>
 <div class="ttc" id="a_a_e_typedefs_8hpp_html_a9bc5ace876de58da08cd948ba7edb6e2"><div class="ttname"><a href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timePoint</a></div><div class="ttdeci">#define timePoint</div><div class="ttdoc">A macro as the shortcut of chrono's time point. I couldn't shove it into a typedef so....</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00097">AETypedefs.hpp:97</a></div></div>
 <div class="ttc" id="aclass_____a_e_module_base_html"><div class="ttname"><a href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a></div><div class="ttdoc">This is a base class for all basic modules, meaning that the module is not using other modules to wor...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00038">AEModuleBase.hpp:39</a></div></div>
-<div class="ttc" id="aclass_a_e_frame_html"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html">AEFrame</a></div><div class="ttdoc">This is the Engine's frame delay module.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00029">AEFrame.hpp:29</a></div></div>
+<div class="ttc" id="aclass_a_e_frame_html"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html">AEFrame</a></div><div class="ttdoc">This is the ArtyK's Engine's frame delay module – it allows to create precise delays for game loops.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00029">AEFrame.hpp:29</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_a3e11897444819291d790705780db694a"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a3e11897444819291d790705780db694a">AEFrame::AEFrame</a></div><div class="ttdeci">AEFrame(const double fps=ENGINE_FPS)</div><div class="ttdoc">Class constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00038">AEFrame.hpp:38</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_a5f9390ef4638333051b039b8ad873a88"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a5f9390ef4638333051b039b8ad873a88">AEFrame::setFps</a></div><div class="ttdeci">void setFps(const double fps)</div><div class="ttdoc">Resets the delay value to what you pass to it.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00048">AEFrame.hpp:48</a></div></div>
-<div class="ttc" id="aclass_a_e_frame_html_a642a862356bc269f078dbe8d9c5eb95d"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a642a862356bc269f078dbe8d9c5eb95d">AEFrame::m_tpTimepoint</a></div><div class="ttdeci">timePoint&lt; SteadyTime, decltype(m_tdChronoDelay)&gt; m_tpTimepoint</div><div class="ttdoc">the timepoint, that sets time when to wake up the thread</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00096">AEFrame.hpp:96</a></div></div>
+<div class="ttc" id="aclass_a_e_frame_html_a642a862356bc269f078dbe8d9c5eb95d"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a642a862356bc269f078dbe8d9c5eb95d">AEFrame::m_tpTimepoint</a></div><div class="ttdeci">timePoint&lt; SteadyTime, decltype(m_tdChronoDelay)&gt; m_tpTimepoint</div><div class="ttdoc">The timepoint, that sets time when to wake up the thread.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00096">AEFrame.hpp:96</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_a64f2857c19ceec626eebad705d9b17b2"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a64f2857c19ceec626eebad705d9b17b2">AEFrame::resetTimePoint</a></div><div class="ttdeci">void resetTimePoint(void)</div><div class="ttdoc">Resets the time point in the AEFrame to current system time.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00075">AEFrame.hpp:75</a></div></div>
-<div class="ttc" id="aclass_a_e_frame_html_a6706c7859abc818a99a5cc93635b3550"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a6706c7859abc818a99a5cc93635b3550">AEFrame::m_bNoDelay</a></div><div class="ttdeci">bool m_bNoDelay</div><div class="ttdoc">flag if we don't need the delay</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00099">AEFrame.hpp:99</a></div></div>
+<div class="ttc" id="aclass_a_e_frame_html_a6706c7859abc818a99a5cc93635b3550"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a6706c7859abc818a99a5cc93635b3550">AEFrame::m_bNoDelay</a></div><div class="ttdeci">bool m_bNoDelay</div><div class="ttdoc">The flag if we don't need the delay, err, for some reason.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00099">AEFrame.hpp:99</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_a6942b59f3af48046293610b8dca0d5ee"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a6942b59f3af48046293610b8dca0d5ee">AEFrame::getFrameRate</a></div><div class="ttdeci">double getFrameRate(void) const</div><div class="ttdoc">Returns the fps goal of AEFrame instance.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00083">AEFrame.hpp:83</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_a93ebcb549ac4f4ebfc0deda7939cb451"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#a93ebcb549ac4f4ebfc0deda7939cb451">AEFrame::getDelay</a></div><div class="ttdeci">double getDelay(void) const</div><div class="ttdoc">Returns the maximum AEFrame's delay from the set fps, in seconds.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00089">AEFrame.hpp:89</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_aa3459df5ce99cf186b18f7d4c37ba161"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#aa3459df5ce99cf186b18f7d4c37ba161">AEFrame::sleep</a></div><div class="ttdeci">void sleep(void)</div><div class="ttdoc">Puts the current thread to sleep up to the set fps goal Example: if the fps goal was set to 30fps (~~...</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00060">AEFrame.hpp:60</a></div></div>
 <div class="ttc" id="aclass_a_e_frame_html_ab06c8ac7fefff8614270dff6f4f08ebf"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#ab06c8ac7fefff8614270dff6f4f08ebf">AEFrame::m_fFPS</a></div><div class="ttdeci">double m_fFPS</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00097">AEFrame.hpp:97</a></div></div>
-<div class="ttc" id="aclass_a_e_frame_html_ad930b5c2e6863df676922364703aceed"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#ad930b5c2e6863df676922364703aceed">AEFrame::m_tdChronoDelay</a></div><div class="ttdeci">timeDur&lt; double &gt; m_tdChronoDelay</div><div class="ttdoc">delay between seconds</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00094">AEFrame.hpp:94</a></div></div>
+<div class="ttc" id="aclass_a_e_frame_html_ad930b5c2e6863df676922364703aceed"><div class="ttname"><a href="../../df/dd7/class_a_e_frame.html#ad930b5c2e6863df676922364703aceed">AEFrame::m_tdChronoDelay</a></div><div class="ttdeci">timeDur&lt; double &gt; m_tdChronoDelay</div><div class="ttdoc">The time duration for the delay in sleeps</div><div class="ttdef"><b>Definition</b> <a href="../../de/d72/_a_e_frame_8hpp_source.html#l00094">AEFrame.hpp:94</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_f874924d2cc0884710483520e5002389.html">AEFrame</a></li><li class="navelem"><a class="el" href="../../dir_5be34a24d22a41333219b88962843a2a.html">include</a></li><li class="navelem"><a class="el" href="../../de/d72/_a_e_frame_8hpp.html">AEFrame.hpp</a></li>
-    <li class="footer">Generated on Fri Sep 29 2023 01:32:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Fri Sep 29 2023 16:00:45 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>
