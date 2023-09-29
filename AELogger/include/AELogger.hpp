@@ -6,6 +6,7 @@
 #include "include/AEModuleBase.hpp"
 #include "include/AEFileWriter.hpp"
 #include "include/AETypedefs.hpp"
+#include "include/AEFlags.hpp"
 #include <vector>
 #include <atomic>
 #include <thread>
@@ -151,14 +152,18 @@ public:
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	inline void openLog(const std::string& fname, const bool clearLog = false) {
-		this->m_fwLogger.open(fname, !clearLog * AEFW_FLAG_APPEND, 1);
-		this->startWriter();
+		if (this->m_fwLogger.open(fname, !clearLog * AEFW_FLAG_APPEND, 1)) {
+			this->writeToLog("Opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
+			this->startWriter();
+		}
+		
 	}
 
 	/// <summary>
 	/// Close the file, if it was opened. That's it.
 	/// </summary>
 	inline void closeLog(void) {
+		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
 		this->stopWriter();
 		this->m_fwLogger.closeFile();
 	}
@@ -166,14 +171,28 @@ public:
 
 //main utility function (bruh)
 	/// <summary>
-	/// Request an entry to be written to the opened log file
+	/// Request a log entry to be written to the opened log file
 	/// @note See AELOG_TYPE_* flags
 	/// </summary>
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
-	/// <param name="logmodule">The module that invoked this request</param>
+	/// <param name="logmodule">The name of the module that invoked this request</param>
 	void writeToLog(const std::string& logmessg, const ucint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
 
+	/// <summary>
+	/// Request a debug log entry to be written to the opened log file
+	/// @note See AELOG_TYPE_* flags
+	/// @note If ENGINE_DEBUG flag is not set, doesn't do anything
+	/// @see AELogger::writeToLog()
+	/// </summary>
+	/// <param name="logmessg">The message of the requested log entry</param>
+	/// <param name="logtype">The type of the log entry</param>
+	/// <param name="logmodule">The name of the module that invoked this request</param>
+	inline void writeToLogDebug(const std::string& logmessg, const ucint logtype = AELOG_TYPE_DEBUG, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
+#ifdef ENGINE_DEBUG
+		this->writeToLog("DEBUG->" + logmessg, logtype, logmodule);
+#endif // ENGINE_DEBUG
+	}
 
 //getters of info
 	/// <summary>
@@ -189,7 +208,7 @@ public:
 	/// </summary>
 	/// <returns>ullint of the amount of times logger written to a file</returns>
 	inline ullint getEntryCount(void) const {
-		return this->m_fwLogger.getTotalWrites();
+		return this->m_ullFilledCount.load();
 	}
 
 	/// <summary>
@@ -246,6 +265,8 @@ private:
 	std::atomic<ullint> m_ullFilledCount;
 	/// The current node number the writeToLog is working with
 	std::atomic<ullint> m_ullNodeNumber;
+	/// The node order number for the writing thread.
+	ullint m_ullWriterOrderNum;
 	/// The amount of entry spaces/size of the queue
 	ullint m_ullQueueSize;
 	/// The pointer to the first item in the queue

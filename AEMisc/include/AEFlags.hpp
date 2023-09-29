@@ -6,6 +6,10 @@
 
 //Conveniently-placed flags of the modules for you to interact with
 
+//Engine flags
+/// Macro to enable the debug-marked features of the engine. Independent from debug/release compiler builds
+#define ENGINE_DEBUG 1
+
 //AEFileWriter flags
 /// Macro to enable the auto-flushing mechanism
 /// Undefine to disable the feature

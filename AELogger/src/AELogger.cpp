@@ -1,8 +1,9 @@
 
 #include "AELogger.hpp"
-#include <iostream>
+#include "include/AEUtils.hpp"
 #include <utility>
 #include <ctime>
+
 
 
 AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
@@ -30,47 +31,53 @@ AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 //constructor
 AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0), m_lepQueue(AELogEntry::makeQueue(queuesize)),
-	m_lepLastNode(m_lepQueue + queuesize - 1), m_ullQueueSize(queuesize), m_bStopTrd(false) {
+	m_lepLastNode(m_lepQueue + queuesize - 1), m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_bStopTrd(false) {
 
 
 	//add the allocated queue pointed to the list
 	//so we can free them later without memory leaks
 	this->m_vAllocTable.reserve(32);
 	this->m_vAllocTable.push_back({ queuesize, m_lepQueue });
+	this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
 	this->startWriter();
 }
 
 //destructor
 AELogger::~AELogger() {
-	this->stopWriter();
+	this->writeToLog("Destroying the AELogger instance and closing", AELOG_TYPE_INFO, this->m_sModulename);
+	this->closeLog();
 
 	for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
 		delete[] this->m_vAllocTable[i].second;
 	}
-
-	this->m_fwLogger.closeFile();
-	this->m_vAllocTable.clear();
 }
 
-void AELogger::stopWriter(void) {
-	this->m_bStopTrd = true;
-	if (this->m_trdWriter.joinable()) {
-		this->m_trdWriter.join();
-	}
-}
 
 void AELogger::startWriter(void) {
+	this->writeToLog("Attempting to start the log-writing thread", AELOG_TYPE_INFO, this->m_sModulename);
 	if (this->m_trdWriter.joinable()) {
+		this->writeToLog("The log-writing thread is already running!", AELOG_TYPE_WARN, this->m_sModulename);
 		return; //we already are writing, dummy;
 	}
 
 	this->m_bStopTrd = false;
 	this->m_trdWriter = std::thread(&AELogger::logWriterThread, this);
 	if (!this->m_trdWriter.joinable()) {
-		throw std::runtime_error("Could not start AETimer thread!");
+		this->writeToLog("Could not start AELogger thread!! (exception)", AELOG_TYPE_FATAL_ERROR, this->m_sModulename);
+		this->closeLog();
+		throw std::runtime_error("Could not start AELogger thread!");
 	}
 }
 
+
+void AELogger::stopWriter(void) {
+
+	this->writeToLog("Attempting to stop the log-writing thread...", AELOG_TYPE_INFO, this->m_sModulename);
+	this->m_bStopTrd = true;
+	if (this->m_trdWriter.joinable()) {
+		this->m_trdWriter.join();
+	}
+}
 
 // request a log entry and write to it
 void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, const std::string& logmodule) {
@@ -89,6 +96,8 @@ void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, cons
 		this->m_lepLastNode->m_lepNextNode = newQueue;
 		this->m_lepLastNode = newQueue + qsize - 1;
 		this->m_vAllocTable.push_back({ this->m_ullQueueSize, newQueue });
+		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);
+
 		
 	}
 
@@ -126,15 +135,16 @@ void AELogger::writeToLog(const std::string& logmessg, const ucint logtype, cons
 }
 
 void AELogger::logWriterThread(void) {
+	this->writeToLog("Successfully launched the log-writing thread!", AELOG_TYPE_SUCCESS, this->m_sModulename);
 
 	AELogEntry* ePtr = this->m_lepQueue;
-	ullint orderNum = 0;
 	char str[588]{};
-	//and not stop untill it's done
 
-	while (!this->m_bStopTrd) {
+	//and not stop untill it's done
+	//untill we written everything *and* we stopped the thread
+	while (!this->m_bStopTrd || this->m_ullFilledCount) {
 		while (this->m_ullFilledCount) {
-			if (ePtr->m_ullOrderNum == orderNum) {
+			if (ePtr->m_ullOrderNum == m_ullWriterOrderNum) {
 
 				//got it!. Now wait untill it's ready
 				while (ePtr->m_bStatus != AELOG_ENTRY_STATUS_READY) {
@@ -145,7 +155,9 @@ void AELogger::logWriterThread(void) {
 
 				//formatting and writing
 				snprintf(str, 588, "[%s] [%s] [%s]: %s\n", ace::utils::formatDate(ePtr->m_tmLogTime).c_str(), AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-				std::cout << str;
+				//std::cout << str;
+
+				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 
 				//cleanup
 				std::memset(str, NULL, 588); // clean the formatting buffer
@@ -154,7 +166,7 @@ void AELogger::logWriterThread(void) {
 				ePtr->m_bStatus = AELOG_ENTRY_STATUS_INVALID;
 				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 				this->m_ullFilledCount--;
-				orderNum++;
+				m_ullWriterOrderNum++;
 			}
 			//next node pls
 			ePtr = ePtr->m_lepNextNode;
@@ -163,6 +175,11 @@ void AELogger::logWriterThread(void) {
 		//since we're done writing the entries, sleep and check if some appear again
 		ace::utils::sleepMS(100);
 	}
+
+
+
+	snprintf(str, 588, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
+	this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 }
 
 

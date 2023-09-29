@@ -74,7 +74,7 @@ protected:
 	/// <summary>
 	/// Name of the module (class), same as in code
 	/// </summary>
-	static const std::string m_sModulename;
+	static const char* const m_sModulename;
 	/// <summary>
 	/// amount of alive module instances
 	/// </summary>
@@ -83,7 +83,7 @@ protected:
 
 /// sets up the static variable values for the base class (and inherited classes)
 template<typename T>
-const std::string __AEModuleBase<T>::m_sModulename = getTypeName<T>();
+const char* const __AEModuleBase<T>::m_sModulename = getTypeName<T>();
 
 //REGISTER_CLASS(__AEModuleBase)
 
