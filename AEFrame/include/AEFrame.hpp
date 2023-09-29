@@ -24,7 +24,7 @@
 /// you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier.
 /// @note To get this to work properly, make an object outside of the loop, and put the call to AEFrame::sleep() at the end of the loop.
 /// @note This works by looking at the time spent by the game loop and sleeping up to the time to meet the fps goal.
-/// @warn If the game loop takes more time than the set fps goal amount, the frame times can be unpredictable (and...delay might also not work)
+/// @warning If the game loop takes more time than the set fps goal amount, the frame times can be unpredictable (and...delay might also not work)
 /// </summary>
 class AEFrame : public __AEModuleBase<AEFrame> {
 
@@ -54,7 +54,8 @@ public:
 	
 	/// <summary>
 	/// Puts the current thread to sleep up to the set fps goal
-	/// @example If the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, then the thread will sleep the rest of 20ms to make the game loop run at 30fps.
+	/// Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, 
+	/// then the thread will sleep the rest of 20ms to make the game loop run at 30fps.
 	/// </summary>
 	inline void sleep(void) {
 		// add to time point

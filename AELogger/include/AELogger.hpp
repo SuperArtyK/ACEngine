@@ -127,6 +127,7 @@ public:
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
+	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
 	AELogger(const std::string& fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
 
 	/// <summary>

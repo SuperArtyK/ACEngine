@@ -30,6 +30,10 @@ The code is divided into projects to ease development and testing. (so I don't n
 - Play and synthesize sound
 - Optional toolkit of useful stuff(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine") )
 
-And yeah, I have yet to release any working version.
+Yeah, I have yet to release any working version.
 
-**Technical stuff:** When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the $(SolutionDir)\[Dependency project name]\include (or \src) to the paths of your project.
+**Technical stuff:** When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the "$(SolutionDir)\\(Dependency project name)\include" (or src) to the paths of your project.
+
+
+And all of this stuff is backed by [**MIT License**](./LICENSE.md "**MIT License**"). **Free Software, Hell Yeah!**
+

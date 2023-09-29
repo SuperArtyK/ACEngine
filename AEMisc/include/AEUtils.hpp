@@ -202,7 +202,7 @@ namespace ace {
 		/// Convenient sleep function to sleep the thread for ms microseconds
 		/// @note May be inaccurate in delay (as...all sleep functions are)
 		/// </summary>
-		/// <param name="ms">The amount of microseconds to sleep</param>
+		/// <param name="us">The amount of microseconds to sleep</param>
 		inline void sleepUS(const int us) {
 			sleepFor(microSec(us));
 		}

@@ -126,7 +126,15 @@ public:
 	}
 
 	//we don't need those
+
+	/// <summary>
+	/// Deleted copy constructor
+	/// </summary>
 	AEFileWriter(const AEFileWriter&) = delete;
+
+	/// <summary>
+	/// Deleted copy assignment operator
+	/// </summary>
 	AEFileWriter& operator=(const AEFileWriter&) = delete;
 
 	/// <summary>
@@ -144,6 +152,7 @@ public:
 	/// </summary>
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
+	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
 	inline bool open(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
 		return this->open(str.c_str(), flags, af_interval);
@@ -152,10 +161,11 @@ public:
 	/// <summary>
 	/// Open(and create) file with given name and flag. 
 	/// On success sets AEFileWriter::m_ucFlags to passed flag value.
-	/// @warn Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
+	/// @warning Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
 	/// </summary>
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
+	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
 	inline bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
@@ -400,7 +410,7 @@ public:
 
 	/// <summary>
 	/// Returns size of the file in bytes.
-	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>File size in bytes if file is open, if not -- AEFW_ERR_NOT_OPEN.</returns>
 	inline llint getFileSize(void) const {
@@ -433,7 +443,7 @@ public:
 //file cursor stuff
 	/// <summary>
 	/// Returns current write cursor position
-	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>Write cursor pos, starting from 0 if file is open, if not -- AEFW_ERR_NOT_OPEN (+last error status set to the same thing).</returns>
 	inline llint getCursorPos(void) const {
@@ -449,9 +459,9 @@ public:
 	}
 
 	/// <summary>
-	/// Sets read cursor position to <pos> from <origin>
+	/// Sets read cursor position to pos from origin
 	/// @note If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written.
-	/// @warn Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG if the flag used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>

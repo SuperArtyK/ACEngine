@@ -100,7 +100,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Rounds the given float of type Y to integer of type T
-	/// @warn It breaks if the num value is more than the max value of T!
+	/// @warning It breaks if the num value is more than the max value of T!
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to round to</typeparam>
 	/// <typeparam name="Y">The type of the float to round</typeparam>
