@@ -16,10 +16,16 @@
     <Filter Include="Header Files\engine modules">
       <UniqueIdentifier>{2504e1cb-5b5c-4072-9193-e763df1d3580}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{c47bdb08-dc0d-4cb2-9755-ba5ddcc59b9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_ACEngine.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AELogger\src\AELogger.cpp">
+      <Filter>Source Files\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +33,33 @@
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEFrame\include\AEFrame.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AELogger\include\AELogger.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEMath.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AETimer\include\AETimer.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEVector\include\AEVector.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>

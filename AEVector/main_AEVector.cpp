@@ -19,16 +19,7 @@ bool isEqual(const AEVector<T1, dimAmount>& vec1, const AEVector<T2, dimAmount>&
 	return true;
 }
 
-template<typename T, const std::size_t dimAmount>
-std::ostream& operator<<(std::ostream& out, const AEVector<T, dimAmount>& two) {
 
-	out << '[';
-	for (std::size_t i = 0; i < dimAmount-1; i++) {
-		out << two.dims[i] << ", ";
-	}
-	out << two.dims[dimAmount - 1] << ']';
-	return out;
-}
 
 int main() {
 

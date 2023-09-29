@@ -235,6 +235,11 @@ public:
 		return !this->m_bStopTrd;
 	}
 
+	inline void writeStatus(void) {
+		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()), 
+			AELOG_TYPE_INFO, m_sModulename);
+	}
+
 private:
 //functions
 	/// <summary>

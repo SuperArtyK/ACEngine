@@ -74,20 +74,20 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -96,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Full</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -132,7 +132,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -148,7 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_FILE_OFFSET_BITS=64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Full</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -164,11 +164,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\AELogger\src\AELogger.cpp" />
     <ClCompile Include="main_ACEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />
+    <ClInclude Include="..\AEFrame\include\AEFrame.hpp" />
+    <ClInclude Include="..\AELogger\include\AELogger.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEMath.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
+    <ClInclude Include="..\AETimer\include\AETimer.hpp" />
+    <ClInclude Include="..\AEVector\include\AEVector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

@@ -4,6 +4,7 @@
 #define ENGINE_VECTOR_HPP
 
 #include "include/AEMath.hpp"
+#include <ostream>
 
 //TODO: migrate code from old engine
 //TODO: add docs
@@ -61,6 +62,19 @@ struct AEVector {
 		return !this->operator==<Y>(two);
 	}
 
+	const std::string toString() const {
+
+		std::string str = "[";
+		for (std::size_t i = 0; i < dimAmount - 1; i++) {
+			
+			str.append(std::to_string(this->dims[i]));
+			str.append(", ");
+		}
+		str.append(std::to_string(this->dims[dimAmount - 1]));
+		str.append("]");
+
+		return str;
+	}
 
 //math functions
 	//vector magnitude
@@ -144,6 +158,14 @@ struct AEVector {
 
 
 };
+
+template<typename T, const std::size_t dimAmount>
+inline std::ostream& operator<<(std::ostream& out, const AEVector<T, dimAmount>& two) {
+
+	out << two.toString();
+	return out;
+}
+
 
 typedef AEVector<int, 2> AEVec2Int;
 typedef AEVector<int, 3> AEVec3Int;
