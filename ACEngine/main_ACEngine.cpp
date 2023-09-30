@@ -51,7 +51,7 @@ int main() {
 		veca[i] = std::rand();
 	}
 
-	AELogger mylog("engine_log.txt", true);
+	AELogger mylog("acengine_log.txt", true);
 	int a = 0;
 
 

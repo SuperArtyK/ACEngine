@@ -4,6 +4,7 @@
  *  These will be insanely fast, almost as the direct memory access (since just value in array), 
  *  but won't offer much of precision -- within 1 degree.
  *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
+ *  @todo Add the interpolated table trigonometric functions. (Approximate value between 2 degrees in a table)
  *
  *  Should not cause everything to break :)
  */
@@ -25,8 +26,7 @@
 
 
 namespace ace {
-
-	/// @todo Add the interpolated table trigonometric functions. (Approximate value between 2 degrees in a table)
+	
 	namespace math {
 		/// A lookup table for sin values
 		constexpr float sinTable[AETRIG_TABLE_SIZE]{

@@ -1,7 +1,7 @@
 
 /** @file AEModuleBase/include/AEModuleBase.hpp
- *  This file contains the code for the module that all modules 
- *  base on in the ArtyK's Console Engine(utility) class.
+ *  This file contains the code for the module that all (utility) modules 
+ *  base on in the ArtyK's Console Engine class.
  *
  *  Should not cause everything to break :)
  */

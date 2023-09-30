@@ -96,23 +96,23 @@ $(document).ready(function(){initNavTree('d7/d4a/_a_e_trig_lookup_8hpp_source.ht
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/d4a/_a_e_trig_lookup_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef ENGINE_TRIG_LOOKUP_HPP</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define ENGINE_TRIG_LOOKUP_HPP</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d89/_a_e_typedefs_8hpp.html">AETypedefs.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef ENGINE_TRIG_LOOKUP_HPP</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define ENGINE_TRIG_LOOKUP_HPP</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d89/_a_e_typedefs_8hpp.html">AETypedefs.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifdef ENGINE_ENABLE_TRIG_LOOKUP</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define AETRIG_TABLE_SIZE 360</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifdef ENGINE_ENABLE_TRIG_LOOKUP</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define AETRIG_TABLE_SIZE 360</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d23/namespaceace.html">ace</a> {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d23/namespaceace.html">ace</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">namespace </span>math {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> sinTable[AETRIG_TABLE_SIZE]{</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            0.00000000f, 0.01745241f, 0.03489950f, 0.05233596f, 0.06975647f, 0.08715574f, 0.10452846f, 0.12186934f, 0.13917310f, 0.15643447f, 0.17364818f, 0.19080900f, 0.20791169f, 0.22495105f, 0.24192190f, 0.25881905f, 0.27563736f, 0.29237170f, 0.30901699f, 0.32556815f, 0.34202014f, 0.35836795f, 0.37460659f, 0.39073113f, 0.40673664f, 0.42261826f, 0.43837115f, 0.45399050f, 0.46947156f, 0.48480962f, 0.50000000f, 0.51503807f, 0.52991926f, 0.54463904f, 0.55919290f, 0.57357644f, 0.58778525f, 0.60181502f, 0.61566148f, 0.62932039f, 0.64278761f, 0.65605903f, 0.66913061f, 0.68199836f, 0.69465837f, 0.70710678f, 0.71933980f, 0.73135370f, 0.74314483f, 0.75470958f, 0.76604444f, 0.77714596f, 0.78801075f, 0.79863551f, 0.80901699f, 0.81915204f, 0.82903757f, 0.83867057f, 0.84804810f, 0.85716730f,</div>
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('d7/d4a/_a_e_trig_lookup_8hpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp.html">AETrigLookup.hpp</a></li>
-    <li class="footer">Generated on Fri Sep 29 2023 16:00:45 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Fri Sep 29 2023 22:45:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

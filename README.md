@@ -4,7 +4,8 @@ This is my C++ engine to create games and stuff in console. Rework of my previou
 
 The code is divided into projects to ease development and testing. (so I don't need to compile the whooole thing to test one thing...like I did last time lol). 
 
-You can find the engine code documentation [here](https://superartyk.github.io/ACEngine "ACEngine doxygen...docs")
+You can find the engine code documentation [here](https://superartyk.github.io/ACEngine "ACEngine doxygen...docs") 
+(It isn't fully done, so for all engine info visit the "Namespaces" or "Data Structures" pages)
 
 ##### Current project list:
 
@@ -13,27 +14,28 @@ You can find the engine code documentation [here](https://superartyk.github.io/A
 * AEModuleBase -- project of the most basic module of the engine, implementing features for all engine modules.
 * AEFileWriter -- project of file writer module. The fast and convenient file writer of the engine (just wrapper of FILE api lol).
 * AEFrame -- project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time
-* AELogger -- project of engine's logger. Allows to log (random) stuff to fileю
-* AETimer -- project of the engine's 
+* AELogger -- project of engine's logger. Allows to log (random) stuff to file.
+* AETimer -- project of the engine's timer. Allows to time the events in the engine and count ticks
+* AEVector -- project of the engine's mathematical vectors for. Easy, "scalable" (you don't need to make new types for n-dimensions), and nice to use.
+
+### ACCOMPLISHED FEATURES
+
+* Be able to write data to files, faster than standard
+* Write logs to file with almost no performance impact
+* Have a module-based structure
+* Have a utility tool kit in engine for easier programming(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine") )
 
 ### DESIRED FEATURES
 
-##### Necessary
-
-- Be able to write/read files + engine file format
-- Read/write logs to file
-- Get input from keyboard and mouse
-- Control console's window properties
-- Control characters on the screen: write them/change color individually and in bulk
-- Have a module-based structure, and disable them/other parts of code when needed
-- Make it crossplatform
+* Be able to wread files + engine file format
+* Read and parse logs from file
+* Get input from keyboard and mouse
+* Control console's window properties
+* Control characters on the screen: write them/change color individually and in bulk
+* Make it crossplatform and support multiple build systems
+* Play and synthesize sound
 
 (For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)
-
-##### Optional
-
-- Play and synthesize sound
-- Optional toolkit of useful stuff(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine") )
 
 Yeah, I have yet to release any working version.
 

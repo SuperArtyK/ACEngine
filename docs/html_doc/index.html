@@ -97,8 +97,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> This is my C++ engine to create games and stuff in console. Rework of my previous <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine">console_engine</a> attempt</p>
 <p>The code is divided into projects to ease development and testing. (so I don't need to compile the whooole thing to test one thing...like I did last time lol).</p>
-<p>You can find the engine code documentation <a href="https://superartyk.github.io/ACEngine" title="ACEngine doxygen...docs">here</a></p>
-<h4><a class="anchor" id="autotoc_md9"></a>
+<p>You can find the engine code documentation <a href="https://superartyk.github.io/ACEngine" title="ACEngine doxygen...docs">here</a> (It isn't fully done, so for all engine info visit the "Namespaces" or "Data Structures" pages)</p>
+<h4><a class="anchor" id="autotoc_md11"></a>
 Current project list:</h4>
 <ul>
 <li>ACEngine &ndash; main project where everything is combined</li>
@@ -106,28 +106,30 @@ Current project list:</h4>
 <li>AEModuleBase &ndash; project of the most basic module of the engine, implementing features for all engine modules.</li>
 <li><a class="el" href="db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> &ndash; project of file writer module. The fast and convenient file writer of the engine (just wrapper of FILE api lol).</li>
 <li><a class="el" href="df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> &ndash; project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time</li>
-<li><a class="el" href="d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> &ndash; project of engine's logger. Allows to log (random) stuff to file</li>
+<li><a class="el" href="d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> &ndash; project of engine's logger. Allows to log (random) stuff to file.</li>
+<li><a class="el" href="da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> &ndash; project of the engine's timer. Allows to time the events in the engine and count ticks</li>
+<li><a class="el" href="dc/df6/struct_a_e_vector.html">AEVector</a> &ndash; project of the engine's mathematical vectors for. Easy, "scalable" (you don't need to make new types for n-dimensions), and nice to use.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md10"></a>
-DESIRED FEATURES</h2>
-<h4><a class="anchor" id="autotoc_md11"></a>
-Necessary</h4>
+<h2><a class="anchor" id="autotoc_md12"></a>
+ACCOMPLISHED FEATURES</h2>
 <ul>
-<li>Be able to write/read files + engine file format</li>
-<li>Read/write logs to file</li>
+<li>Be able to write data to files, faster than standard</li>
+<li>Write logs to file with almost no performance impact</li>
+<li>Have a module-based structure</li>
+<li>Have a utility tool kit in engine for easier programming(similar to <a href="https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp" title="func_utils.hpp">func_utils.hpp</a> in <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine">console_engine</a> )</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md13"></a>
+DESIRED FEATURES</h2>
+<ul>
+<li>Be able to wread files + engine file format</li>
+<li>Read and parse logs from file</li>
 <li>Get input from keyboard and mouse</li>
 <li>Control console's window properties</li>
 <li>Control characters on the screen: write them/change color individually and in bulk</li>
-<li>Have a module-based structure, and disable them/other parts of code when needed</li>
-<li>Make it crossplatform</li>
+<li>Make it crossplatform and support multiple build systems</li>
+<li>Play and synthesize sound</li>
 </ul>
 <p>(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)</p>
-<h4><a class="anchor" id="autotoc_md12"></a>
-Optional</h4>
-<ul>
-<li>Play and synthesize sound</li>
-<li>Optional toolkit of useful stuff(similar to <a href="https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp" title="func_utils.hpp">func_utils.hpp</a> in <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine">console_engine</a> )</li>
-</ul>
 <p>Yeah, I have yet to release any working version.</p>
 <p><b>Technical stuff:</b> When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the "$(SolutionDir)\\&zwj;(Dependency project name)\include" (or src) to the paths of your project.</p>
 <p>And all of this stuff is backed by <a class="el" href="d2/d35/md__l_i_c_e_n_s_e.html">**MIT License**</a>. <b>Free Software, Hell Yeah!</b> </p>
@@ -137,7 +139,7 @@ Optional</h4>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Sep 29 2023 16:00:46 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Fri Sep 29 2023 22:45:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>
