@@ -1,6 +1,9 @@
 var hierarchy =
 [
     [ "__AEModuleBase< T >", "d0/d8a/class_____a_e_module_base.html", null ],
+    [ "__AEModuleBase< AEFileReader >", "d0/d8a/class_____a_e_module_base.html", [
+      [ "AEFileReader", "dd/dd5/class_a_e_file_reader.html", null ]
+    ] ],
     [ "__AEModuleBase< AEFileWriter >", "d0/d8a/class_____a_e_module_base.html", [
       [ "AEFileWriter", "db/d15/class_a_e_file_writer.html", null ]
     ] ],
@@ -14,5 +17,6 @@ var hierarchy =
       [ "AETimer", "da/d62/class_a_e_timer.html", null ]
     ] ],
     [ "AELogEntry", "da/dea/struct_a_e_log_entry.html", null ],
-    [ "AEVector< T, dimAmount >", "dc/df6/struct_a_e_vector.html", null ]
+    [ "AEVector< T, dimAmount >", "dc/df6/struct_a_e_vector.html", null ],
+    [ "static const char *const", "d8/d7c/classstatic_01const_01char_01_5const.html", null ]
 ];

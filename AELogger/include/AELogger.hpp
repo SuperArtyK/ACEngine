@@ -37,11 +37,6 @@
 #define AELOG_TYPE_ERROR 6
 /// Macro for the AELogger's fatally-errorenous entry (something critical is fatally-bad)
 #define AELOG_TYPE_FATAL_ERROR 7
-//other logger stuff
-/// Macro for the AELogger's default queue size (if none was provided)
-#define AELOG_DEFAULT_QUEUE_SIZE 1024
-/// Macro for the AELogger's default module name (if none was provided when calling the write-to-log request)
-#define AELOG_DEFAULT_MODULE_NAME "ACEngine"
 
 //log entry stuff
 /// Macro for the AELogEntry's order number to be invalid

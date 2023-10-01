@@ -30,6 +30,10 @@
 #include <cstdio>
 #include <stdexcept>
 
+
+
+
+
 // stuff for crosscompilation and 64bit access
 // dont touch
 #ifdef _WIN32
@@ -231,7 +235,7 @@ public:
 			this->m_cLastError = AEFW_ERR_NOT_OPEN;
 			return;
 		}
-		this->writeData_ptr(cdata, strlen(cdata) + includeNull, sizeof(char), useAutoFlush);
+		this->writeData_ptr(cdata, std::strlen(cdata) + includeNull, sizeof(char), useAutoFlush);
 	}
 
 
@@ -654,7 +658,7 @@ bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_inte
 		this->closeFile();
 	}
 
-	if (!strlen(str)) {
+	if (!std::strlen(str)) {
 		this->m_sFilename.clear();
 		this->m_cLastError = AEFW_ERR_FILE_NAME_EMPTY;
 		return false;

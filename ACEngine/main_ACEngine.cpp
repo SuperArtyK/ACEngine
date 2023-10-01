@@ -7,6 +7,7 @@
  *  @todo Add AELogParser to parse the engine's (AELogger) log files
  *  @todo Add engine's file format, AEFile
  *  @todo Transfer and adapt code from my previous engine attempt
+ *  @todo Add project documentation (explanation, and examples for example) to the readme.md files
  *  
  *  Should not cause everything to break :)
  */

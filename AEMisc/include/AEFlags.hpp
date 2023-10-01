@@ -30,6 +30,10 @@
 /// @see AETrigLookup.hpp
 #define ENGINE_ENABLE_TRIG_LOOKUP
 
-
+//AELogger flags
+/// Macro for the AELogger's default queue size (if none was provided)
+#define AELOG_DEFAULT_QUEUE_SIZE 1024
+/// Macro for the AELogger's default module name (if none was provided when calling the write-to-log request)
+#define AELOG_DEFAULT_MODULE_NAME "ACEngine"
 
 #endif // !ENGINE_FLAGS_HPP

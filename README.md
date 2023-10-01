@@ -10,13 +10,13 @@ You can find the engine code documentation [here](https://superartyk.github.io/A
 ##### Current project list:
 
 * ACEngine -- main project where everything is combined
-* AEMisc -- project where the miscellaneous things, global engine variables, and the general engine utilities.  Basically stuff that cannot be put into a module
+* AEMisc -- project where the miscellaneous things, global engine variables, and the general engine utilities. Basically stuff that cannot be put into a module
 * AEModuleBase -- project of the most basic module of the engine, implementing features for all engine modules.
-* AEFileWriter -- project of file writer module. The fast and convenient file writer of the engine (just wrapper of FILE api lol).
+* AEFileWriter -- project of file writer module. The fast and convenient file writer of the engine (just wrapper of C FILE api lol).
 * AEFrame -- project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time
 * AELogger -- project of engine's logger. Allows to log (random) stuff to file.
 * AETimer -- project of the engine's timer. Allows to time the events in the engine and count ticks
-* AEVector -- project of the engine's mathematical vectors for. Easy, "scalable" (you don't need to make new types for n-dimensions), and nice to use.
+* AEVector -- project of the engine's mathematical vectors for. Easy, "scalable", and all constexpr(except conversion to string).
 
 ### ACCOMPLISHED FEATURES
 
