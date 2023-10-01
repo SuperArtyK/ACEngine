@@ -167,7 +167,14 @@
     <ClCompile Include="main_AEFileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AEFileReader.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\resources\consoleprog1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,11 +20,18 @@
 
 /// @todo Add AEVector docs
 /// @todo Clean up AEVector code
+/// 
+
+/// <summary>
+/// The ArtyK's Engine 
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <typeparam name="dimAmount"></typeparam>
 template<typename T, const std::size_t dimAmount>
 struct AEVector {
 
 	T dims[dimAmount]{};
-		
+	
 
 //internal functions 
 	//normal value accessor
