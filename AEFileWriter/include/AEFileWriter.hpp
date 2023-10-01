@@ -94,7 +94,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
-	AEFileWriter(const std::string& filename, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
+	explicit AEFileWriter(const std::string& filename, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_cLastError(AEFW_ERR_NOERROR) {
 
@@ -108,7 +108,7 @@ public:
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
 	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
-	AEFileWriter(const char* filename = "", const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
+	explicit AEFileWriter(const char* filename = "", const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_cLastError(AEFW_ERR_NOERROR) {
 

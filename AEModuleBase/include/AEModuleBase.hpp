@@ -11,9 +11,9 @@
 #ifndef ENGINE_AEMODULEBASE_HPP
 #define ENGINE_AEMODULEBASE_HPP
 
+#include "include/AETypedefs.hpp"
 #include <string>
 #include <atomic>
-#include "include/AETypedefs.hpp"
 
 //file meaning: base classes for all modules
 

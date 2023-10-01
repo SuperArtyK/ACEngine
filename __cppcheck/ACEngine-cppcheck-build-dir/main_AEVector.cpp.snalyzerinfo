@@ -1,0 +1,71 @@
+pi call:[T] noreturn:[T]
+sinDeg call:[T,sin] noreturn:[sin]
+cosDeg call:[T,cos] noreturn:[cos]
+tanDeg call:[T,tan] noreturn:[tan]
+cotDeg call:[T,tan] noreturn:[tan]
+cscDeg call:[T,sin] noreturn:[sin]
+secDeg call:[T,cos] noreturn:[cos]
+roundToInt call:[T,Y,return,static_assert] noreturn:[T]
+absval call:[return,static_assert]
+fequals call:[return,static_assert]
+fsqrt call:[fequals,static_assert]
+operator<< call:[toString]
+boolToString call:[return]
+isInRange call:[return]
+toLowerRef call:[begin,end,transform] noreturn:[transform]
+toLowerVal call:[begin,end,transform]
+toUpperRef call:[begin,end,transform] noreturn:[transform]
+toUpperVal call:[begin,end,transform]
+isNum call:[strlen]
+formatDate call:[localtime_s,sizeof,strftime]
+getCurrentDate call:[formatDate,time] noreturn:[formatDate]
+addrToStr call:[str] noreturn:[str]
+sleepMS call:[milliseconds,sleep_for] noreturn:[sleep_for]
+sleepUS call:[microseconds,sleep_for] noreturn:[sleep_for]
+isEqual
+main call:[magnitude,normalise]
+operator[]
+operator[]
+operator==
+operator!=
+toString call:[append,to_string] noreturn:[append]
+magnitude call:[static_assert]
+length
+normDim call:[operator[]]
+normalise
+dotProduct
+zero
+operator+=
+operator+ call:[operator+=] noreturn:[operator+=]
+operator*=
+operator* call:[operator*=] noreturn:[operator*=]
+operator[]
+operator[]
+operator==
+operator!=
+toString call:[append,to_string] noreturn:[append]
+magnitude call:[static_assert]
+length
+normDim call:[operator[]]
+normalise
+dotProduct
+zero
+operator+=
+operator+ call:[operator+=] noreturn:[operator+=]
+operator*=
+operator* call:[operator*=] noreturn:[operator*=]
+operator[]
+operator[]
+operator==
+operator!=
+toString call:[append,to_string] noreturn:[append]
+magnitude call:[static_assert]
+length
+normDim call:[operator[]]
+normalise
+dotProduct
+zero
+operator+=
+operator+ call:[operator+=] noreturn:[operator+=]
+operator*=
+operator* call:[operator*=] noreturn:[operator*=]

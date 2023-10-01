@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+    <root name="../"/>
+    <builddir>ACEngine-cppcheck-build-dir</builddir>
+    <platform>native</platform>
+    <importproject>../ACEngine.sln</importproject>
+    <analyze-all-vs-configs>true</analyze-all-vs-configs>
+    <check-headers>true</check-headers>
+    <check-unused-templates>true</check-unused-templates>
+    <max-ctu-depth>99</max-ctu-depth>
+    <max-template-recursion>999</max-template-recursion>
+    <vs-configurations>
+        <config>Debug</config>
+        <config>Release</config>
+    </vs-configurations>
+    <libraries>
+        <library>boost</library>
+        <library>cppunit</library>
+        <library>gnu</library>
+        <library>mfc</library>
+        <library>microsoft_atl</library>
+        <library>opengl</library>
+        <library>posix</library>
+        <library>windows</library>
+    </libraries>
+    <safe-checks>
+        <class-public/>
+    </safe-checks>
+    <addons>
+        <addon>threadsafety</addon>
+        <addon>y2038</addon>
+    </addons>
+    <tools>
+        <tool>clang-tidy</tool>
+    </tools>
+    <check-level-exhaustive/>
+    <project-name>ACEngine</project-name>
+</project>

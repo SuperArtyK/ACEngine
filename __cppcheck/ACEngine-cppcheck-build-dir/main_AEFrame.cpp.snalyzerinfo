@@ -1,0 +1,14 @@
+getTypeName
+AEFrame
+setFps call:[long,microseconds,now]
+sleep call:[sleep_until] noreturn:[sleep_until]
+resetTimePoint call:[now] noreturn:[now]
+getFrameRate
+getDelay call:[count] noreturn:[count]
+getTypeName < AEFrame >
+main call:[a,getDelay,getModuleAmount,getModuleName,setFps,sleep] noreturn:[sleep]
+__AEModuleBase < AEFrame >
+__AEModuleBase < AEFrame >
+__AEModuleBase < AEFrame >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName

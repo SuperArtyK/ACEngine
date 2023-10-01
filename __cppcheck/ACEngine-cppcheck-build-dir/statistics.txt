@@ -1,0 +1,7 @@
+[30.09.2023]
+1696143482503
+cppcheck-error:0
+cppcheck-warning:9
+cppcheck-style:3
+cppcheck-performance:0
+cppcheck-portability:0

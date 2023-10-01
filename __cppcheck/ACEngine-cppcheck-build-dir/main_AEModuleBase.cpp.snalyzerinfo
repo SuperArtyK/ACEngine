@@ -1,0 +1,9 @@
+getTypeName
+Test3
+getTypeName < Test3 >
+main call:[Test3,getModuleAmount,getModuleName]
+__AEModuleBase < Test3 >
+__AEModuleBase < Test3 >
+__AEModuleBase < Test3 >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
