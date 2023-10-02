@@ -159,7 +159,7 @@ public:
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	inline void openLog(const std::string& fname, const bool clearLog = false) {
-		if (this->m_fwLogger.open(fname, !clearLog * AEFW_FLAG_APPEND, 1)) {
+		if (this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1)) {
 			this->writeToLog("Opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
 			this->startWriter();
 		}

@@ -26,7 +26,7 @@ int main() {
 
 
 	AEFileWriter myfw;
-	myfw.open("hello.txt", AEFW_FLAG_TRUNCATE, 1);
+	myfw.openFile("hello.txt", AEFW_FLAG_TRUNCATE, 1);
 
 	myfw.write("The name of the module is: ");
 	myfw.write(myfw.getModuleName());

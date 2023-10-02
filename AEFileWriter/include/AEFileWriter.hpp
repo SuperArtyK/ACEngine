@@ -89,7 +89,7 @@ public:
 //construction
 	/// <summary>
 	/// Class constructor -- creates the AEFileWriter instance and opens the file.
-	/// @see AEFileWriter::open()
+	/// @see AEFileWriter::openFile()
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
@@ -98,12 +98,12 @@ public:
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_cLastError(AEFW_ERR_NOERROR) {
 
-		this->open(filename.c_str(), flags);
+		this->openFile(filename.c_str(), flags);
 	}
 
 	/// <summary>
 	/// Class constructor -- creates the AEFileWriter instance and opens the file.
-	/// @see AEFileWriter::open()
+	/// @see AEFileWriter::openFile()
 	/// </summary>
 	/// <param name="filename">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening; look up AEFW_FLAG_* for more info</param>
@@ -112,7 +112,7 @@ public:
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
 		m_cLastError(AEFW_ERR_NOERROR) {
 
-		this->open(filename, flags);
+		this->openFile(filename, flags);
 	}
 
 	/// <summary>
@@ -161,8 +161,8 @@ public:
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
-	inline bool open(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
-		return this->open(str.c_str(), flags, af_interval);
+	inline bool openFile(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
+		return this->openFile(str.c_str(), flags, af_interval);
 	}
 
 	/// <summary>
@@ -174,8 +174,8 @@ public:
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
-	/// <returns>True if file was able to be open for writing, false otherwise</returns>
-	inline bool open(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
+	/// <returns>AEFW_ERR_NOERROR if the file was opened without errors, other error flag value otherwise</returns>
+	inline int openFile(const char* str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
 //write stuff
 	
@@ -536,24 +536,6 @@ private:
 	}
 
 //crosscompile crap
-	/// <summary>
-	/// Opens file with given name and flags.
-	/// Needed so i dont need to retype ifdef for each of file openings
-	/// Makes code cleaner...relatively
-	/// </summary>
-	/// <param name="fname">File name, as you'd pass to fopen</param>
-	/// <param name="flags">File flags, as you'd pass to fopen</param>
-	inline void openDirectly(const char* fname, const char* flags) {
-		//safety, so our compiler shuts up about the unsafe and deprecated function
-		//and trigger only on vc++
-//if our compiler is vc++
-#ifdef _MSC_VER 
-		fopen_s(&this->m_fpFilestr, fname, flags);
-#else
-//or some other stuff
-		m_fpFilestr = fopen(fname, flags);
-#endif // _MSC_VER 
-	}
 
 
 //variables
@@ -652,7 +634,7 @@ inline void AEFileWriter::write(const T& var, const size_t datasz, const bool us
 
 // open file with flags
 // uses const char* as all normal string function do
-bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_interval) {
+int AEFileWriter::openFile(const char* str, const ucint flags, const ullint af_interval) {
 
 	if (this->m_fpFilestr) { // open already -> pls close
 		this->closeFile();
@@ -661,7 +643,7 @@ bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_inte
 	if (!std::strlen(str)) {
 		this->m_sFilename.clear();
 		this->m_cLastError = AEFW_ERR_FILE_NAME_EMPTY;
-		return false;
+		return AEFW_ERR_FILE_NAME_EMPTY;
 	}
 
 
@@ -674,9 +656,9 @@ bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_inte
 	switch (flags) {
 
 	case AEFW_FLAG_APPEND://cursor at end, allow changing cursor position
-		this->openDirectly(str, "r+b");
+		this->m_fpFilestr = ace::utils::fopenCC(str, "r+b");
 		if (!this->m_fpFilestr) {//couldnt open, force create
-			this->openDirectly(str, "wb");
+			this->m_fpFilestr = ace::utils::fopenCC(str, "wb");
 			if (!this->m_fpFilestr) {
 				break; // some other error
 			}
@@ -685,30 +667,30 @@ bool AEFileWriter::open(const char* str, const ucint flags, const ullint af_inte
 		break;
 
 	case AEFW_FLAG_APPEND_NO_CURSOR_MOVE://only appending, not allowing to change cursor position
-		this->openDirectly(str, "ab");
+		this->m_fpFilestr = ace::utils::fopenCC(str, "ab");
 		break;
 
 
 	case AEFW_FLAG_NOFLAGS://no flags, defaulting to truncation
 	case AEFW_FLAG_TRUNCATE://truncate file
-		this->openDirectly(str, "wb");
+		this->m_fpFilestr = ace::utils::fopenCC(str, "wb");
 		break;
 
 	default:
 		this->m_cLastError = AEFW_ERR_FILE_WRONG_FLAG; //wrong flag, not opening the file
-		return false;
+		return AEFW_ERR_FILE_WRONG_FLAG;
 	}
 
 	// last check, to see if everything is okay
 	if (!this->m_fpFilestr) {
 		this->m_cLastError = AEFW_ERR_FILE_OPEN_ELSE; //file is still somehow nonexistent
-		return false;
+		return AEFW_ERR_FILE_OPEN_ELSE;
 	}
 
 	//then everything is good, 
 	this->m_ucFlags = flags;
 	this->m_ullFlushInterval = af_interval;
-	return true;
+	return AEFW_ERR_NOERROR;
 }
 
 

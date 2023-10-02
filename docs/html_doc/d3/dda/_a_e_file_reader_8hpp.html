@@ -93,18 +93,19 @@ $(document).ready(function(){initNavTree('d3/dda/_a_e_file_reader_8hpp.html','..
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">AEFileReader.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">include/AETypedefs.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">include/AEFlags.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">include/AEModuleBase.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">include/AEModuleBase.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">include/AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">include/AEUtils.hpp</a>&quot;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;filesystem&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
@@ -115,14 +116,103 @@ $(document).ready(function(){initNavTree('d3/dda/_a_e_file_reader_8hpp.html','..
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a32412662c108d7b4ae1407274bee52f4" id="r_a32412662c108d7b4ae1407274bee52f4"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a32412662c108d7b4ae1407274bee52f4">AEFR_ERR_NOERROR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a32412662c108d7b4ae1407274bee52f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator that everything is good.  <br /></td></tr>
+<tr class="separator:a32412662c108d7b4ae1407274bee52f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771a30f810b59fc512edbfcb0300a37b" id="r_a771a30f810b59fc512edbfcb0300a37b"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a771a30f810b59fc512edbfcb0300a37b">AEFR_ERR_NOT_OPEN</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:a771a30f810b59fc512edbfcb0300a37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the file object we're trying to write to not open, file pointer is null.  <br /></td></tr>
+<tr class="separator:a771a30f810b59fc512edbfcb0300a37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7148c629602982360106852b3406282b" id="r_a7148c629602982360106852b3406282b"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a7148c629602982360106852b3406282b">AEFR_ERR_FILE_NAME_EMPTY</a>&#160;&#160;&#160;-2</td></tr>
+<tr class="memdesc:a7148c629602982360106852b3406282b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error if the file name is empty.  <br /></td></tr>
+<tr class="separator:a7148c629602982360106852b3406282b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436ad900684f6a0194f61bbd43e4eb6e" id="r_a436ad900684f6a0194f61bbd43e4eb6e"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a436ad900684f6a0194f61bbd43e4eb6e">AEFR_ERR_FILE_DOESNT_EXIST</a>&#160;&#160;&#160;-3</td></tr>
+<tr class="memdesc:a436ad900684f6a0194f61bbd43e4eb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.  <br /></td></tr>
+<tr class="separator:a436ad900684f6a0194f61bbd43e4eb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a436ad900684f6a0194f61bbd43e4eb6e" name="a436ad900684f6a0194f61bbd43e4eb6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436ad900684f6a0194f61bbd43e4eb6e">&#9670;&#160;</a></span>AEFR_ERR_FILE_DOESNT_EXIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFR_ERR_FILE_DOESNT_EXIST&#160;&#160;&#160;-3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7148c629602982360106852b3406282b" name="a7148c629602982360106852b3406282b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7148c629602982360106852b3406282b">&#9670;&#160;</a></span>AEFR_ERR_FILE_NAME_EMPTY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFR_ERR_FILE_NAME_EMPTY&#160;&#160;&#160;-2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error if the file name is empty. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a32412662c108d7b4ae1407274bee52f4" name="a32412662c108d7b4ae1407274bee52f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32412662c108d7b4ae1407274bee52f4">&#9670;&#160;</a></span>AEFR_ERR_NOERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFR_ERR_NOERROR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indicator that everything is good. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a771a30f810b59fc512edbfcb0300a37b" name="a771a30f810b59fc512edbfcb0300a37b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a771a30f810b59fc512edbfcb0300a37b">&#9670;&#160;</a></span>AEFR_ERR_NOT_OPEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFR_ERR_NOT_OPEN&#160;&#160;&#160;-1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the file object we're trying to write to not open, file pointer is null. </p>
+<dl class="section note"><dt>Note</dt><dd>Functions that access the file will either return this flag or raise this flag </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3da38e614281be5a2938b27bbc39cb74.html">AEFileReader</a></li><li class="navelem"><a class="el" href="../../dir_7ecab22c60312b67bd1e323ce6ef6108.html">include</a></li><li class="navelem"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html">AEFileReader.hpp</a></li>
-    <li class="footer">Generated on Sat Sep 30 2023 23:58:49 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 2 2023 16:51:51 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

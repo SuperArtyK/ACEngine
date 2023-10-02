@@ -9,6 +9,7 @@ var _a_e_utils_8hpp =
     [ "WSTR", "de/de8/_a_e_utils_8hpp.html#aa5ef465b3cfb7b096648181199e8029c", null ],
     [ "addrToStr", "de/de8/_a_e_utils_8hpp.html#aa1625a29fbb650a4749e1249f7058beb", null ],
     [ "boolToString", "de/de8/_a_e_utils_8hpp.html#af19e2a0ce9c7b48f8b0e27d67c037847", null ],
+    [ "fopenCC", "de/de8/_a_e_utils_8hpp.html#a0b212f02229354dee0c2d97718b3ac94", null ],
     [ "formatDate", "de/de8/_a_e_utils_8hpp.html#a2de6011d3165d37fec20bde6541c2dcb", null ],
     [ "getCurrentDate", "de/de8/_a_e_utils_8hpp.html#a5ef830bd659e4848847aa793e2f60852", null ],
     [ "isInRange", "de/de8/_a_e_utils_8hpp.html#a1b26581581c9d7e6e2a506a4539744ba", null ],

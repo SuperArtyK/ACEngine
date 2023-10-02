@@ -16,25 +16,35 @@
 #include <ostream>
 #include <string>
 
+/// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount
 #define AEVEC_WRAP_DIMENSIONS
 
 /// @todo Add AEVector docs
 /// @todo Clean up AEVector code
 /// 
 
+
+
+
+
+
 /// <summary>
-/// The ArtyK's Engine 
+/// The ArtyK's Engine's mathematical vector -- for mathematically-correct vector operations.
+/// Yeah, the mathematical vectors, that are in CS..just labeled arrays of numbers for ease of use.
 /// </summary>
-/// <typeparam name="T"></typeparam>
-/// <typeparam name="dimAmount"></typeparam>
+/// <typeparam name="T">The numberical type to use in the vector</typeparam>
+/// <typeparam name="dimAmount">The amount of dimensions in the vector</typeparam>
 template<typename T, const std::size_t dimAmount>
 struct AEVector {
 
+	/// The array of the vector's dimension values of the type T and size dimAmount
 	T dims[dimAmount]{};
 	
 
 //internal functions 
 	//normal value accessor
+
+	
 	constexpr T& operator[](const std::size_t index) {
 		return this->dims[
 #ifdef AEVEC_WRAP_DIMENSIONS
@@ -46,6 +56,12 @@ struct AEVector {
 	}
 
 	//const value accessor. For peeking without modifying
+	/// <summary>
+	/// The [] operator for ease of use and wrap functionality
+	/// @note If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
+	/// </summary>
+	/// <param name="index">The index of the dimension </param>
+	/// <returns>Constant reference to the dimension pointed by index</returns>
 	constexpr const T& operator[](const std::size_t index) const {
 		return this->dims[
 #ifdef AEVEC_WRAP_DIMENSIONS
@@ -70,6 +86,7 @@ struct AEVector {
 	}
 
 	//inequality operator. two must have same amount of dimensions
+
 	template<typename Y>
 	constexpr bool operator!=(const AEVector<Y, dimAmount>& two) const {
 		return !this->operator==<Y>(two);

@@ -16,6 +16,7 @@ var namespaceace =
     [ "utils", "de/dde/namespaceace_1_1utils.html", [
       [ "addrToStr", "de/dde/namespaceace_1_1utils.html#aa1625a29fbb650a4749e1249f7058beb", null ],
       [ "boolToString", "de/dde/namespaceace_1_1utils.html#af19e2a0ce9c7b48f8b0e27d67c037847", null ],
+      [ "fopenCC", "de/dde/namespaceace_1_1utils.html#a0b212f02229354dee0c2d97718b3ac94", null ],
       [ "formatDate", "de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb", null ],
       [ "getCurrentDate", "de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852", null ],
       [ "isInRange", "de/dde/namespaceace_1_1utils.html#a1b26581581c9d7e6e2a506a4539744ba", null ],

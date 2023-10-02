@@ -206,6 +206,28 @@ namespace ace {
 		inline void sleepUS(const int us) {
 			sleepFor(microSec(us));
 		}
+
+		/// <summary>
+		/// fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it properly.
+		/// Opens the file with given name and flags.
+		/// Needed so i dont need to retype ifdef for each of file openings
+		/// Makes code cleaner...relatively
+		/// </summary>
+		/// <param name="fname">File name, as you'd pass to fopen</param>
+		/// <param name="flags">File flags, as you'd pass to fopen</param>
+		inline FILE* fopenCC(const char* fname, const char* flags) {
+			//safety, so our compiler shuts up about the unsafe and deprecated function
+			//and trigger only on vc++
+			FILE* filestr = nullptr;
+//if our compiler is vc++
+#ifdef _MSC_VER 
+			fopen_s(&filestr, fname, flags);
+#else
+//or some other stuff
+			filestr = fopen(fname, flags);
+#endif // _MSC_VER 
+			return filestr;
+		}
 	}	
 }
 

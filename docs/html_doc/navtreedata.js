@@ -27,6 +27,7 @@ var NAVTREE =
   [ "ArtyK's Console Engine", "index.html", [
     [ "ACEngine", "index.html", null ],
     [ "ACEngine project", "d8/d97/md__a_c_engine_2_r_e_a_d_m_e.html", null ],
+    [ "AEFileReader project", "db/d2b/md__a_e_file_reader_2_r_e_a_d_m_e.html", null ],
     [ "AEFileWriter project", "da/d42/md__a_e_file_writer_2_r_e_a_d_m_e.html", null ],
     [ "AEFrame project", "d0/d03/md__a_e_frame_2_r_e_a_d_m_e.html", null ],
     [ "AELogger project", "d9/dde/md__a_e_logger_2_r_e_a_d_m_e.html", null ],
@@ -68,7 +69,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dc/df6/struct_a_e_vector.html#a1d3495bd1142f0bb680f12a0968adfc6"
+"dc/df6/struct_a_e_vector.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
