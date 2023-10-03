@@ -169,6 +169,24 @@ namespace ace {
 		}
 
 		/// <summary>
+		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
+		/// </summary>
+		/// <param name="timept">C time point</param>
+		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long</param>
+		/// <returns>std::string of the formatted string</returns>
+		inline void formatDate(const time_t timept, char* str) {
+			struct tm tstruct;
+#ifdef _WIN32
+			localtime_s(&tstruct, &timept);
+#else
+			tstruct = *localtime(&timept);
+#endif
+			//std::memset(str, NULL, 20);
+
+			strftime(str, 20, "%Y-%m-%d.%X", &tstruct);
+		}
+
+		/// <summary>
 		/// Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS
 		/// </summary>
 		/// <returns>std::stringof the current date in YYYY-MM-DD.HH:mm:SS format</returns>

@@ -12,8 +12,6 @@
 #include <utility>
 #include <ctime>
 
-
-
 AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 	//damn, amt is really 0; get null!
 	if (amt == 0) {
@@ -93,6 +91,9 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		return; // file's closed/closing!
 	}
 
+
+	this->m_ullFilledCount.fetch_add(1);
+
 	if (this->m_ullFilledCount > this->m_ullQueueSize) {
 		std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
 		ullint qsize = this->m_ullQueueSize / 2;
@@ -104,9 +105,7 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		this->m_lepLastNode->m_lepNextNode = newQueue;
 		this->m_lepLastNode = newQueue + qsize - 1;
 		this->m_vAllocTable.push_back({ this->m_ullQueueSize, newQueue });
-		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);
-
-		
+		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);		
 	}
 
 	/// @todo Implement decrease in log queue size
@@ -114,7 +113,6 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		return; //na'ah, no empty messages
 	}
 
-	this->m_ullFilledCount.fetch_add(1);
 
 	//implementation: the allocation vector!
 	//instead of it having only the pointers to the allocated memory chunks of the log entries
@@ -148,6 +146,7 @@ void AELogger::logWriterThread(void) {
 
 	AELogEntry* ePtr = this->m_lepQueue;
 	char str[588]{};
+	char timestr[20]{};
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
@@ -163,7 +162,8 @@ void AELogger::logWriterThread(void) {
 				ePtr->m_bStatus = AELOG_ENTRY_STATUS_READING;
 
 				//formatting and writing
-				snprintf(str, 588, "[%s] [%s] [%s]: %s\n", ace::utils::formatDate(ePtr->m_tmLogTime).c_str(), AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
+				snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
 				//std::cout << str;
 
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
@@ -182,7 +182,7 @@ void AELogger::logWriterThread(void) {
 		}
 
 		//since we're done writing the entries, sleep and check if some appear again
-		ace::utils::sleepMS(100);
+		ace::utils::sleepMS(30);
 	}
 
 
