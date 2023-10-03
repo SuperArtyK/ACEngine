@@ -29,11 +29,31 @@
 #define AEFR_ERR_FILE_DOESNT_EXIST -3
 
 
+
+/// @todo add default constructor with no argumets
+/// @todo add function to get the file size
+/// @todo add function to get/set cursor position
+/// @todo add reading of x bytes from file to a void* pointer
+/// @todo add reading of x bytes from file to a std::vector<char>/std::vector<unsigned char>
+/// @todo add reading of strings of x length
+/// @todo add reading of strings of arbitrary length untill null-termination (and max length for...some security)
+/// @todo add reading of strings untill the newline character
+/// @todo add reading of int types as strings
+/// @todo add reading of int types as stream of bytes
+/// @todo add reading of float types as strings
+/// @todo add reading of float types as stream of bytes
+/// @todo add reading of single characters/bytes
+/// @todo add reading of bytes to fill the passed variable (ex, pass var of 4 bytes size-> dump 4 bytes from file there)
 class AEFileReader : public __AEModuleBase<AEFileReader> {
 
 public:
 
+	explicit AEFileReader(const std::string_view fname) : 
+		m_sFilename(fname), m_ullTotalWrites(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {
 
+		this->openFile(fname);
+	}
+	
 
 	inline int openFile(const std::string_view fname) {
 		if (!fname.size()) {
@@ -83,9 +103,6 @@ private:
 	FILE* m_fpFilestr;
 	/// Writer's last error indicator; Values are AEFW_ERR_* macros
 	cint m_cLastError;
-	/// Flags that were used to open the file
-	ucint m_ucFlags;
-
 
 };
 

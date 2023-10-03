@@ -237,12 +237,13 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The ArtyK's Engine's Logger module &ndash; it manages the writing to the log files. </p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Implement copy constructors and copy assignment </p>
-<p class="enddd">Add the ability to open the same log file/redirect the instance requests to the one that has it open first. </p>
+<p>The log is written by requesting and filling the entry in the queue. The <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> instance launches the separate thread that looks at the entries in the queue, retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared. The queue can expand if it's too little. But....I don't know how to shrink it.</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo:</a></b></dt><dd><p class="startdd">Implement copy constructors and copy assignment </p>
+<p class="interdd">Add the ability to open the same log file/redirect the instance requests to the one that has it open first. </p>
+<p class="enddd">Rewrite the functions to take std::string_view as arguments </p>
 </dd></dl>
-<p>The log is written by requesting and filling the entry in the queue. The <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> instance launches the separate thread that looks at the entries in the queue, retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared. The queue can expand if it's too little. But....I don't know how to shrink it. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a44cba83a5b6ec47a5f69f99e98b468ba" name="a44cba83a5b6ec47a5f69f99e98b468ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44cba83a5b6ec47a5f69f99e98b468ba">&#9670;&#160;</a></span>AELogger() <span class="overload">[1/2]</span></h2>
@@ -375,7 +376,7 @@ Private Attributes</h2></td></tr>
 <p>Close the file, if it was opened. </p>
 <p>That's it. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00172">172</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00182">182</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +407,7 @@ Private Attributes</h2></td></tr>
 <p>Get the amount of log entries done to an opened log file. </p>
 <dl class="section return"><dt>Returns</dt><dd>ullint of the amount of times logger written to a file</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00217">217</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00227">227</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -437,7 +438,7 @@ Private Attributes</h2></td></tr>
 <p>Get the last error status code. </p>
 <dl class="section return"><dt>Returns</dt><dd>ucint of the error code by the filewriter/logger</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00225">225</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00235">235</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -468,7 +469,7 @@ Private Attributes</h2></td></tr>
 <p>Get the name of the log file. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string of the name of opened log file</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00209">209</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00219">219</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -561,7 +562,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if the current log file is open. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the file is open for writing, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00233">233</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00243">243</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -592,7 +593,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if the log-writing thread is running. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if it is <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">working(was launched)</a>, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00241">241</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00251">251</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -669,7 +670,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00161">161</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00171">171</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -809,7 +810,7 @@ Private Attributes</h2></td></tr>
 
 <p>Writes the current status of the file logger instance (file name, and entries written) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00248">248</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00258">258</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -855,7 +856,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo:</a></b></dt><dd>Implement decrease in log queue size </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000010">Todo:</a></b></dt><dd>Implement decrease in log queue size </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00091">91</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
 
@@ -915,7 +916,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00198">198</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00208">208</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -942,7 +943,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The flag to stop the log-writing thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00292">292</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00302">302</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -968,7 +969,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The file writer to actually write text to opened log file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00270">270</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00280">280</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -994,7 +995,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The pointer to the last item in the queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00290">290</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00300">300</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1020,7 +1021,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The pointer to the first item in the queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00298">298</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1047,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The mutex to lock when allocating new queue chunks. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00272">272</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00282">282</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1073,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>Name of the module (class), same as in code. </p>
 <p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
@@ -1100,7 +1101,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The thread object for the file writing thread to...write a log file separately. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00286">286</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1126,7 +1127,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The amount of nodes filled (should we allocate more?) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00280">280</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00290">290</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1152,7 +1153,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The order number of the current node;. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00278">278</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1204,7 +1205,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The current node number the writeToLog is working with. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00282">282</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00292">292</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1230,7 +1231,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The amount of entry spaces/size of the queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00286">286</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00296">296</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1256,7 +1257,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The node order number for the writing thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00294">294</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1282,7 +1283,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>The vector to all the allocated queue pieces and total amounts allocated. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00274">274</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1296,7 +1297,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 16:51:51 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 2 2023 18:12:27 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

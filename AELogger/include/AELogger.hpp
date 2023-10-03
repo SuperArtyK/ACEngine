@@ -102,8 +102,15 @@ struct AELogEntry {
 };
 
 
-/// @todo Implement copy constructors and copy assignment
-/// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
+// queue decrease algorithm
+// since we have the access to the maximum queue value, and it is being checked in the 
+// ptrFromIndex(), we have a way to restrict the access to certain nodes for the writeToLog()
+// All by changing the max queue value to the value of the second-to-last node in the allocation vector
+// That way, when we wrap the index around next time, 
+// 
+
+
+
 /// <summary>
 /// @brief The ArtyK's Engine's Logger module -- it manages the writing to the log files.
 /// 
@@ -112,6 +119,9 @@ struct AELogEntry {
 /// retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.
 /// The queue can expand if it's too little. But....I don't know how to shrink it. 
 /// </summary>
+/// @todo Implement copy constructors and copy assignment
+/// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
+/// @todo Rewrite the functions to take std::string_view as arguments
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:

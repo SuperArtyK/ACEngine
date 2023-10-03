@@ -116,6 +116,8 @@ $(document).ready(function(){initNavTree('dd/dd5/class_a_e_file_reader.html','..
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a7d0c498896f1c10c36330ef4efaee81e" id="r_a7d0c498896f1c10c36330ef4efaee81e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a7d0c498896f1c10c36330ef4efaee81e">AEFileReader</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>)</td></tr>
+<tr class="separator:a7d0c498896f1c10c36330ef4efaee81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37c92bba053c14c4e2c4d8e601ce0c92" id="r_a37c92bba053c14c4e2c4d8e601ce0c92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a37c92bba053c14c4e2c4d8e601ce0c92">openFile</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>)</td></tr>
 <tr class="separator:a37c92bba053c14c4e2c4d8e601ce0c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37aadbd089e60429872727b699fb24c3" id="r_a37aadbd089e60429872727b699fb24c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a37aadbd089e60429872727b699fb24c3">closeFile</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>)</td></tr>
@@ -157,14 +159,55 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a8da48e019866cc743b419b0ed2ace81d" id="r_a8da48e019866cc743b419b0ed2ace81d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a8da48e019866cc743b419b0ed2ace81d">m_cLastError</a></td></tr>
 <tr class="memdesc:a8da48e019866cc743b419b0ed2ace81d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer's last error indicator; Values are AEFW_ERR_* macros.  <br /></td></tr>
 <tr class="separator:a8da48e019866cc743b419b0ed2ace81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63ae0fc518d9174e7b0b19fbc9b4c420" id="r_a63ae0fc518d9174e7b0b19fbc9b4c420"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706">ucint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a63ae0fc518d9174e7b0b19fbc9b4c420">m_ucFlags</a></td></tr>
-<tr class="memdesc:a63ae0fc518d9174e7b0b19fbc9b4c420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags that were used to open the file.  <br /></td></tr>
-<tr class="separator:a63ae0fc518d9174e7b0b19fbc9b4c420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">add default constructor with no argumets </p>
+<p class="interdd">add function to get the file size </p>
+<p class="interdd">add function to get/set cursor position </p>
+<p class="interdd">add reading of x bytes from file to a void* pointer </p>
+<p class="interdd">add reading of x bytes from file to a std::vector&lt;char&gt;/std::vector&lt;unsigned char&gt; </p>
+<p class="interdd">add reading of strings of x length </p>
+<p class="interdd">add reading of strings of arbitrary length untill null-termination (and max length for...some security) </p>
+<p class="interdd">add reading of strings untill the newline character </p>
+<p class="interdd">add reading of int types as strings </p>
+<p class="interdd">add reading of int types as stream of bytes </p>
+<p class="interdd">add reading of float types as strings </p>
+<p class="interdd">add reading of float types as stream of bytes </p>
+<p class="interdd">add reading of single characters/bytes </p>
+<p class="enddd">add reading of bytes to fill the passed variable (ex, pass var of 4 bytes size-&gt; dump 4 bytes from file there) </p>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7d0c498896f1c10c36330ef4efaee81e" name="a7d0c498896f1c10c36330ef4efaee81e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0c498896f1c10c36330ef4efaee81e">&#9670;&#160;</a></span>AEFileReader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AEFileReader::AEFileReader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view&#160;</td>
+          <td class="paramname"><em>fname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac6c83b966c393b7bfe3213968058b512" name="ac6c83b966c393b7bfe3213968058b512"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6c83b966c393b7bfe3213968058b512">&#9670;&#160;</a></span>clearError()</h2>
 
@@ -191,7 +234,7 @@ Private Attributes</h2></td></tr>
 
 <p>Clears last error status variable and sets it to AEFW_ERR_NOERROR. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -221,7 +264,7 @@ Private Attributes</h2></td></tr>
 
 <p>Closes the currently opened file, and also, in addition, clears the last error status. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00060">60</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00080">80</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +354,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00058">58</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -338,7 +381,7 @@ Private Attributes</h2></td></tr>
 
 <p>Writer's last error indicator; Values are AEFW_ERR_* macros. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00085">85</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +407,7 @@ Private Attributes</h2></td></tr>
 
 <p>Object for file writing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00103">103</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -390,7 +433,7 @@ Private Attributes</h2></td></tr>
 
 <p>Full filename and relative path. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00099">99</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -416,35 +459,9 @@ Private Attributes</h2></td></tr>
 
 <p>Name of the module (class), same as in code. </p>
 <p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a63ae0fc518d9174e7b0b19fbc9b4c420" name="a63ae0fc518d9174e7b0b19fbc9b4c420"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63ae0fc518d9174e7b0b19fbc9b4c420">&#9670;&#160;</a></span>m_ucFlags</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706">ucint</a> AEFileReader::m_ucFlags</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Flags that were used to open the file. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -496,7 +513,7 @@ Private Attributes</h2></td></tr>
 
 <p>Counter for total write operations for file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00101">101</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -509,7 +526,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 16:51:51 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 2 2023 18:12:27 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

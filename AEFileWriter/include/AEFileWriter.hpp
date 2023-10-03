@@ -83,6 +83,8 @@
 /// Flags start with AEFW_
 /// @warning This is not thread safe!
 /// </summary>
+/// @todo rewrite the functions to use std::string_view instead of two instances for std::string and const* char
+/// @todo add the default constructor without any arguments/file opening
 class AEFileWriter : public __AEModuleBase<AEFileWriter> {
 public:
 
@@ -161,7 +163,7 @@ public:
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
 	/// <returns>True if file was able to be open for writing, false otherwise</returns>
-	inline bool openFile(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
+	inline int openFile(const std::string& str, const ucint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
 		return this->openFile(str.c_str(), flags, af_interval);
 	}
 
