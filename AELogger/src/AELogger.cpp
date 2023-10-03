@@ -169,9 +169,9 @@ void AELogger::logWriterThread(void) {
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 
 				//cleanup
-				std::memset(str, NULL, 588); // clean the formatting buffer
-				std::memset(ePtr->m_sLogMessage, NULL, 512); // clean log message
-				std::memset(ePtr->m_sModuleName, NULL, 32); // clean module name
+				std::memset(str, NULL, 587); // clean the formatting buffer
+				std::memset(ePtr->m_sLogMessage, NULL, 511); // clean log message
+				std::memset(ePtr->m_sModuleName, NULL, 31); // clean module name
 				ePtr->m_bStatus = AELOG_ENTRY_STATUS_INVALID;
 				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 				this->m_ullFilledCount--;
