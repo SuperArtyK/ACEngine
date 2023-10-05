@@ -16,12 +16,29 @@
 #include <ctime>
 #include <sstream>
 
+//function-like macros
+//since it's more convenient to have them as a macro
+//because...syntax
 
 /// Macro for the calculation of static, compile-time array
 #define arrsize(x) (sizeof(x)/sizeof(x[0]))
 
 /// Macro for the check if modulo of x and y results in 0
 #define mod0(x,y) !(x%y)
+
+#define getBit(val, bit) (val&(1<<bit))
+
+/// Better-fomatted assertion for runtime checks
+#define aceAssert(expr, msg) if(!(expr)) { std::cerr<<"Assertion failed!\nExpression: "<< #expr<<"\nFile: "<<__FILE__<<"\nLine: "<<__LINE__<<"\nMessage: "<<msg<<std::endl; abort(); }
+
+/// Macro for the debug printf() printing, use the same way as you have used printf before.
+/// @note Prints additional newline with each print
+/// @note Does nothing if ENGINE_DEBUG is not defined and set to 1
+#if ENGINE_DEBUG
+#define dprintf(...) if constexpr (ENGINE_DEBUG){printf("DEBUG::%s()-> ", __FUNCTION__); printf(__VA_ARGS__); printf("\n");}
+#else
+#define dprintf(...) 
+#endif
 
 /// Macro to check if the given type T is about the same as Y
 /// @note It decays both types and omits const-ness
@@ -202,10 +219,11 @@ namespace ace {
 		/// <param name="myptr">Pointer to whatever memory adress</param>
 		/// <returns>std::string with the hexadecimal version of the adress</returns>
 		inline std::string addrToStr(const void* myptr) {//adds address value to string
-			std::ostringstream oss;
-			oss << "0x"<< myptr;
-			return oss.str();
+			char buf[int(sizeof(void*) * 2.5)]{}; 
+			snprintf(buf, sizeof(buf), "0x%p", myptr);
+			return buf;
 		}
+
 
 		/// <summary>
 		/// Convenient sleep function to sleep the thread for ms milliseconds
@@ -246,6 +264,19 @@ namespace ace {
 #endif // _MSC_VER 
 			return filestr;
 		}
+
+
+		constexpr int charToInt(const char c) {
+
+			return (ace::utils::isInRange<char>('0', '9', c)) ? (c - '0') : -1;
+		}
+		
+		constexpr char intToChar(const int i) {
+
+			return (ace::utils::isInRange<int>(0, 9, (char)i)) ? (i + '0') : -1;
+		}
+
+
 	}	
 }
 

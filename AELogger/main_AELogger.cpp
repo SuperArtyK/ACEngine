@@ -8,7 +8,7 @@ using std::cout;
 
 AELogger mylog("log.txt", true);
 
-constexpr int fpsval = 100000;
+constexpr int fpsval = 8000;
 
 
 void logfiller(const std::string name) {
@@ -36,6 +36,8 @@ int main()
 {
 	
 	std::cout << sizeof(AELogEntry) << "; " << sizeof(AELogEntry) * 65535 << NLC;
+
+	globalLogger.writeStatus();
 
 	std::thread t1(&logfiller, "logfil1");
 

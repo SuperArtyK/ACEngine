@@ -4,7 +4,7 @@
  *  These will be insanely fast, almost as the direct memory access (since just value in array), 
  *  but won't offer much of precision -- within 1 degree.
  *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
- *  @todo Add the interpolated table trigonometric functions. (Approximate value between 2 degrees in a table)
+ *  @todo Add the table trigonometric functions with interpolation. (Approximate value between 2 degrees in a table)
  *
  *  Should not cause everything to break :)
  */
@@ -21,6 +21,7 @@
 #ifdef ENGINE_ENABLE_TRIG_LOOKUP
 
 /// A macro for the size of the trigonometric function lookup tables
+/// @note For now - do not touch!
 #define AETRIG_TABLE_SIZE 360
 
 

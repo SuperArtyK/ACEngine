@@ -36,4 +36,8 @@
 /// Macro for the AELogger's default module name (if none was provided when calling the write-to-log request)
 #define AELOG_DEFAULT_MODULE_NAME "ACEngine"
 
+//AEVector
+/// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount
+#define AEVEC_WRAP_DIMENSIONS
+
 #endif // !ENGINE_FLAGS_HPP

@@ -1,4 +1,4 @@
-
+﻿
 /** @file AEVector/include/AEVector.hpp
  *  This file contains the engine's math vector code.
  *  So you can make more math calculations with it...and things in graphics and games
@@ -13,18 +13,9 @@
 #define ENGINE_VECTOR_HPP
 
 #include "include/AEMath.hpp"
+#include "include/AEFlags.hpp"
 #include <ostream>
 #include <string>
-
-/// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount
-#define AEVEC_WRAP_DIMENSIONS
-
-/// @todo Add AEVector docs
-/// @todo Clean up AEVector code
-/// 
-
-
-
 
 
 
@@ -37,14 +28,26 @@
 template<typename T, const std::size_t dimAmount>
 struct AEVector {
 
+public:
 	/// The array of the vector's dimension values of the type T and size dimAmount
 	T dims[dimAmount]{};
 	
+	/// <summary>
+	/// Returns the zeroed vector (of given dimensions and type)
+	/// </summary>
+	/// <returns>std::string of values of the vector in brackets</returns>
+	static constexpr AEVector<T, dimAmount> zero(void) {
+		return AEVector<T, dimAmount>{};
+	}
 
 //internal functions 
 	//normal value accessor
-
-	
+	/// <summary>
+	/// The [] operator for ease of use and wrap functionality
+	/// @note If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
+	/// </summary>
+	/// <param name="index">The index of the dimension</param>
+	/// <returns>Reference to the dimension pointed by index</returns>
 	constexpr T& operator[](const std::size_t index) {
 		return this->dims[
 #ifdef AEVEC_WRAP_DIMENSIONS
@@ -60,7 +63,7 @@ struct AEVector {
 	/// The [] operator for ease of use and wrap functionality
 	/// @note If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
 	/// </summary>
-	/// <param name="index">The index of the dimension </param>
+	/// <param name="index">The index of the dimension</param>
 	/// <returns>Constant reference to the dimension pointed by index</returns>
 	constexpr const T& operator[](const std::size_t index) const {
 		return this->dims[
@@ -72,8 +75,14 @@ struct AEVector {
 		];
 	}
 
-	//equality operator. two must have same amount of dimensions
-	template<typename Y>
+	/// <summary>
+	/// The equality comparison operator -- compare "this" and another vector
+	/// @note The second vector must have the same amount of dimensions (to even compile)
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector, normally same as T</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>True if the vectors are equal, false otherwise</returns>
+	template<typename Y = T>
 	constexpr bool operator==(const AEVector<Y, dimAmount>& two) const {
 
 		for (std::size_t i = 0; i < dimAmount; i++) {
@@ -84,53 +93,132 @@ struct AEVector {
 
 		return true;
 	}
-
-	//inequality operator. two must have same amount of dimensions
-
-	template<typename Y>
+	
+	/// <summary>
+	/// The inequality comparison operator -- compare "this" and another vector
+	/// @note The second vector must have the same amount of dimensions (to even compile)
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>True if the vectors are not equal, false otherwise</returns>
+	template<typename Y = T>
 	constexpr bool operator!=(const AEVector<Y, dimAmount>& two) const {
 		return !this->operator==<Y>(two);
 	}
 
-	const std::string toString() const {
-		std::string str = "[";
+	/// <summary>
+	/// The addition-assignment operator -- add another vector to "this" 
+	/// @note The second vector must have the same amount of dimensions (to even compile)
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The reference to the resulting vector after the operation</returns>
+	template<typename Y = T>
+	constexpr AEVector<T, dimAmount>& operator+=(const AEVector<Y, dimAmount>& two) {
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			this->dims[i] += two.dims[i];
+		}
+		return *this;
+	}
+
+	/// <summary>
+	/// The addition operator -- "add" this and another vector
+	/// @note The second vector must have the same amount of dimensions (to even compile)
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The value of the resulting vector after the operation</returns>
+	template<typename Y = T>
+	constexpr const AEVector<T, dimAmount> operator+(const AEVector<Y, dimAmount>& two) const {
+		AEVector<T, dimAmount> a = *this;
+		return a.operator+=(two);
+	}
+
+	/// <summary>
+	/// The multiplication-assignment operator -- multiply "this" by a scalar
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The reference to the resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr AEVector<T, dimAmount>& operator*=(const Y two) {
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			this->dims[i] *= two;
+		}
+		return *this;
+	}
+
+	/// <summary>
+	/// The multiplication operator -- multiply this and a scalar
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The value of the resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr const AEVector<T, dimAmount> operator*(const Y two) const {
+		AEVector<T, dimAmount> a = *this;
+		return a.operator*=(two);
+	}
+
+	/// <summary>
+	/// Converts the vector to std::string, of format [a, b, c, ...]
+	/// </summary>
+	/// <returns>std::string of values of the vector in brackets</returns>
+	const std::string toString(void) const {
+		std::string str;
+		str.reserve(5 + 3 * (dimAmount - 1));
+
 		for (std::size_t i = 0; i < dimAmount - 1; i++) {
-			
+
 			str.append(std::to_string(this->dims[i]));
 			str.append(", ");
 		}
 		str.append(std::to_string(this->dims[dimAmount - 1]));
-		str.append("]");
+		str.push_back(']');
 
 		return str;
 	}
+	
+	/// <summary>
+	/// The ostream's << operator overload...to output the vector through the ostreams
+	/// </summary>
+	/// <typeparam name="T">The numberical type to use in the vector</typeparam>
+	/// <typeparam name="dimAmount">The amount of dimensions in the vector</typeparam>
+	/// <param name="out">The ostream object to output to</param>
+	/// <param name="two">The vector to output</param>
+	/// <returns>The reference to the resulting ostream object</returns>
+	friend inline std::ostream& operator<<(std::ostream& out, const AEVector<T, dimAmount>& two) {
+		out << two.toString();
+		return out;
+	}
 
 //math functions
-	//vector magnitude
+	/// <summary>
+	/// Calculates the magnitude/length of the vector
+	/// </summary>
+	/// <typeparam name="F">The float type to calculate the magnitude with</typeparam>
+	/// <returns>The magnitude of the vector as the float type F</returns>
 	template<typename F = long double>
 	constexpr F magnitude(void) const {
-		static_assert(std::is_floating_point<F>::value, "Cannot use non-float types in AEVector::magnitude()!");
-		F temp = 0;
-		for (size_t i = 0; i < dimAmount; i++) {
-			temp += this->dims[i] * this->dims[i];
-		}
-
-		return ace::math::fsqrt<F>(temp);
+		return ace::math::sqrt<F>( this->dotProduct<F,T>(*this) );
 	}
 
-	//vector length (same as magnitude)
-	template<typename F = long double>
-	constexpr F length(void) const {
-		return this->magnitude<F>();
-	}
-
-	//normalise the dimension
+	/// <summary>
+	/// Calculates the normalised value of the given dimension
+	/// </summary>
+	/// <typeparam name="F">The float type to calculate it all with</typeparam>
+	/// <param name="index">The index of the dimension</param>
+	/// <returns>The normalised value of the dimension as the float type F</returns>
 	template<typename F = long double>
 	constexpr F normDim(const std::size_t index) const {
 		return this->operator[](index)/this->magnitude<F>();
 	}
 
-	//normalise the vector
+	/// <summary>
+	/// Calculates the normalised vector from the current vector
+	/// </summary>
+	/// <typeparam name="F">The float type of the resulting normalised vector</typeparam>
+	/// <returns>The normalised vector</returns>
 	template<typename F = long double>
 	constexpr AEVector<F, dimAmount> normalise(void) const {
 		//vector magnitude
@@ -143,58 +231,23 @@ struct AEVector {
 		return ret;
 	}
 
-	template<typename F = long double, typename Y>
-	constexpr F dotProduct(const AEVector<Y, dimAmount>& two) {
+	/// <summary>
+	/// Calculate the dot product of "this" and another vector
+	/// </summary>
+	/// <typeparam name="F">The float type of the resulting scalar</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The value of the dot product of the type F</returns>
+	template<typename F = long double, typename Y = T>
+	constexpr F dotProduct(const AEVector<Y, dimAmount>& two) const {
 		F temp = 0;
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			temp += this->dims[i] * two.dims[i];
 		}
 		return temp;
 	}
-
-	constexpr static AEVector<T, dimAmount> zero(void) {
-		return AEVector<T, dimAmount>{};
-	}
-
-	template<typename Y>
-	constexpr AEVector<T, dimAmount>& operator+=(const AEVector<Y, dimAmount>& two) {
-		for (std::size_t i = 0; i < dimAmount; i++) {
-			this->dims[i] += two.dims[i];
-		}
-		return *this;
-	}
-
-	template<typename Y>
-	constexpr const AEVector<T, dimAmount> operator+(const AEVector<Y, dimAmount>& two) const {
-		AEVector<T, dimAmount> a = *this;
-		return a.operator+=(two);
-	}
 	
-	template<typename Y>
-	constexpr AEVector<T, dimAmount>& operator*=(const Y two) {
-		for (std::size_t i = 0; i < dimAmount; i++) {
-			this->dims[i] *= two;
-		}
-		return *this;
-	}
-
-	template<typename Y>
-	constexpr const AEVector<T, dimAmount> operator*(const Y two) const {
-		AEVector<T, dimAmount> a = *this;
-		return a.operator*=(two);
-	}
-
-
-
 };
-
-template<typename T, const std::size_t dimAmount>
-inline std::ostream& operator<<(std::ostream& out, const AEVector<T, dimAmount>& two) {
-
-	out << two.toString();
-	return out;
-}
-
 
 typedef AEVector<int, 2> AEVec2Int;
 typedef AEVector<int, 3> AEVec3Int;

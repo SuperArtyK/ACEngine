@@ -104,8 +104,18 @@ public:
 	/// <summary>
 	/// Resets the timer's tick to 0
 	/// </summary>
-	inline void resetTime(void) {
+	inline void resetTick(void) {
 		this->m_ullTicks = 0;
+	}
+
+	inline void setTick(const ullint tick) {
+		this->m_ullTicks = tick;
+	}
+
+	inline void setDelay(const double tps) {
+		this->stopThread();
+		this->m_rDelay.setFps(tps);
+		this->startThread();
 	}
 	
 	/// <summary>
@@ -197,5 +207,6 @@ private:
 //aaaand yeah, register the class
 REGISTER_CLASS(AETimer);
 
+inline AETimer globalTimer(ENGINE_FPS);
 
 #endif // !ENGINE_TIMER_HPP

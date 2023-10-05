@@ -94,9 +94,7 @@ $(document).ready(function(){initNavTree('d7/d09/_a_e_vector_8hpp.html','../../'
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">AEVector.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -104,6 +102,7 @@ $(document).ready(function(){initNavTree('d7/d09/_a_e_vector_8hpp.html','../../'
 <p>This file contains the engine's math vector code.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d1/da4/_a_e_math_8hpp_source.html">include/AEMath.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">include/AEFlags.hpp</a>&quot;</code><br />
 <code>#include &lt;ostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div>
@@ -115,12 +114,6 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ArtyK's Engine's mathematical vector &ndash; for mathematically-correct vector operations.  <a href="../../dc/df6/struct_a_e_vector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ab5aa4a5360259365ff849c8bfdae6ed9" id="r_ab5aa4a5360259365ff849c8bfdae6ed9"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d09/_a_e_vector_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9">AEVEC_WRAP_DIMENSIONS</a></td></tr>
-<tr class="memdesc:ab5aa4a5360259365ff849c8bfdae6ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount.  <br /></td></tr>
-<tr class="separator:ab5aa4a5360259365ff849c8bfdae6ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a24e94ab41923f694637dd1751d2d7b19" id="r_a24e94ab41923f694637dd1751d2d7b19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typedef</a> <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">int</a>, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d09/_a_e_vector_8hpp.html#a24e94ab41923f694637dd1751d2d7b19">AEVec2Int</a></td></tr>
@@ -131,12 +124,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:a9d78644aa98ef160fa8a66bbf1acd027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b2f8afe8b1c01ea2226a8fc13e1cbd" id="r_a59b2f8afe8b1c01ea2226a8fc13e1cbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typedef</a> <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">float</a>, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d09/_a_e_vector_8hpp.html#a59b2f8afe8b1c01ea2226a8fc13e1cbd">AEVec3Float</a></td></tr>
 <tr class="separator:a59b2f8afe8b1c01ea2226a8fc13e1cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ae00c7d78791ef6486209c81aa06f1e48" id="r_ae00c7d78791ef6486209c81aa06f1e48"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T , <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::size_t</a> dimAmount&gt; </td></tr>
-<tr class="memitem:ae00c7d78791ef6486209c81aa06f1e48"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d09/_a_e_vector_8hpp.html#ae00c7d78791ef6486209c81aa06f1e48">operator&lt;&lt;</a> (std::ostream &amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">out</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">dimAmount</a> &gt; &amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">two</a>)</td></tr>
-<tr class="separator:ae00c7d78791ef6486209c81aa06f1e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the engine's math vector code. </p>
@@ -144,26 +131,7 @@ Functions</h2></td></tr>
 <p>Should not cause everything to break :) </p>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ab5aa4a5360259365ff849c8bfdae6ed9" name="ab5aa4a5360259365ff849c8bfdae6ed9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5aa4a5360259365ff849c8bfdae6ed9">&#9670;&#160;</a></span>AEVEC_WRAP_DIMENSIONS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEVEC_WRAP_DIMENSIONS</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a9d78644aa98ef160fa8a66bbf1acd027" name="a9d78644aa98ef160fa8a66bbf1acd027"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d78644aa98ef160fa8a66bbf1acd027">&#9670;&#160;</a></span>AEVec2Float</h2>
 
@@ -176,7 +144,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00201">201</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00254">254</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -192,7 +160,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00199">199</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00252">252</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +176,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00202">202</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00255">255</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -224,48 +192,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00200">200</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ae00c7d78791ef6486209c81aa06f1e48" name="ae00c7d78791ef6486209c81aa06f1e48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae00c7d78791ef6486209c81aa06f1e48">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T , <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::size_t</a> dimAmount&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">operator</a>&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">dimAmount</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>two</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00253">253</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -275,7 +202,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_46dc6f229af304329d124c0ea8ada48f.html">AEVector</a></li><li class="navelem"><a class="el" href="../../dir_bfba4978b0c16c18c5fc61d2a04f6ac5.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d09/_a_e_vector_8hpp.html">AEVector.hpp</a></li>
-    <li class="footer">Generated on Mon Oct 2 2023 18:12:27 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 5 2023 15:56:57 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -20,16 +20,17 @@ bool isEqual(const AEVector<T1, dimAmount>& vec1, const AEVector<T2, dimAmount>&
 }
 
 
-
 int main() {
 
 
+	cout << ace::math::sqrt(12345)<< NLC;
+		
 	AEVec2Int a{ 3,4 };
 	AEVec3Int b{ 3,4,5 };
 	AEVec2Float c{ 3.1f,4.5f };
 
 	
-	cout << a.magnitude() << "; " << b.magnitude() << "; " << c.magnitude()<<NLC;
+	cout << a.magnitude<int>() << "; " << b.magnitude() << "; " << c.magnitude()<<NLC;
 	cout << a<<"; "<<b<<"; "<<c<<NLC;
 	cout << a.normalise() << "; " << b.normalise() << "; " << c.normalise() << NLC;
 	cout << (a != c) << NLC;

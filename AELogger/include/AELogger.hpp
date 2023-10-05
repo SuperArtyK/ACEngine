@@ -106,8 +106,10 @@ struct AELogEntry {
 // since we have the access to the maximum queue value, and it is being checked in the 
 // ptrFromIndex(), we have a way to restrict the access to certain nodes for the writeToLog()
 // All by changing the max queue value to the value of the second-to-last node in the allocation vector
-// That way, when we wrap the index around next time, 
-// 
+// That way, when we wrap the index around next time, it wraps around the nodes that we want to keep
+// And completely ignores the last nodes we want to delete.
+// Though how to delete information from those delete-me nodes, since the writer-thread is the only thing
+// That still has access to those nodes. And we don't want to delete the unfilled ones
 
 
 
@@ -122,6 +124,7 @@ struct AELogEntry {
 /// @todo Implement copy constructors and copy assignment
 /// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
 /// @todo Rewrite the functions to take std::string_view as arguments
+/// @todo Add the ability to change the default log file folder to...whatever user wants (maybe a constructor)
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
@@ -225,7 +228,7 @@ public:
 	/// </summary>
 	/// <returns>ullint of the amount of times logger written to a file</returns>
 	inline ullint getEntryCount(void) const {
-		return this->m_ullFilledCount.load();
+		return this->m_ullLogOrderNum.load();
 	}
 
 	/// <summary>
@@ -256,7 +259,7 @@ public:
 	/// Writes the current status of the file logger instance (file name, and entries written)
 	/// </summary>
 	inline void writeStatus(void) {
-		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()+1), 
+		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
 			AELOG_TYPE_INFO, m_sModulename);
 	}
 
@@ -310,8 +313,6 @@ private:
 //aaand we have to register it too
 REGISTER_CLASS(AELogger);
 
+inline AELogger globalLogger("logs/LOG_"+(ace::utils::getCurrentDate().substr(0, 9))+".log");
 
 #endif // !ENGINE_AELOGGER_HPP
-
-
-

@@ -16,14 +16,14 @@ You can find the engine code documentation [here](https://superartyk.github.io/A
 * AEFrame -- project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time
 * AELogger -- project of engine's logger. Allows to log (random) stuff to file.
 * AETimer -- project of the engine's timer. Allows to time the events in the engine and count ticks
-* AEVector -- project of the engine's mathematical vectors for. Easy, "scalable", and all constexpr(except conversion to string).
+* AEVector -- project of the engine's mathematical vectors for. Easy, "scalable", and all constexpr (except conversion to string).
 
 ### ACCOMPLISHED FEATURES
 
 * Be able to write data to files, faster than standard
 * Write logs to file with almost no performance impact
 * Have a module-based structure
-* Have a utility tool kit in engine for easier programming(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine") )
+* Have a utility tool kit in engine for easier programming(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine"))
 
 ### DESIRED FEATURES
 

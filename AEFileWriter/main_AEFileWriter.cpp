@@ -1,12 +1,11 @@
 #include "include/AEFileWriter.hpp"
+#include "include/AETypedefs.hpp""
 #include <iostream>
 #include <iomanip>	
+#include <cstdio>
+#include <ctime>
 using namespace std;
 
-
-
-template<typename T1, typename T2>
-bool is_almost_same_v = std::is_same<const T1, const T2>::value;
 
 struct Tempstruct {
 	short a = 12345;
@@ -23,11 +22,57 @@ int main() {
 	std::string b = "abc\0def";
 	const char* c = "abc\0def";
 	const Tempstruct d;
-
+	std::srand(std::time(NULL));
 
 	AEFileWriter myfw;
-	myfw.openFile("hello.txt", AEFW_FLAG_TRUNCATE, 1);
+	//myfw.openFile("hello.txt", AEFW_FLAG_TRUNCATE, 1);
 
+
+	std::vector<int> vecb;
+	vecb.reserve(1024 * 1024 * 1024);
+	for (int i = 0; i < (1024 * 1024 * 1024); i++) {
+		vecb.push_back(std::rand());
+	}
+
+	cout << "Done generating!\n";
+	timePoint<HighResTime> tp1;
+	timePoint<HighResTime> tp2;
+	cin.get();
+
+	for (;;) {
+		myfw.openFile("hello.txt", AEFW_FLAG_TRUNCATE, 1);
+		tp1 = getHighResTime();
+		for (int i = 0; i < 1; i++) {
+			myfw.writeData_ptr(vecb.data(), 1, vecb.size() * sizeof(int), false);
+		}
+		
+		myfw.flushFile();
+		myfw.closeFile();
+
+		tp2 = getHighResTime();
+		cout << "Done writing 1! " << calculateTime(tp1, tp2, long double) << "s\n";
+
+		ace::utils::sleepMS(2000);
+		myfw.openFile("hello.txt", AEFW_FLAG_TRUNCATE, 1);
+
+		tp1 = getHighResTime();
+		
+
+		for (int i = 0; i < 1; i++) {
+			myfw.writeData_ptr(vecb.data(), vecb.size(), sizeof(int), false);
+		}
+		myfw.flushFile();
+		myfw.closeFile();
+
+
+		tp2 = getHighResTime();
+		cout << "Done writing 2! " << calculateTime(tp1, tp2, long double) << "s\n";
+
+		ace::utils::sleepMS(2000);
+
+
+	}
+	/*
 	myfw.write("The name of the module is: ");
 	myfw.write(myfw.getModuleName());
 	myfw.write("\nAnd the alive amount of such modules is: ");
@@ -74,7 +119,10 @@ int main() {
 	myfw.write('\n');
 	myfw.write(d);
 	myfw.write('\n');
+	*/
 	myfw.flushFile();
 	myfw.closeFile();
+
+	
 	return 0;
 }

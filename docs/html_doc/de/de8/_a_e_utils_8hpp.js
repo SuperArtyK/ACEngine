@@ -1,6 +1,9 @@
 var _a_e_utils_8hpp =
 [
+    [ "aceAssert", "de/de8/_a_e_utils_8hpp.html#abb1a38e7284b8a6e0b6ae614204f703e", null ],
     [ "arrsize", "de/de8/_a_e_utils_8hpp.html#abd5c675c1bc06a654e91407bfbfec7ef", null ],
+    [ "dprintf", "de/de8/_a_e_utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424", null ],
+    [ "getBit", "de/de8/_a_e_utils_8hpp.html#a1d83bd4ca4b76a75381d21fa703897ef", null ],
     [ "IS_SAME_NOC", "de/de8/_a_e_utils_8hpp.html#a913272c684270c11c1a96a982e9f9b44", null ],
     [ "mod0", "de/de8/_a_e_utils_8hpp.html#aea38a6c220e7fbb69bb20432082ce842", null ],
     [ "NLC", "de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340", null ],
@@ -9,9 +12,12 @@ var _a_e_utils_8hpp =
     [ "WSTR", "de/de8/_a_e_utils_8hpp.html#aa5ef465b3cfb7b096648181199e8029c", null ],
     [ "addrToStr", "de/de8/_a_e_utils_8hpp.html#aa1625a29fbb650a4749e1249f7058beb", null ],
     [ "boolToString", "de/de8/_a_e_utils_8hpp.html#af19e2a0ce9c7b48f8b0e27d67c037847", null ],
+    [ "charToInt", "de/de8/_a_e_utils_8hpp.html#a6b3f696a90b8f3e17d901ca4066481c0", null ],
     [ "fopenCC", "de/de8/_a_e_utils_8hpp.html#a0b212f02229354dee0c2d97718b3ac94", null ],
     [ "formatDate", "de/de8/_a_e_utils_8hpp.html#a2de6011d3165d37fec20bde6541c2dcb", null ],
+    [ "formatDate", "de/de8/_a_e_utils_8hpp.html#a79b3cdec4537d2acdf2a7ec6f8b265a8", null ],
     [ "getCurrentDate", "de/de8/_a_e_utils_8hpp.html#a5ef830bd659e4848847aa793e2f60852", null ],
+    [ "intToChar", "de/de8/_a_e_utils_8hpp.html#aea543d995f0e534ae58ed582006543f3", null ],
     [ "isInRange", "de/de8/_a_e_utils_8hpp.html#a1b26581581c9d7e6e2a506a4539744ba", null ],
     [ "isNum", "de/de8/_a_e_utils_8hpp.html#a015fadb8fdb492ebb2dfc03bf0dae458", null ],
     [ "sleepMS", "de/de8/_a_e_utils_8hpp.html#a1de11fe2ff331d6f9c0b26f105dfae12", null ],

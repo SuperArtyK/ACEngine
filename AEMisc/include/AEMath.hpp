@@ -19,7 +19,7 @@
 
 
 /// Macro to convert degrees value x to radians
-#define torad(x,typ) (x * ace::math::pi<typ>() / typ(180.0))
+#define torad(x,typ) (x * ace::math::pi<typ>() / typ(180))
 
 #define todeg(x,typ) (x*typ(180.0)/ace::math::pi<typ>())
 ///Mathematical functions and other things usefull in math
@@ -101,6 +101,7 @@ namespace ace::math {
 	/// <summary>
 	/// Rounds the given float of type Y to integer of type T
 	/// @warning It breaks if the num value is more than the max value of T!
+	/// @note Float type Y should be a valid value (not NAN or inf)
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to round to</typeparam>
 	/// <typeparam name="Y">The type of the float to round</typeparam>
@@ -108,21 +109,21 @@ namespace ace::math {
 	/// <returns>the rounded integer of type T, from the given float number</returns>
 	template<typename T = llint, typename Y = long double>
 	constexpr T roundToInt(const Y num) {
-		static_assert(std::is_integral<T>::value, "Cannot use non-integer types as the target rounding type in ace::math::roundtoint()!");
-		static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
+		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
+		//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
 		return (num < 0) ? T(num + Y(0.5)) * -1 : T(num + Y(0.5));
 	}
 	
 	/// <summary>
-	/// Calculates the absolute value of given float of type T
+	/// Calculates the absolute value of a given number
 	/// </summary>
-	/// <typeparam name="T">The type of the float</typeparam>
-	/// <param name="num">The float to calculate absolute value of</param>
+	/// <typeparam name="T">The type of the number</typeparam>
+	/// <param name="num">The value to calculate absolute value of</param>
 	/// <returns>absolute value of the float as the type T</returns>
-	template<typename T = long double>
+	template<typename T>
 	constexpr inline T absval(const T num) {
-		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::absval()!");
-		return (num < 0) ? num - 1 : num;
+		return (num == 0) ? 0 : // work with signed 0's...if they exist
+			(num < 0) ? -num : num;
 	}
 
 	/// <summary>
@@ -140,22 +141,94 @@ namespace ace::math {
 			-(num - num2) < _epsilon;
 	}
 
+
 	/// <summary>
-	/// Newton's method sqrt implementation. Usefull when you need to calculate sqrt and use constexpr
+	/// Checks if given 2 numbers are equal, a generic function for all types
+	/// @note If the T type is a float, returns the result of ace::math::fequals() with the default epsilon values
+	/// </summary>
+	/// <typeparam name="T">The type of the numbers passed</typeparam>
+	/// <param name="num">The first number to compare</param>
+	/// <param name="num2">The second number to compare</param>
+	/// <returns>True if the two numbers are equal, false otherwise</returns>
+	template<typename T>
+	constexpr bool equals(const T num, const T num2) {
+		if constexpr (std::is_floating_point<T>::value) {
+			return ace::math::fequals(num, num2);
+		}
+		else {
+			return (num == num2);
+		}
+	}
+
+
+	/// <summary>
+	/// Newton's method sqrt implementation. Usefull when you need to calculate sqrt and still use constexpr
 	/// </summary>
 	/// <typeparam name="T">The type of the float</typeparam>
 	/// <param name="num">The float value to calculate the square root from</param>
 	/// <returns>square root value from passed value of type T</returns>
 	template<typename T = long double>
-	constexpr T fsqrt(const T num) {
-		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fsqrt()!");
+	constexpr T sqrt(const T num) {
 		T val[2] = { num,0 };
-		while (!fequals(val[0], val[1])) {
+		while (!ace::math::equals(val[0], val[1])) {
 			val[1] = val[0];
-			val[0] = 0.5f * (val[0] + num / val[0]);
+			val[0] = (val[0] + num / val[0])/2;
 		}
 		return val[1];
 	}
+
+	/// <summary>
+	/// Gets the biggest value between given two values
+	/// </summary>
+	/// <typeparam name="T">Type of the values</typeparam>
+	/// <param name="a">The first value to compare</param>
+	/// <param name="b">The second value to compare</param>
+	/// <returns>Value of a if it is bigger than b; value of b otherwise</returns>
+	template<typename T>
+	constexpr T max(const T& a, const T& b) {
+		return (a > b) ? a : b;
+	}
+
+	/// <summary>
+	/// Gets the smallest value between given two values
+	/// </summary>
+	/// <typeparam name="T">Type of the values</typeparam>
+	/// <param name="a">The first value to compare</param>
+	/// <param name="b">The second value to compare</param>
+	/// <returns>Value of a if it is smaller than b; value of b otherwise</returns>
+	template<typename T>
+	constexpr T min(const T& a, const T& b) {
+		return (a < b) ? a : b;
+	}
+
+	/// <summary>
+	/// Calculate the length of the given integer number
+	/// </summary>
+	/// <typeparam name="T">The type of the integer number</typeparam>
+	/// <param name="num">The number to calculate the length of</param>
+	/// <returns>Unsigned int of the length of the passed number</returns>
+	template<typename T>
+	constexpr unsigned int intLength(const T num) {
+		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in the ace::math::intLength()");
+		unsigned int dig = 1;
+		T numtemp = num;
+		while (numtemp /= 10)
+			dig++;
+		return dig;
+	}
+
+	/// <summary>
+	/// Calculate the length of the given float number
+	/// </summary>
+	/// <typeparam name="T">The type of the float number</typeparam>
+	/// <param name="num">The number to calculate the length of</param>
+	/// <returns>Unsigned int of the length of the passed number</returns>
+	template<typename T>
+	constexpr unsigned int floatLength(const T num) {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::floatLength()!");
+		return ((num == 0) ? 1 : (unsigned int)std::log10(std::abs(num))) + 1;
+	}
+
 
 }
 

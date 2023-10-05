@@ -11,7 +11,6 @@ using std::cout;
 using std::endl;
 
 
-
 int main() {
 	
 	for (int i = 0; i < 360; i++) {
@@ -42,6 +41,10 @@ int main() {
 	cout << INT_MAX << "; " << INT_MIN << endl;
 	cout << ULLINT_MAX << "; " << ULLINT_MIN << endl;
 	cout << LLINT_MAX << "; " << LLINT_MIN << endl;
+
+
+	cout << ace::math::roundToInt(1234);
+
 
     return 0;
 }

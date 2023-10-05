@@ -91,8 +91,12 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		return; // file's closed/closing!
 	}
 
+	/// @todo Implement decrease in log queue size...somehow
+	if (logmessg.empty()) {
+		return; //na'ah, no empty messages
+	}
 
-	this->m_ullFilledCount.fetch_add(1);
+	this->m_ullFilledCount++;
 
 	if (this->m_ullFilledCount > this->m_ullQueueSize) {
 		std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
@@ -108,12 +112,7 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);		
 	}
 
-	/// @todo Implement decrease in log queue size
-	if (logmessg.empty()) {
-		return; //na'ah, no empty messages
-	}
-
-
+	
 	//implementation: the allocation vector!
 	//instead of it having only the pointers to the allocated memory chunks of the log entries
 	//it would have the std::pair instead: pointer to chunk and the total amount of entries
@@ -131,7 +130,7 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 
 
 	//populating it now!
-	ptr->m_ullOrderNum = this->m_ullLogOrderNum.fetch_add(1);
+	ptr->m_ullOrderNum = this->m_ullLogOrderNum++;
 	ptr->m_bStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
 	ptr->m_tmLogTime = std::time(NULL);
