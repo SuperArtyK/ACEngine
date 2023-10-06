@@ -70,7 +70,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="b">The boolean to convert</param>
 		/// <returns>const char* of "true" or "false"</returns>
-		constexpr const char* boolToString(const bool b) {
+		constexpr const char* boolToString(const bool b) noexcept {
 			return (b) ? "true" : "false";
 		}
 
@@ -133,7 +133,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="strnum">C-string of the "number" to check</param>
 		/// <returns>True if that string is indeed a number, false otherwise</returns>
-		constexpr bool isNum(const char* strnum) { 
+		constexpr bool isNum(const char* strnum) noexcept {
 			//null pointer check
 			if (!strnum) {
 				return false;
@@ -251,7 +251,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="fname">File name, as you'd pass to fopen</param>
 		/// <param name="flags">File flags, as you'd pass to fopen</param>
-		inline FILE* fopenCC(const char* fname, const char* flags) {
+		inline FILE* fopenCC(const char* fname, const char* flags) noexcept {
 			//safety, so our compiler shuts up about the unsafe and deprecated function
 			//and trigger only on vc++
 			FILE* filestr = nullptr;
@@ -266,14 +266,14 @@ namespace ace {
 		}
 
 
-		constexpr int charToInt(const char c) {
+		constexpr int charToInt(const char c) noexcept {
 
 			return (ace::utils::isInRange<char>('0', '9', c)) ? (c - '0') : -1;
 		}
 		
-		constexpr char intToChar(const int i) {
+		constexpr char intToChar(const int i) noexcept {
 
-			return (ace::utils::isInRange<int>(0, 9, (char)i)) ? (i + '0') : -1;
+			return (ace::utils::isInRange<int>(0, 9, i)) ? (i + '0') : -1;
 		}
 
 

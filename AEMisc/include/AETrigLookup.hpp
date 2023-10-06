@@ -93,7 +93,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a sine from</param>
 		/// <returns>Float sine lookup table value that matches the (rounded) degrees amount</returns>
-		constexpr float sinDeg_table(const float degrees) {
+		constexpr float sinDeg_table(const float degrees) noexcept {
 			return sinTable[(int(degrees)+360) % AETRIG_TABLE_SIZE];
 		}
 
@@ -102,7 +102,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cosine from</param>
 		/// <returns>Float cosine lookup table value that matches the (rounded) degrees amount</returns>
-		constexpr float cosDeg_table(const float degrees) {
+		constexpr float cosDeg_table(const float degrees) noexcept {
 			return cosTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
 		}
 
@@ -111,7 +111,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a tangent from</param>
 		/// <returns>Float tangent lookup table value that matches the (rounded) degrees amount</returns>
-		constexpr float tanDeg_table(const float degrees) {
+		constexpr float tanDeg_table(const float degrees) noexcept {
 			return tanTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
 		}
 
@@ -120,7 +120,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cotangent from</param>
 		/// <returns>Float cotangent lookup table value that matches the (rounded) degrees amount</returns>
-		constexpr float cotDeg_table(const float degrees) {
+		constexpr float cotDeg_table(const float degrees) noexcept {
 			return cotTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
 		}
 
@@ -129,7 +129,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cosecant from</param>
 		/// <returns>Float cosecant lookup table value that matches the (rounded) degrees amount</returns>
-		constexpr float cscDeg_table(const float degrees) {
+		constexpr float cscDeg_table(const float degrees) noexcept {
 			return cscTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
 		}
 
@@ -138,7 +138,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a secant from</param>
 		/// <returns>Float secant lookup table value that matches the (rounded) degrees amount</returns>
-		constexpr float secDeg_table(const float degrees) {
+		constexpr float secDeg_table(const float degrees) noexcept {
 			return secTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
 		}
 

@@ -1,9 +1,9 @@
 var struct_a_e_log_entry =
 [
     [ "makeQueue", "da/dea/struct_a_e_log_entry.html#ad4ab1102d64cb6cee71dbcdb190afe70", null ],
-    [ "typeToString", "da/dea/struct_a_e_log_entry.html#aa2648328d5aa602f9d8cdd979a716057", null ],
-    [ "m_bStatus", "da/dea/struct_a_e_log_entry.html#a146a6a009ce02ac46084191ce85eea95", null ],
+    [ "typeToString", "da/dea/struct_a_e_log_entry.html#a0c66585d8dea832ef8f745adbced507f", null ],
     [ "m_cLogType", "da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180", null ],
+    [ "m_cStatus", "da/dea/struct_a_e_log_entry.html#ac59b70ca8c0f5ce4fc3605009b433b59", null ],
     [ "m_lepNextNode", "da/dea/struct_a_e_log_entry.html#a09d10036d8f26c8ef7f1b7566786300f", null ],
     [ "m_sLogMessage", "da/dea/struct_a_e_log_entry.html#a27d15be249f8a92b27544b3093c680eb", null ],
     [ "m_sModuleName", "da/dea/struct_a_e_log_entry.html#a53b339789734d4558a0b6240f6c9bf1d", null ],

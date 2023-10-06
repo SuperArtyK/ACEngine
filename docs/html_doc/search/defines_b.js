@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['sleepfor_0',['sleepFor',['../dc/d89/_a_e_typedefs_8hpp.html#aca5ef9fdac93d2802d296b0f99bcec4b',1,'AETypedefs.hpp']]],
-  ['sleepuntil_1',['sleepUntil',['../dc/d89/_a_e_typedefs_8hpp.html#a15002ef3a2be146ef0903338d9bf71a6',1,'AETypedefs.hpp']]]
+  ['register_5fclass_0',['REGISTER_CLASS',['../d7/d7f/_a_e_module_base_8hpp.html#a8004a020b408d0c73c73360c9176268a',1,'AEModuleBase.hpp']]]
 ];

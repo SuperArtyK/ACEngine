@@ -12,6 +12,7 @@
 #include <utility>
 #include <ctime>
 
+
 AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 	//damn, amt is really 0; get null!
 	if (amt == 0) {
@@ -124,20 +125,20 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 
 	//increment node number and get the pointer
 	AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
-	while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_bStatus != AELOG_ENTRY_STATUS_INVALID) {
+	while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_cStatus != AELOG_ENTRY_STATUS_INVALID) {
 		ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
 	}
 
 
 	//populating it now!
 	ptr->m_ullOrderNum = this->m_ullLogOrderNum++;
-	ptr->m_bStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
+	ptr->m_cStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
 	ptr->m_tmLogTime = std::time(NULL);
 	memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
 	memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 32) ? logmodule.size() : 31);
 	ptr->m_cLogType = logtype;
-	ptr->m_bStatus = AELOG_ENTRY_STATUS_READY;
+	ptr->m_cStatus = AELOG_ENTRY_STATUS_READY;
 }
 
 void AELogger::logWriterThread(void) {
@@ -154,11 +155,11 @@ void AELogger::logWriterThread(void) {
 			if (ePtr->m_ullOrderNum == m_ullWriterOrderNum) {
 
 				//got it!. Now wait untill it's ready
-				while (ePtr->m_bStatus != AELOG_ENTRY_STATUS_READY) {
+				while (ePtr->m_cStatus != AELOG_ENTRY_STATUS_READY) {
 					ace::utils::sleepUS(100);
 				}
 				//the entry is minee!
-				ePtr->m_bStatus = AELOG_ENTRY_STATUS_READING;
+				ePtr->m_cStatus = AELOG_ENTRY_STATUS_READING;
 
 				//formatting and writing
 				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
@@ -171,7 +172,7 @@ void AELogger::logWriterThread(void) {
 				std::memset(str, NULL, 587); // clean the formatting buffer
 				std::memset(ePtr->m_sLogMessage, NULL, 511); // clean log message
 				std::memset(ePtr->m_sModuleName, NULL, 31); // clean module name
-				ePtr->m_bStatus = AELOG_ENTRY_STATUS_INVALID;
+				ePtr->m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 				this->m_ullFilledCount--;
 				m_ullWriterOrderNum++;

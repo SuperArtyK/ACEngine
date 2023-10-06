@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['secdeg_0',['secDeg',['../d5/d0f/namespaceace_1_1math.html#aec15747811be8ef6cc01ca19eb37f148',1,'ace::math']]],
-  ['setcursorpos_1',['setCursorPos',['../db/d15/class_a_e_file_writer.html#a3e2712af677a148b7b95c15c7019cd62',1,'AEFileWriter']]],
+  ['secdeg_0',['secDeg',['../d5/d0f/namespaceace_1_1math.html#a5cbfa3de675e6e68387a936162bfe77b',1,'ace::math']]],
+  ['setcursorpos_1',['setCursorPos',['../db/d15/class_a_e_file_writer.html#a5a6a79376bdc14efdd6171db0bb51b81',1,'AEFileWriter']]],
   ['setdelay_2',['setDelay',['../da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c',1,'AETimer']]],
   ['setfps_3',['setFps',['../df/dd7/class_a_e_frame.html#a5f9390ef4638333051b039b8ad873a88',1,'AEFrame']]],
   ['settick_4',['setTick',['../da/d62/class_a_e_timer.html#aa4ed9d7a767f50e350faaf8cbbca5474',1,'AETimer']]],
-  ['sindeg_5',['sinDeg',['../d5/d0f/namespaceace_1_1math.html#a0f230c54dd6ab938b228bfc23bb2f899',1,'ace::math']]],
+  ['sindeg_5',['sinDeg',['../d5/d0f/namespaceace_1_1math.html#a2d1b0ee0e065a1fb3350dad86d582d17',1,'ace::math']]],
   ['sleep_6',['sleep',['../df/dd7/class_a_e_frame.html#aa3459df5ce99cf186b18f7d4c37ba161',1,'AEFrame']]],
   ['sleepfor_7',['sleepFor',['../dc/d89/_a_e_typedefs_8hpp.html#aca5ef9fdac93d2802d296b0f99bcec4b',1,'AETypedefs.hpp']]],
   ['sleepms_8',['sleepMS',['../de/dde/namespaceace_1_1utils.html#a1de11fe2ff331d6f9c0b26f105dfae12',1,'ace::utils']]],

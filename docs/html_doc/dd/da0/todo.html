@@ -97,9 +97,9 @@ $(document).ready(function(){initNavTree('dd/da0/todo.html','../../'); initResiz
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Global <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f">__AEModuleBase&lt; T &gt;::m_sModulename</a>  </dt>
-<dd><a class="anchor" id="_todo000007"></a>Find a way to make it constexpr and compile-time evaluated  </dd>
+<dd><a class="anchor" id="_todo000005"></a>Find a way to make it constexpr and compile-time evaluated  </dd>
 <dt>Class <a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000001"></a>add default constructor with no argumets </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>add default constructor with no argumets </p>
 <p class="interdd"></p>
 <p class="interdd">add function to get the file size </p>
 <p class="interdd"></p>
@@ -128,16 +128,16 @@ $(document).ready(function(){initNavTree('dd/da0/todo.html','../../'); initResiz
 <p class="enddd">add reading of bytes to fill the passed variable (ex, pass var of 4 bytes size-&gt; dump 4 bytes from file there)  </p>
 </dd>
 <dt>Class <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000006"></a>rewrite the functions to use std::string_view instead of two instances for std::string and const* char </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000004"></a>rewrite the functions to use std::string_view instead of two instances for std::string and const* char </p>
 <p class="interdd"></p>
 <p class="enddd">add the default constructor without any arguments/file opening  </p>
 </dd>
-<dt>Global <a class="el" href="../../db/d15/class_a_e_file_writer.html#a2f1a6dabb82ddb9c1f25ff4f905998f1">AEFileWriter::write</a>  (const T &amp;var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)</dt>
-<dd><a class="anchor" id="_todo000008"></a>Add a way to add custom types to this generic write function.  </dd>
-<dt>Global <a class="el" href="../../db/d15/class_a_e_file_writer.html#a4896fcb17109ca2e16992203532f9625">AEFileWriter::writeFloat</a>  (const T num, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)</dt>
-<dd><a class="anchor" id="_todo000009"></a>Add custom way to format the float number  </dd>
+<dt>Global <a class="el" href="../../db/d15/class_a_e_file_writer.html#a1ae0c5dccc36c3f8769f881417714fe1">AEFileWriter::write</a>  (const T &amp;var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)</dt>
+<dd><a class="anchor" id="_todo000006"></a>Add a way to add custom types to this generic write function.  </dd>
+<dt>Global <a class="el" href="../../db/d15/class_a_e_file_writer.html#a1c50577713bd5ebcb5fd6dd49bf8e3a8">AEFileWriter::writeFloat</a>  (const T num, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)</dt>
+<dd><a class="anchor" id="_todo000007"></a>Add custom way to format the float number  </dd>
 <dt>Class <a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000005"></a>Implement copy constructors and copy assignment </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000008"></a>Implement copy constructors and copy assignment </p>
 <p class="interdd"></p>
 <p class="interdd">Add the ability to open the same log file/redirect the instance requests to the one that has it open first. </p>
 <p class="interdd"></p>
@@ -146,11 +146,11 @@ $(document).ready(function(){initNavTree('dd/da0/todo.html','../../'); initResiz
 <p class="enddd">Add the ability to change the default log file folder to...whatever user wants (maybe a constructor)  </p>
 </dd>
 <dt>Global <a class="el" href="../../d8/dfc/class_a_e_logger.html#afcb237a85bf45c882e5e39702f737282">AELogger::writeToLog</a>  (const std::string &amp;logmessg, const cint logtype=1, const std::string &amp;logmodule=AELOG_DEFAULT_MODULE_NAME)</dt>
-<dd><a class="anchor" id="_todo000003"></a>Implement decrease in log queue size...somehow  </dd>
+<dd><a class="anchor" id="_todo000009"></a>Implement decrease in log queue size...somehow  </dd>
 <dt>File <a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp.html">AETrigLookup.hpp</a>  </dt>
-<dd><a class="anchor" id="_todo000004"></a>Add the table trigonometric functions with interpolation. (Approximate value between 2 degrees in a table) </dd>
+<dd><a class="anchor" id="_todo000003"></a>Add the table trigonometric functions with interpolation. (Approximate value between 2 degrees in a table) </dd>
 <dt>File <a class="el" href="../../d8/d1f/main___a_c_engine_8cpp.html">main_ACEngine.cpp</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>Add the global variable list from my older engine </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000001"></a>Add the global variable list from my older engine </p>
 <p class="interdd"></p>
 <p class="interdd">Add <a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a> module to read files </p>
 <p class="interdd"></p>
@@ -169,7 +169,7 @@ $(document).ready(function(){initNavTree('dd/da0/todo.html','../../'); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Oct 5 2023 15:56:57 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 5 2023 20:24:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

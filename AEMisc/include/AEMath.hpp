@@ -34,7 +34,7 @@ namespace ace::math {
 	/// <typeparam name="T">Type to convert pi to</typeparam>
 	/// <returns>Pi converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T pi(void) {
+	constexpr T pi(void) noexcept {
 		return T(3.141592653589793L);
 	}
 
@@ -44,7 +44,7 @@ namespace ace::math {
 	/// <param name="degrees">Degree number to calculate sine from</param>
 	/// <returns>Float of sine results</returns>
 	template<typename T = long double>
-	inline T sinDeg(const T degrees) {
+	inline T sinDeg(const T degrees) noexcept {
 		return sin(torad(degrees, T));
 	}
 
@@ -54,7 +54,7 @@ namespace ace::math {
 	/// <param name="degrees">Degree number to calculate cosine from</param>
 	/// <returns>Float of cosine results</returns>
 	template<typename T = long double>
-	inline T cosDeg(const T degrees) {
+	inline T cosDeg(const T degrees) noexcept {
 		return cos(torad(degrees, T));
 	}
 
@@ -64,7 +64,7 @@ namespace ace::math {
 	/// <param name="degrees">Degree number to calculate tangent from</param>
 	/// <returns>Float of tangent results</returns>
 	template<typename T = long double>
-	inline T tanDeg(const T degrees) {
+	inline T tanDeg(const T degrees) noexcept {
 		return tan(torad(degrees, T));
 	}
 
@@ -74,7 +74,7 @@ namespace ace::math {
 	/// <param name="degrees">Degree number to calculate cotangent from</param>
 	/// <returns>Float of cotangent results</returns>
 	template<typename T = long double>
-	inline T cotDeg(const T degrees) {
+	inline T cotDeg(const T degrees) noexcept {
 		return 1 / tan(torad(degrees, T));
 	}
 
@@ -84,7 +84,7 @@ namespace ace::math {
 	/// <param name="degrees">Degree number to calculate cosecant from</param>
 	/// <returns>Float of cosecant results</returns>
 	template<typename T = long double>
-	inline T cscDeg(const T degrees) {
+	inline T cscDeg(const T degrees) noexcept {
 		return 1 / sin(torad(degrees, T));
 	}
 
@@ -94,7 +94,7 @@ namespace ace::math {
 	/// <param name="degrees">Degree number to calculate secant from</param>
 	/// <returns>Float of secant results</returns>
 	template<typename T = long double>
-	inline T secDeg(const T degrees) {
+	inline T secDeg(const T degrees) noexcept {
 		return 1 / cos(torad(degrees, T));
 	}
 
@@ -108,10 +108,12 @@ namespace ace::math {
 	/// <param name="num">The floating point number to round</param>
 	/// <returns>the rounded integer of type T, from the given float number</returns>
 	template<typename T = llint, typename Y = long double>
-	constexpr T roundToInt(const Y num) {
+	constexpr T roundToInt(const Y num) noexcept {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
-		//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
-		return (num < 0) ? T(num + Y(0.5)) * -1 : T(num + Y(0.5));
+		else {
+			//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
+			return (num < 0) ? T(num + Y(0.5)) * -1 : T(num + Y(0.5));
+		}
 	}
 	
 	/// <summary>
@@ -135,7 +137,7 @@ namespace ace::math {
 	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
 	/// <returns>True if both numbers are equal, false otherwise</returns>
 	template<typename T = long double>
-	constexpr bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) {
+	constexpr bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
 		return (num - num2) < _epsilon &&
 			-(num - num2) < _epsilon;
@@ -208,7 +210,7 @@ namespace ace::math {
 	/// <param name="num">The number to calculate the length of</param>
 	/// <returns>Unsigned int of the length of the passed number</returns>
 	template<typename T>
-	constexpr unsigned int intLength(const T num) {
+	constexpr unsigned int intLength(const T num) noexcept {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in the ace::math::intLength()");
 		unsigned int dig = 1;
 		T numtemp = num;
@@ -224,7 +226,7 @@ namespace ace::math {
 	/// <param name="num">The number to calculate the length of</param>
 	/// <returns>Unsigned int of the length of the passed number</returns>
 	template<typename T>
-	constexpr unsigned int floatLength(const T num) {
+	constexpr unsigned int floatLength(const T num) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::floatLength()!");
 		return ((num == 0) ? 1 : (unsigned int)std::log10(std::abs(num))) + 1;
 	}

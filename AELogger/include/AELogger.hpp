@@ -68,18 +68,19 @@ struct AELogEntry {
 	std::atomic<ullint> m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 	/// The pointer to the next log entry in the queue
 	AELogEntry* m_lepNextNode = nullptr;
+	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
+	std::atomic<cint> m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 	/// The type of the log entry
 	/// @see AELOG_TYPE_*
 	cint m_cLogType = AELOG_TYPE_DEBUG;
-	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
-	std::atomic<cint> m_bStatus = AELOG_ENTRY_STATUS_INVALID;
+
 	
 	/// <summary>
 	/// Deduces the entry's log type and returns a c-string of it
 	/// </summary>
 	/// <param name="logtype">The value of the log type</param>
 	/// <returns>c-string of the type</returns>
-	static constexpr const char* typeToString(const cint logtype) {
+	static constexpr const char* typeToString(const cint logtype) noexcept {
 		switch (logtype) {
 		case AELOG_TYPE_INFO: return "INFO";
 		case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
@@ -88,7 +89,7 @@ struct AELogEntry {
 		case AELOG_TYPE_DEBUG: /*same as the default / invalid value*/ default: return "DEBUG";
 		}
 	}
-	
+
 	/// <summary>
 	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
 	/// Optionally may loop the newly-allocated queue to the old queue
@@ -227,7 +228,7 @@ public:
 	/// Get the amount of log entries done to an opened log file.
 	/// </summary>
 	/// <returns>ullint of the amount of times logger written to a file</returns>
-	inline ullint getEntryCount(void) const {
+	inline ullint getEntryCount(void) const noexcept {
 		return this->m_ullLogOrderNum.load();
 	}
 
@@ -235,7 +236,7 @@ public:
 	/// Get the last error status code.
 	/// </summary>
 	/// <returns>ucint of the error code by the filewriter/logger</returns>
-	inline cint getLastError(void) const {
+	inline cint getLastError(void) const noexcept {
 		return this->m_fwLogger.getLastError();
 	}
 
@@ -243,7 +244,7 @@ public:
 	/// Checks if the current log file is open.
 	/// </summary>
 	/// <returns>True if the file is open for writing, false otherwise</returns>
-	inline bool isOpen(void) const {
+	inline bool isOpen(void) const noexcept {
 		return this->m_fwLogger.isOpen();
 	}
 
@@ -251,7 +252,7 @@ public:
 	/// Checks if the log-writing thread is running
 	/// </summary>
 	/// <returns>True if it is working(was launched), false otherwise</returns>
-	inline bool isWriting(void) const {
+	inline bool isWriting(void) const noexcept {
 		return !this->m_bStopTrd;
 	}
 

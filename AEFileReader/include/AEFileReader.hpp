@@ -27,7 +27,8 @@
 #define AEFR_ERR_FILE_NAME_EMPTY -2
 /// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files
 #define AEFR_ERR_FILE_DOESNT_EXIST -3
-
+#define AEFR_ERR_READING_EOF -4
+#define AEFR_ERR_READING_ERROR -5
 
 
 /// @todo add default constructor with no argumets

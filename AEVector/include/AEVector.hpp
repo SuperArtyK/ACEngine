@@ -242,7 +242,7 @@ public:
 	constexpr F dotProduct(const AEVector<Y, dimAmount>& two) const {
 		F temp = 0;
 		for (std::size_t i = 0; i < dimAmount; i++) {
-			temp += this->dims[i] * two.dims[i];
+			temp += (this->dims[i] * two.dims[i]);
 		}
 		return temp;
 	}
