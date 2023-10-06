@@ -174,6 +174,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>m_sLogMessage&#160;:&#160;<a class="el" href="da/dea/struct_a_e_log_entry.html#a27d15be249f8a92b27544b3093c680eb">AELogEntry</a></li>
 <li>m_sModulename&#160;:&#160;<a class="el" href="d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f">__AEModuleBase&lt; T &gt;</a></li>
 <li>m_sModuleName&#160;:&#160;<a class="el" href="da/dea/struct_a_e_log_entry.html#a53b339789734d4558a0b6240f6c9bf1d">AELogEntry</a></li>
+<li>m_szLastReadAmount&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a1bea127bba2ee9a6f13d71f8e17acd3d">AEFileReader</a></li>
 <li>m_tdChronoDelay&#160;:&#160;<a class="el" href="df/dd7/class_a_e_frame.html#ad930b5c2e6863df676922364703aceed">AEFrame</a></li>
 <li>m_tmLogTime&#160;:&#160;<a class="el" href="da/dea/struct_a_e_log_entry.html#af8328cce79f245ad06bd5c5f90f23b3f">AELogEntry</a></li>
 <li>m_tpTimepoint&#160;:&#160;<a class="el" href="df/dd7/class_a_e_frame.html#a642a862356bc269f078dbe8d9c5eb95d">AEFrame</a></li>
@@ -188,7 +189,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>m_ullOrderNum&#160;:&#160;<a class="el" href="da/dea/struct_a_e_log_entry.html#ac8f5adf7c9675ebb89b8587a0f682125">AELogEntry</a></li>
 <li>m_ullQueueSize&#160;:&#160;<a class="el" href="d8/dfc/class_a_e_logger.html#a51b2cf8fe7285ae2f83816a26dafacde">AELogger</a></li>
 <li>m_ullTicks&#160;:&#160;<a class="el" href="da/d62/class_a_e_timer.html#ab3676309b4854bf561c2d7bce3bc5849">AETimer</a></li>
-<li>m_ullTotalWrites&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#ae14c189e3376e1f4609fd72b6d5428fb">AEFileReader</a>, <a class="el" href="db/d15/class_a_e_file_writer.html#acd614353fc1cfc0a15e0564e5c5856de">AEFileWriter</a></li>
+<li>m_ullTotalReads&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a1d19dc878e5f7642710033a4ba5dc69f">AEFileReader</a></li>
+<li>m_ullTotalWrites&#160;:&#160;<a class="el" href="db/d15/class_a_e_file_writer.html#acd614353fc1cfc0a15e0564e5c5856de">AEFileWriter</a></li>
 <li>m_ullWriterOrderNum&#160;:&#160;<a class="el" href="d8/dfc/class_a_e_logger.html#abc78988b6ff3e331c1a683165da2edfe">AELogger</a></li>
 <li>m_vAllocTable&#160;:&#160;<a class="el" href="d8/dfc/class_a_e_logger.html#a92b4e7278fc54d861edeef1850e27510">AELogger</a></li>
 <li>magnitude()&#160;:&#160;<a class="el" href="dc/df6/struct_a_e_vector.html#a26ac3f69564d21e47fea7823cef42b81">AEVector&lt; T, dimAmount &gt;</a></li>
@@ -223,6 +225,18 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>readByte()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#ad028cd26189517db3fb930aa0b71210c">AEFileReader</a></li>
+<li>readBytes()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#ae7a5a1bbf170bb315c9f0b448a862882">AEFileReader</a></li>
+<li>readChar()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a884e5994f58c465a11351443243458f5">AEFileReader</a></li>
+<li>readData_ptr()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#aa55eb0bf0c32153447761b54f0757e7f">AEFileReader</a></li>
+<li>readFloat()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#ac7a86a0f913d84f0c2e69b6867e9ae1e">AEFileReader</a></li>
+<li>readFloatString()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a622317f7f169edbaeda70cfa83718d6c">AEFileReader</a></li>
+<li>readInt()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a8e3dae5b262566cc223fa7f03d2e9fd2">AEFileReader</a></li>
+<li>readIntString()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a7a300998a08ae71895929f343d3babc1">AEFileReader</a></li>
+<li>readString()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a7007453f3498db49d3ada37cf513b0cf">AEFileReader</a></li>
+<li>readStringNL()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#afaa78db0e914885056689c1b0d9eb479">AEFileReader</a></li>
+<li>readStringNULL()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#aabcdca2b43d0f1f81cb72865d74f1688">AEFileReader</a></li>
+<li>readVariable()&#160;:&#160;<a class="el" href="dd/dd5/class_a_e_file_reader.html#a7a40540b09359e6391eb5a567ae3d036">AEFileReader</a></li>
 <li>resetTick()&#160;:&#160;<a class="el" href="da/d62/class_a_e_timer.html#ab3ee5e29553d7c2516ff5813016010f2">AETimer</a></li>
 <li>resetTimePoint()&#160;:&#160;<a class="el" href="df/dd7/class_a_e_frame.html#a64f2857c19ceec626eebad705d9b17b2">AEFrame</a></li>
 </ul>
@@ -284,7 +298,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Oct 5 2023 20:24:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Oct 6 2023 01:18:06 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

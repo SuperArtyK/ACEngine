@@ -2,12 +2,28 @@
 #include "AEFileReader.hpp"
 using namespace std;
 
-void a(const std::string_view b) {
-    cout << b.size() << " \"" << b.data() << "\"\n";
-}
-
+struct ab {
+	char a[16]{};
+};
 
 
 int main(){
-    a({"12345", 4});
+
+    AEFileReader myfr("test.txt");
+
+	float b = 0;
+
+	cout << int(myfr.readFloatString(b)) << endl;
+	cout << b << endl;
+
+	cout << int(myfr.readFloatString(b)) << endl;
+	cout << b << endl;
+
+
+
+
+
+
+
+    return 0;
 }

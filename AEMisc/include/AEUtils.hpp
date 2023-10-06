@@ -57,6 +57,19 @@
 #define NLS "\n"
 
 
+
+
+// stuff for crosscompilation and 64bit access
+// dont touch
+#ifdef _WIN32
+#define ftell _ftelli64
+#define fseek _fseeki64
+#else
+#define ftell ftello
+#define fseek fseeko
+#endif
+
+
 ///This namespace contains all of things that any of the part of program can use, and is useful.
 ///Such things as flags, utilities, handles to windows, status(we're starting or closing), etc.
 ///Basically everything for everyone and public access
@@ -256,12 +269,12 @@ namespace ace {
 			//and trigger only on vc++
 			FILE* filestr = nullptr;
 //if our compiler is vc++
-#ifdef _MSC_VER 
+#ifdef _WIN32 
 			fopen_s(&filestr, fname, flags);
 #else
 //or some other stuff
 			filestr = fopen(fname, flags);
-#endif // _MSC_VER 
+#endif // _WIN32 
 			return filestr;
 		}
 

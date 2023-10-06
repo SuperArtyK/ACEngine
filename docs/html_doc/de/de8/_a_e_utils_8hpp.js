@@ -3,6 +3,8 @@ var _a_e_utils_8hpp =
     [ "aceAssert", "de/de8/_a_e_utils_8hpp.html#abb1a38e7284b8a6e0b6ae614204f703e", null ],
     [ "arrsize", "de/de8/_a_e_utils_8hpp.html#abd5c675c1bc06a654e91407bfbfec7ef", null ],
     [ "dprintf", "de/de8/_a_e_utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424", null ],
+    [ "fseek", "de/de8/_a_e_utils_8hpp.html#a8a777150133445feb2cd8a3f846216d9", null ],
+    [ "ftell", "de/de8/_a_e_utils_8hpp.html#afea8baccc13623417424635d63c81a17", null ],
     [ "getBit", "de/de8/_a_e_utils_8hpp.html#a1d83bd4ca4b76a75381d21fa703897ef", null ],
     [ "IS_SAME_NOC", "de/de8/_a_e_utils_8hpp.html#a913272c684270c11c1a96a982e9f9b44", null ],
     [ "mod0", "de/de8/_a_e_utils_8hpp.html#aea38a6c220e7fbb69bb20432082ce842", null ],

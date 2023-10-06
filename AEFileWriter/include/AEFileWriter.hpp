@@ -31,20 +31,6 @@
 #include <stdexcept>
 
 
-
-
-
-// stuff for crosscompilation and 64bit access
-// dont touch
-#ifdef _WIN32
-#define ftell _ftelli64
-#define fseek _fseeki64
-#else
-#define ftell ftello
-#define fseek fseeko
-#endif
-
-
 //Do NOT touch!
 
 //File flags
@@ -257,7 +243,11 @@ public:
 	inline cint writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		_AEFW_EXIT_ON_CLOSED_FILE; 
 		
-		std::size_t len = bool(cdata)* std::strlen(cdata); // if it's null, then it's 0 and fails the write
+		if (!cdata) {
+			return AEFW_ERR_WRITE_ZERO_SIZE;
+		}
+
+		const std::size_t len = std::strlen(cdata); // if it's null, then it's 0 and fails the write
 		if (len) {
 			return this->writeData_ptr(cdata, len + includeNull, sizeof(char), useAutoFlush);
 		}
@@ -312,19 +302,19 @@ public:
 		//check for the opened file here, before potentially setting 300+ digits for nothing
 		_AEFW_EXIT_ON_CLOSED_FILE;
 
-		if constexpr (std::is_same<T, float>::value) { // float
+		if constexpr (IS_SAME_NOC(T, float)) { // float
 			char buf[FLT_MAX_10_EXP + FLT_DIG + 4]{}; // juuust 1 more than max of float value, so with -FLT_MAX it will have a trailing null
 			snprintf(buf, sizeof(buf), "%.*f", FLT_DIG, num);
 			return this->writeString(buf, false, useAutoFlush);
 		}
-		else if constexpr (std::is_same<T, double>::value) { // double
+		else if constexpr (IS_SAME_NOC(T, double)) { // double
 			char buf[DBL_MAX_10_EXP + DBL_DIG + 4]{};
-			snprintf(buf, sizeof(buf), "%.*f", DBL_DIG, num);
+			snprintf(buf, sizeof(buf), "%.*lf", DBL_DIG, num);
 			return this->writeString(buf, false, useAutoFlush);
 		}
-		else if constexpr (std::is_same<T, long double>::value) { // long double
+		else { // long double
 			char buf[LDBL_MAX_10_EXP + LDBL_DIG + 4]{};
-			snprintf(buf, sizeof(buf), "%.*f", LDBL_DIG, num);
+			snprintf(buf, sizeof(buf), "%.*Lf", LDBL_DIG, num);
 			return this->writeString(buf, false, useAutoFlush);
 		}
 	}
