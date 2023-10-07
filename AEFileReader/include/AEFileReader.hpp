@@ -130,7 +130,7 @@ public:
 
 
 //read string untill new linecharacter
-	inline cint readStringNL(std::string& str, const unsigned int dcount) {
+	inline cint readStringNL(std::string& str, const int dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		str.resize(dcount + 1);
 		const cint temp = this->readStringNL(str.data(), dcount);
@@ -138,7 +138,7 @@ public:
 		return temp;
 	}
 
-	inline cint readStringNL(std::vector<char>& str, const unsigned int dcount) {
+	inline cint readStringNL(std::vector<char>& str, const int dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		str.resize(dcount + 1);
 		const cint temp = this->readStringNL(str.data(), dcount);
@@ -147,7 +147,7 @@ public:
 	}
 
 	//reads the string untill the newline or, as a safety measure, untill dcount. MUST be of the dcount+1 size!
-	cint readStringNL(char* str, const unsigned int dcount); //defined below class
+	cint readStringNL(char* str, const int dcount); //defined below class
 
 
 //read string untill null character
@@ -177,9 +177,7 @@ public:
 	template<typename T>
 	inline cint readInt(T& num) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readInt()");
-		_AEFR_EXIT_ON_CLOSED_FILE;
-		std::memset(&num, NULL, sizeof(T));
-		return this->readData_ptr(&num, sizeof(T), 1);
+		return this->readVariable<T>(num);
 	}
 
 	template<typename T>
@@ -191,10 +189,7 @@ public:
 	template<typename T>
 	inline cint readFloat(T& num) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileReader::readFloat()");
-		_AEFR_EXIT_ON_CLOSED_FILE;
-
-		std::memset(&num, NULL, sizeof(T));
-		return this->readData_ptr(&num, sizeof(T), 1);
+		return this->readVariable<T>(num);
 	}
 
 	template<typename T>
@@ -202,16 +197,20 @@ public:
 
 
 //read misc
+	inline cint readBool(bool& num) {
+		return this->readVariable<bool>(num);
+	}
+
+	cint readBoolString(bool& num);
+
 	//reads 1 byte of data and dumps it into char
 	inline cint readChar(char& num) {
-		_AEFR_EXIT_ON_CLOSED_FILE;
-		return this->readData_ptr(&num, 1, sizeof(char));
+		return this->readVariable<char>(num);
 	}
 
 	//reads 1 byte of data and dumps it into unsigned char
 	inline cint readByte(unsigned char& num) {
-		_AEFR_EXIT_ON_CLOSED_FILE;
-		return this->readData_ptr(&num, 1, sizeof(unsigned char));
+		return this->readVariable<unsigned char>(num);
 	}
 
 
@@ -318,14 +317,13 @@ inline cint AEFileReader::readFloatString(T& num) {
 
 	std::memset(&num, NULL, sizeof(T));
 	cint temp = 0;
-
 	if constexpr (IS_SAME_NOC(T, float)) {
 		temp = fscanf(m_fpFilestr, "%f", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, long double)) {
+	else if constexpr (IS_SAME_NOC(T, double)) {
 		temp = fscanf(m_fpFilestr, "%lf", &num);
 	}
-	else {
+	else { //long double
 		temp = fscanf(m_fpFilestr, "%Lf", &num);
 	}
 

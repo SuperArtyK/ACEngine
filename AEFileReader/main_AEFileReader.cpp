@@ -24,10 +24,10 @@ int main(){
 	std::string a;
 	std::vector<char>b;
 
-	cout << int(myfr.readStringNL(a, 16000)) << endl;
-	cout << a << endl;
-	cout << int(myfr.readStringNL(a, 16000)) << endl;
-	cout << a << endl;
+	bool bl = false;
 
+	cout << int(myfr.readBoolString(bl)) << endl;
+	cout << bl << endl;
+	
     return 0;
 }

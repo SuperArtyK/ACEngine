@@ -40,7 +40,7 @@ cint AEFileReader::readString(char* str, const std::size_t dcount) {
 }
 
 //reads the string untill the newline or, as a safety measure, untill dcount. MUST be of the dcount+1 size!
-cint AEFileReader::readStringNL(char* str, const unsigned int dcount) {
+cint AEFileReader::readStringNL(char* str, const int dcount) {
 	_AEFR_EXIT_ON_CLOSED_FILE;
 
 	if (!dcount || !str) {
@@ -83,6 +83,28 @@ cint AEFileReader::readStringNULL(char* str, const std::size_t dcount) {
 	this->m_szLastReadAmount = std::strlen(str);
 
 	return temp;
+}
+
+cint AEFileReader::readBoolString(bool& num) {
+	_AEFR_EXIT_ON_CLOSED_FILE;
+	char str[6]{};
+
+	cint temp = this->readData_ptr(&str, 4, sizeof(char)); //read possible "true"
+	for (int i = 0; i < 6; i++) {
+		str[i] = std::tolower(str[i]);
+	}
+
+	if (!std::memcmp(str, "true", 5)) {
+		num = true;
+		return temp;
+	}
+
+	temp = this->readData_ptr(&str[4], 1, sizeof(char)); //read last letter to make up "false"
+	if (!std::memcmp(str, "false", 6)) {
+		num = false;
+		return temp;
+	}
+	return AEFR_ERR_READING_ERROR; //whoops, nothing to read!
 }
 
 // reads data to ptr
