@@ -165,6 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main_AEFileWriter.cpp" />
+    <ClCompile Include="src\AEFileWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\resources\resource1.h" />

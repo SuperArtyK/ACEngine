@@ -33,6 +33,12 @@
     <ClCompile Include="..\AELogger\src\AELogger.cpp">
       <Filter>Source Files\src\engine modules</Filter>
     </ClCompile>
+    <ClCompile Include="..\AEFileWriter\src\AEFileWriter.cpp">
+      <Filter>Source Files\src\engine modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AEFileReader\src\AEFileReader.cpp">
+      <Filter>Source Files\src\engine modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">

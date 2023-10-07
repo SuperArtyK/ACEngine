@@ -27,6 +27,9 @@
     <ClCompile Include="src\AELogger.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\AEFileWriter\src\AEFileWriter.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AELogger.hpp">

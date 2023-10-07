@@ -31,7 +31,7 @@
 #define AEFR_ERR_READING_EOF -4
 #define AEFR_ERR_READING_ERROR -5
 /// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileReader::readData_ptr()
-#define AEFR_ERR_WRITE_ZERO_SIZE -6
+#define AEFR_ERR_READ_ZERO_SIZE -6
 
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
@@ -56,14 +56,11 @@ class AEFileReader : public __AEModuleBase<AEFileReader> {
 public:
 
 //constructors
-	explicit AEFileReader(const std::string_view fname) : 
-		m_sFilename(fname), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {
+	explicit AEFileReader(const std::string_view fname);
 
-		this->openFile(fname);
-	}
+	explicit AEFileReader() : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
 
-	//we don't need those
-
+//we don't need those
 	/// <summary>
 	/// Deleted copy constructor
 	/// </summary>
@@ -83,7 +80,7 @@ public:
 
 
 //file opening
-	inline int openFile(const std::string_view fname); //defined after class
+	int openFile(const std::string_view fname); //defined after class
 
 	/// <summary>
 	/// Closes the currently opened file, and also, in addition, clears the last error status.
@@ -150,7 +147,7 @@ public:
 	}
 
 	//reads the string untill the newline or, as a safety measure, untill dcount. MUST be of the dcount+1 size!
-	inline cint readStringNL(char* str, const unsigned int dcount); //defined below class
+	cint readStringNL(char* str, const unsigned int dcount); //defined below class
 
 
 //read string untill null character
@@ -158,9 +155,7 @@ public:
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		str.resize(dcount + 1);
 		const cint temp = this->readStringNULL(str.data(), dcount);
-
 		str.resize(this->m_szLastReadAmount); // resize to the string size (untill null termination)
-
 		return temp;
 	}
 
@@ -168,15 +163,13 @@ public:
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		str.resize(dcount + 1);
 		const cint temp = this->readStringNULL(str.data(), dcount);
-
 		str.resize(this->m_szLastReadAmount + 1); // resize to the string size (untill null termination); +1 because it doesnt insert null terminator
-
 		return temp;
 	}
 
 	//reads the string untill the null, or untill dcount
 	//moves the cursor to the found null char+1
-	inline cint readStringNULL(char* str, const std::size_t dcount); //defined below class
+	cint readStringNULL(char* str, const std::size_t dcount); //defined below class
 
 
 //read int
@@ -185,7 +178,6 @@ public:
 	inline cint readInt(T& num) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readInt()");
 		_AEFR_EXIT_ON_CLOSED_FILE;
-
 		std::memset(&num, NULL, sizeof(T));
 		return this->readData_ptr(&num, sizeof(T), 1);
 	}
@@ -229,10 +221,9 @@ public:
 	inline cint readBytes(std::vector<unsigned char>& cdata, const std::size_t dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		cdata.resize(dcount);
-		const cint tempreturn = this->readData_ptr(cdata.data(), dcount, sizeof(unsigned char));
-
-		if (!tempreturn) cdata.resize(this->m_szLastReadAmount); //resize to what was actually read
-		return tempreturn;
+		const cint temp = this->readData_ptr(cdata.data(), dcount, sizeof(unsigned char));
+		if (!temp) cdata.resize(this->m_szLastReadAmount); //resize to what was actually read
+		return temp;
 	}
 
 	// reads bytes to ptr
@@ -276,83 +267,6 @@ private:
 };
 
 REGISTER_CLASS(AEFileReader)
-
-inline int AEFileReader::openFile(const std::string_view fname) {
-	if (!fname.size()) {
-		this->m_cLastError = AEFR_ERR_FILE_NAME_EMPTY;
-		return AEFR_ERR_FILE_NAME_EMPTY;
-	}
-
-	this->m_sFilename = fname;
-	this->m_fpFilestr = ace::utils::fopenCC(fname.data(), "rb");
-
-	if (!this->m_fpFilestr) {
-		// this can also be triggered if program has no permission to access the file
-		// but generally it just would be the absence of file
-		this->m_cLastError = AEFR_ERR_FILE_DOESNT_EXIST;
-		return AEFR_ERR_FILE_DOESNT_EXIST;
-	}
-
-	return AEFR_ERR_NOERROR;
-}
-
-//reads the string of set size, Unfilled characters (if eof) are zeroed. MUST be of the dcount+1 size!
-//if file is closed, contents is not modified
-inline cint AEFileReader::readString(char* str, const std::size_t dcount) {
-	_AEFR_EXIT_ON_CLOSED_FILE;
-	if (!dcount || !str) {
-		this->m_cLastError = AEFR_ERR_WRITE_ZERO_SIZE;
-		return AEFR_ERR_WRITE_ZERO_SIZE;
-	}
-	std::memset(str, NULL, dcount + 1);
-	return this->readData_ptr(str, dcount, sizeof(char));
-}
-
-//reads the string untill the newline or, as a safety measure, untill dcount. MUST be of the dcount+1 size!
-inline cint AEFileReader::readStringNL(char* str, const unsigned int dcount) {
-	_AEFR_EXIT_ON_CLOSED_FILE;
-
-	if (!dcount || !str) {
-		this->m_cLastError = AEFR_ERR_WRITE_ZERO_SIZE;
-		return AEFR_ERR_WRITE_ZERO_SIZE;
-	}
-
-	std::memset(str, NULL, dcount + 1);
-	const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
-	this->m_szLastReadAmount = std::strlen(str);
-	this->m_ullTotalReads++;
-	if (!temp) {
-		this->m_cLastError = AEFR_ERR_READING_ERROR;
-		return AEFR_ERR_READING_ERROR;
-	}
-	if (std::feof(this->m_fpFilestr)) {
-		this->m_cLastError = AEFR_ERR_READING_EOF;
-		return AEFR_ERR_READING_EOF;
-	}
-	return AEFR_ERR_READ_SUCCESS;
-}
-
-//reads the string untill the null, or untill dcount
-//moves the cursor to the found null char+1
-inline cint AEFileReader::readStringNULL(char* str, const std::size_t dcount) {
-	_AEFR_EXIT_ON_CLOSED_FILE;
-
-	if (!dcount || !str) {
-		this->m_cLastError = AEFR_ERR_WRITE_ZERO_SIZE;
-		return AEFR_ERR_WRITE_ZERO_SIZE;
-	}
-
-	//clear buffer and read
-	std::memset(str, NULL, dcount + 1);
-	const cint temp = this->readData_ptr(str, dcount, sizeof(char));
-
-	//look for the null char and move the read cursor to the next char after null (if appeared)
-	const char* const nulchar = std::strchr(str, '\0');
-	fseek(m_fpFilestr, -llint((dcount - (nulchar - str) - 1)), SEEK_CUR);
-	this->m_szLastReadAmount = std::strlen(str);
-
-	return temp;
-}
 
 template<typename T>
 inline cint AEFileReader::readIntString(T& num) {
@@ -419,28 +333,6 @@ inline cint AEFileReader::readFloatString(T& num) {
 	if (temp != 1) {
 		this->m_cLastError = AEFR_ERR_READING_EOF;
 		return AEFR_ERR_READING_EOF;
-	}
-	return AEFR_ERR_READ_SUCCESS;
-}
-
-// reads data to ptr
-inline cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)) {
-	_AEFR_EXIT_ON_CLOSED_FILE;
-
-	if (!dcount || !dsize || !cdata) {
-		this->m_cLastError = AEFR_ERR_WRITE_ZERO_SIZE;
-		return AEFR_ERR_WRITE_ZERO_SIZE;
-	}
-
-	this->m_szLastReadAmount = fread(cdata, dsize, dcount, this->m_fpFilestr);
-	this->m_ullTotalReads++;
-	if (this->m_szLastReadAmount != dcount) {
-		if (std::feof(this->m_fpFilestr)) {
-			return AEFR_ERR_READING_EOF;
-		}
-		if (std::ferror(this->m_fpFilestr)) {
-			return AEFR_ERR_READING_ERROR;
-		}
 	}
 	return AEFR_ERR_READ_SUCCESS;
 }

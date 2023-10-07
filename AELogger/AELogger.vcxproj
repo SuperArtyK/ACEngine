@@ -73,22 +73,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
     <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(SolutionDir)AEFrame\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
     <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(SolutionDir)AEFrame\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(SolutionDir)AEFrame\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileWriter\;$(SolutionDir)AEFrame\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -164,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\AEFileWriter\src\AEFileWriter.cpp" />
     <ClCompile Include="main_AELogger.cpp" />
     <ClCompile Include="src\AELogger.cpp" />
   </ItemGroup>

@@ -165,6 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main_AEFileReader.cpp" />
+    <ClCompile Include="src\AEFileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\resources\resource1.h" />

@@ -38,10 +38,6 @@
 
 
 
-
-
-
-
 int main() {
 	
 	std::srand(std::time(NULL));
@@ -52,6 +48,8 @@ int main() {
 	for (int i = 0; i < arrsize(veca.dims); i++) {
 		veca[i] = std::rand();
 	}
+
+	AEFileReader myfr("README.md");
 
 	AELogger mylog("acengine_log.txt", true);
 	int a = 0;

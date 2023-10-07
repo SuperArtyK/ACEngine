@@ -16,10 +16,16 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{908082b4-cf3c-4607-a16b-3f2c450abe84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{47188b2a-ad09-4c26-a324-4a3800861184}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AEFileReader.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AEFileReader.cpp">
+      <Filter>Source Files\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
