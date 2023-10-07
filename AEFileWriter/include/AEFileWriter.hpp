@@ -155,7 +155,7 @@ public:
 	}
 
 
-//open files
+//file operations
 	/// <summary>
 	/// Open(and create) file with given name and flag.
 	/// @note If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error
@@ -180,8 +180,37 @@ public:
 	/// <returns>AEFW_ERR_NOERROR if the file was opened without errors, other error flag value otherwise</returns>
 	inline int openFile(const char* str, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
+	/// <summary>
+	/// Flushes the opened file. That's it. If file isn't open, sets the last error status to AEFW_ERR_FILE_NOT_OPEN.
+	/// </summary>
+	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on success, otherwise AEFW_ERR_FLUSH_ERROR on error, or AEFW_ERR_FILE_NOT_OPEN if not open + last error value set</returns>
+	inline cint flushFile(void) {
+		_AEFW_EXIT_ON_CLOSED_FILE;
+
+		if (fflush(this->m_fpFilestr)) {
+			return AEFW_ERR_FLUSH_ERROR;
+		}
+		return AEFW_ERR_WRITE_SUCCESS;
+
+	}
+
+	/// <summary>
+	/// Closes the currently opened file, and also, in addition, clears the last error status.
+	/// </summary>
+	inline void closeFile(void) {
+		if (!this->m_fpFilestr) {
+			this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
+			return;
+		}
+
+		fclose(this->m_fpFilestr);
+		this->m_fpFilestr = nullptr;
+		this->m_sFilename.clear();
+		clearError();
+	}
+
+
 //write stuff
-	
 	/// <summary>
 	/// Generic function for writing data, invoking proper write functions for built-in types.
 	/// @note String types don't include null-termination characters. Use separate functions for to control that
@@ -319,6 +348,8 @@ public:
 		}
 	}
 
+
+//write misc
 	/// <summary>
 	/// Writes the boolean to file as text (true/false).
 	/// </summary>
@@ -340,7 +371,18 @@ public:
 		return this->writeByte((unsigned char)c, useAutoFlush); //err...same thing.
 	}
 
+
 //write binary
+	/// <summary>
+	/// Writes one byte of data to the file
+	/// </summary>
+	/// <param name="cdata">byte value</param>
+	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
+	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</returns>
+	inline cint writeByte(const unsigned char cdata, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
+		return this->writeData_ptr(&cdata, 1, sizeof(unsigned char), useAutoFlush);
+	}
+
 	/// <summary>
 	/// Write a stream of bytes to file, from pointer
 	/// @note Basically just a shortcut for the AEFileWriter::writerData_ptr()
@@ -361,16 +403,6 @@ public:
 	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</returns>
 	inline cint writeBytes(const std::vector<unsigned char>& cdata, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
 		return this->writeData_ptr(cdata.data(), sizeof(unsigned char), cdata.size(), useAutoFlush);
-	}
-
-	/// <summary>
-	/// Writes one byte of data to the file
-	/// </summary>
-	/// <param name="cdata">byte value</param>
-	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
-	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</returns>
-	inline cint writeByte(const unsigned char cdata, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
-		return this->writeData_ptr(&cdata, 1, sizeof(unsigned char), useAutoFlush);
 	}
 
 
@@ -404,36 +436,7 @@ public:
 	}
 
 
-//file operations
-	/// <summary>
-	/// Flushes the opened file. That's it. If file isn't open, sets the last error status to AEFW_ERR_FILE_NOT_OPEN.
-	/// </summary>
-	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on success, otherwise AEFW_ERR_FLUSH_ERROR on error, or AEFW_ERR_FILE_NOT_OPEN if not open + last error value set</returns>
-	inline cint flushFile(void) {
-		_AEFW_EXIT_ON_CLOSED_FILE;
-
-		if (fflush(this->m_fpFilestr)) {
-			return AEFW_ERR_FLUSH_ERROR;
-		}
-		return AEFW_ERR_WRITE_SUCCESS;
-		
-	}
-
-	/// <summary>
-	/// Closes the currently opened file, and also, in addition, clears the last error status.
-	/// </summary>
-	inline void closeFile(void) {
-		if (!this->m_fpFilestr) {
-			this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
-			return;
-		}
-		
-		fclose(this->m_fpFilestr);
-		this->m_fpFilestr = nullptr;
-		this->m_sFilename.clear();
-		clearError();
-	}
-
+//file information getters
 	/// <summary>
 	/// Checks if a file is open by this file-writer.
 	/// </summary>
