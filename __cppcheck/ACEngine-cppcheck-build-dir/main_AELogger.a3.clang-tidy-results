@@ -1,3 +1,157 @@
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:6:12: warning: using decl 'cout' is unused [misc-unused-using-decls]
+using std::cout;
+           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:6:12: note: remove the using
+using std::cout;
+~~~~~~~~~~~^~~~~
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:9:1: warning: static objects are disallowed; if possible, use a constexpr constructor instead [fuchsia-statically-constructed-objects]
+AELogger mylog("log.txt", true);
+^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:9:10: warning: initialization of 'mylog' with static storage duration may throw an exception that cannot be caught [cert-err58-cpp]
+AELogger mylog("log.txt", true);
+         ^
+C:/Users/artem/CODING/ACEngine/AELogger/include\AELogger.hpp:141:11: note: possibly throwing constructor declared here
+        explicit AELogger(const std::string& fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
+                 ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:9:10: warning: variable 'mylog' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+AELogger mylog("log.txt", true);
+         ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:9:10: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
+C:/Users/artem/CODING/ACEngine/AELogger/include\AELogger.hpp:141:75: note: default parameter was declared here
+        explicit AELogger(const std::string& fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
+                                                                                 ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:14:34: warning: parameter 'name' is unused [misc-unused-parameters]
+void logfiller(const std::string name) {
+                                 ^~~~
+                                  /*name*/
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:14:34: warning: the const qualified parameter 'name' is copied for each invocation; consider making it a reference [performance-unnecessary-value-param]
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:18:10: warning: variable name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+        AEFrame a(fpsval);
+                ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:20:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+        for (int i = 0;; i++) {
+        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:21:43: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Hello " + std::string(__FUNCTION__) + "! (log entry " + std::to_string(i + 1) + ")", AELOG_TYPE_INFO, __FUNCTION__);
+                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:21:123: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Hello " + std::string(__FUNCTION__) + "! (log entry " + std::to_string(i + 1) + ")", AELOG_TYPE_INFO, __FUNCTION__);
+                                                                                                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:22:52: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
+                                                                 ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:22:85: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
+                                                                                                  ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:23:62: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
+                                                                           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:23:94: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
+                                                                                                           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:24:67: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
+                                                                                ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:24:106: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
+                                                                                                                       ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:25:62: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
+                                                                           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:25:92: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
+                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:26:64: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Success, we wrote to log in" + std::string(__FUNCTION__) + "!", AELOG_TYPE_SUCCESS, __FUNCTION__);
+                                                                             ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:26:105: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Success, we wrote to log in" + std::string(__FUNCTION__) + "!", AELOG_TYPE_SUCCESS, __FUNCTION__);
+                                                                                                                      ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:27:59: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is wrong in " + std::string(__FUNCTION__), AELOG_TYPE_ERROR, __FUNCTION__);
+                                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:27:92: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is wrong in " + std::string(__FUNCTION__), AELOG_TYPE_ERROR, __FUNCTION__);
+                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:28:69: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very very wrong in " + std::string(__FUNCTION__), AELOG_TYPE_FATAL_ERROR, __FUNCTION__);
+                                                                                  ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:28:108: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very very wrong in " + std::string(__FUNCTION__), AELOG_TYPE_FATAL_ERROR, __FUNCTION__);
+                                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:35:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+int main()
+    ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:35:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int main()
+~~~ ^
+auto       -> int
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:38:66: warning: 65535 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        std::cout << sizeof(AELogEntry) << "; " << sizeof(AELogEntry) * 65535 << NLC;
+                                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:42:14: warning: variable name 't1' is too short, expected at least 3 characters [readability-identifier-length]
+        std::thread t1(&logfiller, "logfil1");
+                    ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:46:14: warning: variable name 't2' is too short, expected at least 3 characters [readability-identifier-length]
+        std::thread t2(&logfiller, "logfil2");
+                    ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:47:10: warning: variable name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+        AEFrame a(fpsval);
+                ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:48:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+        for (int i = 0; ; i++) {
+        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:49:43: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Hello " + std::string(__FUNCTION__) + "! (log entry " + std::to_string(i + 1) + ")", AELOG_TYPE_INFO, __FUNCTION__);
+                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:49:123: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Hello " + std::string(__FUNCTION__) + "! (log entry " + std::to_string(i + 1) + ")", AELOG_TYPE_INFO, __FUNCTION__);
+                                                                                                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:50:52: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
+                                                                 ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:50:85: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
+                                                                                                  ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:51:62: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
+                                                                           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:51:94: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
+                                                                                                           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:52:67: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
+                                                                                ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:52:106: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
+                                                                                                                       ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:53:62: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
+                                                                           ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:53:92: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
+                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:54:64: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Success, we wrote to log in" + std::string(__FUNCTION__)+"!", AELOG_TYPE_SUCCESS, __FUNCTION__);
+                                                                             ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:54:103: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Success, we wrote to log in" + std::string(__FUNCTION__)+"!", AELOG_TYPE_SUCCESS, __FUNCTION__);
+                                                                                                                    ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:55:59: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is wrong in " + std::string(__FUNCTION__), AELOG_TYPE_ERROR, __FUNCTION__);
+                                                                        ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:55:92: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is wrong in " + std::string(__FUNCTION__), AELOG_TYPE_ERROR, __FUNCTION__);
+                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:56:69: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very very wrong in " + std::string(__FUNCTION__), AELOG_TYPE_FATAL_ERROR, __FUNCTION__);
+                                                                                  ^
+C:\Users\artem\CODING\ACEngine\AELogger\main_AELogger.cpp:56:108: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                mylog.writeToLog("Something is very very wrong in " + std::string(__FUNCTION__), AELOG_TYPE_FATAL_ERROR, __FUNCTION__);
+                                                                                                                         ^
 
 
 
+207399 warnings generated.
+Suppressed 207318 warnings (207318 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

@@ -1,3 +1,33 @@
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:8:5: warning: single-argument constructors must be marked explicit to avoid unintentional implicit conversions [google-explicit-constructor,hicpp-explicit-conversions]
+    Test3(int s) {
+    ^
+    explicit 
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:8:15: warning: parameter name 's' is too short, expected at least 3 characters [readability-identifier-length]
+    Test3(int s) {
+              ^
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:15:1: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+REGISTER_CLASS(Test3);
+^
+C:\Users\artem\CODING\ACEngine\AEModuleBase/include/AEModuleBase.hpp:25:61: note: expanded from macro 'REGISTER_CLASS'
+#define REGISTER_CLASS(T) template <> constexpr const char* getTypeName<T>() noexcept { return #T; }
+                                                            ^
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:17:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+int main() {
+    ^
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:17:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int main() {
+~~~ ^
+auto       -> int
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:18:5: warning: variable 'a' of type 'Test3' can be declared 'const' [misc-const-correctness]
+    Test3 a = Test3(3);
+    ^
+          const 
+C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp:18:11: warning: variable name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+    Test3 a = Test3(3);
+          ^
 
 
 
+183203 warnings generated.
+Suppressed 183195 warnings (183195 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

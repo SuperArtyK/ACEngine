@@ -74,20 +74,20 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -19,10 +19,10 @@
 
 
 template <typename T>
-inline const char* getTypeName(void) { return "getTypeName"; }
+constexpr const char* getTypeName(void) noexcept { return "getTypeName"; }
 
 /// adds module name to inherit from __AEModuleBase
-#define REGISTER_CLASS(T) template <> constexpr const char* getTypeName<T>() { return #T; }
+#define REGISTER_CLASS(T) template <> constexpr const char* getTypeName<T>() noexcept { return #T; }
 
 // Usage to register the class:
 // add REGISTER_CLASS(<classname>)

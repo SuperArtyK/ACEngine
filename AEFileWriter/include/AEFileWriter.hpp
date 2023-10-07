@@ -99,7 +99,7 @@ public:
 	/// <param name="af_interval">interval in file writes between automatic file flushing </param>
 	explicit AEFileWriter(const std::string& filename, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
-		m_cLastError(AEFW_ERR_NOERROR), m_ucFlags(flags) {
+		m_cLastError(AEFW_ERR_NOERROR), m_cFlags(flags) {
 
 		this->openFile(filename.c_str(), flags);
 	}
@@ -113,7 +113,7 @@ public:
 	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
 	explicit AEFileWriter(const char* filename = "", const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
 		m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
-		m_cLastError(AEFW_ERR_NOERROR), m_ucFlags(flags) {
+		m_cLastError(AEFW_ERR_NOERROR), m_cFlags(flags) {
 
 		this->openFile(filename, flags);
 	}
@@ -124,14 +124,14 @@ public:
 	/// <param name="fw">Object to be moved</param>
 	AEFileWriter(AEFileWriter&& fw) noexcept :
 		m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(fw.m_sFilename),
-		m_ullTotalWrites(fw.m_ullTotalWrites), m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_ucFlags(fw.m_ucFlags) {
+		m_ullTotalWrites(fw.m_ullTotalWrites), m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_cFlags(fw.m_cFlags) {
 
 		fw.m_ullFlushInterval = 0;
 		fw.m_ullTotalWrites = 0;
 		fw.m_fpFilestr = nullptr;
 		fw.m_cLastError = 0;
 		fw.m_sFilename.clear();
-		fw.m_ucFlags = 0;
+		fw.m_cFlags = 0;
 	}
 
 	//we don't need those
@@ -170,7 +170,7 @@ public:
 
 	/// <summary>
 	/// Open(and create) file with given name and flag. 
-	/// On success sets AEFileWriter::m_ucFlags to passed flag value.
+	/// On success sets AEFileWriter::m_cFlags to passed flag value.
 	/// @note If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error
 	/// @warning Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
 	/// </summary>
@@ -453,7 +453,7 @@ public:
 			//this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
 			return AEFW_ERR_FILE_NOT_OPEN;
 		}
-		if (this->m_ucFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
+		if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
 			return AEFW_ERR_FILE_WRONG_FLAG;
 		}
 
@@ -485,7 +485,7 @@ public:
 			//this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
 			return AEFW_ERR_FILE_NOT_OPEN;
 		}
-		if (this->m_ucFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
+		if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
 			return AEFW_ERR_FILE_WRONG_FLAG;
 		}
 
@@ -503,7 +503,7 @@ public:
 	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 
-		if (this->m_ucFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
+		if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) {
 			return AEFW_ERR_FILE_WRONG_FLAG;
 		}
 		
@@ -533,6 +533,14 @@ public:
 	/// </summary>
 	inline void clearError(void) {
 		this->m_cLastError = AEFW_ERR_NOERROR;
+	}
+
+	/// <summary>
+	/// Returns the file pointer of this file-writer
+	/// </summary>
+	/// <returns>Pointer to FILE used in the file writer</returns>
+	inline FILE* getFilePtr(void) const {
+		return this->m_fpFilestr;
 	}
 	
 	/// <summary>
@@ -570,7 +578,7 @@ private:
 	/// Writer's last error indicator; Values are AEFW_ERR_* macros
 	cint m_cLastError;
 	/// Flags that were used to open the file
-	cint m_ucFlags;
+	cint m_cFlags;
 };
 
 REGISTER_CLASS(AEFileWriter);
@@ -716,7 +724,7 @@ int AEFileWriter::openFile(const char* str, const cint flags, const ullint af_in
 	}
 
 	//then everything is good, 
-	this->m_ucFlags = flags;
+	this->m_cFlags = flags;
 	this->m_ullFlushInterval = af_interval;
 	return AEFW_ERR_NOERROR;
 }

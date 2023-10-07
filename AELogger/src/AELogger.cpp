@@ -38,13 +38,13 @@ AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 //constructor
 AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
-	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bStopTrd(false) {
+	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bStopTrd(false) {
 
 
 	//add the allocated queue pointed to the list
 	//so we can free them later without memory leaks
-	this->m_vAllocTable.reserve(32);
-	this->m_vAllocTable.push_back({ queuesize, this->m_lepQueue });
+	this->m_vAllocTable.reserve(AELOG_DEFAULT_ALLOC_VECTOR_RESERVE);
+	this->m_vAllocTable.emplace_back( queuesize, this->m_lepQueue );
 	this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
 	this->startWriter();
 }
@@ -100,8 +100,8 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 	this->m_ullFilledCount++;
 
 	if (this->m_ullFilledCount > this->m_ullQueueSize) {
-		std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
-		ullint qsize = this->m_ullQueueSize / 2;
+		const std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
+		const ullint qsize = this->m_ullQueueSize / 2;
 
 		//make new queue
 		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
@@ -109,7 +109,7 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 		this->m_ullQueueSize += qsize;
 		this->m_lepLastNode->m_lepNextNode = newQueue;
 		this->m_lepLastNode = newQueue + qsize - 1;
-		this->m_vAllocTable.push_back({ this->m_ullQueueSize, newQueue });
+		this->m_vAllocTable.emplace_back(this->m_ullQueueSize, newQueue);
 		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);		
 	}
 
@@ -136,7 +136,7 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 
 	ptr->m_tmLogTime = std::time(NULL);
 	memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
-	memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 32) ? logmodule.size() : 31);
+	memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 31) ? logmodule.size() : 31);
 	ptr->m_cLogType = logtype;
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_READY;
 }
@@ -187,7 +187,7 @@ void AELogger::logWriterThread(void) {
 
 
 
-	snprintf(str, 588, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
+	snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
 	this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 }
 

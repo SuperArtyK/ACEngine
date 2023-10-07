@@ -11,6 +11,7 @@
 #define ENGINE_UTILS_HPP
 
 #include "AETypedefs.hpp"
+#include "AEFlags.hpp"
 #include <string>
 #include <algorithm>
 #include <ctime>

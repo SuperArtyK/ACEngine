@@ -25,13 +25,14 @@
 #include "include/AETrigLookup.hpp"
 //aelg
 #include "include/AELogger.hpp"
-//aefr
+//aer
 #include "include/AEFrame.hpp"
 //aetm
 #include "include/AETimer.hpp"
 //aevec
 #include "include/AEVector.hpp"
-
+//aefr
+#include "include/AEFileReader.hpp"
 #include <cstdlib>
 #include <ctime>
 

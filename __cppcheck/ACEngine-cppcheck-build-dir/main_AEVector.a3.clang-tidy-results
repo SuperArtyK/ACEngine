@@ -1,3 +1,58 @@
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:7:6: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+bool isEqual(const AEVector<T1, dimAmount>& vec1, const AEVector<T2, dimAmount>& vec2) {
+~~~~ ^
+auto                                                                                   -> bool
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:23:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+int main() {
+    ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:23:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int main() {
+~~~ ^
+auto       -> int
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:26:26: warning: 12345 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::math::sqrt(12345)<< NLC;
+                                ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:28:2: warning: variable 'a' of type 'AEVec2Int' (aka 'AEVector<int, 2>') can be declared 'const' [misc-const-correctness]
+        AEVec2Int a{ 3,4 };
+        ^
+                  const 
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:28:12: warning: variable name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+        AEVec2Int a{ 3,4 };
+                  ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:29:2: warning: variable 'b' of type 'AEVec3Int' (aka 'AEVector<int, 3>') can be declared 'const' [misc-const-correctness]
+        AEVec3Int b{ 3,4,5 };
+        ^
+                  const 
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:29:12: warning: variable name 'b' is too short, expected at least 3 characters [readability-identifier-length]
+        AEVec3Int b{ 3,4,5 };
+                  ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:29:19: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        AEVec3Int b{ 3,4,5 };
+                         ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:30:2: warning: variable 'c' of type 'AEVec2Float' (aka 'AEVector<float, 2>') can be declared 'const' [misc-const-correctness]
+        AEVec2Float c{ 3.1f,4.5f };
+        ^
+                    const 
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:30:14: warning: variable name 'c' is too short, expected at least 3 characters [readability-identifier-length]
+        AEVec2Float c{ 3.1f,4.5f };
+                    ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:30:17: warning: 3.1f is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        AEVec2Float c{ 3.1f,4.5f };
+                       ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:30:17: warning: floating point literal has suffix 'f', which is not uppercase [hicpp-uppercase-literal-suffix,readability-uppercase-literal-suffix]
+        AEVec2Float c{ 3.1f,4.5f };
+                       ^  ~
+                          F
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:30:22: warning: 4.5f is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        AEVec2Float c{ 3.1f,4.5f };
+                            ^
+C:\Users\artem\CODING\ACEngine\AEVector\main_AEVector.cpp:30:22: warning: floating point literal has suffix 'f', which is not uppercase [hicpp-uppercase-literal-suffix,readability-uppercase-literal-suffix]
+        AEVec2Float c{ 3.1f,4.5f };
+                            ^  ~
+                               F
 
 
 
+199279 warnings generated.
+Suppressed 199248 warnings (199248 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

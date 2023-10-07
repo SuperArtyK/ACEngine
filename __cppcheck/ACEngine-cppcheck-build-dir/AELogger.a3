@@ -1,115 +1,118 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="7950633213108770551">
+<analyzerinfo hash="3620073895495314639">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="15" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="15" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="16" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="14" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="15" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="15" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="16" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="17" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;sstream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;sstream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="17" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="18" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;cstring&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;cstring&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="25" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="25" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="26" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="26" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;filesystem&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;filesystem&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="27" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="27" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="28" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="28" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;limits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;limits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="29" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="29" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;cstdio&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;cstdio&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="30" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="30" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdexcept&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdexcept&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="31" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="31" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AELogger\include\AELogger.hpp" line="17" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\include\AELogger.hpp" line="17" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AELogger\include\AELogger.hpp" line="18" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\include\AELogger.hpp" line="18" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AELogger\include\AELogger.hpp" line="19" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\include\AELogger.hpp" line="19" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;mutex&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;mutex&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AELogger\include\AELogger.hpp" line="20" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\include\AELogger.hpp" line="20" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;utility&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;utility&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AELogger\src\AELogger.cpp" line="12" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="12" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AELogger\src\AELogger.cpp" line="13" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="13" column="0"/>
         </error>
-        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="D:/CODING/ACEngine/AELogger/src/AELogger.cpp">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="162" column="16"/>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="193" column="16"/>
+            <symbol>&amp;tstruct</symbol>
+        </error>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="211" column="16"/>
             <symbol>&amp;tstruct</symbol>
         </error>
   <FileInfo check="ctu">
-<function-call call-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:372:14" call-funcname="writeData_ptr" call-argnr="1" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="385" col="16" call-argexpr="&amp;cdata" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:372:14" call-funcname="writeData_ptr" call-argnr="3" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="385" col="16" call-argexpr="tsize" call-argvaluetype="0" call-argvalue="0">
-  <path file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="384" col="62" info="Safe checks: Assuming argument has value 0"/>
-</function-call><function-call call-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:372:14" call-funcname="writeData_ptr" call-argnr="4" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="385" col="16" call-argexpr="useAutoFlush" call-argvaluetype="0" call-argvalue="0">
-  <path file="D:\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="384" col="92" info="Safe checks: Assuming argument has value 0"/>
+<function-call call-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:389:14" call-funcname="writeData_ptr" call-argnr="1" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="403" col="23" call-argexpr="&amp;cdata" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:389:14" call-funcname="writeData_ptr" call-argnr="3" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="403" col="23" call-argexpr="tsize" call-argvaluetype="0" call-argvalue="0">
+  <path file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="402" col="62" info="Safe checks: Assuming argument has value 0"/>
+</function-call><function-call call-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:389:14" call-funcname="writeData_ptr" call-argnr="4" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="403" col="23" call-argexpr="useAutoFlush" call-argvaluetype="0" call-argvalue="0">
+  <path file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="402" col="92" info="Safe checks: Assuming argument has value 0"/>
 </function-call>  </FileInfo>
   <FileInfo check="Class">
-<class name="AELogEntry" file="D:/CODING/ACEngine/AELogger/include/AELogger.hpp" line="58" col="1" hash="11388484080866730820"/>
-<class name="__AEModuleBase &lt; AEFileWriter &gt;" file="D:/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="14090735608835672544"/>
-<class name="__AEModuleBase &lt; AELogger &gt;" file="D:/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="10161519387231008077"/>
+<class name="AELogEntry" file="C:/Users/artem/CODING/ACEngine/AELogger/include/AELogger.hpp" line="58" col="1" hash="1898127723106583549"/>
+<class name="__AEModuleBase &lt; AEFileWriter &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="14090735608835672544"/>
+<class name="__AEModuleBase &lt; AELogger &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="10161519387231008077"/>
   </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:546:14" my-argnr="1" my-argname="fname" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="551" col="31" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:546:14" my-argnr="2" my-argname="flags" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="551" col="38" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:178:14" my-argnr="1" my-argname="str" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="661" col="19" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AELogger/include/AELogger.hpp:161:14" my-argnr="1" my-argname="fname" file="D:/CODING/ACEngine/AELogger/include/AELogger.hpp" line="162" col="29" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AELogger/include/AELogger.hpp:198:14" my-argnr="3" my-argname="logmodule" file="D:/CODING/ACEngine/AELogger/include/AELogger.hpp" line="200" col="51" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:208:15" my-argnr="2" my-argname="str" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="217" col="13" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogger/include/AELogger.hpp:175:14" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AELogger/include/AELogger.hpp" line="176" col="33" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogger/include/AELogger.hpp:212:14" my-argnr="3" my-argname="logmodule" file="C:/Users/artem/CODING/ACEngine/AELogger/include/AELogger.hpp" line="214" col="51" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:79:15" my-argnr="1" my-argname="str1" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="80" col="19" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:97:15" my-argnr="1" my-argname="str1" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="98" col="19" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:97:11" my-argnr="1" my-argname="filename" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="101" col="14" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:164:14" my-argnr="1" my-argname="str" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="165" col="21" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:347:14" my-argnr="1" my-argname="cdata" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="348" col="23" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:546:14" my-argnr="1" my-argname="fname" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="551" col="31" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:546:14" my-argnr="2" my-argname="flags" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="551" col="38" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:178:14" my-argnr="1" my-argname="str" file="D:/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="661" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:110:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="111" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:128:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="129" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:100:11" my-argnr="1" my-argname="filename" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="104" col="18" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:167:13" my-argnr="1" my-argname="str" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="168" col="25" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:362:14" my-argnr="1" my-argname="cdata" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="363" col="30" value="0"/>
   </FileInfo>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.1488.dump">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="176" column="34"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.19916.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="225" column="34"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.1488.dump">
-            <location file="D:\CODING\ACEngine\AELogger\src\AELogger.cpp" line="139" column="26"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.19916.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="137" column="26"/>
         </error>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="makeQueue" lineNumber="17"/>
-    <functiondecl functionName="startWriter" lineNumber="64"/>
-    <functiondecl functionName="stopWriter" lineNumber="81"/>
-    <functiondecl functionName="writeToLog" lineNumber="91"/>
-    <functiondecl functionName="logWriterThread" lineNumber="146"/>
+    <functiondecl functionName="makeQueue" lineNumber="16"/>
+    <functiondecl functionName="startWriter" lineNumber="63"/>
+    <functiondecl functionName="stopWriter" lineNumber="80"/>
+    <functiondecl functionName="writeToLog" lineNumber="90"/>
+    <functiondecl functionName="logWriterThread" lineNumber="144"/>
     <functiondecl functionName="ptrFromIndex" lineNumber="195"/>
     <functioncall functionName="AEFileWriter"/>
     <functioncall functionName="AELogger"/>
@@ -132,14 +135,15 @@
     <functioncall functionName="create_directories"/>
     <functioncall functionName="data"/>
     <functioncall functionName="decay"/>
+    <functioncall functionName="emplace_back"/>
     <functioncall functionName="empty"/>
     <functioncall functionName="end"/>
     <functioncall functionName="false"/>
     <functioncall functionName="fclose"/>
-    <functioncall functionName="fetch_add"/>
     <functioncall functionName="fflush"/>
     <functioncall functionName="first"/>
     <functioncall functionName="flushFile"/>
+    <functioncall functionName="fopenCC"/>
     <functioncall functionName="fopen_s"/>
     <functioncall functionName="formatDate"/>
     <functioncall functionName="fwrite"/>
@@ -148,6 +152,7 @@
     <functioncall functionName="getFileName"/>
     <functioncall functionName="getLastError"/>
     <functioncall functionName="int8_t"/>
+    <functioncall functionName="isInRange"/>
     <functioncall functionName="isOpen"/>
     <functioncall functionName="join"/>
     <functioncall functionName="joinable"/>
@@ -162,11 +167,9 @@
     <functioncall functionName="microseconds"/>
     <functioncall functionName="milliseconds"/>
     <functioncall functionName="mutex"/>
-    <functioncall functionName="open"/>
-    <functioncall functionName="openDirectly"/>
+    <functioncall functionName="openFile"/>
     <functioncall functionName="pair"/>
     <functioncall functionName="ptrFromIndex"/>
-    <functioncall functionName="push_back"/>
     <functioncall functionName="reserve"/>
     <functioncall functionName="rfind"/>
     <functioncall functionName="runtime_error"/>
@@ -178,7 +181,6 @@
     <functioncall functionName="snprintf"/>
     <functioncall functionName="startWriter"/>
     <functioncall functionName="stopWriter"/>
-    <functioncall functionName="str"/>
     <functioncall functionName="strftime"/>
     <functioncall functionName="strlen"/>
     <functioncall functionName="substr"/>

@@ -1,23 +1,26 @@
 getTypeName
 boolToString call:[return]
-isInRange call:[return]
 toLowerRef call:[begin,end,transform] noreturn:[transform]
 toLowerVal call:[begin,end,transform]
 toUpperRef call:[begin,end,transform] noreturn:[transform]
 toUpperVal call:[begin,end,transform]
 isNum call:[strlen]
 formatDate call:[localtime_s,sizeof,strftime]
+formatDate call:[localtime_s,strftime] noreturn:[strftime]
 getCurrentDate call:[formatDate,time] noreturn:[formatDate]
-addrToStr call:[str] noreturn:[str]
+addrToStr call:[int,sizeof,snprintf]
 sleepMS call:[milliseconds,sleep_for] noreturn:[sleep_for]
 sleepUS call:[microseconds,sleep_for] noreturn:[sleep_for]
-AEFileWriter call:[c_str,open] noreturn:[open]
-AEFileWriter call:[open] noreturn:[open]
+fopenCC call:[fopen_s]
+charToInt call:[isInRange < char >,return]
+intToChar call:[isInRange < int >,return]
+AEFileWriter call:[c_str,openFile] noreturn:[openFile]
+AEFileWriter call:[openFile] noreturn:[openFile]
 AEFileWriter call:[clear]
 AEFileWriter call:[closeFile,flushFile] noreturn:[closeFile]
-open call:[c_str,open] noreturn:[open]
+openFile call:[c_str,openFile] noreturn:[openFile]
 writeString call:[c_str,empty,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
-writeString call:[data,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeString call:[data,empty,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
 writeString call:[sizeof,strlen,writeData_ptr] noreturn:[writeData_ptr]
 writeInt call:[sizeof,snprintf,writeString] noreturn:[writeString]
 writeUInt call:[sizeof,snprintf,writeString] noreturn:[writeString]
@@ -28,8 +31,8 @@ writeBytes call:[writeData_ptr] noreturn:[writeData_ptr]
 writeBytes call:[data,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
 writeByte call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
 writeData_ref call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
-flushFile call:[fflush] noreturn:[fflush]
-closeFile call:[clear,clearError,fclose] noreturn:[clearError,fclose]
+flushFile call:[fflush]
+closeFile call:[clear,clearError,fclose] noreturn:[clearError]
 isOpen call:[bool] noreturn:[bool]
 getFileSize call:[_fseeki64,_ftelli64]
 getFileName
@@ -38,22 +41,27 @@ setCursorPos call:[_fseeki64] noreturn:[_fseeki64]
 getLastError
 getTotalWrites
 clearError
+getFilePtr
 autoFlush call:[flushFile] noreturn:[flushFile]
-openDirectly call:[fopen_s] noreturn:[fopen_s]
 getTypeName < AEFileWriter >
 writeData_ptr call:[autoFlush,fwrite] noreturn:[autoFlush]
 write call:[sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
-open call:[_fseeki64,clear,closeFile,create_directories,openDirectly,rfind,strlen,substr] noreturn:[closeFile,create_directories]
+openFile call:[_fseeki64,clear,closeFile,create_directories,fopenCC,rfind,strlen,substr] noreturn:[closeFile,create_directories]
 pi call:[T] noreturn:[T]
 sinDeg call:[T,sin] noreturn:[sin]
 tanDeg call:[T,tan] noreturn:[tan]
 cotDeg call:[T,tan] noreturn:[tan]
 cscDeg call:[T,sin] noreturn:[sin]
 secDeg call:[T,cos] noreturn:[cos]
-roundToInt call:[T,Y,return,static_assert] noreturn:[T]
-absval call:[return,static_assert]
+roundToInt call:[T,Y,return] noreturn:[T]
+absval call:[return]
 fequals call:[return,static_assert]
-fsqrt call:[fequals,static_assert]
+equals call:[fequals,return] noreturn:[fequals,return]
+sqrt call:[equals]
+max call:[return]
+min call:[return]
+intLength call:[static_assert]
+floatLength call:[abs,log10,return,static_assert]
 sinDeg_table call:[int]
 cosDeg_table call:[int]
 tanDeg_table call:[int]
@@ -61,7 +69,7 @@ cotDeg_table call:[int]
 cscDeg_table call:[int]
 secDeg_table call:[int]
 typeToString
-openLog call:[open,startWriter,writeToLog] noreturn:[startWriter]
+openLog call:[openFile,startWriter,writeToLog] noreturn:[startWriter]
 closeLog call:[closeFile,getFileName,stopWriter,writeToLog] noreturn:[closeFile]
 writeToLogDebug call:[writeToLog] noreturn:[writeToLog]
 getLogName call:[getFileName] noreturn:[getFileName]
@@ -84,7 +92,9 @@ operator= call:[load,startThread] noreturn:[startThread]
 AETimer call:[stopThread] noreturn:[stopThread]
 startThread call:[joinable,runtime_error,thread] noreturn:[runtime_error]
 stopThread call:[join,joinable] noreturn:[join]
-resetTime
+resetTick
+setTick
+setDelay call:[setFps,startThread,stopThread] noreturn:[startThread]
 getTick
 getWorldTime call:[getDelay,load] noreturn:[getDelay]
 getFrameRate call:[getFrameRate] noreturn:[getFrameRate]
@@ -93,24 +103,50 @@ waitForTick call:[fr,getFrameRate,getTick,sleep] noreturn:[sleep]
 waitTicks call:[waitForTick] noreturn:[waitForTick]
 tickTimer call:[load,sleep]
 getTypeName < AETimer >
-operator<< call:[toString]
+AEFileReader call:[openFile] noreturn:[openFile]
+openFile call:[data,fopenCC,size]
+closeFile call:[clear,clearError,fclose] noreturn:[clearError,fclose]
+clearError
+readFloatString call:[fscanf_s,memset,sizeof,static_assert] noreturn:[fscanf_s]
+readIntString call:[fscanf_s,memset,sizeof,static_assert] noreturn:[fscanf_s]
+readStringNULL call:[data,readStringNULL,resize]
+readStringNULL call:[data,readStringNULL,resize]
+readStringNULL call:[_fseeki64,llint,memset,readData_ptr,sizeof,strchr,strlen]
+readStringNL call:[data,readStringNL,resize]
+readStringNL call:[data,readStringNL,resize]
+readStringNL call:[feof,fgets,memset,strlen]
+readString call:[data,readString,resize] noreturn:[resize]
+readString call:[data,readString,resize] noreturn:[resize]
+readString call:[memset,readData_ptr,sizeof] noreturn:[readData_ptr]
+readVariable call:[memset,readData_ptr,sizeof] noreturn:[readData_ptr]
+readFloat call:[memset,readData_ptr,sizeof,static_assert] noreturn:[readData_ptr]
+readInt call:[memset,readData_ptr,sizeof,static_assert] noreturn:[readData_ptr]
+readChar call:[readData_ptr,sizeof] noreturn:[readData_ptr]
+readByte call:[readData_ptr,sizeof] noreturn:[readData_ptr]
+readBytes call:[data,readData_ptr,resize,sizeof] noreturn:[resize]
+readBytes call:[readData_ptr,sizeof] noreturn:[readData_ptr]
+readData_ptr call:[feof,ferror,fread]
+getFilePtr
+getTypeName < AEFileReader >
 main call:[clear,closeFile,cosDeg < float >,cosDeg_table,count,flushFile,getTick,getWorldTime,magnitude,myfw,mylog,mytm,now,rand,reserve,sizeof,sleep,srand,string,time,toString,to_string,writeStatus,writeString,writeToLog] noreturn:[closeFile,rand,sleep]
+zero
 operator[]
 operator[]
 operator==
 operator!=
-toString call:[append,to_string] noreturn:[append]
-magnitude call:[static_assert]
-length
-normDim call:[operator[]]
-normalise
-dotProduct
-zero
 operator+=
 operator+ call:[operator+=] noreturn:[operator+=]
 operator*=
 operator* call:[operator*=] noreturn:[operator*=]
+toString call:[append,push_back,reserve,to_string] noreturn:[append]
+operator<< call:[toString]
+magnitude
+normDim call:[operator[]]
+normalise
+dotProduct
 cosDeg < float > call:[cos,float] noreturn:[cos]
+isInRange < char > call:[return]
+isInRange < int > call:[return]
 __AEModuleBase < AEFileWriter >
 __AEModuleBase < AEFileWriter >
 __AEModuleBase < AEFileWriter >
@@ -129,5 +165,10 @@ getModuleName
 __AEModuleBase < AETimer >
 __AEModuleBase < AETimer >
 __AEModuleBase < AETimer >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
+__AEModuleBase < AEFileReader >
+__AEModuleBase < AEFileReader >
+__AEModuleBase < AEFileReader >
 getModuleAmount call:[load] noreturn:[load]
 getModuleName

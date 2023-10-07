@@ -43,20 +43,18 @@
 #define fscanf fscanf_s
 #endif
 
-/// @todo add default constructor with no argumets
+/// @todo add default constructor with no arguments
 /// @todo add function to get the file size
 /// @todo add function to get/set cursor position
 /// @todo add function to get file reads
 /// @todo add function to check if file is open
 /// @todo add function to clear error status
-/// @todo add readString function overloads for std::string and std::vector<char>
-/// @todo think about returning the values from the readX function. Except readString?
 class AEFileReader : public __AEModuleBase<AEFileReader> {
 
 public:
 
 	explicit AEFileReader(const std::string_view fname) : 
-		m_sFilename(fname), m_ullTotalReads(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {
+		m_sFilename(fname), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {
 
 		this->openFile(fname);
 	}
@@ -172,8 +170,30 @@ public:
 		return AEFR_ERR_READ_SUCCESS;
 	}
 	
+	//reads the string untill null or untill dcount, dumps data to std::vector<char>
+	//moves the cursor to the found null char+1
+	inline cint readStringNULL(std::vector<char>& str, const std::size_t dcount) {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+		str.resize(dcount + 1);
+		const cint temp = this->readStringNULL(str.data(), dcount);
+
+		str.resize(this->m_szLastReadAmount + 1); // resize to the string size (untill null termination); +1 because it doesnt insert null terminator
+
+		return temp;
+	}
+	
+	inline cint readStringNULL(std::string& str, const std::size_t dcount) {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+		str.resize(dcount + 1);
+		const cint temp = this->readStringNULL(str.data(), dcount);
+
+		str.resize(this->m_szLastReadAmount); // resize to the string size (untill null termination)
+
+		return temp;
+	}
+
 	//reads the string untill the null, or untill dcount
-	//moves the head back to the found null
+	//moves the cursor to the found null char+1
 	inline cint readStringNULL(char* str, const std::size_t dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
@@ -183,19 +203,39 @@ public:
 			return AEFR_ERR_WRITE_ZERO_SIZE;
 		}
 		
-		std::memset(str, NULL, dcount+1);
-		const cint temp = this->readData_ptr(str, 1, dcount);
-
-		char* const nulchar = std::strchr(str, '\0');
-		std::memset(nulchar, NULL, dcount - (nulchar - str));
-
+		//clear buffer and read
+		std::memset(str, NULL, dcount + 1);
+		const cint temp = this->readData_ptr(str, dcount, sizeof(char));
+		
+		//look for the null char and move the read cursor to the next char after null (if appeared)
+		const char* const nulchar = std::strchr(str, '\0');
 		fseek(m_fpFilestr, -llint((dcount - (nulchar - str) - 1)), SEEK_CUR);
+		this->m_szLastReadAmount = std::strlen(str);
 
 		return temp;
 	}
 
-	//reads the string untill the newline or, as a safety measure, untill dcount
-	inline cint readStringNL(char* str, const std::size_t dcount) {
+	inline cint readStringNL(std::vector<char>& str, const unsigned int dcount) {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+		str.resize(dcount + 1);
+		const cint temp = this->readStringNL(str.data(), dcount);
+		str.resize(this->m_szLastReadAmount + 1); //we're resizing; +1 because vectors dont insert null terminator
+
+		return temp;
+	}
+
+	inline cint readStringNL(std::string& str, const unsigned int dcount) {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+		str.resize(dcount + 1);
+
+		const cint temp = this->readStringNL(str.data(), dcount);
+		str.resize(this->m_szLastReadAmount); // resize to the string size (in case we got eof/newline)
+
+		return temp;
+	}
+
+	//reads the string untill the newline or, as a safety measure, untill dcount. MUST be of the dcount+1 size!
+	inline cint readStringNL(char* str, const unsigned int dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
 		if (!dcount || !str) {
@@ -207,14 +247,40 @@ public:
 		const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
 		this->m_szLastReadAmount = std::strlen(str);
 		this->m_ullTotalReads++;
-		if (temp) {
+		if (!temp) {
+			this->m_cLastError = AEFR_ERR_READING_ERROR;
+			return AEFR_ERR_READING_ERROR;
+		}
+		if (std::feof(this->m_fpFilestr)) {
 			this->m_cLastError = AEFR_ERR_READING_EOF;
 			return AEFR_ERR_READING_EOF;
 		}
 		return AEFR_ERR_READ_SUCCESS;
 	}
+	
+	inline cint readString(std::vector<char>& str, const std::size_t dcount) {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+		str.resize(dcount + 1);
+		const cint temp = this->readString(str.data(), dcount);
 
-	//reads the string of set size, Unfilled characters (if eof) are zeroed. MUST be of the dcount size!
+		if (temp) {
+			str.resize(this->m_szLastReadAmount);
+		}
+		return temp;
+	}
+
+	inline cint readString(std::string& str, const std::size_t dcount) {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+		str.resize(dcount+1);
+		const cint temp = this->readString(str.data(), dcount);
+		
+		if (temp) {
+			str.resize(this->m_szLastReadAmount);
+		}
+		return temp;
+	}
+
+	//reads the string of set size, Unfilled characters (if eof) are zeroed. MUST be of the dcount+1 size!
 	//if file is closed, contents is not modified
 	inline cint readString(char* str, const std::size_t dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
@@ -224,7 +290,7 @@ public:
 			return AEFR_ERR_WRITE_ZERO_SIZE;
 		}
 		std::memset(str, NULL, dcount + 1);
-		return this->readData_ptr(str, sizeof(char), dcount);
+		return this->readData_ptr(str, dcount, sizeof(char));
 	}
 
 	// reads the bytes of the size of T and dumps them into given variable
@@ -233,7 +299,7 @@ public:
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
 		std::memset(&var, NULL, sizeof(T));
-		return this->readData_ptr(&var, 1, sizeof(T));
+		return this->readData_ptr(&var, sizeof(T), 1);
 	}
 
 	//reads the bytes of the size of t and interprets them as float
@@ -243,7 +309,7 @@ public:
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		
 		std::memset(&num, NULL, sizeof(T));
-		return this->readData_ptr(&num, 1, sizeof(T));
+		return this->readData_ptr(&num, sizeof(T), 1);
 	}
 
 
@@ -254,7 +320,7 @@ public:
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
 		std::memset(&num, NULL, sizeof(T));
-		return this->readData_ptr(&num, 1, sizeof(T));
+		return this->readData_ptr(&num, sizeof(T), 1);
 	}
 
 	//reads 1 byte of data and dumps it into char
@@ -275,7 +341,7 @@ public:
 	inline cint readBytes(std::vector<unsigned char>& cdata, const std::size_t dcount) {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		cdata.resize(dcount);
-		const cint tempreturn = this->readData_ptr(cdata.data(), sizeof(unsigned char), dcount);
+		const cint tempreturn = this->readData_ptr(cdata.data(), dcount, sizeof(unsigned char));
 
 		if(!tempreturn) cdata.resize(this->m_szLastReadAmount); //resize to what was actually read
 		return tempreturn;
@@ -283,7 +349,7 @@ public:
 
 	// reads bytes to ptr
 	inline cint readBytes(void* cdata, const std::size_t dcount) {
-		return this->readData_ptr(cdata, sizeof(char), dcount);
+		return this->readData_ptr(cdata, dcount, sizeof(char));
 	}
 
 	// reads data to ptr
@@ -298,11 +364,23 @@ public:
 		this->m_szLastReadAmount = fread(cdata, dsize, dcount, this->m_fpFilestr);
 		this->m_ullTotalReads++;
 		if (this->m_szLastReadAmount != dcount) {
-			return AEFR_ERR_READING_EOF;
+			if (std::feof(this->m_fpFilestr)) {
+				return AEFR_ERR_READING_EOF;
+			}
+			if (std::ferror(this->m_fpFilestr)) {
+				return AEFR_ERR_READING_ERROR;
+			}
 		}
 		return AEFR_ERR_READ_SUCCESS;
 	}
 
+	/// <summary>
+	/// Returns the file pointer of this file-reader
+	/// </summary>
+	/// <returns>Pointer to FILE used in the file reader</returns>
+	inline FILE* getFilePtr(void) const {
+		return this->m_fpFilestr;
+	}
 
 private:
 

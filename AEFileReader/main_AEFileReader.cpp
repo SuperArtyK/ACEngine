@@ -7,23 +7,27 @@ struct ab {
 };
 
 
+std::string outputVec(std::vector<char>& a) {
+
+	std::string ret;
+	for (std::size_t i = 0; i < a.size(); i++) {
+		ret.push_back(a[i]);
+	}
+	return ret;
+}
+
+
 int main(){
 
     AEFileReader myfr("test.txt");
 
-	float b = 0;
+	std::string a;
+	std::vector<char>b;
 
-	cout << int(myfr.readFloatString(b)) << endl;
-	cout << b << endl;
-
-	cout << int(myfr.readFloatString(b)) << endl;
-	cout << b << endl;
-
-
-
-
-
-
+	cout << int(myfr.readStringNL(a, 16000)) << endl;
+	cout << a << endl;
+	cout << int(myfr.readStringNL(a, 16000)) << endl;
+	cout << a << endl;
 
     return 0;
 }

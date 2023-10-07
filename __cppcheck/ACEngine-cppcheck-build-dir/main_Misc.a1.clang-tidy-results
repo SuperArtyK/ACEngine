@@ -1,3 +1,58 @@
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:14:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+int main() {
+    ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:14:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int main() {
+~~~ ^
+auto       -> int
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:16:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+        for (int i = 0; i < 360; i++) {
+        ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:16:22: warning: 360 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        for (int i = 0; i < 360; i++) {
+                            ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:17:35: warning: narrowing conversion from 'int' to 'float' [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";
+                                                ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:17:73: warning: narrowing conversion from 'int' to 'float' [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";
+                                                                                      ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:18:35: warning: narrowing conversion from 'int' to 'float' [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                cout << ace::math::cosDeg_table(i) << "; " << ace::math::secDeg_table(i) << "| ";
+                                                ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:18:73: warning: narrowing conversion from 'int' to 'float' [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                cout << ace::math::cosDeg_table(i) << "; " << ace::math::secDeg_table(i) << "| ";
+                                                                                      ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:19:35: warning: narrowing conversion from 'int' to 'float' [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                cout << ace::math::tanDeg_table(i) << "; " << ace::math::cotDeg_table(i) << NLC;
+                                                ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:19:73: warning: narrowing conversion from 'int' to 'float' [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                cout << ace::math::tanDeg_table(i) << "; " << ace::math::cotDeg_table(i) << NLC;
+                                                                                      ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:30:33: warning: 128 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;
+                                       ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:30:37: warning: 127 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;
+                                           ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:30:41: warning: 64 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;
+                                               ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:30:79: warning: 128 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;
+                                                                                     ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:30:84: warning: 127 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;
+                                                                                          ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:30:89: warning: 255 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::utils::isInRange(-128,127,64) << "; " << ace::utils::isInRange(-128, 127, 255) << endl;
+                                                                                               ^
+C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp:46:32: warning: 1234 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << ace::math::roundToInt(1234);
+                                      ^
 
 
 
+207616 warnings generated.
+Suppressed 207585 warnings (207585 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

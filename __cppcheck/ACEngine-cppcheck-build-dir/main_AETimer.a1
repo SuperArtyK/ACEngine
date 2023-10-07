@@ -1,69 +1,68 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="1325816913545050146">
+<analyzerinfo hash="15195049883090803207">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AETimer\main_AETimer.cpp" line="2" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AETimer\main_AETimer.cpp" line="2" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="15" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="15" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="16" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AETimer\include\AETimer.hpp" line="18" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AETimer\include\AETimer.hpp" line="18" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AETimer\include\AETimer.hpp" line="19" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AETimer\include\AETimer.hpp" line="19" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="14" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="15" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="15" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="16" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="17" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;sstream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;sstream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="17" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="18" column="0"/>
         </error>
-        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="D:/CODING/ACEngine/AETimer/main_AETimer.cpp">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="162" column="16"/>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="C:/Users/artem/CODING/ACEngine/AETimer/main_AETimer.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="193" column="16"/>
+            <symbol>&amp;tstruct</symbol>
+        </error>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="C:/Users/artem/CODING/ACEngine/AETimer/main_AETimer.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="211" column="16"/>
             <symbol>&amp;tstruct</symbol>
         </error>
   <FileInfo check="Class">
-<class name="AEFrame" file="D:/CODING/ACEngine/AEFrame/include/AEFrame.hpp" line="29" col="1" hash="14939926732601577699"/>
-<class name="AETimer" file="D:/CODING/ACEngine/AETimer/include/AETimer.hpp" line="27" col="1" hash="15070072602670686389"/>
-<class name="__AEModuleBase &lt; AEFrame &gt;" file="D:/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="9530694073717982036"/>
-<class name="__AEModuleBase &lt; AETimer &gt;" file="D:/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="5091251025619815852"/>
+<class name="AEFrame" file="C:/Users/artem/CODING/ACEngine/AEFrame/include/AEFrame.hpp" line="29" col="1" hash="14939926732601577699"/>
+<class name="AETimer" file="C:/Users/artem/CODING/ACEngine/AETimer/include/AETimer.hpp" line="27" col="1" hash="8313467563246695661"/>
+<class name="__AEModuleBase &lt; AEFrame &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="9530694073717982036"/>
+<class name="__AEModuleBase &lt; AETimer &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="5091251025619815852"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:208:15" my-argnr="2" my-argname="str" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="217" col="13" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="29" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="D:/CODING/ACEngine/AETimer/include/AETimer.hpp:59:11" my-argnr="1" my-argname="tm" file="D:/CODING/ACEngine/AETimer/include/AETimer.hpp" line="60" col="20" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AETimer/include/AETimer.hpp:152:21" my-argnr="1" my-argname="timer" file="D:/CODING/ACEngine/AETimer/include/AETimer.hpp" line="153" col="14" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:79:15" my-argnr="1" my-argname="str1" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="80" col="19" value="0"/>
-    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:97:15" my-argnr="1" my-argname="str1" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="98" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AETimer/include/AETimer.hpp:59:11" my-argnr="1" my-argname="tm" file="C:/Users/artem/CODING/ACEngine/AETimer/include/AETimer.hpp" line="60" col="20" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AETimer/include/AETimer.hpp:162:21" my-argnr="1" my-argname="timer" file="C:/Users/artem/CODING/ACEngine/AETimer/include/AETimer.hpp" line="163" col="14" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:110:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="111" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:128:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="129" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:268:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="274" col="29" value="0"/>
   </FileInfo>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AETimer.cpp.analyzerinfo.1488.dump">
-            <location file="D:\CODING\ACEngine\AEFrame\include\AEFrame.hpp" line="60" column="14"/>
-        </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AETimer.cpp.analyzerinfo.1488.dump">
-            <location file="D:\CODING\ACEngine\AETimer\include\AETimer.hpp" line="155" column="7"/>
-        </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AETimer.cpp.analyzerinfo.1488.dump">
-            <location file="D:\CODING\ACEngine\AETimer\include\AETimer.hpp" line="179" column="19"/>
-        </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AETimer.cpp.analyzerinfo.1488.dump">
-            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="176" column="34"/>
-        </error>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="main" lineNumber="6"/>
     <functioncall functionName="AETimer"/>
@@ -75,6 +74,7 @@
     <functioncall functionName="count"/>
     <functioncall functionName="end"/>
     <functioncall functionName="false"/>
+    <functioncall functionName="fopen_s"/>
     <functioncall functionName="formatDate"/>
     <functioncall functionName="fr"/>
     <functioncall functionName="getDelay"/>
@@ -83,6 +83,7 @@
     <functioncall functionName="getModuleName"/>
     <functioncall functionName="getTick"/>
     <functioncall functionName="getWorldTime"/>
+    <functioncall functionName="isInRange"/>
     <functioncall functionName="join"/>
     <functioncall functionName="joinable"/>
     <functioncall functionName="load"/>
@@ -93,13 +94,14 @@
     <functioncall functionName="mytm"/>
     <functioncall functionName="now"/>
     <functioncall functionName="runtime_error"/>
+    <functioncall functionName="setFps"/>
     <functioncall functionName="sleep"/>
     <functioncall functionName="sleep_for"/>
     <functioncall functionName="sleep_until"/>
+    <functioncall functionName="snprintf"/>
     <functioncall functionName="startThread"/>
     <functioncall functionName="steady_clock"/>
     <functioncall functionName="stopThread"/>
-    <functioncall functionName="str"/>
     <functioncall functionName="strftime"/>
     <functioncall functionName="strlen"/>
     <functioncall functionName="thread"/>

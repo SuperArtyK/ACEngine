@@ -35,6 +35,10 @@
 #define AELOG_DEFAULT_QUEUE_SIZE 1024
 /// Macro for the AELogger's default module name (if none was provided when calling the write-to-log request)
 #define AELOG_DEFAULT_MODULE_NAME "ACEngine"
+/// Macro for the default reserve amount of the AELogger's allocation vector (stores all queue ptrs)
+/// @warning I personally wouldn't advise to play with it
+#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32
+
 
 //AEVector
 /// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount

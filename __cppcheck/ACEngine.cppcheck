@@ -23,6 +23,9 @@
         <library>posix</library>
         <library>windows</library>
     </libraries>
+    <suppressions>
+        <suppression>missingIncludeSystem</suppression>
+    </suppressions>
     <safe-checks>
         <class-public/>
     </safe-checks>
@@ -33,6 +36,5 @@
     <tools>
         <tool>clang-tidy</tool>
     </tools>
-    <check-level-exhaustive/>
     <project-name>ACEngine</project-name>
 </project>
