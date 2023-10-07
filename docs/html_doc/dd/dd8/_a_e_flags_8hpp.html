@@ -109,6 +109,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a1a4015effd65ce85fe7463f88aa6833c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to enable the debug-marked features of the engine. Independent from debug/release compiler builds.  <br /></td></tr>
 <tr class="separator:a1a4015effd65ce85fe7463f88aa6833c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13fc7d33c0c580b1560eee3cc5cc43fc" id="r_a13fc7d33c0c580b1560eee3cc5cc43fc"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a13fc7d33c0c580b1560eee3cc5cc43fc">ENGINE_FPS</a>&#160;&#160;&#160;60.0</td></tr>
+<tr class="memdesc:a13fc7d33c0c580b1560eee3cc5cc43fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)  <br /></td></tr>
 <tr class="separator:a13fc7d33c0c580b1560eee3cc5cc43fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1967daf69859ccd877ff84333e53b27f" id="r_a1967daf69859ccd877ff84333e53b27f"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1967daf69859ccd877ff84333e53b27f">AEFW_AUTOFLUSH_ENABLE</a></td></tr>
 <tr class="memdesc:a1967daf69859ccd877ff84333e53b27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to enable the auto-flushing mechanism.  <br /></td></tr>
@@ -128,6 +129,9 @@ Macros</h2></td></tr>
 <tr class="memitem:aa7d9db3db33b7bf591c157fedaa2e0e1" id="r_aa7d9db3db33b7bf591c157fedaa2e0e1"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a>&#160;&#160;&#160;&quot;ACEngine&quot;</td></tr>
 <tr class="memdesc:aa7d9db3db33b7bf591c157fedaa2e0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>'s default module name (if none was provided when calling the write-to-log request)  <br /></td></tr>
 <tr class="separator:aa7d9db3db33b7bf591c157fedaa2e0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82c2d932be8a6352e3639dbe2189d6f8" id="r_a82c2d932be8a6352e3639dbe2189d6f8"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a82c2d932be8a6352e3639dbe2189d6f8">AELOG_DEFAULT_ALLOC_VECTOR_RESERVE</a>&#160;&#160;&#160;32</td></tr>
+<tr class="memdesc:a82c2d932be8a6352e3639dbe2189d6f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the default reserve amount of the <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>'s allocation vector (stores all queue ptrs)  <br /></td></tr>
+<tr class="separator:a82c2d932be8a6352e3639dbe2189d6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5aa4a5360259365ff849c8bfdae6ed9" id="r_ab5aa4a5360259365ff849c8bfdae6ed9"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9">AEVEC_WRAP_DIMENSIONS</a></td></tr>
 <tr class="memdesc:ab5aa4a5360259365ff849c8bfdae6ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount.  <br /></td></tr>
 <tr class="separator:ab5aa4a5360259365ff849c8bfdae6ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,7 +157,7 @@ Macros</h2></td></tr>
 <p>Macro to enable the auto-flushing mechanism. </p>
 <p>Undefine to disable the feature </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -171,7 +175,7 @@ Macros</h2></td></tr>
 
 <p>Macro for the default "use auto-flush" argument value. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -189,7 +193,26 @@ Macros</h2></td></tr>
 
 <p>Macro for the default auto-flush amount value. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a82c2d932be8a6352e3639dbe2189d6f8" name="a82c2d932be8a6352e3639dbe2189d6f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c2d932be8a6352e3639dbe2189d6f8">&#9670;&#160;</a></span>AELOG_DEFAULT_ALLOC_VECTOR_RESERVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELOG_DEFAULT_ALLOC_VECTOR_RESERVE&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the default reserve amount of the <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>'s allocation vector (stores all queue ptrs) </p>
+<dl class="section warning"><dt>Warning</dt><dd>I personally wouldn't advise to play with it </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -207,7 +230,7 @@ Macros</h2></td></tr>
 
 <p>Macro for the <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>'s default module name (if none was provided when calling the write-to-log request) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -225,7 +248,7 @@ Macros</h2></td></tr>
 
 <p>Macro for the <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>'s default queue size (if none was provided) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00036">36</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -243,7 +266,7 @@ Macros</h2></td></tr>
 
 <p>A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +303,7 @@ Macros</h2></td></tr>
 <p>Macro to enable the engine's trigonometry lookup code. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp.html" title="This file contains the results for the trigonometric function lookup tables.">AETrigLookup.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -296,7 +319,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
+<p>Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>.</p>
 
 </div>
 </div>
@@ -306,7 +331,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html">AEFlags.hpp</a></li>
-    <li class="footer">Generated on Fri Oct 6 2023 01:18:06 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 7 2023 15:09:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -58,7 +58,7 @@ public:
 //constructors
 	explicit AEFileReader(const std::string_view fname);
 
-	explicit AEFileReader() : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
+	AEFileReader() : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
 
 //we don't need those
 	/// <summary>

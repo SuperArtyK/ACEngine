@@ -249,9 +249,13 @@ public:
 	
 };
 
+/// The shortcut typedef for the 2-dimensional integer vector
 typedef AEVector<int, 2> AEVec2Int;
+/// The shortcut typedef for the 3-dimensional integer vector
 typedef AEVector<int, 3> AEVec3Int;
+/// The shortcut typedef for the 2-dimensional floating point vector
 typedef AEVector<float, 2> AEVec2Float;
+/// The shortcut typedef for the 3-dimensional floating point vector
 typedef AEVector<float, 3> AEVec3Float;
 
 

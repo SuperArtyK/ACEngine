@@ -29,7 +29,6 @@ class AETimer : public __AEModuleBase<AETimer> {
 public:
 
 //constructors
-	
 	/// <summary>
 	/// Class constructor -- starts the timer automatically
 	/// </summary>
@@ -38,6 +37,11 @@ public:
 		m_rDelay(tps), m_ullTicks(0), m_bRunTrd(true) {
 		this->startThread();
 	}
+
+	/// <summary>
+	/// Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread
+	/// </summary>
+	AETimer() : m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) {}
 
 	/// <summary>
 	/// Copy constructor -- Just copies the data and then starts the timer if original timer was started.
@@ -108,10 +112,19 @@ public:
 		this->m_ullTicks = 0;
 	}
 
+	/// <summary>
+	/// Sets the new tick value instead of the current
+	/// </summary>
+	/// <param name="tick">The tick value to set instance's tick value to</param>
 	inline void setTick(const ullint tick) {
 		this->m_ullTicks = tick;
 	}
 
+	/// <summary>
+	/// Sets the new delay instead of the current
+	/// @note It stops the thread and starts it again -- don't expect the counting to start immediately
+	/// </summary>
+	/// <param name="tps">The amount of ticks per second to set the delay to</param>
 	inline void setDelay(const double tps) {
 		this->stopThread();
 		this->m_rDelay.setFps(tps);
@@ -207,6 +220,8 @@ private:
 //aaaand yeah, register the class
 REGISTER_CLASS(AETimer);
 
+/// The global timer of the engine to time engine-wide events.
+/// It starts counting as soon as the program starts.
 inline AETimer globalTimer(ENGINE_FPS);
 
 #endif // !ENGINE_TIMER_HPP

@@ -123,6 +123,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aff4bda684228e5545d53fcea1a9f98f3" id="r_aff4bda684228e5545d53fcea1a9f98f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3">AETimer</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> double <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">tps</a>=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a13fc7d33c0c580b1560eee3cc5cc43fc">ENGINE_FPS</a>)</td></tr>
 <tr class="memdesc:aff4bda684228e5545d53fcea1a9f98f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor &ndash; starts the timer automatically.  <br /></td></tr>
 <tr class="separator:aff4bda684228e5545d53fcea1a9f98f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e96da8faced9bc13a3e94c23ba5f787" id="r_a9e96da8faced9bc13a3e94c23ba5f787"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a9e96da8faced9bc13a3e94c23ba5f787">AETimer</a> ()</td></tr>
+<tr class="memdesc:a9e96da8faced9bc13a3e94c23ba5f787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor &ndash; just assigns default delay (ENGINE_FPS) and doesn't start the thread.  <br /></td></tr>
+<tr class="separator:a9e96da8faced9bc13a3e94c23ba5f787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d5a811e0d1d8f3ab3427ae3c15756b" id="r_ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b">AETimer</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> &amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">tm</a>)</td></tr>
 <tr class="memdesc:ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor &ndash; Just copies the data and then starts the timer if original timer was started.  <br /></td></tr>
 <tr class="separator:ab6d5a811e0d1d8f3ab3427ae3c15756b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,8 +145,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab3ee5e29553d7c2516ff5813016010f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer's tick to 0.  <br /></td></tr>
 <tr class="separator:ab3ee5e29553d7c2516ff5813016010f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4ed9d7a767f50e350faaf8cbbca5474" id="r_aa4ed9d7a767f50e350faaf8cbbca5474"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#aa4ed9d7a767f50e350faaf8cbbca5474">setTick</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">tick</a>)</td></tr>
+<tr class="memdesc:aa4ed9d7a767f50e350faaf8cbbca5474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the new tick value instead of the current.  <br /></td></tr>
 <tr class="separator:aa4ed9d7a767f50e350faaf8cbbca5474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae290234a58bd703c0953edd2925d591c" id="r_ae290234a58bd703c0953edd2925d591c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c">setDelay</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> double <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">tps</a>)</td></tr>
+<tr class="memdesc:ae290234a58bd703c0953edd2925d591c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the new delay instead of the current.  <br /></td></tr>
 <tr class="separator:ae290234a58bd703c0953edd2925d591c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cec78d39e2175a7e007f4f366f3b7ef" id="r_a1cec78d39e2175a7e007f4f366f3b7ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html#a1cec78d39e2175a7e007f4f366f3b7ef">getTick</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a></td></tr>
 <tr class="memdesc:a1cec78d39e2175a7e007f4f366f3b7ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current tick of the timer.  <br /></td></tr>
@@ -210,7 +215,7 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aff4bda684228e5545d53fcea1a9f98f3" name="aff4bda684228e5545d53fcea1a9f98f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff4bda684228e5545d53fcea1a9f98f3">&#9670;&#160;</a></span>AETimer() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4bda684228e5545d53fcea1a9f98f3">&#9670;&#160;</a></span>AETimer() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,12 +246,41 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00036">36</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9e96da8faced9bc13a3e94c23ba5f787" name="a9e96da8faced9bc13a3e94c23ba5f787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e96da8faced9bc13a3e94c23ba5f787">&#9670;&#160;</a></span>AETimer() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AETimer::AETimer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Class constructor &ndash; just assigns default delay (ENGINE_FPS) and doesn't start the thread. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
 <a id="ab6d5a811e0d1d8f3ab3427ae3c15756b" name="ab6d5a811e0d1d8f3ab3427ae3c15756b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6d5a811e0d1d8f3ab3427ae3c15756b">&#9670;&#160;</a></span>AETimer() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d5a811e0d1d8f3ab3427ae3c15756b">&#9670;&#160;</a></span>AETimer() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +311,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -306,7 +340,7 @@ Private Attributes</h2></td></tr>
 
 <p>Class destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -339,7 +373,7 @@ Private Attributes</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dd7/class_a_e_frame.html#a93ebcb549ac4f4ebfc0deda7939cb451" title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds.">AEFrame::getDelay()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>double of the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> delay in real-world seconds</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00166">166</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -371,7 +405,7 @@ Private Attributes</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dd7/class_a_e_frame.html#a6942b59f3af48046293610b8dca0d5ee" title="Returns the fps goal of AEFrame instance.">AEFrame::getFrameRate()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Rounded int of the approximated fps goal</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00157">157</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -465,7 +499,7 @@ Private Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If thread is not started/working, the return value will be the same</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>ullint of the current timer tick</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00126">126</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00139">139</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -497,7 +531,7 @@ Private Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If thread is not started/working, the return value will be the same</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>double of the approximate world time the timer has counted (using it's ticks)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00135">135</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00148">148</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -535,7 +569,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the resulting <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> copy</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00063">63</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -565,7 +599,7 @@ Private Attributes</h2></td></tr>
 
 <p>Resets the timer's tick to 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -593,7 +627,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p>Sets the new delay instead of the current. </p>
+<dl class="section note"><dt>Note</dt><dd>It stops the thread and starts it again &ndash; don't expect the counting to start immediately</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tps</td><td>The amount of ticks per second to set the delay to</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00128">128</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -621,7 +664,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p>Sets the new tick value instead of the current. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tick</td><td>The tick value to set instance's tick value to</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -652,7 +703,7 @@ Private Attributes</h2></td></tr>
 <p>Starts the timer thread and starts tick counting. </p>
 <dl class="section note"><dt>Note</dt><dd>Does nothing if thread is already started </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00080">80</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -682,7 +733,7 @@ Private Attributes</h2></td></tr>
 
 <p>Stops the timer thread and stops tick counting. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00099">99</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -712,7 +763,7 @@ Private Attributes</h2></td></tr>
 
 <p>The function that does the tick counting for the timer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00184">184</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00197">197</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -759,7 +810,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00162">162</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00175">175</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -806,7 +857,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00174">174</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00187">187</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -833,7 +884,7 @@ Private Attributes</h2></td></tr>
 
 <p>The flag to continue running the tick counting loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00202">202</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00215">215</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -859,7 +910,7 @@ Private Attributes</h2></td></tr>
 
 <p>The frame-rater of the timer for proper delay in the tick-counting function loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00196">196</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00209">209</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +936,7 @@ Private Attributes</h2></td></tr>
 
 <p>Name of the module (class), same as in code. </p>
 <p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
@@ -913,7 +964,7 @@ Private Attributes</h2></td></tr>
 
 <p>The thread that does the tick counting. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00198">198</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00211">211</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -965,7 +1016,7 @@ Private Attributes</h2></td></tr>
 
 <p>The tick count variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00200">200</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00213">213</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -978,7 +1029,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a></li>
-    <li class="footer">Generated on Fri Oct 6 2023 01:18:06 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 7 2023 15:09:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

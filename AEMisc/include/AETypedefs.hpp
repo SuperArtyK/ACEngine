@@ -100,17 +100,17 @@ typedef std::chrono::steady_clock SteadyTime;
 #define timeDur std::chrono::duration
 
 /// A macro as the shortcut of chrono's milliseconds
-#define milliSec(x) std::chrono::milliseconds(x)
+#define milliSec(ms) std::chrono::milliseconds(ms)
 
 /// A macro as the shortcut of chrono's microseconds
-#define microSec(x) std::chrono::microseconds(x)
+#define microSec(us) std::chrono::microseconds(us)
 
 
 //thread
 /// A macro as the shortcut of thread's sleep_until
-#define sleepUntil(x) std::this_thread::sleep_until(x)
+#define sleepUntil(sec) std::this_thread::sleep_until(sec)
 
 /// A macro as the shortcut of thread's sleep_for
-#define sleepFor(x) std::this_thread::sleep_for(x)
+#define sleepFor(sec) std::this_thread::sleep_for(sec)
 
 #endif // !ENGINE_TYPEDEFS_HPP

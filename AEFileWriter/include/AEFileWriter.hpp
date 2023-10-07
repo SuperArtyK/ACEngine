@@ -13,10 +13,8 @@
 #ifndef AEFILEWRITER_HPP
 #define AEFILEWRITER_HPP
 
-// define this flag on compile time damn it!S
+// define this flag on compile time damn it!
 //#define _FILE_OFFSET_BITS 64
-
-
 
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
@@ -31,7 +29,7 @@
 #include <stdexcept>
 
 
-//Do NOT touch!
+// Do NOT touch!
 
 //File flags
 /// Macro to put the write cursor at the end of the file, appending to the file.
@@ -45,7 +43,6 @@
 /// Macro for no write flags
 /// @note Same as AEFW_FLAG_TRUNCATE
 #define AEFW_FLAG_NOFLAGS 0
-
 
 //Error flags
 /// Indicator that everything is good.
@@ -69,12 +66,8 @@
 /// Macro for the error that has occurred in flushing (if fflush returned a non-zero value)
 #define AEFW_ERR_FLUSH_ERROR -7
 
-
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
 #define _AEFW_EXIT_ON_CLOSED_FILE if (!this->m_fpFilestr) { this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
-
-
-
 
 
 /// <summary>

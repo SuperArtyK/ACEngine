@@ -22,21 +22,21 @@
 //because...syntax
 
 /// Macro for the calculation of static, compile-time array
-#define arrsize(x) (sizeof(x)/sizeof(x[0]))
+#define arrsize(arr) (sizeof(arr) / sizeof(arr[0]) )
 
 /// Macro for the check if modulo of x and y results in 0
-#define mod0(x,y) !(x%y)
+#define mod0(dvd,dvs) !(dvd % dvs)
 
-#define getBit(val, bit) (val&(1<<bit))
+#define getBit(val, bit) (val& (1 << bit))
 
 /// Better-fomatted assertion for runtime checks
-#define aceAssert(expr, msg) if(!(expr)) { std::cerr<<"Assertion failed!\nExpression: "<< #expr<<"\nFile: "<<__FILE__<<"\nLine: "<<__LINE__<<"\nMessage: "<<msg<<std::endl; abort(); }
+#define aceAssert(expr, msg) if ( !(expr) ) { std::cerr << "Assertion failed!\nExpression: " << #expr << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << msg << std::endl; abort(); }
 
 /// Macro for the debug printf() printing, use the same way as you have used printf before.
 /// @note Prints additional newline with each print
 /// @note Does nothing if ENGINE_DEBUG is not defined and set to 1
 #if ENGINE_DEBUG
-#define dprintf(...) if constexpr (ENGINE_DEBUG){printf("DEBUG::%s()-> ", __FUNCTION__); printf(__VA_ARGS__); printf("\n");}
+#define dprintf(...) if constexpr (ENGINE_DEBUG) { printf("DEBUG::%s()-> ", __FUNCTION__); printf(__VA_ARGS__); printf("\n"); }
 #else
 #define dprintf(...) 
 #endif
@@ -88,7 +88,6 @@ namespace ace {
 			return (b) ? "true" : "false";
 		}
 
-
 		/// <summary>
 		/// Checks if the value that you passed is within range
 		/// @note The type of the values you pass to this function shall be the same
@@ -138,10 +137,7 @@ namespace ace {
 			std::transform(str1.begin(), str1.end(), str1.begin(), toupper);
 			return str1;
 		}
-
-
-
-
+		
 		/// <summary>
 		/// Checks if the given string is a numerical value
 		/// </summary>
@@ -180,7 +176,6 @@ namespace ace {
 			//passed
 			return true;
 		}
-
 
 		/// <summary>
 		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
@@ -225,8 +220,6 @@ namespace ace {
 			return ace::utils::formatDate(time(NULL));
 		}
 
-		
-
 		/// <summary>
 		/// Converts the hex address value to string
 		/// </summary>
@@ -237,8 +230,7 @@ namespace ace {
 			snprintf(buf, sizeof(buf), "0x%p", myptr);
 			return buf;
 		}
-
-
+		
 		/// <summary>
 		/// Convenient sleep function to sleep the thread for ms milliseconds
 		/// @note May be inaccurate in delay (as...all sleep functions are)
@@ -279,14 +271,21 @@ namespace ace {
 			return filestr;
 		}
 
-
+		/// <summary>
+		/// Converts the given character value to int ('0' to 0), if it is within the '0'->'9' range
+		/// </summary>
+		/// <param name="c">The character value to convert</param>
+		/// <returns>int's 0-9 values if the given char value is within range, -1 otherwise</returns>
 		constexpr int charToInt(const char c) noexcept {
-
 			return (ace::utils::isInRange<char>('0', '9', c)) ? (c - '0') : -1;
 		}
 		
+		/// <summary>
+		/// Converts the given int value to char (0 to '0'), if it is within the 0->9 range
+		/// </summary>
+		/// <param name="c">The integer value to convert</param>
+		/// <returns>char's '0'->'9' values if the given char value is within range, -1 otherwise</returns>
 		constexpr char intToChar(const int i) noexcept {
-
 			return (ace::utils::isInRange<int>(0, 9, i)) ? (i + '0') : -1;
 		}
 

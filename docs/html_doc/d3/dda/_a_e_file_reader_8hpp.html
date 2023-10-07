@@ -94,7 +94,8 @@ $(document).ready(function(){initNavTree('d3/dda/_a_e_file_reader_8hpp.html','..
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">AEFileReader.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -137,12 +138,17 @@ Macros</h2></td></tr>
 <tr class="separator:a9ce9d513072d546450213344baac0c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7bd31c97c30c1debd67eba4366cba7a" id="r_ac7bd31c97c30c1debd67eba4366cba7a"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#ac7bd31c97c30c1debd67eba4366cba7a">AEFR_ERR_READING_ERROR</a>&#160;&#160;&#160;-5</td></tr>
 <tr class="separator:ac7bd31c97c30c1debd67eba4366cba7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4dddd11d19c43d0444adfd389e58640" id="r_ae4dddd11d19c43d0444adfd389e58640"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#ae4dddd11d19c43d0444adfd389e58640">AEFR_ERR_WRITE_ZERO_SIZE</a>&#160;&#160;&#160;-6</td></tr>
-<tr class="memdesc:ae4dddd11d19c43d0444adfd389e58640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error that occurs if the data pointer, item count and item size is null/zero in <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#aa55eb0bf0c32153447761b54f0757e7f">AEFileReader::readData_ptr()</a>  <br /></td></tr>
-<tr class="separator:ae4dddd11d19c43d0444adfd389e58640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4fc9be25a446d307e34224581b3479" id="r_a1a4fc9be25a446d307e34224581b3479"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a1a4fc9be25a446d307e34224581b3479">AEFR_ERR_READ_ZERO_SIZE</a>&#160;&#160;&#160;-6</td></tr>
+<tr class="memdesc:a1a4fc9be25a446d307e34224581b3479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error that occurs if the data pointer, item count and item size is null/zero in <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#aa55eb0bf0c32153447761b54f0757e7f">AEFileReader::readData_ptr()</a>  <br /></td></tr>
+<tr class="separator:a1a4fc9be25a446d307e34224581b3479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a550c4b45c08b4c518dc8b1bb97c75bea" id="r_a550c4b45c08b4c518dc8b1bb97c75bea"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a550c4b45c08b4c518dc8b1bb97c75bea">_AEFR_EXIT_ON_CLOSED_FILE</a>&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (!<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_fpFilestr) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#af0bab608a9ea8466e721f882c69495e6">AEFR_ERR_FILE_NOT_OPEN</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#af0bab608a9ea8466e721f882c69495e6">AEFR_ERR_FILE_NOT_OPEN</a>; }</td></tr>
 <tr class="memdesc:a550c4b45c08b4c518dc8b1bb97c75bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!  <br /></td></tr>
 <tr class="separator:a550c4b45c08b4c518dc8b1bb97c75bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa2fae8139d58849ff9f67195f675b6a7" id="r_aa2fae8139d58849ff9f67195f675b6a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#aa2fae8139d58849ff9f67195f675b6a7">REGISTER_CLASS</a> (<a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">template</a>&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T &gt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">inline</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a></td></tr>
+<tr class="separator:aa2fae8139d58849ff9f67195f675b6a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a550c4b45c08b4c518dc8b1bb97c75bea" name="a550c4b45c08b4c518dc8b1bb97c75bea"></a>
@@ -252,6 +258,24 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a1a4fc9be25a446d307e34224581b3479" name="a1a4fc9be25a446d307e34224581b3479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4fc9be25a446d307e34224581b3479">&#9670;&#160;</a></span>AEFR_ERR_READ_ZERO_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFR_ERR_READ_ZERO_SIZE&#160;&#160;&#160;-6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that occurs if the data pointer, item count and item size is null/zero in <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#aa55eb0bf0c32153447761b54f0757e7f">AEFileReader::readData_ptr()</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a9ce9d513072d546450213344baac0c14" name="a9ce9d513072d546450213344baac0c14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ce9d513072d546450213344baac0c14">&#9670;&#160;</a></span>AEFR_ERR_READING_EOF</h2>
 
@@ -284,21 +308,24 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="ae4dddd11d19c43d0444adfd389e58640" name="ae4dddd11d19c43d0444adfd389e58640"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4dddd11d19c43d0444adfd389e58640">&#9670;&#160;</a></span>AEFR_ERR_WRITE_ZERO_SIZE</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aa2fae8139d58849ff9f67195f675b6a7" name="aa2fae8139d58849ff9f67195f675b6a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2fae8139d58849ff9f67195f675b6a7">&#9670;&#160;</a></span>REGISTER_CLASS()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFR_ERR_WRITE_ZERO_SIZE&#160;&#160;&#160;-6</td>
+          <td class="memname">REGISTER_CLASS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that occurs if the data pointer, item count and item size is null/zero in <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#aa55eb0bf0c32153447761b54f0757e7f">AEFileReader::readData_ptr()</a> </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00268">268</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -308,7 +335,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3da38e614281be5a2938b27bbc39cb74.html">AEFileReader</a></li><li class="navelem"><a class="el" href="../../dir_7ecab22c60312b67bd1e323ce6ef6108.html">include</a></li><li class="navelem"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html">AEFileReader.hpp</a></li>
-    <li class="footer">Generated on Fri Oct 6 2023 01:18:06 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 7 2023 15:09:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

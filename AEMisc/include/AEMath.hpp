@@ -19,9 +19,16 @@
 
 
 /// Macro to convert degrees value x to radians
-#define torad(x,typ) (x * ace::math::pi<typ>() / typ(180))
+/// <param name="x">Value of degrees to convert</param>
+/// <param name="typ">The type of the resulting operation</param>
+#define torad(deg,typ) (deg * ace::math::pi<typ>() / typ(180))
 
-#define todeg(x,typ) (x*typ(180.0)/ace::math::pi<typ>())
+/// Macro to convert radians value x to degrees
+/// <param name="x">Value of radians to convert</param>
+/// <param name="typ">The type of the resulting operation</param>
+#define todeg(rad,typ) (rad*typ(180)/ace::math::pi<typ>())
+
+
 ///Mathematical functions and other things usefull in math
 namespace ace::math {
 
