@@ -35,7 +35,7 @@ public:
 	/// @note if you pass it 0 or negative number it will disable the delay untill a proper value is given
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
-	explicit AEFrame(const double fps = ENGINE_FPS) : m_tdChronoDelay((fps <= 0) ? microSec(0) : microSec(ullint(1000000.0 / fps))),
+	explicit AEFrame(const double fps = ENGINE_FPS) noexcept : m_tdChronoDelay((fps <= 0) ? microSec(0) : microSec(ullint(1000000.0 / fps))),
 		m_tpTimepoint(getSteadyTime()), m_fFPS(fps), m_bNoDelay((fps <= 0))
 	{}
 
@@ -45,7 +45,7 @@ public:
 	/// @note if you pass it 0 or negative number it will disable the delay untill a proper value is given
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
-	inline void setFps(const double fps) {
+	inline void setFps(const double fps) noexcept {
 		if (fps <= 0) { this->m_bNoDelay = true; return; }
 		this->m_tdChronoDelay = microSec(ullint(1000000.0 / fps));
 		this->m_tpTimepoint = getSteadyTime();
@@ -72,7 +72,7 @@ public:
 	/// Resets the time point in the AEFrame to current system time. 
 	/// Helps if the gameloop delay was much bigger than AEFrames for a long time (it causes delay to stop working untill it catches up)
 	/// </summary>
-	inline void resetTimePoint(void) {
+	inline void resetTimePoint(void) noexcept {
 		this->m_tpTimepoint = getSteadyTime();
 	}
 
@@ -80,13 +80,13 @@ public:
 	/// Returns the fps goal of AEFrame instance
 	/// </summary>
 	/// <returns>double of the given fps goal</returns>
-	inline double getFrameRate(void) const { return this->m_fFPS; }
+	inline double getFrameRate(void) const noexcept { return this->m_fFPS; }
 
 	/// <summary>
 	/// Returns the maximum AEFrame's delay from the set fps, in seconds
 	/// </summary>
 	/// <returns>double of the maximum AEFrame's delay in real-world seconds</returns>
-	inline double getDelay(void) const { return this->m_tdChronoDelay.count(); }
+	inline double getDelay(void) const noexcept { return this->m_tdChronoDelay.count(); }
 
 private:
 

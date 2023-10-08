@@ -1,5 +1,5 @@
 #include "../include/AEFileReader.hpp"
-
+#include <filesystem>
 
 
 AEFileReader::AEFileReader(const std::string_view fname) :
@@ -30,7 +30,7 @@ int AEFileReader::openFile(const std::string_view fname) {
 
 //reads the string of set size, Unfilled characters (if eof) are zeroed. MUST be of the dcount+1 size!
 //if file is closed, contents is not modified
-cint AEFileReader::readString(char* str, const std::size_t dcount) {
+cint AEFileReader::readString(char* str, const std::size_t dcount) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 	if (!dcount || !str) {
 		this->m_cLastError = AEFR_ERR_READ_ZERO_SIZE;
@@ -41,7 +41,7 @@ cint AEFileReader::readString(char* str, const std::size_t dcount) {
 }
 
 //reads the string untill the newline or, as a safety measure, untill dcount. MUST be of the dcount+1 size!
-cint AEFileReader::readStringNL(char* str, const int dcount) {
+cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
 	if (!dcount || !str) {
@@ -66,10 +66,10 @@ cint AEFileReader::readStringNL(char* str, const int dcount) {
 
 //reads the string untill the null, or untill dcount
 //moves the cursor to the found null char+1
-cint AEFileReader::readStringNULL(char* str, const std::size_t dcount) {
+cint AEFileReader::readStringNULL(char* str, const llint dcount) {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
-	if (!dcount || !str) {
+	if (dcount < 1 || !str) {
 		this->m_cLastError = AEFR_ERR_READ_ZERO_SIZE;
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
@@ -86,12 +86,12 @@ cint AEFileReader::readStringNULL(char* str, const std::size_t dcount) {
 	return temp;
 }
 
-cint AEFileReader::readBoolString(bool& num) {
+cint AEFileReader::readBoolString(bool& num) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 	char str[6]{};
 
-	cint temp = this->readData_ptr(&str, 4, sizeof(char)); //read possible "true"
-	for (int i = 0; i < 6; i++) {
+	cint temp = this->readData_ptr(str, 4, sizeof(char)); //read possible "true"
+	for (int i = 0; i < 4; i++) {
 		str[i] = std::tolower(str[i]);
 	}
 
@@ -109,7 +109,7 @@ cint AEFileReader::readBoolString(bool& num) {
 }
 
 // reads data to ptr
-cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize) {
+cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
 	if (!dcount || !dsize || !cdata) {

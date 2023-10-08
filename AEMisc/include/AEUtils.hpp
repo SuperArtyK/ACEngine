@@ -98,7 +98,7 @@ namespace ace {
 		/// <param name="i">The value to check</param>
 		/// <returns>True if the value is in the range, false otherwise</returns>
 		template<typename T>
-		constexpr bool isInRange(const T minval, const T maxval, const T i) {
+		constexpr bool isInRange(const T minval, const T maxval, const T i) noexcept {
 			return (minval <= i) && (i <= maxval);
 		}
 
@@ -149,7 +149,7 @@ namespace ace {
 				return false;
 			}
 
-			std::size_t len = std::strlen(strnum);
+			const std::size_t len = std::strlen(strnum);
 
 			//is it 0?
 			if (len == 0) {
@@ -200,7 +200,11 @@ namespace ace {
 		/// <param name="timept">C time point</param>
 		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long</param>
 		/// <returns>std::string of the formatted string</returns>
-		inline void formatDate(const time_t timept, char* str) {
+		inline void formatDate(const time_t timept, char* str) noexcept {
+			if (!str) {
+				return;
+			}
+
 			struct tm tstruct;
 #ifdef _WIN32
 			localtime_s(&tstruct, &timept);
@@ -216,7 +220,7 @@ namespace ace {
 		/// Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS
 		/// </summary>
 		/// <returns>std::stringof the current date in YYYY-MM-DD.HH:mm:SS format</returns>
-		inline std::string getCurrentDate(void) {//
+		inline std::string getCurrentDate(void) {
 			return ace::utils::formatDate(time(NULL));
 		}
 

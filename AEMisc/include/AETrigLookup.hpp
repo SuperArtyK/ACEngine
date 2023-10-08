@@ -16,6 +16,7 @@
 
 #include <limits>
 #include "AETypedefs.hpp"
+#include "include/AEFlags.hpp"
 
 
 #ifdef ENGINE_ENABLE_TRIG_LOOKUP

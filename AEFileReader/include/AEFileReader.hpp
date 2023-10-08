@@ -10,20 +10,18 @@
 
 #pragma once
 
-#ifndef ENGINE_NAME_HPP
-#define ENGINE_NAME_HPP
+#ifndef ENGINE_FILE_READER_HPP
+#define ENGINE_FILE_READER_HPP
 
 #include "include/AEModuleBase.hpp"
 #include "include/AETypedefs.hpp"
 #include "include/AEUtils.hpp"
 #include <cstring>
 #include <vector>
-#include <filesystem>
 #include <string>
 #include <string_view>
 #include <limits>
 #include <cstdio>
-#include <stdexcept>
 
 
 // Do NOT touch!
@@ -83,7 +81,7 @@ public:
 	/// <summary>
 	/// Class constructor -- constructs the instance with default values, and doesn't open the file
 	/// </summary>
-	AEFileReader(void) : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
+	AEFileReader(void) noexcept : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
 
 //we don't need those
 	/// <summary>
@@ -121,7 +119,7 @@ public:
 		this->m_szLastReadAmount = 0;
 		this->m_fpFilestr = nullptr;
 		this->m_sFilename.clear();
-		clearError();
+		this->clearError();
 	}
 
 
@@ -134,7 +132,7 @@ public:
 	/// <param name="var">The variable to fill with bytes</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	template<typename T>
-	inline cint readVariable(T& var) {
+	inline cint readVariable(T& var) noexcept {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		std::memset(&var, NULL, sizeof(T));
 		return this->readData_ptr(&var, sizeof(T), 1);
@@ -189,7 +187,7 @@ public:
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
-	inline cint readString(char* str, const std::size_t dcount); //defined below class
+	inline cint readString(char* str, const std::size_t dcount) noexcept; //defined below class
 
 
 //read string untill new linecharacter
@@ -205,7 +203,7 @@ public:
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readStringNL(std::string& str, const int dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		str.resize(dcount + 1); //+1 because of null termination..since we write to it directly
+		str.resize(std::size_t(dcount + 1)); //+1 because of null termination..since we write to it directly
 		const cint temp = this->readStringNL(str.data(), dcount);
 		str.resize(this->m_szLastReadAmount); // resize to the string size (in case we got eof/newline)
 		return temp;
@@ -222,7 +220,7 @@ public:
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readStringNL(std::vector<char>& str, const int dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		str.resize(dcount + 1);
+		str.resize(std::size_t(dcount + 1));
 		const cint temp = this->readStringNL(str.data(), dcount);
 		str.resize(this->m_szLastReadAmount + 1); //we're resizing; +1 because vectors dont insert null terminator
 		return temp;
@@ -237,7 +235,7 @@ public:
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
-	cint readStringNL(char* str, const int dcount); //defined below class
+	cint readStringNL(char* str, const int dcount) noexcept; //defined below class
 
 
 //read string untill null character
@@ -250,9 +248,9 @@ public:
 	/// <param name="str">The refernce to the std::string object to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
-	inline cint readStringNULL(std::string& str, const std::size_t dcount) {
+	inline cint readStringNULL(std::string& str, const llint dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		str.resize(dcount + 1);
+		str.resize(std::size_t(dcount + 1));
 		const cint temp = this->readStringNULL(str.data(), dcount);
 		str.resize(this->m_szLastReadAmount); // resize to the string size (untill null termination)
 		return temp;
@@ -267,9 +265,9 @@ public:
 	/// <param name="str">The refernce to the std::vector<char> object to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
-	inline cint readStringNULL(std::vector<char>& str, const std::size_t dcount) {
+	inline cint readStringNULL(std::vector<char>& str, const llint dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		str.resize(dcount + 1);
+		str.resize(std::size_t(dcount + 1));
 		const cint temp = this->readStringNULL(str.data(), dcount);
 		str.resize(this->m_szLastReadAmount + 1); // resize to the string size (untill null termination); +1 because it doesnt insert null terminator
 		return temp;
@@ -284,7 +282,7 @@ public:
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
-	cint readStringNULL(char* str, const std::size_t dcount); //defined below class
+	cint readStringNULL(char* str, const llint dcount); //defined below class
 
 
 //read int
@@ -312,19 +310,19 @@ public:
 
 
 //read misc
-	inline cint readBool(bool& num) {
+	inline cint readBool(bool& num) noexcept {
 		return this->readVariable<bool>(num);
 	}
 
-	cint readBoolString(bool& num);
+	cint readBoolString(bool& num) noexcept;
 
 	//reads 1 byte of data and dumps it into char
-	inline cint readChar(char& num) {
+	inline cint readChar(char& num) noexcept {
 		return this->readVariable<char>(num);
 	}
 
 	//reads 1 byte of data and dumps it into unsigned char
-	inline cint readByte(unsigned char& num) {
+	inline cint readByte(unsigned char& num) noexcept {
 		return this->readVariable<unsigned char>(num);
 	}
 
@@ -341,13 +339,13 @@ public:
 	}
 
 	// reads bytes to ptr
-	inline cint readBytes(void* cdata, const std::size_t dcount) {
+	inline cint readBytes(void* cdata, const std::size_t dcount) noexcept {
 		return this->readData_ptr(cdata, dcount, sizeof(char));
 	}
 
 
 	// reads data to ptr
-	inline cint readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)); //defined below class
+	inline cint readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)) noexcept; //defined below class
 
 
 //file info get-setters
@@ -543,4 +541,4 @@ inline cint AEFileReader::readFloatString(T& num) {
 
 #undef fscanf
 
-#endif // !ENGINE_NAME_HPP
+#endif // !ENGINE_FILE_READER_HPP

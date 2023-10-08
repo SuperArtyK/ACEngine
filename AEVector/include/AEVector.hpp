@@ -36,7 +36,7 @@ public:
 	/// Returns the zeroed vector (of given dimensions and type)
 	/// </summary>
 	/// <returns>std::string of values of the vector in brackets</returns>
-	static constexpr AEVector<T, dimAmount> zero(void) {
+	static constexpr AEVector<T, dimAmount> zero(void) noexcept {
 		return AEVector<T, dimAmount>{};
 	}
 
@@ -48,7 +48,7 @@ public:
 	/// </summary>
 	/// <param name="index">The index of the dimension</param>
 	/// <returns>Reference to the dimension pointed by index</returns>
-	constexpr T& operator[](const std::size_t index) {
+	constexpr T& operator[](const std::size_t index) noexcept {
 		return this->dims[
 #ifdef AEVEC_WRAP_DIMENSIONS
 			index % dimAmount
@@ -65,7 +65,7 @@ public:
 	/// </summary>
 	/// <param name="index">The index of the dimension</param>
 	/// <returns>Constant reference to the dimension pointed by index</returns>
-	constexpr const T& operator[](const std::size_t index) const {
+	constexpr const T& operator[](const std::size_t index) const noexcept {
 		return this->dims[
 #ifdef AEVEC_WRAP_DIMENSIONS
 			index % dimAmount
@@ -83,7 +83,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>True if the vectors are equal, false otherwise</returns>
 	template<typename Y = T>
-	constexpr bool operator==(const AEVector<Y, dimAmount>& two) const {
+	constexpr bool operator==(const AEVector<Y, dimAmount>& two) const noexcept {
 
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			if (this->dims[i] != two.dims[i]) {
@@ -102,7 +102,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>True if the vectors are not equal, false otherwise</returns>
 	template<typename Y = T>
-	constexpr bool operator!=(const AEVector<Y, dimAmount>& two) const {
+	constexpr bool operator!=(const AEVector<Y, dimAmount>& two) const noexcept {
 		return !this->operator==<Y>(two);
 	}
 
@@ -114,7 +114,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>The reference to the resulting vector after the operation</returns>
 	template<typename Y = T>
-	constexpr AEVector<T, dimAmount>& operator+=(const AEVector<Y, dimAmount>& two) {
+	constexpr AEVector<T, dimAmount>& operator+=(const AEVector<Y, dimAmount>& two) noexcept {
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			this->dims[i] += two.dims[i];
 		}
@@ -129,7 +129,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>The value of the resulting vector after the operation</returns>
 	template<typename Y = T>
-	constexpr const AEVector<T, dimAmount> operator+(const AEVector<Y, dimAmount>& two) const {
+	constexpr const AEVector<T, dimAmount> operator+(const AEVector<Y, dimAmount>& two) const noexcept {
 		AEVector<T, dimAmount> a = *this;
 		return a.operator+=(two);
 	}
@@ -141,7 +141,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>The reference to the resulting vector after the operation</returns>
 	template<typename Y>
-	constexpr AEVector<T, dimAmount>& operator*=(const Y two) {
+	constexpr AEVector<T, dimAmount>& operator*=(const Y two) noexcept {
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			this->dims[i] *= two;
 		}
@@ -155,7 +155,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>The value of the resulting vector after the operation</returns>
 	template<typename Y>
-	constexpr const AEVector<T, dimAmount> operator*(const Y two) const {
+	constexpr const AEVector<T, dimAmount> operator*(const Y two) const noexcept {
 		AEVector<T, dimAmount> a = *this;
 		return a.operator*=(two);
 	}
@@ -199,7 +199,7 @@ public:
 	/// <typeparam name="F">The float type to calculate the magnitude with</typeparam>
 	/// <returns>The magnitude of the vector as the float type F</returns>
 	template<typename F = long double>
-	constexpr F magnitude(void) const {
+	constexpr F magnitude(void) const noexcept {
 		return ace::math::sqrt<F>( this->dotProduct<F,T>(*this) );
 	}
 
@@ -210,7 +210,7 @@ public:
 	/// <param name="index">The index of the dimension</param>
 	/// <returns>The normalised value of the dimension as the float type F</returns>
 	template<typename F = long double>
-	constexpr F normDim(const std::size_t index) const {
+	constexpr F normDim(const std::size_t index) const noexcept {
 		return this->operator[](index)/this->magnitude<F>();
 	}
 
@@ -220,7 +220,7 @@ public:
 	/// <typeparam name="F">The float type of the resulting normalised vector</typeparam>
 	/// <returns>The normalised vector</returns>
 	template<typename F = long double>
-	constexpr AEVector<F, dimAmount> normalise(void) const {
+	constexpr AEVector<F, dimAmount> normalise(void) const noexcept {
 		//vector magnitude
 		const F vecmag = this->magnitude<F>();
 		AEVector<F, dimAmount> ret;
@@ -239,7 +239,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>The value of the dot product of the type F</returns>
 	template<typename F = long double, typename Y = T>
-	constexpr F dotProduct(const AEVector<Y, dimAmount>& two) const {
+	constexpr F dotProduct(const AEVector<Y, dimAmount>& two) const noexcept {
 		F temp = 0;
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			temp += (this->dims[i] * two.dims[i]);
@@ -260,4 +260,3 @@ typedef AEVector<float, 3> AEVec3Float;
 
 
 #endif // !ENGINE_VECTOR_HPP
-

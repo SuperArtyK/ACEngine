@@ -1,5 +1,5 @@
 #include "../include/AEFileWriter.hpp"
-
+#include <filesystem>
 
 AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, const ullint af_interval) :
 	m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
@@ -25,7 +25,7 @@ AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
 
 // write data as binary function
 // uses const char
-cint AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) {
+cint AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) noexcept {
 
 	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
@@ -33,13 +33,13 @@ cint AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, co
 		return AEFW_ERR_WRITE_ZERO_SIZE;
 	}
 
-	const std::size_t writestatus = fwrite(cdata, dsize, dcount, m_fpFilestr);
+	this->m_szLastWrittenAmount = fwrite(cdata, dsize, dcount, this->m_fpFilestr);
 	this->m_ullTotalWrites++;
 	if (useAutoFlush) {
 		this->autoFlush();
 	}
 
-	if (writestatus != dcount) {
+	if (m_szLastWrittenAmount != dcount) {
 		return AEFW_ERR_WRITE_ERROR;
 	}
 
@@ -63,7 +63,7 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 
 	this->m_szLastWrittenAmount = 0;
 	this->m_sFilename = str;
-	std::size_t found = this->m_sFilename.rfind('/');
+	const std::size_t found = this->m_sFilename.rfind('/');
 	if (found != std::string::npos) {
 		std::filesystem::create_directories(this->m_sFilename.substr(0, found));
 	}
@@ -107,4 +107,3 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 	this->m_ullFlushInterval = af_interval;
 	return AEFW_ERR_NOERROR;
 }
-

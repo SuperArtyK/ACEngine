@@ -38,7 +38,7 @@ AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 //constructor
 AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
-	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bStopTrd(false) {
+	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
 
 
 	//add the allocated queue pointed to the list
@@ -67,7 +67,7 @@ void AELogger::startWriter(void) {
 		return; //we already are writing, dummy;
 	}
 
-	this->m_bStopTrd = false;
+	this->m_bRunTrd = true;
 	this->m_trdWriter = std::thread(&AELogger::logWriterThread, this);
 	if (!this->m_trdWriter.joinable()) {
 		this->writeToLog("Could not start AELogger thread!! (exception)", AELOG_TYPE_FATAL_ERROR, this->m_sModulename);
@@ -80,7 +80,7 @@ void AELogger::startWriter(void) {
 void AELogger::stopWriter(void) {
 
 	this->writeToLog("Attempting to stop the log-writing thread...", AELOG_TYPE_INFO, this->m_sModulename);
-	this->m_bStopTrd = true;
+	this->m_bRunTrd = false;
 	if (this->m_trdWriter.joinable()) {
 		this->m_trdWriter.join();
 	}
@@ -150,7 +150,7 @@ void AELogger::logWriterThread(void) {
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
-	while (!this->m_bStopTrd || this->m_ullFilledCount) {
+	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount) {
 		while (this->m_ullFilledCount) {
 			if (ePtr->m_ullOrderNum == m_ullWriterOrderNum) {
 
@@ -192,7 +192,7 @@ void AELogger::logWriterThread(void) {
 }
 
 
-AELogEntry* AELogger::ptrFromIndex(ullint num) {
+AELogEntry* AELogger::ptrFromIndex(ullint num) noexcept {
 	num %= m_ullQueueSize;
 	ullint prevSize = 0;
 	for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {

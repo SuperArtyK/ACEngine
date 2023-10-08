@@ -41,7 +41,7 @@ public:
 	/// <summary>
 	/// Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread
 	/// </summary>
-	AETimer() : m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) {}
+	AETimer() noexcept : m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) {}
 
 	/// <summary>
 	/// Copy constructor -- Just copies the data and then starts the timer if original timer was started.
@@ -108,7 +108,7 @@ public:
 	/// <summary>
 	/// Resets the timer's tick to 0
 	/// </summary>
-	inline void resetTick(void) {
+	inline void resetTick(void) noexcept {
 		this->m_ullTicks = 0;
 	}
 
@@ -116,7 +116,7 @@ public:
 	/// Sets the new tick value instead of the current
 	/// </summary>
 	/// <param name="tick">The tick value to set instance's tick value to</param>
-	inline void setTick(const ullint tick) {
+	inline void setTick(const ullint tick) noexcept {
 		this->m_ullTicks = tick;
 	}
 
@@ -136,7 +136,7 @@ public:
 	/// @note If thread is not started/working, the return value will be the same
 	/// </summary>
 	/// <returns>ullint of the current timer tick</returns>
-	inline ullint getTick(void) const {
+	inline ullint getTick(void) const noexcept {
 		return this->m_ullTicks;
 	}
 
@@ -145,7 +145,7 @@ public:
 	/// @note If thread is not started/working, the return value will be the same
 	/// </summary>
 	/// <returns>double of the approximate world time the timer has counted (using it's ticks)</returns>
-	inline double getWorldTime(void) const {
+	inline double getWorldTime(void) const noexcept {
 		return this->m_ullTicks.load() * this->m_rDelay.getDelay();
 	}
 
@@ -154,7 +154,7 @@ public:
 	/// @see AEFrame::getFrameRate()
 	/// </summary>
 	/// <returns>Rounded int of the approximated fps goal</returns>
-	inline double getFrameRate(void) const { 
+	inline double getFrameRate(void) const noexcept {
 		return this->m_rDelay.getFrameRate(); 
 	}
 
@@ -163,7 +163,7 @@ public:
 	/// @see AEFrame::getDelay()
 	/// </summary>
 	/// <returns>double of the maximum AEFrame's instance in the AETimer delay in real-world seconds</returns>
-	inline double getDelay(void) const {
+	inline double getDelay(void) const noexcept {
 		return this->m_rDelay.getDelay();
 	}
 

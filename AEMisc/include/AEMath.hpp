@@ -42,7 +42,7 @@ namespace ace::math {
 	/// <returns>Pi converted/rounded to a given type</returns>
 	template<typename T = long double>
 	constexpr T pi(void) noexcept {
-		return T(3.141592653589793L);
+		return T{ 3.141592653589793L };
 	}
 
 	/// <summary>
@@ -130,7 +130,7 @@ namespace ace::math {
 	/// <param name="num">The value to calculate absolute value of</param>
 	/// <returns>absolute value of the float as the type T</returns>
 	template<typename T>
-	constexpr inline T absval(const T num) {
+	constexpr inline T absval(const T num) noexcept {
 		return (num == 0) ? 0 : // work with signed 0's...if they exist
 			(num < 0) ? -num : num;
 	}
@@ -160,7 +160,7 @@ namespace ace::math {
 	/// <param name="num2">The second number to compare</param>
 	/// <returns>True if the two numbers are equal, false otherwise</returns>
 	template<typename T>
-	constexpr bool equals(const T num, const T num2) {
+	constexpr bool equals(const T num, const T num2) noexcept {
 		if constexpr (std::is_floating_point<T>::value) {
 			return ace::math::fequals(num, num2);
 		}
@@ -177,7 +177,7 @@ namespace ace::math {
 	/// <param name="num">The float value to calculate the square root from</param>
 	/// <returns>square root value from passed value of type T</returns>
 	template<typename T = long double>
-	constexpr T sqrt(const T num) {
+	constexpr T sqrt(const T num) noexcept {
 		T val[2] = { num,0 };
 		while (!ace::math::equals(val[0], val[1])) {
 			val[1] = val[0];
@@ -194,7 +194,7 @@ namespace ace::math {
 	/// <param name="b">The second value to compare</param>
 	/// <returns>Value of a if it is bigger than b; value of b otherwise</returns>
 	template<typename T>
-	constexpr T max(const T& a, const T& b) {
+	constexpr T max(const T& a, const T& b) noexcept {
 		return (a > b) ? a : b;
 	}
 
@@ -206,7 +206,7 @@ namespace ace::math {
 	/// <param name="b">The second value to compare</param>
 	/// <returns>Value of a if it is smaller than b; value of b otherwise</returns>
 	template<typename T>
-	constexpr T min(const T& a, const T& b) {
+	constexpr T min(const T& a, const T& b) noexcept {
 		return (a < b) ? a : b;
 	}
 

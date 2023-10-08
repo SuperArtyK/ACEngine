@@ -220,7 +220,7 @@ public:
 	/// Get the name of the log file.
 	/// </summary>
 	/// <returns>std::string of the name of opened log file</returns>
-	inline std::string getLogName(void) const {
+	inline std::string getLogName(void) const noexcept {
 		return this->m_fwLogger.getFileName();
 	}
 
@@ -253,7 +253,7 @@ public:
 	/// </summary>
 	/// <returns>True if it is working(was launched), false otherwise</returns>
 	inline bool isWriting(void) const noexcept {
-		return !this->m_bStopTrd;
+		return this->m_bRunTrd;
 	}
 
 	/// <summary>
@@ -272,7 +272,7 @@ private:
 	/// </summary>
 	/// <param name="num">The index number of the log entry</param>
 	/// <returns>Pointer to the node of that index</returns>
-	AELogEntry* ptrFromIndex(ullint num);
+	AELogEntry* ptrFromIndex(ullint num) noexcept;
 
 	/// <summary>
 	/// The function of the log writing thread to...read the entries, format them, write them, and clear them.
@@ -302,8 +302,8 @@ private:
 	AELogEntry* m_lepQueue;
 	/// The pointer to the last item in the queue
 	AELogEntry* m_lepLastNode;
-	/// The flag to stop the log-writing thread
-	std::atomic<bool> m_bStopTrd;
+	/// The flag to run the log-writing thread
+	std::atomic<bool> m_bRunTrd;
 
 	// And we don't need to keep the separate variables for the name of the file
 	// and amount of log entries we did, etc.
