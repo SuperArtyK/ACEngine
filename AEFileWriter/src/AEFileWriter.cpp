@@ -11,10 +11,12 @@ AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, co
 
 AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
 	m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(fw.m_sFilename),
-	m_ullTotalWrites(fw.m_ullTotalWrites), m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_cFlags(fw.m_cFlags) {
+	m_ullTotalWrites(fw.m_ullTotalWrites), m_szLastWrittenAmount(fw.m_szLastWrittenAmount),
+	m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_cFlags(fw.m_cFlags) {
 
 	fw.m_ullFlushInterval = 0;
 	fw.m_ullTotalWrites = 0;
+	fw.m_szLastWrittenAmount = 0;
 	fw.m_fpFilestr = nullptr;
 	fw.m_cLastError = 0;
 	fw.m_sFilename.clear();
@@ -25,7 +27,7 @@ AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
 // uses const char
 cint AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) {
 
-	_AEFW_EXIT_ON_CLOSED_FILE;
+	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
 	if (!dcount || !dsize || !cdata) {
 		return AEFW_ERR_WRITE_ZERO_SIZE;
@@ -59,7 +61,7 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 		return AEFW_ERR_FILE_NAME_EMPTY;
 	}
 
-
+	this->m_szLastWrittenAmount = 0;
 	this->m_sFilename = str;
 	std::size_t found = this->m_sFilename.rfind('/');
 	if (found != std::string::npos) {

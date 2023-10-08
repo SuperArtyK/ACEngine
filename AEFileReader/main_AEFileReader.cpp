@@ -21,13 +21,15 @@ int main(){
 
     AEFileReader myfr("test.txt");
 
-	std::string a;
-	std::vector<char>b;
+	std::string a,b;
 
 	bool bl = false;
 
-	cout << int(myfr.readBoolString(bl)) << endl;
-	cout << bl << endl;
-	
+	cout << int(myfr.readStringNL(a, 200)) << endl;
+	cout << a;
+	myfr.readStringNL(b, 200);
+	cout << b << endl;
+
+
     return 0;
 }
