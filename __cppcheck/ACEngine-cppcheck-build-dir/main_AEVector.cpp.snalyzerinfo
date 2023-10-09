@@ -1,4 +1,4 @@
-pi call:[T] noreturn:[T]
+pi
 sinDeg call:[T,sin] noreturn:[sin]
 cosDeg call:[T,cos] noreturn:[cos]
 tanDeg call:[T,tan] noreturn:[tan]

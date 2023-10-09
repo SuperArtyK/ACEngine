@@ -7,6 +7,7 @@ getFrameRate
 getDelay call:[count] noreturn:[count]
 getTypeName < AEFrame >
 AETimer call:[startThread] noreturn:[startThread]
+AETimer
 AETimer call:[startThread] noreturn:[startThread]
 operator= call:[load,startThread] noreturn:[startThread]
 AETimer call:[stopThread] noreturn:[stopThread]

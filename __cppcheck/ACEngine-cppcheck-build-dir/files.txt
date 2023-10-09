@@ -1,3 +1,11 @@
+AEFileReader.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileReader.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileReader.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileReader.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileWriter.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
 AELogger.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp
 AELogger.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp
 AELogger.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp
@@ -10,6 +18,10 @@ main_AEFileWriter.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/mai
 main_AEFileWriter.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/main_AEFileWriter.cpp
 main_AEFileWriter.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/main_AEFileWriter.cpp
 main_AEFileWriter.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/main_AEFileWriter.cpp
+AEFileWriter.a5:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a6:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a7:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a8:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
 main_AEModuleBase.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp
 main_AEModuleBase.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp
 main_AEModuleBase.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp
@@ -18,6 +30,10 @@ main_Misc.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp
 main_Misc.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp
 main_Misc.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp
 main_Misc.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp
+AEFileWriter.a9:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a10:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a11:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
+AEFileWriter.a12:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileWriter/src/AEFileWriter.cpp
 main_AELogger.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AELogger/main_AELogger.cpp
 main_AELogger.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AELogger/main_AELogger.cpp
 main_AELogger.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AELogger/main_AELogger.cpp
@@ -42,3 +58,7 @@ main_AEFileReader.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileReader/mai
 main_AEFileReader.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileReader/main_AEFileReader.cpp
 main_AEFileReader.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileReader/main_AEFileReader.cpp
 main_AEFileReader.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileReader/main_AEFileReader.cpp
+AEFileReader.a5:Debug|Win32:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileReader.a6:Release|Win32:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileReader.a7:Debug|x64:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp
+AEFileReader.a8:Release|x64:C:/Users/artem/CODING/ACEngine/AEFileReader/src/AEFileReader.cpp

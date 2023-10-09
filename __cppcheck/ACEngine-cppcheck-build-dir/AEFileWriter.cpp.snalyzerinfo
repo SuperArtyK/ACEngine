@@ -1,0 +1,32 @@
+AEFileWriter
+AEFileWriter call:[closeFile,flushFile] noreturn:[closeFile]
+flushFile call:[fflush]
+closeFile call:[clear,clearError,fclose] noreturn:[clearError]
+writeString call:[c_str,empty,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeString call:[data,empty,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeString call:[sizeof,strlen,writeData_ptr] noreturn:[writeData_ptr]
+writeInt call:[sizeof,snprintf,writeString] noreturn:[writeString]
+writeUInt call:[sizeof,snprintf,writeString] noreturn:[writeString]
+writeBool call:[boolToString,writeString] noreturn:[writeString]
+writeChar call:[writeByte] noreturn:[writeByte]
+writeByte call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeBytes call:[writeData_ptr] noreturn:[writeData_ptr]
+writeBytes call:[data,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeData_ref call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
+isOpen call:[bool] noreturn:[bool]
+getFileSize call:[fseek,ftell]
+getFileName
+getFilePtr
+getCursorPos call:[ftell] noreturn:[ftell]
+setCursorPos call:[fseek] noreturn:[fseek]
+getLastError
+getTotalWrites
+getLastWrittenAmount
+clearError
+autoFlush call:[flushFile] noreturn:[flushFile]
+writeFloat call:[IS_SAME_NOC,sizeof,snprintf,static_assert,writeString] noreturn:[writeString]
+write call:[IS_SAME_NOC,sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
+AEFileWriter call:[openFile] noreturn:[openFile]
+AEFileWriter call:[clear]
+writeData_ptr call:[autoFlush,fwrite] noreturn:[autoFlush]
+openFile call:[clear,closeFile,create_directories,data,empty,fopenCC,fseek,rfind,substr] noreturn:[closeFile,create_directories]

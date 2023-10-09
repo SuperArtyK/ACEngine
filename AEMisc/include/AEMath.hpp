@@ -119,7 +119,7 @@ namespace ace::math {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
 			//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
-			return (num < 0) ? T(num + Y(0.5)) * -1 : T(num + Y(0.5));
+			return (num < 0) ? T(num + Y(0.5f)) * -1 : T(num + Y(0.5f));
 		}
 	}
 	

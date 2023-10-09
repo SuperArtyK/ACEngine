@@ -2,16 +2,126 @@
 <results version="2">
     <cppcheck version="2.11"/>
     <errors>
-        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;amp;tstruct" verbose="Uninitialized variable: &amp;amp;tstruct" cwe="457" file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\include\AEUtils.hpp" line="193"/>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;amp;tstruct" verbose="Uninitialized variable: &amp;amp;tstruct" cwe="457" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AEUtils.hpp" line="188"/>
         </error>
-        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;amp;tstruct" verbose="Uninitialized variable: &amp;amp;tstruct" cwe="457" file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\include\AEUtils.hpp" line="211"/>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;amp;tstruct" verbose="Uninitialized variable: &amp;amp;tstruct" cwe="457" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AEUtils.hpp" line="210"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\include\AEUtils.hpp" line="225"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AEUtils.hpp" line="224"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
+        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2884" info="default parameter was declared here"/>
+            <location file="AEFileReader\src\AEFileReader.cpp" line="15" info="calling a function that uses a default argument is disallowed "/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="20"/>
+        </error>
+        <error id="clang-tidy-readability-container-size-empty" severity="style" msg="the &amp;#039;empty&amp;#039; method should be used to check for emptiness instead of &amp;#039;size&amp;#039; " verbose="the &amp;#039;empty&amp;#039; method should be used to check for emptiness instead of &amp;#039;size&amp;#039; " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="1295" info="method &amp;#039;basic_string_view&amp;#039;::empty() defined here"/>
+            <location file="AEFileReader\src\AEFileReader.cpp" line="21" info="the &amp;#039;empty&amp;#039; method should be used to check for emptiness instead of &amp;#039;size&amp;#039; "/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;size_type&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;size_type&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="21"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="30"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="42"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="44"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="44"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="53"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="56"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="56"/>
+        </error>
+        <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast " verbose="C-style casts are discouraged; use static_cast " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="61"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="62"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="69"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="78"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="81"/>
+        </error>
+        <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast (if needed, the cast may be redundant) " verbose="C-style casts are discouraged; use static_cast (if needed, the cast may be redundant) " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="92"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="98"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="100"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="100"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="102"/>
+        </error>
+        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="103"/>
+        </error>
+        <error id="clang-tidy-cppcoreguidelines-pro-bounds-constant-array-index" severity="style" msg="do not use array subscript when the index is not an integer constant expression " verbose="do not use array subscript when the index is not an integer constant expression " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="104"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;char&amp;#039; is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;char&amp;#039; is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="104"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="107"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="107"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="107"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="113"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="113"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="113"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="121"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="124"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;void *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;void *&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="124"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="132"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="135"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;readBoolString&amp;#039; is never used." verbose="The function &amp;#039;readBoolString&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\src\AEFileReader.cpp" line="98"/>
+        </error>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
             <location file="AELogger\src\AELogger.cpp" line="137"/>
         </error>
         <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
@@ -222,103 +332,106 @@
         <error id="clang-tidy-modernize-loop-convert" severity="style" msg="use range-based for loop instead " verbose="use range-based for loop instead " file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\src\AELogger.cpp" line="198"/>
         </error>
-        <error id="internalError" severity="error" msg="Bailing out from checking since there was an internal error: Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\AELogger.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero." verbose="Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\AELogger.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero.&#10;Output:&#10;&#10;Traceback (most recent call last):&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot;, line 241, in &amp;lt;module&amp;gt;&#13;&#10;    check_y2038_safe(dumpfile, quiet)&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot;, line 156, in check_y2038_safe&#13;&#10;    data = cppcheckdata.CppcheckData(dumpfile)&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\cppcheckdata.py&amp;quot;, line 1194, in __init__&#13;&#10;    for event, node in ElementTree.iterparse(self.filename, events=(&amp;#039;start&amp;#039;, &amp;#039;end&amp;#039;)):&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1255, in iterator&#13;&#10;    root = pullparser._close_and_return_root()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1298, in _close_and_return_root&#13;&#10;    root = self._parser.close()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^&#13;&#10;xml.etree.ElementTree.ParseError: unclosed token: line 1177, column " sinceDate="yyyy-MM-dd">
-            <location file="AELogger\src\AELogger.cpp" line="0"/>
-        </error>
         <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;a&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;a&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="57"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="55"/>
         </error>
         <error id="unreadVariable" severity="style" msg="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." cwe="563" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="57"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="55"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="88"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+            <location file="ACEngine\main_ACEngine.cpp" line="86"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="47"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+            <location file="ACEngine\main_ACEngine.cpp" line="43"/>
         </error>
         <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="45"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="41"/>
         </error>
         <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="45"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="41"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="random number generator seeded with a disallowed source of seed value will generate a predictable sequence of values [cert-msc32-c,cert-msc51-cpp]" verbose="random number generator seeded with a disallowed source of seed value will generate a predictable sequence of values [cert-msc32-c,cert-msc51-cpp]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="47"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="43"/>
         </error>
         <error id="clang-tidy-modernize-use-nullptr" severity="style" msg="use nullptr " verbose="use nullptr " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="47"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="43"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\include\AEFrame.hpp" line="38" info="default parameter was declared here"/>
-            <location file="ACEngine\main_ACEngine.cpp" line="48" info="calling a function that uses a default argument is disallowed "/>
+            <location file="ACEngine\main_ACEngine.cpp" line="44" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-tidy-misc-const-correctness" severity="warning" msg="variable &amp;#039;mytm&amp;#039; of type &amp;#039;AETimer&amp;#039; can be declared &amp;#039;const&amp;#039; " verbose="variable &amp;#039;mytm&amp;#039; of type &amp;#039;AETimer&amp;#039; can be declared &amp;#039;const&amp;#039; " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="50"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="46"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="10000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="10000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="50"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="46"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="32 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="32 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="51"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="47"/>
         </error>
         <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="52"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="48"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]" verbose="rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="53"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="49"/>
         </error>
         <error id="clang-tidy-concurrency-mt-unsafe" severity="style" msg="function is not thread safe " verbose="function is not thread safe " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="53"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="49"/>
+        </error>
+        <error id="clang-tidy-misc-const-correctness" severity="warning" msg="variable &amp;#039;myfr&amp;#039; of type &amp;#039;AEFileReader&amp;#039; can be declared &amp;#039;const&amp;#039; " verbose="variable &amp;#039;myfr&amp;#039; of type &amp;#039;AEFileReader&amp;#039; can be declared &amp;#039;const&amp;#039; " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
+            <location file="ACEngine\main_ACEngine.cpp" line="52"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\include\AELogger.hpp" line="141" info="default parameter was declared here"/>
-            <location file="ACEngine\main_ACEngine.cpp" line="56" info="calling a function that uses a default argument is disallowed "/>
+            <location file="ACEngine\main_ACEngine.cpp" line="54" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-tidy-readability-identifier-length" severity="style" msg="variable name &amp;#039;a&amp;#039; is too short, expected at least 3 characters " verbose="variable name &amp;#039;a&amp;#039; is too short, expected at least 3 characters " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="57"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="55"/>
         </error>
         <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="62"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="60"/>
         </error>
         <error id="clang-tidy-modernize-use-bool-literals" severity="style" msg="converting integer literal to bool, use bool literal instead " verbose="converting integer literal to bool, use bool literal instead " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="62"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="60"/>
         </error>
         <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="62"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="60"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]" verbose="rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="65"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="63"/>
         </error>
         <error id="clang-tidy-concurrency-mt-unsafe" severity="style" msg="function is not thread safe " verbose="function is not thread safe " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="65"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="63"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="400 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="400 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="66"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="64"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="243" info="default parameter was declared here"/>
-            <location file="ACEngine\main_ACEngine.cpp" line="68" info="calling a function that uses a default argument is disallowed "/>
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="230" info="default parameter was declared here"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="66" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to &amp;#039;float&amp;#039; [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to &amp;#039;float&amp;#039; [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="ACEngine\main_ACEngine.cpp" line="70"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="68"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="207" info="default parameter was declared here"/>
-            <location file="ACEngine\main_ACEngine.cpp" line="77" info="calling a function that uses a default argument is disallowed "/>
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="194" info="default parameter was declared here"/>
+            <location file="ACEngine\main_ACEngine.cpp" line="75" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\include\AELogger.hpp" line="201" info="default parameter was declared here"/>
-            <location file="ACEngine\main_ACEngine.cpp" line="81" info="calling a function that uses a default argument is disallowed "/>
+            <location file="ACEngine\main_ACEngine.cpp" line="79" info="calling a function that uses a default argument is disallowed "/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
+        <error id="signConversion" severity="warning" msg="Expression &amp;#039;-1&amp;#039; has a negative value. That is converted to an unsigned value and used in an unsigned calculation." verbose="Expression &amp;#039;-1&amp;#039; has a negative value. That is converted to an unsigned value and used in an unsigned calculation." cwe="195" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AEMath.hpp" line="122"/>
+        </error>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\include\AEFrame.hpp" line="60"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
-            <location file="AETimer\include\AETimer.hpp" line="165"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+            <location file="AETimer\include\AETimer.hpp" line="178"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
-            <location file="AETimer\include\AETimer.hpp" line="189"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+            <location file="AETimer\include\AETimer.hpp" line="202"/>
         </error>
         <error id="syntaxError" severity="error" msg="No pair for character (&amp;quot;). Can&amp;#039;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&amp;quot;). Can&amp;#039;t process file. File is either invalid or unicode, which is currently not supported." sinceDate="yyyy-MM-dd">
             <location file="AEFileWriter\main_AEFileWriter.cpp" line="2"/>
@@ -395,14 +508,8 @@
         <error id="clang-tidy-modernize-use-nullptr" severity="style" msg="use nullptr " verbose="use nullptr " file0="AEFileWriter/main_AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFileWriter\main_AEFileWriter.cpp" line="25"/>
         </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AEFileWriter/main_AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="114" info="default parameter was declared here"/>
-            <location file="AEFileWriter\main_AEFileWriter.cpp" line="27" info="calling a function that uses a default argument is disallowed "/>
-        </error>
-        <error id="clang-tidy-bugprone-implicit-widening-of-multiplication-result" severity="style" msg="performing an implicit widening conversion to type &amp;#039;size_type&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) of a multiplication performed in type &amp;#039;int&amp;#039; " verbose="performing an implicit widening conversion to type &amp;#039;size_type&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) of a multiplication performed in type &amp;#039;int&amp;#039; " file0="AEFileWriter/main_AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\main_AEFileWriter.cpp" line="32" info="perform multiplication in a wider type"/>
-            <location file="AEFileWriter\main_AEFileWriter.cpp" line="32" info="make conversion explicit to silence this warning"/>
-            <location file="AEFileWriter\main_AEFileWriter.cpp" line="32" info="performing an implicit widening conversion to type &amp;#039;size_type&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) of a multiplication performed in type &amp;#039;int&amp;#039; "/>
+        <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast " verbose="C-style casts are discouraged; use static_cast " file0="AEFileWriter/main_AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\main_AEFileWriter.cpp" line="32"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileWriter/main_AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFileWriter\main_AEFileWriter.cpp" line="32"/>
@@ -462,8 +569,14 @@
         <error id="unusedFunction" severity="style" msg="The function &amp;#039;getTypeName&amp;#039; is never used." verbose="The function &amp;#039;getTypeName&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
             <location file="AEModuleBase\main_AEModuleBase.cpp" line="15"/>
         </error>
-        <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " file0="AEMisc/main_Misc.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\main_Misc.cpp" line="14"/>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEFlags.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEFlags.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AETrigLookup.hpp" line="21"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEMath.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEMath.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AETrigLookup.hpp" line="22"/>
+        </error>
+        <error id="clang-diagnostic-error" severity="style" msg="&amp;#039;include/AEFlags.hpp&amp;#039; file not found " verbose="&amp;#039;include/AEFlags.hpp&amp;#039; file not found " file0="AEMisc/main_Misc.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AETrigLookup.hpp" line="21"/>
         </error>
         <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEMisc/main_Misc.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEMisc\main_Misc.cpp" line="14"/>
@@ -501,10 +614,10 @@
         <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="14"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="29"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="58"/>
         </error>
         <error id="clang-tidy-misc-unused-using-decls" severity="style" msg="using decl &amp;#039;cout&amp;#039; is unused " verbose="using decl &amp;#039;cout&amp;#039; is unused " file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
@@ -606,11 +719,8 @@
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="56"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AEFrame.cpp.analyzerinfo.19916.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AEFrame.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\main_AEFrame.cpp" line="14"/>
-        </error>
-        <error id="internalError" severity="error" msg="Bailing out from checking since there was an internal error: Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AEFrame.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero." verbose="Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AEFrame.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero.&#10;Output:&#10;&#10;Traceback (most recent call last):&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot;, line 241, in &amp;lt;module&amp;gt;&#13;&#10;    check_y2038_safe(dumpfile, quiet)&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\y2038.py&amp;quot;, line 156, in check_y2038_safe&#13;&#10;    data = cppcheckdata.CppcheckData(dumpfile)&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\cppcheckdata.py&amp;quot;, line 1194, in __init__&#13;&#10;    for event, node in ElementTree.iterparse(self.filename, events=(&amp;#039;start&amp;#039;, &amp;#039;end&amp;#039;)):&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1255, in iterator&#13;&#10;    root = pullparser._close_and_return_root()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1298, in _close_and_return_root&#13;&#10;    root = self._parser.close()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^&#13;&#10;xml.etree.ElementTree.ParseError: unclosed token: line 68, column " sinceDate="yyyy-MM-dd">
-            <location file="AEFrame\main_AEFrame.cpp" line="0"/>
         </error>
         <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " file0="AEFrame/main_AEFrame.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\main_AEFrame.cpp" line="5"/>
@@ -638,9 +748,6 @@
         </error>
         <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AEFrame/main_AEFrame.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\main_AEFrame.cpp" line="11"/>
-        </error>
-        <error id="internalError" severity="error" msg="Bailing out from checking since there was an internal error: Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AETimer.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero." verbose="Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AETimer.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero.&#10;Output:&#10;&#10;Traceback (most recent call last):&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot;, line 343, in &amp;lt;module&amp;gt;&#13;&#10;    for cfg in data.iterconfigurations():&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\cppcheckdata.py&amp;quot;, line 1248, in iterconfigurations&#13;&#10;    for event, node in ElementTree.iterparse(self.filename, events=(&amp;#039;start&amp;#039;, &amp;#039;end&amp;#039;)):&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1255, in iterator&#13;&#10;    root = pullparser._close_and_return_root()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1298, in _close_and_return_root&#13;&#10;    root = self._parser.close()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^&#13;&#10;xml.etree.ElementTree.ParseError: unclosed token: line 1875, column " sinceDate="yyyy-MM-dd">
-            <location file="AETimer\main_AETimer.cpp" line="0"/>
         </error>
         <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " file0="AETimer/main_AETimer.cpp" sinceDate="yyyy-MM-dd">
             <location file="AETimer\main_AETimer.cpp" line="6"/>
@@ -671,9 +778,6 @@
         </error>
         <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="AETimer/main_AETimer.cpp" sinceDate="yyyy-MM-dd">
             <location file="AETimer\main_AETimer.cpp" line="13"/>
-        </error>
-        <error id="internalError" severity="error" msg="Bailing out from checking since there was an internal error: Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AEVector.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero." verbose="Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AEVector.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero.&#10;Output:&#10;&#10;Traceback (most recent call last):&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot;, line 341, in &amp;lt;module&amp;gt;&#13;&#10;    data = cppcheckdata.CppcheckData(dumpfile)&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\cppcheckdata.py&amp;quot;, line 1194, in __init__&#13;&#10;    for event, node in ElementTree.iterparse(self.filename, events=(&amp;#039;start&amp;#039;, &amp;#039;end&amp;#039;)):&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1255, in iterator&#13;&#10;    root = pullparser._close_and_return_root()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1298, in _close_and_return_root&#13;&#10;    root = self._parser.close()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^&#13;&#10;xml.etree.ElementTree.ParseError: unclosed token: line 273, column " sinceDate="yyyy-MM-dd">
-            <location file="AEVector\main_AEVector.cpp" line="0"/>
         </error>
         <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEVector/main_AEVector.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEVector\main_AEVector.cpp" line="7"/>
@@ -726,11 +830,8 @@
         <error id="unusedStructMember" severity="style" msg="struct member &amp;#039;ab::a&amp;#039; is never used." verbose="struct member &amp;#039;ab::a&amp;#039; is never used." cwe="563" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\main_AEFileReader.cpp" line="6"/>
         </error>
-        <error id="unusedVariable" severity="style" msg="Unused variable: b" verbose="Unused variable: b" cwe="563" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="25"/>
-        </error>
-        <error id="internalError" severity="error" msg="Bailing out from checking since there was an internal error: Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AEFileReader.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero." verbose="Failed to execute addon (command: &amp;#039;python.exe  &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot; --cli C:\Users\artem\CODING\ACEngine\__cppcheck\ACEngine-cppcheck-build-dir\main_AEFileReader.cpp.analyzerinfo.19916.dump&amp;#039;). Exitcode is nonzero.&#10;Output:&#10;&#10;Traceback (most recent call last):&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\threadsafety.py&amp;quot;, line 343, in &amp;lt;module&amp;gt;&#13;&#10;    for cfg in data.iterconfigurations():&#13;&#10;  File &amp;quot;C:\Program Files\Cppcheck\addons\cppcheckdata.py&amp;quot;, line 1248, in iterconfigurations&#13;&#10;    for event, node in ElementTree.iterparse(self.filename, events=(&amp;#039;start&amp;#039;, &amp;#039;end&amp;#039;)):&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1255, in iterator&#13;&#10;    root = pullparser._close_and_return_root()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#13;&#10;  File &amp;quot;C:\Program Files\Python311\Lib\xml\etree\ElementTree.py&amp;quot;, line 1298, in _close_and_return_root&#13;&#10;    root = self._parser.close()&#13;&#10;           ^^^^^^^^^^^^^^^^^^^^&#13;&#10;xml.etree.ElementTree.ParseError: unclosed token: line 2308, column " sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="0"/>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;bl&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;bl&amp;#039; is assigned a value that is never used." cwe="563" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\main_AEFileReader.cpp" line="26"/>
         </error>
         <error id="clang-tidy-google-build-using-namespace" severity="style" msg="do not use namespace using-directives; use using-declarations instead " verbose="do not use namespace using-directives; use using-declarations instead " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\main_AEFileReader.cpp" line="3"/>
@@ -763,29 +864,44 @@
         <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\main_AEFileReader.cpp" line="20"/>
         </error>
+        <error id="clang-tidy-readability-isolate-declaration" severity="style" msg="multiple declarations in a single statement reduces readability " verbose="multiple declarations in a single statement reduces readability " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\main_AEFileReader.cpp" line="24"/>
+        </error>
         <error id="clang-tidy-readability-identifier-length" severity="style" msg="variable name &amp;#039;a&amp;#039; is too short, expected at least 3 characters " verbose="variable name &amp;#039;a&amp;#039; is too short, expected at least 3 characters " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\main_AEFileReader.cpp" line="24"/>
         </error>
-        <error id="clang-tidy-misc-const-correctness" severity="warning" msg="variable &amp;#039;b&amp;#039; of type &amp;#039;std::vector&amp;lt;char&amp;gt;&amp;#039; can be declared &amp;#039;const&amp;#039; " verbose="variable &amp;#039;b&amp;#039; of type &amp;#039;std::vector&amp;lt;char&amp;gt;&amp;#039; can be declared &amp;#039;const&amp;#039; " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="25"/>
-        </error>
         <error id="clang-tidy-readability-identifier-length" severity="style" msg="variable name &amp;#039;b&amp;#039; is too short, expected at least 3 characters " verbose="variable name &amp;#039;b&amp;#039; is too short, expected at least 3 characters " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="25"/>
+            <location file="AEFileReader\main_AEFileReader.cpp" line="24"/>
+        </error>
+        <error id="clang-tidy-misc-const-correctness" severity="warning" msg="variable &amp;#039;bl&amp;#039; of type &amp;#039;bool&amp;#039; can be declared &amp;#039;const&amp;#039; " verbose="variable &amp;#039;bl&amp;#039; of type &amp;#039;bool&amp;#039; can be declared &amp;#039;const&amp;#039; " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\main_AEFileReader.cpp" line="26"/>
+        </error>
+        <error id="clang-tidy-readability-identifier-length" severity="style" msg="variable name &amp;#039;bl&amp;#039; is too short, expected at least 3 characters " verbose="variable name &amp;#039;bl&amp;#039; is too short, expected at least 3 characters " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\main_AEFileReader.cpp" line="26"/>
         </error>
         <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast " verbose="C-style casts are discouraged; use static_cast " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="27"/>
+            <location file="AEFileReader\main_AEFileReader.cpp" line="28"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="16000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="16000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="27"/>
+        <error id="clang-analyzer" severity="warning" msg="200 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="200 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\main_AEFileReader.cpp" line="28"/>
         </error>
-        <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast " verbose="C-style casts are discouraged; use static_cast " file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="29"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="16000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="16000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEFileReader\main_AEFileReader.cpp" line="29"/>
+        <error id="clang-analyzer" severity="warning" msg="200 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="200 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileReader\main_AEFileReader.cpp" line="30"/>
         </error>
         <error id="unusedFunction" severity="style" msg="The function &amp;#039;outputVec&amp;#039; is never used." verbose="The function &amp;#039;outputVec&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\main_AEFileReader.cpp" line="10"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEModuleBase.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEModuleBase.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="19"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEUtils.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEUtils.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="20"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AETypedefs.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AETypedefs.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="21"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEFlags.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEFlags.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="22"/>
         </error>
     </errors>
 </results>

@@ -11,8 +11,8 @@
 #include <filesystem>
 
 AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, const ullint af_interval) :
-	m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_fpFilestr(nullptr),
-	m_cLastError(AEFW_ERR_NOERROR), m_cFlags(flags) {
+	m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_szLastWrittenAmount(0),
+	 m_fpFilestr(nullptr), m_cLastError(AEFW_ERR_NOERROR), m_cFlags(flags) {
 
 	this->openFile(filename, flags);
 }

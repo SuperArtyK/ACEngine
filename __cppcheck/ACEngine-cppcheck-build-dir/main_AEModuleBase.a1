@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="15083192867793674070">
+<analyzerinfo hash="11959397918063088229">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp" line="2" column="0"/>
         </error>
@@ -28,7 +28,7 @@
         </error>
   <FileInfo check="Class">
 <class name="Test3" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp" line="5" col="1" hash="7972232955385532715"/>
-<class name="__AEModuleBase &lt; Test3 &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="16948471794603075374"/>
+<class name="__AEModuleBase &lt; Test3 &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="38" col="1" hash="12392065275656067348"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="getTypeName &lt; Test3 &gt;" lineNumber="15"/>

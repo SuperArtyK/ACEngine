@@ -34,6 +34,6 @@ note: this fix will not be applied because it overlaps with another fix
 
 
 
-183368 warnings generated.
-Suppressed 183356 warnings (183356 in non-user code).
+183328 warnings generated.
+Suppressed 183316 warnings (183316 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

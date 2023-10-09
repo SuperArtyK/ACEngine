@@ -76,32 +76,19 @@ C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:25:23: warning
         std::srand(std::time(NULL));
                              ^~~~
                              nullptr
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:27:15: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
-        AEFileWriter myfw;
-                     ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter/include/AEFileWriter.hpp:114:24: note: default parameter was declared here
-        explicit AEFileWriter(const char* filename = "", const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL) :
-                              ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:15: warning: performing an implicit widening conversion to type 'size_type' (aka 'unsigned long long') of a multiplication performed in type 'int' [bugprone-implicit-widening-of-multiplication-result]
-        vecb.reserve(1024 * 1024 * 1024);
-                     ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:15: note: make conversion explicit to silence this warning
-        vecb.reserve(1024 * 1024 * 1024);
-                     ^~~~~~~~~~~~~~~~~~
-                     static_cast<size_type>( )
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:15: note: perform multiplication in a wider type
-        vecb.reserve(1024 * 1024 * 1024);
-                     ^~~~~~~~~~~
-                     static_cast<long long>( )
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:15: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        vecb.reserve(1024 * 1024 * 1024);
-                     ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:22: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        vecb.reserve(1024 * 1024 * 1024);
-                            ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:29: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        vecb.reserve(1024 * 1024 * 1024);
-                                   ^
+C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:15: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+        vecb.reserve((std::size_t)1024 * 1024 * 1024);
+                     ^~~~~~~~~~~~~
+                     static_cast<std::size_t>( )
+C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:28: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        vecb.reserve((std::size_t)1024 * 1024 * 1024);
+                                  ^
+C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:35: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        vecb.reserve((std::size_t)1024 * 1024 * 1024);
+                                         ^
+C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:32:42: warning: 1024 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        vecb.reserve((std::size_t)1024 * 1024 * 1024);
+                                                ^
 C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:33:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         for (int i = 0; i < (1024 * 1024 * 1024); i++) {
         ^
@@ -133,6 +120,6 @@ C:\Users\artem\CODING\ACEngine\AEFileWriter\main_AEFileWriter.cpp:71:23: warning
 
 
 
-206986 warnings generated.
-Suppressed 206930 warnings (206930 in non-user code).
+199396 warnings generated.
+Suppressed 199343 warnings (199343 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

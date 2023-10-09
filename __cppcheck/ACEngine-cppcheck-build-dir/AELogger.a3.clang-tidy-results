@@ -39,10 +39,10 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:40:20: warning: implici
                           ^
                           static_cast<int>( )
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:41:133: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
-        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bStopTrd(false) {
+        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
                                                                                                                                            ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:41:145: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
-        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bStopTrd(false) {
+        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
                                                                                                                                                        ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:48:125: warning: static member accessed through instance [readability-static-accessed-through-instance]
         this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
@@ -166,10 +166,10 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:149:2: warning: do not 
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:149:15: warning: 20 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
         char timestr[20]{};
                      ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:153:30: warning: implicit conversion 'unsigned long long' -> bool [readability-implicit-bool-conversion]
-        while (!this->m_bStopTrd || this->m_ullFilledCount) {
-                                    ^
-                                    (                      != 0u)
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:153:61: warning: implicit conversion 'unsigned long long' -> bool [readability-implicit-bool-conversion]
+        while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount) {
+                                                                   ^
+                                                                   (                      != 0u)
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:154:10: warning: implicit conversion 'unsigned long long' -> bool [readability-implicit-bool-conversion]
                 while (this->m_ullFilledCount) {
                        ^
@@ -262,9 +262,9 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:191:53: warning: do not
         this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
                                                            ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:195:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
-AELogEntry* AELogger::ptrFromIndex(ullint num) {
+AELogEntry* AELogger::ptrFromIndex(ullint num) noexcept {
 ~~~~~~~~~~~           ^
-auto                                           -> AELogEntry*
+auto                                                    -> AELogEntry*
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:198:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^
@@ -275,6 +275,6 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:198:2: warning: use ran
 
 
 
-206303 warnings generated.
-Suppressed 206190 warnings (206190 in non-user code).
+198737 warnings generated.
+Suppressed 198624 warnings (198624 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

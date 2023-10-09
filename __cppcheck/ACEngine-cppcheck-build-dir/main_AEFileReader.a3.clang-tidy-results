@@ -32,33 +32,35 @@ C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:20:5: warning:
 int main(){
 ~~~ ^
 auto       -> int
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:24:2: warning: multiple declarations in a single statement reduces readability [readability-isolate-declaration]
+        std::string a,b;
+        ^~~~~~~~~~~~~~~~
 C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:24:14: warning: variable name 'a' is too short, expected at least 3 characters [readability-identifier-length]
-        std::string a;
+        std::string a,b;
                     ^
-C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:25:2: warning: variable 'b' of type 'std::vector<char>' can be declared 'const' [misc-const-correctness]
-        std::vector<char>b;
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:24:16: warning: variable name 'b' is too short, expected at least 3 characters [readability-identifier-length]
+        std::string a,b;
+                      ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:26:2: warning: variable 'bl' of type 'bool' can be declared 'const' [misc-const-correctness]
+        bool bl = false;
         ^
-                         const 
-C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:25:19: warning: variable name 'b' is too short, expected at least 3 characters [readability-identifier-length]
-        std::vector<char>b;
-                         ^
-C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:27:10: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
-        cout << int(myfr.readStringNL(a, 16000)) << endl;
+             const 
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:26:7: warning: variable name 'bl' is too short, expected at least 3 characters [readability-identifier-length]
+        bool bl = false;
+             ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:28:10: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+        cout << int(myfr.readStringNL(a, 200)) << endl;
                 ^~~
                 static_cast<int>
-C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:27:35: warning: 16000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        cout << int(myfr.readStringNL(a, 16000)) << endl;
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:28:35: warning: 200 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        cout << int(myfr.readStringNL(a, 200)) << endl;
                                          ^
-C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:29:10: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
-        cout << int(myfr.readStringNL(a, 16000)) << endl;
-                ^~~
-                static_cast<int>
-C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:29:35: warning: 16000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        cout << int(myfr.readStringNL(a, 16000)) << endl;
-                                         ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:30:23: warning: 200 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        myfr.readStringNL(b, 200);
+                             ^
 
 
 
-206699 warnings generated.
-Suppressed 206677 warnings (206677 in non-user code).
+199179 warnings generated.
+Suppressed 199156 warnings (199156 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

@@ -1,0 +1,148 @@
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:15:2: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
+        m_sFilename(fname), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {
+        ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring:2884:70: note: default parameter was declared here
+    _CONSTEXPR20 explicit basic_string(const _StringViewIsh& _Right, const _Alloc& _Al = _Alloc())
+                                                                     ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:20:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+int AEFileReader::openFile(const std::string_view fname) {
+~~~               ^
+auto                                                     -> int
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:21:7: warning: the 'empty' method should be used to check for emptiness instead of 'size' [readability-container-size-empty]
+        if (!fname.size()) {
+            ~^~~~~~~~~~~~
+            fname.empty()
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring:1295:31: note: method 'basic_string_view'::empty() defined here
+    _NODISCARD constexpr bool empty() const noexcept {
+                              ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:21:7: warning: implicit conversion 'size_type' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+        if (!fname.size()) {
+             ^
+note: this fix will not be applied because it overlaps with another fix
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:30:7: warning: implicit conversion 'FILE *' (aka '_iobuf *') -> bool [readability-implicit-bool-conversion]
+        if (!this->m_fpFilestr) {
+            ~^
+                               == nullptr
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:42:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+cint AEFileReader::readString(char* str, const std::size_t dcount) noexcept {
+~~~~               ^
+auto                                                                        -> cint
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:44:7: warning: implicit conversion 'std::size_t' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !str) {
+            ~^
+            (       == 0u)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:44:18: warning: implicit conversion 'char *' -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !str) {
+                       ~^
+                       (    == nullptr)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:53:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
+~~~~               ^
+auto                                                                  -> cint
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:56:7: warning: implicit conversion 'int' -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !str) {
+            ~^
+            (       == 0)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:56:18: warning: implicit conversion 'char *' -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !str) {
+                       ~^
+                       (    == nullptr)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:61:25: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+        std::memset(str, NULL, (std::size_t)dcount + 1);
+                               ^~~~~~~~~~~~~
+                               static_cast<std::size_t>( )
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:62:20: warning: implicit conversion 'char *' -> bool [readability-implicit-bool-conversion]
+        const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
+                          ^
+                                                                     != nullptr
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:69:6: warning: implicit conversion 'int' -> bool [readability-implicit-bool-conversion]
+        if (std::feof(this->m_fpFilestr)) {
+            ^
+                                         != 0
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:78:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+cint AEFileReader::readStringNULL(char* str, const llint dcount) {
+~~~~               ^
+auto                                                             -> cint
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:81:21: warning: implicit conversion 'char *' -> bool [readability-implicit-bool-conversion]
+        if (dcount < 1 || !str) {
+                          ~^
+                          (    == nullptr)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:92:22: warning: C-style casts are discouraged; use static_cast (if needed, the cast may be redundant) [google-readability-casting]
+        fseek(m_fpFilestr, -llint((dcount - (nulchar - str) - 1)), SEEK_CUR);
+                            ^~~~~
+                            static_cast<llint>
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:98:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+cint AEFileReader::readBoolString(bool& num) noexcept {
+~~~~               ^
+auto                                                  -> cint
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:100:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
+        char str[6]{};
+        ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:100:11: warning: 6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        char str[6]{};
+                 ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:102:33: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+        cint temp = this->readData_ptr(str, 4, sizeof(char)); //read possible "true"
+                                       ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:103:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+        for (int i = 0; i < 4; i++) {
+        ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:104:3: warning: do not use array subscript when the index is not an integer constant expression [cppcoreguidelines-pro-bounds-constant-array-index]
+                str[i] = std::tolower(str[i]);
+                ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:104:12: warning: narrowing conversion from 'int' to signed type 'char' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+                str[i] = std::tolower(str[i]);
+                         ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:104:25: warning: do not use array subscript when the index is not an integer constant expression [cppcoreguidelines-pro-bounds-constant-array-index]
+                str[i] = std::tolower(str[i]);
+                                      ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:107:7: warning: implicit conversion 'int' -> bool [readability-implicit-bool-conversion]
+        if (!std::memcmp(str, "true", 5)) {
+            ~^
+                                         == 0
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:107:19: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+        if (!std::memcmp(str, "true", 5)) {
+                         ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:107:32: warning: 5 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        if (!std::memcmp(str, "true", 5)) {
+                                      ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:113:7: warning: implicit conversion 'int' -> bool [readability-implicit-bool-conversion]
+        if (!std::memcmp(str, "false", 6)) {
+            ~^
+                                          == 0
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:113:19: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+        if (!std::memcmp(str, "false", 6)) {
+                         ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:113:33: warning: 6 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+        if (!std::memcmp(str, "false", 6)) {
+                                       ^
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:121:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize) noexcept {
+~~~~               ^
+auto                                                                                                     -> cint
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:124:7: warning: implicit conversion 'std::size_t' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !dsize || !cdata) {
+            ~^
+            (       == 0u)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:124:18: warning: implicit conversion 'std::size_t' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !dsize || !cdata) {
+                       ~^
+                       (      == 0u)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:124:28: warning: implicit conversion 'void *' -> bool [readability-implicit-bool-conversion]
+        if (!dcount || !dsize || !cdata) {
+                                 ~^
+                                 (      == nullptr)
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:132:7: warning: implicit conversion 'int' -> bool [readability-implicit-bool-conversion]
+                if (std::feof(this->m_fpFilestr)) {
+                    ^
+                                                 != 0
+C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:135:7: warning: implicit conversion 'int' -> bool [readability-implicit-bool-conversion]
+                if (std::ferror(this->m_fpFilestr)) {
+                    ^
+                                                   != 0
+
+
+
+205686 warnings generated.
+Suppressed 205640 warnings (205640 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
