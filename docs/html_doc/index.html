@@ -104,16 +104,18 @@ Current project list:</h4>
 <li>ACEngine &ndash; main project where everything is combined</li>
 <li>AEMisc &ndash; project where the miscellaneous things, global engine variables, and the general engine utilities. Basically stuff that cannot be put into a module</li>
 <li>AEModuleBase &ndash; project of the most basic module of the engine, implementing features for all engine modules.</li>
-<li><a class="el" href="db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> &ndash; project of file writer module. The fast and convenient file writer of the engine (just wrapper of C FILE api lol).</li>
+<li><a class="el" href="db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> &ndash; project of file writer module. The fast and convenient file writer of the engine (just wrapper of C FILE write api lol).</li>
 <li><a class="el" href="df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> &ndash; project of the frame delayer (or rater) module of the engine. Makes the perfectly timed delays in the loop possible..if the code takes less time</li>
 <li><a class="el" href="d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> &ndash; project of engine's logger. Allows to log (random) stuff to file.</li>
 <li><a class="el" href="da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> &ndash; project of the engine's timer. Allows to time the events in the engine and count ticks</li>
 <li><a class="el" href="dc/df6/struct_a_e_vector.html" title="The ArtyK&#39;s Engine&#39;s mathematical vector – for mathematically-correct vector operations.">AEVector</a> &ndash; project of the engine's mathematical vectors for. Easy, "scalable", and all constexpr (except conversion to string).</li>
+<li><a class="el" href="dd/dd5/class_a_e_file_reader.html" title="ArtyK&#39;s Engine File Reader; umm, it reads data from the given file.">AEFileReader</a> &ndash; project of the file reader module. The fast and convenient file data reader of the engine (just wrapper of C FILE read api lol).</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md13"></a>
 ACCOMPLISHED FEATURES</h2>
 <ul>
-<li>Be able to write data to files, faster than standard</li>
+<li>Be able to write data to files, faster than standard stream stuff</li>
+<li>Be able to read datat from files, faster than standard stream stuff</li>
 <li>Write logs to file with almost no performance impact</li>
 <li>Have a module-based structure</li>
 <li>Have a utility tool kit in engine for easier programming(similar to <a href="https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp" title="func_utils.hpp" target="_blank">func_utils.hpp</a> in <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine" target="_blank">console_engine</a>)</li>
@@ -121,7 +123,7 @@ ACCOMPLISHED FEATURES</h2>
 <h2><a class="anchor" id="autotoc_md14"></a>
 DESIRED FEATURES</h2>
 <ul>
-<li>Be able to wread files + engine file format</li>
+<li>Engine file format</li>
 <li>Read and parse logs from file</li>
 <li>Get input from keyboard and mouse</li>
 <li>Control console's window properties</li>
@@ -131,7 +133,7 @@ DESIRED FEATURES</h2>
 </ul>
 <p>(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)</p>
 <p>Yeah, I have yet to release any working version.</p>
-<p><b>Technical stuff:</b> When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the "$(SolutionDir)\\&zwj;(Dependency project name)\include" (or src) to the paths of your project.</p>
+<p><b>Technical stuff:</b> When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the "$(SolutionDir)\\&zwj;(Dependency project name)\include" (or src) to the paths of your project...and add the source <a class="el" href="dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">file(s)</a> of the module you're including to the project, if they exist.</p>
 <p>And all of this stuff is backed by <a class="el" href="d2/d35/md__l_i_c_e_n_s_e.html">**MIT License**</a>. <b>Free Software, Hell Yeah!</b> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -139,7 +141,7 @@ DESIRED FEATURES</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Oct 7 2023 15:09:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Oct 8 2023 18:58:52 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

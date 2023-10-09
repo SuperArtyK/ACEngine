@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['absval_0',['absval',['../d5/d0f/namespaceace_1_1math.html#ad80793527a1467a92439c3d12fdf2da7',1,'ace::math']]],
+  ['absval_0',['absval',['../d5/d0f/namespaceace_1_1math.html#a6136e240d0a8dbf2dc81d9b19634ef7b',1,'ace::math']]],
   ['accomplished_20features_1',['ACCOMPLISHED FEATURES',['../index.html#autotoc_md13',1,'']]],
   ['ace_2',['ace',['../d8/d23/namespaceace.html',1,'']]],
   ['ace_3a_3amath_3',['math',['../d5/d0f/namespaceace_1_1math.html',1,'ace']]],
@@ -9,11 +9,11 @@ var searchData=
   ['acengine_6',['ACEngine',['../index.html',1,'']]],
   ['acengine_20project_7',['ACEngine project',['../d8/d97/md__a_c_engine_2_r_e_a_d_m_e.html',1,'']]],
   ['addrtostr_8',['addrToStr',['../de/dde/namespaceace_1_1utils.html#aa1625a29fbb650a4749e1249f7058beb',1,'ace::utils']]],
-  ['aefilereader_9',['aefilereader',['../dd/dd5/class_a_e_file_reader.html',1,'AEFileReader'],['../dd/dd5/class_a_e_file_reader.html#a82bf63227be4b665c46c03aa4276f40a',1,'AEFileReader::AEFileReader(const AEFileReader &amp;)=delete'],['../dd/dd5/class_a_e_file_reader.html#a0915d3cc9c19664b72ac17cd9c76f619',1,'AEFileReader::AEFileReader()'],['../dd/dd5/class_a_e_file_reader.html#a7d0c498896f1c10c36330ef4efaee81e',1,'AEFileReader::AEFileReader(const std::string_view fname)']]],
+  ['aefilereader_9',['aefilereader',['../dd/dd5/class_a_e_file_reader.html',1,'AEFileReader'],['../dd/dd5/class_a_e_file_reader.html#a82bf63227be4b665c46c03aa4276f40a',1,'AEFileReader::AEFileReader(const AEFileReader &amp;)=delete'],['../dd/dd5/class_a_e_file_reader.html#aa72c5fa73daecad2c6bc09ec459d8cac',1,'AEFileReader::AEFileReader(void) noexcept'],['../dd/dd5/class_a_e_file_reader.html#a7d0c498896f1c10c36330ef4efaee81e',1,'AEFileReader::AEFileReader(const std::string_view fname)']]],
   ['aefilereader_20project_10',['AEFileReader project',['../db/d2b/md__a_e_file_reader_2_r_e_a_d_m_e.html',1,'']]],
   ['aefilereader_2ecpp_11',['AEFileReader.cpp',['../d9/d6e/_a_e_file_reader_8cpp.html',1,'']]],
   ['aefilereader_2ehpp_12',['AEFileReader.hpp',['../d3/dda/_a_e_file_reader_8hpp.html',1,'']]],
-  ['aefilewriter_13',['aefilewriter',['../db/d15/class_a_e_file_writer.html',1,'AEFileWriter'],['../db/d15/class_a_e_file_writer.html#aa1d00a7ef7ce003e5af827ca6583f3d8',1,'AEFileWriter::AEFileWriter(AEFileWriter &amp;&amp;fw) noexcept'],['../db/d15/class_a_e_file_writer.html#a1cda141c50de06d13084e57e844d261e',1,'AEFileWriter::AEFileWriter(const AEFileWriter &amp;)=delete'],['../db/d15/class_a_e_file_writer.html#ad74bf20ea3193c61225306a32347c706',1,'AEFileWriter::AEFileWriter(void)'],['../db/d15/class_a_e_file_writer.html#aab3c5167d1f6945e4846540b5417a57f',1,'AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags=0, const ullint af_interval=AEFW_DEFAULT_AUTOFLUSH_INTERVAL)']]],
+  ['aefilewriter_13',['aefilewriter',['../db/d15/class_a_e_file_writer.html',1,'AEFileWriter'],['../db/d15/class_a_e_file_writer.html#aa1d00a7ef7ce003e5af827ca6583f3d8',1,'AEFileWriter::AEFileWriter(AEFileWriter &amp;&amp;fw) noexcept'],['../db/d15/class_a_e_file_writer.html#a1cda141c50de06d13084e57e844d261e',1,'AEFileWriter::AEFileWriter(const AEFileWriter &amp;)=delete'],['../db/d15/class_a_e_file_writer.html#aacd2bb12a46a475b82b985ecde6767ae',1,'AEFileWriter::AEFileWriter(void) noexcept'],['../db/d15/class_a_e_file_writer.html#aab3c5167d1f6945e4846540b5417a57f',1,'AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags=0, const ullint af_interval=AEFW_DEFAULT_AUTOFLUSH_INTERVAL)']]],
   ['aefilewriter_20project_14',['AEFileWriter project',['../da/d42/md__a_e_file_writer_2_r_e_a_d_m_e.html',1,'']]],
   ['aefilewriter_2ecpp_15',['AEFileWriter.cpp',['../d0/d56/_a_e_file_writer_8cpp.html',1,'']]],
   ['aefilewriter_2ehpp_16',['AEFileWriter.hpp',['../db/da4/_a_e_file_writer_8hpp.html',1,'']]],
@@ -26,7 +26,7 @@ var searchData=
   ['aefr_5ferr_5fread_5fzero_5fsize_23',['AEFR_ERR_READ_ZERO_SIZE',['../d3/dda/_a_e_file_reader_8hpp.html#a1a4fc9be25a446d307e34224581b3479',1,'AEFileReader.hpp']]],
   ['aefr_5ferr_5freading_5feof_24',['AEFR_ERR_READING_EOF',['../d3/dda/_a_e_file_reader_8hpp.html#a9ce9d513072d546450213344baac0c14',1,'AEFileReader.hpp']]],
   ['aefr_5ferr_5freading_5ferror_25',['AEFR_ERR_READING_ERROR',['../d3/dda/_a_e_file_reader_8hpp.html#ac7bd31c97c30c1debd67eba4366cba7a',1,'AEFileReader.hpp']]],
-  ['aeframe_26',['aeframe',['../df/dd7/class_a_e_frame.html',1,'AEFrame'],['../df/dd7/class_a_e_frame.html#a3e11897444819291d790705780db694a',1,'AEFrame::AEFrame()']]],
+  ['aeframe_26',['aeframe',['../df/dd7/class_a_e_frame.html',1,'AEFrame'],['../df/dd7/class_a_e_frame.html#a2471ada9e7919a18e6dde66d77ecb74f',1,'AEFrame::AEFrame()']]],
   ['aeframe_20project_27',['AEFrame project',['../d0/d03/md__a_e_frame_2_r_e_a_d_m_e.html',1,'']]],
   ['aeframe_2ehpp_28',['AEFrame.hpp',['../de/d72/_a_e_frame_8hpp.html',1,'']]],
   ['aefw_5fautoflush_5fenable_29',['AEFW_AUTOFLUSH_ENABLE',['../dd/dd8/_a_e_flags_8hpp.html#a1967daf69859ccd877ff84333e53b27f',1,'AEFlags.hpp']]],
@@ -70,7 +70,7 @@ var searchData=
   ['aemisc_20project_67',['AEMisc project',['../d3/dfd/md__a_e_misc_2_r_e_a_d_m_e.html',1,'']]],
   ['aemodulebase_20project_68',['AEModuleBase project',['../d1/d87/md__a_e_module_base_2_r_e_a_d_m_e.html',1,'']]],
   ['aemodulebase_2ehpp_69',['AEModuleBase.hpp',['../d7/d7f/_a_e_module_base_8hpp.html',1,'']]],
-  ['aetimer_70',['aetimer',['../da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3',1,'AETimer::AETimer()'],['../da/d62/class_a_e_timer.html',1,'AETimer'],['../da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b',1,'AETimer::AETimer(const AETimer &amp;tm)'],['../da/d62/class_a_e_timer.html#a9e96da8faced9bc13a3e94c23ba5f787',1,'AETimer::AETimer()']]],
+  ['aetimer_70',['aetimer',['../da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3',1,'AETimer::AETimer()'],['../da/d62/class_a_e_timer.html',1,'AETimer'],['../da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b',1,'AETimer::AETimer(const AETimer &amp;tm)'],['../da/d62/class_a_e_timer.html#abc5e196018c904ab532539c6d35ef70f',1,'AETimer::AETimer() noexcept']]],
   ['aetimer_20project_71',['AETimer project',['../db/d97/md__a_e_timer_2_r_e_a_d_m_e.html',1,'']]],
   ['aetimer_2ehpp_72',['AETimer.hpp',['../dc/dc6/_a_e_timer_8hpp.html',1,'']]],
   ['aetriglookup_2ehpp_73',['AETrigLookup.hpp',['../d7/d4a/_a_e_trig_lookup_8hpp.html',1,'']]],
@@ -85,5 +85,5 @@ var searchData=
   ['aevector_20project_82',['AEVector project',['../d4/d91/md__a_e_vector_2_r_e_a_d_m_e.html',1,'']]],
   ['aevector_2ehpp_83',['AEVector.hpp',['../d7/d09/_a_e_vector_8hpp.html',1,'']]],
   ['arrsize_84',['arrsize',['../de/de8/_a_e_utils_8hpp.html#ab9d7a2dfdef90a2f8526373fb708e76c',1,'AEUtils.hpp']]],
-  ['autoflush_85',['autoFlush',['../db/d15/class_a_e_file_writer.html#a59d42316a082b436c23acbb3d1e1d466',1,'AEFileWriter']]]
+  ['autoflush_85',['autoFlush',['../db/d15/class_a_e_file_writer.html#a0fc33128433b317611c12ac0914887ec',1,'AEFileWriter']]]
 ];

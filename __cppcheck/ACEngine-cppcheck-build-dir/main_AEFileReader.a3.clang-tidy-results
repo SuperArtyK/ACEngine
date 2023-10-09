@@ -61,6 +61,6 @@ C:\Users\artem\CODING\ACEngine\AEFileReader\main_AEFileReader.cpp:30:23: warning
 
 
 
-199179 warnings generated.
-Suppressed 199156 warnings (199156 in non-user code).
+199182 warnings generated.
+Suppressed 199159 warnings (199159 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

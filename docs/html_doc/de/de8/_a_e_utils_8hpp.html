@@ -123,27 +123,67 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ab9d7a2dfdef90a2f8526373fb708e76c" id="r_ab9d7a2dfdef90a2f8526373fb708e76c"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#ab9d7a2dfdef90a2f8526373fb708e76c">arrsize</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">arr</a>)&#160;&#160;&#160;(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">sizeof</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">arr</a>) / <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">sizeof</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">arr</a>[0]) )</td></tr>
-<tr class="memdesc:ab9d7a2dfdef90a2f8526373fb708e76c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the calculation of static, compile-time array.  <br /></td></tr>
+<tr class="memdesc:ab9d7a2dfdef90a2f8526373fb708e76c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the calculation of static, compile-time array </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array to calculate the size of</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:ab9d7a2dfdef90a2f8526373fb708e76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af86a42d55827d17ff363f43c7c5333cb" id="r_af86a42d55827d17ff363f43c7c5333cb"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#af86a42d55827d17ff363f43c7c5333cb">mod0</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">dvd</a>,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">dvs</a>)&#160;&#160;&#160;!(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">dvd</a> % <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">dvs</a>)</td></tr>
-<tr class="memdesc:af86a42d55827d17ff363f43c7c5333cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the check if modulo of x and y results in 0.  <br /></td></tr>
+<tr class="memdesc:af86a42d55827d17ff363f43c7c5333cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the check if modulo of x and y results in 0 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dvd</td><td>The dividend of the operation</td></tr>
+    <tr><td class="paramname">dvs</td><td>The divisor of the operation</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:af86a42d55827d17ff363f43c7c5333cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d83bd4ca4b76a75381d21fa703897ef" id="r_a1d83bd4ca4b76a75381d21fa703897ef"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a1d83bd4ca4b76a75381d21fa703897ef">getBit</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">val</a>,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">bit</a>)&#160;&#160;&#160;(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">val</a>&amp; (1 &lt;&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">bit</a>))</td></tr>
+<tr class="memdesc:a1d83bd4ca4b76a75381d21fa703897ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to get the bit of the given value (bitwise operations) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>The value to get the bit of</td></tr>
+    <tr><td class="paramname">bit</td><td>The bit number to get</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:a1d83bd4ca4b76a75381d21fa703897ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb1a38e7284b8a6e0b6ae614204f703e" id="r_abb1a38e7284b8a6e0b6ae614204f703e"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#abb1a38e7284b8a6e0b6ae614204f703e">aceAssert</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expr</a>,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">msg</a>)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> ( !(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expr</a>) ) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::cerr</a> &lt;&lt; &quot;Assertion <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">failed!\nExpression:</a> &quot; &lt;&lt; #expr &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; msg &lt;&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::endl</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">abort</a>(); }</td></tr>
-<tr class="memdesc:abb1a38e7284b8a6e0b6ae614204f703e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Better-fomatted assertion for runtime checks.  <br /></td></tr>
+<tr class="memdesc:abb1a38e7284b8a6e0b6ae614204f703e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Better-fomatted assertion for runtime checks </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>The logical expression to assert</td></tr>
+    <tr><td class="paramname">msg</td><td>The message to display if the assertion fails</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:abb1a38e7284b8a6e0b6ae614204f703e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fb7bf82c787085c8b1ef0ad7d028424" id="r_a0fb7bf82c787085c8b1ef0ad7d028424"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424">dprintf</a>(...)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> (<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a>) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">printf</a>(&quot;DEBUG::%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>()-&gt; &quot;, __FUNCTION__); <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">printf</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">__VA_ARGS__</a>); <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">printf</a>(&quot;\n&quot;); }</td></tr>
 <tr class="memdesc:a0fb7bf82c787085c8b1ef0ad7d028424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the debug <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">printf()</a> printing, use the same way as you have used printf before.  <br /></td></tr>
 <tr class="separator:a0fb7bf82c787085c8b1ef0ad7d028424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913272c684270c11c1a96a982e9f9b44" id="r_a913272c684270c11c1a96a982e9f9b44"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a913272c684270c11c1a96a982e9f9b44">IS_SAME_NOC</a>(T,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">Y</a>)&#160;&#160;&#160;(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::is_same</a>&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::decay</a>&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T&gt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">::type</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::decay</a>&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">Y</a>&gt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">::type</a>&gt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">::value</a>)</td></tr>
-<tr class="memdesc:a913272c684270c11c1a96a982e9f9b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check if the given type T is about the same as Y.  <br /></td></tr>
+<tr class="memdesc:a913272c684270c11c1a96a982e9f9b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same.  <br /></td></tr>
 <tr class="separator:a913272c684270c11c1a96a982e9f9b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84e0a3e6c7c2b7be64ecc2591eb613d8" id="r_a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a84e0a3e6c7c2b7be64ecc2591eb613d8">UTF8</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">x</a>)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">u8</a> ## <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">x</a></td></tr>
-<tr class="memdesc:a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!".  <br /></td></tr>
+<tr class="memdesc:a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The string literal to convert to utf8</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5ef465b3cfb7b096648181199e8029c" id="r_aa5ef465b3cfb7b096648181199e8029c"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#aa5ef465b3cfb7b096648181199e8029c">WSTR</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">x</a>)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">L</a> ## <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">x</a></td></tr>
-<tr class="memdesc:aa5ef465b3cfb7b096648181199e8029c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the "string literal" to L"wide string literal".  <br /></td></tr>
+<tr class="memdesc:aa5ef465b3cfb7b096648181199e8029c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the "string literal" to L"wide string literal" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The string literal to convert to wstring</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:aa5ef465b3cfb7b096648181199e8029c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9732970f9ca82af5d3e94cf069402340" id="r_a9732970f9ca82af5d3e94cf069402340"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340">NLC</a>&#160;&#160;&#160;'\<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">n</a>'</td></tr>
 <tr class="memdesc:a9732970f9ca82af5d3e94cf069402340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for newline char.  <br /></td></tr>
@@ -161,10 +201,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a7585917f8a4d737f6bebaa18043cba9b" id="r_a7585917f8a4d737f6bebaa18043cba9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a7585917f8a4d737f6bebaa18043cba9b">ace::utils::boolToString</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> bool <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">b</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
 <tr class="memdesc:a7585917f8a4d737f6bebaa18043cba9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts bool to the word version.  <br /></td></tr>
 <tr class="separator:a7585917f8a4d737f6bebaa18043cba9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b26581581c9d7e6e2a506a4539744ba" id="r_a1b26581581c9d7e6e2a506a4539744ba"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T &gt; </td></tr>
-<tr class="memitem:a1b26581581c9d7e6e2a506a4539744ba"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a1b26581581c9d7e6e2a506a4539744ba">ace::utils::isInRange</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">minval</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">maxval</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">i</a>)</td></tr>
-<tr class="memdesc:a1b26581581c9d7e6e2a506a4539744ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the value that you passed is within range.  <br /></td></tr>
-<tr class="separator:a1b26581581c9d7e6e2a506a4539744ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8792fb93c41ea5baa5a296ba1d27bd7f" id="r_a8792fb93c41ea5baa5a296ba1d27bd7f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T &gt; </td></tr>
+<tr class="memitem:a8792fb93c41ea5baa5a296ba1d27bd7f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a8792fb93c41ea5baa5a296ba1d27bd7f">ace::utils::isInRange</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">minval</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">maxval</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">i</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a8792fb93c41ea5baa5a296ba1d27bd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the value that you passed is within range.  <br /></td></tr>
+<tr class="separator:a8792fb93c41ea5baa5a296ba1d27bd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1fe69eba9650c6affc6344e67a2d998" id="r_ad1fe69eba9650c6affc6344e67a2d998"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ad1fe69eba9650c6affc6344e67a2d998">ace::utils::toLowerRef</a> (std::string &amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">str1</a>)</td></tr>
 <tr class="memdesc:ad1fe69eba9650c6affc6344e67a2d998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowers the passed std::string by reference.  <br /></td></tr>
 <tr class="separator:ad1fe69eba9650c6affc6344e67a2d998"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,9 +223,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a2de6011d3165d37fec20bde6541c2dcb" id="r_a2de6011d3165d37fec20bde6541c2dcb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb">ace::utils::formatDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> time_t <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timept</a>)</td></tr>
 <tr class="memdesc:a2de6011d3165d37fec20bde6541c2dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
 <tr class="separator:a2de6011d3165d37fec20bde6541c2dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79b3cdec4537d2acdf2a7ec6f8b265a8" id="r_a79b3cdec4537d2acdf2a7ec6f8b265a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a79b3cdec4537d2acdf2a7ec6f8b265a8">ace::utils::formatDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> time_t <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timept</a>, char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">str</a>)</td></tr>
-<tr class="memdesc:a79b3cdec4537d2acdf2a7ec6f8b265a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
-<tr class="separator:a79b3cdec4537d2acdf2a7ec6f8b265a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c74b1ae0d294487d426a1ffcaacc58" id="r_a07c74b1ae0d294487d426a1ffcaacc58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a07c74b1ae0d294487d426a1ffcaacc58">ace::utils::formatDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> time_t <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timept</a>, char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">str</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a07c74b1ae0d294487d426a1ffcaacc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
+<tr class="separator:a07c74b1ae0d294487d426a1ffcaacc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ef830bd659e4848847aa793e2f60852" id="r_a5ef830bd659e4848847aa793e2f60852"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>)</td></tr>
 <tr class="memdesc:a5ef830bd659e4848847aa793e2f60852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
 <tr class="separator:a5ef830bd659e4848847aa793e2f60852"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,9 +280,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Better-fomatted assertion for runtime checks. </p>
+<p>Better-fomatted assertion for runtime checks </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>The logical expression to assert</td></tr>
+    <tr><td class="paramname">msg</td><td>The message to display if the assertion fails</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -262,9 +309,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the calculation of static, compile-time array. </p>
+<p>Macro for the calculation of static, compile-time array </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array to calculate the size of</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,7 +342,7 @@ Functions</h2></td></tr>
 <dd>
 Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -305,7 +358,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -321,7 +374,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00082">82</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +404,16 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p>Macro to get the bit of the given value (bitwise operations) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>The value to get the bit of</td></tr>
+    <tr><td class="paramname">bit</td><td>The bit number to get</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00036">36</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -381,10 +443,17 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to check if the given type T is about the same as Y. </p>
-<dl class="section note"><dt>Note</dt><dd>It decays both types and omits const-ness </dd></dl>
+<p>Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same. </p>
+<dl class="section note"><dt>Note</dt><dd>It decays both types and omits const-ness <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td>The first type to compare</td></tr>
+    <tr><td class="paramname">Y</td><td>The second type to compare</td></tr>
+  </table>
+  </dd>
+</dl>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -414,9 +483,16 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the check if modulo of x and y results in 0. </p>
+<p>Macro for the check if modulo of x and y results in 0 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dvd</td><td>The dividend of the operation</td></tr>
+    <tr><td class="paramname">dvs</td><td>The divisor of the operation</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +510,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
 <p>Macro for newline char. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00068">68</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -452,7 +528,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
 <p>Macro for newline string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00058">58</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00071">71</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -472,9 +548,15 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!". </p>
+<p>Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The string literal to convert to utf8</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00061">61</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -494,9 +576,15 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to convert the "string literal" to L"wide string literal". </p>
+<p>Macro to convert the "string literal" to L"wide string literal" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The string literal to convert to wstring</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00064">64</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +594,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html">AEUtils.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 7 2023 15:09:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Oct 8 2023 18:58:52 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

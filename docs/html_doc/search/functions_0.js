@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5f_5faemodulebase_0',['__aemodulebase',['../d0/d8a/class_____a_e_module_base.html#a943275f2c7d5f75014de1813e5e97202',1,'__AEModuleBase::__AEModuleBase()'],['../d0/d8a/class_____a_e_module_base.html#a091ccf659518ddec7a6b66d29eea9bc0',1,'__AEModuleBase::__AEModuleBase(const __AEModuleBase&lt; T &gt; &amp;val)']]]
+  ['_5f_5faemodulebase_0',['__aemodulebase',['../d0/d8a/class_____a_e_module_base.html#a1121655094db899ed67396490604e6ce',1,'__AEModuleBase::__AEModuleBase() noexcept'],['../d0/d8a/class_____a_e_module_base.html#a79ceb132d53da279cac50cd248766cbb',1,'__AEModuleBase::__AEModuleBase(const __AEModuleBase&lt; T &gt; &amp;val) noexcept']]]
 ];

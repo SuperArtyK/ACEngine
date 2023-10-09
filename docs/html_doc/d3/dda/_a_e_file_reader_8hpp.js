@@ -2,6 +2,7 @@ var _a_e_file_reader_8hpp =
 [
     [ "AEFileReader", "dd/dd5/class_a_e_file_reader.html", "dd/dd5/class_a_e_file_reader" ],
     [ "_AEFR_EXIT_ON_CLOSED_FILE", "d3/dda/_a_e_file_reader_8hpp.html#a550c4b45c08b4c518dc8b1bb97c75bea", null ],
+    [ "_AEFR_EXIT_ON_READ_CLOSED_FILE", "d3/dda/_a_e_file_reader_8hpp.html#add49c41c7310621dd8f6f01b10578a20", null ],
     [ "AEFR_ERR_FILE_DOESNT_EXIST", "d3/dda/_a_e_file_reader_8hpp.html#a436ad900684f6a0194f61bbd43e4eb6e", null ],
     [ "AEFR_ERR_FILE_NAME_EMPTY", "d3/dda/_a_e_file_reader_8hpp.html#a7148c629602982360106852b3406282b", null ],
     [ "AEFR_ERR_FILE_NOT_OPEN", "d3/dda/_a_e_file_reader_8hpp.html#af0bab608a9ea8466e721f882c69495e6", null ],

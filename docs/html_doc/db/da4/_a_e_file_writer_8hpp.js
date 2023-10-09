@@ -2,6 +2,8 @@ var _a_e_file_writer_8hpp =
 [
     [ "AEFileWriter", "db/d15/class_a_e_file_writer.html", "db/d15/class_a_e_file_writer" ],
     [ "_AEFW_EXIT_ON_CLOSED_FILE", "db/da4/_a_e_file_writer_8hpp.html#ad018394c7f674570329dffee1a572c17", null ],
+    [ "_AEFW_EXIT_ON_NO_CURSOR_MOVE", "db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2", null ],
+    [ "_AEFW_EXIT_ON_WRITE_CLOSED_FILE", "db/da4/_a_e_file_writer_8hpp.html#ada79b127cc72e03786a33b74a8009e31", null ],
     [ "AEFW_ERR_FILE_NAME_EMPTY", "db/da4/_a_e_file_writer_8hpp.html#a9c501f535bbb47e7d9fd81bbbcbbad97", null ],
     [ "AEFW_ERR_FILE_NOT_OPEN", "db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857", null ],
     [ "AEFW_ERR_FILE_OPEN_ELSE", "db/da4/_a_e_file_writer_8hpp.html#a86f3b7e8b0aa1d80752997949ed08aa3", null ],

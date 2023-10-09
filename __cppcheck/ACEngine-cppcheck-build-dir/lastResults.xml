@@ -3,13 +3,13 @@
     <cppcheck version="2.11"/>
     <errors>
         <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;amp;tstruct" verbose="Uninitialized variable: &amp;amp;tstruct" cwe="457" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\include\AEUtils.hpp" line="188"/>
+            <location file="AEMisc\include\AEUtils.hpp" line="201"/>
         </error>
         <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;amp;tstruct" verbose="Uninitialized variable: &amp;amp;tstruct" cwe="457" file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\include\AEUtils.hpp" line="210"/>
+            <location file="AEMisc\include\AEUtils.hpp" line="223"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
-            <location file="AEMisc\include\AEUtils.hpp" line="224"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
+            <location file="AEMisc\include\AEUtils.hpp" line="237"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2884" info="default parameter was declared here"/>
@@ -121,7 +121,68 @@
         <error id="unusedFunction" severity="style" msg="The function &amp;#039;readBoolString&amp;#039; is never used." verbose="The function &amp;#039;readBoolString&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\src\AEFileReader.cpp" line="98"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="clang-tidy-bugprone-easily-swappable-parameters" severity="style" msg="2 adjacent parameters of &amp;#039;AEFileWriter&amp;#039; of convertible types are easily swapped by mistake " verbose="2 adjacent parameters of &amp;#039;AEFileWriter&amp;#039; of convertible types are easily swapped by mistake " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="13" info="&amp;#039;const cint&amp;#039; and &amp;#039;const ullint&amp;#039; may be implicitly converted: &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;) -&amp;gt; &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;), &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;) -&amp;gt; &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;)"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="13" info=""/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="13" info="the last parameter in the range is &amp;#039;af_interval&amp;#039;"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="13" info="the first parameter in the range is &amp;#039;flags&amp;#039;"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="13" info="2 adjacent parameters of &amp;#039;AEFileWriter&amp;#039; of convertible types are easily swapped by mistake "/>
+        </error>
+        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\include\AEFileWriter.hpp" line="137" info="default parameter was declared here"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="17" info="calling a function that uses a default argument is disallowed "/>
+        </error>
+        <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;AEFileWriter&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;AEFileWriter&amp;#039; which should not throw exceptions " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="21"/>
+        </error>
+        <error id="clang-tidy-readability-identifier-length" severity="style" msg="parameter name &amp;#039;fw&amp;#039; is too short, expected at least 3 characters " verbose="parameter name &amp;#039;fw&amp;#039; is too short, expected at least 3 characters " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="21"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]" verbose="move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]" file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2758" info="candidate move constructor here"/>
+            <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2490" info="copy constructor being called"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="22" info="move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="37"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="41"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;const void *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;const void *&amp;#039; -&amp;gt; bool " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="41"/>
+        </error>
+        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="61"/>
+        </error>
+        <error id="clang-tidy-bugprone-easily-swappable-parameters" severity="style" msg="2 adjacent parameters of &amp;#039;openFile&amp;#039; of convertible types are easily swapped by mistake " verbose="2 adjacent parameters of &amp;#039;openFile&amp;#039; of convertible types are easily swapped by mistake " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="61" info="&amp;#039;const cint&amp;#039; and &amp;#039;const ullint&amp;#039; may be implicitly converted: &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;) -&amp;gt; &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;), &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;) -&amp;gt; &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;)"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="61" info=""/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="61" info="the last parameter in the range is &amp;#039;af_interval&amp;#039;"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="61" info="the first parameter in the range is &amp;#039;flags&amp;#039;"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="61" info="2 adjacent parameters of &amp;#039;openFile&amp;#039; of convertible types are easily swapped by mistake "/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="63"/>
+        </error>
+        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="4398" info="default parameter was declared here"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="75" info="calling a function that uses a default argument is disallowed "/>
+        </error>
+        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\filesystem" line="649" info="default parameter was declared here"/>
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="77" info="calling a function that uses a default argument is disallowed "/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="84"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="86"/>
+        </error>
+        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;FILE *&amp;#039; (aka &amp;#039;_iobuf *&amp;#039;) -&amp;gt; bool " file0="AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
+            <location file="AEFileWriter\src\AEFileWriter.cpp" line="109"/>
+        </error>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AELogger\src\AELogger.cpp" line="137"/>
         </error>
         <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
@@ -199,8 +260,8 @@
         <error id="clang-tidy-misc-no-recursion" severity="warning" msg="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain " verbose="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain " file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\src\AELogger.cpp" line="113" info="... which was the starting point of the recursive call chain; there may be other cycles"/>
             <location file="AELogger\src\AELogger.cpp" line="113" info="Frame #2: function &amp;#039;writeToLog&amp;#039; calls function &amp;#039;writeToLogDebug&amp;#039; here:"/>
-            <location file="AELogger\include\AELogger.hpp" line="214" info="Frame #1: function &amp;#039;writeToLogDebug&amp;#039; calls function &amp;#039;writeToLog&amp;#039; here:"/>
-            <location file="AELogger\include\AELogger.hpp" line="212" info="example recursive call chain, starting from function &amp;#039;writeToLogDebug&amp;#039;"/>
+            <location file="AELogger\include\AELogger.hpp" line="213" info="Frame #1: function &amp;#039;writeToLogDebug&amp;#039; calls function &amp;#039;writeToLog&amp;#039; here:"/>
+            <location file="AELogger\include\AELogger.hpp" line="211" info="example recursive call chain, starting from function &amp;#039;writeToLogDebug&amp;#039;"/>
             <location file="AELogger\src\AELogger.cpp" line="90" info="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain "/>
         </error>
         <error id="clang-tidy-cppcoreguidelines-pro-bounds-pointer-arithmetic" severity="style" msg="do not use pointer arithmetic " verbose="do not use pointer arithmetic " file0="AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
@@ -338,10 +399,10 @@
         <error id="unreadVariable" severity="style" msg="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." cwe="563" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
             <location file="ACEngine\main_ACEngine.cpp" line="55"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="ACEngine\main_ACEngine.cpp" line="86"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="ACEngine\main_ACEngine.cpp" line="43"/>
         </error>
         <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
@@ -382,7 +443,7 @@
             <location file="ACEngine\main_ACEngine.cpp" line="52"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AELogger\include\AELogger.hpp" line="141" info="default parameter was declared here"/>
+            <location file="AELogger\include\AELogger.hpp" line="140" info="default parameter was declared here"/>
             <location file="ACEngine\main_ACEngine.cpp" line="54" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-tidy-readability-identifier-length" severity="style" msg="variable name &amp;#039;a&amp;#039; is too short, expected at least 3 characters " verbose="variable name &amp;#039;a&amp;#039; is too short, expected at least 3 characters " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
@@ -418,19 +479,19 @@
             <location file="ACEngine\main_ACEngine.cpp" line="75" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AELogger\include\AELogger.hpp" line="201" info="default parameter was declared here"/>
+            <location file="AELogger\include\AELogger.hpp" line="200" info="default parameter was declared here"/>
             <location file="ACEngine\main_ACEngine.cpp" line="79" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="signConversion" severity="warning" msg="Expression &amp;#039;-1&amp;#039; has a negative value. That is converted to an unsigned value and used in an unsigned calculation." verbose="Expression &amp;#039;-1&amp;#039; has a negative value. That is converted to an unsigned value and used in an unsigned calculation." cwe="195" file0="ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
             <location file="AEMisc\include\AEMath.hpp" line="122"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\include\AEFrame.hpp" line="60"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AETimer\include\AETimer.hpp" line="178"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AETimer\include\AETimer.hpp" line="202"/>
         </error>
         <error id="syntaxError" severity="error" msg="No pair for character (&amp;quot;). Can&amp;#039;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&amp;quot;). Can&amp;#039;t process file. File is either invalid or unicode, which is currently not supported." sinceDate="yyyy-MM-dd">
@@ -614,10 +675,10 @@
         <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="14"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="29"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="58"/>
         </error>
         <error id="clang-tidy-misc-unused-using-decls" severity="style" msg="using decl &amp;#039;cout&amp;#039; is unused " verbose="using decl &amp;#039;cout&amp;#039; is unused " file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
@@ -628,14 +689,14 @@
             <location file="AELogger\main_AELogger.cpp" line="9"/>
         </error>
         <error id="clang-tidy-cert-err58-cpp" severity="style" msg="initialization of &amp;#039;mylog&amp;#039; with static storage duration may throw an exception that cannot be caught " verbose="initialization of &amp;#039;mylog&amp;#039; with static storage duration may throw an exception that cannot be caught " file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AELogger\include\AELogger.hpp" line="141" info="possibly throwing constructor declared here"/>
+            <location file="AELogger\include\AELogger.hpp" line="140" info="possibly throwing constructor declared here"/>
             <location file="AELogger\main_AELogger.cpp" line="9" info="initialization of &amp;#039;mylog&amp;#039; with static storage duration may throw an exception that cannot be caught "/>
         </error>
         <error id="clang-tidy-cppcoreguidelines-avoid-non-const-global-variables" severity="style" msg="variable &amp;#039;mylog&amp;#039; is non-const and globally accessible, consider making it const " verbose="variable &amp;#039;mylog&amp;#039; is non-const and globally accessible, consider making it const " file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="9"/>
         </error>
         <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="AELogger\include\AELogger.hpp" line="141" info="default parameter was declared here"/>
+            <location file="AELogger\include\AELogger.hpp" line="140" info="default parameter was declared here"/>
             <location file="AELogger\main_AELogger.cpp" line="9" info="calling a function that uses a default argument is disallowed "/>
         </error>
         <error id="clang-tidy-misc-unused-parameters" severity="style" msg="parameter &amp;#039;name&amp;#039; is unused " verbose="parameter &amp;#039;name&amp;#039; is unused " file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
@@ -719,7 +780,7 @@
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="AELogger\main_AELogger.cpp" line="56"/>
         </error>
-        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AEFrame.cpp.analyzerinfo.25412.dump" sinceDate="yyyy-MM-dd">
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="__cppcheck/ACEngine-cppcheck-build-dir/main_AEFrame.cpp.analyzerinfo.20628.dump" sinceDate="yyyy-MM-dd">
             <location file="AEFrame\main_AEFrame.cpp" line="14"/>
         </error>
         <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;main&amp;#039; which should not throw exceptions " file0="AEFrame/main_AEFrame.cpp" sinceDate="yyyy-MM-dd">
@@ -890,18 +951,6 @@
         </error>
         <error id="unusedFunction" severity="style" msg="The function &amp;#039;outputVec&amp;#039; is never used." verbose="The function &amp;#039;outputVec&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
             <location file="AEFileReader\main_AEFileReader.cpp" line="10"/>
-        </error>
-        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEModuleBase.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEModuleBase.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="19"/>
-        </error>
-        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEUtils.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEUtils.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="20"/>
-        </error>
-        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AETypedefs.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AETypedefs.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="21"/>
-        </error>
-        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;include/AEFlags.hpp&amp;quot; not found." verbose="Include file: &amp;quot;include/AEFlags.hpp&amp;quot; not found." sinceDate="yyyy-MM-dd">
-            <location file="AEFileWriter\include\AEFileWriter.hpp" line="22"/>
         </error>
     </errors>
 </results>

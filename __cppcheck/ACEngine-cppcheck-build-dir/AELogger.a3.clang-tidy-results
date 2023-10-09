@@ -99,10 +99,10 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:127:2: note: inferred a
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:90:16: warning: function 'writeToLog' is within a recursive call chain [misc-no-recursion]
 void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const std::string& logmodule) {
                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:212:14: note: example recursive call chain, starting from function 'writeToLogDebug'
+C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:211:14: note: example recursive call chain, starting from function 'writeToLogDebug'
         inline void writeToLogDebug(const std::string& logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
                     ^
-C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:214:3: note: Frame #1: function 'writeToLogDebug' calls function 'writeToLog' here:
+C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:213:3: note: Frame #1: function 'writeToLogDebug' calls function 'writeToLog' here:
                 this->writeToLog("DEBUG->" + logmessg, logtype, logmodule);
                 ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:113:3: note: Frame #2: function 'writeToLog' calls function 'writeToLogDebug' here:
@@ -275,6 +275,6 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:198:2: warning: use ran
 
 
 
-198737 warnings generated.
-Suppressed 198624 warnings (198624 in non-user code).
+198740 warnings generated.
+Suppressed 198627 warnings (198627 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

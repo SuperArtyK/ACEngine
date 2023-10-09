@@ -1,3 +1,19 @@
+getTypeName
+boolToString call:[return]
+toLowerRef call:[begin,end,transform] noreturn:[transform]
+toLowerVal call:[begin,end,transform]
+toUpperRef call:[begin,end,transform] noreturn:[transform]
+toUpperVal call:[begin,end,transform]
+isNum call:[strlen]
+formatDate call:[localtime_s,sizeof,strftime]
+formatDate call:[localtime_s,strftime] noreturn:[strftime]
+getCurrentDate call:[formatDate,time] noreturn:[formatDate]
+addrToStr call:[int,sizeof,snprintf]
+sleepMS call:[milliseconds,sleep_for] noreturn:[sleep_for]
+sleepUS call:[microseconds,sleep_for] noreturn:[sleep_for]
+fopenCC call:[fopen_s]
+charToInt call:[isInRange < char >,return]
+intToChar call:[isInRange < int >,return]
 AEFileWriter
 AEFileWriter call:[closeFile,flushFile] noreturn:[closeFile]
 flushFile call:[fflush]
@@ -14,19 +30,27 @@ writeBytes call:[writeData_ptr] noreturn:[writeData_ptr]
 writeBytes call:[data,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
 writeData_ref call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
 isOpen call:[bool] noreturn:[bool]
-getFileSize call:[fseek,ftell]
+getFileSize call:[_fseeki64,_ftelli64]
 getFileName
 getFilePtr
-getCursorPos call:[ftell] noreturn:[ftell]
-setCursorPos call:[fseek] noreturn:[fseek]
+getCursorPos call:[_ftelli64] noreturn:[_ftelli64]
+setCursorPos call:[_fseeki64] noreturn:[_fseeki64]
 getLastError
 getTotalWrites
 getLastWrittenAmount
 clearError
 autoFlush call:[flushFile] noreturn:[flushFile]
-writeFloat call:[IS_SAME_NOC,sizeof,snprintf,static_assert,writeString] noreturn:[writeString]
-write call:[IS_SAME_NOC,sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
+getTypeName < AEFileWriter >
+writeFloat call:[sizeof,snprintf,static_assert,writeString] noreturn:[writeString]
+write call:[sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
 AEFileWriter call:[openFile] noreturn:[openFile]
 AEFileWriter call:[clear]
 writeData_ptr call:[autoFlush,fwrite] noreturn:[autoFlush]
-openFile call:[clear,closeFile,create_directories,data,empty,fopenCC,fseek,rfind,substr] noreturn:[closeFile,create_directories]
+openFile call:[_fseeki64,clear,closeFile,create_directories,data,empty,fopenCC,rfind,substr] noreturn:[closeFile,create_directories]
+isInRange < char > call:[return]
+isInRange < int > call:[return]
+__AEModuleBase < AEFileWriter >
+__AEModuleBase < AEFileWriter >
+__AEModuleBase < AEFileWriter >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName

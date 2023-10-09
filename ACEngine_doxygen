@@ -1050,7 +1050,8 @@ EXCLUDE                = AEFileWriter/main_AEFileWriter.cpp \
                          AEModuleBase/main_AEModuleBase.cpp \
                          AETimer/main_AETimer.cpp \
                          AEVector/main_AEVector.cpp \
-                         AEFileReader/main_AEFileReader.cpp
+                         AEFileReader/main_AEFileReader.cpp \
+                         __cppcheck
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

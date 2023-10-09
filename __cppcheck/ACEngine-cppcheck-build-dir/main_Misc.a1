@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="6623895673783595147">
+<analyzerinfo hash="6739866678322041564">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp" line="2" column="0"/>
         </error>
@@ -49,28 +49,28 @@
             <location file="C:\Users\artem\CODING\ACEngine\AEMisc\main_Misc.cpp" line="9" column="0"/>
         </error>
         <error id="signConversion" severity="warning" msg="Expression &apos;-1&apos; has a negative value. That is converted to an unsigned value and used in an unsigned calculation." verbose="Expression &apos;-1&apos; has a negative value. That is converted to an unsigned value and used in an unsigned calculation." cwe="195" file0="C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEMath.hpp" line="122" column="42" info="Negative value is converted to an unsigned value"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEMath.hpp" line="122" column="43" info="Negative value is converted to an unsigned value"/>
         </error>
         <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="188" column="16"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="201" column="16"/>
             <symbol>&amp;tstruct</symbol>
         </error>
         <error id="uninitvar" severity="error" msg="Uninitialized variable: &amp;tstruct" verbose="Uninitialized variable: &amp;tstruct" cwe="457" file0="C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="210" column="16"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="223" column="16"/>
             <symbol>&amp;tstruct</symbol>
         </error>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:264:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="270" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:264:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="270" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:277:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="283" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:277:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="283" col="29" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:109:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="110" col="19" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:127:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="128" col="19" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:264:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="270" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:264:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="270" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:122:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="123" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:140:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="141" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:277:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="283" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:277:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="283" col="29" value="0"/>
   </FileInfo>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_Misc.cpp.analyzerinfo.25412.dump">
-            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="224" column="34"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_Misc.cpp.analyzerinfo.20628.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="237" column="34"/>
         </error>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="main" lineNumber="14"/>
