@@ -4,7 +4,9 @@
  *  These will be insanely fast, almost as the direct memory access (since just value in array), 
  *  but won't offer much of precision -- within 1 degree.
  *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
+ *  
  *  @todo Add the table trigonometric functions with interpolation. (Approximate value between 2 degrees in a table)
+ *  @todo Add the ability to calculate the tables on compile time + control the size (36 elements or 3600, etc)
  *
  *  Should not cause everything to break :)
  */
@@ -17,6 +19,7 @@
 #include <limits>
 #include "AETypedefs.hpp"
 #include "include/AEFlags.hpp"
+#include "include/AEMath.hpp"
 
 
 #ifdef ENGINE_ENABLE_TRIG_LOOKUP
@@ -95,7 +98,9 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a sine from</param>
 		/// <returns>Float sine lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float sinDeg_table(const float degrees) noexcept {
-			return sinTable[(int(degrees)+360) % AETRIG_TABLE_SIZE];
+			return sinTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
+
+			
 		}
 
 		/// <summary>
@@ -104,7 +109,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosine from</param>
 		/// <returns>Float cosine lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float cosDeg_table(const float degrees) noexcept {
-			return cosTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
+			return cosTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
 		}
 
 		/// <summary>
@@ -113,7 +118,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a tangent from</param>
 		/// <returns>Float tangent lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float tanDeg_table(const float degrees) noexcept {
-			return tanTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
+			return tanTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
 		}
 
 		/// <summary>
@@ -122,7 +127,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cotangent from</param>
 		/// <returns>Float cotangent lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float cotDeg_table(const float degrees) noexcept {
-			return cotTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
+			return cotTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
 		}
 
 		/// <summary>
@@ -131,7 +136,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosecant from</param>
 		/// <returns>Float cosecant lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float cscDeg_table(const float degrees) noexcept {
-			return cscTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
+			return cscTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
 		}
 
 		/// <summary>
@@ -140,7 +145,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a secant from</param>
 		/// <returns>Float secant lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float secDeg_table(const float degrees) noexcept {
-			return secTable[(int(degrees) + 360) % AETRIG_TABLE_SIZE];
+			return secTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
 		}
 
 	}

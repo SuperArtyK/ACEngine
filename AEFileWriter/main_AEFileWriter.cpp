@@ -29,7 +29,7 @@ int main() {
 
 
 	std::vector<int> vecb;
-	vecb.reserve(1024 * 1024 * 1024);
+	vecb.reserve((std::size_t)1024 * 1024 * 1024);
 	for (int i = 0; i < (1024 * 1024 * 1024); i++) {
 		vecb.push_back(std::rand());
 	}

@@ -203,7 +203,7 @@ public:
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readStringNL(std::string& str, const int dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		str.resize(std::size_t(dcount + 1)); //+1 because of null termination..since we write to it directly
+		str.resize((std::size_t)dcount + 1); //+1 because of null termination..since we write to it directly
 		const cint temp = this->readStringNL(str.data(), dcount);
 		str.resize(this->m_szLastReadAmount); // resize to the string size (in case we got eof/newline)
 		return temp;
@@ -220,7 +220,7 @@ public:
 	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readStringNL(std::vector<char>& str, const int dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		str.resize(std::size_t(dcount + 1));
+		str.resize((std::size_t)dcount + 1);
 		const cint temp = this->readStringNL(str.data(), dcount);
 		str.resize(this->m_szLastReadAmount + 1); //we're resizing; +1 because vectors dont insert null terminator
 		return temp;
@@ -286,50 +286,120 @@ public:
 
 
 //read int
-	//reads the bytes of the size of t and interprets them as int
+	/// <summary>
+	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed integer 
+	/// @note If EOF/Error was encountered when reading, the rest of bytes that weren't filled are zeroed
+	/// @note If the file is closed, it doesn't modify the data
+	/// @note AEFileReader::readVariable()
+	/// </summary>
+	/// <typeparam name="T">The type of the int passed</typeparam>
+	/// <param name="var">The int to fill with bytes</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	template<typename T>
 	inline cint readInt(T& num) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readInt()");
 		return this->readVariable<T>(num);
 	}
 
+	/// <summary>
+	/// Reads the string of numbers from the file and convert it to int
+	/// @note If the first character isn't numeric (or minus), the read fails and integer is set to 0
+	/// @note If the file is closed, it doesn't modify the data
+	/// </summary>
+	/// <typeparam name="T">The type of the int passed</typeparam>
+	/// <param name="num">The int to read the value to</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	template<typename T>
 	inline cint readIntString(T& num); //defined below class
 
 
 //read floats
-	//reads the bytes of the size of t and interprets them as float
+	/// <summary>
+	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed float 
+	/// @note If EOF/Error was encountered when reading, the rest of bytes that weren't filled are zeroed
+	/// @note If the file is closed, it doesn't modify the data
+	/// @note AEFileReader::readVariable()
+	/// </summary>
+	/// <typeparam name="T">The type of the float passed</typeparam>
+	/// <param name="var">The float to fill with bytes</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	template<typename T>
 	inline cint readFloat(T& num) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileReader::readFloat()");
 		return this->readVariable<T>(num);
 	}
 
+	/// <summary>
+	/// Reads the string of numbers from the file and convert it to float
+	/// @note If the first character isn't numeric (or belonging to float formatting, the read fails and float is (mem)set to 0
+	/// @note If the file is closed, it doesn't modify the data
+	/// </summary>
+	/// <typeparam name="T">The type of the float passed</typeparam>
+	/// <param name="num">The float to read the value to</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	template<typename T>
 	inline cint readFloatString(T& num); //defined below class
 
 
 //read misc
+	/// <summary>
+	/// Reads the byte from the file and dumps/reinterprets it as the value in the passed bool (null is false, anything else is true) 
+	/// @note If EOF/Error was encountered when reading, and no bytes were read - the bool is set to false 
+	/// @note If the file is closed, it doesn't modify the data
+	/// @note AEFileReader::readVariable()
+	/// </summary>
+	/// <param name="var">The bool to read</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readBool(bool& num) noexcept {
 		return this->readVariable<bool>(num);
 	}
 
+	/// <summary>
+	/// Reads the string in the file, looking for "true" or "false" (case insensitive)
+	/// @note If the read characters don't evaluate to "true" or "false", the read fails and bool is set to false
+	/// @note If the file is closed, it doesn't modify the data
+	/// </summary>
+	/// <param name="num">The bool to read the value to</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	cint readBoolString(bool& num) noexcept;
 
-	//reads 1 byte of data and dumps it into char
-	inline cint readChar(char& num) noexcept {
-		return this->readVariable<char>(num);
+	/// <summary>
+	/// Reads the character from the file and writes you to a given char
+	/// @note If EOF/Error was encountered when reading, and no bytes were read - the char is set to 0 
+	/// @note If the file is closed, it doesn't modify the data
+	/// @note AEFileReader::readVariable()
+	/// @note Same as AEFileReader::readByte()
+	/// </summary>
+	/// <param name="var">The char to read</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	inline cint readChar(signed char& num) noexcept {
+		return this->readVariable<signed char>(num);
 	}
 
-	//reads 1 byte of data and dumps it into unsigned char
+	/// <summary>
+	/// Reads the byte from the file and writes you to a given unsigned
+	/// @note If EOF/Error was encountered when reading, and no bytes were read - the char is set to 0 
+	/// @note If the file is closed, it doesn't modify the data
+	/// @note AEFileReader::readVariable()
+	/// </summary>
+	/// <param name="var">The char to read</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readByte(unsigned char& num) noexcept {
 		return this->readVariable<unsigned char>(num);
 	}
 
 
 //read binary
-	//reads bytes to vector
-	//if file is closed, vector is not modified
+	
+	/// <summary>
+	/// Reads the bytes from the file and dumps them into the std::vector<unsigned char>
+	/// @note Modifies the length of the std::vector<unsigned char> to the dcount size
+	/// @note If the resulting data size is less than dcount (like from EOF), resizes it to the amount read
+	/// @note If the file is closed, it doesn't modify the std::vector<unsigned char>
+	/// </summary>
+	/// <param name="cdata">The reference to the std::vector<char> object to fill with bytes</param>
+	/// <param name="dcount">The amount of bytes to read</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readBytes(std::vector<unsigned char>& cdata, const std::size_t dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		cdata.resize(dcount);
@@ -338,13 +408,32 @@ public:
 		return temp;
 	}
 
-	// reads bytes to ptr
+	/// <summary>
+	/// Reads the bytes from the file and dumps them into the given pointer
+	/// @note The data pointed by the cdata must be of at least dcount size!
+	/// @note If the resulting data size is less than dcount (like from EOF), fills the rest of unfilled characters with NULL
+	/// @note If the file is closed, it doesn't modify the data of the pointer
+	/// @note Just a shortcut for the AEFileReader::readData_ptr()
+	/// </summary>
+	/// <param name="cdata">The pointer to the data to fill with bytes</param>
+	/// <param name="dcount">The amount of bytes to read</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readBytes(void* cdata, const std::size_t dcount) noexcept {
+		std::memset(cdata, NULL, dcount);
 		return this->readData_ptr(cdata, dcount, sizeof(char));
 	}
 
 
-	// reads data to ptr
+	/// <summary>
+	/// Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cdata.
+	/// Also sets the last read amount variable to the read amount of elements. If it doesn't equal to dcount, then EOF or error was encountered during reading.
+	/// @note The memory block pointed by the cdata must be of at least dcount size!
+	/// @note If the file is closed, it doesn't modify the data of the pointer
+	/// </summary>
+	/// <param name="cdata">The memory block to read the bytes to</param>
+	/// <param name="dcount">The amount of elements to read from the file</param>
+	/// <param name="dsize">The size of each element</param>
+	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
 	inline cint readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)) noexcept; //defined below class
 
 

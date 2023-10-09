@@ -1,3 +1,12 @@
+
+/** @file AEFileReader/src/AEFileReader.cpp
+ *  This file contains the definitions of the engine's file reader's functions
+ *  @see AEFileReader
+ *  @see AEFileReader.hpp
+ *
+ *  Should not cause everything to break.
+ */
+
 #include "../include/AEFileReader.hpp"
 #include <filesystem>
 
@@ -49,7 +58,7 @@ cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
 
-	std::memset(str, NULL, dcount + 1);
+	std::memset(str, NULL, (std::size_t)dcount + 1);
 	const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
 	this->m_szLastReadAmount = std::strlen(str);
 	this->m_ullTotalReads++;

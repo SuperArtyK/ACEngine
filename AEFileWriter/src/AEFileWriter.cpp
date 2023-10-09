@@ -1,3 +1,12 @@
+
+/** @file AEFileWriter/src/AEFileWriter.cpp
+ *  This file contains the definitions of the engine's file writer's functions
+ *  @see AEFileWriter
+ *  @see AEFileWriter.hpp
+ *
+ *  Should not cause everything to break.
+ */
+
 #include "../include/AEFileWriter.hpp"
 #include <filesystem>
 
