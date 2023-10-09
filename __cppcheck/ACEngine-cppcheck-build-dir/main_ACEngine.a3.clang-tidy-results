@@ -91,6 +91,6 @@ C:/Users/artem/CODING/ACEngine/AELogger\include/AELogger.hpp:200:47: note: defau
 
 
 
-208902 warnings generated.
-Suppressed 208866 warnings (208866 in non-user code).
+208903 warnings generated.
+Suppressed 208867 warnings (208867 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

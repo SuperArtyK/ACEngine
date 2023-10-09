@@ -25,6 +25,7 @@
     </libraries>
     <suppressions>
         <suppression>missingIncludeSystem</suppression>
+        <suppression>missingInclude</suppression>
     </suppressions>
     <safe-checks>
         <class-public/>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="4487899743008167163">
+<analyzerinfo hash="15227102362683107920">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AETimer\main_AETimer.cpp" line="2" column="0"/>
         </error>

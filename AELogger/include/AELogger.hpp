@@ -313,8 +313,14 @@ private:
 //aaand we have to register it too
 REGISTER_CLASS(AELogger);
 
+
+#ifdef ENGINE_ENABLE_GLOBAL_MODULES
+
 /// The global logger of the engine to log engine-wide events.
 /// It starts the writing thread and logging as soon as the program starts.
-inline AELogger globalLogger("logs/LOG_"+(ace::utils::getCurrentDate().substr(0, 9))+".log");
+inline AELogger globalLogger("logs/LOG_" + (ace::utils::getCurrentDate().substr(0, 9)) + ".log");
+
+#endif // ENGINE_ENABLE_GLOBAL_MODULES
+
 
 #endif // !ENGINE_AELOGGER_HPP

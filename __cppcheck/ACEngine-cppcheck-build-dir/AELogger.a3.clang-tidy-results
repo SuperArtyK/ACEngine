@@ -275,6 +275,6 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:198:2: warning: use ran
 
 
 
-198740 warnings generated.
-Suppressed 198627 warnings (198627 in non-user code).
+198741 warnings generated.
+Suppressed 198628 warnings (198628 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

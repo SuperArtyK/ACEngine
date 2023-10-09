@@ -100,6 +100,6 @@ C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:109:7: warning:
 
 
 
-205556 warnings generated.
-Suppressed 205538 warnings (205538 in non-user code).
+205559 warnings generated.
+Suppressed 205541 warnings (205541 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

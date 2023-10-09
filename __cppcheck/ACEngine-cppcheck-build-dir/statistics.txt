@@ -1,5 +1,5 @@
 [08.10.2023]
-1696817467782
+1696819762067
 clang-tidy-error:0
 clang-tidy-warning:11
 clang-tidy-style:167
@@ -12,7 +12,7 @@ clang-performance:0
 clang-portability:0
 cppcheck-error:2
 cppcheck-warning:10
-cppcheck-style:10
+cppcheck-style:6
 cppcheck-performance:0
 cppcheck-portability:0
 clang-analyzer-error:0

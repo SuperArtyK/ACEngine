@@ -15,6 +15,5 @@ var _a_e_logger_8hpp =
     [ "AELOG_TYPE_SEVERE_WARN", "d4/d9f/_a_e_logger_8hpp.html#a05cf0e904135ebda00fb74fef64c384b", null ],
     [ "AELOG_TYPE_SUCCESS", "d4/d9f/_a_e_logger_8hpp.html#af702d5705c59c5e431df0b6cd2bbb9b3", null ],
     [ "AELOG_TYPE_WARN", "d4/d9f/_a_e_logger_8hpp.html#ae1372b4514a65cdaa0930d4ff352c49c", null ],
-    [ "REGISTER_CLASS", "d4/d9f/_a_e_logger_8hpp.html#af49d93bd8988d4c7cd886bb202d52605", null ],
-    [ "globalLogger", "d4/d9f/_a_e_logger_8hpp.html#af65e1422d5788c22959d1f0d19741caf", null ]
+    [ "REGISTER_CLASS", "d4/d9f/_a_e_logger_8hpp.html#af49d93bd8988d4c7cd886bb202d52605", null ]
 ];

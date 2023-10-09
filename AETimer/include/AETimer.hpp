@@ -220,8 +220,14 @@ private:
 //aaaand yeah, register the class
 REGISTER_CLASS(AETimer);
 
+
+#ifdef ENGINE_ENABLE_GLOBAL_MODULES
+
 /// The global timer of the engine to time engine-wide events.
 /// It starts counting as soon as the program starts.
 inline AETimer globalTimer(ENGINE_FPS);
+
+#endif // ENGINE_ENABLE_GLOBAL_MODULES
+
 
 #endif // !ENGINE_TIMER_HPP

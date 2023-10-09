@@ -18,10 +18,13 @@
 #define ENGINE_DEBUG 1
 /// Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer).
 #define ENGINE_FPS 60.0
+/// Macro to enable the engine's global modules (like timer, logger, etc)
+/// @note Undefine or comment-out to disable this feature
+#define ENGINE_ENABLE_GLOBAL_MODULES 1
 
 //AEFileWriter flags
 /// Macro to enable the auto-flushing mechanism.
-/// @note Undefine to disable the feature.
+/// @note Undefine or comment out to disable the feature.
 #define AEFW_AUTOFLUSH_ENABLE 
 /// Macro for the default "use auto-flush" argument value.
 #define AEFW_DEFAULT_AUTOFLUSH true
