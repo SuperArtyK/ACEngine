@@ -90,7 +90,10 @@ typedef std::chrono::steady_clock SteadyTime;
 #define getSteadyTime() std::chrono::steady_clock::now()
 
 
-/// A macro to calculate time between 2 timepoints(tp1, tp2) as some type (typ)
+/// A macro to calculate time between 2 timepoints as some type.
+/// <param name="tp1">The first, starting point of time (time point)</param>
+/// <param name="tp2">The second, starting point of time (time point)</param>
+/// <param name="typ">The type of the resulting operation</param>
 #define calculateTime(tp1,tp2,typ) std::chrono::duration<typ>(tp2 - tp1).count()
 
 /// A macro as the shortcut of chrono's time point. I couldn't shove it into a typedef so...a macro
@@ -99,18 +102,22 @@ typedef std::chrono::steady_clock SteadyTime;
 /// A macro as the shortcut of chrono's time duration. Same reason as timePoint
 #define timeDur std::chrono::duration
 
-/// A macro as the shortcut of chrono's milliseconds
+/// A macro as the shortcut of chrono's milliseconds.
+/// <param name="ms">The number of milliseconds to convert to</param>
 #define milliSec(ms) std::chrono::milliseconds(ms)
 
-/// A macro as the shortcut of chrono's microseconds
+/// A macro as the shortcut of chrono's microseconds.
+/// <param name="us">The number of microseconds to convert to</param>
 #define microSec(us) std::chrono::microseconds(us)
 
 
 //thread
-/// A macro as the shortcut of thread's sleep_until
+/// A macro as the shortcut of thread's sleep_until.
+/// <param name="sec">The chronos's duration object (milliseconds, seconds, etc)</param>
 #define sleepUntil(sec) std::this_thread::sleep_until(sec)
 
-/// A macro as the shortcut of thread's sleep_for
+/// A macro as the shortcut of thread's sleep_for.
+/// <param name="sec">The chronos's duration object (milliseconds, seconds, etc)</param>
 #define sleepFor(sec) std::this_thread::sleep_for(sec)
 
 #endif // !ENGINE_TYPEDEFS_HPP

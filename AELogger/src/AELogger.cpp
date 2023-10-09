@@ -1,6 +1,6 @@
 
 /** @file AELogger/src/AELogger.cpp
- *  This file contains the definitions of the engine's logger's functions
+ *  This file contains the definitions of the engine's logger's functions.
  *  @see AELogger
  *  @see AELogger.hpp
  *

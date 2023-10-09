@@ -1,6 +1,6 @@
 
 /** @file AEFileWriter/src/AEFileWriter.cpp
- *  This file contains the definitions of the engine's file writer's functions
+ *  This file contains the definitions of the engine's file writer's functions.
  *  @see AEFileWriter
  *  @see AEFileWriter.hpp
  *

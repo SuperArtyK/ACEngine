@@ -6,7 +6,7 @@
  *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
  *  
  *  @todo Add the table trigonometric functions with interpolation. (Approximate value between 2 degrees in a table)
- *  @todo Add the ability to calculate the tables on compile time + control the size (36 elements or 3600, etc)
+ *  @todo Add the ability to calculate the tables on compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
  *
  *  Should not cause everything to break :)
  */
@@ -24,7 +24,7 @@
 
 #ifdef ENGINE_ENABLE_TRIG_LOOKUP
 
-/// A macro for the size of the trigonometric function lookup tables
+/// A macro for the size of the trigonometric function lookup tables.
 /// @note For now - do not touch!
 #define AETRIG_TABLE_SIZE 360
 
@@ -93,7 +93,7 @@ namespace ace {
 
 
 		/// <summary>
-		/// Rounds the degrees value, and looks up the value of sine in the table
+		/// Rounds the degrees value, and looks up the value of sine in the table.
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a sine from</param>
 		/// <returns>Float sine lookup table value that matches the (rounded) degrees amount</returns>
@@ -104,7 +104,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Rounds the degrees value, and looks up the value of cosine in the table
+		/// Rounds the degrees value, and looks up the value of cosine in the table.
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cosine from</param>
 		/// <returns>Float cosine lookup table value that matches the (rounded) degrees amount</returns>
@@ -113,7 +113,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Rounds the degrees value, and looks up the value of tangent in the table
+		/// Rounds the degrees value, and looks up the value of tangent in the table.
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a tangent from</param>
 		/// <returns>Float tangent lookup table value that matches the (rounded) degrees amount</returns>
@@ -122,7 +122,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Rounds the degrees value, and looks up the value of cotangent in the table
+		/// Rounds the degrees value, and looks up the value of cotangent in the table.
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cotangent from</param>
 		/// <returns>Float cotangent lookup table value that matches the (rounded) degrees amount</returns>
@@ -131,7 +131,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Rounds the degrees value, and looks up the value of cosecant in the table
+		/// Rounds the degrees value, and looks up the value of cosecant in the table.
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cosecant from</param>
 		/// <returns>Float cosecant lookup table value that matches the (rounded) degrees amount</returns>
@@ -140,7 +140,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Rounds the degrees value, and looks up the value of secant in the table
+		/// Rounds the degrees value, and looks up the value of secant in the table.
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a secant from</param>
 		/// <returns>Float secant lookup table value that matches the (rounded) degrees amount</returns>

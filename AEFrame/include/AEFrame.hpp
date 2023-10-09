@@ -19,7 +19,7 @@
 
 /// <summary>
 /// @brief This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops.
-/// Hungarian notation is r
+/// Hungarian notation is r.
 /// So instead of guessing the delay for the main game loop, and having unreliable call to normal "sleep for x",
 /// you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier.
 /// @note To get this to work properly, make an object outside of the loop, and put the call to AEFrame::sleep() at the end of the loop.
@@ -31,7 +31,7 @@ class AEFrame : public __AEModuleBase<AEFrame> {
 public:
 //constructors
 	/// <summary>
-	/// Class constructor
+	/// Class constructor.
 	/// @note if you pass it 0 or negative number it will disable the delay untill a proper value is given
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
@@ -41,7 +41,7 @@ public:
 
 //utils
 	/// <summary>
-	/// Resets the delay value to what you pass to it
+	/// Resets the delay value to what you pass to it.
 	/// @note if you pass it 0 or negative number it will disable the delay untill a proper value is given
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
@@ -53,7 +53,7 @@ public:
 	}
 	
 	/// <summary>
-	/// Puts the current thread to sleep up to the set fps goal
+	/// Puts the current thread to sleep up to the set fps goal.
 	/// Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, 
 	/// then the thread will sleep the rest of 20ms to make the game loop run at 30fps.
 	/// </summary>
@@ -77,13 +77,13 @@ public:
 	}
 
 	/// <summary>
-	/// Returns the fps goal of AEFrame instance
+	/// Returns the fps goal of AEFrame instance.
 	/// </summary>
 	/// <returns>double of the given fps goal</returns>
 	inline double getFrameRate(void) const noexcept { return this->m_fFPS; }
 
 	/// <summary>
-	/// Returns the maximum AEFrame's delay from the set fps, in seconds
+	/// Returns the maximum AEFrame's delay from the set fps, in seconds.
 	/// </summary>
 	/// <returns>double of the maximum AEFrame's delay in real-world seconds</returns>
 	inline double getDelay(void) const noexcept { return this->m_tdChronoDelay.count(); }

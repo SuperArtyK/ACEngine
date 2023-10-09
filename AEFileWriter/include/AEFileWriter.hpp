@@ -31,36 +31,36 @@
 
 //File flags
 /// Macro to put the write cursor at the end of the file, appending to the file.
-/// Cursor change allowed
+/// @note Cursor change allowed
 #define AEFW_FLAG_APPEND 1
 /// Macro to put the write cursor at the end of the file, appending to the file.
 /// @note Changing the cursor position/writing anywhere else (than eof) is not allowed
 #define AEFW_FLAG_APPEND_NO_CURSOR_MOVE 2 
 /// Macro to put the write cursor at the start of the file, truncating the contents if existed.
 #define AEFW_FLAG_TRUNCATE 3
-/// Macro for no write flags
+/// Macro for no write flags.
 /// @note Same as AEFW_FLAG_TRUNCATE
 #define AEFW_FLAG_NOFLAGS 0
 
 //Error flags
-/// Indicator that everything is good.
+/// Macro for the indicator that everything is good.
 #define AEFW_ERR_NOERROR 0
-/// Same as AEFW_ERR_NOERROR - value of a successfull write
+/// Same as AEFW_ERR_NOERROR - value of a successfull write.
 #define AEFW_ERR_WRITE_SUCCESS 0
-/// Macro for the error if file isn't open and file operation functions of the file writer are used
+/// Macro for the error if file isn't open and file operation functions of the file writer are used.
 #define AEFW_ERR_FILE_NOT_OPEN -1
 //file creation/manipulation
-/// Macro for the error if the file name is empty
+/// Macro for the error if the file name is empty.
 #define AEFW_ERR_FILE_NAME_EMPTY -2
-/// Macro for the error if the given file flag is wrong and nonexistent
+/// Macro for the error if the given file flag is wrong and nonexistent.
 #define AEFW_ERR_FILE_WRONG_FLAG -3
-/// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files
+/// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.
 #define AEFW_ERR_FILE_OPEN_ELSE -4
-/// Macro for the error that has occurred in writing (if fwrite returned a non-zero value)
+/// Macro for the error that has occurred in writing (if fwrite returned a non-zero value).
 #define AEFW_ERR_WRITE_ERROR -5
-/// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileWriter::writeData_ptr()
+/// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileWriter::writeData_ptr().
 #define AEFW_ERR_WRITE_ZERO_SIZE -6
-/// Macro for the error that has occurred in flushing (if fflush returned a non-zero value)
+/// Macro for the error that has occurred in flushing (if fflush returned a non-zero value).
 #define AEFW_ERR_FLUSH_ERROR -7
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
@@ -75,7 +75,7 @@
 /// <summary>
 /// ArtyK's Engine File Writer; umm, it writes data to given file.
 /// Just create it and dump the gigabytes of data to your files.
-/// Hungarian notation is fw
+/// Hungarian notation is fw.
 /// Flags start with AEFW_
 /// @warning This is not thread safe!
 /// </summary>
@@ -93,24 +93,24 @@ public:
 	explicit AEFileWriter(const std::string_view filename, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL);
 
 	/// <summary>
-	/// Class constructor -- creates the instance but doesn't do anything
+	/// Class constructor -- creates the instance but doesn't do anything.
 	/// </summary>
 	AEFileWriter(void) noexcept : m_ullFlushInterval(AEFW_DEFAULT_AUTOFLUSH_INTERVAL), m_ullTotalWrites(0), m_szLastWrittenAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFW_ERR_NOERROR), m_cFlags(AEFW_FLAG_NOFLAGS) {}
 
 	/// <summary>
-	/// Move constructor
+	/// Move constructor.
 	/// </summary>
 	/// <param name="fw">Object to be moved</param>
 	AEFileWriter(AEFileWriter&& fw) noexcept;
 
 //we don't need those
 	/// <summary>
-	/// Deleted copy constructor
+	/// Deleted copy constructor.
 	/// </summary>
 	AEFileWriter(const AEFileWriter&) = delete;
 
 	/// <summary>
-	/// Deleted copy assignment operator
+	/// Deleted copy assignment operator.
 	/// </summary>
 	AEFileWriter& operator=(const AEFileWriter&) = delete;
 
@@ -185,7 +185,7 @@ public:
 
 //write string
 	/// <summary>
-	/// Write std::string, as is, to file, and flush if necessary
+	/// Write std::string, as is, to file, and flush if necessary.
 	/// </summary>
 	/// <param name="str">String to write</param>
 	/// <param name="includeNull">Flag to include the trailing null-terminating character in the string</param>
@@ -203,7 +203,7 @@ public:
 	}
 
 	/// <summary>
-	/// Write std::vector<char> (string), as is, to file, and flush if necessary
+	/// Write std::vector<char> (string), as is, to file, and flush if necessary.
 	/// @note It just writes the whole vector to file (since I cannot determine it without good ol' slow strlen). If you want to control the null-byte, pass the std::vector<char>.data() as the
 	/// </summary>
 	/// <param name="str">String(in form of vector<char>) to write</param>
@@ -221,7 +221,7 @@ public:
 	}
 
 	/// <summary>
-	/// Write c-string, as is, to file, and flush if necessary
+	/// Write c-string, as is, to file, and flush if necessary.
 	/// </summary>
 	/// <param name="cdata">С-String to write</param>
 	/// <param name="includeNull">Flag to include the null-terminating character at the end of the string</param>
@@ -312,7 +312,7 @@ public:
 
 //write binary
 	/// <summary>
-	/// Writes one byte of data to the file
+	/// Writes one byte of data to the file.
 	/// </summary>
 	/// <param name="cdata">byte value</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
@@ -322,7 +322,7 @@ public:
 	}
 
 	/// <summary>
-	/// Write a stream of bytes to file, from pointer
+	/// Write a stream of bytes to file, from pointer.
 	/// @note Basically just a shortcut for the AEFileWriter::writerData_ptr()
 	/// </summary>
 	/// <param name="cdata">Pointer to stream of bytes</param>
@@ -334,7 +334,7 @@ public:
 	}
 
 	/// <summary>
-	/// Write a stream of bytes to file, from std::vector<unsigned char>
+	/// Write a stream of bytes to file, from std::vector<unsigned char>.
 	/// </summary>
 	/// <param name="cdata">A std::vector to the data bytes</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
@@ -408,7 +408,7 @@ public:
 	}
 
 	/// <summary>
-	/// Returns the file pointer of this file-writer
+	/// Returns the file pointer of this file-writer.
 	/// </summary>
 	/// <returns>Pointer to FILE used in the file writer</returns>
 	inline FILE* getFilePtr(void) const noexcept {
@@ -461,7 +461,7 @@ public:
 	}
 
 	/// <summary>
-	/// Gets the last read amount of bytes from the opened file
+	/// Gets the last read amount of bytes from the opened file.
 	/// @note If last operation failed and no bytes were read (closed file, full EOF) -- returns 0;
 	/// </summary>
 	/// <returns>std::size_t of the amount of bytes read in the last reading operation</returns>

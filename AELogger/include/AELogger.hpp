@@ -21,39 +21,39 @@
 
 
 //log types
-/// Macro for the AELogger's debug entry
+/// Macro for the AELogger's debug entry.
 #define AELOG_TYPE_DEBUG 0
-/// Macro for the AELogger's informational entry
+/// Macro for the AELogger's informational entry.
 #define AELOG_TYPE_INFO 1
-/// Macro for the AELogger's warning entry (something isn't right)
+/// Macro for the AELogger's warning entry (something isn't right).
 #define AELOG_TYPE_WARN 2
-/// Macro for the AELogger's severe warning entry (something is wrong but it's not an error)
+/// Macro for the AELogger's severe warning entry (something is wrong but it's not an error).
 #define AELOG_TYPE_SEVERE_WARN 3
-/// Macro for the AELogger's OK entry (something is good, like a check)
+/// Macro for the AELogger's OK entry (something is good, like a check).
 #define AELOG_TYPE_OK 4
-/// Macro for the AELogger's successful entry (something done is successfull..like a module start)
+/// Macro for the AELogger's successful entry (something done is successfull..like a module start).
 #define AELOG_TYPE_SUCCESS 5
-/// Macro for the AELogger's errorneus entry (something is bad..it's an error)
+/// Macro for the AELogger's errorneus entry (something is bad..it's an error).
 #define AELOG_TYPE_ERROR 6
-/// Macro for the AELogger's fatally-errorenous entry (something critical is fatally-bad)
+/// Macro for the AELogger's fatally-errorenous entry (something critical is fatally-bad).
 #define AELOG_TYPE_FATAL_ERROR 7
 
 //log entry stuff
-/// Macro for the AELogEntry's order number to be invalid
+/// Macro for the AELogEntry's order number to be invalid.
 #define AELOG_ENTRY_INVALID_ORDERNUM ullint(-1)
-/// Macro for the AELogEntry's status to be: invalid
+/// Macro for the AELogEntry's status to be: invalid.
 #define AELOG_ENTRY_STATUS_INVALID 0
-/// Macro for the AELogEntry's status to be: currently being set up and written to
+/// Macro for the AELogEntry's status to be: currently being set up and written to.
 #define AELOG_ENTRY_STATUS_SETTING 1
-/// Macro for the AELogEntry's status to be: currently read
+/// Macro for the AELogEntry's status to be: currently read.
 #define AELOG_ENTRY_STATUS_READY 2 
-/// Macro for the AELogEntry's status to be: currently being read by the log-writing thread
+/// Macro for the AELogEntry's status to be: currently being read by the log-writing thread.
 #define AELOG_ENTRY_STATUS_READING 3
 
 
 
 /// <summary>
-/// The structure for the log entry data in the queue of AELogger
+/// The structure for the log entry data in the queue of AELogger.
 /// </summary>
 struct AELogEntry {
 
@@ -76,7 +76,7 @@ struct AELogEntry {
 
 	
 	/// <summary>
-	/// Deduces the entry's log type and returns a c-string of it
+	/// Deduces the entry's log type and returns a c-string of it.
 	/// </summary>
 	/// <param name="logtype">The value of the log type</param>
 	/// <returns>c-string of the type</returns>
@@ -92,7 +92,7 @@ struct AELogEntry {
 
 	/// <summary>
 	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
-	/// Optionally may loop the newly-allocated queue to the old queue
+	/// Optionally may loop the newly-allocated queue to the old queue.
 	/// @note You should delete[] the pointer after you're done using it (unless you like mem-leaks)
 	/// @note If the amt is 0, throws the std::runtime exception
 	/// </summary>
@@ -131,9 +131,8 @@ class AELogger : public __AEModuleBase<AELogger> {
 public:
 
 //constructors
-	
 	/// <summary>
-	/// Class constructor -- it opens the file to start the logging process
+	/// Class constructor -- it opens the file to start the logging process.
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
@@ -141,7 +140,7 @@ public:
 	explicit AELogger(const std::string& fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
 
 	/// <summary>
-	/// Class destructor
+	/// Class destructor.
 	/// </summary>
 	~AELogger();
 
@@ -150,25 +149,25 @@ public:
 	// Okay, okay, fine, we don't need it *for now* 
 	// I'll implement multithreading and multiple instances later
 	
-	/// Deleted (for now) copy-constructor
+	/// Deleted (for now) copy-constructor.
 	AELogger(const AELogger&) = delete;
-	/// Deleted (for now) copy-assignment
+	/// Deleted (for now) copy-assignment.
 	AELogger& operator=(const AELogger&) = delete;
 
 
 //util functions(threads, files)
 	/// <summary>
-	/// Starts the log-writing thread
+	/// Starts the log-writing thread.
 	/// </summary>
 	void startWriter(void);
 
 	/// <summary>
-	/// Stops the log-writing thread (after flushing the log queue)
+	/// Stops the log-writing thread (after flushing the log queue).
 	/// </summary>
 	void stopWriter(void);
 
 	/// <summary>
-	/// Open the file to start logging
+	/// Open the file to start logging.
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
@@ -192,7 +191,7 @@ public:
 
 //main utility function (bruh)
 	/// <summary>
-	/// Request a log entry to be written to the opened log file
+	/// Request a log entry to be written to the opened log file.
 	/// @note See AELOG_TYPE_* flags
 	/// </summary>
 	/// <param name="logmessg">The message of the requested log entry</param>
@@ -201,7 +200,7 @@ public:
 	void writeToLog(const std::string& logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
 
 	/// <summary>
-	/// Request a debug log entry to be written to the opened log file
+	/// Request a debug log entry to be written to the opened log file.
 	/// @note See AELOG_TYPE_* flags
 	/// @note If ENGINE_DEBUG flag is not set, doesn't do anything
 	/// @see AELogger::writeToLog()
@@ -249,7 +248,7 @@ public:
 	}
 
 	/// <summary>
-	/// Checks if the log-writing thread is running
+	/// Checks if the log-writing thread is running.
 	/// </summary>
 	/// <returns>True if it is working(was launched), false otherwise</returns>
 	inline bool isWriting(void) const noexcept {
@@ -257,7 +256,7 @@ public:
 	}
 
 	/// <summary>
-	/// Writes the current status of the file logger instance (file name, and entries written)
+	/// Writes the current status of the file logger instance (file name, and entries written).
 	/// </summary>
 	inline void writeStatus(void) {
 		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
@@ -314,6 +313,8 @@ private:
 //aaand we have to register it too
 REGISTER_CLASS(AELogger);
 
+/// The global logger of the engine to log engine-wide events.
+/// It starts the writing thread and logging as soon as the program starts.
 inline AELogger globalLogger("logs/LOG_"+(ace::utils::getCurrentDate().substr(0, 9))+".log");
 
 #endif // !ENGINE_AELOGGER_HPP

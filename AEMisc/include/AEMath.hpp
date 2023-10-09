@@ -18,12 +18,12 @@
 #include "AETypedefs.hpp"
 
 
-/// Macro to convert degrees value x to radians
+/// Macro to convert degrees value x to radians.
 /// <param name="x">Value of degrees to convert</param>
 /// <param name="typ">The type of the resulting operation</param>
 #define torad(deg,typ) (deg * ace::math::pi<typ>() / typ(180))
 
-/// Macro to convert radians value x to degrees
+/// Macro to convert radians value x to degrees.
 /// <param name="x">Value of radians to convert</param>
 /// <param name="typ">The type of the resulting operation</param>
 #define todeg(rad,typ) (rad*typ(180)/ace::math::pi<typ>())
@@ -36,7 +36,7 @@ namespace ace::math {
 	
 	
 	/// <summary>
-	/// Engine pi variable
+	/// Engine pi variable.
 	/// </summary>
 	/// <typeparam name="T">Type to convert pi to</typeparam>
 	/// <returns>Pi converted/rounded to a given type</returns>
@@ -46,7 +46,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the sine of the given degrees
+	/// Calculates the sine of the given degrees.
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate sine from</param>
 	/// <returns>Float of sine results</returns>
@@ -56,7 +56,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the cosine of the given degrees
+	/// Calculates the cosine of the given degrees.
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cosine from</param>
 	/// <returns>Float of cosine results</returns>
@@ -66,7 +66,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the tangent of the given degrees
+	/// Calculates the tangent of the given degrees.
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate tangent from</param>
 	/// <returns>Float of tangent results</returns>
@@ -76,7 +76,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the cotangent of the given degrees
+	/// Calculates the cotangent of the given degrees.
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cotangent from</param>
 	/// <returns>Float of cotangent results</returns>
@@ -86,7 +86,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the cosecant of the given degrees
+	/// Calculates the cosecant of the given degrees.
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate cosecant from</param>
 	/// <returns>Float of cosecant results</returns>
@@ -96,7 +96,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the secant of the given degrees
+	/// Calculates the secant of the given degrees.
 	/// </summary>
 	/// <param name="degrees">Degree number to calculate secant from</param>
 	/// <returns>Float of secant results</returns>
@@ -106,7 +106,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Rounds the given float of type Y to integer of type T
+	/// Rounds the given float of type Y to integer of type T.
 	/// @warning It breaks if the num value is more than the max value of T!
 	/// @note Float type Y should be a valid value (not NAN or inf)
 	/// </summary>
@@ -124,7 +124,7 @@ namespace ace::math {
 	}
 	
 	/// <summary>
-	/// Calculates the absolute value of a given number
+	/// Calculates the absolute value of a given number.
 	/// </summary>
 	/// <typeparam name="T">The type of the number</typeparam>
 	/// <param name="num">The value to calculate absolute value of</param>
@@ -136,7 +136,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Checks if given 2 floats of type T are equal, using given epsilon(must not go further than float epsilon)
+	/// Checks if given 2 floats of type T are equal, using given epsilon(must not go further than float epsilon).
 	/// </summary>
 	/// <typeparam name="T">The type of the float</typeparam>
 	/// <param name="num">The first float to compare</param>
@@ -152,7 +152,7 @@ namespace ace::math {
 
 
 	/// <summary>
-	/// Checks if given 2 numbers are equal, a generic function for all types
+	/// Checks if given 2 numbers are equal, a generic function for all types.
 	/// @note If the T type is a float, returns the result of ace::math::fequals() with the default epsilon values
 	/// </summary>
 	/// <typeparam name="T">The type of the numbers passed</typeparam>
@@ -171,7 +171,7 @@ namespace ace::math {
 
 
 	/// <summary>
-	/// Newton's method sqrt implementation. Usefull when you need to calculate sqrt and still use constexpr
+	/// Newton's method sqrt implementation, compatible with constexpr evaluation.
 	/// </summary>
 	/// <typeparam name="T">The type of the float</typeparam>
 	/// <param name="num">The float value to calculate the square root from</param>
@@ -187,7 +187,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Gets the biggest value between given two values
+	/// Gets the biggest value between given two values.
 	/// </summary>
 	/// <typeparam name="T">Type of the values</typeparam>
 	/// <param name="a">The first value to compare</param>
@@ -199,7 +199,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Gets the smallest value between given two values
+	/// Gets the smallest value between given two values.
 	/// </summary>
 	/// <typeparam name="T">Type of the values</typeparam>
 	/// <param name="a">The first value to compare</param>
@@ -211,7 +211,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculate the length of the given integer number
+	/// Calculate the length of the given integer number.
 	/// </summary>
 	/// <typeparam name="T">The type of the integer number</typeparam>
 	/// <param name="num">The number to calculate the length of</param>
@@ -227,7 +227,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculate the length of the given float number
+	/// Calculate the length of the given float number.
 	/// </summary>
 	/// <typeparam name="T">The type of the float number</typeparam>
 	/// <param name="num">The number to calculate the length of</param>

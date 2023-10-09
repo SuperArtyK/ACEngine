@@ -36,20 +36,20 @@
 //Error flags
 /// Macro for the indicator that everything is good.
 #define AEFR_ERR_NOERROR 0
-/// same as AEFR_ERR_NOERROR - value of a successfull read
+/// same as AEFR_ERR_NOERROR - value of a successfull read.
 #define AEFR_ERR_READ_SUCCESS 0
-/// Macro for the error if file isn't open and file operation functions of the file reader are used
+/// Macro for the error if file isn't open and file operation functions of the file reader are used.
 #define AEFR_ERR_FILE_NOT_OPEN -1
 //file creation/manipulation
-/// Macro for the error if the file name is empty
+/// Macro for the error if the file name is empty.
 #define AEFR_ERR_FILE_NAME_EMPTY -2
-/// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files
+/// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.
 #define AEFR_ERR_FILE_DOESNT_EXIST -3
-/// Macro for the error occurring when end of file was reached when reading the file
+/// Macro for the error occurring when end of file was reached when reading the file.
 #define AEFR_ERR_READING_EOF -4
-/// Macro for the reading error that occurred when reading the file (look up ferror() )
+/// Macro for the reading error that occurred when reading the file (look up ferror() ).
 #define AEFR_ERR_READING_ERROR -5
-/// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileReader::readData_ptr()
+/// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileReader::readData_ptr().
 #define AEFR_ERR_READ_ZERO_SIZE -6
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
@@ -59,9 +59,9 @@
 
 
 /// <summary>
-/// ArtyK's Engine File Reader; umm, it reads data from the given file
+/// ArtyK's Engine File Reader; umm, it reads data from the given file.
 /// Just create it and, read stuff, and dump the gigabytes of data from the file to your memory and what not.
-/// Hungarian notation is fr
+/// Hungarian notation is fr.
 /// Flags start with AEFR_
 /// @warning This is not thread safe!
 /// </summary>
@@ -72,25 +72,25 @@ public:
 
 //constructors
 	/// <summary>
-	/// Class constructor -- constructs the instance and opens the file of given name
+	/// Class constructor -- constructs the instance and opens the file of given name.
 	/// @see AEFileReader::openFile()
 	/// </summary>
 	/// <param name="fname">The file name to opens</param>
 	explicit AEFileReader(const std::string_view fname);
 
 	/// <summary>
-	/// Class constructor -- constructs the instance with default values, and doesn't open the file
+	/// Class constructor -- constructs the instance with default values, and doesn't open the file.
 	/// </summary>
 	AEFileReader(void) noexcept : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
 
 //we don't need those
 	/// <summary>
-	/// Deleted copy constructor
+	/// Deleted copy constructor.
 	/// </summary>
 	AEFileReader(const AEFileReader&) = delete;
 
 	/// <summary>
-	/// Deleted copy assignment operator
+	/// Deleted copy assignment operator.
 	/// </summary>
 	AEFileReader& operator=(const AEFileReader&) = delete;
 
@@ -104,7 +104,7 @@ public:
 
 //file opening
 	/// <summary>
-	/// Opens the file for reading
+	/// Opens the file for reading.
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
 	/// <returns>AEFR_ERR_NOERROR if file was opened successfully, AEFR_ERR_FILE_DOESNT_EXIST otherwise</returns>
@@ -125,7 +125,7 @@ public:
 
 //read stuff
 	/// <summary>
-	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed variable 
+	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed variable.
 	/// @note If EOF/Error was encountered when reading, the rest of bytes that weren't filled are zeroed
 	/// </summary>
 	/// <typeparam name="T">The type of the variable passed</typeparam>
@@ -141,7 +141,7 @@ public:
 //read strings as normal
 	
 	/// <summary>
-	/// Reads the given amount of bytes and interprets them as the string
+	/// Reads the given amount of bytes and interprets them as the string.
 	/// @note Modifies the length of the std::string to the dcount+1 size (to accomodate for the trailing null-termiantion character).
 	/// @note If the resulting data size is less than dcount (like from EOF), resizes it to the amount read.
 	/// @note If the file is closed, it doesn't modify the string
@@ -160,7 +160,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the given amount of bytes and interprets them as the string
+	/// Reads the given amount of bytes and interprets them as the string.
 	/// @note Modifies the length of the std::vector<char> to the dcount+1 size (to accomodate for the trailing null-termiantion character).
 	/// @note If the resulting data size is less than dcount (like from EOF), resizes it to the amount read (+1 for the null termination).
 	/// @note If the file is closed, it doesn't modify the std::vector<char>
@@ -179,7 +179,7 @@ public:
 	}
 	
 	/// <summary>
-	/// Reads the given amount of bytes and interprets them as the string
+	/// Reads the given amount of bytes and interprets them as the string.
 	/// @note The passed string must be at least dcount+1 characters long (+1 is for the trailing null termination)
 	/// @note If the resulting data size is less than dcount (like from EOF), fills the rest of unfilled characters with NULL
 	/// @note If the file is closed, it doesn't modify the data
@@ -193,7 +193,7 @@ public:
 //read string untill new linecharacter
 
 	/// <summary>
-	/// Reads the characters to a std::string untill a newline (included), or untill the maximum character amount -- whichever comes first
+	/// Reads the characters to a std::string untill a newline (included), or untill the maximum character amount -- whichever comes first.
 	/// @note Modifies the length of the std::string to the dcount+1 size (to accomodate for the trailing null-termiantion character).
 	/// @note If the resulting data size is less than dcount (like from EOF or met newline), resizes it to the amount read.
 	/// @note If the file is closed, it doesn't modify the string
@@ -210,7 +210,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the characters to a std::vector<char> untill a newline (included), or untill the maximum character amount -- whichever comes first
+	/// Reads the characters to a std::vector<char> untill a newline (included), or untill the maximum character amount -- whichever comes first.
 	/// @note Modifies the length of the std::vector<char> to the dcount+1 size (to accomodate for the trailing null-termiantion character).
 	/// @note If the resulting data size is less than dcount (like from EOF or met newline), resizes it to the amount read (+1 for the null termination).
 	/// @note If the file is closed, it doesn't modify the std::vector<char>
@@ -227,7 +227,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the characters to a c-string untill a newline (included), or untill the maximum character amount -- whichever comes first
+	/// Reads the characters to a c-string untill a newline (included), or untill the maximum character amount -- whichever comes first.
 	/// @note The passed string must be at least dcount+1 characters long (+1 is for the trailing null termination)
 	/// @note If the resulting data size is less than dcount (like from EOF or met newline), fills the rest of unfilled characters with NULL
 	/// @note If the file is closed, it doesn't modify the data
@@ -240,7 +240,7 @@ public:
 
 //read string untill null character
 	/// <summary>
-	/// Reads the characters to a std::string untill a NULL character(I guess, you can say "included"?), or untill the maximum character amount -- whichever comes first
+	/// Reads the characters to a std::string untill a NULL character(I guess, you can say "included"?), or untill the maximum character amount -- whichever comes first.
 	/// @note Modifies the length of the std::string to the dcount+1 size (to accomodate for the trailing null-termiantion character).
 	/// @note If the resulting data size is less than dcount (like from EOF or met null), resizes it to the amount read.
 	/// @note If the file is closed, it doesn't modify the string
@@ -257,7 +257,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the characters to a std::string untill a NULL character(I guess, you can say "included"?), or untill the maximum character amount -- whichever comes first
+	/// Reads the characters to a std::string untill a NULL character(I guess, you can say "included"?), or untill the maximum character amount -- whichever comes first.
 	/// @note Modifies the length of the std::vector<char> to the dcount+1 size (to accomodate for the trailing null-termiantion character).
 	/// @note If the resulting data size is less than dcount (like from EOF or met null), resizes it to the amount read (+1 for the null termination).
 	/// @note If the file is closed, it doesn't modify the std::vector<char>
@@ -274,7 +274,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the characters to a c-string untill a NULL character(I guess, you can say "included"?), or untill the maximum character amount -- whichever comes first
+	/// Reads the characters to a c-string untill a NULL character(I guess, you can say "included"?), or untill the maximum character amount -- whichever comes first.
 	/// @note The passed string must be at least dcount+1 characters long (+1 is for the trailing null termination)
 	/// @note If the resulting data size is less than dcount (like from EOF or met null), fills the rest of unfilled characters with NULL
 	/// @note If the file is closed, it doesn't modify the data
@@ -287,7 +287,7 @@ public:
 
 //read int
 	/// <summary>
-	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed integer 
+	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed integer.
 	/// @note If EOF/Error was encountered when reading, the rest of bytes that weren't filled are zeroed
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
@@ -302,7 +302,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the string of numbers from the file and convert it to int
+	/// Reads the string of numbers from the file and convert it to int.
 	/// @note If the first character isn't numeric (or minus), the read fails and integer is set to 0
 	/// @note If the file is closed, it doesn't modify the data
 	/// </summary>
@@ -315,7 +315,7 @@ public:
 
 //read floats
 	/// <summary>
-	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed float 
+	/// Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed float.
 	/// @note If EOF/Error was encountered when reading, the rest of bytes that weren't filled are zeroed
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
@@ -330,7 +330,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the string of numbers from the file and convert it to float
+	/// Reads the string of numbers from the file and convert it to float.
 	/// @note If the first character isn't numeric (or belonging to float formatting, the read fails and float is (mem)set to 0
 	/// @note If the file is closed, it doesn't modify the data
 	/// </summary>
@@ -343,7 +343,7 @@ public:
 
 //read misc
 	/// <summary>
-	/// Reads the byte from the file and dumps/reinterprets it as the value in the passed bool (null is false, anything else is true) 
+	/// Reads the byte from the file and dumps/reinterprets it as the value in the passed bool (null is false, anything else is true).
 	/// @note If EOF/Error was encountered when reading, and no bytes were read - the bool is set to false 
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
@@ -355,7 +355,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the string in the file, looking for "true" or "false" (case insensitive)
+	/// Reads the string in the file, looking for "true" or "false" (case insensitive).
 	/// @note If the read characters don't evaluate to "true" or "false", the read fails and bool is set to false
 	/// @note If the file is closed, it doesn't modify the data
 	/// </summary>
@@ -364,7 +364,7 @@ public:
 	cint readBoolString(bool& num) noexcept;
 
 	/// <summary>
-	/// Reads the character from the file and writes you to a given char
+	/// Reads the character from the file and writes you to a given char.
 	/// @note If EOF/Error was encountered when reading, and no bytes were read - the char is set to 0 
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
@@ -377,7 +377,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the byte from the file and writes you to a given unsigned
+	/// Reads the byte from the file and writes you to a given unsigned.
 	/// @note If EOF/Error was encountered when reading, and no bytes were read - the char is set to 0 
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
@@ -392,7 +392,7 @@ public:
 //read binary
 	
 	/// <summary>
-	/// Reads the bytes from the file and dumps them into the std::vector<unsigned char>
+	/// Reads the bytes from the file and dumps them into the std::vector<unsigned char>.
 	/// @note Modifies the length of the std::vector<unsigned char> to the dcount size
 	/// @note If the resulting data size is less than dcount (like from EOF), resizes it to the amount read
 	/// @note If the file is closed, it doesn't modify the std::vector<unsigned char>
@@ -409,7 +409,7 @@ public:
 	}
 
 	/// <summary>
-	/// Reads the bytes from the file and dumps them into the given pointer
+	/// Reads the bytes from the file and dumps them into the given pointer.
 	/// @note The data pointed by the cdata must be of at least dcount size!
 	/// @note If the resulting data size is less than dcount (like from EOF), fills the rest of unfilled characters with NULL
 	/// @note If the file is closed, it doesn't modify the data of the pointer
@@ -469,7 +469,7 @@ public:
 	}
 
 	/// <summary>
-	/// Returns the file pointer of this file-reader
+	/// Returns the file pointer of this file-reader.
 	/// </summary>
 	/// <returns>Pointer to FILE used in the file reader</returns>
 	inline FILE* getFilePtr(void) const noexcept {
@@ -518,7 +518,7 @@ public:
 	}
 
 	/// <summary>
-	/// Gets the last read amount of bytes from the opened file
+	/// Gets the last read amount of bytes from the opened file.
 	/// @note If last operation failed and no bytes were read (closed file, full EOF) -- returns 0;
 	/// </summary>
 	/// <returns>std::size_t of the amount of bytes read in the last reading operation</returns>

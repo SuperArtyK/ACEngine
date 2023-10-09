@@ -22,14 +22,22 @@
 //because...syntax
 
 /// Macro for the calculation of static, compile-time array
+/// <param name="arr">The array to calculate the size of</param>
 #define arrsize(arr) (sizeof(arr) / sizeof(arr[0]) )
 
 /// Macro for the check if modulo of x and y results in 0
+/// <param name="dvd">The dividend of the operation</param>
+/// <param name="dvs">The divisor of the operation</param>
 #define mod0(dvd,dvs) !(dvd % dvs)
 
+/// Macro to get the bit of the given value (bitwise operations)
+/// <param name="val">The value to get the bit of</param>
+/// <param name="bit">The bit number to get</param>
 #define getBit(val, bit) (val& (1 << bit))
 
 /// Better-fomatted assertion for runtime checks
+/// <param name="expr">The logical expression to assert</param>
+/// <param name="msg">The message to display if the assertion fails</param>
 #define aceAssert(expr, msg) if ( !(expr) ) { std::cerr << "Assertion failed!\nExpression: " << #expr << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << msg << std::endl; abort(); }
 
 /// Macro for the debug printf() printing, use the same way as you have used printf before.
@@ -42,12 +50,17 @@
 #endif
 
 /// Macro to check if the given type T is about the same as Y
+/// Evaluates to true if both types (not caring about const-ness) are same
 /// @note It decays both types and omits const-ness
+/// <param name="T">The first type to compare</param>
+/// <param name="Y">The second type to compare</param>
 #define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
 /// Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!"
+/// <param name="x">The string literal to convert to utf8</param>
 #define UTF8(x) u8 ## x //converts the "string" to the u8"string"
 /// Macro to convert the "string literal" to L"wide string literal"
+/// <param name="x">The string literal to convert to wstring</param>
 #define WSTR(x) L ## x //converts the "string" to the L"string"
 
 //other stuff
