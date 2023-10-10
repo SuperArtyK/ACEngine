@@ -42,7 +42,7 @@
 /// Macro for the default reserve amount of the AELogger's allocation vector (stores all queue ptrs).
 /// @warning I personally wouldn't advise to play with it.
 #define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32
-
+#define AELOG_DEFAULT_LOG_PATH "logs/"
 
 //AEVector
 /// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount.

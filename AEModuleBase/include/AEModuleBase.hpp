@@ -14,15 +14,16 @@
 #include "include/AETypedefs.hpp"
 #include <string>
 #include <atomic>
+#include <string_view>
 
 //file meaning: base classes for all modules
 
 
 template <typename T>
-constexpr const char* const getTypeName(void) noexcept { return "getTypeName"; }
+constexpr std::string_view getTypeName(void) noexcept { return "getTypeName"; }
 
 /// adds module name to inherit from __AEModuleBase
-#define REGISTER_CLASS(T) template <> constexpr const char* const getTypeName<T>() noexcept { return #T; }
+#define REGISTER_CLASS(T) template <> constexpr std::string_view getTypeName<T>() noexcept { return #T; }
 
 // Usage to register the class:
 // add REGISTER_CLASS(<classname>)
@@ -74,7 +75,7 @@ public:
 	/// Returns the name of the registered module
 	/// </summary>
 	/// <returns></returns>
-	static inline const char* const getModuleName(void) noexcept {
+	static inline std::string_view getModuleName(void) noexcept {
 		return m_sModulename;
 	}
 
@@ -84,7 +85,7 @@ protected:
 	/// Name of the module (class), same as in code
 	/// @todo Find a way to make it constexpr and compile-time evaluated 
 	/// </summary>
-	static const char* const m_sModulename;
+	static const std::string_view m_sModulename;
 	/// <summary>
 	/// amount of alive module instances
 	/// </summary>
@@ -93,7 +94,7 @@ protected:
 
 /// sets up the static variable values for the base class (and inherited classes)
 template<typename T>
-const char* const __AEModuleBase<T>::m_sModulename = getTypeName<T>();
+const std::string_view __AEModuleBase<T>::m_sModulename = getTypeName<T>();
 
 //REGISTER_CLASS(__AEModuleBase)
 

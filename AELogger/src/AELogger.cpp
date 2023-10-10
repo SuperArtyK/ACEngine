@@ -36,7 +36,7 @@ AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 
 
 //constructor
-AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint queuesize) :
+AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
 	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
 
@@ -45,8 +45,12 @@ AELogger::AELogger(const std::string& fname, const bool clearLog, const ullint q
 	//so we can free them later without memory leaks
 	this->m_vAllocTable.reserve(AELOG_DEFAULT_ALLOC_VECTOR_RESERVE);
 	this->m_vAllocTable.emplace_back( queuesize, this->m_lepQueue );
-	this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
-	this->startWriter();
+
+	if (this->m_fwLogger.isOpen()) {
+		this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + std::filesystem::absolute(fname).generic_string() + '\"', AELOG_TYPE_OK, this->m_sModulename);
+		this->startWriter();
+	}
+	
 }
 
 //destructor
@@ -57,6 +61,7 @@ AELogger::~AELogger() {
 	for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
 		delete[] this->m_vAllocTable[i].second;
 	}
+	this->m_vAllocTable.clear();
 }
 
 
@@ -87,7 +92,7 @@ void AELogger::stopWriter(void) {
 }
 
 // request a log entry and write to it
-void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const std::string& logmodule) {
+void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
 	if (!this->isOpen()) {
 		return; // file's closed/closing!
 	}
@@ -135,8 +140,8 @@ void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
 	ptr->m_tmLogTime = std::time(NULL);
-	memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
-	memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 31) ? logmodule.size() : 31);
+	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() <= 511) ? logmessg.size() : 511);
+	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() <= 31) ? logmodule.size() : 31);
 	ptr->m_cLogType = logtype;
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_READY;
 }

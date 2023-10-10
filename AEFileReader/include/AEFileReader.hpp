@@ -22,6 +22,7 @@
 #include <string_view>
 #include <limits>
 #include <cstdio>
+#include <filesystem>
 
 
 // Do NOT touch!
@@ -461,11 +462,48 @@ public:
 	}
 
 	/// <summary>
-	/// Returns name of currently open file.
+	/// Returns the full name of currently open file, including the relative path, if such was provided.
 	/// </summary>
-	/// <returns>The file name that was provided to open the file (including it's relative path, if such was given)</returns>
-	inline std::string getFileName(void) const noexcept {
+	/// <returns>std::string of the full file name, if the file was tried to be opened</returns>
+	inline std::string getFullFileName(void) const noexcept {
 		return this->m_sFilename;
+	}
+
+	/// <summary>
+	/// Returns the relative path of the opened file.
+	/// If the file was opened in the same directory as the executable, returns "./"
+	/// </summary>
+	/// <returns>std::string of the relative file path</returns>
+	inline std::string getRelativePath(void) const noexcept {
+		const std::size_t found = this->m_sFilename.rfind('/');
+		if (found != std::string::npos) {
+			return this->m_sFilename.substr(0, found);
+		}
+		else {
+			return "./";
+		}
+	}
+
+	/// <summary>
+	/// Returns the name of the opened file, without any paths
+	/// </summary>
+	/// <returns>std::string of the opened file name</returns>
+	inline std::string getFileName(void) const noexcept {
+		const std::size_t found = this->m_sFilename.rfind('/');
+		if (found != std::string::npos) {
+			return this->m_sFilename.substr(found, this->m_sFilename.size() - found);
+		}
+		else {
+			return this->m_sFilename;
+		}
+	}
+
+	/// <summary>
+	/// Returns the full, absolute path of the opened file
+	/// </summary>
+	/// <returns>std::string of the absolute file path</returns>
+	inline std::string getFullPath(void) const noexcept {
+		return std::filesystem::absolute(this->m_sFilename).generic_string();
 	}
 
 	/// <summary>

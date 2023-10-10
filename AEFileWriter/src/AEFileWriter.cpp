@@ -8,7 +8,6 @@
  */
 
 #include "../include/AEFileWriter.hpp"
-#include <filesystem>
 
 AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, const ullint af_interval) :
 	m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_szLastWrittenAmount(0),
@@ -64,7 +63,7 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 		this->closeFile();
 	}
 
-	if (!str.empty()) {
+	if (str.empty()) {
 		this->m_sFilename.clear();
 		this->m_cLastError = AEFW_ERR_FILE_NAME_EMPTY;
 		return AEFW_ERR_FILE_NAME_EMPTY;
@@ -72,6 +71,7 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 
 	this->m_szLastWrittenAmount = 0;
 	this->m_sFilename = str;
+	std::replace(m_sFilename.begin(), m_sFilename.end(), '\\', '/');
 	const std::size_t found = this->m_sFilename.rfind('/');
 	if (found != std::string::npos) {
 		std::filesystem::create_directories(this->m_sFilename.substr(0, found));

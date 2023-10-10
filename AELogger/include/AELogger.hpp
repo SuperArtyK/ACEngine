@@ -18,6 +18,7 @@
 #include <atomic>
 #include <thread>
 #include <mutex>
+#include <string_view>
 
 
 //log types
@@ -124,7 +125,6 @@ struct AELogEntry {
 /// </summary>
 /// @todo Implement copy constructors and copy assignment
 /// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
-/// @todo Rewrite the functions to take std::string_view as arguments
 /// @todo Add the ability to change the default log file folder to...whatever user wants (maybe a constructor)
 class AELogger : public __AEModuleBase<AELogger> {
 
@@ -137,7 +137,12 @@ public:
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
-	explicit AELogger(const std::string& fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
+	explicit AELogger(const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
+
+	AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
+		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {
+	}
+
 
 	/// <summary>
 	/// Class destructor.
@@ -171,9 +176,9 @@ public:
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
-	inline void openLog(const std::string& fname, const bool clearLog = false) {
+	inline void openLog(const std::string_view fname, const bool clearLog = false) {
 		if (this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1)) {
-			this->writeToLog("Opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
+			this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->m_sModulename);
 			this->startWriter();
 		}
 		
@@ -183,7 +188,7 @@ public:
 	/// Close the file, if it was opened. That's it.
 	/// </summary>
 	inline void closeLog(void) {
-		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
+		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
 		this->stopWriter();
 		this->m_fwLogger.closeFile();
 	}
@@ -197,7 +202,7 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	void writeToLog(const std::string& logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME);
+	void writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file.
@@ -208,9 +213,9 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	inline void writeToLogDebug(const std::string& logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
+	inline void writeToLogDebug(const std::string_view logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
 #ifdef ENGINE_DEBUG
-		this->writeToLog("DEBUG->" + logmessg, logtype, logmodule);
+		this->writeToLog("DEBUG->" + std::string(logmessg), logtype, logmodule);
 #endif // ENGINE_DEBUG
 	}
 
@@ -220,7 +225,23 @@ public:
 	/// </summary>
 	/// <returns>std::string of the name of opened log file</returns>
 	inline std::string getLogName(void) const noexcept {
-		return this->m_fwLogger.getFileName();
+		return this->m_fwLogger.getFullFileName();
+	}
+
+	/// <summary>
+	/// Get the path of the log file.
+	/// </summary>
+	/// <returns>std::string of the path of the opened log file</returns>
+	inline std::string getLogPath(void) const noexcept {
+		return this->m_fwLogger.getRelativePath();
+	}
+
+	/// <summary>
+	/// Get the full/absolute path of the log file.
+	/// </summary>
+	/// <returns>std::string of the absolute path of the opened log file</returns>
+	inline std::string getLogAbsolutePath(void) const noexcept {
+		return this->m_fwLogger.getFullPath();
 	}
 
 	/// <summary>
@@ -254,13 +275,19 @@ public:
 	inline bool isWriting(void) const noexcept {
 		return this->m_bRunTrd;
 	}
-
+	
 	/// <summary>
 	/// Writes the current status of the file logger instance (file name, and entries written).
 	/// </summary>
 	inline void writeStatus(void) {
-		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
+		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFullFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
 			AELOG_TYPE_INFO, m_sModulename);
+	}
+
+	static inline std::string genLogName(const std::string_view logpath, const std::string_view logpref, const std::string_view logext = ".log") {
+		char logname[256]{};
+		snprintf(logname, 255, "%s%s_%s%s", logpath.data(), logpref.data(), (ace::utils::getCurrentDate().substr(0, 10)).c_str(), logext.data());
+		return logname;
 	}
 
 private:
@@ -318,7 +345,7 @@ REGISTER_CLASS(AELogger);
 
 /// The global logger of the engine to log engine-wide events.
 /// It starts the writing thread and logging as soon as the program starts.
-inline AELogger globalLogger("logs/LOG_" + (ace::utils::getCurrentDate().substr(0, 9)) + ".log");
+inline AELogger globalLogger(AELogger::genLogName(AELOG_DEFAULT_LOG_PATH, "LOG", ".log"));
 
 #endif // ENGINE_ENABLE_GLOBAL_MODULES
 
