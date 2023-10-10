@@ -8,6 +8,7 @@ var namespaceace =
       [ "equals", "d5/d0f/namespaceace_1_1math.html#a8a9daa17856b68b3a998ce0deb78163d", null ],
       [ "fequals", "d5/d0f/namespaceace_1_1math.html#a55cddb98d02ce83066f0138ed048bbde", null ],
       [ "floatLength", "d5/d0f/namespaceace_1_1math.html#abc6ea1cc1ec89589338424d913d1a580", null ],
+      [ "floorToInt", "d5/d0f/namespaceace_1_1math.html#aa813eab4fbadb6920987f8da781cfe61", null ],
       [ "intLength", "d5/d0f/namespaceace_1_1math.html#a75af9dd6250ce14a690e3bd24da29763", null ],
       [ "max", "d5/d0f/namespaceace_1_1math.html#aa051a7ad7f5c07d22e4d7ccab3aa3c62", null ],
       [ "min", "d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b", null ],

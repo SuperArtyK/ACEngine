@@ -111,6 +111,7 @@ $(document).ready(function(){initNavTree('db/da4/_a_e_file_writer_8hpp.html','..
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div>
 <p><a href="../../db/da4/_a_e_file_writer_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -122,52 +123,52 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a012e155bd84945bb9ebd1840526c6740" id="r_a012e155bd84945bb9ebd1840526c6740"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a012e155bd84945bb9ebd1840526c6740">AEFW_FLAG_APPEND</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a012e155bd84945bb9ebd1840526c6740" id="r_a012e155bd84945bb9ebd1840526c6740"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a012e155bd84945bb9ebd1840526c6740">AEFW_FLAG_APPEND</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a012e155bd84945bb9ebd1840526c6740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to put the write cursor at the end of the file, appending to the file.  <br /></td></tr>
 <tr class="separator:a012e155bd84945bb9ebd1840526c6740"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ddf3085d2d3dbf8764ae17d531fbf30" id="r_a4ddf3085d2d3dbf8764ae17d531fbf30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:a4ddf3085d2d3dbf8764ae17d531fbf30" id="r_a4ddf3085d2d3dbf8764ae17d531fbf30"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memdesc:a4ddf3085d2d3dbf8764ae17d531fbf30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to put the write cursor at the end of the file, appending to the file.  <br /></td></tr>
 <tr class="separator:a4ddf3085d2d3dbf8764ae17d531fbf30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c8d382fec7c226dcbcbd7026f1a6bf" id="r_a05c8d382fec7c226dcbcbd7026f1a6bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a05c8d382fec7c226dcbcbd7026f1a6bf">AEFW_FLAG_TRUNCATE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memitem:a05c8d382fec7c226dcbcbd7026f1a6bf" id="r_a05c8d382fec7c226dcbcbd7026f1a6bf"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a05c8d382fec7c226dcbcbd7026f1a6bf">AEFW_FLAG_TRUNCATE</a>&#160;&#160;&#160;3</td></tr>
 <tr class="memdesc:a05c8d382fec7c226dcbcbd7026f1a6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to put the write cursor at the start of the file, truncating the contents if existed.  <br /></td></tr>
 <tr class="separator:a05c8d382fec7c226dcbcbd7026f1a6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d58469b1f4d2c20ebbff0b201de5594" id="r_a8d58469b1f4d2c20ebbff0b201de5594"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a8d58469b1f4d2c20ebbff0b201de5594">AEFW_FLAG_NOFLAGS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a8d58469b1f4d2c20ebbff0b201de5594" id="r_a8d58469b1f4d2c20ebbff0b201de5594"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a8d58469b1f4d2c20ebbff0b201de5594">AEFW_FLAG_NOFLAGS</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:a8d58469b1f4d2c20ebbff0b201de5594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for no write flags.  <br /></td></tr>
 <tr class="separator:a8d58469b1f4d2c20ebbff0b201de5594"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7ad841e058854b9c00ed00db5980880" id="r_ab7ad841e058854b9c00ed00db5980880"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ab7ad841e058854b9c00ed00db5980880">AEFW_ERR_NOERROR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ab7ad841e058854b9c00ed00db5980880" id="r_ab7ad841e058854b9c00ed00db5980880"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ab7ad841e058854b9c00ed00db5980880">AEFW_ERR_NOERROR</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:ab7ad841e058854b9c00ed00db5980880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the indicator that everything is good.  <br /></td></tr>
 <tr class="separator:ab7ad841e058854b9c00ed00db5980880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace81f5b6405a9a7cc9f5e7354efd8710" id="r_ace81f5b6405a9a7cc9f5e7354efd8710"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ace81f5b6405a9a7cc9f5e7354efd8710">AEFW_ERR_WRITE_SUCCESS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ace81f5b6405a9a7cc9f5e7354efd8710" id="r_ace81f5b6405a9a7cc9f5e7354efd8710"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ace81f5b6405a9a7cc9f5e7354efd8710">AEFW_ERR_WRITE_SUCCESS</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:ace81f5b6405a9a7cc9f5e7354efd8710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as AEFW_ERR_NOERROR - value of a successfull write.  <br /></td></tr>
 <tr class="separator:ace81f5b6405a9a7cc9f5e7354efd8710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16aea8cf0a6d6f8fd97333cbb8044857" id="r_a16aea8cf0a6d6f8fd97333cbb8044857"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memitem:a16aea8cf0a6d6f8fd97333cbb8044857" id="r_a16aea8cf0a6d6f8fd97333cbb8044857"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>&#160;&#160;&#160;-1</td></tr>
 <tr class="memdesc:a16aea8cf0a6d6f8fd97333cbb8044857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error if file isn't open and file operation functions of the file writer are used.  <br /></td></tr>
 <tr class="separator:a16aea8cf0a6d6f8fd97333cbb8044857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c501f535bbb47e7d9fd81bbbcbbad97" id="r_a9c501f535bbb47e7d9fd81bbbcbbad97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a9c501f535bbb47e7d9fd81bbbcbbad97">AEFW_ERR_FILE_NAME_EMPTY</a>&#160;&#160;&#160;-2</td></tr>
+<tr class="memitem:a9c501f535bbb47e7d9fd81bbbcbbad97" id="r_a9c501f535bbb47e7d9fd81bbbcbbad97"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a9c501f535bbb47e7d9fd81bbbcbbad97">AEFW_ERR_FILE_NAME_EMPTY</a>&#160;&#160;&#160;-2</td></tr>
 <tr class="memdesc:a9c501f535bbb47e7d9fd81bbbcbbad97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error if the file name is empty.  <br /></td></tr>
 <tr class="separator:a9c501f535bbb47e7d9fd81bbbcbbad97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ab868dbce275428452931dd1cc2445e" id="r_a0ab868dbce275428452931dd1cc2445e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a0ab868dbce275428452931dd1cc2445e">AEFW_ERR_FILE_WRONG_FLAG</a>&#160;&#160;&#160;-3</td></tr>
+<tr class="memitem:a0ab868dbce275428452931dd1cc2445e" id="r_a0ab868dbce275428452931dd1cc2445e"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a0ab868dbce275428452931dd1cc2445e">AEFW_ERR_FILE_WRONG_FLAG</a>&#160;&#160;&#160;-3</td></tr>
 <tr class="memdesc:a0ab868dbce275428452931dd1cc2445e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error if the given file flag is wrong and nonexistent.  <br /></td></tr>
 <tr class="separator:a0ab868dbce275428452931dd1cc2445e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f3b7e8b0aa1d80752997949ed08aa3" id="r_a86f3b7e8b0aa1d80752997949ed08aa3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a86f3b7e8b0aa1d80752997949ed08aa3">AEFW_ERR_FILE_OPEN_ELSE</a>&#160;&#160;&#160;-4</td></tr>
+<tr class="memitem:a86f3b7e8b0aa1d80752997949ed08aa3" id="r_a86f3b7e8b0aa1d80752997949ed08aa3"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a86f3b7e8b0aa1d80752997949ed08aa3">AEFW_ERR_FILE_OPEN_ELSE</a>&#160;&#160;&#160;-4</td></tr>
 <tr class="memdesc:a86f3b7e8b0aa1d80752997949ed08aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.  <br /></td></tr>
 <tr class="separator:a86f3b7e8b0aa1d80752997949ed08aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78eb5fbe5f484af1fbeededfb30283be" id="r_a78eb5fbe5f484af1fbeededfb30283be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a78eb5fbe5f484af1fbeededfb30283be">AEFW_ERR_WRITE_ERROR</a>&#160;&#160;&#160;-5</td></tr>
+<tr class="memitem:a78eb5fbe5f484af1fbeededfb30283be" id="r_a78eb5fbe5f484af1fbeededfb30283be"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a78eb5fbe5f484af1fbeededfb30283be">AEFW_ERR_WRITE_ERROR</a>&#160;&#160;&#160;-5</td></tr>
 <tr class="memdesc:a78eb5fbe5f484af1fbeededfb30283be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error that has occurred in writing (if fwrite returned a non-zero value).  <br /></td></tr>
 <tr class="separator:a78eb5fbe5f484af1fbeededfb30283be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a208519cb9af360e3df52abccc85d9e" id="r_a2a208519cb9af360e3df52abccc85d9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a2a208519cb9af360e3df52abccc85d9e">AEFW_ERR_WRITE_ZERO_SIZE</a>&#160;&#160;&#160;-6</td></tr>
+<tr class="memitem:a2a208519cb9af360e3df52abccc85d9e" id="r_a2a208519cb9af360e3df52abccc85d9e"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a2a208519cb9af360e3df52abccc85d9e">AEFW_ERR_WRITE_ZERO_SIZE</a>&#160;&#160;&#160;-6</td></tr>
 <tr class="memdesc:a2a208519cb9af360e3df52abccc85d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error that occurs if the data pointer, item count and item size is null/zero in <a class="el" href="../../db/d15/class_a_e_file_writer.html#a5182e9868590466752eb05ca2491ca19" title="Write binary data, as is, to file, and flush if necessary.">AEFileWriter::writeData_ptr()</a>.  <br /></td></tr>
 <tr class="separator:a2a208519cb9af360e3df52abccc85d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6c06962591573a270764c7e6add9e76" id="r_ac6c06962591573a270764c7e6add9e76"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ac6c06962591573a270764c7e6add9e76">AEFW_ERR_FLUSH_ERROR</a>&#160;&#160;&#160;-7</td></tr>
+<tr class="memitem:ac6c06962591573a270764c7e6add9e76" id="r_ac6c06962591573a270764c7e6add9e76"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ac6c06962591573a270764c7e6add9e76">AEFW_ERR_FLUSH_ERROR</a>&#160;&#160;&#160;-7</td></tr>
 <tr class="memdesc:ac6c06962591573a270764c7e6add9e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error that has occurred in flushing (if fflush returned a non-zero value).  <br /></td></tr>
 <tr class="separator:ac6c06962591573a270764c7e6add9e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad018394c7f674570329dffee1a572c17" id="r_ad018394c7f674570329dffee1a572c17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ad018394c7f674570329dffee1a572c17">_AEFW_EXIT_ON_CLOSED_FILE</a>&#160;&#160;&#160;if (!this-&gt;m_fpFilestr) { this-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; return <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td></tr>
+<tr class="memitem:ad018394c7f674570329dffee1a572c17" id="r_ad018394c7f674570329dffee1a572c17"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ad018394c7f674570329dffee1a572c17">_AEFW_EXIT_ON_CLOSED_FILE</a>&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (!<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_fpFilestr) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td></tr>
 <tr class="memdesc:ad018394c7f674570329dffee1a572c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!  <br /></td></tr>
 <tr class="separator:ad018394c7f674570329dffee1a572c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada79b127cc72e03786a33b74a8009e31" id="r_ada79b127cc72e03786a33b74a8009e31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ada79b127cc72e03786a33b74a8009e31">_AEFW_EXIT_ON_WRITE_CLOSED_FILE</a>&#160;&#160;&#160;if (!this-&gt;m_fpFilestr) { this-&gt;m_szLastWrittenAmount = 0; this-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; return <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td></tr>
+<tr class="memitem:ada79b127cc72e03786a33b74a8009e31" id="r_ada79b127cc72e03786a33b74a8009e31"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ada79b127cc72e03786a33b74a8009e31">_AEFW_EXIT_ON_WRITE_CLOSED_FILE</a>&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (!<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_fpFilestr) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_szLastWrittenAmount = 0; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td></tr>
 <tr class="memdesc:ada79b127cc72e03786a33b74a8009e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the shortened "check for opened file during writing, set error flag and return error flag if closed", DO NOT TOUCH!  <br /></td></tr>
 <tr class="separator:ada79b127cc72e03786a33b74a8009e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56e561b3c7182bea9946ea98acc2aaa2" id="r_a56e561b3c7182bea9946ea98acc2aaa2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2">_AEFW_EXIT_ON_NO_CURSOR_MOVE</a>&#160;&#160;&#160;if (this-&gt;m_cFlags == <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>) { this-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>; return <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a0ab868dbce275428452931dd1cc2445e">AEFW_ERR_FILE_WRONG_FLAG</a>; }</td></tr>
+<tr class="memitem:a56e561b3c7182bea9946ea98acc2aaa2" id="r_a56e561b3c7182bea9946ea98acc2aaa2"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2">_AEFW_EXIT_ON_NO_CURSOR_MOVE</a>&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cFlags == <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a0ab868dbce275428452931dd1cc2445e">AEFW_ERR_FILE_WRONG_FLAG</a>; }</td></tr>
 <tr class="memdesc:a56e561b3c7182bea9946ea98acc2aaa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the shortened "check for the 'append no cursor move' flag to open file, set and return error flag ifo so", DO NOT TOUCH!  <br /></td></tr>
 <tr class="separator:a56e561b3c7182bea9946ea98acc2aaa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -190,7 +191,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AEFW_EXIT_ON_CLOSED_FILE&#160;&#160;&#160;if (!this-&gt;m_fpFilestr) { this-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; return <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> _AEFW_EXIT_ON_CLOSED_FILE&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (!<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_fpFilestr) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,7 +209,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AEFW_EXIT_ON_NO_CURSOR_MOVE&#160;&#160;&#160;if (this-&gt;m_cFlags == <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>) { this-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>; return <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a0ab868dbce275428452931dd1cc2445e">AEFW_ERR_FILE_WRONG_FLAG</a>; }</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> _AEFW_EXIT_ON_NO_CURSOR_MOVE&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cFlags == <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a0ab868dbce275428452931dd1cc2445e">AEFW_ERR_FILE_WRONG_FLAG</a>; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -226,7 +227,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE&#160;&#160;&#160;if (!this-&gt;m_fpFilestr) { this-&gt;m_szLastWrittenAmount = 0; this-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; return <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> _AEFW_EXIT_ON_WRITE_CLOSED_FILE&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> (!<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_fpFilestr) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_szLastWrittenAmount = 0; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">this</a>-&gt;m_cLastError = <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -244,7 +245,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_FILE_NAME_EMPTY&#160;&#160;&#160;-2</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_FILE_NAME_EMPTY&#160;&#160;&#160;-2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -262,7 +263,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_FILE_NOT_OPEN&#160;&#160;&#160;-1</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_FILE_NOT_OPEN&#160;&#160;&#160;-1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -280,7 +281,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_FILE_OPEN_ELSE&#160;&#160;&#160;-4</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_FILE_OPEN_ELSE&#160;&#160;&#160;-4</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -298,7 +299,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_FILE_WRONG_FLAG&#160;&#160;&#160;-3</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_FILE_WRONG_FLAG&#160;&#160;&#160;-3</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,7 +317,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_FLUSH_ERROR&#160;&#160;&#160;-7</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_FLUSH_ERROR&#160;&#160;&#160;-7</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,7 +335,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_NOERROR&#160;&#160;&#160;0</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_NOERROR&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -352,7 +353,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_WRITE_ERROR&#160;&#160;&#160;-5</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_WRITE_ERROR&#160;&#160;&#160;-5</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -370,7 +371,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_WRITE_SUCCESS&#160;&#160;&#160;0</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_WRITE_SUCCESS&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -388,7 +389,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_WRITE_ZERO_SIZE&#160;&#160;&#160;-6</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_ERR_WRITE_ZERO_SIZE&#160;&#160;&#160;-6</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -406,7 +407,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_APPEND&#160;&#160;&#160;1</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_FLAG_APPEND&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -425,7 +426,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE&#160;&#160;&#160;2</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_FLAG_APPEND_NO_CURSOR_MOVE&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -444,7 +445,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_NOFLAGS&#160;&#160;&#160;0</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_FLAG_NOFLAGS&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -463,7 +464,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_TRUNCATE&#160;&#160;&#160;3</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AEFW_FLAG_TRUNCATE&#160;&#160;&#160;3</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -499,7 +500,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_a2de6fd86e9b2cb1ade2dbd217a79f99.html">AEFileWriter</a></li><li class="navelem"><a class="el" href="../../dir_04e7790711d91bc45bd0ed22f15f2ec5.html">include</a></li><li class="navelem"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html">AEFileWriter.hpp</a></li>
-    <li class="footer">Generated on Sun Oct 8 2023 19:59:12 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 10 2023 15:16:56 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -31,6 +31,7 @@ var NAVTREE =
     [ "AEFileWriter project", "da/d42/md__a_e_file_writer_2_r_e_a_d_m_e.html", null ],
     [ "AEFrame project", "d0/d03/md__a_e_frame_2_r_e_a_d_m_e.html", null ],
     [ "AELogger project", "d9/dde/md__a_e_logger_2_r_e_a_d_m_e.html", null ],
+    [ "AELogParser project", "dc/dda/md__a_e_log_parser_2_r_e_a_d_m_e.html", null ],
     [ "AEMisc project", "d3/dfd/md__a_e_misc_2_r_e_a_d_m_e.html", null ],
     [ "AEModuleBase project", "d1/d87/md__a_e_module_base_2_r_e_a_d_m_e.html", null ],
     [ "AETimer project", "db/d97/md__a_e_timer_2_r_e_a_d_m_e.html", null ],
@@ -70,7 +71,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dc/d89/_a_e_typedefs_8hpp.html#a4901a9a64a28aca8564f930ac3053bfd"
+"db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

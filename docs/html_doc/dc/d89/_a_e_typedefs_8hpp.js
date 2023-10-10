@@ -10,6 +10,8 @@ var _a_e_typedefs_8hpp =
     [ "LLINT_MIN", "dc/d89/_a_e_typedefs_8hpp.html#abda2ad0e59a3e5e0b7d8142f63b37432", null ],
     [ "microSec", "dc/d89/_a_e_typedefs_8hpp.html#ac0e26bf3aaeae4fcabbff362eb4dd3a4", null ],
     [ "milliSec", "dc/d89/_a_e_typedefs_8hpp.html#a559364c19c1c80c7a63a7ca43ec71874", null ],
+    [ "SINT_MAX", "dc/d89/_a_e_typedefs_8hpp.html#aba0afd3e5d286bcf0e7f2341c441c582", null ],
+    [ "SINT_MIN", "dc/d89/_a_e_typedefs_8hpp.html#aa936407e170ea9cac428d91070d8e717", null ],
     [ "sleepFor", "dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901", null ],
     [ "sleepUntil", "dc/d89/_a_e_typedefs_8hpp.html#a713bf3c1565c4abe7b2e41cd1c795957", null ],
     [ "timeDur", "dc/d89/_a_e_typedefs_8hpp.html#a96d8533357de7d8af88265750793ce9e", null ],
@@ -22,10 +24,12 @@ var _a_e_typedefs_8hpp =
     [ "USHRT_MIN", "dc/d89/_a_e_typedefs_8hpp.html#a57f617d9cf5cce12e8499f7512ebd948", null ],
     [ "cint", "dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710", null ],
     [ "HighResTime", "dc/d89/_a_e_typedefs_8hpp.html#a49951feffd9b7a616a344e8c141c2af4", null ],
-    [ "llint", "dc/d89/_a_e_typedefs_8hpp.html#a01c88e5c03ebee098af42984516b9aaf", null ],
+    [ "llint", "dc/d89/_a_e_typedefs_8hpp.html#a1f1cfc1526b3d29817a3d2efbb931d0a", null ],
+    [ "sint", "dc/d89/_a_e_typedefs_8hpp.html#ab9731c2b2f199bcb03ed94acd840b93d", null ],
     [ "SteadyTime", "dc/d89/_a_e_typedefs_8hpp.html#a9617f7f0337791e090da1a53ce2f2300", null ],
     [ "SysTime", "dc/d89/_a_e_typedefs_8hpp.html#a95aaa4d93eab3da4479f9b95d5c20a02", null ],
     [ "ucint", "dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706", null ],
-    [ "uint", "dc/d89/_a_e_typedefs_8hpp.html#ad01f6eb44f4812ed05c900e25ea905ec", null ],
-    [ "ullint", "dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb", null ]
+    [ "uint", "dc/d89/_a_e_typedefs_8hpp.html#a4f5fce8c1ef282264f9214809524d836", null ],
+    [ "ullint", "dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e", null ],
+    [ "ushort", "dc/d89/_a_e_typedefs_8hpp.html#ab95f123a6c9bcfee6a343170ef8c5f69", null ]
 ];

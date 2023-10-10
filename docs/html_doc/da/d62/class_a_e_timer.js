@@ -7,7 +7,7 @@ var class_a_e_timer =
     [ "getDelay", "da/d62/class_a_e_timer.html#ae14cb2634f289aa614722a4daab0000b", null ],
     [ "getFrameRate", "da/d62/class_a_e_timer.html#a7bcaf6a37f7f0bf75f70dae82f4278ed", null ],
     [ "getModuleAmount", "da/d62/class_a_e_timer.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "da/d62/class_a_e_timer.html#a00ae0e73aec91b718bb0796d572536d0", null ],
+    [ "getModuleName", "da/d62/class_a_e_timer.html#a0556631c382fb08daaa05dc30e661f45", null ],
     [ "getTick", "da/d62/class_a_e_timer.html#aa6c9d51957b618a3da21e2b8082fc471", null ],
     [ "getWorldTime", "da/d62/class_a_e_timer.html#a3e18f206a7f1cfef133b752aa6fc420d", null ],
     [ "operator=", "da/d62/class_a_e_timer.html#a7bdf64ddc743a1223164764b9cb15091", null ],
@@ -21,7 +21,7 @@ var class_a_e_timer =
     [ "waitTicks", "da/d62/class_a_e_timer.html#abb1ffee8b1b6b0ea87db6dc97a0609df", null ],
     [ "m_bRunTrd", "da/d62/class_a_e_timer.html#a306cbf2c0132d5ceb378442d7a894518", null ],
     [ "m_rDelay", "da/d62/class_a_e_timer.html#a2fe2c92681bbe2eaaf8680ab25bf8c30", null ],
-    [ "m_sModulename", "da/d62/class_a_e_timer.html#aa45ec53c98b28cc49c32f55cefdecc2f", null ],
+    [ "m_sModulename", "da/d62/class_a_e_timer.html#ad7c14b208c80c9a6478fdf797cb4e558", null ],
     [ "m_trdCounting", "da/d62/class_a_e_timer.html#a20051246d7891c71cc0ec19bb38af3fc", null ],
     [ "m_ullModulesAlive", "da/d62/class_a_e_timer.html#a743510be245f7b22abe7959c190497df", null ],
     [ "m_ullTicks", "da/d62/class_a_e_timer.html#ab3676309b4854bf561c2d7bce3bc5849", null ]

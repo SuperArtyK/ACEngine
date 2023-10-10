@@ -13,7 +13,7 @@
 #include <ctime>
 
 
-AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
+AELogEntry* AELogger::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 	//damn, amt is really 0; get null!
 	if (amt == 0) {
 		throw std::runtime_error("queue size to allocate is 0!");
@@ -38,7 +38,7 @@ AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 //constructor
 AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
-	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
+	m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
 
 
 	//add the allocated queue pointed to the list
@@ -109,7 +109,7 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 		const ullint qsize = this->m_ullQueueSize / 2;
 
 		//make new queue
-		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
+		AELogEntry* newQueue = AELogger::makeQueue(qsize, this->m_lepQueue);
 		//add the new queue to the vector
 		this->m_ullQueueSize += qsize;
 		this->m_lepLastNode->m_lepNextNode = newQueue;
@@ -168,7 +168,7 @@ void AELogger::logWriterThread(void) {
 
 				//formatting and writing
 				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
-				snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
 				//std::cout << str;
 
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
@@ -192,7 +192,7 @@ void AELogger::logWriterThread(void) {
 
 
 
-	snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
+	snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
 	this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 }
 

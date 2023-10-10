@@ -12,6 +12,7 @@
 
 #include "include/AEModuleBase.hpp"
 #include "include/AEFileWriter.hpp"
+#include "include/AETypes.hpp"
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
 #include <vector>
@@ -39,70 +40,6 @@
 /// Macro for the AELogger's fatally-errorenous entry (something critical is fatally-bad).
 #define AELOG_TYPE_FATAL_ERROR 7
 
-//log entry stuff
-/// Macro for the AELogEntry's order number to be invalid.
-#define AELOG_ENTRY_INVALID_ORDERNUM ullint(-1)
-/// Macro for the AELogEntry's status to be: invalid.
-#define AELOG_ENTRY_STATUS_INVALID 0
-/// Macro for the AELogEntry's status to be: currently being set up and written to.
-#define AELOG_ENTRY_STATUS_SETTING 1
-/// Macro for the AELogEntry's status to be: currently read.
-#define AELOG_ENTRY_STATUS_READY 2 
-/// Macro for the AELogEntry's status to be: currently being read by the log-writing thread.
-#define AELOG_ENTRY_STATUS_READING 3
-
-
-
-/// <summary>
-/// The structure for the log entry data in the queue of AELogger.
-/// </summary>
-struct AELogEntry {
-
-	/// The message of the log entry
-	char m_sLogMessage[512]{};
-	/// The name of the module that issued the log entry
-	char m_sModuleName[32]{};
-	/// The time when this log entry was created
-	std::time_t m_tmLogTime = 0;
-	/// The order(or queue) number of the log entry, safety measure for consequent writing and thread-safety
-	/// @note The log-writing thread will ignore this entry, if it is set to AELOG_ENTRY_INVALID_ORDERNUM
-	std::atomic<ullint> m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
-	/// The pointer to the next log entry in the queue
-	AELogEntry* m_lepNextNode = nullptr;
-	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
-	std::atomic<cint> m_cStatus = AELOG_ENTRY_STATUS_INVALID;
-	/// The type of the log entry
-	/// @see AELOG_TYPE_*
-	cint m_cLogType = AELOG_TYPE_DEBUG;
-
-	
-	/// <summary>
-	/// Deduces the entry's log type and returns a c-string of it.
-	/// </summary>
-	/// <param name="logtype">The value of the log type</param>
-	/// <returns>c-string of the type</returns>
-	static constexpr const char* typeToString(const cint logtype) noexcept {
-		switch (logtype) {
-		case AELOG_TYPE_INFO: return "INFO";
-		case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
-		case AELOG_TYPE_OK: return "OK"; case AELOG_TYPE_SUCCESS: return "SUCCESS";
-		case AELOG_TYPE_ERROR: return "ERROR"; case AELOG_TYPE_FATAL_ERROR: return "FATAL_ERROR";
-		case AELOG_TYPE_DEBUG: /*same as the default / invalid value*/ default: return "DEBUG";
-		}
-	}
-
-	/// <summary>
-	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
-	/// Optionally may loop the newly-allocated queue to the old queue.
-	/// @note You should delete[] the pointer after you're done using it (unless you like mem-leaks)
-	/// @note If the amt is 0, throws the std::runtime exception
-	/// </summary>
-	/// <param name="amt">The amount of entries in the queue(size)</param>
-	/// <param name="oldqueue">The pointer to the old queue to loop the new queue to.</param>
-	/// <returns>Pointer to the first node of the allocated queue</returns>
-	static AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr);
-};
-
 
 // queue decrease algorithm
 // since we have the access to the maximum queue value, and it is being checked in the 
@@ -112,7 +49,6 @@ struct AELogEntry {
 // And completely ignores the last nodes we want to delete.
 // Though how to delete information from those delete-me nodes, since the writer-thread is the only thing
 // That still has access to those nodes. And we don't want to delete the unfilled ones
-
 
 
 /// <summary>
@@ -289,6 +225,33 @@ public:
 		snprintf(logname, 255, "%s%s_%s%s", logpath.data(), logpref.data(), (ace::utils::getCurrentDate().substr(0, 10)).c_str(), logext.data());
 		return logname;
 	}
+
+
+	/// <summary>
+	/// Deduces the entry's log type and returns a c-string of it.
+	/// </summary>
+	/// <param name="logtype">The value of the log type</param>
+	/// <returns>c-string of the type</returns>
+	static constexpr const char* typeToString(const cint logtype) noexcept {
+		switch (logtype) {
+		case AELOG_TYPE_INFO: return "INFO";
+		case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
+		case AELOG_TYPE_OK: return "OK"; case AELOG_TYPE_SUCCESS: return "SUCCESS";
+		case AELOG_TYPE_ERROR: return "ERROR"; case AELOG_TYPE_FATAL_ERROR: return "FATAL_ERROR";
+		case AELOG_TYPE_DEBUG: /*same as the default / invalid value*/ default: return "DEBUG";
+		}
+	}
+
+	/// <summary>
+	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
+	/// Optionally may loop the newly-allocated queue to the old queue.
+	/// @note You should delete[] the pointer after you're done using it (unless you like mem-leaks)
+	/// @note If the amt is 0, throws the std::runtime exception
+	/// </summary>
+	/// <param name="amt">The amount of entries in the queue(size)</param>
+	/// <param name="oldqueue">The pointer to the old queue to loop the new queue to.</param>
+	/// <returns>Pointer to the first node of the allocated queue</returns>
+	static AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr);
 
 private:
 //functions

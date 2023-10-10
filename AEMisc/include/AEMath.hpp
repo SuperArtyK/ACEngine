@@ -190,8 +190,8 @@ namespace ace::math {
 	/// <summary>
 	/// Newton's method sqrt implementation, compatible with constexpr evaluation.
 	/// </summary>
-	/// <typeparam name="T">The type of the float</typeparam>
-	/// <param name="num">The float value to calculate the square root from</param>
+	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
+	/// <param name="num">The value to calculate the square root from</param>
 	/// <returns>square root value from passed value of type T</returns>
 	template<typename T = long double>
 	constexpr T sqrt(const T num) noexcept {

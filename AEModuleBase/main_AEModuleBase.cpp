@@ -22,6 +22,5 @@ int main() {
     
     std::cout << Test3::getModuleName()<<std::endl<<Test3::getModuleAmount()<<endl;
 
-
     return 0;
 }

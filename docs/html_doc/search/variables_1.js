@@ -16,7 +16,7 @@ var searchData=
   ['m_5frdelay_13',['m_rDelay',['../da/d62/class_a_e_timer.html#a2fe2c92681bbe2eaaf8680ab25bf8c30',1,'AETimer']]],
   ['m_5fsfilename_14',['m_sfilename',['../dd/dd5/class_a_e_file_reader.html#aed38f6c7a1032a0d4a0db205ff4ebb15',1,'AEFileReader::m_sFilename'],['../db/d15/class_a_e_file_writer.html#a594e48c0f16d64a40061395d907e4c9a',1,'AEFileWriter::m_sFilename']]],
   ['m_5fslogmessage_15',['m_sLogMessage',['../da/dea/struct_a_e_log_entry.html#a27d15be249f8a92b27544b3093c680eb',1,'AELogEntry']]],
-  ['m_5fsmodulename_16',['m_smodulename',['../d0/d8a/class_____a_e_module_base.html#aa45ec53c98b28cc49c32f55cefdecc2f',1,'__AEModuleBase::m_sModulename'],['../da/dea/struct_a_e_log_entry.html#a53b339789734d4558a0b6240f6c9bf1d',1,'AELogEntry::m_sModuleName']]],
+  ['m_5fsmodulename_16',['m_smodulename',['../da/dea/struct_a_e_log_entry.html#a53b339789734d4558a0b6240f6c9bf1d',1,'AELogEntry::m_sModuleName'],['../d0/d8a/class_____a_e_module_base.html#ad7c14b208c80c9a6478fdf797cb4e558',1,'__AEModuleBase::m_sModulename']]],
   ['m_5fszlastreadamount_17',['m_szLastReadAmount',['../dd/dd5/class_a_e_file_reader.html#a1bea127bba2ee9a6f13d71f8e17acd3d',1,'AEFileReader']]],
   ['m_5fszlastwrittenamount_18',['m_szLastWrittenAmount',['../db/d15/class_a_e_file_writer.html#a905e5fdf00a01574ad703c3143d67060',1,'AEFileWriter']]],
   ['m_5ftdchronodelay_19',['m_tdChronoDelay',['../df/dd7/class_a_e_frame.html#ad930b5c2e6863df676922364703aceed',1,'AEFrame']]],

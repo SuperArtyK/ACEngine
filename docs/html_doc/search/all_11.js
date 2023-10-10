@@ -12,5 +12,5 @@ var searchData=
   ['tostring_9',['toString',['../dc/df6/struct_a_e_vector.html#a59390b36ea5f70b78d6698fb9a60e9e6',1,'AEVector']]],
   ['toupperref_10',['toUpperRef',['../de/dde/namespaceace_1_1utils.html#adcd86509ef063a237d87e65a23255d99',1,'ace::utils']]],
   ['toupperval_11',['toUpperVal',['../de/dde/namespaceace_1_1utils.html#a1e5593ccf0f98b5f42a32d10d34c2a65',1,'ace::utils']]],
-  ['typetostring_12',['typeToString',['../da/dea/struct_a_e_log_entry.html#a0c66585d8dea832ef8f745adbced507f',1,'AELogEntry']]]
+  ['typetostring_12',['typeToString',['../d8/dfc/class_a_e_logger.html#a9f82b0faf533408d033570e5ac8e2512',1,'AELogger']]]
 ];
