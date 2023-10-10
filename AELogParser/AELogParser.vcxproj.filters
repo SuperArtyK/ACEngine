@@ -19,6 +19,9 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{adb56693-a692-4740-beb9-0db607f0ffea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{23a900e7-7043-4840-a334-e9f11c49277a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AELogParser.cpp">
@@ -37,6 +40,21 @@
     </ClInclude>
     <ClInclude Include="include\AELogParser.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypes.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

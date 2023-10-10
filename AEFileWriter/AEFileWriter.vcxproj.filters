@@ -19,6 +19,9 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{8d636e8d-2e42-42ee-bb66-21501ccdec2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{c874ef66-c0fe-484c-95b8-8ac4238d9376}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AEFileWriter.cpp">
@@ -34,6 +37,18 @@
     </ClInclude>
     <ClInclude Include="..\resources\resource1.h">
       <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

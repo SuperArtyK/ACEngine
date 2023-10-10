@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{d6492e5e-f019-4f51-9c44-5e097c09b3eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{27543825-190d-472c-80df-a2142091e5a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AEVector.cpp">
@@ -28,6 +31,15 @@
     </ClInclude>
     <ClInclude Include="..\resources\resource1.h">
       <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEMath.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

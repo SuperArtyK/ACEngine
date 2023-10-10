@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{e8d43547-6b59-463f-96fe-8e1803d84d61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{311be645-bce5-4d6e-93fa-28e86bfc05f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AETimer.cpp">
@@ -28,6 +31,18 @@
     </ClInclude>
     <ClInclude Include="..\resources\resource1.h">
       <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEFrame\include\AEFrame.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,9 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{47188b2a-ad09-4c26-a324-4a3800861184}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{32bc146d-947c-431e-9348-efe3cc9caec7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AEFileReader.cpp">
@@ -34,6 +37,18 @@
     </ClInclude>
     <ClInclude Include="include\AEFileReader.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

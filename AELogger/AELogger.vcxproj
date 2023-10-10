@@ -169,6 +169,12 @@
     <ClCompile Include="src\AELogger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETypes.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AELogger.hpp" />
   </ItemGroup>

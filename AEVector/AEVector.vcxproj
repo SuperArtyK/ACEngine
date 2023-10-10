@@ -167,6 +167,9 @@
     <ClCompile Include="main_AEVector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEMath.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AEVector.hpp" />
   </ItemGroup>

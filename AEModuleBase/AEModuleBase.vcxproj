@@ -171,6 +171,7 @@ $(SourcePath)</SourcePath>
     <ClCompile Include="main_AEModuleBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AEModuleBase.hpp" />
   </ItemGroup>

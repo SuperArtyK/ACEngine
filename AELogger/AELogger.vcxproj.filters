@@ -19,6 +19,9 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{bcb4e47a-a135-4832-9167-18d2544ad5db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{2bbc1061-fa9e-452b-b361-95982617e8b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AELogger.cpp">
@@ -37,6 +40,24 @@
     </ClInclude>
     <ClInclude Include="..\resources\resource1.h">
       <Filter>Resource Files\Logo resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypes.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
