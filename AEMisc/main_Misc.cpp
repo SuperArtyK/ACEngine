@@ -6,13 +6,43 @@
 #include "AEMath.hpp"
 #include "AETrigLookup.hpp"
 #include <iomanip>
-#include <corecrt_math_defines.h>
+#include <vector>
 using std::cout;
 using std::endl;
 
 
 int main() {
 	
+
+	std::vector<float> numlist;
+	cout << std::fixed << std::setprecision(7)<<std::numeric_limits<float>::epsilon()<<endl;
+
+	cout << (ace::math::sinDeg(30.5) - ace::math::sinDeg_tableInterp(30.5)) << endl;
+
+	numlist.reserve(14400000000);
+	
+	float degnum = 0.0f;
+	float eps = 0.001f;
+
+
+	long double maxerror = 0.0L;
+	long double res = 0.0L;
+
+	for (std::size_t i = 0; i < std::size_t(360.0f/eps); i++) {
+		res = ace::math::cosDeg(degnum) - ace::math::cosDeg_tableInterp(degnum);
+		if (maxerror < res) {
+			maxerror = res;
+		}
+		degnum += eps;
+
+		if (mod0(i, std::size_t(1 / eps))) {
+			cout << "Calculated degrees: " << degnum<<endl;
+		}
+	}
+
+	cout << maxerror << endl;
+	cout << degnum << endl;
+	/*
 	for (int i = 0; i < 360; i++) {
 		cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";
 		cout << ace::math::cosDeg_table(i) << "; " << ace::math::secDeg_table(i) << "| ";
@@ -43,8 +73,13 @@ int main() {
 	cout << LLINT_MAX << "; " << LLINT_MIN << endl;
 
 
-	cout << ace::math::roundToInt(1234);
+	cout << ace::math::sinDeg_tableInterp(30) << " " << ace::math::sinDeg_tableInterp(30.25) << " " << ace::math::sinDeg_tableInterp(30.5) << " " << ace::math::sinDeg_tableInterp(30.75) << " " << ace::math::sinDeg_tableInterp(31)<<endl;
+	cout << ace::math::sinDeg(30.0) << " " << ace::math::sinDeg(30.25) << " " << ace::math::sinDeg(30.5) << " " << ace::math::sinDeg(30.75) << " " << ace::math::sinDeg(31.0)<<endl;
+	
+
+	*/
 
 
+	std::cin.get();
     return 0;
 }

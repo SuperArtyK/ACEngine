@@ -42,7 +42,7 @@ namespace ace::math {
 	/// <returns>Pi converted/rounded to a given type</returns>
 	template<typename T = long double>
 	constexpr T pi(void) noexcept {
-		return T{ 3.141592653589793L };
+		return T( 3.141592653589793L );
 	}
 
 	/// <summary>
@@ -113,15 +113,32 @@ namespace ace::math {
 	/// <typeparam name="T">The type of the integer to round to</typeparam>
 	/// <typeparam name="Y">The type of the float to round</typeparam>
 	/// <param name="num">The floating point number to round</param>
-	/// <returns>the rounded integer of type T, from the given float number</returns>
+	/// <returns>The rounded integer of type T, from the given float number</returns>
 	template<typename T = llint, typename Y = long double>
 	constexpr T roundToInt(const Y num) noexcept {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
 			//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
-			return (num < 0) ? T(num + Y(0.5f)) * -1 : T(num + Y(0.5f));
+			return (num < 0) ? T(num + Y(-0.5f)) : T(num + Y(0.5f));
 		}
 	}
+
+	/// <summary>
+	/// Floor's, truncates the given float of type Y and converts to integer of type T.
+	/// @warning It breaks if the num value is more than the max value of T!
+	/// @note Float type Y should be a valid value (not NAN or inf)
+	/// @note Exists here while C++23's constexpr floor is still being adopted
+	/// @todo Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23)
+	/// </summary>
+	/// <typeparam name="T">The type of the integer to floor to</typeparam>
+	/// <typeparam name="Y">The type of the float to floor</typeparam>
+	/// <param name="num">The floating point number to floor</param>
+	/// <returns>The floored integer of type T, from the given float number</returns>
+	template<typename T = llint, typename Y = long double>
+	constexpr T floorToInt(const Y num) noexcept {
+		return T(num);
+	}
+
 	
 	/// <summary>
 	/// Calculates the absolute value of a given number.

@@ -18,53 +18,64 @@
 // a few typedefs so I'll type less [hard to read] code 
 
 // numbers
-/// A shortcut for small unsigned (char) integer
+/// A shortcut for small unsigned (char) integer (8bit)
 typedef uint8_t ucint;
 
-/// A shortcut for small signed (char) integer
+/// A shortcut for small signed (char) integer (8bit)
 typedef int8_t cint;
 
-/// A shortcut for big unsigned (long long) integer
-typedef unsigned long long ullint;
+/// A shortcut for big unsigned (long long) integer (64bit)
+typedef uint64_t ullint;
 
-/// A shortcut for big signed (long long) integer
-typedef long long llint;
+/// A shortcut for big signed (long long) integer (64bit)
+typedef int64_t llint;
 
-/// A shortcut for a just unsigned int
-typedef unsigned long uint;
+/// A shortcut for a just signed int (32bit)
+typedef int32_t sint;
 
+/// A shortcut for a just unsigned int (32bit)
+typedef uint32_t uint;
+
+/// A shortcut for a just unsigned short (at least 16 bit)
+typedef unsigned short ushort;
 
 
 // max/min values of these numbers
-/// small unsigned int max
+/// Macro for the maximum value of the ucint type (unsigned char/8bit int)
 #define UCINT_MAX UCHAR_MAX
 
-/// small unsigned int min
+/// Macro for the minimum value of the ucint type (unsigned char/8bit int)
 #define UCINT_MIN 0
 
-/// small signed int max
+/// Macro for the maximum value of the cint type (signed char/8bit int)
 #define CINT_MAX SCHAR_MAX
 
-/// small signed int min
+/// Macro for the minimum value of the cint type (signed char/8bit int)
 #define CINT_MIN SCHAR_MIN
 
-/// big unsigned int max
+/// Macro for the maximum value of the ullint type (unsigned long long/64bit int)
 #define ULLINT_MAX ULLONG_MAX
 
-/// big unsigned int min
+/// Macro for the minimum value of the ullint type (unsigned long long/64bit int)
 #define ULLINT_MIN 0
 
-/// big signed int max
+/// Macro for the maximum value of the llint type (signed long long/64bit int)
 #define LLINT_MAX LLONG_MAX
 
-/// big signed int min
+/// Macro for the minimum value of the llint type (signed long long/64bit int)
 #define LLINT_MIN LLONG_MIN
 
+/// Macro for the maximum value of the sint type (signed 32bit int)
+#define SINT_MAX INT32_MAX
+
+/// Macro for the minimum value of the sint type (signed 32bit int)
+#define SINT_MIN INT32_MIN
+
 // no UINT_MAX, as it's already defined
-/// unsigned int min
+/// Macro for the minimum value of the uint type (unsigned long long/64bit int)
 #define UINT_MIN 0
 
-/// unsigned short min
+/// Macro for the minimum value of the ushrt type (unsigned short/16bit int)
 #define USHRT_MIN 0
 
 

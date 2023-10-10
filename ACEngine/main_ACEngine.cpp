@@ -3,7 +3,6 @@
  *  This file contains the testing code for the engine or..larger project code, like a game.
  *  
  *  @todo Add the global variable list from my older engine
- *  @todo Add AEFileReader module to read files
  *  @todo Add AELogParser to parse the engine's (AELogger) log files
  *  @todo Add engine's file format, AEFile
  *  @todo Transfer and adapt code from my previous engine attempt

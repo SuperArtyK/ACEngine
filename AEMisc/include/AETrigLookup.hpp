@@ -5,8 +5,7 @@
  *  but won't offer much of precision -- within 1 degree.
  *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
  *  
- *  @todo Add the table trigonometric functions with interpolation. (Approximate value between 2 degrees in a table)
- *  @todo Add the ability to calculate the tables on compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
+ *  @todo Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
  *
  *  Should not cause everything to break :)
  */
@@ -90,6 +89,27 @@ namespace ace {
 			-2.00000000f, -2.06266534f, -2.13005447f, -2.20268926f, -2.28117203f, -2.36620158f, -2.45859334f, -2.55930467f, -2.66946716f, -2.79042811f, -2.92380440f, -3.07155349f, -3.23606798f, -3.42030362f, -3.62795528f, -3.86370331f, -4.13356549f, -4.44541148f, -4.80973434f, -5.24084306f, -5.75877048f, -6.39245322f, -7.18529653f, -8.20550905f, -9.56677223f, -11.47371325f, -14.33558703f, -19.10732261f, -28.65370835f, -57.29868850f, -FLT_MAX, 57.29868850f, 28.65370835f, 19.10732261f, 14.33558703f, 11.47371325f, 9.56677223f, 8.20550905f, 7.18529653f, 6.39245322f, 5.75877048f, 5.24084306f, 4.80973434f, 4.44541148f, 4.13356549f, 3.86370331f, 3.62795528f, 3.42030362f, 3.23606798f, 3.07155349f, 2.92380440f, 2.79042811f, 2.66946716f, 2.55930467f, 2.45859334f, 2.36620158f, 2.28117203f, 2.20268926f, 2.13005447f, 2.06266534f,
 			2.00000000f, 1.94160403f, 1.88707991f, 1.83607846f, 1.78829165f, 1.74344680f, 1.70130162f, 1.66164014f, 1.62426925f, 1.58901573f, 1.55572383f, 1.52425309f, 1.49447655f, 1.46627919f, 1.43955654f, 1.41421356f, 1.39016359f, 1.36732746f, 1.34563273f, 1.32501299f, 1.30540729f, 1.28675957f, 1.26901822f, 1.25213566f, 1.23606798f, 1.22077459f, 1.20621795f, 1.19236329f, 1.17917840f, 1.16663340f, 1.15470054f, 1.14335407f, 1.13257005f, 1.12232624f, 1.11260194f, 1.10337792f, 1.09463628f, 1.08636038f, 1.07853474f, 1.07114499f, 1.06417777f, 1.05762068f, 1.05146222f, 1.04569176f, 1.04029944f, 1.03527618f, 1.03061363f, 1.02630411f, 1.02234059f, 1.01871669f, 1.01542661f, 1.01246513f, 1.00982757f, 1.00750983f, 1.00550828f, 1.00381984f, 1.00244190f, 1.00137235f, 1.00060954f, 1.00015233f,
 		};
+		
+		/// <summary>
+		/// Returns the index to the trig table from the given (int) degree number
+		/// </summary>
+		/// <param name="a">The integer degree number</param>
+		/// <returns>The legal index to the lookup tables</returns>
+		constexpr ullint _getTrigTableIndex(const llint a) {
+			return (a < 0) ? (AETRIG_TABLE_SIZE + (a % AETRIG_TABLE_SIZE)) : (a % AETRIG_TABLE_SIZE);
+		}
+
+		/// <summary>
+		/// Calculates and interpolates the value of a given trig function table with given degrees
+		/// </summary>
+		/// <param name="degrees">The value of degrees to calculate the value of</param>
+		/// <param name="table">The lookup table to calculate and interpolate from</param>
+		/// <returns>Float of the interpolated and apporximated value from the given table at given degrees</returns>
+		constexpr float _calcTrigInterp(const float degrees, const float table[]) {
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return (table[ace::math::_getTrigTableIndex(angleF)] * ((angleF + 1) - degrees)) +
+				+(table[ace::math::_getTrigTableIndex(angleF + 1)] * (degrees - angleF));
+		}
 
 
 		/// <summary>
@@ -98,9 +118,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a sine from</param>
 		/// <returns>Float sine lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float sinDeg_table(const float degrees) noexcept {
-			return sinTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
-
-			
+			return sinTable[ace::math::_getTrigTableIndex( ace::math::roundToInt<llint>(degrees) )];
 		}
 
 		/// <summary>
@@ -109,7 +127,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosine from</param>
 		/// <returns>Float cosine lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float cosDeg_table(const float degrees) noexcept {
-			return cosTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
+			return cosTable[ace::math::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))];
 		}
 
 		/// <summary>
@@ -118,7 +136,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a tangent from</param>
 		/// <returns>Float tangent lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float tanDeg_table(const float degrees) noexcept {
-			return tanTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
+			return tanTable[ace::math::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))];
 		}
 
 		/// <summary>
@@ -127,7 +145,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cotangent from</param>
 		/// <returns>Float cotangent lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float cotDeg_table(const float degrees) noexcept {
-			return cotTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
+			return cotTable[ace::math::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))];
 		}
 
 		/// <summary>
@@ -136,7 +154,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosecant from</param>
 		/// <returns>Float cosecant lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float cscDeg_table(const float degrees) noexcept {
-			return cscTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
+			return cscTable[ace::math::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))];
 		}
 
 		/// <summary>
@@ -145,9 +163,68 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a secant from</param>
 		/// <returns>Float secant lookup table value that matches the (rounded) degrees amount</returns>
 		constexpr float secDeg_table(const float degrees) noexcept {
-			return secTable[ace::math::roundToInt<ullint>(ace::math::absval(degrees)) % AETRIG_TABLE_SIZE];
+			return secTable[ace::math::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))];
 		}
 
+		/// <summary>
+		/// Approximates the interpolated sine value from the sine lookup table
+		/// @note Correct to the sine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+		/// </summary>
+		/// <param name="degrees">The value of degrees to find a sine from</param>
+		/// <returns>Float of interpolated sine value/returns>
+		constexpr float sinDeg_tableInterp(const float degrees) noexcept {
+			return ace::math::_calcTrigInterp(degrees, ace::math::sinTable);
+		}
+
+		/// <summary>
+		/// Approximates the interpolated sine value from the cosine lookup table
+		/// @note Correct to the cosine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+		/// </summary>
+		/// <param name="degrees">The value of degrees to find a cosine from</param>
+		/// <returns>Float of interpolated cosine value/returns>
+		constexpr float cosDeg_tableInterp(const float degrees) noexcept {
+			return ace::math::_calcTrigInterp(degrees, ace::math::cosTable);
+		}
+
+		/// <summary>
+		/// Approximates the interpolated sine value from the tangent lookup table
+		/// @note Correct to the tangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+		/// </summary>
+		/// <param name="degrees">The value of degrees to find a tangent from</param>
+		/// <returns>Float of interpolated tangent value/returns>
+		constexpr float tanDeg_tableInterp(const float degrees) noexcept {
+			return ace::math::_calcTrigInterp(degrees, ace::math::tanTable);
+		}
+
+		/// <summary>
+		/// Approximates the interpolated sine value from the cotangent lookup table
+		/// @note Correct to the cotangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+		/// </summary>
+		/// <param name="degrees">The value of degrees to find a cotangent from</param>
+		/// <returns>Float of interpolated cotangent value/returns>
+		constexpr float cotDeg_tableInterp(const float degrees) noexcept {
+			return ace::math::_calcTrigInterp(degrees, ace::math::cotTable);
+		}
+
+		/// <summary>
+		/// Approximates the interpolated sine value from the cosecant lookup table
+		/// @note Correct to the cosecant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+		/// </summary>
+		/// <param name="degrees">The value of degrees to find a cosecant from</param>
+		/// <returns>Float of interpolated cosecant value/returns>
+		constexpr float cscDeg_tableInterp(const float degrees) noexcept {
+			return ace::math::_calcTrigInterp(degrees, ace::math::cscTable);
+		}
+
+		/// <summary>
+		/// Approximates the interpolated sine value from the secant lookup table
+		/// @note Correct to the secant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+		/// </summary>
+		/// <param name="degrees">The value of degrees to find a secant from</param>
+		/// <returns>Float of interpolated secant value/returns>
+		constexpr float secDeg_tableInterp(const float degrees) noexcept {
+			return ace::math::_calcTrigInterp(degrees, ace::math::secTable);
+		}
 	}
 }
 
