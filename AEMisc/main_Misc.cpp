@@ -14,34 +14,10 @@ using std::endl;
 int main() {
 	
 
-	std::vector<float> numlist;
-	cout << std::fixed << std::setprecision(7)<<std::numeric_limits<float>::epsilon()<<endl;
+	cout << std::fixed << std::setprecision(32) << ace::math::pi<long double>()<<NLC;
+	cout << std::fixed << std::setprecision(32) << 3.14159265358979323846<<NLC;
+	cout << std::fixed << std::setprecision(32) << 3.141592653589793L <<NLC;
 
-	cout << (ace::math::sinDeg(30.5) - ace::math::sinDeg_tableInterp(30.5)) << endl;
-
-	numlist.reserve(14400000000);
-	
-	float degnum = 0.0f;
-	float eps = 0.001f;
-
-
-	long double maxerror = 0.0L;
-	long double res = 0.0L;
-
-	for (std::size_t i = 0; i < std::size_t(360.0f/eps); i++) {
-		res = ace::math::cosDeg(degnum) - ace::math::cosDeg_tableInterp(degnum);
-		if (maxerror < res) {
-			maxerror = res;
-		}
-		degnum += eps;
-
-		if (mod0(i, std::size_t(1 / eps))) {
-			cout << "Calculated degrees: " << degnum<<endl;
-		}
-	}
-
-	cout << maxerror << endl;
-	cout << degnum << endl;
 	/*
 	for (int i = 0; i < 360; i++) {
 		cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";

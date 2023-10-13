@@ -73,8 +73,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(IncludePath)</IncludePath>
     <ClangTidyChecks>
     </ClangTidyChecks>
     <CodeAnalysisRuleSet>CppCoreCheckRules.ruleset</CodeAnalysisRuleSet>
@@ -82,15 +82,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(IncludePath)</IncludePath>
     <ClangTidyChecks>
     </ClangTidyChecks>
     <CodeAnalysisRuleSet>CppCoreCheckRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <ClangTidyChecks>
@@ -98,8 +98,8 @@
     <CodeAnalysisRuleSet>CppCoreCheckRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(IncludePath)</IncludePath>
-    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <ClangTidyChecks>

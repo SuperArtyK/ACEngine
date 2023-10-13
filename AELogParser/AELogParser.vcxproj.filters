@@ -56,6 +56,12 @@
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
+    <ClInclude Include="..\AELogger\include\AELogger.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AELogger\include\AELogTypes.hpp">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\consoleprog1.rc">

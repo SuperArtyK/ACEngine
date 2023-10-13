@@ -177,6 +177,7 @@
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AELogger.hpp" />
+    <ClInclude Include="include\AELogTypes.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\consoleprog1.rc" />

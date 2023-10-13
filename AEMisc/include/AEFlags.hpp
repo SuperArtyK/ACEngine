@@ -44,6 +44,11 @@
 #define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32
 #define AELOG_DEFAULT_LOG_PATH "logs/"
 
+//AELogEntry flags
+#define AELOG_ENTRY_MESSAGE_SIZE 511
+#define AELOG_ENTRY_MODULENAME_SIZE 31
+
+
 //AEVector
 /// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount.
 #define AEVEC_WRAP_DIMENSIONS 1

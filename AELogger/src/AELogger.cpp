@@ -9,6 +9,7 @@
 
 #include "../include/AELogger.hpp"
 #include "include/AEUtils.hpp"
+#include "include/AEFlags.hpp"
 #include <utility>
 #include <ctime>
 
@@ -150,8 +151,11 @@ void AELogger::logWriterThread(void) {
 	this->writeToLog("Successfully launched the log-writing thread!", AELOG_TYPE_SUCCESS, this->m_sModulename);
 
 	AELogEntry* ePtr = this->m_lepQueue;
-	char str[588]{};
+	//string that stores the date and time formatted string
 	char timestr[20]{};
+	//the final message to output
+	char str[AELOG_ENTRY_MAX_SIZE]{};
+
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
@@ -168,15 +172,15 @@ void AELogger::logWriterThread(void) {
 
 				//formatting and writing
 				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
-				snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				snprintf(str, sizeof(str), "[%s] [%s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
 				//std::cout << str;
 
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 
 				//cleanup
-				std::memset(str, NULL, 587); // clean the formatting buffer
-				std::memset(ePtr->m_sLogMessage, NULL, 511); // clean log message
-				std::memset(ePtr->m_sModuleName, NULL, 31); // clean module name
+				std::memset(str, NULL, (sizeof(str)-1)); // clean the formatting buffer
+				std::memset(ePtr->m_sLogMessage, NULL, (sizeof(str) - 1)); // clean log message
+				std::memset(ePtr->m_sModuleName, NULL, (sizeof(str) - 1)); // clean module name
 				ePtr->m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 				this->m_ullFilledCount--;
@@ -192,7 +196,7 @@ void AELogger::logWriterThread(void) {
 
 
 
-	snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
+	snprintf(str, sizeof(str), "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data());
 	this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 }
 

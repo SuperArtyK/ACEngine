@@ -513,7 +513,6 @@ public:
 		this->m_cLastError = AEFW_ERR_NOERROR;
 	}
 
-	
 	/// <summary>
 	/// Interval in write operations before automatic flush operation.
 	/// 1 -- flush every write operation, etc; -1 -- almost never

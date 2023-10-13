@@ -11,6 +11,7 @@
 #define ENGINE_TYPES_HPP
 
 #include "AETypedefs.hpp"
+#include "AEFlags.hpp"
 #include <ctime>
 #include <atomic>
 
@@ -27,7 +28,7 @@
 /// Macro for the AELogEntry's status to be: currently being read by the log-writing thread.
 #define AELOG_ENTRY_STATUS_READING 3
 
-
+#define AELOG_ENTRY_MAX_SIZE (AELOG_ENTRY_MESSAGE_SIZE + AELOG_ENTRY_MODULENAME_SIZE + sizeof("[YYYY-MM-DD.HH:mm:SS] [] []: \n"))
 
 /// <summary>
 /// The structure for the log entry data in the queue of AELogger.
@@ -35,11 +36,11 @@
 struct AELogEntry {
 
 	/// The message of the log entry
-	char m_sLogMessage[512]{};
+	char m_sLogMessage[AELOG_ENTRY_MESSAGE_SIZE+1]{}; //+1 for the last null termination
 	/// The name of the module that issued the log entry
-	char m_sModuleName[32]{};
+	char m_sModuleName[AELOG_ENTRY_MODULENAME_SIZE+1]{}; //+1 for the last null termination
 	/// The time when this log entry was created
-	std::time_t m_tmLogTime = 0;
+	std::time_t m_tmLogTime = NULL;
 	/// The order(or queue) number of the log entry, safety measure for consequent writing and thread-safety
 	/// @note The log-writing thread will ignore this entry, if it is set to AELOG_ENTRY_INVALID_ORDERNUM
 	std::atomic<ullint> m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
@@ -49,7 +50,7 @@ struct AELogEntry {
 	std::atomic<cint> m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 	/// The type of the log entry
 	/// @see AELOG_TYPE_*
-	cint m_cLogType = 0;
+	cint m_cLogType = -1;
 
 };
 

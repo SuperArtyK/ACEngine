@@ -95,22 +95,9 @@ namespace ace {
 		/// </summary>
 		/// <param name="a">The integer degree number</param>
 		/// <returns>The legal index to the lookup tables</returns>
-		constexpr ullint _getTrigTableIndex(const llint a) {
+		constexpr std::size_t _getTrigTableIndex(const llint a) noexcept {
 			return (a < 0) ? (AETRIG_TABLE_SIZE + (a % AETRIG_TABLE_SIZE)) : (a % AETRIG_TABLE_SIZE);
 		}
-
-		/// <summary>
-		/// Calculates and interpolates the value of a given trig function table with given degrees
-		/// </summary>
-		/// <param name="degrees">The value of degrees to calculate the value of</param>
-		/// <param name="table">The lookup table to calculate and interpolate from</param>
-		/// <returns>Float of the interpolated and apporximated value from the given table at given degrees</returns>
-		constexpr float _calcTrigInterp(const float degrees, const float table[]) {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
-			return (table[ace::math::_getTrigTableIndex(angleF)] * ((angleF + 1) - degrees)) +
-				+(table[ace::math::_getTrigTableIndex(angleF + 1)] * (degrees - angleF));
-		}
-
 
 		/// <summary>
 		/// Rounds the degrees value, and looks up the value of sine in the table.
@@ -167,43 +154,47 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Approximates the interpolated sine value from the sine lookup table
+		/// Calculates the interpolated sine value from the sine lookup table
 		/// @note Correct to the sine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a sine from</param>
 		/// <returns>Float of interpolated sine value/returns>
 		constexpr float sinDeg_tableInterp(const float degrees) noexcept {
-			return ace::math::_calcTrigInterp(degrees, ace::math::sinTable);
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return ace::math::lerp<float>(sinTable[ace::math::_getTrigTableIndex(angleF)], sinTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
 		/// <summary>
-		/// Approximates the interpolated sine value from the cosine lookup table
+		/// Calculates the interpolated sine value from the cosine lookup table
 		/// @note Correct to the cosine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cosine from</param>
 		/// <returns>Float of interpolated cosine value/returns>
 		constexpr float cosDeg_tableInterp(const float degrees) noexcept {
-			return ace::math::_calcTrigInterp(degrees, ace::math::cosTable);
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return ace::math::lerp<float>(cosTable[ace::math::_getTrigTableIndex(angleF)], cosTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
 		/// <summary>
-		/// Approximates the interpolated sine value from the tangent lookup table
+		/// Calculates the interpolated sine value from the tangent lookup table
 		/// @note Correct to the tangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a tangent from</param>
 		/// <returns>Float of interpolated tangent value/returns>
 		constexpr float tanDeg_tableInterp(const float degrees) noexcept {
-			return ace::math::_calcTrigInterp(degrees, ace::math::tanTable);
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return ace::math::lerp<float>(tanTable[ace::math::_getTrigTableIndex(angleF)], tanTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
 		/// <summary>
-		/// Approximates the interpolated sine value from the cotangent lookup table
+		/// Calculates the interpolated sine value from the cotangent lookup table
 		/// @note Correct to the cotangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a cotangent from</param>
 		/// <returns>Float of interpolated cotangent value/returns>
 		constexpr float cotDeg_tableInterp(const float degrees) noexcept {
-			return ace::math::_calcTrigInterp(degrees, ace::math::cotTable);
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return ace::math::lerp<float>(cotTable[ace::math::_getTrigTableIndex(angleF)], cotTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
 		/// <summary>
@@ -213,17 +204,19 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosecant from</param>
 		/// <returns>Float of interpolated cosecant value/returns>
 		constexpr float cscDeg_tableInterp(const float degrees) noexcept {
-			return ace::math::_calcTrigInterp(degrees, ace::math::cscTable);
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return ace::math::lerp<float>(cscTable[ace::math::_getTrigTableIndex(angleF)], cscTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
 		/// <summary>
-		/// Approximates the interpolated sine value from the secant lookup table
+		/// Calculates the interpolated sine value from the secant lookup table
 		/// @note Correct to the secant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
 		/// </summary>
 		/// <param name="degrees">The value of degrees to find a secant from</param>
 		/// <returns>Float of interpolated secant value/returns>
 		constexpr float secDeg_tableInterp(const float degrees) noexcept {
-			return ace::math::_calcTrigInterp(degrees, ace::math::secTable);
+			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			return ace::math::lerp<float>(secTable[ace::math::_getTrigTableIndex(angleF)], secTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 	}
 }

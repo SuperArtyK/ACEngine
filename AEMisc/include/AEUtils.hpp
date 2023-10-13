@@ -211,7 +211,7 @@ namespace ace {
 		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
 		/// </summary>
 		/// <param name="timept">C time point</param>
-		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long</param>
+		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long (19 characters with 1 null terminator)</param>
 		/// <returns>std::string of the formatted string</returns>
 		inline void formatDate(const time_t timept, char* str) noexcept {
 			if (!str) {
@@ -234,7 +234,7 @@ namespace ace {
 		/// </summary>
 		/// <returns>std::stringof the current date in YYYY-MM-DD.HH:mm:SS format</returns>
 		inline std::string getCurrentDate(void) {
-			return ace::utils::formatDate(time(NULL));
+			return ace::utils::formatDate(time(nullptr));
 		}
 
 		/// <summary>

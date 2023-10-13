@@ -571,6 +571,24 @@ public:
 		this->m_cLastError = AEFR_ERR_NOERROR;
 	}
 
+	/// <summary>
+	/// Checks if the file (cursor) has reached it's (file's) end (feof)
+	/// </summary>
+	/// <returns>True if end of file was reached, false otherwise</returns>
+	inline bool isEOF(void) const noexcept {
+		return std::feof(this->m_fpFilestr);
+	}
+
+	/// <summary>
+	/// Checks if error was encountered while reading the file data (ferror)
+	/// </summary>
+	/// <returns>True if end of file was reached, false otherwise</returns>
+	inline bool isError(void) const noexcept {
+		return std::ferror(this->m_fpFilestr);
+	}
+
+
+
 
 private:
 

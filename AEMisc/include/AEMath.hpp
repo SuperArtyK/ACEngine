@@ -36,13 +36,64 @@ namespace ace::math {
 	
 	
 	/// <summary>
-	/// Engine pi variable.
+	/// Engine's pi value.
 	/// </summary>
 	/// <typeparam name="T">Type to convert pi to</typeparam>
 	/// <returns>Pi converted/rounded to a given type</returns>
 	template<typename T = long double>
 	constexpr T pi(void) noexcept {
-		return T( 3.141592653589793L );
+		return T(3.14159265358979323846L);
+	}
+
+	/// <summary>
+	/// Engine's pi*2 value.
+	/// </summary>
+	/// <typeparam name="T">Type to convert pi*2 to</typeparam>
+	/// <returns>Pi*2 converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T pi2(void) noexcept {
+		return T(6.28318530717958647692L);
+	}
+
+	/// <summary>
+	/// Engine's pi/2 (half) value.
+	/// </summary>
+	/// <typeparam name="T">Type to convert pi/2 to</typeparam>
+	/// <returns>Pi/2 converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T piH(void) noexcept {
+		return T(1.57079632679489661923L);
+	}
+
+	/// <summary>
+	/// Engine's pi/4 (quarter) value.
+	/// </summary>
+	/// <typeparam name="T">Type to convert pi/4 to</typeparam>
+	/// <returns>Pi/4 converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T piQ(void) noexcept {
+		return T(0.785398163397448309616L);
+	}
+
+
+	/// <summary>
+	/// Engine's euler number value.
+	/// </summary>
+	/// <typeparam name="T">Type to convert e to</typeparam>
+	/// <returns>e converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T e(void) noexcept {
+		return T(2.71828182845904523536L);
+	}
+
+	/// <summary>
+	/// Engine's sqrt(2) value.
+	/// </summary>
+	/// <typeparam name="T">Type to convert sqrt(2) to</typeparam>
+	/// <returns>sqrt(2) converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T sqrt2(void) noexcept {
+		return T(1.41421356237309504880L);
 	}
 
 	/// <summary>
@@ -253,6 +304,21 @@ namespace ace::math {
 	constexpr unsigned int floatLength(const T num) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::floatLength()!");
 		return ((num == 0) ? 1 : (unsigned int)std::log10(std::abs(num))) + 1;
+	}
+
+	/// <summary>
+	/// Computes the linear inter/extrapolation with the given values a and b and a value c between or outside of them
+	/// @note If c is between 0 and 1, computes linear interpolation
+	/// @note if c is outside of 0 and 1, computes linear extrapolation
+	/// </summary>
+	/// <typeparam name="T">The type to calculate it with</typeparam>
+	/// <param name="a">The value of a (lower known boundary)</param>
+	/// <param name="b">The value of b (higher known boundary)</param>
+	/// <param name="c">The value for inter/extrapolation (distance from value "a")</param>
+	/// <returns>The value of type T of the inter/extrapolated value</returns>
+	template<typename T = long double>
+	constexpr T lerp(const T a, const T b, const T c) {
+		return  a + c * (b - a);
 	}
 
 
