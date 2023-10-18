@@ -243,10 +243,10 @@ namespace ace {
 			return ace::utils::formatDate(time(nullptr));
 		}
 
-		inline const time_t stringToDate(const std::string_view timestr, const std::string_view timeformat = "%Y-%m-%d.%X") {
+		inline const time_t stringToDate(const char* const timestr, const char* const timeformat = "%Y-%m-%d.%X") {
 			struct tm tstruct { 0 };
-			std::istringstream iss(timestr.data());
-			iss >> std::get_time(&tstruct, timeformat.data());
+			std::istringstream iss(timestr);
+			iss >> std::get_time(&tstruct, timeformat);
 
 			// use system timezone databases for...proper time shift;
 			// thanks Michael Paxton and Lightness-Races-in-Orbit: https://stackoverflow.com/a/55475752

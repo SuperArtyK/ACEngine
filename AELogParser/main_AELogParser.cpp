@@ -34,8 +34,8 @@ int main() {
 	ace::utils::formatDate(testing.m_tmLogTime, timestr);
 	snprintf(str, sizeof(str), "[%s] [%-14s] [%s]: %s", timestr, typeToString(testing.m_cLogType), testing.m_sModuleName, testing.m_sLogMessage);
 	
-	cout << str;
-	cout << std::strcmp(str, R"([2023-10-18.13:43:51] [OK            ] [AELogger]: Created the AELogger instance and opened the log session in the file: "C:/Users/artem/CODING/ACEngine/x64/Debug/log.txt")");
+	cout << str<<"#\n";
+	cout << std::strcmp(str, R"([2023-10-18.13:43:51] [OK            ] [AELogger]: Created the AELogger instance and opened the log session in the file: "C:/Users/artem/CODING/ACEngine/x64/Debug/log.txt")")<<NLC;
 
 	// 39 + 1('[') + mname size + 3("]: ") + 1(message)
 	return 0;

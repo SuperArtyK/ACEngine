@@ -57,60 +57,61 @@ public:
 
 	//parse the log entry and give data to the given entry
 	//and forcefully parse if asked
-	
 	cint parseEntry(AELogEntry& entry, const bool forceParse = false) {
 
 		constexpr std::size_t POS_TIME = 0, POS_TYPE = 22, POS_MNAME = 39;
 		char str[AELOG_ENTRY_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the size
-		char ltype[15]{}; //14 characters guaranteed
-		char mname[33]{}; // +1 more character to see if it's not correct format
-		char logmessage[512]{};
 
-
-
+		//initial read of the line
 		this->m_frLogReader.readStringNL(str, sizeof(str)-1);
-		const std::string_view logstr(str);
 		const std::size_t len = std::strlen(str);
 		if (len == AELOG_ENTRY_MAX_SIZE + 1 || len < 47) { // it is more then the max size or less than possible size -- invalid or...somehow modified
 			return AELP_ERR_INVALID_LENGTH;
 		}
 
+		char logmessage[512]{}; //log message, exactly 511 characters
+		char mname[33]{}; // +1 more character to see if it's not correct format
+		char ltype[15]{}; //14 characters guaranteed
+		
+		
+
 		//check the log entry's time
-		std::time_t entryTime = ace::utils::stringToDate(logstr.substr(POS_TIME, 20), "[%Y-%m-%d.%X");
+		const std::time_t entryTime = ace::utils::stringToDate(str, "[%Y-%m-%d.%X");
 		if (entryTime == -1) {
 			return AELP_ERR_INVALID_TIME;
 		}
 		
 
 		// check for the "] " between the time and type
-		if (std::memcmp(logstr.substr(POS_TYPE-2).data(), "] ", 2)) { 
+		if (std::memcmp(str + POS_TYPE - 2, "] ", 2)) {
 			return AELP_ERR_INVALID_FORMAT;
 		}
 
-		// check the log entry's type
-		
-		cint entryType = 0;
-		if (sscanf(logstr.substr(POS_TYPE).data(), "[%14[^]] ", ltype) == 1 && // read string
-			(entryType = AELogParser::matchLogType(ltype)) != -1) { // check for type
-			
-		}
-		else {
+		// read the possible type
+		if (sscanf(str + POS_TYPE, "[%14[^]] ", ltype) != 1) {
 			return AELP_ERR_INVALID_TYPE; //oops!
 		}
-		
+
+		// check for the valid log entry's type
+		const cint entryType = AELogParser::matchLogType(ltype);
+		if (entryType == -1) {
+			return AELP_ERR_INVALID_TYPE; //oops!
+		}
+
+
 		// check for the "] " between the type and module name
-		if (std::memcmp(logstr.substr(POS_MNAME - 2).data(), "] ", 2)) { 
+		if (std::memcmp(str + POS_MNAME - 2, "] ", 2)) {
 			return AELP_ERR_INVALID_FORMAT;
 		}
-			
-		
-		std::string_view mname_v;
-		if (sscanf(logstr.substr(POS_MNAME).data(), "[%32[^]] ", mname) == 1 && // read string
-			(mname_v = mname).size() <= 31 && // see for the length (if we're more than 31 - we certainly failed)
-			ace::utils::isAlNumUs(mname_v)) { // check if it's alphanumeric
-			
+
+		// read the possible module name
+		if (sscanf(str + POS_MNAME, "[%32[^]] ", mname) != 1) {
+			return AELP_ERR_INVALID_MNAME;
 		}
-		else {
+
+		// check for the correct module name
+		const std::string_view strvMname(mname);
+		if (strvMname.size() > 31 || !ace::utils::isAlNumUs(strvMname)) {
 			return AELP_ERR_INVALID_MNAME;
 		}
 
@@ -118,34 +119,29 @@ public:
 		//Since the module name is variable and cannot be predicted
 		//We might have read untill the end of the "entry"
 		//so check it!
-		if (logstr.size() < (POS_MNAME + mname_v.size() + 5)) { //position of module name (39)+ size of the mname + 5 characters forward (leading [, trailing "]: ", and 1 character for message)
+		if (len < (POS_MNAME + strvMname.size() + 5)) { //position of module name (39)+ size of the mname + 5 characters forward (leading [, trailing "]: ", and 1 character for message)
 			return AELP_ERR_INVALID_LENGTH;
 		}
 		
 		//cool, now onwards to text
 		//check for the existing boundary between module name and message
-		if (std::memcmp(logstr.substr(POS_MNAME + mname_v.size() + 1).data(), "]: ", 3)) {
+		if (std::memcmp(str + POS_MNAME + strvMname.size() + 1, "]: ", 3)) {
 			return AELP_ERR_INVALID_FORMAT; //oops
 		}
 		
 		//cool, passed. now read untill the end
 		//the newline and or the size is guaranteed to exist
-		sscanf(logstr.substr(POS_MNAME + mname_v.size() + 4).data(), "%[^511\n]", logmessage);
+		sscanf(str + POS_MNAME + strvMname.size() + 4, "%[^511\n]", logmessage);
 		
 
 
 		std::memcpy(entry.m_sLogMessage, logmessage, 511); //message
-		std::memcpy(entry.m_sModuleName, mname, 31); //module name
+		std::memcpy(entry.m_sModuleName, mname, strvMname.size()); //module name
 		entry.m_tmLogTime = entryTime; //time
-		entry.m_ullOrderNum = m_ullLogEntries++;
-		entry.m_cStatus = AELOG_ENTRY_STATUS_READY;
+		entry.m_ullOrderNum = m_ullLogEntries++; //order number
+		// not doing the queue..because it's the user's concern
+		entry.m_cStatus = AELOG_ENTRY_STATUS_READY; //status
 		entry.m_cLogType = entryType; //type
-		
-		
-		
-
-
-
 
 		return AELP_ERR_NOERROR;
 	}
@@ -165,6 +161,8 @@ public:
 private:
 
 	static cint matchLogType(const std::string_view str) noexcept {
+		if (str.size() != 14) { return AELOG_TYPE_INVALID; }
+
 
 		if (str == "DEBUG         ") {
 			return AELOG_TYPE_DEBUG;
