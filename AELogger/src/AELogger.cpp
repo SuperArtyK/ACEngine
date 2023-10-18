@@ -99,8 +99,11 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	}
 
 	/// @todo Implement decrease in log queue size...somehow
-	if (logmessg.empty()) {
-		return; //na'ah, no empty messages
+
+	// check for invalid arguments
+	if (logmessg.empty() || logmodule.empty() || !ace::utils::isInRange<int>(AELOG_TYPE_DEBUG, AELOG_TYPE_FATAL_ERROR, logtype) || //empty/invalid stuff
+		!ace::utils::isAlNumUs(logmodule)) { //log module stuff
+		return;
 	}
 
 	this->m_ullFilledCount++;
@@ -156,6 +159,8 @@ void AELogger::logWriterThread(void) {
 	//the final message to output
 	char str[AELOG_ENTRY_MAX_SIZE]{};
 
+	constexpr const char* const strformat = "[%s] [%-14s] [%s]: %s\n";
+
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
@@ -172,7 +177,7 @@ void AELogger::logWriterThread(void) {
 
 				//formatting and writing
 				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
-				snprintf(str, sizeof(str), "[%s] [%-14s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
 				//std::cout << str;
 
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
@@ -196,7 +201,7 @@ void AELogger::logWriterThread(void) {
 
 
 
-	snprintf(str, sizeof(str), "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data());
+	snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
 	this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 }
 

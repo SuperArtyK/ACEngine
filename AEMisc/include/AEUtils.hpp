@@ -243,7 +243,7 @@ namespace ace {
 			return ace::utils::formatDate(time(nullptr));
 		}
 
-		inline time_t stringToDate(const std::string_view timestr, const std::string_view timeformat = "%Y-%m-%d.%X") {
+		inline const time_t stringToDate(const std::string_view timestr, const std::string_view timeformat = "%Y-%m-%d.%X") {
 			struct tm tstruct { 0 };
 			std::istringstream iss(timestr.data());
 			iss >> std::get_time(&tstruct, timeformat.data());
@@ -324,6 +324,15 @@ namespace ace {
 			return (ace::utils::isInRange<int>(0, 9, i)) ? (i + '0') : -1;
 		}
 
+		//alphanumeric string
+		const inline bool isAlNum(const std::string_view str) {
+			return std::find_if_not(str.begin(), str.end(), [](char c) { return std::isalnum(c); }) == str.end();
+		}
+
+		//alphanumeric + underscore string
+		const inline bool isAlNumUs(const std::string_view str) {
+			return std::find_if_not(str.begin(), str.end(), [](char c) { return std::isalnum(c) || c == '_'; }) == str.end();
+		}
 
 	}	
 }

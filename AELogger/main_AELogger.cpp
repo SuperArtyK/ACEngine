@@ -19,7 +19,7 @@ void logfiller(const std::string name) {
 	std::cout << "Entered logfiller with a thread" << NLC;
 	for (int i = 0;; i++) {
 		mylog.writeToLog("Hello " + std::string(__FUNCTION__) + "! (log entry " + std::to_string(i + 1) + ")", AELOG_TYPE_INFO, __FUNCTION__);
-		mylog.writeToLog("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
+		mylog.writeToLogDebug("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
 		mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
 		mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
 		mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
@@ -47,7 +47,7 @@ int main()
 	AEFrame a(fpsval);
 	for (int i = 0; ; i++) {
 		mylog.writeToLog("Hello " + std::string(__FUNCTION__) + "! (log entry " + std::to_string(i + 1) + ")", AELOG_TYPE_INFO, __FUNCTION__);
-		mylog.writeToLog("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
+		mylog.writeToLogDebug("Working in the " + std::string(__FUNCTION__), AELOG_TYPE_DEBUG, __FUNCTION__);
 		mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
 		mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
 		mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);

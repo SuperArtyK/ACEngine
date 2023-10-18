@@ -12,6 +12,7 @@
 #define ENGINE_LOG_TYPES_HPP
 
 //log types
+#define AELOG_TYPE_INVALID -1
 /// Macro for the AELogger's debug entry.
 #define AELOG_TYPE_DEBUG 0
 /// Macro for the AELogger's informational entry.

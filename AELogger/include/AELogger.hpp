@@ -116,6 +116,7 @@ public:
 	/// <summary>
 	/// Request a log entry to be written to the opened log file.
 	/// @note See AELOG_TYPE_* flags
+	/// @note The module name should contain only alphanumeric characters or underscores (no spaces), otherwise it fails
 	/// </summary>
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>

@@ -5,15 +5,15 @@
 #include "AEFlags.hpp"
 #include "AEMath.hpp"
 #include "AETrigLookup.hpp"
+#include "../AELogger/include/AELogTypes.hpp"
 #include <iomanip>
 #include <vector>
 using std::cout;
 using std::endl;
 
-
-
 int main() {
 	
+
 
 	cout << std::fixed<<std::setprecision(16)<<ace::math::root<float>(236, 2)<<NLC;
 	
