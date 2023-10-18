@@ -160,7 +160,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a sine from</param>
 		/// <returns>Float of interpolated sine value/returns>
 		constexpr float sinDeg_tableInterp(const float degrees) noexcept {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 			return ace::math::lerp<float>(sinTable[ace::math::_getTrigTableIndex(angleF)], sinTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
@@ -171,7 +171,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosine from</param>
 		/// <returns>Float of interpolated cosine value/returns>
 		constexpr float cosDeg_tableInterp(const float degrees) noexcept {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 			return ace::math::lerp<float>(cosTable[ace::math::_getTrigTableIndex(angleF)], cosTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
@@ -182,7 +182,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a tangent from</param>
 		/// <returns>Float of interpolated tangent value/returns>
 		constexpr float tanDeg_tableInterp(const float degrees) noexcept {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 			return ace::math::lerp<float>(tanTable[ace::math::_getTrigTableIndex(angleF)], tanTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
@@ -193,7 +193,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cotangent from</param>
 		/// <returns>Float of interpolated cotangent value/returns>
 		constexpr float cotDeg_tableInterp(const float degrees) noexcept {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 			return ace::math::lerp<float>(cotTable[ace::math::_getTrigTableIndex(angleF)], cotTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
@@ -204,7 +204,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a cosecant from</param>
 		/// <returns>Float of interpolated cosecant value/returns>
 		constexpr float cscDeg_tableInterp(const float degrees) noexcept {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 			return ace::math::lerp<float>(cscTable[ace::math::_getTrigTableIndex(angleF)], cscTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 
@@ -215,7 +215,7 @@ namespace ace {
 		/// <param name="degrees">The value of degrees to find a secant from</param>
 		/// <returns>Float of interpolated secant value/returns>
 		constexpr float secDeg_tableInterp(const float degrees) noexcept {
-			const llint angleF = ace::math::floorToInt(degrees); //floored angle
+			const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 			return ace::math::lerp<float>(secTable[ace::math::_getTrigTableIndex(angleF)], secTable[ace::math::_getTrigTableIndex(angleF+1)], degrees - angleF);
 		}
 	}

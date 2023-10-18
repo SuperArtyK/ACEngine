@@ -172,15 +172,15 @@ void AELogger::logWriterThread(void) {
 
 				//formatting and writing
 				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
-				snprintf(str, sizeof(str), "[%s] [%s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				snprintf(str, sizeof(str), "[%s] [%-14s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
 				//std::cout << str;
 
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 
 				//cleanup
 				std::memset(str, NULL, (sizeof(str)-1)); // clean the formatting buffer
-				std::memset(ePtr->m_sLogMessage, NULL, (sizeof(str) - 1)); // clean log message
-				std::memset(ePtr->m_sModuleName, NULL, (sizeof(str) - 1)); // clean module name
+				std::memset(ePtr->m_sLogMessage, NULL, (sizeof(AELogEntry::m_sLogMessage) - 1)); // clean log message
+				std::memset(ePtr->m_sModuleName, NULL, (sizeof(AELogEntry::m_sModuleName) - 1)); // clean module name
 				ePtr->m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 				this->m_ullFilledCount--;

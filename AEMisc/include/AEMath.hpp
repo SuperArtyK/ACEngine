@@ -46,12 +46,12 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Engine's pi*2 value.
+	/// Engine's tau (pi*2) value.
 	/// </summary>
-	/// <typeparam name="T">Type to convert pi*2 to</typeparam>
-	/// <returns>Pi*2 converted/rounded to a given type</returns>
+	/// <typeparam name="T">Type to convert tau to</typeparam>
+	/// <returns>Tau converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T pi2(void) noexcept {
+	constexpr T tau(void) noexcept {
 		return T(6.28318530717958647692L);
 	}
 
@@ -155,41 +155,6 @@ namespace ace::math {
 	inline T secDeg(const T degrees) noexcept {
 		return 1 / cos(torad(degrees, T));
 	}
-
-	/// <summary>
-	/// Rounds the given float of type Y to integer of type T.
-	/// @warning It breaks if the num value is more than the max value of T!
-	/// @note Float type Y should be a valid value (not NAN or inf)
-	/// </summary>
-	/// <typeparam name="T">The type of the integer to round to</typeparam>
-	/// <typeparam name="Y">The type of the float to round</typeparam>
-	/// <param name="num">The floating point number to round</param>
-	/// <returns>The rounded integer of type T, from the given float number</returns>
-	template<typename T = llint, typename Y = long double>
-	constexpr T roundToInt(const Y num) noexcept {
-		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
-		else {
-			//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
-			return (num < 0) ? T(num + Y(-0.5f)) : T(num + Y(0.5f));
-		}
-	}
-
-	/// <summary>
-	/// Floor's, truncates the given float of type Y and converts to integer of type T.
-	/// @warning It breaks if the num value is more than the max value of T!
-	/// @note Float type Y should be a valid value (not NAN or inf)
-	/// @note Exists here while C++23's constexpr floor is still being adopted
-	/// @todo Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23)
-	/// </summary>
-	/// <typeparam name="T">The type of the integer to floor to</typeparam>
-	/// <typeparam name="Y">The type of the float to floor</typeparam>
-	/// <param name="num">The floating point number to floor</param>
-	/// <returns>The floored integer of type T, from the given float number</returns>
-	template<typename T = llint, typename Y = long double>
-	constexpr T floorToInt(const Y num) noexcept {
-		return T(num);
-	}
-
 	
 	/// <summary>
 	/// Calculates the absolute value of a given number.
@@ -214,8 +179,8 @@ namespace ace::math {
 	template<typename T = long double>
 	constexpr bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
-		return (num - num2) < _epsilon &&
-			-(num - num2) < _epsilon;
+		const T dif = ace::math::absval<T>(num - num2);
+		return (dif) < _epsilon;
 	}
 
 
@@ -237,19 +202,54 @@ namespace ace::math {
 		}
 	}
 
-
 	/// <summary>
 	/// Newton's method sqrt implementation, compatible with constexpr evaluation.
 	/// </summary>
 	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
 	/// <param name="num">The value to calculate the square root from</param>
-	/// <returns>square root value from passed value of type T</returns>
+	/// <returns>If the num is positive -> square root value from passed value of type T; -1 (as the type T) otherwise</returns>
 	template<typename T = long double>
 	constexpr T sqrt(const T num) noexcept {
+		if (num < 0) {
+			return T(-1);
+		}
+
 		T val[2] = { num,0 };
 		while (!ace::math::equals(val[0], val[1])) {
 			val[1] = val[0];
-			val[0] = (val[0] + num / val[0])/2;
+			val[0] = (val[0] + num / val[0]) / T(2);
+			if constexpr (std::is_integral<T>::value) {
+				if (val[1] < val[0]) {
+					break;
+				}
+			}
+		}
+		return val[1];
+	}
+
+	template<typename T = long double>
+	constexpr T intPow(const T num, const uint power) {
+		if (power == 1) { return num; }
+		T res = num;
+		for (uint i = 1; i < power; i++) {
+			res *= num;
+		}
+		return res;
+	}
+
+	template<typename T = long double>
+	constexpr T root(const T num, const uint rtNum) noexcept {
+		const T rtMinusOne = rtNum - 1;
+
+		T val[2] = { num,0 };
+		while (!ace::math::equals(val[0], val[1])) {
+			val[1] = val[0];
+			val[0] = (rtMinusOne * val[0] + (num / ace::math::intPow<long double>(val[0], rtMinusOne))) / rtNum;
+			if constexpr (std::is_integral<T>::value) {
+				if (val[1] < val[0]) {
+					break;
+				}
+			}
 		}
 		return val[1];
 	}
@@ -322,6 +322,83 @@ namespace ace::math {
 	}
 
 
+	template<typename T = long double>
+	constexpr T hypot(const T a, const T b) {
+		return ace::math::sqrt<T>(a * a + b * b);
+	}
+
+	template<typename T = long double>
+	constexpr bool isInf(const T num) noexcept {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isInf()!");
+		return (num == std::numeric_limits<T>::infinity());
+	}
+
+
+	template<typename T = long double>
+	constexpr bool isNan(const T num) noexcept {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isNan()!");
+		return (num != num);
+	}
+
+	template<typename T = long double>
+	constexpr bool isFinite(const T num) noexcept {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isFinite()!");
+		return !(ace::math::isInf<T>(num) || ace::math::isNan<T>(num));
+	}
+
+	/// <summary>
+	/// Rounds the given float of type Y to integer of type T.
+	/// @warning It breaks if the num value is more than the max value of T!
+	/// @note Float type Y should be a valid value (not NAN or inf)
+	/// </summary>
+	/// <typeparam name="T">The type of the integer to round to</typeparam>
+	/// <typeparam name="Y">The type of the float to round</typeparam>
+	/// <param name="num">The floating point number to round</param>
+	/// <returns>The rounded integer of type T, from the given float number</returns>
+	template<typename T = llint, typename Y = long double>
+	constexpr T roundToInt(const Y num) noexcept {
+		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
+		else {
+			//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
+			return (num < 0) ? T(num + Y(-0.5f)) : T(num + Y(0.5f));
+		}
+	}
+
+	/// <summary>
+	/// Floor's, truncates the given float of type Y and converts to integer of type T.
+	/// @warning It breaks if the num value is more than the max value of T!
+	/// @note Float type Y should be a valid value (not NAN or inf)
+	/// @note Exists here while C++23's constexpr floor is still being adopted
+	/// @todo Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23)
+	/// </summary>
+	/// <typeparam name="T">The type of the integer to floor to</typeparam>
+	/// <typeparam name="Y">The type of the float to floor</typeparam>
+	/// <param name="num">The floating point number to floor</param>
+	/// <returns>The floored integer of type T, from the given float number</returns>
+	template<typename T = llint, typename Y = long double>
+	constexpr T floorToInt(const Y num) noexcept {
+		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
+		else {
+			return (num < 0 && !ace::math::fequals<Y>(T(num), num)) ? T(num) - 1 : T(num);
+		}
+	}
+
+	template<typename T = llint, typename Y = long double>
+	constexpr T ceilToInt(const Y num) noexcept {
+		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
+		else {
+			return (ace::math::fequals<Y>(num, num)) ? T(num) : T(num) + 1;
+		}
+	}
+
+	template<typename T = llint, typename Y = long double>
+	constexpr T truncToInt(const Y num) noexcept {
+		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
+		else {
+			return T(num);
+		}
+
+	}
 }
 
 #endif // ENGINE_MATH_HPP

@@ -220,7 +220,7 @@ public:
 		case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
 		case AELOG_TYPE_OK: return "OK"; case AELOG_TYPE_SUCCESS: return "SUCCESS";
 		case AELOG_TYPE_ERROR: return "ERROR"; case AELOG_TYPE_FATAL_ERROR: return "FATAL_ERROR";
-		case AELOG_TYPE_DEBUG: /*same as the default / invalid value*/ default: return "DEBUG";
+		case AELOG_TYPE_DEBUG: return "DEBUG"; default: return "WRONG_TYPE!";
 		}
 	}
 

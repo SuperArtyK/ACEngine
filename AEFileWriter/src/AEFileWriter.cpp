@@ -113,6 +113,8 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 
 	//then everything is good, 
 	this->m_cFlags = flags;
-	this->m_ullFlushInterval = af_interval;
+	if (this->m_ullFlushInterval != AEFW_DEFAULT_AUTOFLUSH_INTERVAL) {
+		this->m_ullFlushInterval = af_interval;
+	}
 	return AEFW_ERR_NOERROR;
 }

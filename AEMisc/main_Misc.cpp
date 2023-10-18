@@ -11,14 +11,12 @@ using std::cout;
 using std::endl;
 
 
+
 int main() {
 	
 
-	cout << std::fixed << std::setprecision(32) << ace::math::pi<long double>()<<NLC;
-	cout << std::fixed << std::setprecision(32) << 3.14159265358979323846<<NLC;
-	cout << std::fixed << std::setprecision(32) << 3.141592653589793L <<NLC;
-
-	/*
+	cout << std::fixed<<std::setprecision(16)<<ace::math::root<float>(236, 2)<<NLC;
+	
 	for (int i = 0; i < 360; i++) {
 		cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";
 		cout << ace::math::cosDeg_table(i) << "; " << ace::math::secDeg_table(i) << "| ";
@@ -53,7 +51,7 @@ int main() {
 	cout << ace::math::sinDeg(30.0) << " " << ace::math::sinDeg(30.25) << " " << ace::math::sinDeg(30.5) << " " << ace::math::sinDeg(30.75) << " " << ace::math::sinDeg(31.0)<<endl;
 	
 
-	*/
+	
 
 
 	std::cin.get();

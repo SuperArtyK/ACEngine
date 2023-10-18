@@ -25,7 +25,8 @@
 #define AELP_ERR_NOERROR 0
 #define AELP_ERR_INVALID_LENGTH 1 
 #define AELP_ERR_INVALID_ENTRY 2
-#define AELP_ERR_INVALID TIME 3
+#define AELP_ERR_INVALID_TIME 3
+#define AELP_ERR_INVALID_FORMAT 4
 
 
 
@@ -55,12 +56,30 @@ public:
 	cint parseEntry(AELogEntry& entry, const bool forceParse = false) {
 
 		char str[AELOG_ENTRY_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the size
+		const std::string_view logformat = "[%Y-%m-%d.%X] [] [%]: \n"; //format
+
+		char curChar = NULL;
+
 		this->m_frLogReader.readStringNL(str, sizeof(str)-1);
+		const std::string_view logstr(str);
 		const std::size_t len = std::strlen(str);
 		if (len == AELOG_ENTRY_MAX_SIZE + 1) { // it is more then the max size -- invalid or...somehow modified
-			return true;
+			return AELP_ERR_INVALID_LENGTH;
 		}
 
+
+		std::time_t entryTime = ace::utils::stringToDate(logstr.substr(0, 40), "[%Y-%m-%d.%X] ");
+		if (entryTime == -1) {
+			return AELP_ERR_INVALID_TIME;
+		}
+		entry.m_tmLogTime = entryTime;
+
+
+		
+
+
+		
+			
 	}
 
 

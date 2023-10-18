@@ -128,11 +128,12 @@ public:
 	/// Open(and create) file with given name and flag. 
 	/// On success sets AEFileWriter::m_cFlags to passed flag value.
 	/// @note If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error
+	/// @note If provided autoflush interval is a default value (AEFW_DEFAULT_AUTOFLUSH_INTERVAL), then the interval is not changed from the previous value
 	/// @warning Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables AEFileWriter::getCursorPos(), AEFileWriter::setCursorPos(), and AEFileWriter::getFileSize(), since they manipulate the cursor.
 	/// </summary>
 	/// <param name="str">Name of the file, with extension</param>
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
-	/// <param name="af_interval">Interval in file writes between automatic file flushing </param>
+	/// <param name="af_interval">Interval in file writes between automatic file flushing.</param>
 	/// <returns>AEFW_ERR_NOERROR if the file was opened without errors, other error flag value otherwise</returns>
 	int openFile(const std::string_view str, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	

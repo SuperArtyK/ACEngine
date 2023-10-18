@@ -192,11 +192,16 @@ namespace ace {
 
 		/// <summary>
 		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
+		/// @warning If -1 was passed, fails and returns empty string;
 		/// </summary>
 		/// <param name="timept">C time point</param>
 		/// <returns>std::string of the formatted string</returns>
 		inline std::string formatDate(const time_t timept) {
-			struct tm tstruct;
+			if (timept == -1) {
+				return "";
+			}
+
+			struct tm tstruct { 0 };
 #ifdef _WIN32
 			localtime_s(&tstruct, &timept);
 #else
@@ -209,16 +214,17 @@ namespace ace {
 
 		/// <summary>
 		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
+		/// @warning If -1 was passed, fails and doesn't modify the string contents
 		/// </summary>
 		/// <param name="timept">C time point</param>
 		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long (19 characters with 1 null terminator)</param>
 		/// <returns>std::string of the formatted string</returns>
 		inline void formatDate(const time_t timept, char* str) noexcept {
-			if (!str) {
+			if (timept == -1 || !str) {
 				return;
 			}
 
-			struct tm tstruct;
+			struct tm tstruct { 0 };
 #ifdef _WIN32
 			localtime_s(&tstruct, &timept);
 #else
@@ -236,6 +242,18 @@ namespace ace {
 		inline std::string getCurrentDate(void) {
 			return ace::utils::formatDate(time(nullptr));
 		}
+
+		inline time_t stringToDate(const std::string_view timestr, const std::string_view timeformat = "%Y-%m-%d.%X") {
+			struct tm tstruct { 0 };
+			std::istringstream iss(timestr.data());
+			iss >> std::get_time(&tstruct, timeformat.data());
+
+			// use system timezone databases for...proper time shift;
+			// thanks Michael Paxton and Lightness-Races-in-Orbit: https://stackoverflow.com/a/55475752
+			tstruct.tm_isdst = -1; 
+			return mktime(&tstruct);
+		}
+
 
 		/// <summary>
 		/// Converts the hex address value to string
