@@ -502,7 +502,7 @@ public:
 	/// Returns the full, absolute path of the opened file
 	/// </summary>
 	/// <returns>std::string of the absolute file path</returns>
-	inline std::string getFullPath(void) const noexcept {
+	inline std::string getFullPath(void) const {
 		return std::filesystem::absolute(this->m_sFilename).generic_string();
 	}
 

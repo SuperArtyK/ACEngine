@@ -33,7 +33,7 @@ AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
 
 // write data as binary function
 // uses const char
-cint AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) noexcept {
+cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) noexcept {
 
 	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
@@ -56,7 +56,6 @@ cint AEFileWriter::writeData_ptr(const void* cdata, const std::size_t dcount, co
 
 
 // open file with flags
-// uses const char* as all normal string function do
 int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
 
 	if (this->m_fpFilestr) { // open already -> pls close

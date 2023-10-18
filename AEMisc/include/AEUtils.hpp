@@ -156,7 +156,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="strnum">C-string of the "number" to check</param>
 		/// <returns>True if that string is indeed a number, false otherwise</returns>
-		constexpr bool isNum(const char* strnum) noexcept {
+		constexpr bool isNum(const char* const strnum) noexcept {
 			//null pointer check
 			if (!strnum) {
 				return false;
@@ -219,7 +219,7 @@ namespace ace {
 		/// <param name="timept">C time point</param>
 		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long (19 characters with 1 null terminator)</param>
 		/// <returns>std::string of the formatted string</returns>
-		inline void formatDate(const time_t timept, char* str) noexcept {
+		inline void formatDate(const time_t timept, char* const str) noexcept {
 			if (timept == -1 || !str) {
 				return;
 			}
@@ -260,7 +260,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="myptr">Pointer to whatever memory adress</param>
 		/// <returns>std::string with the hexadecimal version of the adress</returns>
-		inline std::string addrToStr(const void* myptr) {//adds address value to string
+		inline std::string addrToStr(const void* const myptr) {//adds address value to string
 			char buf[int(sizeof(void*) * 2.5)]{}; 
 			snprintf(buf, sizeof(buf), "0x%p", myptr);
 			return buf;
@@ -292,7 +292,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="fname">File name, as you'd pass to fopen</param>
 		/// <param name="flags">File flags, as you'd pass to fopen</param>
-		inline FILE* fopenCC(const char* fname, const char* flags) noexcept {
+		inline FILE* fopenCC(const char* const fname, const char* const flags) noexcept {
 			//safety, so our compiler shuts up about the unsafe and deprecated function
 			//and trigger only on vc++
 			FILE* filestr = nullptr;
@@ -325,13 +325,13 @@ namespace ace {
 		}
 
 		//alphanumeric string
-		const inline bool isAlNum(const std::string_view str) {
-			return std::find_if_not(str.begin(), str.end(), [](char c) { return std::isalnum(c); }) == str.end();
+		constexpr inline bool isAlNum(const std::string_view str) {
+			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c); }) == str.end();
 		}
 
 		//alphanumeric + underscore string
-		const inline bool isAlNumUs(const std::string_view str) {
-			return std::find_if_not(str.begin(), str.end(), [](char c) { return std::isalnum(c) || c == '_'; }) == str.end();
+		constexpr inline bool isAlNumUs(const std::string_view str) {
+			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c) || c == '_'; }) == str.end();
 		}
 
 	}	

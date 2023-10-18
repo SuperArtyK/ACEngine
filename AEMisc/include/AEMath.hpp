@@ -239,7 +239,7 @@ namespace ace::math {
 
 	template<typename T = long double>
 	constexpr T root(const T num, const uint rtNum) noexcept {
-		const T rtMinusOne = rtNum - 1;
+		const uint rtMinusOne = rtNum - 1;
 
 		T val[2] = { num,0 };
 		while (!ace::math::equals(val[0], val[1])) {

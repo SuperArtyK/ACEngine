@@ -228,7 +228,7 @@ public:
 	/// <param name="includeNull">Flag to include the null-terminating character at the end of the string</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</returns>
-	inline cint writeString(const char* cdata, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept {
+	inline cint writeString(const char* const cdata, const bool includeNull = false, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept {
 		_AEFW_EXIT_ON_WRITE_CLOSED_FILE; 
 		
 		if (!cdata) {
@@ -330,7 +330,7 @@ public:
 	/// <param name="dsize">Size of that stream</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</returns>
-	inline cint writeBytes(const void* cdata, const std::size_t dsize, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept {
+	inline cint writeBytes(const void* const cdata, const std::size_t dsize, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept {
 		return this->writeData_ptr(cdata, 1, dsize, useAutoFlush);
 	}
 
@@ -357,7 +357,7 @@ public:
 	/// <param name="dsize">Size, in bytes, for each element</param>
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</returns>
-	cint writeData_ptr(const void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char), const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept; //defined below class
+	cint writeData_ptr(const void* const cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char), const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept; //defined below class
 
 	/// <summary>
 	/// Write binary data, as is, to file, and flush if necessary.
@@ -441,7 +441,7 @@ public:
 	/// Returns the full, absolute path of the opened file
 	/// </summary>
 	/// <returns>std::string of the absolute file path</returns>
-	inline std::string getFullPath(void) const noexcept {
+	inline std::string getFullPath(void) const {
 		return std::filesystem::absolute(this->m_sFilename).generic_string();
 	}
 
