@@ -25,11 +25,13 @@
 #include <string_view>
 
 #define AELP_ERR_NOERROR 0
-#define AELP_ERR_INVALID_LENGTH 1 
-#define AELP_ERR_INVALID_TIME 2
-#define AELP_ERR_INVALID_TYPE 3
-#define AELP_ERR_INVALID_MNAME 4
-#define AELP_ERR_INVALID_FORMAT 5
+#define AELP_ERR_READING_EOF 1
+#define AELP_ERR_READING_ERROR 2
+#define AELP_ERR_INVALID_LENGTH 3
+#define AELP_ERR_INVALID_TIME 4
+#define AELP_ERR_INVALID_TYPE 5
+#define AELP_ERR_INVALID_MNAME 6
+#define AELP_ERR_INVALID_FORMAT 7
 
 
 
@@ -51,44 +53,53 @@ public:
 		for (int i = 0; i < m_arrEntryIndices.size(); i++) {
 			m_arrEntryIndices[i].reserve(256);
 		}
-
-
 	}
 
-	//parse the log entry and give data to the given entry
-	//and forcefully parse if asked
-	cint parseEntry(AELogEntry& entry) {
 
-		constexpr std::size_t POS_TYPE = 22, POS_MNAME = 39;
+	bool openFile
+
+	//parse the log entry and give data to the given entry
+	//if error was encountered 
+	cint parseEntry(AELogEntry& entry) {
 		char str[AELOG_ENTRY_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the size
 
 		//initial read of the line
-		this->m_frLogReader.readStringNL(str, sizeof(str)-1);
-		const std::size_t len = std::strlen(str);
-		if (len == AELOG_ENTRY_MAX_SIZE + 1 || len < 47) { // it is more then the max size or less than possible size -- invalid or...somehow modified
+		const cint readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
+		if (readret != AEFR_ERR_NOERROR) {
+			return this->parseEntryString(entry, str);
+		}
+		return readret;
+	}
+
+
+
+	
+	cint parseEntryString(AELogEntry& entry, const std::string_view entryString) {
+		constexpr std::size_t POS_TYPE = 22, POS_MNAME = 39;
+		if (entryString.size() == AELOG_ENTRY_MAX_SIZE + 1 || entryString.size() < 47) { // it is more then the max size or less than possible size -- invalid or...somehow modified
 			return AELP_ERR_INVALID_LENGTH;
 		}
 
 		char logmessage[512]{}; //log message, exactly 511 characters
 		char mname[33]{}; // +1 more character to see if it's not correct format
 		char ltype[15]{}; //14 characters guaranteed
-		
-		
+
+
 
 		//check the log entry's time
-		const std::time_t entryTime = ace::utils::stringToDate(str, "[%Y-%m-%d.%X");
+		const std::time_t entryTime = ace::utils::stringToDate(entryString.data(), "[%Y-%m-%d.%X");
 		if (entryTime == -1) {
 			return AELP_ERR_INVALID_TIME;
 		}
-		
+
 
 		// check for the "] " between the time and type
-		if (std::memcmp(str + POS_TYPE - 2, "] ", 2)) {
+		if (std::memcmp(entryString.data() + POS_TYPE - 2, "] ", 2)) {
 			return AELP_ERR_INVALID_FORMAT;
 		}
 
 		// read the possible type
-		if (sscanf(str + POS_TYPE, "[%14[^]] ", ltype) != 1) {
+		if (sscanf(entryString.data() + POS_TYPE, "[%14[^]] ", ltype) != 1) {
 			return AELP_ERR_INVALID_TYPE; //oops!
 		}
 
@@ -100,12 +111,12 @@ public:
 
 
 		// check for the "] " between the type and module name
-		if (std::memcmp(str + POS_MNAME - 2, "] ", 2)) {
+		if (std::memcmp(entryString.data() + POS_MNAME - 2, "] ", 2)) {
 			return AELP_ERR_INVALID_FORMAT;
 		}
 
 		// read the possible module name
-		if (sscanf(str + POS_MNAME, "[%32[^]] ", mname) != 1) {
+		if (sscanf(entryString.data() + POS_MNAME, "[%32[^]] ", mname) != 1) {
 			return AELP_ERR_INVALID_MNAME;
 		}
 
@@ -119,23 +130,28 @@ public:
 		//Since the module name is variable and cannot be predicted
 		//We might have read untill the end of the "entry"
 		//so check it!
-		if (len < (POS_MNAME + strvMname.size() + 5)) { //position of module name (39)+ size of the mname + 5 characters forward (leading [, trailing "]: ", and 1 character for message)
+		if (entryString.size() < (POS_MNAME + strvMname.size() + 5)) { //position of module name (39)+ size of the mname + 5 characters forward (leading [, trailing "]: ", and 1 character for message)
 			return AELP_ERR_INVALID_LENGTH;
 		}
-		
+
 		//cool, now onwards to text
 		//check for the existing boundary between module name and message
-		if (std::memcmp(str + POS_MNAME + strvMname.size() + 1, "]: ", 3)) {
+		if (std::memcmp(entryString.data() + POS_MNAME + strvMname.size() + 1, "]: ", 3)) {
 			return AELP_ERR_INVALID_FORMAT; //oops
 		}
-		
+
 		//cool, passed. now read untill the end
 		//the newline and or the size is guaranteed to exist
-		sscanf(str + POS_MNAME + strvMname.size() + 4, "%[^511\n]", logmessage);
-		
+		sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, "%[^511\n]", logmessage);
 
+		// what if the entry is a debug one?
+		if (entryType == AELOG_TYPE_DEBUG && std::strstr(logmessage, "DEBUG->") != nullptr) {
+			std::memcpy(entry.m_sLogMessage, logmessage + sizeof("DEBUG->") - 1, AELOG_ENTRY_MESSAGE_SIZE - sizeof("DEBUG->") + 1);
+		}
+		else {
+			std::memcpy(entry.m_sLogMessage, logmessage, AELOG_ENTRY_MESSAGE_SIZE);
+		}
 
-		std::memcpy(entry.m_sLogMessage, logmessage, 511); //message
 		std::memcpy(entry.m_sModuleName, mname, strvMname.size()); //module name
 		entry.m_tmLogTime = entryTime; //time
 		entry.m_ullOrderNum = m_ullLogEntries++; //order number
@@ -145,18 +161,6 @@ public:
 
 		return AELP_ERR_NOERROR;
 	}
-
-
-	void parseEntries(const cint filterFlags) {
-
-
-
-
-
-
-	}
-
-
 
 private:
 
@@ -192,6 +196,7 @@ private:
 			return AELOG_TYPE_INVALID;
 		}
 	}
+
 
 
 	/// The reader of the opened log file

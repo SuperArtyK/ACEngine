@@ -66,11 +66,11 @@ AELogger::~AELogger() {
 }
 
 
-void AELogger::startWriter(void) {
+cint AELogger::startWriter(void) {
 	this->writeToLog("Attempting to start the log-writing thread", AELOG_TYPE_INFO, this->m_sModulename);
 	if (this->m_trdWriter.joinable()) {
 		this->writeToLog("The log-writing thread is already running!", AELOG_TYPE_WARN, this->m_sModulename);
-		return; //we already are writing, dummy;
+		return AELOG_ERR_THREAD_ALREADY_RUNNING; //we already are writing, dummy;
 	}
 
 	this->m_bRunTrd = true;
@@ -79,17 +79,21 @@ void AELogger::startWriter(void) {
 		this->writeToLog("Could not start AELogger thread!! (exception)", AELOG_TYPE_FATAL_ERROR, this->m_sModulename);
 		this->closeLog();
 		throw std::runtime_error("Could not start AELogger thread!");
+		return AELOG_ERR_UNABLE_START_THREAD;
 	}
+	return AELOG_ERR_NOERROR;
 }
 
 
-void AELogger::stopWriter(void) {
+cint AELogger::stopWriter(void) {
 
 	this->writeToLog("Attempting to stop the log-writing thread...", AELOG_TYPE_INFO, this->m_sModulename);
 	this->m_bRunTrd = false;
 	if (this->m_trdWriter.joinable()) {
 		this->m_trdWriter.join();
+		return AELOG_ERR_NOERROR;
 	}
+	return AELOG_ERR_THREAD_ALREADY_STOPPED;
 }
 
 // request a log entry and write to it
@@ -98,6 +102,7 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 		return; // file's closed/closing!
 	}
 
+	
 	/// @todo Implement decrease in log queue size...somehow
 
 	// check for invalid arguments
@@ -119,7 +124,7 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 		this->m_lepLastNode->m_lepNextNode = newQueue;
 		this->m_lepLastNode = newQueue + qsize - 1;
 		this->m_vAllocTable.emplace_back(this->m_ullQueueSize, newQueue);
-		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);		
+		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", this->m_sModulename);		
 	}
 
 	
@@ -160,6 +165,7 @@ void AELogger::logWriterThread(void) {
 	char str[AELOG_ENTRY_MAX_SIZE]{};
 
 	constexpr const char* const strformat = "[%s] [%-14s] [%s]: %s\n";
+	constexpr const char* const strformatDebug = "[%s] [%-14s] [%s]: DEBUG->%s\n";
 
 
 	//and not stop untill it's done
@@ -177,17 +183,20 @@ void AELogger::logWriterThread(void) {
 
 				//formatting and writing
 				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
-				snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				
+				if (ePtr->m_cLogType == AELOG_TYPE_DEBUG) {
+					snprintf(str, sizeof(str), strformatDebug, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				}
+				else {
+					snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+				}
+				
 				//std::cout << str;
 
 				this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
 
 				//cleanup
-				std::memset(str, NULL, (sizeof(str)-1)); // clean the formatting buffer
-				std::memset(ePtr->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
-				std::memset(ePtr->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
-				ePtr->m_cStatus = AELOG_ENTRY_STATUS_INVALID;
-				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
+				AELogEntry::clearEntry(*ePtr);
 				this->m_ullFilledCount--;
 				m_ullWriterOrderNum++;
 			}

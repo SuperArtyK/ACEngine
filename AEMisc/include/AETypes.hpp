@@ -52,6 +52,13 @@ struct AELogEntry {
 	/// @see AELOG_TYPE_*
 	cint m_cLogType = -1;
 
+
+	static inline void clearEntry(AELogEntry& entry) {
+		std::memset(entry.m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
+		std::memset(entry.m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
+		entry.m_cStatus = AELOG_ENTRY_STATUS_INVALID; // clear the status
+		entry.m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM; // clear the order num
+	}
 };
 
 

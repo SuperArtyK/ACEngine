@@ -539,7 +539,7 @@ public:
 	/// <returns>0 on success, AEFR_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return</returns>
 	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
-		if(origin != SEEK_SET || origin != SEEK_CUR || origin != SEEK_END){
+		if(origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END){
 			this->m_cLastError = AEFR_ERR_READING_EOF;
 			return AEFR_ERR_READING_EOF;
 		}

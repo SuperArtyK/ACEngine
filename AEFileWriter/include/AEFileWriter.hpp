@@ -483,7 +483,7 @@ public:
 		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 
-		if (origin != SEEK_SET || origin != SEEK_CUR || origin != SEEK_END) {
+		if (origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END) {
 			this->m_cLastError = AEFW_ERR_WRITE_ERROR;
 			return AEFW_ERR_WRITE_ERROR;
 		}

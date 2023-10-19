@@ -23,6 +23,11 @@
 #include <string_view>
 
 
+#define AELOG_ERR_NOERROR 0
+#define AELOG_ERR_UNABLE_START_THREAD 1
+#define AELOG_ERR_THREAD_ALREADY_RUNNING 2
+#define AELOG_ERR_THREAD_ALREADY_STOPPED 3
+
 // queue decrease algorithm
 // since we have the access to the maximum queue value, and it is being checked in the 
 // ptrFromIndex(), we have a way to restrict the access to certain nodes for the writeToLog()
@@ -44,6 +49,8 @@
 /// @todo Implement copy constructors and copy assignment
 /// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
 /// @todo Add the ability to change the default log file folder to...whatever user wants (maybe a constructor)
+/// @todo update the docs on returning functions
+/// @todo add default constructor
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
@@ -82,20 +89,21 @@ public:
 	/// <summary>
 	/// Starts the log-writing thread.
 	/// </summary>
-	void startWriter(void);
+	cint startWriter(void);
 
 	/// <summary>
 	/// Stops the log-writing thread (after flushing the log queue).
 	/// </summary>
-	void stopWriter(void);
+	cint stopWriter(void);
 
 	/// <summary>
 	/// Open the file to start logging.
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
-	inline void openLog(const std::string_view fname, const bool clearLog = false) {
-		if (this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1)) {
+	inline cint openLog(const std::string_view fname, const bool clearLog = false) {
+		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1);
+		if (ret) {
 			this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->m_sModulename);
 			this->startWriter();
 		}
@@ -132,9 +140,9 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	inline void writeToLogDebug(const std::string_view logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
+	inline void writeToLogDebug(const std::string_view logmessg, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
 #ifdef ENGINE_DEBUG
-		this->writeToLog("DEBUG->" + std::string(logmessg), logtype, logmodule);
+		this->writeToLog(logmessg, AELOG_TYPE_DEBUG, logmodule);
 #endif // ENGINE_DEBUG
 	}
 
