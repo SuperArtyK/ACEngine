@@ -1,31 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="1">
-    <root name="../"/>
     <builddir>ACEngine-cppcheck-build-dir</builddir>
     <platform>native</platform>
     <importproject>../ACEngine.sln</importproject>
     <analyze-all-vs-configs>true</analyze-all-vs-configs>
     <check-headers>true</check-headers>
     <check-unused-templates>true</check-unused-templates>
-    <max-ctu-depth>99</max-ctu-depth>
-    <max-template-recursion>999</max-template-recursion>
+    <max-ctu-depth>5</max-ctu-depth>
+    <max-template-recursion>100</max-template-recursion>
     <vs-configurations>
         <config>Debug</config>
         <config>Release</config>
     </vs-configurations>
+    <exclude>
+        <path name="../resources/"/>
+        <path name="../x64/"/>
+        <path name="../Release/"/>
+        <path name="../packages/"/>
+        <path name="../docs/"/>
+        <path name="../Debug/"/>
+        <path name="./"/>
+        <path name="../ACEngine/Debug/"/>
+        <path name="../ACEngine/Release/"/>
+        <path name="../ACEngine/x64/"/>
+        <path name="../AEFileReader/Debug/"/>
+        <path name="../AEFileReader/Release/"/>
+        <path name="../AEFileReader/x64/"/>
+        <path name="../AEFileWriter/Debug/"/>
+        <path name="../AEFileWriter/Release/"/>
+        <path name="../AEFileWriter/x64/"/>
+        <path name="../AEFrame/Debug/"/>
+        <path name="../AEFrame/Release/"/>
+        <path name="../AEFrame/x64/"/>
+        <path name="../AELogger/Debug/"/>
+        <path name="../AELogger/logs/"/>
+        <path name="../AELogger/Release/"/>
+        <path name="../AELogger/x64/"/>
+        <path name="../AELogParser/Debug/"/>
+        <path name="../AELogParser/Release/"/>
+        <path name="../AELogParser/x64/"/>
+        <path name="../AEMisc/Debug/"/>
+        <path name="../AEMisc/Release/"/>
+        <path name="../AEMisc/x64/"/>
+        <path name="../AEModuleBase/Debug/"/>
+        <path name="../AEModuleBase/Release/"/>
+        <path name="../AEModuleBase/x64/"/>
+        <path name="../AETimer/Debug/"/>
+        <path name="../AETimer/Release/"/>
+        <path name="../AETimer/x64/"/>
+        <path name="../AEVector/Debug/"/>
+        <path name="../AEVector/Release/"/>
+        <path name="../AEVector/x64/"/>
+        <path name="C:/Users/artem/CODING/ACEngine/ACEngine/main_ACEngine.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AEFileReader/main_AEFileReader.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AEFileWriter/main_AEFileWriter.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AEFrame/main_AEFrame.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AELogger/main_AELogger.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AELogParser/main_AELogParser.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AEMisc/main_Misc.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AETimer/main_AETimer.cpp"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AEVector/main_AEVector.cpp"/>
+    </exclude>
     <libraries>
         <library>boost</library>
-        <library>cppunit</library>
         <library>gnu</library>
         <library>mfc</library>
-        <library>microsoft_atl</library>
         <library>opengl</library>
+        <library>openmp</library>
         <library>posix</library>
         <library>windows</library>
     </libraries>
     <suppressions>
         <suppression>missingIncludeSystem</suppression>
-        <suppression>missingInclude</suppression>
     </suppressions>
     <safe-checks>
         <class-public/>
@@ -37,5 +84,6 @@
     <tools>
         <tool>clang-tidy</tool>
     </tools>
+    <check-level-exhaustive/>
     <project-name>ACEngine</project-name>
 </project>

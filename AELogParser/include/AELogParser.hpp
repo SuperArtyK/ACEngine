@@ -45,7 +45,7 @@
 class AELogParser : public __AEModuleBase<AELogParser> {
 
 public:
-	AELogParser(const std::string_view fname) : 
+	explicit AELogParser(const std::string_view fname) : 
 		m_frLogReader(fname), m_ullLogEntries(0), m_cLastError(AELP_ERR_NOERROR){
 
 		for (int i = 0; i < m_arrEntryIndices.size(); i++) {
@@ -57,9 +57,9 @@ public:
 
 	//parse the log entry and give data to the given entry
 	//and forcefully parse if asked
-	cint parseEntry(AELogEntry& entry, const bool forceParse = false) {
+	cint parseEntry(AELogEntry& entry) {
 
-		constexpr std::size_t POS_TIME = 0, POS_TYPE = 22, POS_MNAME = 39;
+		constexpr std::size_t POS_TYPE = 22, POS_MNAME = 39;
 		char str[AELOG_ENTRY_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the size
 
 		//initial read of the line

@@ -18,7 +18,7 @@ AEFileReader::AEFileReader(const std::string_view fname) :
 }
 
 int AEFileReader::openFile(const std::string_view fname) {
-	if (!fname.size()) {
+	if (fname.empty()) {
 		this->m_cLastError = AEFR_ERR_FILE_NAME_EMPTY;
 		return AEFR_ERR_FILE_NAME_EMPTY;
 	}
@@ -27,7 +27,7 @@ int AEFileReader::openFile(const std::string_view fname) {
 	this->m_sFilename = fname;
 	this->m_fpFilestr = ace::utils::fopenCC(fname.data(), "rb");
 
-	if (!this->m_fpFilestr) {
+	if (this->isClosed()) {
 		// this can also be triggered if program has no permission to access the file
 		// but generally it just would be the absence of file
 		this->m_cLastError = AEFR_ERR_FILE_DOESNT_EXIST;
@@ -41,7 +41,7 @@ int AEFileReader::openFile(const std::string_view fname) {
 //if file is closed, contents is not modified
 cint AEFileReader::readString(char* str, const std::size_t dcount) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
-	if (!dcount || !str) {
+	if (!bool(dcount) || !bool(str)) {
 		this->m_cLastError = AEFR_ERR_READ_ZERO_SIZE;
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
@@ -53,20 +53,20 @@ cint AEFileReader::readString(char* str, const std::size_t dcount) noexcept {
 cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
-	if (!dcount || !str) {
+	if (!bool(str) || !bool(dcount)) {
 		this->m_cLastError = AEFR_ERR_READ_ZERO_SIZE;
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
 
-	std::memset(str, NULL, (std::size_t)dcount + 1);
-	const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
+	std::memset(str, NULL, std::size_t(dcount) + 1);
+	const bool temp = bool(std::fgets(str, dcount, this->m_fpFilestr));
 	this->m_szLastReadAmount = std::strlen(str);
 	this->m_ullTotalReads++;
 	if (!temp) {
 		this->m_cLastError = AEFR_ERR_READING_ERROR;
 		return AEFR_ERR_READING_ERROR;
 	}
-	if (std::feof(this->m_fpFilestr)) {
+	if ( bool(std::feof(this->m_fpFilestr)) ) {
 		this->m_cLastError = AEFR_ERR_READING_EOF;
 		return AEFR_ERR_READING_EOF;
 	}
@@ -78,7 +78,7 @@ cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 cint AEFileReader::readStringNULL(char* str, const llint dcount) {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
-	if (dcount < 1 || !str) {
+	if (!bool(str) || dcount < 1) {
 		this->m_cLastError = AEFR_ERR_READ_ZERO_SIZE;
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
@@ -97,20 +97,20 @@ cint AEFileReader::readStringNULL(char* str, const llint dcount) {
 
 cint AEFileReader::readBoolString(bool& num) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
-	char str[6]{};
+	char str[sizeof("false")]{};
 
 	cint temp = this->readData_ptr(str, 4, sizeof(char)); //read possible "true"
 	for (int i = 0; i < 4; i++) {
 		str[i] = std::tolower(str[i]);
 	}
 
-	if (!std::memcmp(str, "true", 5)) {
+	if (!bool(std::memcmp(str, "true", sizeof("true"))) ) {
 		num = true;
 		return temp;
 	}
 
 	temp = this->readData_ptr(&str[4], 1, sizeof(char)); //read last letter to make up "false"
-	if (!std::memcmp(str, "false", 6)) {
+	if (!bool(std::memcmp(str, "false", sizeof("false"))) ) {
 		num = false;
 		return temp;
 	}
@@ -121,7 +121,7 @@ cint AEFileReader::readBoolString(bool& num) noexcept {
 cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
-	if (!dcount || !dsize || !cdata) {
+	if (!bool(dcount) || !bool(dsize) || !bool(cdata) ) {
 		this->m_cLastError = AEFR_ERR_READ_ZERO_SIZE;
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
@@ -129,10 +129,10 @@ cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std
 	this->m_szLastReadAmount = fread(cdata, dsize, dcount, this->m_fpFilestr);
 	this->m_ullTotalReads++;
 	if (this->m_szLastReadAmount != dcount) {
-		if (std::feof(this->m_fpFilestr)) {
+		if (bool(std::feof(this->m_fpFilestr) ) ) {
 			return AEFR_ERR_READING_EOF;
 		}
-		if (std::ferror(this->m_fpFilestr)) {
+		if (bool(std::ferror(this->m_fpFilestr) ) ) {
 			return AEFR_ERR_READING_ERROR;
 		}
 	}

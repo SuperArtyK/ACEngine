@@ -64,9 +64,9 @@
 #define AEFW_ERR_FLUSH_ERROR -7
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFW_EXIT_ON_CLOSED_FILE if (!this->m_fpFilestr) { this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
+#define _AEFW_EXIT_ON_CLOSED_FILE if (this->isClosed()) { this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for opened file during writing, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE if (!this->m_fpFilestr) { this->m_szLastWrittenAmount = 0; this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
+#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE if (this->isClosed()) { this->m_szLastWrittenAmount = 0; this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for the 'append no cursor move' flag to open file, set and return error flag ifo so", DO NOT TOUCH!
 #define _AEFW_EXIT_ON_NO_CURSOR_MOVE if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) { this->m_cLastError = AEFW_FLAG_APPEND_NO_CURSOR_MOVE; return AEFW_ERR_FILE_WRONG_FLAG; }
 
@@ -155,7 +155,7 @@ public:
 	/// Closes the currently opened file, and also, in addition, clears the last error status.
 	/// </summary>
 	inline void closeFile(void) noexcept {
-		if (!this->m_fpFilestr) {
+		if (this->isClosed()) {
 			this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
 			return;
 		}
@@ -384,6 +384,10 @@ public:
 		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 
+	inline bool isClosed(void) const noexcept {
+		return !this->isOpen();
+	}
+
 	/// <summary>
 	/// Returns size of the file in bytes.
 	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
@@ -470,6 +474,7 @@ public:
 	/// Sets read cursor position to pos from origin.
 	/// @note If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written.
 	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+	/// @note If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF
 	/// </summary>
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
@@ -477,6 +482,13 @@ public:
 	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) noexcept {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
+
+		if (origin != SEEK_SET || origin != SEEK_CUR || origin != SEEK_END) {
+			this->m_cLastError = AEFW_ERR_WRITE_ERROR;
+			return AEFW_ERR_WRITE_ERROR;
+		}
+
+		
 		return fseek(this->m_fpFilestr, pos, origin);
 	}
 
@@ -587,7 +599,7 @@ template<typename T>
 inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool useAutoFlush) {
 
 	//open file?
-	if (!this->m_fpFilestr) {
+	if (this->isClosed()) {
 		this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
 		return AEFW_ERR_FILE_NOT_OPEN;
 	}

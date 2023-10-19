@@ -187,6 +187,10 @@ public:
 		return this->m_fwLogger.isOpen();
 	}
 
+	inline bool isClosed(void) const noexcept {
+		return !this->isOpen();
+	}
+
 	/// <summary>
 	/// Checks if the log-writing thread is running.
 	/// </summary>

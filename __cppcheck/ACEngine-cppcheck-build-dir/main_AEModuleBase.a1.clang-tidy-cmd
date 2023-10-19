@@ -1,1 +1,0 @@
-clang-tidy.exe -checks=*,-clang-analyzer-*,-llvm* C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp -- -IC:/Users/artem/CODING/ACEngine/AEMisc/ -IC:/Users/artem/CODING/ACEngine/AEModuleBase/include/ -D_WIN32=1 -DWIN32=1 -D_DEBUG=1 -D_CONSOLE=1 -D__SSE2__=1 -U__STDC__ -fno-ms-compatibility -std=c++20

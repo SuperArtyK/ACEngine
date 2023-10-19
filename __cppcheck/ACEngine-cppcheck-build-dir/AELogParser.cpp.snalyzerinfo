@@ -52,13 +52,11 @@ isError call:[ferror] noreturn:[ferror]
 getTypeName < AEFileReader >
 readIntString call:[fscanf_s,isClosed,memset,sizeof,static_assert] noreturn:[fscanf_s]
 readFloatString call:[fscanf_s,isClosed,memset,sizeof,static_assert] noreturn:[fscanf_s]
-AEFileReader call:[openFile] noreturn:[openFile]
-openFile call:[data,empty,fopenCC,isClosed]
-readString call:[bool,isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
-readStringNL call:[bool,feof,fgets,isClosed,long,memset,strlen]
-readStringNULL call:[_fseeki64,bool,isClosed,llint,memset,readData_ptr,sizeof,strchr,strlen]
-readBoolString call:[bool,isClosed,memcmp,readData_ptr,sizeof,tolower] noreturn:[tolower]
-readData_ptr call:[bool,feof,ferror,fread,isClosed]
+AELogParser call:[reserve,size] noreturn:[reserve]
+parseEntry call:[isAlNumUs,matchLogType,memcmp,memcpy,readStringNL,size,sizeof,sscanf,stringToDate,strlen,strvMname]
+parseEntries
+matchLogType call:[size]
+getTypeName < AELogParser >
 readVariable < bool > call:[isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
 readVariable < signed char > call:[isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
 readVariable < unsigned char > call:[isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
@@ -67,5 +65,10 @@ isInRange < int > call:[return]
 __AEModuleBase < AEFileReader >
 __AEModuleBase < AEFileReader >
 __AEModuleBase < AEFileReader >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
+__AEModuleBase < AELogParser >
+__AEModuleBase < AELogParser >
+__AEModuleBase < AELogParser >
 getModuleAmount call:[load] noreturn:[load]
 getModuleName

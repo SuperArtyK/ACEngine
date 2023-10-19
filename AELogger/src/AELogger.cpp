@@ -25,7 +25,7 @@ AELogEntry* AELogger::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 		leptr[i].m_lepNextNode = leptr + i + 1; //set the next node pointers for our linked list
 	}
 	//loop the last log entry to the beginning
-	if (oldqueue) {
+	if (bool(oldqueue)) {
 		leptr[amt - 1].m_lepNextNode = oldqueue; //beginning of old queue
 	}
 	else {
@@ -94,7 +94,7 @@ void AELogger::stopWriter(void) {
 
 // request a log entry and write to it
 void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
-	if (!this->isOpen()) {
+	if (this->isClosed()) {
 		return; // file's closed/closing!
 	}
 
@@ -144,8 +144,8 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
 	ptr->m_tmLogTime = std::time(NULL);
-	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() <= 511) ? logmessg.size() : 511);
-	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() <= 31) ? logmodule.size() : 31);
+	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() > AELOG_ENTRY_MESSAGE_SIZE) ? AELOG_ENTRY_MESSAGE_SIZE : logmessg.size());
+	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELOG_ENTRY_MODULENAME_SIZE) ? AELOG_ENTRY_MODULENAME_SIZE : logmodule.size());
 	ptr->m_cLogType = logtype;
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_READY;
 }
@@ -164,8 +164,8 @@ void AELogger::logWriterThread(void) {
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
-	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount) {
-		while (this->m_ullFilledCount) {
+	while (this->m_bRunTrd.load(std::memory_order::relaxed) || bool(this->m_ullFilledCount)) {
+		while (bool(this->m_ullFilledCount)) {
 			if (ePtr->m_ullOrderNum == m_ullWriterOrderNum) {
 
 				//got it!. Now wait untill it's ready
@@ -184,8 +184,8 @@ void AELogger::logWriterThread(void) {
 
 				//cleanup
 				std::memset(str, NULL, (sizeof(str)-1)); // clean the formatting buffer
-				std::memset(ePtr->m_sLogMessage, NULL, (sizeof(AELogEntry::m_sLogMessage) - 1)); // clean log message
-				std::memset(ePtr->m_sModuleName, NULL, (sizeof(AELogEntry::m_sModuleName) - 1)); // clean module name
+				std::memset(ePtr->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
+				std::memset(ePtr->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
 				ePtr->m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 				ePtr->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 				this->m_ullFilledCount--;

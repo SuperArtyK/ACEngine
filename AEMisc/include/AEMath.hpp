@@ -244,7 +244,7 @@ namespace ace::math {
 		T val[2] = { num,0 };
 		while (!ace::math::equals(val[0], val[1])) {
 			val[1] = val[0];
-			val[0] = (rtMinusOne * val[0] + (num / ace::math::intPow<long double>(val[0], rtMinusOne))) / rtNum;
+			val[0] = (rtMinusOne * val[0] + (num / ace::math::intPow<long double>(val[0], rtMinusOne))) / T(rtNum);
 			if constexpr (std::is_integral<T>::value) {
 				if (val[1] < val[0]) {
 					break;

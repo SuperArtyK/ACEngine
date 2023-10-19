@@ -18,7 +18,7 @@ AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, co
 
 
 AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
-	m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(fw.m_sFilename),
+	m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(std::move(fw.m_sFilename)),
 	m_ullTotalWrites(fw.m_ullTotalWrites), m_szLastWrittenAmount(fw.m_szLastWrittenAmount),
 	m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_cFlags(fw.m_cFlags) {
 
@@ -37,7 +37,7 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 
 	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
-	if (!dcount || !dsize || !cdata) {
+	if (!bool(cdata) || !bool(dcount) || !bool(dsize)) {
 		return AEFW_ERR_WRITE_ZERO_SIZE;
 	}
 
@@ -58,7 +58,7 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 // open file with flags
 int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
 
-	if (this->m_fpFilestr) { // open already -> pls close
+	if (this->isOpen()) { // open already -> pls close
 		this->closeFile();
 	}
 
@@ -80,9 +80,9 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 
 	case AEFW_FLAG_APPEND://cursor at end, allow changing cursor position
 		this->m_fpFilestr = ace::utils::fopenCC(str.data(), "r+b");
-		if (!this->m_fpFilestr) {//couldnt open, force create
+		if (this->isClosed()) {//couldn't open, force create
 			this->m_fpFilestr = ace::utils::fopenCC(str.data(), "wb");
-			if (!this->m_fpFilestr) {
+			if (this->isClosed()) {
 				break; // some other error
 			}
 		}
@@ -105,7 +105,7 @@ int AEFileWriter::openFile(const std::string_view str, const cint flags, const u
 	}
 
 	// last check, to see if everything is okay
-	if (!this->m_fpFilestr) {
+	if (this->isClosed()) {
 		this->m_cLastError = AEFW_ERR_FILE_OPEN_ELSE; //file is still somehow nonexistent
 		return AEFW_ERR_FILE_OPEN_ELSE;
 	}

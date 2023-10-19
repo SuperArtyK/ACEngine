@@ -46,6 +46,7 @@
 
 //AELogEntry flags
 #define AELOG_ENTRY_MESSAGE_SIZE 511
+
 #define AELOG_ENTRY_MODULENAME_SIZE 31
 
 

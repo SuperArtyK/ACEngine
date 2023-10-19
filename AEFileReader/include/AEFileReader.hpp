@@ -54,9 +54,9 @@
 #define AEFR_ERR_READ_ZERO_SIZE -6
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFR_EXIT_ON_CLOSED_FILE if (!this->m_fpFilestr) { this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
+#define _AEFR_EXIT_ON_CLOSED_FILE if (this->isClosed()) { this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for opened file during the read operation, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFR_EXIT_ON_READ_CLOSED_FILE if (!this->m_fpFilestr) { this->m_szLastReadAmount = 0; this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
+#define _AEFR_EXIT_ON_READ_CLOSED_FILE if (this->isClosed()) { this->m_szLastReadAmount = 0; this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
 
 
 /// <summary>
@@ -115,7 +115,7 @@ public:
 	/// Closes the currently opened file, and also, in addition, clears the last error status.
 	/// </summary>
 	inline void closeFile(void) noexcept {
-		if (this->m_fpFilestr)
+		if (this->isClosed())
 			fclose(this->m_fpFilestr);
 		this->m_szLastReadAmount = 0;
 		this->m_fpFilestr = nullptr;
@@ -447,6 +447,10 @@ public:
 		return bool(this->m_fpFilestr);//null if closed, something other if opened
 	}
 
+	inline bool isClosed(void) const noexcept {
+		return !this->isOpen();
+	}
+
 	/// <summary>
 	/// Returns size of the file in bytes.
 	/// </summary>
@@ -528,12 +532,17 @@ public:
 	/// <summary>
 	/// Sets read cursor position to pos from origin.
 	/// @note If cursor is beyond end of file, next read will trigger EOF error and will not read any data (just fill the given data place with NULL)
+	/// @note If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF
 	/// </summary>
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
 	/// <returns>0 on success, AEFR_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return</returns>
 	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
+		if(origin != SEEK_SET || origin != SEEK_CUR || origin != SEEK_END){
+			this->m_cLastError = AEFR_ERR_READING_EOF;
+			return AEFR_ERR_READING_EOF;
+		}
 		return fseek(this->m_fpFilestr, pos, origin);
 	}
 

@@ -145,7 +145,7 @@ public:
 	/// @note If thread is not started/working, the return value will be the same
 	/// </summary>
 	/// <returns>double of the approximate world time the timer has counted (using it's ticks)</returns>
-	inline double getWorldTime(void) const noexcept {
+	inline long double getWorldTime(void) const noexcept {
 		return this->m_ullTicks.load() * this->m_rDelay.getDelay();
 	}
 

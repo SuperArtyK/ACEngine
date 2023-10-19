@@ -1,68 +1,73 @@
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:16:25: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
-AELogEntry* AELogEntry::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
-~~~~~~~~~~~             ^
-auto                                                                           -> AELogEntry*
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:22:2: warning: initializing non-owner 'AELogEntry *' with a newly created 'gsl::owner<>' [cppcoreguidelines-owning-memory]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:17:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+AELogEntry* AELogger::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
+~~~~~~~~~~~           ^
+auto                                                                         -> AELogEntry*
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:23:2: warning: initializing non-owner 'AELogEntry *' with a newly created 'gsl::owner<>' [cppcoreguidelines-owning-memory]
         AELogEntry* leptr = new AELogEntry[amt]{};
         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:22:2: warning: use auto when initializing with new to avoid duplicating the type name [hicpp-use-auto,modernize-use-auto]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:23:2: warning: use auto when initializing with new to avoid duplicating the type name [hicpp-use-auto,modernize-use-auto]
         AELogEntry* leptr = new AELogEntry[amt]{};
         ^~~~~~~~~~
         auto
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:23:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:24:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         for (std::size_t i = 0; i < amt; i++) {
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:24:3: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:25:3: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 leptr[i].m_lepNextNode = leptr + i + 1; //set the next node pointers for our linked list
                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:24:34: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:25:34: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 leptr[i].m_lepNextNode = leptr + i + 1; //set the next node pointers for our linked list
                                                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:24:38: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:25:38: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 leptr[i].m_lepNextNode = leptr + i + 1; //set the next node pointers for our linked list
                                                    ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:27:6: warning: implicit conversion 'AELogEntry *' -> bool [readability-implicit-bool-conversion]
-        if (oldqueue) {
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:28:6: warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast [google-readability-casting]
+        if (bool(oldqueue)) {
             ^
-                     != nullptr
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:28:3: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:29:3: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 leptr[amt - 1].m_lepNextNode = oldqueue; //beginning of old queue
                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:31:3: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:32:3: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 leptr[amt - 1].m_lepNextNode = leptr; //beginning of itself
                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:40:20: warning: narrowing conversion from 'int' to signed type 'cint' (aka 'signed char') is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:41:20: warning: narrowing conversion from 'int' to signed type 'cint' (aka 'signed char') is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
         m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
                           ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:40:20: warning: implicit conversion bool -> 'int' [readability-implicit-bool-conversion]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:41:20: warning: implicit conversion bool -> 'int' [readability-implicit-bool-conversion]
         m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */, 1), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
                           ^
                           static_cast<int>( )
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:41:133: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
-        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
-                                                                                                                                           ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:41:145: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
-        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
-                                                                                                                                                       ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:48:125: warning: static member accessed through instance [readability-static-accessed-through-instance]
-        this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + fname + '\"', AELOG_TYPE_OK, this->m_sModulename);
-                                                                                                                                   ^~~~~~
-                                                                                                                                   AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:53:11: warning: an exception may be thrown in function '~AELogger' which should not throw exceptions [bugprone-exception-escape]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:42:131: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
+                                                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:42:143: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+        m_ullWriterOrderNum(0), m_ullQueueSize(queuesize), m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false) {
+                                                                                                                                                     ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:51:123: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
+                this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + std::filesystem::absolute(fname).generic_string() + '\"', AELOG_TYPE_OK, this->m_sModulename);
+                                                                                                                                        ^
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\filesystem:649:35: note: default parameter was declared here
+        path(const _Src& _Source, format = auto_format) : _Text(_Convert_Source_to_wide(_Source)) {
+                                  ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:51:170: warning: static member accessed through instance [readability-static-accessed-through-instance]
+                this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + std::filesystem::absolute(fname).generic_string() + '\"', AELOG_TYPE_OK, this->m_sModulename);
+                                                                                                                                                                                       ^~~~~~
+                                                                                                                                                                                       AELogger::
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:58:11: warning: an exception may be thrown in function '~AELogger' which should not throw exceptions [bugprone-exception-escape]
 AELogger::~AELogger() {
           ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:54:84: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:59:84: warning: static member accessed through instance [readability-static-accessed-through-instance]
         this->writeToLog("Destroying the AELogger instance and closing", AELOG_TYPE_INFO, this->m_sModulename);
                                                                                           ^~~~~~
                                                                                           AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:57:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:62:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:57:2: warning: use range-based for loop instead [modernize-loop-convert]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:62:2: warning: use range-based for loop instead [modernize-loop-convert]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             (auto & i : this->m_vAllocTable)
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:58:3: warning: deleting a pointer through a type that is not marked 'gsl::owner<>'; consider using a smart pointer instead [cppcoreguidelines-owning-memory]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:63:3: warning: deleting a pointer through a type that is not marked 'gsl::owner<>'; consider using a smart pointer instead [cppcoreguidelines-owning-memory]
                 delete[] this->m_vAllocTable[i].second;
                 ^                           ~~~
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\vector:1882:16: note: variable declared here
@@ -71,210 +76,178 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.3282
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\yvals_core.h:878:22: note: expanded from macro '_CONSTEXPR20'
 #define _CONSTEXPR20 constexpr
                      ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:63:28: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:69:28: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
 void AELogger::startWriter(void) {
                            ^~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:64:82: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:70:82: warning: static member accessed through instance [readability-static-accessed-through-instance]
         this->writeToLog("Attempting to start the log-writing thread", AELOG_TYPE_INFO, this->m_sModulename);
                                                                                         ^~~~~~
                                                                                         AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:66:83: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:72:83: warning: static member accessed through instance [readability-static-accessed-through-instance]
                 this->writeToLog("The log-writing thread is already running!", AELOG_TYPE_WARN, this->m_sModulename);
                                                                                                 ^~~~~~
                                                                                                 AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:73:93: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:79:93: warning: static member accessed through instance [readability-static-accessed-through-instance]
                 this->writeToLog("Could not start AELogger thread!! (exception)", AELOG_TYPE_FATAL_ERROR, this->m_sModulename);
                                                                                                           ^~~~~~
                                                                                                           AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:80:27: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:86:27: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
 void AELogger::stopWriter(void) {
                           ^~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:82:84: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:88:84: warning: static member accessed through instance [readability-static-accessed-through-instance]
         this->writeToLog("Attempting to stop the log-writing thread...", AELOG_TYPE_INFO, this->m_sModulename);
                                                                                           ^~~~~~
                                                                                           AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:127:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:136:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
         AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:90:16: warning: function 'writeToLog' is within a recursive call chain [misc-no-recursion]
-void AELogger::writeToLog(const std::string& logmessg, const cint logtype, const std::string& logmodule) {
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:96:16: warning: function 'writeToLog' is within a recursive call chain [misc-no-recursion]
+void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:211:14: note: example recursive call chain, starting from function 'writeToLogDebug'
-        inline void writeToLogDebug(const std::string& logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string& logmodule = AELOG_DEFAULT_MODULE_NAME) {
+C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:135:14: note: example recursive call chain, starting from function 'writeToLogDebug'
+        inline void writeToLogDebug(const std::string_view logmessg, const cint logtype = AELOG_TYPE_DEBUG, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
                     ^
-C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:213:3: note: Frame #1: function 'writeToLogDebug' calls function 'writeToLog' here:
-                this->writeToLog("DEBUG->" + logmessg, logtype, logmodule);
+C:\Users\artem\CODING\ACEngine\AELogger\src/../include/AELogger.hpp:137:3: note: Frame #1: function 'writeToLogDebug' calls function 'writeToLog' here:
+                this->writeToLog("DEBUG->" + std::string(logmessg), logtype, logmodule);
                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:113:3: note: Frame #2: function 'writeToLog' calls function 'writeToLogDebug' here:
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:122:3: note: Frame #2: function 'writeToLog' calls function 'writeToLogDebug' here:
                 this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);             
                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:113:3: note: ... which was the starting point of the recursive call chain; there may be other cycles
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:111:34: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:122:3: note: ... which was the starting point of the recursive call chain; there may be other cycles
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:120:34: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 this->m_lepLastNode = newQueue + qsize - 1;
                                                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:111:42: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:120:42: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
                 this->m_lepLastNode = newQueue + qsize - 1;
                                                        ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:113:137: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:122:137: warning: static member accessed through instance [readability-static-accessed-through-instance]
                 this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", AELOG_TYPE_WARN, this->m_sModulename);             
                                                                                                                                                       ^~~~~~
                                                                                                                                                       AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:128:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:137:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_cStatus != AELOG_ENTRY_STATUS_INVALID) {
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:128:9: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ptr' and may cause performance degradation [altera-id-dependent-backward-branch]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:137:9: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ptr' and may cause performance degradation [altera-id-dependent-backward-branch]
         while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_cStatus != AELOG_ENTRY_STATUS_INVALID) {
                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:137:31: warning: use nullptr [modernize-use-nullptr]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:146:31: warning: use nullptr [modernize-use-nullptr]
         ptr->m_tmLogTime = std::time(NULL);
                                      ^~~~
                                      nullptr
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:138:9: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-        memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:147:9: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+        memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() > AELOG_ENTRY_MESSAGE_SIZE) ? AELOG_ENTRY_MESSAGE_SIZE : logmessg.size());
                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:138:67: warning: 511 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
-                                                                         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:138:92: warning: 511 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        memcpy(ptr->m_sLogMessage, logmessg.c_str(), (logmessg.size() <= 511) ? logmessg.size() : 511);
-                                                                                                  ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:139:9: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-        memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 31) ? logmodule.size() : 31);
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:148:9: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+        memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELOG_ENTRY_MODULENAME_SIZE) ? AELOG_ENTRY_MODULENAME_SIZE : logmodule.size());
                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:139:69: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 31) ? logmodule.size() : 31);
-                                                                           ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:139:94: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        memcpy(ptr->m_sModuleName, logmodule.c_str(), (logmodule.size() <= 31) ? logmodule.size() : 31);
-                                                                                                    ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:144:32: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:153:32: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
 void AELogger::logWriterThread(void) {
                                ^~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:145:88: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:154:88: warning: static member accessed through instance [readability-static-accessed-through-instance]
         this->writeToLog("Successfully launched the log-writing thread!", AELOG_TYPE_SUCCESS, this->m_sModulename);
                                                                                               ^~~~~~
                                                                                               AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:148:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
-        char str[588]{};
-        ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:148:11: warning: 588 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        char str[588]{};
-                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:149:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:158:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
         char timestr[20]{};
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:149:15: warning: 20 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:158:15: warning: 20 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
         char timestr[20]{};
                      ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:153:61: warning: implicit conversion 'unsigned long long' -> bool [readability-implicit-bool-conversion]
-        while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount) {
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:160:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
+        char str[AELOG_ENTRY_MAX_SIZE]{};
+        ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:167:61: warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast [google-readability-casting]
+        while (this->m_bRunTrd.load(std::memory_order::relaxed) || bool(this->m_ullFilledCount)) {
                                                                    ^
-                                                                   (                      != 0u)
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:154:10: warning: implicit conversion 'unsigned long long' -> bool [readability-implicit-bool-conversion]
-                while (this->m_ullFilledCount) {
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:168:10: warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast [google-readability-casting]
+                while (bool(this->m_ullFilledCount)) {
                        ^
-                                              != 0u
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:158:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:172:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
                                 while (ePtr->m_cStatus != AELOG_ENTRY_STATUS_READY) {
                                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:158:12: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ePtr' and may cause performance degradation [altera-id-dependent-backward-branch]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:172:12: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ePtr' and may cause performance degradation [altera-id-dependent-backward-branch]
                                 while (ePtr->m_cStatus != AELOG_ENTRY_STATUS_READY) {
                                        ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:159:26: warning: 100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:173:26: warning: 100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
                                         ace::utils::sleepUS(100);
                                                             ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:165:47: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:179:47: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
                                 ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
                                                                           ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:5: warning: the value returned by this function should be used [cert-err33-c]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:5: note: cast the expression to void to silence this warning
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:147:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:5: warning: the value returned by this function should be used [cert-err33-c]
+                                snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:5: note: cast the expression to void to silence this warning
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:156:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
         AELogEntry* ePtr = this->m_lepQueue;
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:5: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:5: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]
+                                snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
                                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:14: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:14: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
                                          ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:19: warning: 587 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-                                              ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:48: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-                                                                           ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:101: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-                                                                                                                                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:166:122: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                snprintf(str, 587, "[%s] [%s] [%s]: %s\n", timestr, AELogEntry::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-                                                                                                                                                     ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:169:36: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:43: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+                                                                      ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:94: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+                                                                                                                         ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:180:115: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+                                                                                                                                              ^
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:183:36: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
                                 this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
                                                                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:169:56: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:183:56: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
                                 this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
                                                                                    ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:172:17: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                std::memset(str, NULL, 587); // clean the formatting buffer
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:186:17: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                std::memset(str, NULL, (sizeof(str)-1)); // clean the formatting buffer
                                             ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:172:28: warning: 587 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-                                std::memset(str, NULL, 587); // clean the formatting buffer
-                                                       ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:173:17: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                std::memset(ePtr->m_sLogMessage, NULL, 511); // clean log message
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:187:17: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                std::memset(ePtr->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
                                             ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:173:44: warning: 511 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-                                std::memset(ePtr->m_sLogMessage, NULL, 511); // clean log message
-                                                                       ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:174:17: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-                                std::memset(ePtr->m_sModuleName, NULL, 31); // clean module name
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:188:17: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                                std::memset(ePtr->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
                                             ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:174:44: warning: 31 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-                                std::memset(ePtr->m_sModuleName, NULL, 31); // clean module name
-                                                                       ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:185:23: warning: 30 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:199:23: warning: 30 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
                 ace::utils::sleepMS(30);
                                     ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:2: warning: the value returned by this function should be used [cert-err33-c]
-        snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:2: note: cast the expression to void to silence this warning
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:2: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]
-        snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:204:2: warning: the value returned by this function should be used [cert-err33-c]
+        snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:204:2: note: cast the expression to void to silence this warning
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:204:2: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]
+        snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:11: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
-        snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:204:11: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+        snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
                  ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:16: warning: 587 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
-        snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
-                      ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:165: warning: static member accessed through instance [readability-static-accessed-through-instance]
-        snprintf(str, 587, "[%s] [%s] [%s]: Successfully exited the writer thread.\n", ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename);
-                                                                                                                                                                           ^~~~~~
-                                                                                                                                                                           AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:191:33: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:204:122: warning: static member accessed through instance [readability-static-accessed-through-instance]
+        snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
+                                                                                                                                ^~~~~~
+                                                                                                                                AELogger::
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:205:33: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
         this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
                                        ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:191:53: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:205:53: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
         this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
                                                            ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:195:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:209:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
 AELogEntry* AELogger::ptrFromIndex(ullint num) noexcept {
 ~~~~~~~~~~~           ^
 auto                                                    -> AELogEntry*
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:198:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:212:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:198:2: warning: use range-based for loop instead [modernize-loop-convert]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:212:2: warning: use range-based for loop instead [modernize-loop-convert]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             (auto & i : this->m_vAllocTable)
 
 
 
-198741 warnings generated.
-Suppressed 198628 warnings (198628 in non-user code).
+207663 warnings generated.
+Suppressed 207569 warnings (207569 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
