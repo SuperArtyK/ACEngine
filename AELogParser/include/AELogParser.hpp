@@ -25,15 +25,14 @@
 #include <string_view>
 
 #define AELP_ERR_NOERROR 0
-#define AELP_ERR_READING_EOF 1
-#define AELP_ERR_READING_ERROR 2
 #define AELP_ERR_INVALID_LENGTH 3
 #define AELP_ERR_INVALID_TIME 4
 #define AELP_ERR_INVALID_TYPE 5
 #define AELP_ERR_INVALID_MNAME 6
 #define AELP_ERR_INVALID_FORMAT 7
 
-
+//index for the "entry indices" array to get the std::vector corresponding to the AELogger's invalid type
+#define _AELP_INVALID_ENTRY_INDEX 8
 
 
 /// @todo add function to parse 1 line
@@ -56,23 +55,52 @@ public:
 	}
 
 
-	bool openFile
+
+	inline cint openLog(const std::string_view fname) {
+		if (this->isOpen()) {
+			return AEFR_ERR_FILE_ALREADY_OPEN;
+		}
+		const cint ret = this->m_frLogReader.openFile(fname);
+		if (ret != AELP_ERR_NOERROR) {
+			for (int i = 0; i < m_arrEntryIndices.size(); i++) {
+				m_arrEntryIndices[i].clear();
+				m_arrEntryIndices[i].reserve(256);
+			}
+		}
+		return ret;
+
+	}
+
+	inline cint closeLog(void) {
+		return this->m_frLogReader.closeFile();
+	}
 
 	//parse the log entry and give data to the given entry
 	//if error was encountered 
-	cint parseEntry(AELogEntry& entry) {
+	inline cint parseEntry(AELogEntry& entry) {
+		if (this->isClosed()) {
+			return AEFR_ERR_FILE_NOT_OPEN;
+		}
+		if (this->m_frLogReader.isEOF()) {
+			return AEFR_ERR_READING_EOF;
+		}
+
 		char str[AELOG_ENTRY_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the size
 
 		//initial read of the line
+		const llint entrypos = this->m_frLogReader.getCursorPos();
 		const cint readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
-		if (readret != AEFR_ERR_NOERROR) {
-			return this->parseEntryString(entry, str);
+		if (readret == AEFR_ERR_NOERROR) {
+			const cint entryParsed = this->parseEntryString(entry, str);
+			if (entryParsed == AELP_ERR_NOERROR) {
+				this->m_arrEntryIndices[entry.m_cLogType].push_back(entrypos); // valid entry
+			}
+			else {
+				this->m_arrEntryIndices[8].push_back(entrypos); //invalid entry
+			}
 		}
 		return readret;
 	}
-
-
-
 	
 	cint parseEntryString(AELogEntry& entry, const std::string_view entryString) {
 		constexpr std::size_t POS_TYPE = 22, POS_MNAME = 39;
@@ -84,14 +112,11 @@ public:
 		char mname[33]{}; // +1 more character to see if it's not correct format
 		char ltype[15]{}; //14 characters guaranteed
 
-
-
 		//check the log entry's time
 		const std::time_t entryTime = ace::utils::stringToDate(entryString.data(), "[%Y-%m-%d.%X");
 		if (entryTime == -1) {
 			return AELP_ERR_INVALID_TIME;
 		}
-
 
 		// check for the "] " between the time and type
 		if (std::memcmp(entryString.data() + POS_TYPE - 2, "] ", 2)) {
@@ -144,6 +169,9 @@ public:
 		//the newline and or the size is guaranteed to exist
 		sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, "%[^511\n]", logmessage);
 
+		//time to write stuff
+		AELogEntry::clearEntry(entry);
+
 		// what if the entry is a debug one?
 		if (entryType == AELOG_TYPE_DEBUG && std::strstr(logmessage, "DEBUG->") != nullptr) {
 			std::memcpy(entry.m_sLogMessage, logmessage + sizeof("DEBUG->") - 1, AELOG_ENTRY_MESSAGE_SIZE - sizeof("DEBUG->") + 1);
@@ -162,11 +190,72 @@ public:
 		return AELP_ERR_NOERROR;
 	}
 
+	inline cint parseEntries(AELogEntry& queue) {
+
+		if (this->isClosed()) {
+			return AEFR_ERR_FILE_NOT_OPEN;
+		}
+		if (this->m_frLogReader.isEOF()) {
+			return AEFR_ERR_READING_EOF;
+		}
+
+
+		cint checkres = 0;
+		while (checkres != AEFR_ERR_READING_EOF) {
+
+		}
+
+
+
+	}
+
+	inline ullint amountValidEntries(void) const noexcept {
+		ullint tempres = 0;
+		for (int i = 0; i < 8; i++) {
+			tempres += m_arrEntryIndices[i].size();
+		}
+		return tempres;
+	}
+
+	inline ullint amountInvalidEntries(void) const noexcept {
+		return m_arrEntryIndices[8].size();
+	}
+
+	inline ullint amountEntries(const cint logtype) const noexcept {
+		if (!ace::utils::isInRange<cint>(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, logtype)) {
+			return ULLINT_MAX;
+		}
+		if (logtype == AELOG_TYPE_INVALID) {
+			return this->m_arrEntryIndices[_AELP_INVALID_ENTRY_INDEX].size();
+		}
+		return this->m_arrEntryIndices[logtype].size();
+	}
+	
+	inline const std::vector<ullint>& getTypeIndices(const cint logtype) const noexcept {
+		if (!ace::utils::isInRange<cint>(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, logtype)) {
+			return {ULLINT_MAX};
+		}
+		if (logtype == AELOG_TYPE_INVALID) {
+			return this->m_arrEntryIndices[_AELP_INVALID_ENTRY_INDEX];
+		}
+		return this->m_arrEntryIndices[logtype];
+	}
+
+	
+
+	inline bool isOpen(void) const noexcept {
+		return this->m_frLogReader.isOpen();
+	}
+
+	inline bool isClosed(void) const noexcept {
+		return this->m_frLogReader.isClosed();
+	}
+
+
 private:
 
 	static cint matchLogType(const std::string_view str) noexcept {
 		if (str.size() != 14) { return AELOG_TYPE_INVALID; }
-
 
 		if (str == "DEBUG         ") {
 			return AELOG_TYPE_DEBUG;
@@ -201,8 +290,8 @@ private:
 
 	/// The reader of the opened log file
 	AEFileReader m_frLogReader;
-	/// The array of the arrays of log entry cursor indices in the file
-	std::array<std::vector<ullint>, 8> m_arrEntryIndices;
+	/// The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including "invalid entry" for invalid stuff)
+	std::array<std::vector<ullint>, 9> m_arrEntryIndices;
 	/// The amount of log entries read in the file;
 	ullint m_ullLogEntries;
 	cint m_cLastError;

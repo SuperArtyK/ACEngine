@@ -45,7 +45,7 @@ struct AELogEntry {
 	/// @note The log-writing thread will ignore this entry, if it is set to AELOG_ENTRY_INVALID_ORDERNUM
 	std::atomic<ullint> m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 	/// The pointer to the next log entry in the queue
-	AELogEntry* m_lepNextNode = nullptr;
+	AELogEntry* m_pNextNode = nullptr;
 	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
 	std::atomic<cint> m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 	/// The type of the log entry
@@ -53,11 +53,20 @@ struct AELogEntry {
 	cint m_cLogType = -1;
 
 
-	static inline void clearEntry(AELogEntry& entry) {
-		std::memset(entry.m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
-		std::memset(entry.m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
-		entry.m_cStatus = AELOG_ENTRY_STATUS_INVALID; // clear the status
-		entry.m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM; // clear the order num
+	static inline void clearEntry(AELogEntry* entry) {
+		std::memset(entry->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
+		std::memset(entry->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
+		entry->m_cStatus = AELOG_ENTRY_STATUS_INVALID; // clear the status
+		entry->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM; // clear the order num
+	}
+
+
+	static inline void clearEntry2(AELogEntry* entry) {
+		std::memset(entry->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
+		std::memset(entry->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
+		entry->m_pNextNode = nullptr;
+		entry->m_cStatus = AELOG_ENTRY_STATUS_INVALID; // clear the status
+		entry->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM; // clear the order num
 	}
 };
 

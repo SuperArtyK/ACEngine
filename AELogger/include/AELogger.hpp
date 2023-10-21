@@ -50,7 +50,6 @@
 /// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
 /// @todo Add the ability to change the default log file folder to...whatever user wants (maybe a constructor)
 /// @todo update the docs on returning functions
-/// @todo add default constructor
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
@@ -64,10 +63,16 @@ public:
 	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
 	explicit AELogger(const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
 
-	AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
-		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {
-	}
+	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
+		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
+	explicit AELogger() : m_fwLogger(), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0), 
+		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogger::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
+		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
+
+		this->m_vAllocTable.reserve(AELOG_DEFAULT_ALLOC_VECTOR_RESERVE);
+		this->m_vAllocTable.emplace_back(m_ullQueueSize, this->m_lepQueue);
+	}
 
 	/// <summary>
 	/// Class destructor.
@@ -102,18 +107,28 @@ public:
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	inline cint openLog(const std::string_view fname, const bool clearLog = false) {
-		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1);
-		if (ret) {
-			this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->m_sModulename);
-			this->startWriter();
+		if (this->isOpen()) {
+			return AEFW_ERR_FILE_ALREADY_OPEN;
 		}
-		
+		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1);
+		if (ret != AEFW_ERR_NOERROR) {
+			return ret;
+		}
+		this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->m_sModulename);
+		return this->startWriter();
+	}
+
+	inline cint openLog(const std::string_view fpath, const std::string_view fname, const bool clearLog = false) {
+		return this->openLog(std::string(fpath) + std::string(fname), clearLog);
 	}
 
 	/// <summary>
 	/// Close the file, if it was opened. That's it.
 	/// </summary>
-	inline void closeLog(void) {
+	inline cint closeLog(void) {
+		if (this->isClosed()) {
+			return AEFW_ERR_FILE_NOT_OPEN;
+		}
 		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
 		this->stopWriter();
 		this->m_fwLogger.closeFile();
@@ -130,6 +145,9 @@ public:
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
 	void writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
+
+	void writeToLog2(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
+
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file.
@@ -196,7 +214,7 @@ public:
 	}
 
 	inline bool isClosed(void) const noexcept {
-		return !this->isOpen();
+		return this->m_fwLogger.isClosed();
 	}
 
 	/// <summary>
@@ -263,6 +281,8 @@ private:
 	/// </summary>
 	void logWriterThread(void);
 
+	void logWriterThread2(void);
+
 //variables
 	/// The file writer to actually write text to opened log file
 	AEFileWriter m_fwLogger;
@@ -278,16 +298,17 @@ private:
 	std::atomic<ullint> m_ullFilledCount;
 	/// The current node number the writeToLog is working with
 	std::atomic<ullint> m_ullNodeNumber;
-	/// The node order number for the writing thread.
-	ullint m_ullWriterOrderNum;
 	/// The amount of entry spaces/size of the queue
 	ullint m_ullQueueSize;
 	/// The pointer to the first item in the queue
 	AELogEntry* m_lepQueue;
 	/// The pointer to the last item in the queue
 	AELogEntry* m_lepLastNode;
+
 	/// The flag to run the log-writing thread
 	std::atomic<bool> m_bRunTrd;
+	/// The flag to show that the queue is populated
+	std::atomic<bool> m_bQueueFilled;
 
 	// And we don't need to keep the separate variables for the name of the file
 	// and amount of log entries we did, etc.
@@ -303,7 +324,7 @@ REGISTER_CLASS(AELogger);
 
 /// The global logger of the engine to log engine-wide events.
 /// It starts the writing thread and logging as soon as the program starts.
-inline AELogger globalLogger(AELogger::genLogName(AELOG_DEFAULT_LOG_PATH, "LOG", ".log"));
+//inline AELogger globalLogger(AELogger::genLogName(AELOG_DEFAULT_LOG_PATH, "LOG", ".log"));
 
 #endif // ENGINE_ENABLE_GLOBAL_MODULES
 

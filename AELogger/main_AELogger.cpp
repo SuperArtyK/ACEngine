@@ -8,7 +8,7 @@ using std::cout;
 
 AELogger mylog("log.txt", true);
 
-constexpr int fpsval = 8000;
+constexpr int fpsval = 10000;
 
 
 void logfiller(const std::string name) {
@@ -37,11 +37,10 @@ int main()
 	
 	std::cout << sizeof(AELogEntry) << "; " << sizeof(AELogEntry) * 65535 << NLC;
 
-	globalLogger.writeStatus();
+	//globalLogger.writeStatus();
 
 	std::thread t1(&logfiller, "logfil1");
-
-
+	
 
 	std::thread t2(&logfiller, "logfil2");
 	AEFrame a(fpsval);
@@ -50,8 +49,8 @@ int main()
 		mylog.writeToLogDebug("Working in the " + std::string(__FUNCTION__), __FUNCTION__);
 		mylog.writeToLog("Something isn't right in " + std::string(__FUNCTION__), AELOG_TYPE_WARN, __FUNCTION__);
 		mylog.writeToLog("Something is very not good in " + std::string(__FUNCTION__), AELOG_TYPE_SEVERE_WARN, __FUNCTION__);
-		mylog.writeToLog("Started writing to log in" + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
-		mylog.writeToLog("Success, we wrote to log in" + std::string(__FUNCTION__)+"!", AELOG_TYPE_SUCCESS, __FUNCTION__);
+		mylog.writeToLog("Started writing to log in " + std::string(__FUNCTION__), AELOG_TYPE_OK, __FUNCTION__);
+		mylog.writeToLog("Success, we wrote to log in " + std::string(__FUNCTION__)+"!", AELOG_TYPE_SUCCESS, __FUNCTION__);
 		mylog.writeToLog("Something is wrong in " + std::string(__FUNCTION__), AELOG_TYPE_ERROR, __FUNCTION__);
 		mylog.writeToLog("Something is very very wrong in " + std::string(__FUNCTION__), AELOG_TYPE_FATAL_ERROR, __FUNCTION__);
 

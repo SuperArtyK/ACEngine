@@ -6,10 +6,10 @@ using std::cout;
 using std::cin;
 
 /// <summary>
-	/// Deduces the entry's log type and returns a c-string of it.
-	/// </summary>
-	/// <param name="logtype">The value of the log type</param>
-	/// <returns>c-string of the type</returns>
+/// Deduces the entry's log type and returns a c-string of it.
+/// </summary>
+/// <param name="logtype">The value of the log type</param>
+/// <returns>c-string of the type</returns>
 static constexpr const char* typeToString(const cint logtype) noexcept {
 	switch (logtype) {
 	case AELOG_TYPE_INFO: return "INFO";
@@ -47,12 +47,16 @@ int main() {
 	AELogEntry testing{};
 	
 
-	for (int i = 0; i < 256; i++) {
-		mylp.parseEntry(testing);
+	while (mylp.parseEntry(testing) == AELP_ERR_NOERROR) {
 		cout << formatLogEntry(testing) << NLC;
 		AELogEntry::clearEntry(testing);
 	}
+	
 
+	cout << "Parsed entries: " << mylp.amountValidEntries() << NLC;
+	for (int i = 0; i < 8; i++) {
+		cout << "Parsed entries of type \"" << typeToString(i) << "\": " << mylp.amountEntries(i)<<NLC;
+	}
 	
 	// 39 + 1('[') + mname size + 3("]: ") + 1(message)
 	return 0;

@@ -37,7 +37,7 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 
 	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
-	if (!bool(cdata) || !bool(dcount) || !bool(dsize)) {
+	if (!cdata || !dcount || !dsize) {
 		return AEFW_ERR_WRITE_ZERO_SIZE;
 	}
 
@@ -56,10 +56,11 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 
 
 // open file with flags
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
 
 	if (this->isOpen()) { // open already -> pls close
-		this->closeFile();
+		this->m_cLastError = AEFW_ERR_FILE_ALREADY_OPEN;
+		return AEFW_ERR_FILE_ALREADY_OPEN;
 	}
 
 	if (str.empty()) {

@@ -52,6 +52,7 @@
 #define AEFR_ERR_READING_ERROR -5
 /// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileReader::readData_ptr().
 #define AEFR_ERR_READ_ZERO_SIZE -6
+#define AEFR_ERR_FILE_ALREADY_OPEN -7
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
 #define _AEFR_EXIT_ON_CLOSED_FILE if (this->isClosed()) { this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
@@ -109,18 +110,20 @@ public:
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
 	/// <returns>AEFR_ERR_NOERROR if file was opened successfully, AEFR_ERR_FILE_DOESNT_EXIST otherwise</returns>
-	int openFile(const std::string_view fname); //defined after class
+	cint openFile(const std::string_view fname); //defined after class
 
 	/// <summary>
 	/// Closes the currently opened file, and also, in addition, clears the last error status.
 	/// </summary>
-	inline void closeFile(void) noexcept {
-		if (this->isClosed())
-			fclose(this->m_fpFilestr);
+	inline cint closeFile(void) noexcept {
+		_AEFR_EXIT_ON_CLOSED_FILE;
+
+		fclose(this->m_fpFilestr);
 		this->m_szLastReadAmount = 0;
 		this->m_fpFilestr = nullptr;
 		this->m_sFilename.clear();
 		this->clearError();
+		return AEFR_ERR_NOERROR;
 	}
 
 
@@ -444,7 +447,7 @@ public:
 	/// </summary>
 	/// <returns>True if file is open, false if otherwise</returns>
 	inline bool isOpen(void) const noexcept {
-		return bool(this->m_fpFilestr);//null if closed, something other if opened
+		return this->m_fpFilestr;//null if closed, something other if opened
 	}
 
 	inline bool isClosed(void) const noexcept {

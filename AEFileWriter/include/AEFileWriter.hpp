@@ -62,6 +62,7 @@
 #define AEFW_ERR_WRITE_ZERO_SIZE -6
 /// Macro for the error that has occurred in flushing (if fflush returned a non-zero value).
 #define AEFW_ERR_FLUSH_ERROR -7
+#define AEFW_ERR_FILE_ALREADY_OPEN -8
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
 #define _AEFW_EXIT_ON_CLOSED_FILE if (this->isClosed()) { this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
@@ -135,7 +136,7 @@ public:
 	/// <param name="flags">Flags for file opening, AEFW_FLAG_* macros. More info in the docs</param>
 	/// <param name="af_interval">Interval in file writes between automatic file flushing.</param>
 	/// <returns>AEFW_ERR_NOERROR if the file was opened without errors, other error flag value otherwise</returns>
-	int openFile(const std::string_view str, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
+	cint openFile(const std::string_view str, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
 	
 	/// <summary>
 	/// Flushes the opened file. That's it. If file isn't open, sets the last error status to AEFW_ERR_FILE_NOT_OPEN.
@@ -145,6 +146,7 @@ public:
 		_AEFW_EXIT_ON_CLOSED_FILE;
 
 		if (fflush(this->m_fpFilestr)) {
+			this->m_cLastError = AEFW_ERR_FLUSH_ERROR;
 			return AEFW_ERR_FLUSH_ERROR;
 		}
 		return AEFW_ERR_WRITE_SUCCESS;
@@ -154,11 +156,8 @@ public:
 	/// <summary>
 	/// Closes the currently opened file, and also, in addition, clears the last error status.
 	/// </summary>
-	inline void closeFile(void) noexcept {
-		if (this->isClosed()) {
-			this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
-			return;
-		}
+	inline cint closeFile(void) noexcept {
+		_AEFW_EXIT_ON_CLOSED_FILE;
 
 		this->m_szLastWrittenAmount = 0;
 		fclose(this->m_fpFilestr);
@@ -381,7 +380,7 @@ public:
 	/// </summary>
 	/// <returns>True if file is open, false if otherwise</returns>
 	inline bool isOpen(void) const noexcept {
-		return bool(this->m_fpFilestr);//null if closed, something other if opened
+		return this->m_fpFilestr;//null if closed, something other if opened
 	}
 
 	inline bool isClosed(void) const noexcept {
