@@ -1,4 +1,4 @@
-.TH "AELogEntry" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntry" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -48,13 +48,13 @@ AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\f
 .PP 
 The structure for the log entry data in the queue of \fBAELogger\fP\&. 
 .PP
-Definition at line \fB37\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB35\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBstatic\fP \fBvoid\fP AELogEntry::clearEntry (\fBAELogEntry\fP *\fBconst\fP entry)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB54\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB52\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBcint\fP AELogEntry::m_cLogType = \-1"
@@ -69,37 +69,37 @@ AELOG_TYPE_*
 .PP
 
 .PP
-Definition at line \fB51\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB49\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "std::atomic<\fBcint\fP> AELogEntry::m_cStatus = 0"
 
 .PP
 The status flag in the entry to show if the entry is ready, being read/set, or is invalid\&. 
 .PP
-Definition at line \fB48\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB46\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBAELogEntry\fP* AELogEntry::m_pNextNode = \fBnullptr\fP"
 
 .PP
 The pointer to the next log entry in the queue\&. 
 .PP
-Definition at line \fB46\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB44\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "char AELogEntry::m_sLogMessage[\fBAELOG_ENTRY_MESSAGE_SIZE\fP+1] {}"
 
 .PP
 The message of the log entry\&. 
 .PP
-Definition at line \fB40\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB38\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "char AELogEntry::m_sModuleName[\fBAELOG_ENTRY_MODULENAME_SIZE\fP+1] {}"
 
 .PP
 The name of the module that issued the log entry\&. 
 .PP
-Definition at line \fB42\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB40\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "std::time_t AELogEntry::m_tmLogTime = \fBNULL\fP"
 
 .PP
 The time when this log entry was created\&. 
 .PP
-Definition at line \fB44\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB42\fP of file \fBAELogEntry\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

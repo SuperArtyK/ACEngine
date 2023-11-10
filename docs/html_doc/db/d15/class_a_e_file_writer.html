@@ -147,7 +147,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0c238267ee45ca15672d4e9246cdca2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the opened file.  <br /></td></tr>
 <tr class="separator:a0c238267ee45ca15672d4e9246cdca2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05ceb471801ae111d68859f9d3b9eb78" id="r_a05ceb471801ae111d68859f9d3b9eb78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a05ceb471801ae111d68859f9d3b9eb78">closeFile</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
-<tr class="memdesc:a05ceb471801ae111d68859f9d3b9eb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the currently opened file, and also, in addition, clears the last error status.  <br /></td></tr>
+<tr class="memdesc:a05ceb471801ae111d68859f9d3b9eb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the currently opened file.  <br /></td></tr>
 <tr class="separator:a05ceb471801ae111d68859f9d3b9eb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae0c5dccc36c3f8769f881417714fe1" id="r_a1ae0c5dccc36c3f8769f881417714fe1"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T &gt; </td></tr>
 <tr class="memitem:a1ae0c5dccc36c3f8769f881417714fe1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a1ae0c5dccc36c3f8769f881417714fe1">write</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> T &amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">var</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> size_t <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">datasz</a>=0, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> bool <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">useAutoFlush</a>=<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">AEFW_DEFAULT_AUTOFLUSH</a>)</td></tr>
@@ -198,6 +198,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a47e3c08c276394bce7b612331cf4762d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a file is open by this file-writer.  <br /></td></tr>
 <tr class="separator:a47e3c08c276394bce7b612331cf4762d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0743145db01b527ae9612f359e5c0090" id="r_a0743145db01b527ae9612f359e5c0090"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090">isClosed</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a0743145db01b527ae9612f359e5c0090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a file isn't open by this file-writer.  <br /></td></tr>
 <tr class="separator:a0743145db01b527ae9612f359e5c0090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4966aebe1d173f1becec77d59281269a" id="r_a4966aebe1d173f1becec77d59281269a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a1f1cfc1526b3d29817a3d2efbb931d0a">llint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a4966aebe1d173f1becec77d59281269a">getFileSize</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
 <tr class="memdesc:a4966aebe1d173f1becec77d59281269a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns size of the file in bytes.  <br /></td></tr>
@@ -209,7 +210,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa7ea0428e5c94d54d9fd1386105db507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the relative path of the opened file.  <br /></td></tr>
 <tr class="separator:aa7ea0428e5c94d54d9fd1386105db507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a558a70c9f9b132d769421242912a08a0" id="r_a558a70c9f9b132d769421242912a08a0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a558a70c9f9b132d769421242912a08a0">getFileName</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a></td></tr>
-<tr class="memdesc:a558a70c9f9b132d769421242912a08a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the opened file, without any paths.  <br /></td></tr>
+<tr class="memdesc:a558a70c9f9b132d769421242912a08a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the opened file, devoid of the path.  <br /></td></tr>
 <tr class="separator:a558a70c9f9b132d769421242912a08a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5980b915ad3a59393e2818d374c3dc85" id="r_a5980b915ad3a59393e2818d374c3dc85"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a5980b915ad3a59393e2818d374c3dc85">getFullPath</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a></td></tr>
 <tr class="memdesc:a5980b915ad3a59393e2818d374c3dc85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the full, absolute path of the opened file.  <br /></td></tr>
@@ -227,7 +228,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a91b40186ef167a8f3b0e3fcc9fe3c9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns total write requests made to file.  <br /></td></tr>
 <tr class="separator:a91b40186ef167a8f3b0e3fcc9fe3c9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d7be6bc7ff7ef3bc063c957e9b4d832" id="r_a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d15/class_a_e_file_writer.html#a7d7be6bc7ff7ef3bc063c957e9b4d832">getLastWrittenAmount</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
-<tr class="memdesc:a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the last read amount of bytes from the opened file.  <br /></td></tr>
+<tr class="memdesc:a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the last written amount of bytes from the opened file.  <br /></td></tr>
 <tr class="separator:a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -282,7 +283,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p>ArtyK's Engine File Writer; umm, it writes data to given file. </p>
 <p>Just create it and dump the gigabytes of data to your files. Hungarian notation is fw. Flags start with AEFW_ </p><dl class="section warning"><dt>Warning</dt><dd>This is not thread safe! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aab3c5167d1f6945e4846540b5417a57f" name="aab3c5167d1f6945e4846540b5417a57f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab3c5167d1f6945e4846540b5417a57f">&#9670;&#160;</a></span>AEFileWriter() <span class="overload">[1/4]</span></h2>
@@ -365,7 +366,7 @@ Private Attributes</h2></td></tr>
 
 <p>Class constructor &ndash; creates the instance but doesn't do anything. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00103">103</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -460,7 +461,7 @@ Private Attributes</h2></td></tr>
 <p>Default Destructor. </p>
 <p>Just flushes and closes the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00122">122</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -492,7 +493,7 @@ Private Attributes</h2></td></tr>
 <p>Checks for and performs the auto-flush operation if required. </p>
 <dl class="section note"><dt>Note</dt><dd>Does nothing if AEFW_AUTOFLUSH_ENABLE is not defined </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00522">522</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00537">537</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -520,9 +521,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the currently opened file, and also, in addition, clears the last error status. </p>
+<p>Closes the currently opened file. </p>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_NOERROR if file was closed successfully; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00159">159</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00163">163</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -551,10 +553,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Flushes the opened file. </p>
-<p>That's it. If file isn't open, sets the last error status to AEFW_ERR_FILE_NOT_OPEN.</p>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on success, otherwise AEFW_ERR_FLUSH_ERROR on error, or AEFW_ERR_FILE_NOT_OPEN if not open + last error value set</dd></dl>
+<p>That's it.</p>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00146">146</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -583,10 +585,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns current write cursor position. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>If file is open, Current writ cursor position, starting from 0. If not &ndash; AEFW_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Current write cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00465">465</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00480">480</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -614,10 +616,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the name of the opened file, without any paths. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the opened file name</dd></dl>
+<p>Returns the name of the opened file, devoid of the path. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the opened file name; emtpy string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00432">432</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00444">444</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -648,7 +650,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the file pointer of this file-writer. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to FILE used in the file writer</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00454">454</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00469">469</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -677,10 +679,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns size of the file in bytes. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>File size in bytes if file is open, if not &ndash; AEFW_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>File size in bytes if file is open; otherwise AEFW_ERR_FILE_NOT_OPEN</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00394">394</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00402">402</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -709,9 +711,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the full name of currently open file, including the relative path, if such was provided. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the full file name, if the file was tried to be opened</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If no relative path was provided when opening the file, then output of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895" title="Returns the full name of currently open file, including the relative path, if such was provided.">AEFileWriter::getFullFileName()</a> is equivalent to <a class="el" href="../../db/d15/class_a_e_file_writer.html#a558a70c9f9b132d769421242912a08a0" title="Returns the name of the opened file, devoid of the path.">AEFileWriter::getFileName()</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the opened file (including relative path if was given); empty string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00409">409</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00418">418</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -740,9 +743,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the full, absolute path of the opened file. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the absolute file path</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the absolute path of the opened file; empty string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00446">446</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00458">458</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -770,11 +773,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the last read amount of bytes from the opened file. </p>
-<dl class="section note"><dt>Note</dt><dd>If last operation failed and no bytes were read (closed file, full EOF) &ndash; returns 0;</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>std::size_t of the amount of bytes read in the last reading operation</dd></dl>
+<p>Gets the last written amount of bytes from the opened file. </p>
+<dl class="section note"><dt>Note</dt><dd>If last operation failed and no bytes were written (closed file, write error) &ndash; returns 0</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::size_t of the amount of bytes written in the last write operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00506">506</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00521">521</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -865,10 +868,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the relative path of the opened file. </p>
-<p>If the file was opened in the same directory as the executable, returns "./"</p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the relative file path</dd></dl>
+<p>If the file was opened in the same directory as the executable (no relative path provided), returns "./"</p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the relative file path of opened file; empty string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00418">418</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00427">427</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -897,9 +900,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns total write requests made to file. </p>
-<dl class="section return"><dt>Returns</dt><dd>Amount of times the write operation has been called on the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Amount of times the write operation has been called on this <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00497">497</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00512">512</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -927,7 +930,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00385">385</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p>Checks if a file isn't open by this file-writer. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if file is closed/not open, false if otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00393">393</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -958,7 +964,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if a file is open by this file-writer. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if file is open, false if otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00381">381</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00385">385</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -995,7 +1001,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">Open(and create)</a> file with given name and flag. </p>
-<p>On success sets <a class="el" href="../../db/d15/class_a_e_file_writer.html#a6eaacea74250a28e1250e745c938324a" title="Flags that were used to open the file.">AEFileWriter::m_cFlags</a> to passed flag value. </p><dl class="section note"><dt>Note</dt><dd>If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error </dd>
+<p>On success sets <a class="el" href="../../db/d15/class_a_e_file_writer.html#a6eaacea74250a28e1250e745c938324a" title="Flags that were used to open the file.">AEFileWriter::m_cFlags</a> to passed flag value. </p><dl class="section note"><dt>Note</dt><dd>If the provided file flag is invalid, it returns AEFW_ERR_OPEN_FILE_WRONG_FLAG </dd>
 <dd>
 If provided autoflush interval is a default value (AEFW_DEFAULT_AUTOFLUSH_INTERVAL), then the interval is not changed from the previous value </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables <a class="el" href="../../db/d15/class_a_e_file_writer.html#a2f8e2a3e987a119f061ae38701edc2f5" title="Returns current write cursor position.">AEFileWriter::getCursorPos()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#aaa1e8dbbbc6e653397df93490d78b821" title="Sets read cursor position to pos from origin.">AEFileWriter::setCursorPos()</a>, and <a class="el" href="../../db/d15/class_a_e_file_writer.html#a4966aebe1d173f1becec77d59281269a" title="Returns size of the file in bytes.">AEFileWriter::getFileSize()</a>, since they manipulate the cursor.</dd></dl>
@@ -1007,7 +1013,7 @@ If provided autoflush interval is a default value (AEFW_DEFAULT_AUTOFLUSH_INTERV
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_NOERROR if the file was opened without errors, other error flag value otherwise</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_NOERROR if file was opened successfully; otherwise AEFW_ERR_OPEN_* flags (like AEFW_ERR_OPEN_FILE_NAME_EMPTY)</dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/d56/_a_e_file_writer_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d0/d56/_a_e_file_writer_8cpp_source.html">AEFileWriter.cpp</a>.</p>
 
@@ -1076,8 +1082,8 @@ If provided autoflush interval is a default value (AEFW_DEFAULT_AUTOFLUSH_INTERV
 </div><div class="memdoc">
 
 <p>Sets read cursor position to pos from origin. </p>
-<dl class="section note"><dt>Note</dt><dd>If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If cursor is beyond EOF, it fills space between EOF and cursor with null-bytes when data is written. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1086,9 +1092,9 @@ If provided autoflush interval is a default value (AEFW_DEFAULT_AUTOFLUSH_INTERV
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, AEFW_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given, or other things that fseek can return</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00480">480</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00495">495</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1152,10 +1158,10 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo:</a></b></dt><dd>Add a way to add custom types to this generic write function. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo:</a></b></dt><dd>Add a way to add custom types to this generic write function. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00578">578</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00593">593</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1201,9 +1207,9 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00296">296</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00301">301</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1249,9 +1255,9 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00319">319</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00324">324</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1297,9 +1303,9 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00341">341</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00346">346</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1353,9 +1359,9 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00331">331</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00336">336</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1402,9 +1408,9 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00307">307</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00312">312</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1455,9 +1461,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
 </div><div class="memdoc">
 
 <p>Write binary data, as is, to file, and flush if necessary. </p>
-<p>Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#a80a39239d9da95f6f29e1a4029507506" title="Write binary data, as is, to file, and flush if necessary.">writeData_ref()</a>: uses (const) pointer to the variable/data. </p><dl class="section note"><dt>Note</dt><dd>Doesn't work with literals </dd>
-<dd>
-If file is closed, sets last error flat to AEFW_ERR_FILE_NOT_OPEN</dd></dl>
+<p>Difference with <a class="el" href="../../db/d15/class_a_e_file_writer.html#a80a39239d9da95f6f29e1a4029507506" title="Write binary data, as is, to file, and flush if necessary.">writeData_ref()</a>: uses (const) pointer to the variable/data. </p><dl class="section note"><dt>Note</dt><dd>Doesn't work with literals</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cdata</td><td>Pointer to object to write</td></tr>
@@ -1467,7 +1471,7 @@ If file is closed, sets last error flat to AEFW_ERR_FILE_NOT_OPEN</dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/d56/_a_e_file_writer_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../d0/d56/_a_e_file_writer_8cpp_source.html">AEFileWriter.cpp</a>.</p>
 
@@ -1531,9 +1535,9 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00371">371</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00375">375</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1587,10 +1591,10 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo:</a></b></dt><dd>Add custom way to format the float number </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>Add custom way to format the float number </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00553">553</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00568">568</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1636,9 +1640,9 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00253">253</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00258">258</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1691,9 +1695,9 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00229">229</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00234">234</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1746,9 +1750,9 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00193">193</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00198">198</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1795,9 +1799,9 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00211">211</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00216">216</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1843,9 +1847,9 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00267">267</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00272">272</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1872,7 +1876,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>Flags that were used to open the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00543">543</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00558">558</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1898,7 +1902,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>Object for file writing. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00541">541</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00556">556</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1924,7 +1928,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>Full filename and relative path. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00535">535</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00550">550</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1950,7 +1954,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>Name of the module (class), same as in code. </p>
 <p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000010">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
@@ -1978,7 +1982,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>The amount of written bytes during last operation. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00539">539</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00554">554</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -1997,7 +2001,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <p>Interval in write operations before automatic flush operation. </p>
 <p>1 &ndash; flush every write operation, etc; -1 &ndash; almost never </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00514">514</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00529">529</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -2049,7 +2053,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>Counter for total write operations for file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00537">537</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00552">552</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -2063,7 +2067,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a></li>
-    <li class="footer">Generated on Thu Nov 9 2023 20:42:39 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 10 2023 00:47:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

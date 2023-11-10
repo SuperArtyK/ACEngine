@@ -1,4 +1,4 @@
-.TH "AEFileWriter" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFileWriter" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -49,7 +49,7 @@ Inherits \fB__AEModuleBase< AEFileWriter >\fP\&.
 .ti -1c
 .RI "\fBcint\fP \fBcloseFile\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Closes the currently opened file, and also, in addition, clears the last error status\&. "
+.RI "Closes the currently opened file\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T > \fBcint\fP \fBwrite\fP (\fBconst\fP T &\fBvar\fP, \fBconst\fP size_t \fBdatasz\fP=0, \fBconst\fP bool \fBuseAutoFlush\fP=\fBAEFW_DEFAULT_AUTOFLUSH\fP)"
 .br
@@ -113,6 +113,7 @@ Inherits \fB__AEModuleBase< AEFileWriter >\fP\&.
 .ti -1c
 .RI "bool \fBisClosed\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
+.RI "Checks if a file isn't open by this file-writer\&. "
 .ti -1c
 .RI "\fBllint\fP \fBgetFileSize\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
@@ -128,7 +129,7 @@ Inherits \fB__AEModuleBase< AEFileWriter >\fP\&.
 .ti -1c
 .RI "std::string \fBgetFileName\fP (\fBvoid\fP) \fBconst\fP"
 .br
-.RI "Returns the name of the opened file, without any paths\&. "
+.RI "Returns the name of the opened file, devoid of the path\&. "
 .ti -1c
 .RI "std::string \fBgetFullPath\fP (\fBvoid\fP) \fBconst\fP"
 .br
@@ -152,7 +153,7 @@ Inherits \fB__AEModuleBase< AEFileWriter >\fP\&.
 .ti -1c
 .RI "std::size_t \fBgetLastWrittenAmount\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
-.RI "Gets the last read amount of bytes from the opened file\&. "
+.RI "Gets the last written amount of bytes from the opened file\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -231,7 +232,7 @@ This is not thread safe!
 .PP
 
 .PP
-Definition at line \fB84\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB87\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "AEFileWriter::AEFileWriter (\fBconst\fP std::string_view filename, \fBconst\fP \fBcint\fP flags = \fC0\fP, \fBconst\fP \fBullint\fP af_interval = \fC\fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP\fP)\fC [explicit]\fP"
@@ -261,7 +262,7 @@ Definition at line \fB12\fP of file \fBAEFileWriter\&.cpp\fP\&.
 .PP
 Class constructor -- creates the instance but doesn't do anything\&. 
 .PP
-Definition at line \fB100\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB103\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "AEFileWriter::AEFileWriter (\fBAEFileWriter\fP && fw)\fC [noexcept]\fP"
 
 .PP
@@ -284,7 +285,7 @@ Deleted copy constructor\&.
 .PP
 Default Destructor\&. Just flushes and closes the file\&. 
 .PP
-Definition at line \fB122\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB125\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBvoid\fP AEFileWriter::autoFlush (\fBvoid\fP)\fC [inline]\fP, \fC [private]\fP, \fC [noexcept]\fP"
@@ -299,26 +300,33 @@ Does nothing if AEFW_AUTOFLUSH_ENABLE is not defined
 .PP
 
 .PP
-Definition at line \fB522\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB537\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::closeFile (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Closes the currently opened file, and also, in addition, clears the last error status\&. 
-.PP
-Definition at line \fB159\fP of file \fBAEFileWriter\&.hpp\fP\&.
-.SS "\fBcint\fP AEFileWriter::flushFile (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
-
-.PP
-Flushes the opened file\&. That's it\&. If file isn't open, sets the last error status to AEFW_ERR_FILE_NOT_OPEN\&.
+Closes the currently opened file\&. 
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on success, otherwise AEFW_ERR_FLUSH_ERROR on error, or AEFW_ERR_FILE_NOT_OPEN if not open + last error value set
+AEFW_ERR_NOERROR if file was closed successfully; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open
 .RE
 .PP
 
 .PP
-Definition at line \fB146\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB163\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "\fBcint\fP AEFileWriter::flushFile (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Flushes the opened file\&. That's it\&.
+.PP
+\fBReturns\fP
+.RS 4
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_FLUSH_ERROR on flush error
+.RE
+.PP
+
+.PP
+Definition at line \fB149\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBllint\fP AEFileWriter::getCursorPos (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -326,30 +334,30 @@ Returns current write cursor position\&.
 .PP
 \fBWarning\fP
 .RS 4
-Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-If file is open, Current writ cursor position, starting from 0\&. If not -- AEFW_ERR_FILE_NOT_OPEN (+last error status set to the same thing)\&.
+Current write cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given
 .RE
 .PP
 
 .PP
-Definition at line \fB465\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB480\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "std::string AEFileWriter::getFileName (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
-Returns the name of the opened file, without any paths\&. 
+Returns the name of the opened file, devoid of the path\&. 
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the opened file name
+std::string of the opened file name; emtpy string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB432\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB444\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBFILE\fP * AEFileWriter::getFilePtr (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -362,7 +370,7 @@ Pointer to FILE used in the file writer
 .PP
 
 .PP
-Definition at line \fB454\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB469\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBllint\fP AEFileWriter::getFileSize (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -370,30 +378,35 @@ Returns size of the file in bytes\&.
 .PP
 \fBWarning\fP
 .RS 4
-Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
+Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-File size in bytes if file is open, if not -- AEFW_ERR_FILE_NOT_OPEN (+last error status set to the same thing)\&.
+File size in bytes if file is open; otherwise AEFW_ERR_FILE_NOT_OPEN
 .RE
 .PP
 
 .PP
-Definition at line \fB394\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB402\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "std::string AEFileWriter::getFullFileName (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
 Returns the full name of currently open file, including the relative path, if such was provided\&. 
 .PP
+\fBNote\fP
+.RS 4
+If no relative path was provided when opening the file, then output of \fBAEFileWriter::getFullFileName()\fP is equivalent to \fBAEFileWriter::getFileName()\fP
+.RE
+.PP
 \fBReturns\fP
 .RS 4
-std::string of the full file name, if the file was tried to be opened
+std::string of the opened file (including relative path if was given); empty string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB409\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB418\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "std::string AEFileWriter::getFullPath (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
@@ -401,30 +414,30 @@ Returns the full, absolute path of the opened file\&.
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the absolute file path
+std::string of the absolute path of the opened file; empty string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB446\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB458\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "std::size_t AEFileWriter::getLastWrittenAmount (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Gets the last read amount of bytes from the opened file\&. 
+Gets the last written amount of bytes from the opened file\&. 
 .PP
 \fBNote\fP
 .RS 4
-If last operation failed and no bytes were read (closed file, full EOF) -- returns 0;
+If last operation failed and no bytes were written (closed file, write error) -- returns 0
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-std::size_t of the amount of bytes read in the last reading operation
+std::size_t of the amount of bytes written in the last write operation
 .RE
 .PP
 
 .PP
-Definition at line \fB506\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB521\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileWriter\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -454,16 +467,16 @@ Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::string AEFileWriter::getRelativePath (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
-Returns the relative path of the opened file\&. If the file was opened in the same directory as the executable, returns '\&./'
+Returns the relative path of the opened file\&. If the file was opened in the same directory as the executable (no relative path provided), returns '\&./'
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the relative file path
+std::string of the relative file path of opened file; empty string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB418\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB427\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBullint\fP AEFileWriter::getTotalWrites (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -471,16 +484,25 @@ Returns total write requests made to file\&.
 .PP
 \fBReturns\fP
 .RS 4
-Amount of times the write operation has been called on the \fBAEFileWriter\fP instance
+Amount of times the write operation has been called on this \fBAEFileWriter\fP instance
 .RE
 .PP
 
 .PP
-Definition at line \fB497\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB512\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "bool AEFileWriter::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB385\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Checks if a file isn't open by this file-writer\&. 
+.PP
+\fBReturns\fP
+.RS 4
+True if file is closed/not open, false if otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB393\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "bool AEFileWriter::isOpen (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -493,7 +515,7 @@ True if file is open, false if otherwise
 .PP
 
 .PP
-Definition at line \fB381\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB385\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::openFile (\fBconst\fP std::string_view str, \fBconst\fP \fBcint\fP flags = \fC0\fP, \fBconst\fP \fBullint\fP af_interval = \fC\fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP\fP)"
 
 .PP
@@ -501,7 +523,7 @@ Definition at line \fB381\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .PP
 \fBNote\fP
 .RS 4
-If the provided file flag is invalid, it returns false and sets the AEFW_ERR_FILE_WRONG_FLAG as the last error 
+If the provided file flag is invalid, it returns AEFW_ERR_OPEN_FILE_WRONG_FLAG 
 .PP
 If provided autoflush interval is a default value (AEFW_DEFAULT_AUTOFLUSH_INTERVAL), then the interval is not changed from the previous value 
 .RE
@@ -522,7 +544,7 @@ Using the AEFW_FLAG_APPEND_NO_CURSOR_MOVE disables \fBAEFileWriter::getCursorPos
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_NOERROR if the file was opened without errors, other error flag value otherwise
+AEFW_ERR_NOERROR if file was opened successfully; otherwise AEFW_ERR_OPEN_* flags (like AEFW_ERR_OPEN_FILE_NAME_EMPTY)
 .RE
 .PP
 
@@ -539,12 +561,12 @@ Sets read cursor position to pos from origin\&.
 .PP
 \fBNote\fP
 .RS 4
-If cursor is beyond eof, it fills space between eof and cursor with null-bytes when data is written\&. 
+If cursor is beyond EOF, it fills space between EOF and cursor with null-bytes when data is written\&. 
 .RE
 .PP
 \fBWarning\fP
 .RS 4
-Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE 
+Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE 
 .RE
 .PP
 \fBNote\fP
@@ -561,12 +583,12 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF
 .PP
 \fBReturns\fP
 .RS 4
-0 on success, AEFW_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return
+0 on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given, or other things that fseek can return
 .RE
 .PP
 
 .PP
-Definition at line \fB480\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB495\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileWriter::write (\fBconst\fP T & var, \fBconst\fP size_t datasz = \fC0\fP, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP"
 
 .PP
@@ -595,7 +617,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 \fBTodo\fP
@@ -605,7 +627,7 @@ Add a way to add custom types to this generic write function\&.
 .PP
 
 .PP
-Definition at line \fB578\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB593\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeBool (\fBconst\fP bool num, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -620,12 +642,12 @@ Writes the boolean to file as text (true/false)\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB296\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB301\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeByte (\fBconst\fP \fBunsigned\fP char cdata, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -640,12 +662,12 @@ Writes one byte of data to the file\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB319\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB324\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeBytes (\fBconst\fP std::vector< \fBunsigned\fP char > & cdata, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -660,12 +682,12 @@ Write a stream of bytes to file, from std::vector<unsigned char>\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB341\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB346\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeBytes (\fBconst\fP \fBvoid\fP *\fBconst\fP cdata, \fBconst\fP std::size_t dsize, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -687,12 +709,12 @@ Basically just a shortcut for the AEFileWriter::writerData_ptr()
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB331\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB336\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeChar (\fBconst\fP char c, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -712,12 +734,12 @@ Essentially, it's the same as \fBAEFileWriter::writeByte()\fP
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB307\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB312\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeData_ptr (\fBconst\fP \fBvoid\fP *\fBconst\fP cdata, \fBconst\fP std::size_t dcount, \fBconst\fP std::size_t dsize = \fC\fBsizeof\fP(char)\fP, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [noexcept]\fP"
 
 .PP
@@ -725,9 +747,7 @@ Write binary data, as is, to file, and flush if necessary\&. Difference with \fB
 .PP
 \fBNote\fP
 .RS 4
-Doesn't work with literals 
-.PP
-If file is closed, sets last error flat to AEFW_ERR_FILE_NOT_OPEN
+Doesn't work with literals
 .RE
 .PP
 \fBParameters\fP
@@ -743,7 +763,7 @@ If file is closed, sets last error flat to AEFW_ERR_FILE_NOT_OPEN
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
@@ -775,12 +795,12 @@ Works with literals
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB371\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB375\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileWriter::writeFloat (\fBconst\fP T num, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP"
 
 .PP
@@ -800,7 +820,7 @@ Writes the float value as text to the opened file\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 \fBTodo\fP
@@ -810,7 +830,7 @@ Add custom way to format the float number
 .PP
 
 .PP
-Definition at line \fB553\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB568\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeInt (\fBconst\fP \fBllint\fP num, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -825,12 +845,12 @@ Writes the (signed) integer as text to open file\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB253\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB258\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeString (\fBconst\fP char *\fBconst\fP cdata, \fBconst\fP bool includeNull = \fC\fBfalse\fP\fP, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -847,12 +867,12 @@ Write c-string, as is, to file, and flush if necessary\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB229\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB234\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeString (\fBconst\fP std::string & str, \fBconst\fP bool includeNull = \fC\fBfalse\fP\fP, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -869,12 +889,12 @@ Write std::string, as is, to file, and flush if necessary\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB193\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB198\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeString (\fBconst\fP std::vector< char > & str, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -894,12 +914,12 @@ It just writes the whole vector to file (since I cannot determine it without goo
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB211\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB216\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileWriter::writeUInt (\fBconst\fP \fBullint\fP num, \fBconst\fP bool useAutoFlush = \fC\fBAEFW_DEFAULT_AUTOFLUSH\fP\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -914,12 +934,12 @@ Writes the (unsigned) integer as text to open file\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFW_ERR_WRITE_SUCCESS (0) on successfull write, otherwise other error flag/non-zero value + last error value set
+AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error
 .RE
 .PP
 
 .PP
-Definition at line \fB267\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB272\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBcint\fP AEFileWriter::m_cFlags\fC [private]\fP"
@@ -927,19 +947,19 @@ Definition at line \fB267\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .PP
 Flags that were used to open the file\&. 
 .PP
-Definition at line \fB543\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB558\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBFILE\fP* AEFileWriter::m_fpFilestr\fC [private]\fP"
 
 .PP
 Object for file writing\&. 
 .PP
-Definition at line \fB541\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB556\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "std::string AEFileWriter::m_sFilename\fC [private]\fP"
 
 .PP
 Full filename and relative path\&. 
 .PP
-Definition at line \fB535\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB550\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAEFileWriter\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
@@ -958,13 +978,13 @@ Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 The amount of written bytes during last operation\&. 
 .PP
-Definition at line \fB539\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB554\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "\fBullint\fP AEFileWriter::m_ullFlushInterval"
 
 .PP
 Interval in write operations before automatic flush operation\&. 1 -- flush every write operation, etc; -1 -- almost never 
 .PP
-Definition at line \fB514\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB529\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAEFileWriter\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
@@ -976,7 +996,7 @@ Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Counter for total write operations for file\&. 
 .PP
-Definition at line \fB537\fP of file \fBAEFileWriter\&.hpp\fP\&.
+Definition at line \fB552\fP of file \fBAEFileWriter\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

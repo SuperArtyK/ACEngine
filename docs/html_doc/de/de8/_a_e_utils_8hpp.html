@@ -186,7 +186,14 @@ Macros</h2></td></tr>
  <br /></td></tr>
 <tr class="separator:aa5ef465b3cfb7b096648181199e8029c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83332ff777c4b8fc85095c84c4e6e401" id="r_a83332ff777c4b8fc85095c84c4e6e401"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a83332ff777c4b8fc85095c84c4e6e401">aeoffsetof</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">type</a>,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">memb</a>)&#160;&#160;&#160;(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">intptr_t</a>)&amp;(((<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">type</a>*)<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">NULL</a>)-&gt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">memb</a>)</td></tr>
-<tr class="memdesc:a83332ff777c4b8fc85095c84c4e6e401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offsetof alternative if the compiler doesn't support the offsetof natively.  <br /></td></tr>
+<tr class="memdesc:a83332ff777c4b8fc85095c84c4e6e401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offsetof alternative if the compiler doesn't support the offsetof natively </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type/struct name</td></tr>
+    <tr><td class="paramname">memb</td><td>The member of struct/type to calculate the offset between</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:a83332ff777c4b8fc85095c84c4e6e401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9732970f9ca82af5d3e94cf069402340" id="r_a9732970f9ca82af5d3e94cf069402340"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340">NLC</a>&#160;&#160;&#160;'\<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">n</a>'</td></tr>
 <tr class="memdesc:a9732970f9ca82af5d3e94cf069402340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for newline char.  <br /></td></tr>
@@ -331,9 +338,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Offsetof alternative if the compiler doesn't support the offsetof natively. </p>
+<p>Offsetof alternative if the compiler doesn't support the offsetof natively </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type/struct name</td></tr>
+    <tr><td class="paramname">memb</td><td>The member of struct/type to calculate the offset between</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +393,7 @@ Functions</h2></td></tr>
 
 <p>Size of the string of the formatted date-time by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb" title="Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.">ace::utils::formatDate()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00082">82</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +434,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -436,7 +450,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -572,7 +586,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
 <p>Macro for newline char. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -590,7 +604,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
 <p>Macro for newline string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -656,7 +670,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html">AEUtils.hpp</a></li>
-    <li class="footer">Generated on Thu Nov 9 2023 20:42:38 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 10 2023 00:47:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

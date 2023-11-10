@@ -1,4 +1,4 @@
-.TH "AECustomTypes/include/AELogEntry.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AECustomTypes/include/AELogEntry.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -30,10 +30,6 @@ AECustomTypes/include/AELogEntry.hpp \- This file contains the code for the log 
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_INVALID_ORDERNUM\fP   0"
-.br
-.RI "Macro for the \fBAELogEntry\fP's order number to be invalid\&. "
-.ti -1c
 .RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_INVALID\fP   0"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: invalid\&. "
@@ -62,40 +58,34 @@ Should not cause everything to break :)
 Definition in file \fBAELogEntry\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP AELOG_ENTRY_INVALID_ORDERNUM   0"
-
-.PP
-Macro for the \fBAELogEntry\fP's order number to be invalid\&. 
-.PP
-Definition at line \fB22\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_MAX_SIZE   (\fBAELOG_ENTRY_MESSAGE_SIZE\fP + \fBAELOG_ENTRY_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \\\fBn'\fP))"
 
 .PP
-Definition at line \fB32\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB30\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_STATUS_INVALID   0"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: invalid\&. 
 .PP
-Definition at line \fB24\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB22\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_STATUS_READING   3"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. 
 .PP
-Definition at line \fB30\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB28\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_STATUS_READY   2"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently read\&. 
 .PP
-Definition at line \fB28\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB26\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_STATUS_SETTING   1"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. 
 .PP
-Definition at line \fB26\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB24\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

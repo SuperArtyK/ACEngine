@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -118,7 +118,16 @@ AEMisc/include/AEUtils.hpp \- This file contains engine function (hopefully usef
 .ti -1c
 .RI "#\fBdefine\fP \fBaeoffsetof\fP(\fBtype\fP,  \fBmemb\fP)   (\fBintptr_t\fP)&(((\fBtype\fP*)\fBNULL\fP)\->\fBmemb\fP)"
 .br
-.RI "Offsetof alternative if the compiler doesn't support the offsetof natively\&. "
+.RI "Offsetof alternative if the compiler doesn't support the offsetof natively 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP The type/struct name
+.br
+\fImemb\fP The member of struct/type to calculate the offset between
+.RE
+.PP
+"
 .ti -1c
 .RI "#\fBdefine\fP \fBNLC\fP   '\\\fBn\fP'"
 .br
@@ -242,9 +251,18 @@ Definition at line \fB41\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP aeoffsetof(\fBtype\fP, \fBmemb\fP)   (\fBintptr_t\fP)&(((\fBtype\fP*)\fBNULL\fP)\->\fBmemb\fP)"
 
 .PP
-Offsetof alternative if the compiler doesn't support the offsetof natively\&. 
+Offsetof alternative if the compiler doesn't support the offsetof natively 
 .PP
-Definition at line \fB70\fP of file \fBAEUtils\&.hpp\fP\&.
+\fBParameters\fP
+.RS 4
+\fItype\fP The type/struct name
+.br
+\fImemb\fP The member of struct/type to calculate the offset between
+.RE
+.PP
+
+.PP
+Definition at line \fB72\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP arrsize(\fBarr\fP)   (\fBsizeof\fP(\fBarr\fP) / \fBsizeof\fP(\fBarr\fP[0]) )"
 
 .PP
@@ -263,7 +281,7 @@ Definition at line \fB26\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP 
 .PP
-Definition at line \fB82\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB84\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP dprintf( \&.\&.\&.)   \fBif\fP \fBconstexpr\fP (\fBENGINE_DEBUG\fP) { \fBprintf\fP('DEBUG::%\fBs\fP()\-> ', __FUNCTION__); \fBprintf\fP(\fB__VA_ARGS__\fP); \fBprintf\fP('\\n'); }"
 
 .PP
@@ -282,11 +300,11 @@ Definition at line \fB47\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP fseek   \fBfseeko\fP"
 
 .PP
-Definition at line \fB92\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB94\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP ftell   \fBftello\fP"
 
 .PP
-Definition at line \fB91\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB93\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP getBit(\fBval\fP, \fBbit\fP)   (\fBval\fP& (1 << \fBbit\fP))"
 
 .PP
@@ -343,13 +361,13 @@ Definition at line \fB31\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 Macro for newline char\&. 
 .PP
-Definition at line \fB76\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB78\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP NLS   '\\n'"
 
 .PP
 Macro for newline string\&. 
 .PP
-Definition at line \fB79\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB81\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP UTF8(\fBx\fP)   \fBu8\fP ## \fBx\fP"
 
 .PP

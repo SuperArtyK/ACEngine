@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEFlags.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,14 +51,17 @@ AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to a
 .br
 .RI "Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_DEFAULT_LOG_PATH\fP   'logs/'"
+.RI "#\fBdefine\fP \fBAELOG_DEFAULT_LOG_PATH\fP   '\&./logs/'"
 .br
+.RI "Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. "
 .ti -1c
 .RI "#\fBdefine\fP \fBAELOG_ENTRY_MESSAGE_SIZE\fP   511"
 .br
+.RI "The size of the \fBAELogEntry\fP message in characters (excluding null termination) "
 .ti -1c
 .RI "#\fBdefine\fP \fBAELOG_ENTRY_MODULENAME_SIZE\fP   31"
 .br
+.RI "The size of the \fBAELogEntry\fP module name in characters (excluding null termination) "
 .ti -1c
 .RI "#\fBdefine\fP \fBAEVEC_WRAP_DIMENSIONS\fP   1"
 .br
@@ -111,10 +114,12 @@ I personally wouldn't advise to play with it\&.
 
 .PP
 Definition at line \fB44\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_DEFAULT_LOG_PATH   'logs/'"
+.SS "#\fBdefine\fP AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
 
 .PP
-Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
+Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. Like global modules\&. 
+.PP
+Definition at line \fB47\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
 
 .PP
@@ -130,17 +135,21 @@ Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_MESSAGE_SIZE   511"
 
 .PP
-Definition at line \fB48\fP of file \fBAEFlags\&.hpp\fP\&.
+The size of the \fBAELogEntry\fP message in characters (excluding null termination) 
+.PP
+Definition at line \fB51\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ENTRY_MODULENAME_SIZE   31"
 
 .PP
-Definition at line \fB50\fP of file \fBAEFlags\&.hpp\fP\&.
+The size of the \fBAELogEntry\fP module name in characters (excluding null termination) 
+.PP
+Definition at line \fB53\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEVEC_WRAP_DIMENSIONS   1"
 
 .PP
 A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount\&. 
 .PP
-Definition at line \fB55\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB58\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_DEBUG   1"
 
 .PP

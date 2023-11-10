@@ -1,4 +1,4 @@
-.TH "AEFileReader" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFileReader" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -25,6 +25,7 @@ Inherits \fB__AEModuleBase< AEFileReader >\fP\&.
 .ti -1c
 .RI "\fBAEFileReader\fP (\fBAEFileReader\fP &&\fBfr\fP) \fBnoexcept\fP"
 .br
+.RI "Class move constructor\&. "
 .ti -1c
 .RI "\fBAEFileReader\fP (\fBconst\fP \fBAEFileReader\fP &)=\fBdelete\fP"
 .br
@@ -44,7 +45,7 @@ Inherits \fB__AEModuleBase< AEFileReader >\fP\&.
 .ti -1c
 .RI "\fBcint\fP \fBcloseFile\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Closes the currently opened file, and also, in addition, clears the last error status\&. "
+.RI "Closes the currently opened file\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T > \fBcint\fP \fBreadVariable\fP (T &\fBvar\fP) \fBnoexcept\fP"
 .br
@@ -136,6 +137,7 @@ Inherits \fB__AEModuleBase< AEFileReader >\fP\&.
 .ti -1c
 .RI "bool \fBisClosed\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
+.RI "Checks if a file isn't open by this file-reader\&. "
 .ti -1c
 .RI "\fBllint\fP \fBgetFileSize\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
@@ -151,7 +153,7 @@ Inherits \fB__AEModuleBase< AEFileReader >\fP\&.
 .ti -1c
 .RI "std::string \fBgetFileName\fP (\fBvoid\fP) \fBconst\fP"
 .br
-.RI "Returns the name of the opened file, without any paths\&. "
+.RI "Returns the name of the opened file, devoid of the path\&. "
 .ti -1c
 .RI "std::string \fBgetFullPath\fP (\fBvoid\fP) \fBconst\fP"
 .br
@@ -247,7 +249,7 @@ add generic read function
 .PP
 
 .PP
-Definition at line \fB72\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB78\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "AEFileReader::AEFileReader (\fBconst\fP std::string_view fname)\fC [explicit]\fP"
@@ -273,9 +275,11 @@ Definition at line \fB14\fP of file \fBAEFileReader\&.cpp\fP\&.
 .PP
 Class constructor -- constructs the instance with default values, and doesn't open the file\&. 
 .PP
-Definition at line \fB87\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB93\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "AEFileReader::AEFileReader (\fBAEFileReader\fP && fr)\fC [noexcept]\fP"
 
+.PP
+Class move constructor\&. 
 .PP
 Definition at line \fB20\fP of file \fBAEFileReader\&.cpp\fP\&.
 .SS "AEFileReader::AEFileReader (\fBconst\fP \fBAEFileReader\fP &)\fC [delete]\fP"
@@ -287,15 +291,22 @@ Deleted copy constructor\&.
 .PP
 Default Destructor\&. Just flushes and closes the file\&. 
 .PP
-Definition at line \fB105\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB114\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBcint\fP AEFileReader::closeFile (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Closes the currently opened file, and also, in addition, clears the last error status\&. 
+Closes the currently opened file\&. 
 .PP
-Definition at line \fB121\fP of file \fBAEFileReader\&.hpp\fP\&.
+\fBReturns\fP
+.RS 4
+AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB131\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBllint\fP AEFileReader::getCursorPos (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -303,25 +314,25 @@ Returns current read cursor position\&.
 .PP
 \fBReturns\fP
 .RS 4
-If file is open, Current read cursor position, starting from 0\&. If not -- AEFR_ERR_FILE_NOT_OPEN (+last error status set to the same thing)\&.
+Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN
 .RE
 .PP
 
 .PP
-Definition at line \fB532\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB553\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::getFileName (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
-Returns the name of the opened file, without any paths\&. 
+Returns the name of the opened file, devoid of the path\&. 
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the opened file name
+std::string of the opened file name; emtpy string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB500\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB518\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBFILE\fP * AEFileReader::getFilePtr (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -334,7 +345,7 @@ Pointer to FILE used in the file reader
 .PP
 
 .PP
-Definition at line \fB522\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB543\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBllint\fP AEFileReader::getFileSize (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -342,25 +353,30 @@ Returns size of the file in bytes\&.
 .PP
 \fBReturns\fP
 .RS 4
-File size in bytes if file is open, if not -- AEFR_ERR_FILE_NOT_OPEN (+last error status set to the same thing)\&.
-.RE
-.PP
-
-.PP
-Definition at line \fB463\fP of file \fBAEFileReader\&.hpp\fP\&.
-.SS "std::string AEFileReader::getFullFileName (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
-
-.PP
-Returns the full name of currently open file, including the relative path, if such was provided\&. 
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the full file name, if the file was tried to be opened
+File size in bytes if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN
 .RE
 .PP
 
 .PP
 Definition at line \fB477\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "std::string AEFileReader::getFullFileName (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Returns the full name of currently open file, including the relative path, if such was provided\&. 
+.PP
+\fBNote\fP
+.RS 4
+If no relative path was provided when opening the file, then output of \fBAEFileReader::getFullFileName()\fP is equivalent to \fBAEFileReader::getFileName()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the opened file (including relative path if was given); empty string otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB492\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::getFullPath (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
@@ -368,12 +384,12 @@ Returns the full, absolute path of the opened file\&.
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the absolute file path
+std::string of the absolute path of the opened file; empty string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB514\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB532\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::size_t AEFileReader::getLastReadAmount (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -391,7 +407,7 @@ std::size_t of the amount of bytes read in the last reading operation
 .PP
 
 .PP
-Definition at line \fB569\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB590\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -421,16 +437,16 @@ Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::string AEFileReader::getRelativePath (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
-Returns the relative path of the opened file\&. If the file was opened in the same directory as the executable, returns '\&./'
+Returns the relative path of the opened file\&. If the file was opened in the same directory as the executable (no relative path provided), returns '\&./'
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the relative file path
+std::string of the relative file path of opened file; empty string otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB486\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB501\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBullint\fP AEFileReader::getTotalReads (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -438,16 +454,25 @@ Returns total reader requests made to file\&.
 .PP
 \fBReturns\fP
 .RS 4
-Amount of times the reader operation has been called on the \fBAEFileReader\fP instance
+Amount of times the read operation has been called on this \fBAEFileReader\fP instance
 .RE
 .PP
 
 .PP
-Definition at line \fB560\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB581\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB455\fP of file \fBAEFileReader\&.hpp\fP\&.
+Checks if a file isn't open by this file-reader\&. 
+.PP
+\fBReturns\fP
+.RS 4
+True if file is closed/not open, false if otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB469\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isEOF (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -460,7 +485,7 @@ True if end of file was reached, false otherwise
 .PP
 
 .PP
-Definition at line \fB577\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB598\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isError (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -473,7 +498,7 @@ True if end of file was reached, false otherwise
 .PP
 
 .PP
-Definition at line \fB585\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB606\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isOpen (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -486,7 +511,7 @@ True if file is open, false if otherwise
 .PP
 
 .PP
-Definition at line \fB451\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB461\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::openFile (\fBconst\fP std::string_view fname)"
 
 .PP
@@ -499,7 +524,7 @@ Opens the file for reading\&.
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_NOERROR if file was opened successfully, AEFR_ERR_FILE_DOESNT_EXIST otherwise
+AEFR_ERR_NOERROR if file was opened successfully; otherwise AEFR_ERR_OPEN_* flags (like AEFR_ERR_OPEN_FILE_NAME_EMPTY)
 .RE
 .PP
 
@@ -530,12 +555,12 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB359\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB369\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readBoolString (bool & num)\fC [noexcept]\fP"
 
 .PP
@@ -555,7 +580,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
@@ -582,12 +607,12 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB393\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB403\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readBytes (std::vector< \fBunsigned\fP char > & cdata, \fBconst\fP std::size_t dcount)\fC [inline]\fP"
 
 .PP
@@ -611,12 +636,12 @@ If the file is closed, it doesn't modify the std::vector<unsigned char>
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB409\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB419\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readBytes (\fBvoid\fP * cdata, \fBconst\fP std::size_t dcount)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -642,12 +667,12 @@ Just a shortcut for the \fBAEFileReader::readData_ptr()\fP
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB427\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB437\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readChar (\fBsigned\fP char & num)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -671,12 +696,12 @@ Same as \fBAEFileReader::readByte()\fP
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB381\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB391\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readData_ptr (\fBvoid\fP * cdata, \fBconst\fP std::size_t dcount, \fBconst\fP std::size_t dsize = \fC\fBsizeof\fP(char)\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -700,7 +725,7 @@ If the file is closed, it doesn't modify the data of the pointer
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
@@ -732,12 +757,12 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB333\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB343\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readFloatString (T & num)\fC [inline]\fP"
 
 .PP
@@ -762,12 +787,12 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB657\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB678\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readInt (T & num)\fC [inline]\fP"
 
 .PP
@@ -794,12 +819,12 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB305\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB315\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readIntString (T & num)\fC [inline]\fP"
 
 .PP
@@ -824,7 +849,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
@@ -851,7 +876,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
@@ -880,12 +905,12 @@ If the file is closed, it doesn't modify the string
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB158\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB168\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readString (std::vector< char > & str, \fBconst\fP std::size_t dcount)\fC [inline]\fP"
 
 .PP
@@ -909,12 +934,12 @@ If the file is closed, it doesn't modify the std::vector<char>
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB177\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB187\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNL (char * str, \fBconst\fP \fBint\fP dcount)\fC [noexcept]\fP"
 
 .PP
@@ -938,7 +963,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
@@ -967,12 +992,12 @@ If the file is closed, it doesn't modify the string
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB210\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB220\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNL (std::vector< char > & str, \fBconst\fP \fBint\fP dcount)\fC [inline]\fP"
 
 .PP
@@ -996,12 +1021,12 @@ If the file is closed, it doesn't modify the std::vector<char>
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB227\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB237\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNULL (char * str, \fBconst\fP \fBllint\fP dcount)"
 
 .PP
@@ -1025,7 +1050,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
@@ -1054,12 +1079,12 @@ If the file is closed, it doesn't modify the string
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB257\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB267\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNULL (std::vector< char > & str, \fBconst\fP \fBllint\fP dcount)\fC [inline]\fP"
 
 .PP
@@ -1083,12 +1108,12 @@ If the file is closed, it doesn't modify the std::vector<char>
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB274\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB284\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readVariable (T & var)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1111,12 +1136,12 @@ If EOF/Error was encountered when reading, the rest of bytes that weren't filled
 .PP
 \fBReturns\fP
 .RS 4
-AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)
+AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)
 .RE
 .PP
 
 .PP
-Definition at line \fB141\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB151\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBint\fP AEFileReader::setCursorPos (\fBconst\fP \fBllint\fP pos, \fBconst\fP \fBint\fP origin = \fC\fBSEEK_CUR\fP\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1126,7 +1151,7 @@ Sets read cursor position to pos from origin\&.
 .RS 4
 If cursor is beyond end of file, next read will trigger EOF error and will not read any data (just fill the given data place with NULL) 
 .PP
-If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF
+If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF
 .RE
 .PP
 \fBParameters\fP
@@ -1138,12 +1163,12 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF
 .PP
 \fBReturns\fP
 .RS 4
-0 on success, AEFR_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return
+0 on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file's closed, AEFR_ERR_WRONG_CURSOR_ORIGIN on invalid origin, or things that fseek can return
 .RE
 .PP
 
 .PP
-Definition at line \fB545\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB566\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBFILE\fP* AEFileReader::m_fpFilestr\fC [private]\fP"
@@ -1151,13 +1176,13 @@ Definition at line \fB545\fP of file \fBAEFileReader\&.hpp\fP\&.
 .PP
 Object for file reading\&. 
 .PP
-Definition at line \fB599\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB620\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::m_sFilename\fC [private]\fP"
 
 .PP
 Full filename and relative path\&. 
 .PP
-Definition at line \fB593\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB614\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
@@ -1176,7 +1201,7 @@ Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 The amount of read bytes during last operation\&. 
 .PP
-Definition at line \fB597\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB618\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
@@ -1188,7 +1213,7 @@ Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Counter for total read operations for file\&. 
 .PP
-Definition at line \fB595\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB616\fP of file \fBAEFileReader\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

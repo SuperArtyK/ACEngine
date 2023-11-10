@@ -18,6 +18,7 @@ You can find the engine code documentation [here](https://superartyk.github.io/A
 * AETimer -- project of the engine's timer. Allows to time the events in the engine and count ticks
 * AEVector -- project of the engine's mathematical vectors for. Easy, "scalable", and all constexpr (except conversion to string).
 * AEFileReader -- project of the file reader module. The fast and convenient file data reader of the engine (just wrapper of C FILE read api lol).
+* AECustomTypes -- project of the engine's custom types. The custom types and structs, stuff used widely in the engine
 
 ### ACCOMPLISHED FEATURES
 

@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -52,11 +52,11 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .br
 .RI "Engine's tau (pi*2) value\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piH\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::pi2\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Engine's pi/2 (half) value\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piQ\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::pi4\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Engine's pi/4 (quarter) value\&. "
 .ti -1c
@@ -108,11 +108,13 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .br
 .RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBuint\fP \fBpower\fP)"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBint\fP \fBpower\fP)"
 .br
+.RI "Calculate the integer power of a given number\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::root\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBuint\fP \fBrtNum\fP) \fBnoexcept\fP"
 .br
+.RI "Calculate the n'th root of a number\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::max\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
 .br
@@ -122,11 +124,11 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .br
 .RI "Gets the smallest value between given two values\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::intLength\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::lengthOfInt\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Calculate the length of the given integer number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::floatLength\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::lengthOfFloat\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Calculate the length of the given float number\&. "
 .ti -1c
@@ -136,15 +138,19 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::hypot\fP (\fBconst\fP T \fBa\fP, \fBconst\fP T \fBb\fP)"
 .br
+.RI "Calculates the hypotenuse length from given values a and b\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isInf\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
+.RI "Checks whether the float is 'infinite'\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isNan\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
+.RI "Checks whether the float is 'NaN'\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isFinite\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
+.RI "Checks whether the float is finite (not infinity or NaN) "
 .ti -1c
 .RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::roundToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
 .br
@@ -152,13 +158,15 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .ti -1c
 .RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::floorToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
 .br
-.RI "Floor's, truncates the given float of type Y and converts to integer of type T\&. "
+.RI "Floor's the given float of type Y and converts to integer of type T\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::ceilToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
 .br
+.RI "Ceil's the given float of type Y and converts to integer of type T\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::truncToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
 .br
+.RI "Truncates the given float of type Y and converts to integer of type T\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
