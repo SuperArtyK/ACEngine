@@ -32,24 +32,24 @@ AEFileReader::AEFileReader(AEFileReader&& fr) noexcept :
 cint AEFileReader::openFile(const std::string_view fname) {
 	
 	if (this->isOpen()) {
-		return AEFR_ERR_FILE_ALREADY_OPEN;
+		return AEFR_ERR_OPEN_FILE_ALREADY_OPENED;
 	}
 
 
 	if (fname.empty()) {
-		return AEFR_ERR_FILE_NAME_EMPTY;
+		return AEFR_ERR_OPEN_FILE_NAME_EMPTY;
 	}
 
 	this->m_szLastReadAmount = 0;
-	this->m_sFilename = fname;
 	this->m_fpFilestr = ace::utils::fopenCC(fname.data(), "rb");
 
 	if (this->isClosed()) {
 		// this can also be triggered if program has no permission to access the file
 		// but generally it just would be the absence of file
-		return AEFR_ERR_FILE_DOESNT_EXIST;
+		return AEFR_ERR_OPEN_FILE_DOESNT_EXIST;
 	}
 
+	this->m_sFilename = fname;
 	return AEFR_ERR_NOERROR;
 }
 
@@ -80,11 +80,11 @@ cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 
 	if (!temp) {
-		return AEFR_ERR_READING_ERROR;
+		return AEFR_ERR_READ_ERROR;
 	}
 
 	if (std::feof(this->m_fpFilestr)) {
-		return AEFR_ERR_READING_EOF;
+		return AEFR_ERR_READ_EOF;
 	}
 	return AEFR_ERR_READ_SUCCESS;
 }
@@ -129,7 +129,7 @@ cint AEFileReader::readBoolString(bool& num) noexcept {
 		num = false;
 		return temp;
 	}
-	return AEFR_ERR_READING_ERROR; //whoops, nothing to read!
+	return AEFR_ERR_READ_ERROR; //whoops, nothing to read!
 }
 
 // reads data to ptr
@@ -144,10 +144,10 @@ cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std
 	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 	if (this->m_szLastReadAmount != dcount) {
 		if (std::feof(this->m_fpFilestr)) {
-			return AEFR_ERR_READING_EOF;
+			return AEFR_ERR_READ_EOF;
 		}
 		if (std::ferror(this->m_fpFilestr)) {
-			return AEFR_ERR_READING_ERROR;
+			return AEFR_ERR_READ_ERROR;
 		}
 	}
 	return AEFR_ERR_READ_SUCCESS;

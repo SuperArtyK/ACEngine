@@ -17,9 +17,7 @@
 #include <atomic>
 
 
- //log entry stuff
- /// Macro for the AELogEntry's order number to be invalid.
-#define AELOG_ENTRY_INVALID_ORDERNUM 0
+//log entry stuff
 /// Macro for the AELogEntry's status to be: invalid.
 #define AELOG_ENTRY_STATUS_INVALID 0
 /// Macro for the AELogEntry's status to be: currently being set up and written to.

@@ -44,16 +44,22 @@
 #define AEFR_ERR_FILE_NOT_OPEN -1
 //file creation/manipulation
 /// Macro for the error if the file name is empty.
-#define AEFR_ERR_FILE_NAME_EMPTY -2
+#define AEFR_ERR_OPEN_FILE_NAME_EMPTY -2
 /// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.
-#define AEFR_ERR_FILE_DOESNT_EXIST -3
+#define AEFR_ERR_OPEN_FILE_DOESNT_EXIST -3
+/// Macro for the error that occurs when trying to open the file, while the AEFileReader instance already has an opened file
+#define AEFR_ERR_OPEN_FILE_ALREADY_OPENED -4
 /// Macro for the error occurring when end of file was reached when reading the file.
-#define AEFR_ERR_READING_EOF -4
+#define AEFR_ERR_READ_EOF -5
 /// Macro for the reading error that occurred when reading the file (look up ferror() ).
-#define AEFR_ERR_READING_ERROR -5
+#define AEFR_ERR_READ_ERROR -6
 /// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileReader::readData_ptr().
-#define AEFR_ERR_READ_ZERO_SIZE -6
-#define AEFR_ERR_FILE_ALREADY_OPEN -7
+#define AEFR_ERR_READ_ZERO_SIZE -7
+/// Macro for the error that occurs if invalid cursor origin (not SEEK_SET, SEEK_CUR, or SEEK_END) was passed to AEFileReader::setCursorPos()
+#define AEFR_ERR_WRONG_CURSOR_ORIGIN -8
+
+
+
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
 #define _AEFR_EXIT_ON_CLOSED_FILE if (this->isClosed()) { return AEFR_ERR_FILE_NOT_OPEN; }
@@ -86,6 +92,10 @@ public:
 	/// </summary>
 	AEFileReader(void) noexcept : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr) {}
 
+	/// <summary>
+	/// Class move constructor
+	/// </summary>
+	/// <param name="fr"></param>
 	AEFileReader(AEFileReader&& fr) noexcept;
 
 //we don't need those
@@ -112,12 +122,13 @@ public:
 	/// Opens the file for reading.
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
-	/// <returns>AEFR_ERR_NOERROR if file was opened successfully, AEFR_ERR_FILE_DOESNT_EXIST otherwise</returns>
+	/// <returns>AEFR_ERR_NOERROR if file was opened successfully; otherwise AEFR_ERR_OPEN_* flags (like AEFR_ERR_OPEN_FILE_NAME_EMPTY)</returns>
 	cint openFile(const std::string_view fname); //defined after class
 
 	/// <summary>
 	/// Closes the currently opened file, and also, in addition, clears the last error status.
 	/// </summary>
+	/// <returns>AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open</returns>
 	inline cint closeFile(void) noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
@@ -136,7 +147,7 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The type of the variable passed</typeparam>
 	/// <param name="var">The variable to fill with bytes</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readVariable(T& var) noexcept {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
@@ -154,7 +165,7 @@ public:
 	/// </summary>
 	/// <param name="str">The refernce to the std::string object to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readString(std::string& str, const std::size_t dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		str.resize(dcount + 1);
@@ -173,7 +184,7 @@ public:
 	/// </summary>
 	/// <param name="str">The refernce to the std::vector<char> object to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readString(std::vector<char>& str, const std::size_t dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		str.resize(dcount + 1); //+1 for the null terminator
@@ -192,7 +203,7 @@ public:
 	/// </summary>
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readString(char* str, const std::size_t dcount) noexcept; //defined below class
 
 
@@ -206,7 +217,7 @@ public:
 	/// </summary>
 	/// <param name="str">The refernce to the std::string object to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readStringNL(std::string& str, const int dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		str.resize((std::size_t)dcount + 1); //+1 because of null termination..since we write to it directly
@@ -223,7 +234,7 @@ public:
 	/// </summary>
 	/// <param name="str">The refernce to the std::vector<char> object to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readStringNL(std::vector<char>& str, const int dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		str.resize((std::size_t)dcount + 1);
@@ -240,7 +251,7 @@ public:
 	/// </summary>
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	cint readStringNL(char* str, const int dcount) noexcept; //defined below class
 
 
@@ -253,7 +264,7 @@ public:
 	/// </summary>
 	/// <param name="str">The refernce to the std::string object to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readStringNULL(std::string& str, const llint dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		str.resize(std::size_t(dcount + 1));
@@ -270,7 +281,7 @@ public:
 	/// </summary>
 	/// <param name="str">The refernce to the std::vector<char> object to read the bytes of string to</param>
 	/// <param name="dcount">The maximum amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readStringNULL(std::vector<char>& str, const llint dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		str.resize(std::size_t(dcount + 1));
@@ -287,7 +298,7 @@ public:
 	/// </summary>
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	cint readStringNULL(char* str, const llint dcount); //defined below class
 
 
@@ -300,7 +311,7 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The type of the int passed</typeparam>
 	/// <param name="var">The int to fill with bytes</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readInt(T& num) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readInt()");
@@ -314,7 +325,7 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The type of the int passed</typeparam>
 	/// <param name="num">The int to read the value to</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readIntString(T& num); //defined below class
 
@@ -328,7 +339,7 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The type of the float passed</typeparam>
 	/// <param name="var">The float to fill with bytes</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readFloat(T& num) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileReader::readFloat()");
@@ -342,7 +353,7 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The type of the float passed</typeparam>
 	/// <param name="num">The float to read the value to</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readFloatString(T& num); //defined below class
 
@@ -355,7 +366,7 @@ public:
 	/// @note AEFileReader::readVariable()
 	/// </summary>
 	/// <param name="var">The bool to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readBool(bool& num) noexcept {
 		return this->readVariable<bool>(num);
 	}
@@ -366,7 +377,7 @@ public:
 	/// @note If the file is closed, it doesn't modify the data
 	/// </summary>
 	/// <param name="num">The bool to read the value to</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	cint readBoolString(bool& num) noexcept;
 
 	/// <summary>
@@ -377,7 +388,7 @@ public:
 	/// @note Same as AEFileReader::readByte()
 	/// </summary>
 	/// <param name="var">The char to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readChar(signed char& num) noexcept {
 		return this->readVariable<signed char>(num);
 	}
@@ -389,7 +400,7 @@ public:
 	/// @note AEFileReader::readVariable()
 	/// </summary>
 	/// <param name="var">The char to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readByte(unsigned char& num) noexcept {
 		return this->readVariable<unsigned char>(num);
 	}
@@ -405,7 +416,7 @@ public:
 	/// </summary>
 	/// <param name="cdata">The reference to the std::vector<char> object to fill with bytes</param>
 	/// <param name="dcount">The amount of bytes to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readBytes(std::vector<unsigned char>& cdata, const std::size_t dcount) {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
 		cdata.resize(dcount);
@@ -423,7 +434,7 @@ public:
 	/// </summary>
 	/// <param name="cdata">The pointer to the data to fill with bytes</param>
 	/// <param name="dcount">The amount of bytes to read</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readBytes(void* cdata, const std::size_t dcount) noexcept {
 		std::memset(cdata, NULL, dcount);
 		return this->readData_ptr(cdata, dcount, sizeof(char));
@@ -439,7 +450,7 @@ public:
 	/// <param name="cdata">The memory block to read the bytes to</param>
 	/// <param name="dcount">The amount of elements to read from the file</param>
 	/// <param name="dsize">The size of each element</param>
-	/// <returns>AEFR_ERR_READ_SUCCESS on successfull read, otherwise returns other AEFR_ERR_* flags (+sets the last error flag to that)</returns>
+	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)) noexcept; //defined below class
 
 
@@ -459,7 +470,7 @@ public:
 	/// <summary>
 	/// Returns size of the file in bytes.
 	/// </summary>
-	/// <returns>File size in bytes if file is open, if not -- AEFR_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</returns>
+	/// <returns>File size in bytes if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN</returns>
 	inline llint getFileSize(void) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
@@ -472,18 +483,22 @@ public:
 
 	/// <summary>
 	/// Returns the full name of currently open file, including the relative path, if such was provided.
+	/// @note If no relative path was provided when opening the file, then output of AEFileReader::getFullFileName() is equivalent to AEFileReader::getFileName()
 	/// </summary>
-	/// <returns>std::string of the full file name, if the file was tried to be opened</returns>
+	/// <returns>std::string of the opened file (including relative path if was given); empty string otherwise</returns>
 	inline std::string getFullFileName(void) const noexcept {
 		return this->m_sFilename;
 	}
 
 	/// <summary>
 	/// Returns the relative path of the opened file.
-	/// If the file was opened in the same directory as the executable, returns "./"
+	/// If the file was opened in the same directory as the executable (no relative path provided), returns "./"
 	/// </summary>
-	/// <returns>std::string of the relative file path</returns>
+	/// <returns>std::string of the relative file path of opened file; empty string otherwise</returns>
 	inline std::string getRelativePath(void) const {
+		if (this->isClosed()) {
+			return "";
+		}
 		const std::size_t found = this->m_sFilename.rfind('/');
 		if (found != std::string::npos) {
 			return this->m_sFilename.substr(0, found);
@@ -494,9 +509,9 @@ public:
 	}
 
 	/// <summary>
-	/// Returns the name of the opened file, without any paths
+	/// Returns the name of the opened file, devoid of the path
 	/// </summary>
-	/// <returns>std::string of the opened file name</returns>
+	/// <returns>std::string of the opened file name; emtpy string otherwise</returns>
 	inline std::string getFileName(void) const {
 		const std::size_t found = this->m_sFilename.rfind('/');
 		if (found != std::string::npos) {
@@ -510,8 +525,11 @@ public:
 	/// <summary>
 	/// Returns the full, absolute path of the opened file
 	/// </summary>
-	/// <returns>std::string of the absolute file path</returns>
+	/// <returns>std::string of the absolute path of the opened file; empty string otherwise</returns>
 	inline std::string getFullPath(void) const {
+		if (this->isClosed()) {
+			return "";
+		}
 		return std::filesystem::absolute(this->m_sFilename).generic_string();
 	}
 
@@ -528,7 +546,7 @@ public:
 	/// <summary>
 	/// Returns current read cursor position.
 	/// </summary>
-	/// <returns>If file is open, Current read cursor position, starting from 0. If not -- AEFR_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</returns>
+	/// <returns>Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN</returns>
 	inline llint getCursorPos(void) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		return ftell(this->m_fpFilestr);
@@ -537,15 +555,15 @@ public:
 	/// <summary>
 	/// Sets read cursor position to pos from origin.
 	/// @note If cursor is beyond end of file, next read will trigger EOF error and will not read any data (just fill the given data place with NULL)
-	/// @note If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READING_EOF
+	/// @note If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF
 	/// </summary>
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
-	/// <returns>0 on success, AEFR_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return</returns>
+	/// <returns>0 on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file's closed, AEFR_ERR_WRONG_CURSOR_ORIGIN on invalid origin, or things that fseek can return</returns>
 	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		if(origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END){
-			return AEFR_ERR_READING_EOF;
+			return AEFR_ERR_READ_EOF;
 		}
 		return fseek(this->m_fpFilestr, pos, origin);
 	}
@@ -556,7 +574,7 @@ public:
 	/// <summary>
 	/// Returns total reader requests made to file.
 	/// </summary>
-	/// <returns>Amount of times the reader operation has been called on the AEFileReader instance</returns>
+	/// <returns>Amount of times the read operation has been called on this AEFileReader instance</returns>
 	inline ullint getTotalReads(void) const noexcept {
 		return this->m_ullTotalReads.load(std::memory_order::relaxed);
 	}
@@ -648,7 +666,7 @@ inline cint AEFileReader::readIntString(T& num) {
 
 	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 	if (temp != 1) {
-		return AEFR_ERR_READING_EOF;
+		return AEFR_ERR_READ_EOF;
 	}
 	return AEFR_ERR_READ_SUCCESS;
 }
@@ -672,7 +690,7 @@ inline cint AEFileReader::readFloatString(T& num) {
 
 	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 	if (temp != 1) {
-		return AEFR_ERR_READING_EOF;
+		return AEFR_ERR_READ_EOF;
 	}
 	return AEFR_ERR_READ_SUCCESS;
 }

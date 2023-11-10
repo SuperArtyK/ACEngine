@@ -175,7 +175,7 @@ void AELogger::logWriterThread(void) {
 	char str[AELOG_ENTRY_MAX_SIZE]{};
 
 	// The node order number for the writing thread.
-	ullint m_ullWriterOrderNum = AELOG_ENTRY_INVALID_ORDERNUM+1;
+	//ullint m_ullWriterOrderNum = 0;
 
 	//and the string literals for the formatting
 	constexpr const char* const strformatDebug = "[%s] [%-14s] [%s]: DEBUG->%s\n";
@@ -216,7 +216,7 @@ void AELogger::logWriterThread(void) {
 			AELogEntry::clearEntry(oldptr);
 			oldptr = ePtr;
 			this->m_ullFilledCount--;
-			m_ullWriterOrderNum++;
+			//m_ullWriterOrderNum++;
 			
 		}
 

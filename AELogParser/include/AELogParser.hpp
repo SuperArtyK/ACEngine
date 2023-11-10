@@ -58,7 +58,7 @@ public:
 
 	inline cint openLog(const std::string_view fname) {
 		if (this->isOpen()) {
-			return AEFR_ERR_FILE_ALREADY_OPEN;
+			return AEFR_ERR_OPEN_FILE_ALREADY_OPENED;
 		}
 		const cint ret = this->m_frLogReader.openFile(fname);
 		if (ret != AELP_ERR_NOERROR) {
@@ -82,7 +82,7 @@ public:
 			return AEFR_ERR_FILE_NOT_OPEN;
 		}
 		if (this->m_frLogReader.isEOF()) {
-			return AEFR_ERR_READING_EOF;
+			return AEFR_ERR_READ_EOF;
 		}
 
 		char str[AELOG_ENTRY_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the size
@@ -195,12 +195,12 @@ public:
 			return AEFR_ERR_FILE_NOT_OPEN;
 		}
 		if (this->m_frLogReader.isEOF()) {
-			return AEFR_ERR_READING_EOF;
+			return AEFR_ERR_READ_EOF;
 		}
 
 
 		cint checkres = 0;
-		while (checkres != AEFR_ERR_READING_EOF) {
+		while (checkres != AEFR_ERR_READ_EOF) {
 
 		}
 
