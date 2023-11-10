@@ -99,10 +99,10 @@ cint AELogger::stopWriter(void) {
 }
 
 // request a log entry and write to it
-void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
+cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
 	/// @todo REWRITE THE WAYS OF LOGGING!
 	if (this->isClosed()) {
-		return; // file's closed/closing!
+		return AEFW_ERR_FILE_NOT_OPEN; // file's closed/closing!
 	}
 
 	
@@ -111,7 +111,7 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	// check for invalid arguments
 	if (logmessg.empty() || logmodule.empty() || !ace::utils::isInRange<cint>(AELOG_TYPE_DEBUG, AELOG_TYPE_FATAL_ERROR, logtype) || //empty/invalid stuff
 		!ace::utils::isAlNumUs(logmodule)) { //log module stuff
-		return;
+		return AELOG_ERR_INVALID_ENTRY_DATA;
 	}
 
 	this->m_ullFilledCount++;
@@ -156,7 +156,7 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELOG_ENTRY_MODULENAME_SIZE) ? AELOG_ENTRY_MODULENAME_SIZE : logmodule.size());
 	ptr->m_cLogType = logtype;
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_READY;
-
+	return AELOG_ERR_NOERROR;
 }
 
 void AELogger::logWriterThread(void) {

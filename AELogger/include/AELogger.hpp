@@ -23,11 +23,6 @@
 #include <string_view>
 
 
-#define AELOG_ERR_NOERROR 0
-#define AELOG_ERR_UNABLE_START_THREAD 1
-#define AELOG_ERR_THREAD_ALREADY_RUNNING 2
-#define AELOG_ERR_THREAD_ALREADY_STOPPED 3
-
 // queue decrease algorithm
 // since we have the access to the maximum queue value, and it is being checked in the 
 // ptrFromIndex(), we have a way to restrict the access to certain nodes for the writeToLog()
@@ -37,6 +32,17 @@
 // Though how to delete information from those delete-me nodes, since the writer-thread is the only thing
 // That still has access to those nodes. And we don't want to delete the unfilled ones
 
+//Error flags
+/// Macro for the indicator that everything is good.
+#define AELOG_ERR_NOERROR 0
+/// Macro for the error that's raised when the log-writing-thread cannot be started
+#define AELOG_ERR_UNABLE_START_THREAD -11
+/// Macro for the error that's raised when the log-writing-thread is attempted to be started again, while it's already running
+#define AELOG_ERR_THREAD_ALREADY_RUNNING -12 
+/// Macro for the error that's raised when the log-writing-thread is attempted to be stopped again, while it was already stopped
+#define AELOG_ERR_THREAD_ALREADY_STOPPED -13
+/// Macro for the error that's raised when invalid data is passed to AELogger::writeToLog() (like empty message, empty/non-alphanumeric module name, type outside of range)
+#define AELOG_ERR_INVALID_ENTRY_DATA -14
 
 /// <summary>
 /// @brief The ArtyK's Engine's Logger module -- it manages the writing to the log files.
@@ -48,7 +54,6 @@
 /// </summary>
 /// @todo Implement copy constructors and copy assignment
 /// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
-/// @todo Add the ability to change the default log file folder to...whatever user wants (maybe a constructor)
 /// @todo update the docs on returning functions
 class AELogger : public __AEModuleBase<AELogger> {
 
@@ -94,11 +99,13 @@ public:
 	/// <summary>
 	/// Starts the log-writing thread.
 	/// </summary>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_RUNNING if thread already was running, AELOG_ERR_UNABLE_START_THREAD if error happened (+ std::runtime_error() exception)</returns>
 	cint startWriter(void);
 
 	/// <summary>
 	/// Stops the log-writing thread (after flushing the log queue).
 	/// </summary>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_STOPPED if thread already was stopped</returns>
 	cint stopWriter(void);
 
 	/// <summary>
@@ -106,10 +113,8 @@ public:
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
 	inline cint openLog(const std::string_view fname, const bool clearLog = false) {
-		if (this->isOpen()) {
-			return AEFW_ERR_OPEN_FILE_ALREADY_OPENED;
-		}
 		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND);
 		if (ret != AEFW_ERR_NOERROR) {
 			return ret;
@@ -118,6 +123,13 @@ public:
 		return this->startWriter();
 	}
 
+	/// <summary>
+	/// Open the file to start logging.
+	/// </summary>
+	/// <param name="fpath">Path of directory to put the log file in (include trailing '/' character)</param>
+	/// <param name="fname">Name of the log file</param>
+	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
 	inline cint openLog(const std::string_view fpath, const std::string_view fname, const bool clearLog = false) {
 		return this->openLog(std::string(fpath) + std::string(fname), clearLog);
 	}
@@ -125,6 +137,7 @@ public:
 	/// <summary>
 	/// Close the file, if it was opened. That's it.
 	/// </summary>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, </returns>
 	inline cint closeLog(void) {
 		if (this->isClosed()) {
 			return AEFW_ERR_FILE_NOT_OPEN;
@@ -132,7 +145,7 @@ public:
 		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
 		this->stopWriter();
 		this->m_fwLogger.closeFile();
-		return AEFW_ERR_NOERROR;
+		return AELOG_ERR_NOERROR;
 	}
 
 
@@ -145,7 +158,8 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	void writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
+	cint writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file.
@@ -156,9 +170,10 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
-	inline void writeToLogDebug(const std::string_view logmessg, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
+	inline cint writeToLogDebug(const std::string_view logmessg, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
 #ifdef ENGINE_DEBUG
-		this->writeToLog(logmessg, AELOG_TYPE_DEBUG, logmodule);
+		return this->writeToLog(logmessg, AELOG_TYPE_DEBUG, logmodule);
 #endif // ENGINE_DEBUG
 	}
 
@@ -166,7 +181,7 @@ public:
 	/// <summary>
 	/// Get the name of the log file.
 	/// </summary>
-	/// <returns>std::string of the name of opened log file</returns>
+	/// <returns>std::string of the name of opened log file; otherwise values from AEFileWriter::getFullFileName()</returns>
 	inline std::string getLogName(void) const noexcept {
 		return this->m_fwLogger.getFullFileName();
 	}
@@ -174,7 +189,7 @@ public:
 	/// <summary>
 	/// Get the path of the log file.
 	/// </summary>
-	/// <returns>std::string of the path of the opened log file</returns>
+	/// <returns>std::string of the path of the opened log file; otherwise values from AEFileWriter::getRelativePath()</returns>
 	inline std::string getLogPath(void) const {
 		return this->m_fwLogger.getRelativePath();
 	}
@@ -182,7 +197,7 @@ public:
 	/// <summary>
 	/// Get the full/absolute path of the log file.
 	/// </summary>
-	/// <returns>std::string of the absolute path of the opened log file</returns>
+	/// <returns>std::string of the absolute path of the opened log file; otherwise values from AEFileWriter::getFullPath()</returns>
 	inline std::string getLogAbsolutePath(void) const {
 		return this->m_fwLogger.getFullPath();
 	}
@@ -203,6 +218,10 @@ public:
 		return this->m_fwLogger.isOpen();
 	}
 
+	/// <summary>
+	/// Checks if a log file isn't open by this logger.
+	/// </summary>
+	/// <returns>True if log file is closed/not open, false if otherwise</returns>
 	inline bool isClosed(void) const noexcept {
 		return this->m_fwLogger.isClosed();
 	}
@@ -218,11 +237,19 @@ public:
 	/// <summary>
 	/// Writes the current status of the file logger instance (file name, and entries written).
 	/// </summary>
-	inline void writeStatus(void) {
-		this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFullFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
+	inline cint writeStatus(void) {
+		return this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFullFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
 			AELOG_TYPE_INFO, m_sModulename);
 	}
 
+	/// <summary>
+	/// Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current date][.extension] in a given directory
+	/// </summary>
+	/// <param name="logpath">The path of the log file</param>
+	/// <param name="logpref">The prefix of log file</param>
+	/// <param name="logext">The extension of the log file. Include the period before the extension.</param>
+	/// <returns>std::string of the file name to feed to the logger for opening</returns>
 	static inline std::string genLogName(const std::string_view logpath, const std::string_view logpref, const std::string_view logext = ".log") {
 		char logname[256]{};
 		snprintf(logname, 255, "%s%s_%s%s", logpath.data(), logpref.data(), (ace::utils::getCurrentDate().substr(0, 10)).c_str(), logext.data());
@@ -311,7 +338,7 @@ REGISTER_CLASS(AELogger);
 
 /// The global logger of the engine to log engine-wide events.
 /// It starts the writing thread and logging as soon as the program starts.
-//inline AELogger globalLogger(AELogger::genLogName(AELOG_DEFAULT_LOG_PATH, "LOG", ".log"));
+inline AELogger globalLogger(AELogger::genLogName(AELOG_DEFAULT_LOG_PATH, "LOG", ".log"));
 
 #endif // ENGINE_ENABLE_GLOBAL_MODULES
 
