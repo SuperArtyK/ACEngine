@@ -95,7 +95,6 @@ public:
 	/// <summary>
 	/// Class move constructor
 	/// </summary>
-	/// <param name="fr"></param>
 	AEFileReader(AEFileReader&& fr) noexcept;
 
 //we don't need those
@@ -126,15 +125,15 @@ public:
 	cint openFile(const std::string_view fname); //defined after class
 
 	/// <summary>
-	/// Closes the currently opened file, and also, in addition, clears the last error status.
+	/// Closes the currently opened file.
 	/// </summary>
 	/// <returns>AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open</returns>
 	inline cint closeFile(void) noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
 		fclose(this->m_fpFilestr);
-		this->m_szLastReadAmount = 0;
 		this->m_fpFilestr = nullptr;
+		this->m_szLastReadAmount = 0;
 		this->m_sFilename.clear();
 		return AEFR_ERR_NOERROR;
 	}
@@ -463,6 +462,10 @@ public:
 		return this->m_fpFilestr;//null if closed, something other if opened
 	}
 
+	/// <summary>
+	/// Checks if a file isn't open by this file-reader.
+	/// </summary>
+	/// <returns>True if file is closed/not open, false if otherwise</returns>
 	inline bool isClosed(void) const noexcept {
 		return !this->isOpen();
 	}

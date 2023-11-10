@@ -108,7 +108,7 @@ public:
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	inline cint openLog(const std::string_view fname, const bool clearLog = false) {
 		if (this->isOpen()) {
-			return AEFW_ERR_FILE_ALREADY_OPEN;
+			return AEFW_ERR_OPEN_FILE_ALREADY_OPENED;
 		}
 		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND);
 		if (ret != AEFW_ERR_NOERROR) {

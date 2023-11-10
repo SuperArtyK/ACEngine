@@ -58,12 +58,12 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
 
 	if (this->isOpen()) { // open already -> pls close
-		return AEFW_ERR_FILE_ALREADY_OPEN;
+		return AEFW_ERR_OPEN_FILE_ALREADY_OPENED;
 	}
 
 	if (str.empty()) {
 		this->m_sFilename.clear();
-		return AEFW_ERR_FILE_NAME_EMPTY;
+		return AEFW_ERR_OPEN_FILE_NAME_EMPTY;
 	}
 
 	this->m_szLastWrittenAmount = 0;
@@ -98,12 +98,12 @@ cint AEFileWriter::openFile(const std::string_view str, const cint flags, const 
 		break;
 
 	default:
-		return AEFW_ERR_FILE_WRONG_FLAG;
+		return AEFW_ERR_OPEN_FILE_WRONG_FLAG;
 	}
 
 	// last check, to see if everything is okay
 	if (this->isClosed()) {
-		return AEFW_ERR_FILE_OPEN_ELSE;
+		return AEFW_ERR_OPEN_FILE_ELSE;
 	}
 
 	//then everything is good, 

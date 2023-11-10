@@ -18,7 +18,7 @@ AEFileReader::AEFileReader(const std::string_view fname) :
 }
 
 AEFileReader::AEFileReader(AEFileReader&& fr) noexcept :
-	m_sFilename(fr.m_sFilename), m_ullTotalReads(fr.m_ullTotalReads.load()), 
+	m_sFilename(std::move(fr.m_sFilename)), m_ullTotalReads(fr.m_ullTotalReads.load()),
 	m_szLastReadAmount(fr.m_szLastReadAmount), m_fpFilestr(fr.m_fpFilestr) {
 
 	fr.m_sFilename.clear();
