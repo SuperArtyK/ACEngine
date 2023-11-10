@@ -17,6 +17,18 @@ AEFileReader::AEFileReader(const std::string_view fname) :
 	this->openFile(fname);
 }
 
+AEFileReader::AEFileReader(AEFileReader&& fr) noexcept :
+	m_sFilename(fr.m_sFilename), m_ullTotalReads(fr.m_ullTotalReads.load()), 
+	m_szLastReadAmount(fr.m_szLastReadAmount), m_fpFilestr(fr.m_fpFilestr) {
+
+	fr.m_sFilename.clear();
+	fr.m_ullTotalReads = 0;
+	fr.m_szLastReadAmount = 0;
+	fr.m_fpFilestr = nullptr;
+}
+
+
+
 cint AEFileReader::openFile(const std::string_view fname) {
 	
 	if (this->isOpen()) {
@@ -65,7 +77,7 @@ cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 	std::memset(str, NULL, std::size_t(dcount) + 1);
 	const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
 	this->m_szLastReadAmount = std::strlen(str);
-	this->m_ullTotalReads++;
+	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 
 	if (!temp) {
 		return AEFR_ERR_READING_ERROR;
@@ -129,7 +141,7 @@ cint AEFileReader::readData_ptr(void* cdata, const std::size_t dcount, const std
 	}
 
 	this->m_szLastReadAmount = fread(cdata, dsize, dcount, this->m_fpFilestr);
-	this->m_ullTotalReads++;
+	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 	if (this->m_szLastReadAmount != dcount) {
 		if (std::feof(this->m_fpFilestr)) {
 			return AEFR_ERR_READING_EOF;

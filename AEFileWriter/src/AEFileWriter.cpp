@@ -19,7 +19,7 @@ AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, co
 
 AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
 	m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(std::move(fw.m_sFilename)),
-	m_ullTotalWrites(fw.m_ullTotalWrites), m_szLastWrittenAmount(fw.m_szLastWrittenAmount),
+	m_ullTotalWrites(fw.m_ullTotalWrites.load()), m_szLastWrittenAmount(fw.m_szLastWrittenAmount),
 	m_fpFilestr(fw.m_fpFilestr), m_cFlags(fw.m_cFlags) {
 
 	fw.m_ullFlushInterval = 0;
@@ -41,7 +41,7 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 	}
 
 	this->m_szLastWrittenAmount = fwrite(cdata, dsize, dcount, this->m_fpFilestr);
-	this->m_ullTotalWrites++;
+	this->m_ullTotalWrites.fetch_add(1, std::memory_order::relaxed);
 	if (useAutoFlush) {
 		this->autoFlush();
 	}

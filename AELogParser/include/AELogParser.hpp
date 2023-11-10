@@ -182,7 +182,6 @@ public:
 
 		std::memcpy(entry.m_sModuleName, mname, strvMname.size()); //module name
 		entry.m_tmLogTime = entryTime; //time
-		entry.m_ullOrderNum = m_ullLogEntries++; //order number
 		// not doing the queue..because it's the user's concern
 		entry.m_cStatus = AELOG_ENTRY_STATUS_READY; //status
 		entry.m_cLogType = entryType; //type

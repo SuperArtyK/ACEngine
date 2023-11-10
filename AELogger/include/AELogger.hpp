@@ -66,7 +66,7 @@ public:
 	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
-	explicit AELogger() : m_fwLogger(), m_ullLogOrderNum(AELOG_ENTRY_INVALID_ORDERNUM+1), m_ullFilledCount(0), m_ullNodeNumber(0),
+	explicit AELogger() : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
 		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogger::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
 
@@ -192,7 +192,7 @@ public:
 	/// </summary>
 	/// <returns>ullint of the amount of times logger written to a file</returns>
 	inline ullint getEntryCount(void) const noexcept {
-		return this->m_ullLogOrderNum.load();
+		return this->m_fwLogger.getTotalWrites();
 	}
 
 	/// <summary>
@@ -281,8 +281,6 @@ private:
 	std::vector<std::pair<ullint, AELogEntry*>> m_vAllocTable;
 	/// The thread object for the file writing thread to...write a log file separately
 	std::thread m_trdWriter;
-	/// The order number of the current node;
-	std::atomic<ullint> m_ullLogOrderNum;
 	/// The amount of nodes filled (should we allocate more?)
 	std::atomic<ullint> m_ullFilledCount;
 	/// The current node number the writeToLog is working with

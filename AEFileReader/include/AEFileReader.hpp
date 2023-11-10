@@ -18,6 +18,7 @@
 #include "include/AEUtils.hpp"
 #include <cstring>
 #include <vector>
+#include <atomic>
 #include <string>
 #include <string_view>
 #include <limits>
@@ -84,6 +85,8 @@ public:
 	/// Class constructor -- constructs the instance with default values, and doesn't open the file.
 	/// </summary>
 	AEFileReader(void) noexcept : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr) {}
+
+	AEFileReader(AEFileReader&& fr) noexcept;
 
 //we don't need those
 	/// <summary>
@@ -555,7 +558,7 @@ public:
 	/// </summary>
 	/// <returns>Amount of times the reader operation has been called on the AEFileReader instance</returns>
 	inline ullint getTotalReads(void) const noexcept {
-		return this->m_ullTotalReads;
+		return this->m_ullTotalReads.load(std::memory_order::relaxed);
 	}
 
 	/// <summary>
@@ -589,7 +592,7 @@ private:
 	/// Full filename and relative path
 	std::string m_sFilename;
 	/// Counter for total read operations for file
-	ullint m_ullTotalReads;
+	std::atomic<ullint> m_ullTotalReads;
 	/// The amount of read bytes during last operation
 	std::size_t m_szLastReadAmount;
 	/// Object for file reading
@@ -643,7 +646,7 @@ inline cint AEFileReader::readIntString(T& num) {
 		temp = fscanf(m_fpFilestr, "%llud", &num);
 	}
 
-	this->m_ullTotalReads++;
+	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 	if (temp != 1) {
 		return AEFR_ERR_READING_EOF;
 	}
@@ -667,7 +670,7 @@ inline cint AEFileReader::readFloatString(T& num) {
 		temp = fscanf(m_fpFilestr, "%Lf", &num);
 	}
 
-	this->m_ullTotalReads++;
+	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
 	if (temp != 1) {
 		return AEFR_ERR_READING_EOF;
 	}

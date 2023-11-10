@@ -1,6 +1,6 @@
 
-/** @file NAME/include/NAME.hpp
- *  This file contains the [stuff]
+/** @file AECustomTypes/include/AELogEntry.hpp
+ *  This file contains the code for the log entry -- struct containing data from the entry of the log file.
  *
  *  Should not cause everything to break :)
  */
@@ -41,9 +41,6 @@ struct AELogEntry {
 	char m_sModuleName[AELOG_ENTRY_MODULENAME_SIZE + 1]{}; //+1 for the last null termination
 	/// The time when this log entry was created
 	std::time_t m_tmLogTime = NULL;
-	/// The order(or queue) number of the log entry, safety measure for consequent writing and thread-safety
-	/// @note The log-writing thread will ignore this entry, if it is set to AELOG_ENTRY_INVALID_ORDERNUM
-	std::atomic<ullint> m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM;
 	/// The pointer to the next log entry in the queue
 	AELogEntry* m_pNextNode = nullptr;
 	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid

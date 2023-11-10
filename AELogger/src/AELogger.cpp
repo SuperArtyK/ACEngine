@@ -39,9 +39,9 @@ AELogEntry* AELogger::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 //constructor
 AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */), 
-	m_ullLogOrderNum(AELOG_ENTRY_INVALID_ORDERNUM+1), m_ullFilledCount(0), m_ullNodeNumber(0),
-	m_ullQueueSize(queuesize), m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), 
-	m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false), m_bQueueFilled(false){
+	m_ullFilledCount(0), m_ullNodeNumber(0), m_ullQueueSize(queuesize),
+	m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), 
+	m_bRunTrd(false), m_bQueueFilled(false){
 
 
 	//add the allocated queue pointed to the list
@@ -143,13 +143,12 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 
 	//increment node number and get the pointer
 	AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
-	while (ptr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM && ptr->m_cStatus != AELOG_ENTRY_STATUS_INVALID) {
+	while (ptr->m_cStatus != AELOG_ENTRY_STATUS_INVALID) {
 		ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
 	}
 
 	
 	//populating it now!
-	ptr->m_ullOrderNum = this->m_ullLogOrderNum++;
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
 	ptr->m_tmLogTime = std::time(NULL);

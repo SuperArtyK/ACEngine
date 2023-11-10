@@ -21,6 +21,7 @@
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
 #include <cstring>
+#include <atomic>
 #include <vector>
 #include <string>
 #include <limits>
@@ -494,7 +495,7 @@ public:
 	/// </summary>
 	/// <returns>Amount of times the write operation has been called on the AEFileWriter instance</returns>
 	inline ullint getTotalWrites(void) const noexcept {
-		return this->m_ullTotalWrites;
+		return this->m_ullTotalWrites.load(std::memory_order::relaxed);
 	}
 
 	/// <summary>
@@ -520,7 +521,7 @@ private:
 	/// </summary>
 	inline void autoFlush(void) noexcept {
 #ifdef AEFW_AUTOFLUSH_ENABLE
-		if (!(this->m_ullTotalWrites % this->m_ullFlushInterval)) {
+		if (!(this->m_ullTotalWrites.load(std::memory_order::relaxed) % this->m_ullFlushInterval)) {
 			this->flushFile();
 		}
 #endif // AEFW_AUTOFLUSH_ENABLE
@@ -533,7 +534,7 @@ private:
 	/// Full filename and relative path
 	std::string m_sFilename;
 	/// Counter for total write operations for file
-	ullint m_ullTotalWrites;
+	std::atomic<ullint> m_ullTotalWrites;
 	/// The amount of written bytes during last operation
 	std::size_t m_szLastWrittenAmount;
 	/// Object for file writing
