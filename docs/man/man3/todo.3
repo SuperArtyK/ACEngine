@@ -1,0 +1,73 @@
+.TH "todo" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+todo \- Todo List 
+.PP
+
+.IP "\fBMember \fB__AEModuleBase< T >::m_sModulename\fP \fP" 1c
+Find a way to make it constexpr and compile-time evaluated  
+.IP "\fBMember \fBace::math::floorToInt\fP (const Y num) noexcept\fP" 1c
+Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23)  
+.IP "\fBClass \fBAEFileReader\fP \fP" 1c
+add generic read function  
+.IP "\fBMember \fBAEFileWriter::write\fP (const T &var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)\fP" 1c
+Add a way to add custom types to this generic write function\&.  
+.IP "\fBMember \fBAEFileWriter::writeFloat\fP (const T num, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)\fP" 1c
+Add custom way to format the float number  
+.IP "\fBClass \fBAELogger\fP \fP" 1c
+Implement copy constructors and copy assignment 
+.PP
+.PP
+Add the ability to open the same log file/redirect the instance requests to the one that has it open first\&. 
+.PP
+.PP
+Add the ability to change the default log file folder to\&.\&.\&.whatever user wants (maybe a constructor) 
+.PP
+.PP
+update the docs on returning functions  
+.IP "\fBMember \fBAELogger::writeToLog\fP (const std::string_view logmessg, const cint logtype=1, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME)\fP" 1c
+REWRITE THE WAYS OF LOGGING! 
+.PP
+Implement decrease in log queue size\&.\&.\&.somehow  
+.IP "\fBClass \fBAELogParser\fP \fP" 1c
+add function to parse 1 line 
+.PP
+.PP
+add a way to filter the logs by severity 
+.PP
+.PP
+add a way to error out about invalid entry 
+.PP
+.PP
+add reading entries from the whole file and record their order 
+.PP
+.PP
+add filtering entries from the whole file 
+.PP
+.PP
+add a way to validate the entry without reading it (if possible) -> populate the entry index array 
+.PP
+.PP
+add reading of the entry upon request, by giving it's order number in the log 
+.PP
+.PP
+fix the mixups of string_view and char array/ptr (\&.\&.\&.why)  
+.IP "\fBFile \fBAETrigLookup\&.hpp\fP \fP" 1c
+Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing 
+.IP "\fBFile \fBmain_ACEngine\&.cpp\fP \fP" 1c
+Add the global variable list from my older engine 
+.PP
+.PP
+Add \fBAELogParser\fP to parse the engine's (\fBAELogger\fP) log files 
+.PP
+.PP
+Add engine's file format, AEFile 
+.PP
+.PP
+Transfer and adapt code from my previous engine attempt 
+.PP
+.PP
+Add project documentation (explanation, and examples for example) to the readme\&.md files
+.PP
+

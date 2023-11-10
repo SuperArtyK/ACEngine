@@ -1,0 +1,250 @@
+.TH "AELogParser" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AELogParser
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <AELogParser\&.hpp>\fP
+.PP
+Inherits \fB__AEModuleBase< AELogParser >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAELogParser\fP (\fBconst\fP std::string_view \fBfname\fP)"
+.br
+.ti -1c
+.RI "\fBcint\fP \fBopenLog\fP (\fBconst\fP std::string_view \fBfname\fP)"
+.br
+.ti -1c
+.RI "\fBcint\fP \fBcloseLog\fP (\fBvoid\fP)"
+.br
+.ti -1c
+.RI "\fBcint\fP \fBparseEntry\fP (\fBAELogEntry\fP &\fBentry\fP)"
+.br
+.ti -1c
+.RI "\fBcint\fP \fBparseEntryString\fP (\fBAELogEntry\fP &\fBentry\fP, \fBconst\fP std::string_view \fBentryString\fP)"
+.br
+.ti -1c
+.RI "\fBcint\fP \fBparseEntries\fP (\fBAELogEntry\fP &queue)"
+.br
+.ti -1c
+.RI "\fBullint\fP \fBamountValidEntries\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "\fBullint\fP \fBamountInvalidEntries\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "\fBullint\fP \fBamountEntries\fP (\fBconst\fP \fBcint\fP \fBlogtype\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "\fBconst\fP std::vector< \fBullint\fP > & \fBgetTypeIndices\fP (\fBconst\fP \fBcint\fP \fBlogtype\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "bool \fBisOpen\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "bool \fBisClosed\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatic\fP \fBullint\fP \fBgetModuleAmount\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Returns the amount of instances of the module currently existing\&. "
+.ti -1c
+.RI "\fBstatic\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Returns the name of the registered module\&. "
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstatic\fP \fBconst\fP std::string_view \fBm_sModulename\fP"
+.br
+.RI "Name of the module (class), same as in code\&. "
+.ti -1c
+.RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP"
+.br
+.RI "amount of alive module instances "
+.in -1c
+.SS "Static Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatic\fP \fBcint\fP \fBmatchLogType\fP (\fBconst\fP std::string_view \fBstr\fP) \fBnoexcept\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBAEFileReader\fP \fBm_frLogReader\fP"
+.br
+.RI "The reader of the opened log file\&. "
+.ti -1c
+.RI "std::array< std::vector< \fBullint\fP >, 9 > \fBm_arrEntryIndices\fP"
+.br
+.RI "The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including 'invalid entry' for invalid stuff) "
+.ti -1c
+.RI "\fBullint\fP \fBm_ullLogEntries\fP"
+.br
+.RI "The amount of log entries read in the file;\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBTodo\fP
+.RS 4
+add function to parse 1 line 
+.PP
+add a way to filter the logs by severity 
+.PP
+add a way to error out about invalid entry 
+.PP
+add reading entries from the whole file and record their order 
+.PP
+add filtering entries from the whole file 
+.PP
+add a way to validate the entry without reading it (if possible) -> populate the entry index array 
+.PP
+add reading of the entry upon request, by giving it's order number in the log 
+.PP
+fix the mixups of string_view and char array/ptr (\&.\&.\&.why) 
+.RE
+.PP
+
+.PP
+Definition at line \fB46\fP of file \fBAELogParser\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AELogParser::AELogParser (\fBconst\fP std::string_view fname)\fC [inline]\fP, \fC [explicit]\fP"
+
+.PP
+Definition at line \fB49\fP of file \fBAELogParser\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBullint\fP AELogParser::amountEntries (\fBconst\fP \fBcint\fP logtype) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB223\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBullint\fP AELogParser::amountInvalidEntries (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB219\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBullint\fP AELogParser::amountValidEntries (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB211\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBcint\fP AELogParser::closeLog (\fBvoid\fP)\fC [inline]\fP"
+
+.PP
+Definition at line \fB74\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
+
+.PP
+Returns the amount of instances of the module currently existing\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Unsigned long long of the module amount
+.RE
+.PP
+
+.PP
+Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
+
+.PP
+Returns the name of the registered module\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBconst\fP std::vector< \fBullint\fP > & AELogParser::getTypeIndices (\fBconst\fP \fBcint\fP logtype) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB233\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "bool AELogParser::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB249\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "bool AELogParser::isOpen (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB245\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBstatic\fP \fBcint\fP AELogParser::matchLogType (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [static]\fP, \fC [private]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB256\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBcint\fP AELogParser::openLog (\fBconst\fP std::string_view fname)\fC [inline]\fP"
+
+.PP
+Definition at line \fB59\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBcint\fP AELogParser::parseEntries (\fBAELogEntry\fP & queue)\fC [inline]\fP"
+
+.PP
+Definition at line \fB192\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBcint\fP AELogParser::parseEntry (\fBAELogEntry\fP & entry)\fC [inline]\fP"
+
+.PP
+Definition at line \fB80\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBcint\fP AELogParser::parseEntryString (\fBAELogEntry\fP & entry, \fBconst\fP std::string_view entryString)\fC [inline]\fP"
+
+.PP
+Definition at line \fB105\fP of file \fBAELogParser\&.hpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::array<std::vector<\fBullint\fP>, 9> AELogParser::m_arrEntryIndices\fC [private]\fP"
+
+.PP
+The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including 'invalid entry' for invalid stuff) 
+.PP
+Definition at line \fB293\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBAEFileReader\fP AELogParser::m_frLogReader\fC [private]\fP"
+
+.PP
+The reader of the opened log file\&. 
+.PP
+Definition at line \fB291\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+Name of the module (class), same as in code\&. sets up the static variable values for the base class (and inherited classes)
+.PP
+\fBTodo\fP
+.RS 4
+Find a way to make it constexpr and compile-time evaluated 
+.RE
+.PP
+
+.PP
+Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBullint\fP AELogParser::m_ullLogEntries\fC [private]\fP"
+
+.PP
+The amount of log entries read in the file;\&. 
+.PP
+Definition at line \fB295\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+amount of alive module instances 
+.PP
+Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

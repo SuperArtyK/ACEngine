@@ -1,0 +1,101 @@
+.TH "AECustomTypes/include/AELogEntry.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AECustomTypes/include/AELogEntry.hpp \- This file contains the code for the log entry -- struct containing data from the entry of the log file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'include/AETypedefs\&.hpp'\fP
+.br
+\fC#include 'include/AEFlags\&.hpp'\fP
+.br
+\fC#include 'include/AEUtils\&.hpp'\fP
+.br
+\fC#include <ctime>\fP
+.br
+\fC#include <atomic>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBAELogEntry\fP"
+.br
+.RI "The structure for the log entry data in the queue of \fBAELogger\fP\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_INVALID_ORDERNUM\fP   0"
+.br
+.RI "Macro for the \fBAELogEntry\fP's order number to be invalid\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_INVALID\fP   0"
+.br
+.RI "Macro for the \fBAELogEntry\fP's status to be: invalid\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_SETTING\fP   1"
+.br
+.RI "Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_READY\fP   2"
+.br
+.RI "Macro for the \fBAELogEntry\fP's status to be: currently read\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_READING\fP   3"
+.br
+.RI "Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_MAX_SIZE\fP   (\fBAELOG_ENTRY_MESSAGE_SIZE\fP + \fBAELOG_ENTRY_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \\\fBn'\fP))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the code for the log entry -- struct containing data from the entry of the log file\&. 
+
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAELogEntry\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP AELOG_ENTRY_INVALID_ORDERNUM   0"
+
+.PP
+Macro for the \fBAELogEntry\fP's order number to be invalid\&. 
+.PP
+Definition at line \fB22\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_MAX_SIZE   (\fBAELOG_ENTRY_MESSAGE_SIZE\fP + \fBAELOG_ENTRY_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \\\fBn'\fP))"
+
+.PP
+Definition at line \fB32\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_INVALID   0"
+
+.PP
+Macro for the \fBAELogEntry\fP's status to be: invalid\&. 
+.PP
+Definition at line \fB24\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_READING   3"
+
+.PP
+Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. 
+.PP
+Definition at line \fB30\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_READY   2"
+
+.PP
+Macro for the \fBAELogEntry\fP's status to be: currently read\&. 
+.PP
+Definition at line \fB28\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_SETTING   1"
+
+.PP
+Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. 
+.PP
+Definition at line \fB26\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

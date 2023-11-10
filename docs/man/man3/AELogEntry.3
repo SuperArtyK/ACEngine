@@ -1,0 +1,106 @@
+.TH "AELogEntry" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <AELogEntry\&.hpp>\fP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatic\fP \fBvoid\fP \fBclearEntry\fP (\fBAELogEntry\fP *\fBconst\fP \fBentry\fP) \fBnoexcept\fP"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBm_sLogMessage\fP [\fBAELOG_ENTRY_MESSAGE_SIZE\fP+1] {}"
+.br
+.RI "The message of the log entry\&. "
+.ti -1c
+.RI "char \fBm_sModuleName\fP [\fBAELOG_ENTRY_MODULENAME_SIZE\fP+1] {}"
+.br
+.RI "The name of the module that issued the log entry\&. "
+.ti -1c
+.RI "std::time_t \fBm_tmLogTime\fP = \fBNULL\fP"
+.br
+.RI "The time when this log entry was created\&. "
+.ti -1c
+.RI "\fBAELogEntry\fP * \fBm_pNextNode\fP = \fBnullptr\fP"
+.br
+.RI "The pointer to the next log entry in the queue\&. "
+.ti -1c
+.RI "std::atomic< \fBcint\fP > \fBm_cStatus\fP = 0"
+.br
+.RI "The status flag in the entry to show if the entry is ready, being read/set, or is invalid\&. "
+.ti -1c
+.RI "\fBcint\fP \fBm_cLogType\fP = \-1"
+.br
+.RI "The type of the log entry\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The structure for the log entry data in the queue of \fBAELogger\fP\&. 
+.PP
+Definition at line \fB37\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBstatic\fP \fBvoid\fP AELogEntry::clearEntry (\fBAELogEntry\fP *\fBconst\fP entry)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB54\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBcint\fP AELogEntry::m_cLogType = \-1"
+
+.PP
+The type of the log entry\&. 
+.PP
+\fBSee also\fP
+.RS 4
+AELOG_TYPE_* 
+.RE
+.PP
+
+.PP
+Definition at line \fB51\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "std::atomic<\fBcint\fP> AELogEntry::m_cStatus = 0"
+
+.PP
+The status flag in the entry to show if the entry is ready, being read/set, or is invalid\&. 
+.PP
+Definition at line \fB48\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "\fBAELogEntry\fP* AELogEntry::m_pNextNode = \fBnullptr\fP"
+
+.PP
+The pointer to the next log entry in the queue\&. 
+.PP
+Definition at line \fB46\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "char AELogEntry::m_sLogMessage[\fBAELOG_ENTRY_MESSAGE_SIZE\fP+1] {}"
+
+.PP
+The message of the log entry\&. 
+.PP
+Definition at line \fB40\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "char AELogEntry::m_sModuleName[\fBAELOG_ENTRY_MODULENAME_SIZE\fP+1] {}"
+
+.PP
+The name of the module that issued the log entry\&. 
+.PP
+Definition at line \fB42\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "std::time_t AELogEntry::m_tmLogTime = \fBNULL\fP"
+
+.PP
+The time when this log entry was created\&. 
+.PP
+Definition at line \fB44\fP of file \fBAELogEntry\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

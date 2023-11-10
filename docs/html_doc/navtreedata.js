@@ -27,6 +27,7 @@ var NAVTREE =
   [ "ArtyK's Console Engine", "index.html", [
     [ "ACEngine", "index.html", null ],
     [ "ACEngine project", "d8/d97/md__a_c_engine_2_r_e_a_d_m_e.html", null ],
+    [ "AECustomTypes project", "d0/d3f/md__a_e_custom_types_2_r_e_a_d_m_e.html", null ],
     [ "AEFileReader project", "db/d2b/md__a_e_file_reader_2_r_e_a_d_m_e.html", null ],
     [ "AEFileWriter project", "da/d42/md__a_e_file_writer_2_r_e_a_d_m_e.html", null ],
     [ "AEFrame project", "d0/d03/md__a_e_frame_2_r_e_a_d_m_e.html", null ],
@@ -45,12 +46,12 @@ var NAVTREE =
         [ "Functions", "namespacemembers_func.html", null ]
       ] ]
     ] ],
-    [ "Data Structures", "annotated.html", [
-      [ "Data Structures", "annotated.html", "annotated_dup" ],
-      [ "Data Structure Index", "classes.html", null ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
@@ -58,7 +59,7 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
-      [ "Globals", "globals.html", [
+      [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -71,7 +72,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2"
+"db/d15/class_a_e_file_writer.html#a1b85ca4cfff829254e4994715e79d476",
+"de/de8/_a_e_utils_8hpp.html#abb1a38e7284b8a6e0b6ae614204f703e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

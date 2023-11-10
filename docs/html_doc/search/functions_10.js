@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['tandeg_0',['tanDeg',['../d5/d0f/namespaceace_1_1math.html#a15512ebb416126f59cdb7669b5c39b48',1,'ace::math']]],
-  ['ticktimer_1',['tickTimer',['../da/d62/class_a_e_timer.html#a2c991a42b9057b42336b7a6f893d2d0b',1,'AETimer']]],
-  ['tolowerref_2',['toLowerRef',['../de/dde/namespaceace_1_1utils.html#ad1fe69eba9650c6affc6344e67a2d998',1,'ace::utils']]],
-  ['tolowerval_3',['toLowerVal',['../de/dde/namespaceace_1_1utils.html#ad55b9d990eb19ee170c9c69f7c0a3cea',1,'ace::utils']]],
-  ['tostring_4',['toString',['../dc/df6/struct_a_e_vector.html#a59390b36ea5f70b78d6698fb9a60e9e6',1,'AEVector']]],
-  ['toupperref_5',['toUpperRef',['../de/dde/namespaceace_1_1utils.html#adcd86509ef063a237d87e65a23255d99',1,'ace::utils']]],
-  ['toupperval_6',['toUpperVal',['../de/dde/namespaceace_1_1utils.html#a1e5593ccf0f98b5f42a32d10d34c2a65',1,'ace::utils']]],
-  ['typetostring_7',['typeToString',['../d8/dfc/class_a_e_logger.html#a9f82b0faf533408d033570e5ac8e2512',1,'AELogger']]]
+  ['secdeg_0',['secDeg',['../d5/d0f/namespaceace_1_1math.html#a5cbfa3de675e6e68387a936162bfe77b',1,'ace::math']]],
+  ['setcursorpos_1',['setcursorpos',['../dd/dd5/class_a_e_file_reader.html#a477effa6d568ec7993c4d506d0d0420c',1,'AEFileReader::setCursorPos()'],['../db/d15/class_a_e_file_writer.html#aaa1e8dbbbc6e653397df93490d78b821',1,'AEFileWriter::setCursorPos()']]],
+  ['setdelay_2',['setDelay',['../da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c',1,'AETimer']]],
+  ['setfps_3',['setFps',['../df/dd7/class_a_e_frame.html#a95580be55882c4baf46fce5dac036cab',1,'AEFrame']]],
+  ['settick_4',['setTick',['../da/d62/class_a_e_timer.html#af5b764f92d2e3fd7a6c9a1b0f1065964',1,'AETimer']]],
+  ['sindeg_5',['sinDeg',['../d5/d0f/namespaceace_1_1math.html#a2d1b0ee0e065a1fb3350dad86d582d17',1,'ace::math']]],
+  ['sleep_6',['sleep',['../df/dd7/class_a_e_frame.html#aa3459df5ce99cf186b18f7d4c37ba161',1,'AEFrame']]],
+  ['sleepms_7',['sleepMS',['../de/dde/namespaceace_1_1utils.html#a1de11fe2ff331d6f9c0b26f105dfae12',1,'ace::utils']]],
+  ['sleepus_8',['sleepUS',['../de/dde/namespaceace_1_1utils.html#acfa0966e8fb72f8844c26d4411c9348a',1,'ace::utils']]],
+  ['sqrt_9',['sqrt',['../d5/d0f/namespaceace_1_1math.html#a934ea1d09debbfd89edc14bd99c2f665',1,'ace::math']]],
+  ['sqrt2_10',['sqrt2',['../d5/d0f/namespaceace_1_1math.html#aa8864ce0bca4887226770ddb87235c29',1,'ace::math']]],
+  ['startthread_11',['startThread',['../da/d62/class_a_e_timer.html#a022b44a8e9b9e2a314e0ac3ecc759062',1,'AETimer']]],
+  ['startwriter_12',['startWriter',['../d8/dfc/class_a_e_logger.html#a284034896688215f7e87242764c5985d',1,'AELogger']]],
+  ['stopthread_13',['stopThread',['../da/d62/class_a_e_timer.html#a29f3aaf12a9832c55dff8875d94c4548',1,'AETimer']]],
+  ['stopwriter_14',['stopWriter',['../d8/dfc/class_a_e_logger.html#a53b212c259c40bda694476f09d1f171b',1,'AELogger']]],
+  ['stringtodate_15',['stringToDate',['../de/dde/namespaceace_1_1utils.html#a87457565590bb82350cc56e875bdafcb',1,'ace::utils']]]
 ];

@@ -1,0 +1,184 @@
+.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to alter it's code and behaviour\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBENGINE_DEBUG\fP   1"
+.br
+.RI "Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBENGINE_FPS\fP   60\&.0"
+.br
+.RI "Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBENGINE_ENABLE_GLOBAL_MODULES\fP   1"
+.br
+.RI "Macro to enable the engine's global modules (like timer, logger, etc) "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_AUTOFLUSH_ENABLE\fP"
+.br
+.RI "Macro to enable the auto-flushing mechanism\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_DEFAULT_AUTOFLUSH\fP   \fBtrue\fP"
+.br
+.RI "Macro for the default 'use auto-flush' argument value\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP   (\fBullint\fP)\-1"
+.br
+.RI "Macro for the default auto-flush amount value\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBENGINE_ENABLE_TRIG_LOOKUP\fP"
+.br
+.RI "Macro to enable the engine's trigonometry lookup code\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_DEFAULT_QUEUE_SIZE\fP   1024"
+.br
+.RI "Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_DEFAULT_MODULE_NAME\fP   'ACEngine'"
+.br
+.RI "Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_DEFAULT_ALLOC_VECTOR_RESERVE\fP   32"
+.br
+.RI "Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_DEFAULT_LOG_PATH\fP   'logs/'"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_MESSAGE_SIZE\fP   511"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ENTRY_MODULENAME_SIZE\fP   31"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAEVEC_WRAP_DIMENSIONS\fP   1"
+.br
+.RI "A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains engine flags that are used to alter it's code and behaviour\&. 
+
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAEFlags\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP AEFW_AUTOFLUSH_ENABLE"
+
+.PP
+Macro to enable the auto-flushing mechanism\&. 
+.PP
+\fBNote\fP
+.RS 4
+Undefine or comment out to disable the feature\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH   \fBtrue\fP"
+
+.PP
+Macro for the default 'use auto-flush' argument value\&. 
+.PP
+Definition at line \fB30\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
+
+.PP
+Macro for the default auto-flush amount value\&. 
+.PP
+Definition at line \fB32\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
+
+.PP
+Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. 
+.PP
+\fBWarning\fP
+.RS 4
+I personally wouldn't advise to play with it\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB44\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_DEFAULT_LOG_PATH   'logs/'"
+
+.PP
+Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
+
+.PP
+Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. 
+.PP
+Definition at line \fB41\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_DEFAULT_QUEUE_SIZE   1024"
+
+.PP
+Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. 
+.PP
+Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_MESSAGE_SIZE   511"
+
+.PP
+Definition at line \fB48\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ENTRY_MODULENAME_SIZE   31"
+
+.PP
+Definition at line \fB50\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEVEC_WRAP_DIMENSIONS   1"
+
+.PP
+A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount\&. 
+.PP
+Definition at line \fB55\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP ENGINE_DEBUG   1"
+
+.PP
+Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. 
+.PP
+Definition at line \fB18\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP ENGINE_ENABLE_GLOBAL_MODULES   1"
+
+.PP
+Macro to enable the engine's global modules (like timer, logger, etc) 
+.PP
+\fBNote\fP
+.RS 4
+Undefine or comment-out to disable this feature 
+.RE
+.PP
+
+.PP
+Definition at line \fB23\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP ENGINE_ENABLE_TRIG_LOOKUP"
+
+.PP
+Macro to enable the engine's trigonometry lookup code\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAETrigLookup\&.hpp\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB35\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP ENGINE_FPS   60\&.0"
+
+.PP
+Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)\&. 
+.PP
+Definition at line \fB20\fP of file \fBAEFlags\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

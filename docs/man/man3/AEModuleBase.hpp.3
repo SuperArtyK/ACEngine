@@ -1,0 +1,65 @@
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEModuleBase/include/AEModuleBase.hpp \- This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'include/AETypedefs\&.hpp'\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <atomic>\fP
+.br
+\fC#include <string_view>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fB__AEModuleBase< T >\fP"
+.br
+.RI "This is a base class for all basic modules, meaning that the module is not using other modules to work\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBREGISTER_CLASS\fP(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fBgetTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
+.br
+.RI "adds module name to inherit from \fB__AEModuleBase\fP "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP std::string_view \fBgetTypeName\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class\&. 
+
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAEModuleBase\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP REGISTER_CLASS(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fBgetTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
+
+.PP
+adds module name to inherit from \fB__AEModuleBase\fP 
+.PP
+Definition at line \fB26\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP std::string_view getTypeName (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

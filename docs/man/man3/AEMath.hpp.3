@@ -1,0 +1,206 @@
+.TH "AEMisc/include/AEMath.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (probably)optimised for engine stuff\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cmath>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include <type_traits>\fP
+.br
+\fC#include 'AETypedefs\&.hpp'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBace\fP"
+.br
+.RI "This namespace contains all of things that any of the part of program can use, and is useful\&. "
+.ti -1c
+.RI "namespace \fBace::math\fP"
+.br
+.RI "Mathematical functions and other things usefull in math\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBtorad\fP(\fBdeg\fP,  \fBtyp\fP)   (\fBdeg\fP * \fBace::math::pi\fP<\fBtyp\fP>() / \fBtyp\fP(180))"
+.br
+.RI "Macro to convert degrees value x to radians\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBtodeg\fP(\fBrad\fP,  \fBtyp\fP)   (\fBrad\fP*\fBtyp\fP(180)/\fBace::math::pi\fP<\fBtyp\fP>())"
+.br
+.RI "Macro to convert radians value x to degrees\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::pi\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::tau\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's tau (pi*2) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piH\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi/2 (half) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piQ\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi/4 (quarter) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::e\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's euler number value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrt2\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's sqrt(2) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBace::math::sinDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the sine of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBace::math::cosDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the cosine of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBace::math::tanDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the tangent of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBace::math::cotDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the cotangent of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBace::math::cscDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the cosecant of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBace::math::secDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the secant of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::absval\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the absolute value of a given number\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP=std::numeric_limits< T >\fB::epsilon\fP()) \fBnoexcept\fP"
+.br
+.RI "Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go further than float epsilon)\fP\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.br
+.RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrt\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBuint\fP \fBpower\fP)"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::root\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBuint\fP \fBrtNum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::max\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.br
+.RI "Gets the biggest value between given two values\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::min\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.br
+.RI "Gets the smallest value between given two values\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::intLength\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Calculate the length of the given integer number\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::floatLength\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Calculate the length of the given float number\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::lerp\fP (\fBconst\fP T \fBa\fP, \fBconst\fP T \fBb\fP, \fBconst\fP T \fBc\fP)"
+.br
+.RI "Computes the linear inter/extrapolation with the given values a and b and a value c between or outside of them\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::hypot\fP (\fBconst\fP T \fBa\fP, \fBconst\fP T \fBb\fP)"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isInf\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isNan\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isFinite\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::roundToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Rounds the given float of type Y to integer of type T\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::floorToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Floor's, truncates the given float of type Y and converts to integer of type T\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::ceilToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBace::math::truncToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the engine math functions, (probably)optimised for engine stuff\&. 
+
+may be faster or equivalent to what can you find/do yourself\&. And yeah\&.\&.\&.easier to use\&.
+.PP
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAEMath\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP todeg(\fBrad\fP, \fBtyp\fP)   (\fBrad\fP*\fBtyp\fP(180)/\fBace::math::pi\fP<\fBtyp\fP>())"
+
+.PP
+Macro to convert radians value x to degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP Value of radians to convert
+.br
+\fItyp\fP The type of the resulting operation
+.RE
+.PP
+
+.PP
+Definition at line \fB29\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "#\fBdefine\fP torad(\fBdeg\fP, \fBtyp\fP)   (\fBdeg\fP * \fBace::math::pi\fP<\fBtyp\fP>() / \fBtyp\fP(180))"
+
+.PP
+Macro to convert degrees value x to radians\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP Value of degrees to convert
+.br
+\fItyp\fP The type of the resulting operation
+.RE
+.PP
+
+.PP
+Definition at line \fB24\fP of file \fBAEMath\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

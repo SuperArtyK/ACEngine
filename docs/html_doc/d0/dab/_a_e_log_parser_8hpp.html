@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('d0/dab/_a_e_log_parser_8hpp.html','../
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">AELogParser.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -102,21 +105,163 @@ $(document).ready(function(){initNavTree('d0/dab/_a_e_log_parser_8hpp.html','../
 <code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">include/AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">include/AEUtils.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">include/AEFileReader.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp_source.html">include/AELogTypes.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">include/AEFlags.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">include/AELogEntry.hpp</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 </div>
 <p><a href="../../d0/dab/_a_e_log_parser_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html">AELogParser</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8119c8ffa60bb345802738252ea0d497" id="r_a8119c8ffa60bb345802738252ea0d497"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#a8119c8ffa60bb345802738252ea0d497">AELP_ERR_NOERROR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a8119c8ffa60bb345802738252ea0d497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed6bb229c68fcd1a32e6c81a1388c0a" id="r_a1ed6bb229c68fcd1a32e6c81a1388c0a"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#a1ed6bb229c68fcd1a32e6c81a1388c0a">AELP_ERR_INVALID_LENGTH</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a1ed6bb229c68fcd1a32e6c81a1388c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83de3ed683c5e5023ea1ee1b88a38842" id="r_a83de3ed683c5e5023ea1ee1b88a38842"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#a83de3ed683c5e5023ea1ee1b88a38842">AELP_ERR_INVALID_TIME</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a83de3ed683c5e5023ea1ee1b88a38842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d030b17452a36a38d5781f8a8d1f27" id="r_ae2d030b17452a36a38d5781f8a8d1f27"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#ae2d030b17452a36a38d5781f8a8d1f27">AELP_ERR_INVALID_TYPE</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ae2d030b17452a36a38d5781f8a8d1f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936c675f6d4a07f42e617ed4635693c6" id="r_a936c675f6d4a07f42e617ed4635693c6"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#a936c675f6d4a07f42e617ed4635693c6">AELP_ERR_INVALID_MNAME</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a936c675f6d4a07f42e617ed4635693c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ecbc2b69cfd03bc92fbbb78f515946" id="r_a82ecbc2b69cfd03bc92fbbb78f515946"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#a82ecbc2b69cfd03bc92fbbb78f515946">AELP_ERR_INVALID_FORMAT</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:a82ecbc2b69cfd03bc92fbbb78f515946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d5a2abb309afd89c8e563705f7688f" id="r_a07d5a2abb309afd89c8e563705f7688f"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html#a07d5a2abb309afd89c8e563705f7688f">_AELP_INVALID_ENTRY_INDEX</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a07d5a2abb309afd89c8e563705f7688f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the [stuff]. </p>
 <p>This file contains the definitions of the engine's [stuff].</p>
 <p>Should not cause everything to break :) </p>
 
 <p class="definition">Definition in file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a07d5a2abb309afd89c8e563705f7688f" name="a07d5a2abb309afd89c8e563705f7688f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d5a2abb309afd89c8e563705f7688f">&#9670;&#160;</a></span>_AELP_INVALID_ENTRY_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> _AELP_INVALID_ENTRY_INDEX&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a82ecbc2b69cfd03bc92fbbb78f515946" name="a82ecbc2b69cfd03bc92fbbb78f515946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ecbc2b69cfd03bc92fbbb78f515946">&#9670;&#160;</a></span>AELP_ERR_INVALID_FORMAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELP_ERR_INVALID_FORMAT&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1ed6bb229c68fcd1a32e6c81a1388c0a" name="a1ed6bb229c68fcd1a32e6c81a1388c0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed6bb229c68fcd1a32e6c81a1388c0a">&#9670;&#160;</a></span>AELP_ERR_INVALID_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELP_ERR_INVALID_LENGTH&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a936c675f6d4a07f42e617ed4635693c6" name="a936c675f6d4a07f42e617ed4635693c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a936c675f6d4a07f42e617ed4635693c6">&#9670;&#160;</a></span>AELP_ERR_INVALID_MNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELP_ERR_INVALID_MNAME&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a83de3ed683c5e5023ea1ee1b88a38842" name="a83de3ed683c5e5023ea1ee1b88a38842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83de3ed683c5e5023ea1ee1b88a38842">&#9670;&#160;</a></span>AELP_ERR_INVALID_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELP_ERR_INVALID_TIME&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae2d030b17452a36a38d5781f8a8d1f27" name="ae2d030b17452a36a38d5781f8a8d1f27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d030b17452a36a38d5781f8a8d1f27">&#9670;&#160;</a></span>AELP_ERR_INVALID_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELP_ERR_INVALID_TYPE&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8119c8ffa60bb345802738252ea0d497" name="a8119c8ffa60bb345802738252ea0d497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8119c8ffa60bb345802738252ea0d497">&#9670;&#160;</a></span>AELP_ERR_NOERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELP_ERR_NOERROR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_ce698e052457f46db79ad7fbdd9ee713.html">AELogParser</a></li><li class="navelem"><a class="el" href="../../dir_ef260faa586f0ee39b097c8f75f7bc89.html">include</a></li><li class="navelem"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html">AELogParser.hpp</a></li>
-    <li class="footer">Generated on Tue Oct 10 2023 16:07:12 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 9 2023 20:42:38 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

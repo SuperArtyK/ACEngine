@@ -7,6 +7,8 @@ var _a_e_flags_8hpp =
     [ "AELOG_DEFAULT_LOG_PATH", "dd/dd8/_a_e_flags_8hpp.html#a677404c9fb1978178daad33fc55a3ccd", null ],
     [ "AELOG_DEFAULT_MODULE_NAME", "dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1", null ],
     [ "AELOG_DEFAULT_QUEUE_SIZE", "dd/dd8/_a_e_flags_8hpp.html#af3ef91f05d4e609b5595bc0f56a848c5", null ],
+    [ "AELOG_ENTRY_MESSAGE_SIZE", "dd/dd8/_a_e_flags_8hpp.html#a611f1bcd6cf06c6a629476f17ec92b19", null ],
+    [ "AELOG_ENTRY_MODULENAME_SIZE", "dd/dd8/_a_e_flags_8hpp.html#a18d9066ba31bd949ad4feeafbbe5f853", null ],
     [ "AEVEC_WRAP_DIMENSIONS", "dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9", null ],
     [ "ENGINE_DEBUG", "dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c", null ],
     [ "ENGINE_ENABLE_GLOBAL_MODULES", "dd/dd8/_a_e_flags_8hpp.html#a69559aac28032faae69b2ebbbc43b399", null ],

@@ -1,0 +1,467 @@
+.TH "AEVector< T, dimAmount >" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEVector< T, dimAmount > \- The ArtyK's Engine's mathematical vector -- for mathematically-correct vector operations\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <AEVector\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconstexpr\fP T & \fBoperator[]\fP (\fBconst\fP std::size_t index) \fBnoexcept\fP"
+.br
+.RI "The [] operator for ease of use and wrap functionality\&. "
+.ti -1c
+.RI "\fBconstexpr\fP \fBconst\fP T & \fBoperator[]\fP (\fBconst\fP std::size_t index) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "The [] operator for ease of use and wrap functionality\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBoperator==\fP (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > &\fBtwo\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "The equality comparison operator -- compare 'this' and another vector\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBoperator!=\fP (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > &\fBtwo\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "The inequality comparison operator -- compare 'this' and another vector\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > & \fBoperator+=\fP (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > &\fBtwo\fP) \fBnoexcept\fP"
+.br
+.RI "The addition-assignment operator -- add another vector to 'this'\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBoperator+\fP (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > &\fBtwo\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "The addition operator -- 'add' this and another vector\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBY\fP > \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > & \fBoperator*=\fP (\fBconst\fP \fBY\fP \fBtwo\fP) \fBnoexcept\fP"
+.br
+.RI "The multiplication-assignment operator -- multiply 'this' by a scalar\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBY\fP > \fBconstexpr\fP \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBoperator*\fP (\fBconst\fP \fBY\fP \fBtwo\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "The multiplication operator -- multiply this and a scalar\&. "
+.ti -1c
+.RI "\fBconst\fP std::string \fBtoString\fP (\fBvoid\fP) \fBconst\fP"
+.br
+.RI "Converts the vector to std::string, of format [a, b, c, \&.\&.\&.]\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBF\fP \fBmagnitude\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "Calculates the magnitude/length of the vector\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBF\fP \fBnormDim\fP (\fBconst\fP std::size_t index) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "Calculates the normalised value of the given dimension\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBAEVector\fP< \fBF\fP, \fBdimAmount\fP > \fBnormalise\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "Calculates the normalised vector from the current vector\&. "
+.ti -1c
+.RI "template<\fBtypename\fP \fBF\fP  = long double, \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBF\fP \fBdotProduct\fP (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > &\fBtwo\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "Calculate the dot product of 'this' and another vector\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatic\fP \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBzero\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Returns the zeroed vector (of given dimensions and type) "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "T \fBdims\fP [\fBdimAmount\fP] {}"
+.br
+.RI "The array of the vector's dimension values of the type T and size dimAmount\&. "
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &\fBout\fP, \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > &\fBtwo\fP)"
+.br
+.RI "The ostream's << operator overload\&.\&.\&.to output the vector through the ostreams\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<\fBtypename\fP T, \fBconst\fP std::size_t dimAmount>
+.br
+struct AEVector< T, dimAmount >"The ArtyK's Engine's mathematical vector -- for mathematically-correct vector operations\&. 
+
+Yeah, the mathematical vectors, that are in CS\&.\&.just labeled arrays of numbers for ease of use\&.
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The numberical type to use in the vector
+.br
+\fIdimAmount\fP The amount of dimensions in the vector
+.RE
+.PP
+
+.PP
+Definition at line \fB29\fP of file \fBAEVector\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double, \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBF\fP \fBAEVector\fP< T, \fBdimAmount\fP >::dotProduct (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculate the dot product of 'this' and another vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type of the resulting scalar
+.br
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the dot product of the type F
+.RE
+.PP
+
+.PP
+Definition at line \fB242\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBF\fP \fBAEVector\fP< T, \fBdimAmount\fP >::magnitude (\fBvoid\fP) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the magnitude/length of the vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type to calculate the magnitude with
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The magnitude of the vector as the float type F
+.RE
+.PP
+
+.PP
+Definition at line \fB202\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBAEVector\fP< \fBF\fP, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >::normalise (\fBvoid\fP) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the normalised vector from the current vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type of the resulting normalised vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The normalised vector
+.RE
+.PP
+
+.PP
+Definition at line \fB223\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBF\fP \fBAEVector\fP< T, \fBdimAmount\fP >::normDim (\fBconst\fP std::size_t index) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the normalised value of the given dimension\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type to calculate it all with
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP The index of the dimension
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The normalised value of the dimension as the float type F
+.RE
+.PP
+
+.PP
+Definition at line \fB213\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator!\fP= (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The inequality comparison operator -- compare 'this' and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile)
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the vectors are not equal, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB105\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP > \fBconstexpr\fP \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP* (\fBconst\fP \fBY\fP two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The multiplication operator -- multiply this and a scalar\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB158\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP > \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP*= (\fBconst\fP \fBY\fP two)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The multiplication-assignment operator -- multiply 'this' by a scalar\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP+ (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The addition operator -- 'add' this and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile)
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB132\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP+= (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The addition-assignment operator -- add another vector to 'this'\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile)
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB117\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP== (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The equality comparison operator -- compare 'this' and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile)
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector, normally same as T
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the vectors are equal, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB86\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBconstexpr\fP \fBconst\fP T & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP[] (\fBconst\fP std::size_t index) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The [] operator for ease of use and wrap functionality\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount\&. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP The index of the dimension
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Constant reference to the dimension pointed by index
+.RE
+.PP
+
+.PP
+Definition at line \fB68\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBconstexpr\fP T & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP[] (\fBconst\fP std::size_t index)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+The [] operator for ease of use and wrap functionality\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount\&. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP The index of the dimension
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Reference to the dimension pointed by index
+.RE
+.PP
+
+.PP
+Definition at line \fB51\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBconst\fP std::string \fBAEVector\fP< T, \fBdimAmount\fP >::toString (\fBvoid\fP) const\fC [inline]\fP"
+
+.PP
+Converts the vector to std::string, of format [a, b, c, \&.\&.\&.]\&. 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of values of the vector in brackets
+.RE
+.PP
+
+.PP
+Definition at line \fB167\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBstatic\fP \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >::zero (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Returns the zeroed vector (of given dimensions and type) 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of values of the vector in brackets
+.RE
+.PP
+
+.PP
+Definition at line \fB39\fP of file \fBAEVector\&.hpp\fP\&.
+.SH "Friends And Related Symbol Documentation"
+.PP 
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> std::ostream & \fBoperator\fP<< (std::ostream & out, \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > & two)\fC [friend]\fP"
+
+.PP
+The ostream's << operator overload\&.\&.\&.to output the vector through the ostreams\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The numberical type to use in the vector
+.br
+\fIdimAmount\fP The amount of dimensions in the vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIout\fP The ostream object to output to
+.br
+\fItwo\fP The vector to output
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting ostream object
+.RE
+.PP
+
+.PP
+Definition at line \fB190\fP of file \fBAEVector\&.hpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> T \fBAEVector\fP< T, \fBdimAmount\fP >::dims[\fBdimAmount\fP] {}"
+
+.PP
+The array of the vector's dimension values of the type T and size dimAmount\&. 
+.PP
+Definition at line \fB33\fP of file \fBAEVector\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

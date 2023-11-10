@@ -1,0 +1,58 @@
+.TH "AELogParser/main_AELogParser.cpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AELogParser/main_AELogParser.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <iostream>\fP
+.br
+\fC#include 'AELogParser\&.hpp'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatic\fP \fBconstexpr\fP \fBconst\fP char * \fBtypeToString\fP (\fBconst\fP \fBcint\fP \fBlogtype\fP) \fBnoexcept\fP"
+.br
+.RI "Deduces the entry's log type and returns a c-string of it\&. "
+.ti -1c
+.RI "std::string \fBformatLogEntry\fP (\fBconst\fP \fBAELogEntry\fP &\fBentry\fP)"
+.br
+.ti -1c
+.RI "\fBint\fP \fBmain\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "std::string formatLogEntry (\fBconst\fP \fBAELogEntry\fP & entry)\fC [inline]\fP"
+
+.PP
+Definition at line \fB24\fP of file \fBmain_AELogParser\&.cpp\fP\&.
+.SS "\fBint\fP main ()"
+
+.PP
+Definition at line \fB44\fP of file \fBmain_AELogParser\&.cpp\fP\&.
+.SS "\fBstatic\fP \fBconstexpr\fP \fBconst\fP char * typeToString (\fBconst\fP \fBcint\fP logtype)\fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Deduces the entry's log type and returns a c-string of it\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlogtype\fP The value of the log type
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+c-string of the type
+.RE
+.PP
+
+.PP
+Definition at line \fB13\fP of file \fBmain_AELogParser\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

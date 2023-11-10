@@ -1,0 +1,257 @@
+.TH "AEFileWriter/include/AEFileWriter.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEFileWriter/include/AEFileWriter.hpp \- This file contains the code for the engine's file writer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'include/AEModuleBase\&.hpp'\fP
+.br
+\fC#include 'include/AEUtils\&.hpp'\fP
+.br
+\fC#include 'include/AETypedefs\&.hpp'\fP
+.br
+\fC#include 'include/AEFlags\&.hpp'\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <atomic>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include <cstdio>\fP
+.br
+\fC#include <filesystem>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBAEFileWriter\fP"
+.br
+.RI "ArtyK's Engine File Writer; umm, it writes data to given file\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_FLAG_APPEND\fP   1"
+.br
+.RI "Macro to put the write cursor at the end of the file, appending to the file\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_FLAG_APPEND_NO_CURSOR_MOVE\fP   2"
+.br
+.RI "Macro to put the write cursor at the end of the file, appending to the file\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_FLAG_TRUNCATE\fP   3"
+.br
+.RI "Macro to put the write cursor at the start of the file, truncating the contents if existed\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_FLAG_NOFLAGS\fP   0"
+.br
+.RI "Macro for no write flags\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_NOERROR\fP   0"
+.br
+.RI "Macro for the indicator that everything is good\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_WRITE_SUCCESS\fP   0"
+.br
+.RI "Same as AEFW_ERR_NOERROR - value of a successfull write\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_FILE_NOT_OPEN\fP   \-1"
+.br
+.RI "Macro for the error if file isn't open and file operation functions of the file writer are used\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_FILE_NAME_EMPTY\fP   \-2"
+.br
+.RI "Macro for the error if the file name is empty\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_FILE_WRONG_FLAG\fP   \-3"
+.br
+.RI "Macro for the error if the given file flag is wrong and nonexistent\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_FILE_OPEN_ELSE\fP   \-4"
+.br
+.RI "Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_WRITE_ERROR\fP   \-5"
+.br
+.RI "Macro for the error that has occurred in writing (if fwrite returned a non-zero value)\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_WRITE_ZERO_SIZE\fP   \-6"
+.br
+.RI "Macro for the error that occurs if the data pointer, item count and item size is null/zero in \fBAEFileWriter::writeData_ptr()\fP\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_FLUSH_ERROR\fP   \-7"
+.br
+.RI "Macro for the error that has occurred in flushing (if fflush returned a non-zero value)\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFW_ERR_FILE_ALREADY_OPEN\fP   \-8"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fB_AEFW_EXIT_ON_CLOSED_FILE\fP   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFW_ERR_FILE_NOT_OPEN\fP; }"
+.br
+.RI "Macro for the shortened 'check for opened file, set error flag and return error flag if closed', DO NOT TOUCH! "
+.ti -1c
+.RI "#\fBdefine\fP \fB_AEFW_EXIT_ON_WRITE_CLOSED_FILE\fP   \fBif\fP (\fBthis\fP\->isClosed()) { \fBthis\fP\->m_szLastWrittenAmount = 0; \fBreturn\fP \fBAEFW_ERR_FILE_NOT_OPEN\fP; }"
+.br
+.RI "Macro for the shortened 'check for opened file during writing, set error flag and return error flag if closed', DO NOT TOUCH! "
+.ti -1c
+.RI "#\fBdefine\fP \fB_AEFW_EXIT_ON_NO_CURSOR_MOVE\fP   \fBif\fP (\fBthis\fP\->m_cFlags == \fBAEFW_FLAG_APPEND_NO_CURSOR_MOVE\fP) { \fBreturn\fP \fBAEFW_ERR_FILE_WRONG_FLAG\fP; }"
+.br
+.RI "Macro for the shortened 'check for the 'append no cursor move' flag to open file, set and return error flag ifo so', DO NOT TOUCH! "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBREGISTER_CLASS\fP (\fBAEFileWriter\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the code for the engine's file writer\&. 
+
+Which is just a small wrapper around the c's FILE api, for speed and convenience\&. One note when using it though: file is blocked from access by other programs when open\&. But maybe that's a good feature ;)
+.PP
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAEFileWriter\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP _AEFW_EXIT_ON_CLOSED_FILE   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFW_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Macro for the shortened 'check for opened file, set error flag and return error flag if closed', DO NOT TOUCH! 
+.PP
+Definition at line \fB69\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP _AEFW_EXIT_ON_NO_CURSOR_MOVE   \fBif\fP (\fBthis\fP\->m_cFlags == \fBAEFW_FLAG_APPEND_NO_CURSOR_MOVE\fP) { \fBreturn\fP \fBAEFW_ERR_FILE_WRONG_FLAG\fP; }"
+
+.PP
+Macro for the shortened 'check for the 'append no cursor move' flag to open file, set and return error flag ifo so', DO NOT TOUCH! 
+.PP
+Definition at line \fB73\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP _AEFW_EXIT_ON_WRITE_CLOSED_FILE   \fBif\fP (\fBthis\fP\->isClosed()) { \fBthis\fP\->m_szLastWrittenAmount = 0; \fBreturn\fP \fBAEFW_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Macro for the shortened 'check for opened file during writing, set error flag and return error flag if closed', DO NOT TOUCH! 
+.PP
+Definition at line \fB71\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_FILE_ALREADY_OPEN   \-8"
+
+.PP
+Definition at line \fB66\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_FILE_NAME_EMPTY   \-2"
+
+.PP
+Macro for the error if the file name is empty\&. 
+.PP
+Definition at line \fB55\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_FILE_NOT_OPEN   \-1"
+
+.PP
+Macro for the error if file isn't open and file operation functions of the file writer are used\&. 
+.PP
+Definition at line \fB52\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_FILE_OPEN_ELSE   \-4"
+
+.PP
+Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files\&. 
+.PP
+Definition at line \fB59\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_FILE_WRONG_FLAG   \-3"
+
+.PP
+Macro for the error if the given file flag is wrong and nonexistent\&. 
+.PP
+Definition at line \fB57\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_FLUSH_ERROR   \-7"
+
+.PP
+Macro for the error that has occurred in flushing (if fflush returned a non-zero value)\&. 
+.PP
+Definition at line \fB65\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_NOERROR   0"
+
+.PP
+Macro for the indicator that everything is good\&. 
+.PP
+Definition at line \fB48\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_WRITE_ERROR   \-5"
+
+.PP
+Macro for the error that has occurred in writing (if fwrite returned a non-zero value)\&. 
+.PP
+Definition at line \fB61\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_WRITE_SUCCESS   0"
+
+.PP
+Same as AEFW_ERR_NOERROR - value of a successfull write\&. 
+.PP
+Definition at line \fB50\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_ERR_WRITE_ZERO_SIZE   \-6"
+
+.PP
+Macro for the error that occurs if the data pointer, item count and item size is null/zero in \fBAEFileWriter::writeData_ptr()\fP\&. 
+.PP
+Definition at line \fB63\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_FLAG_APPEND   1"
+
+.PP
+Macro to put the write cursor at the end of the file, appending to the file\&. 
+.PP
+\fBNote\fP
+.RS 4
+Cursor change allowed 
+.RE
+.PP
+
+.PP
+Definition at line \fB36\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_FLAG_APPEND_NO_CURSOR_MOVE   2"
+
+.PP
+Macro to put the write cursor at the end of the file, appending to the file\&. 
+.PP
+\fBNote\fP
+.RS 4
+Changing the cursor position/writing anywhere else (than eof) is not allowed 
+.RE
+.PP
+
+.PP
+Definition at line \fB39\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_FLAG_NOFLAGS   0"
+
+.PP
+Macro for no write flags\&. 
+.PP
+\fBNote\fP
+.RS 4
+Same as AEFW_FLAG_TRUNCATE 
+.RE
+.PP
+
+.PP
+Definition at line \fB44\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFW_FLAG_TRUNCATE   3"
+
+.PP
+Macro to put the write cursor at the start of the file, truncating the contents if existed\&. 
+.PP
+Definition at line \fB41\fP of file \fBAEFileWriter\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "REGISTER_CLASS (\fBAEFileWriter\fP)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

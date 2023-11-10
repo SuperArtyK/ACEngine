@@ -1,0 +1,403 @@
+.TH "ace::utils" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ace::utils \- Global usefull utilities\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconstexpr\fP \fBconst\fP char * \fBboolToString\fP (\fBconst\fP bool \fBb\fP) \fBnoexcept\fP"
+.br
+.RI "Converts bool to the word version\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP bool \fBisInRange\fP (\fBconst\fP T \fBminval\fP, \fBconst\fP T \fBmaxval\fP, \fBconst\fP T \fBi\fP) \fBnoexcept\fP"
+.br
+.RI "Checks if the value that you passed is within range\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBtoLowerRef\fP (std::string &\fBstr1\fP)"
+.br
+.RI "Lowers the passed std::string by reference\&. "
+.ti -1c
+.RI "std::string \fBtoLowerVal\fP (std::string \fBstr1\fP)"
+.br
+.RI "Returns the lowered version of passed std::string\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBtoUpperRef\fP (std::string &\fBstr1\fP)"
+.br
+.RI "Uppers the passed std::string by reference\&. "
+.ti -1c
+.RI "std::string \fBtoUpperVal\fP (std::string \fBstr1\fP)"
+.br
+.RI "Returns the uppered version of passed std::string\&. "
+.ti -1c
+.RI "\fBconstexpr\fP bool \fBisNum\fP (\fBconst\fP char *\fBconst\fP \fBstrnum\fP) \fBnoexcept\fP"
+.br
+.RI "Checks if the given string is a numerical value\&. "
+.ti -1c
+.RI "std::string \fBformatDate\fP (\fBconst\fP time_t \fBtimept\fP)"
+.br
+.RI "Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. "
+.ti -1c
+.RI "char * \fBformatDate\fP (\fBconst\fP time_t \fBtimept\fP, char *\fBconst\fP \fBstr\fP) \fBnoexcept\fP"
+.br
+.RI "Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. "
+.ti -1c
+.RI "std::string \fBgetCurrentDate\fP (\fBvoid\fP)"
+.br
+.RI "Retrieves the current date and time and formats it in the YYYY-MM-DD\&.HH:mm:SS\&. "
+.ti -1c
+.RI "\fBconst\fP time_t \fBstringToDate\fP (\fBconst\fP char *\fBconst\fP \fBtimestr\fP, \fBconst\fP char *\fBconst\fP \fBtimeformat\fP='%Y\-%\fBm\fP\-%d\&.%\fBX'\fP)"
+.br
+.ti -1c
+.RI "std::string \fBaddrToStr\fP (\fBconst\fP \fBvoid\fP *\fBconst\fP \fBmyptr\fP)"
+.br
+.RI "Converts the hex address value to string\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsleepMS\fP (\fBconst\fP \fBint\fP \fBms\fP)"
+.br
+.RI "Convenient sleep function to sleep the thread for ms milliseconds\&. "
+.ti -1c
+.RI "\fBvoid\fP \fBsleepUS\fP (\fBconst\fP \fBint\fP \fBus\fP)"
+.br
+.RI "Convenient sleep function to sleep the thread for ms microseconds\&. "
+.ti -1c
+.RI "\fBFILE\fP * \fBfopenCC\fP (\fBconst\fP char *\fBconst\fP \fBfname\fP, \fBconst\fP char *\fBconst\fP \fBflags\fP) \fBnoexcept\fP"
+.br
+.RI "fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it properly\&. "
+.ti -1c
+.RI "\fBconstexpr\fP \fBint\fP \fBcharToInt\fP (\fBconst\fP char \fBc\fP) \fBnoexcept\fP"
+.br
+.RI "Converts the given character value to int ('0' to 0), if it is within the '0'->'9' range\&. "
+.ti -1c
+.RI "\fBconstexpr\fP char \fBintToChar\fP (\fBconst\fP \fBint\fP \fBi\fP) \fBnoexcept\fP"
+.br
+.RI "Converts the given int value to char (0 to '0'), if it is within the 0->9 range\&. "
+.ti -1c
+.RI "\fBconstexpr\fP bool \fBisAlNum\fP (\fBconst\fP std::string_view \fBstr\fP)"
+.br
+.ti -1c
+.RI "\fBconstexpr\fP bool \fBisAlNumUs\fP (\fBconst\fP std::string_view \fBstr\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Global usefull utilities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "std::string ace::utils::addrToStr (\fBconst\fP \fBvoid\fP *\fBconst\fP myptr)\fC [inline]\fP"
+
+.PP
+Converts the hex address value to string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImyptr\fP Pointer to whatever memory adress
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string with the hexadecimal version of the adress
+.RE
+.PP
+
+.PP
+Definition at line \fB279\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconstexpr\fP \fBconst\fP char * ace::utils::boolToString (\fBconst\fP bool b)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Converts bool to the word version\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIb\fP The boolean to convert
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+const char* of 'true' or 'false'
+.RE
+.PP
+
+.PP
+Definition at line \fB109\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconstexpr\fP \fBint\fP ace::utils::charToInt (\fBconst\fP char c)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Converts the given character value to int ('0' to 0), if it is within the '0'->'9' range\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP The character value to convert
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int's 0-9 values if the given char value is within range, -1 otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB330\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBFILE\fP * ace::utils::fopenCC (\fBconst\fP char *\fBconst\fP fname, \fBconst\fP char *\fBconst\fP flags)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it properly\&. Opens the file with given name and flags\&. Needed so i dont need to retype ifdef for each of file openings Makes code cleaner\&.\&.\&.relatively
+.PP
+\fBParameters\fP
+.RS 4
+\fIfname\fP File name, as you'd pass to fopen
+.br
+\fIflags\fP File flags, as you'd pass to fopen
+.RE
+.PP
+
+.PP
+Definition at line \fB311\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "std::string ace::utils::formatDate (\fBconst\fP time_t timept)\fC [inline]\fP"
+
+.PP
+Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. 
+.PP
+\fBWarning\fP
+.RS 4
+If -1 was passed, fails and returns empty string;
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItimept\fP C time point
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the formatted string
+.RE
+.PP
+
+.PP
+Definition at line \fB208\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "char * ace::utils::formatDate (\fBconst\fP time_t timept, char *\fBconst\fP str)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. 
+.PP
+\fBWarning\fP
+.RS 4
+If -1 was passed, fails and doesn't modify the string contents 
+.PP
+On fail, returns the passed string\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItimept\fP C time point
+.br
+\fIstr\fP The c-string to write the value to\&. Must be at least 20 bytes long (19 characters with 1 null terminator)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line \fB235\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "std::string ace::utils::getCurrentDate (\fBvoid\fP)\fC [inline]\fP"
+
+.PP
+Retrieves the current date and time and formats it in the YYYY-MM-DD\&.HH:mm:SS\&. 
+.PP
+\fBReturns\fP
+.RS 4
+std::stringof the current date in YYYY-MM-DD\&.HH:mm:SS format
+.RE
+.PP
+
+.PP
+Definition at line \fB258\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconstexpr\fP char ace::utils::intToChar (\fBconst\fP \fBint\fP i)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Converts the given int value to char (0 to '0'), if it is within the 0->9 range\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP The integer value to convert
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char's '0'->'9' values if the given char value is within range, -1 otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB339\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconstexpr\fP bool ace::utils::isAlNum (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [constexpr]\fP"
+
+.PP
+Definition at line \fB344\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconstexpr\fP bool ace::utils::isAlNumUs (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [constexpr]\fP"
+
+.PP
+Definition at line \fB349\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP bool ace::utils::isInRange (\fBconst\fP T minval, \fBconst\fP T maxval, \fBconst\fP T i)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Checks if the value that you passed is within range\&. 
+.PP
+\fBNote\fP
+.RS 4
+The type of the values you pass to this function shall be the same
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of values to compare
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIminval\fP Minimum value of the range of values
+.br
+\fImaxval\fP Maximum value of the range of values
+.br
+\fIi\fP The value to check
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the value is in the range, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB123\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconstexpr\fP bool ace::utils::isNum (\fBconst\fP char *\fBconst\fP strnum)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Checks if the given string is a numerical value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstrnum\fP C-string of the 'number' to check
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if that string is indeed a number, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB168\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBvoid\fP ace::utils::sleepMS (\fBconst\fP \fBint\fP ms)\fC [inline]\fP"
+
+.PP
+Convenient sleep function to sleep the thread for ms milliseconds\&. 
+.PP
+\fBNote\fP
+.RS 4
+May be inaccurate in delay (as\&.\&.\&.all sleep functions are)
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIms\fP The amount of milliseconds to sleep
+.RE
+.PP
+
+.PP
+Definition at line \fB290\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBvoid\fP ace::utils::sleepUS (\fBconst\fP \fBint\fP us)\fC [inline]\fP"
+
+.PP
+Convenient sleep function to sleep the thread for ms microseconds\&. 
+.PP
+\fBNote\fP
+.RS 4
+May be inaccurate in delay (as\&.\&.\&.all sleep functions are)
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIus\fP The amount of microseconds to sleep
+.RE
+.PP
+
+.PP
+Definition at line \fB299\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBconst\fP time_t ace::utils::stringToDate (\fBconst\fP char *\fBconst\fP timestr, \fBconst\fP char *\fBconst\fP timeformat = \fC'%Y\-%\fBm\fP\-%d\&.%\fBX'\fP\fP)\fC [inline]\fP"
+
+.PP
+Definition at line \fB262\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBvoid\fP ace::utils::toLowerRef (std::string & str1)\fC [inline]\fP"
+
+.PP
+Lowers the passed std::string by reference\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr1\fP The string to be lowered
+.RE
+.PP
+
+.PP
+Definition at line \fB131\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "std::string ace::utils::toLowerVal (std::string str1)\fC [inline]\fP"
+
+.PP
+Returns the lowered version of passed std::string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr1\fP The string to be lowered
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The lowered version of the string
+.RE
+.PP
+
+.PP
+Definition at line \fB140\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "\fBvoid\fP ace::utils::toUpperRef (std::string & str1)\fC [inline]\fP"
+
+.PP
+Uppers the passed std::string by reference\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr1\fP The string to be uppered
+.RE
+.PP
+
+.PP
+Definition at line \fB149\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "std::string ace::utils::toUpperVal (std::string str1)\fC [inline]\fP"
+
+.PP
+Returns the uppered version of passed std::string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr1\fP The string to be uppered
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The uppered version of the string
+.RE
+.PP
+
+.PP
+Definition at line \fB158\fP of file \fBAEUtils\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

@@ -1,0 +1,95 @@
+.TH "AELogger/include/AELogger.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AELogger/include/AELogger.hpp \- This file contains the code for the engine's logger module, err\&.\&.\&.for logging data to file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'include/AEModuleBase\&.hpp'\fP
+.br
+\fC#include 'include/AEFileWriter\&.hpp'\fP
+.br
+\fC#include 'include/AELogEntry\&.hpp'\fP
+.br
+\fC#include 'include/AETypedefs\&.hpp'\fP
+.br
+\fC#include 'include/AEFlags\&.hpp'\fP
+.br
+\fC#include 'AELogTypes\&.hpp'\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <atomic>\fP
+.br
+\fC#include <thread>\fP
+.br
+\fC#include <mutex>\fP
+.br
+\fC#include <string_view>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBAELogger\fP"
+.br
+.RI "The ArtyK's Engine's Logger module -- it manages the writing to the log files\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ERR_NOERROR\fP   0"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ERR_UNABLE_START_THREAD\fP   1"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ERR_THREAD_ALREADY_RUNNING\fP   2"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELOG_ERR_THREAD_ALREADY_STOPPED\fP   3"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBREGISTER_CLASS\fP (\fBAELogger\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the code for the engine's logger module, err\&.\&.\&.for logging data to file\&. 
+
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAELogger\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP AELOG_ERR_NOERROR   0"
+
+.PP
+Definition at line \fB26\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ERR_THREAD_ALREADY_RUNNING   2"
+
+.PP
+Definition at line \fB28\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ERR_THREAD_ALREADY_STOPPED   3"
+
+.PP
+Definition at line \fB29\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_ERR_UNABLE_START_THREAD   1"
+
+.PP
+Definition at line \fB27\fP of file \fBAELogger\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "REGISTER_CLASS (\fBAELogger\fP)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

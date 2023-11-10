@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['equals_0',['equals',['../d5/d0f/namespaceace_1_1math.html#a8a9daa17856b68b3a998ce0deb78163d',1,'ace::math']]]
+  ['e_0',['e',['../d5/d0f/namespaceace_1_1math.html#a29f540f67e8572c879eb4b68090c90c8',1,'ace::math']]],
+  ['equals_1',['equals',['../d5/d0f/namespaceace_1_1math.html#a8a9daa17856b68b3a998ce0deb78163d',1,'ace::math']]]
 ];

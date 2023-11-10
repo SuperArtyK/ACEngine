@@ -1,0 +1,36 @@
+.TH "AEMisc/include/AETrigLookup.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEMisc/include/AETrigLookup.hpp \- This file contains the results for the trigonometric function lookup tables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <limits>\fP
+.br
+\fC#include 'AETypedefs\&.hpp'\fP
+.br
+\fC#include 'include/AEFlags\&.hpp'\fP
+.br
+\fC#include 'include/AEMath\&.hpp'\fP
+.br
+
+.SH "Detailed Description"
+.PP 
+This file contains the results for the trigonometric function lookup tables\&. 
+
+These will be insanely fast, almost as the direct memory access (since just value in array), but won't offer much of precision -- within 1 degree\&. (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in \fBAEFlags\&.hpp\fP to enable/disable this\&.
+.PP
+\fBTodo\fP
+.RS 4
+Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
+.RE
+.PP
+.PP
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAETrigLookup\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

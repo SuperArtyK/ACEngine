@@ -1,0 +1,178 @@
+.TH "AEFileReader/include/AEFileReader.hpp" 3 "Thu Nov 9 2023 20:42:38" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AEFileReader/include/AEFileReader.hpp \- This file contains the code for the engine's file reader\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'include/AEModuleBase\&.hpp'\fP
+.br
+\fC#include 'include/AETypedefs\&.hpp'\fP
+.br
+\fC#include 'include/AEUtils\&.hpp'\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <atomic>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <string_view>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include <cstdio>\fP
+.br
+\fC#include <filesystem>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBAEFileReader\fP"
+.br
+.RI "ArtyK's Engine File Reader; umm, it reads data from the given file\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_NOERROR\fP   0"
+.br
+.RI "Macro for the indicator that everything is good\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_READ_SUCCESS\fP   0"
+.br
+.RI "same as AEFR_ERR_NOERROR - value of a successfull read\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP   \-1"
+.br
+.RI "Macro for the error if file isn't open and file operation functions of the file reader are used\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_FILE_NAME_EMPTY\fP   \-2"
+.br
+.RI "Macro for the error if the file name is empty\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_FILE_DOESNT_EXIST\fP   \-3"
+.br
+.RI "Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_READING_EOF\fP   \-4"
+.br
+.RI "Macro for the error occurring when end of file was reached when reading the file\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_READING_ERROR\fP   \-5"
+.br
+.RI "Macro for the reading error that occurred when reading the file (look up \fBferror()\fP )\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_READ_ZERO_SIZE\fP   \-6"
+.br
+.RI "Macro for the error that occurs if the data pointer, item count and item size is null/zero in \fBAEFileReader::readData_ptr()\fP\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAEFR_ERR_FILE_ALREADY_OPEN\fP   \-7"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fB_AEFR_EXIT_ON_CLOSED_FILE\fP   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+.br
+.RI "Macro for the shortened 'check for opened file, set error flag and return error flag if closed', DO NOT TOUCH! "
+.ti -1c
+.RI "#\fBdefine\fP \fB_AEFR_EXIT_ON_READ_CLOSED_FILE\fP   \fBif\fP (\fBthis\fP\->isClosed()) { \fBthis\fP\->m_szLastReadAmount = 0; \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+.br
+.RI "Macro for the shortened 'check for opened file during the read operation, set error flag and return error flag if closed', DO NOT TOUCH! "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBREGISTER_CLASS\fP (\fBAEFileReader\fP) \fBtemplate\fP< \fBtypename\fP T > \fBinline\fP \fBcint\fP \fBAEFileReader\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the code for the engine's file reader\&. 
+
+Which is just a small wrapper around the c's FILE api, for speed and convenience\&. One note when using it though: file is blocked from access by other programs when open\&. But maybe that's a good feature ;)
+.PP
+Should not cause everything to break :) 
+.PP
+Definition in file \fBAEFileReader\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#\fBdefine\fP _AEFR_EXIT_ON_CLOSED_FILE   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Macro for the shortened 'check for opened file, set error flag and return error flag if closed', DO NOT TOUCH! 
+.PP
+Definition at line \fB59\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP _AEFR_EXIT_ON_READ_CLOSED_FILE   \fBif\fP (\fBthis\fP\->isClosed()) { \fBthis\fP\->m_szLastReadAmount = 0; \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Macro for the shortened 'check for opened file during the read operation, set error flag and return error flag if closed', DO NOT TOUCH! 
+.PP
+Definition at line \fB61\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_FILE_ALREADY_OPEN   \-7"
+
+.PP
+Definition at line \fB56\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_FILE_DOESNT_EXIST   \-3"
+
+.PP
+Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files\&. 
+.PP
+Definition at line \fB49\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_FILE_NAME_EMPTY   \-2"
+
+.PP
+Macro for the error if the file name is empty\&. 
+.PP
+Definition at line \fB47\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_FILE_NOT_OPEN   \-1"
+
+.PP
+Macro for the error if file isn't open and file operation functions of the file reader are used\&. 
+.PP
+Definition at line \fB44\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_NOERROR   0"
+
+.PP
+Macro for the indicator that everything is good\&. 
+.PP
+Definition at line \fB40\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_READ_SUCCESS   0"
+
+.PP
+same as AEFR_ERR_NOERROR - value of a successfull read\&. 
+.PP
+Definition at line \fB42\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_READ_ZERO_SIZE   \-6"
+
+.PP
+Macro for the error that occurs if the data pointer, item count and item size is null/zero in \fBAEFileReader::readData_ptr()\fP\&. 
+.PP
+Definition at line \fB55\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_READING_EOF   \-4"
+
+.PP
+Macro for the error occurring when end of file was reached when reading the file\&. 
+.PP
+Definition at line \fB51\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#\fBdefine\fP AEFR_ERR_READING_ERROR   \-5"
+
+.PP
+Macro for the reading error that occurred when reading the file (look up \fBferror()\fP )\&. 
+.PP
+Definition at line \fB53\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "REGISTER_CLASS (\fBAEFileReader\fP)"
+
+.PP
+Definition at line \fB603\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

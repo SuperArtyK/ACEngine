@@ -9,7 +9,7 @@ var class_a_e_timer =
     [ "getModuleAmount", "da/d62/class_a_e_timer.html#ab3257ef44350e547976d6199ffdb743f", null ],
     [ "getModuleName", "da/d62/class_a_e_timer.html#a0556631c382fb08daaa05dc30e661f45", null ],
     [ "getTick", "da/d62/class_a_e_timer.html#aa6c9d51957b618a3da21e2b8082fc471", null ],
-    [ "getWorldTime", "da/d62/class_a_e_timer.html#a3e18f206a7f1cfef133b752aa6fc420d", null ],
+    [ "getWorldTime", "da/d62/class_a_e_timer.html#a2a6447a8cfe20c387d27182a7fecb70e", null ],
     [ "operator=", "da/d62/class_a_e_timer.html#a7bdf64ddc743a1223164764b9cb15091", null ],
     [ "resetTick", "da/d62/class_a_e_timer.html#a8ae59d1447bcae7a65ef8099f7e14ac6", null ],
     [ "setDelay", "da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c", null ],

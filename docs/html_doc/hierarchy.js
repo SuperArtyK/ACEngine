@@ -13,6 +13,9 @@ var hierarchy =
     [ "__AEModuleBase< AELogger >", "d0/d8a/class_____a_e_module_base.html", [
       [ "AELogger", "d8/dfc/class_a_e_logger.html", null ]
     ] ],
+    [ "__AEModuleBase< AELogParser >", "d0/d8a/class_____a_e_module_base.html", [
+      [ "AELogParser", "d8/d52/class_a_e_log_parser.html", null ]
+    ] ],
     [ "__AEModuleBase< AETimer >", "d0/d8a/class_____a_e_module_base.html", [
       [ "AETimer", "da/d62/class_a_e_timer.html", null ]
     ] ],

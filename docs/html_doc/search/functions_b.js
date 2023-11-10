@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['normalise_0',['normalise',['../dc/df6/struct_a_e_vector.html#a87aa30bc81f3c758646d391fa9cfffda',1,'AEVector']]],
-  ['normdim_1',['normDim',['../dc/df6/struct_a_e_vector.html#a8704d4d72eedd18b6f99ea27f491282e',1,'AEVector']]]
+  ['magnitude_0',['magnitude',['../dc/df6/struct_a_e_vector.html#ae7910b27685b355d566e989bf5ab3f3a',1,'AEVector']]],
+  ['main_1',['main',['../d8/d1f/main___a_c_engine_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main_ACEngine.cpp'],['../d0/db9/main___a_e_log_parser_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main_AELogParser.cpp']]],
+  ['makequeue_2',['makeQueue',['../d8/dfc/class_a_e_logger.html#a4d57b6ba2d07dddf1e5f5f66aa630b52',1,'AELogger']]],
+  ['matchlogtype_3',['matchLogType',['../d8/d52/class_a_e_log_parser.html#a59e2aabfd81603bf2982f182684d88ee',1,'AELogParser']]],
+  ['max_4',['max',['../d5/d0f/namespaceace_1_1math.html#aa051a7ad7f5c07d22e4d7ccab3aa3c62',1,'ace::math']]],
+  ['min_5',['min',['../d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b',1,'ace::math']]]
 ];

@@ -93,7 +93,9 @@ $(document).ready(function(){initNavTree('da/dea/struct_a_e_log_entry.html','../
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../db/d58/struct_a_e_log_entry-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AELogEntry Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -101,37 +103,68 @@ $(document).ready(function(){initNavTree('da/dea/struct_a_e_log_entry.html','../
 <p>The structure for the log entry data in the queue of <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>.  
  <a href="../../da/dea/struct_a_e_log_entry.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a06cdd3e9a781dd78d133bfba71a669dd" id="r_a06cdd3e9a781dd78d133bfba71a669dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">static</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a06cdd3e9a781dd78d133bfba71a669dd">clearEntry</a> (<a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">entry</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="separator:a06cdd3e9a781dd78d133bfba71a669dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:a27d15be249f8a92b27544b3093c680eb" id="r_a27d15be249f8a92b27544b3093c680eb"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a27d15be249f8a92b27544b3093c680eb">m_sLogMessage</a> [512] {}</td></tr>
-<tr class="memdesc:a27d15be249f8a92b27544b3093c680eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The message of the log entry.  <br /></td></tr>
-<tr class="separator:a27d15be249f8a92b27544b3093c680eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b339789734d4558a0b6240f6c9bf1d" id="r_a53b339789734d4558a0b6240f6c9bf1d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a53b339789734d4558a0b6240f6c9bf1d">m_sModuleName</a> [32] {}</td></tr>
-<tr class="memdesc:a53b339789734d4558a0b6240f6c9bf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the module that issued the log entry.  <br /></td></tr>
-<tr class="separator:a53b339789734d4558a0b6240f6c9bf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8328cce79f245ad06bd5c5f90f23b3f" id="r_af8328cce79f245ad06bd5c5f90f23b3f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#af8328cce79f245ad06bd5c5f90f23b3f">m_tmLogTime</a> = 0</td></tr>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ab81e345534f9b5d212d9ea23c13e2eef" id="r_ab81e345534f9b5d212d9ea23c13e2eef"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab81e345534f9b5d212d9ea23c13e2eef">m_sLogMessage</a> [<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a611f1bcd6cf06c6a629476f17ec92b19">AELOG_ENTRY_MESSAGE_SIZE</a>+1] {}</td></tr>
+<tr class="memdesc:ab81e345534f9b5d212d9ea23c13e2eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The message of the log entry.  <br /></td></tr>
+<tr class="separator:ab81e345534f9b5d212d9ea23c13e2eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b54823cc4fd22511fedac949ec408a" id="r_ab5b54823cc4fd22511fedac949ec408a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab5b54823cc4fd22511fedac949ec408a">m_sModuleName</a> [<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a18d9066ba31bd949ad4feeafbbe5f853">AELOG_ENTRY_MODULENAME_SIZE</a>+1] {}</td></tr>
+<tr class="memdesc:ab5b54823cc4fd22511fedac949ec408a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the module that issued the log entry.  <br /></td></tr>
+<tr class="separator:ab5b54823cc4fd22511fedac949ec408a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8328cce79f245ad06bd5c5f90f23b3f" id="r_af8328cce79f245ad06bd5c5f90f23b3f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#af8328cce79f245ad06bd5c5f90f23b3f">m_tmLogTime</a> = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">NULL</a></td></tr>
 <tr class="memdesc:af8328cce79f245ad06bd5c5f90f23b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time when this log entry was created.  <br /></td></tr>
 <tr class="separator:af8328cce79f245ad06bd5c5f90f23b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f5adf7c9675ebb89b8587a0f682125" id="r_ac8f5adf7c9675ebb89b8587a0f682125"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac8f5adf7c9675ebb89b8587a0f682125">m_ullOrderNum</a> = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>(-1)</td></tr>
-<tr class="memdesc:ac8f5adf7c9675ebb89b8587a0f682125"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">order(or queue)</a> number of the log entry, safety measure for consequent writing and thread-safety.  <br /></td></tr>
-<tr class="separator:ac8f5adf7c9675ebb89b8587a0f682125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09d10036d8f26c8ef7f1b7566786300f" id="r_a09d10036d8f26c8ef7f1b7566786300f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a09d10036d8f26c8ef7f1b7566786300f">m_lepNextNode</a> = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">nullptr</a></td></tr>
-<tr class="memdesc:a09d10036d8f26c8ef7f1b7566786300f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pointer to the next log entry in the queue.  <br /></td></tr>
-<tr class="separator:a09d10036d8f26c8ef7f1b7566786300f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df47dbc166ac44e08fb9f7d393acb42" id="r_a6df47dbc166ac44e08fb9f7d393acb42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a6df47dbc166ac44e08fb9f7d393acb42">m_pNextNode</a> = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">nullptr</a></td></tr>
+<tr class="memdesc:a6df47dbc166ac44e08fb9f7d393acb42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pointer to the next log entry in the queue.  <br /></td></tr>
+<tr class="separator:a6df47dbc166ac44e08fb9f7d393acb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac59b70ca8c0f5ce4fc3605009b433b59" id="r_ac59b70ca8c0f5ce4fc3605009b433b59"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac59b70ca8c0f5ce4fc3605009b433b59">m_cStatus</a> = 0</td></tr>
 <tr class="memdesc:ac59b70ca8c0f5ce4fc3605009b433b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">The status flag in the entry to show if the entry is ready, being read/set, or is invalid.  <br /></td></tr>
 <tr class="separator:ac59b70ca8c0f5ce4fc3605009b433b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cebabba73b9f2159b55911d7d24d180" id="r_a9cebabba73b9f2159b55911d7d24d180"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180">m_cLogType</a> = 0</td></tr>
+<tr class="memitem:a9cebabba73b9f2159b55911d7d24d180" id="r_a9cebabba73b9f2159b55911d7d24d180"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180">m_cLogType</a> = -1</td></tr>
 <tr class="memdesc:a9cebabba73b9f2159b55911d7d24d180"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the log entry.  <br /></td></tr>
 <tr class="separator:a9cebabba73b9f2159b55911d7d24d180"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The structure for the log entry data in the queue of <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
-</div><h2 class="groupheader">Field Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a06cdd3e9a781dd78d133bfba71a669dd" name="a06cdd3e9a781dd78d133bfba71a669dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06cdd3e9a781dd78d133bfba71a669dd">&#9670;&#160;</a></span>clearEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">static</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a> AELogEntry::clearEntry </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a>&#160;</td>
+          <td class="paramname"><em>entry</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="a9cebabba73b9f2159b55911d7d24d180" name="a9cebabba73b9f2159b55911d7d24d180"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cebabba73b9f2159b55911d7d24d180">&#9670;&#160;</a></span>m_cLogType</h2>
 
@@ -139,7 +172,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogEntry::m_cLogType = 0</td>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogEntry::m_cLogType = -1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -147,7 +180,7 @@ Data Fields</h2></td></tr>
 <p>The type of the log entry. </p>
 <dl class="section see"><dt>See also</dt><dd>AELOG_TYPE_* </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00052">52</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -165,61 +198,61 @@ Data Fields</h2></td></tr>
 
 <p>The status flag in the entry to show if the entry is ready, being read/set, or is invalid. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00048">48</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a09d10036d8f26c8ef7f1b7566786300f" name="a09d10036d8f26c8ef7f1b7566786300f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09d10036d8f26c8ef7f1b7566786300f">&#9670;&#160;</a></span>m_lepNextNode</h2>
+<a id="a6df47dbc166ac44e08fb9f7d393acb42" name="a6df47dbc166ac44e08fb9f7d393acb42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df47dbc166ac44e08fb9f7d393acb42">&#9670;&#160;</a></span>m_pNextNode</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>* AELogEntry::m_lepNextNode = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">nullptr</a></td>
+          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>* AELogEntry::m_pNextNode = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">nullptr</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The pointer to the next log entry in the queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a27d15be249f8a92b27544b3093c680eb" name="a27d15be249f8a92b27544b3093c680eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27d15be249f8a92b27544b3093c680eb">&#9670;&#160;</a></span>m_sLogMessage</h2>
+<a id="ab81e345534f9b5d212d9ea23c13e2eef" name="ab81e345534f9b5d212d9ea23c13e2eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81e345534f9b5d212d9ea23c13e2eef">&#9670;&#160;</a></span>m_sLogMessage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char AELogEntry::m_sLogMessage[512] {}</td>
+          <td class="memname">char AELogEntry::m_sLogMessage[<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a611f1bcd6cf06c6a629476f17ec92b19">AELOG_ENTRY_MESSAGE_SIZE</a>+1] {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The message of the log entry. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a53b339789734d4558a0b6240f6c9bf1d" name="a53b339789734d4558a0b6240f6c9bf1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53b339789734d4558a0b6240f6c9bf1d">&#9670;&#160;</a></span>m_sModuleName</h2>
+<a id="ab5b54823cc4fd22511fedac949ec408a" name="ab5b54823cc4fd22511fedac949ec408a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b54823cc4fd22511fedac949ec408a">&#9670;&#160;</a></span>m_sModuleName</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char AELogEntry::m_sModuleName[32] {}</td>
+          <td class="memname">char AELogEntry::m_sModuleName[<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a18d9066ba31bd949ad4feeafbbe5f853">AELOG_ENTRY_MODULENAME_SIZE</a>+1] {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The name of the module that issued the log entry. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -230,38 +263,19 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::time_t AELogEntry::m_tmLogTime = 0</td>
+          <td class="memname">std::time_t AELogEntry::m_tmLogTime = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">NULL</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The time when this log entry was created. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac8f5adf7c9675ebb89b8587a0f682125" name="ac8f5adf7c9675ebb89b8587a0f682125"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8f5adf7c9675ebb89b8587a0f682125">&#9670;&#160;</a></span>m_ullOrderNum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::atomic&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>&gt; AELogEntry::m_ullOrderNum = <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>(-1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">order(or queue)</a> number of the log entry, safety measure for consequent writing and thread-safety. </p>
-<dl class="section note"><dt>Note</dt><dd>The log-writing thread will ignore this entry, if it is set to AELOG_ENTRY_INVALID_ORDERNUM </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>AEMisc/include/<a class="el" href="../../d2/d65/_a_e_types_8hpp_source.html">AETypes.hpp</a></li>
+<li>AECustomTypes/include/<a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -269,7 +283,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></li>
-    <li class="footer">Generated on Tue Oct 10 2023 16:07:12 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 9 2023 20:42:39 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

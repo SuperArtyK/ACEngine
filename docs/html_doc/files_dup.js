@@ -1,6 +1,7 @@
 var files_dup =
 [
     [ "ACEngine", "dir_175f6e7c8889da8a2a8f06d252fa7d55.html", "dir_175f6e7c8889da8a2a8f06d252fa7d55" ],
+    [ "AECustomTypes", "dir_c7fd627511514fa4f3972160e00d4a6c.html", "dir_c7fd627511514fa4f3972160e00d4a6c" ],
     [ "AEFileReader", "dir_3da38e614281be5a2938b27bbc39cb74.html", "dir_3da38e614281be5a2938b27bbc39cb74" ],
     [ "AEFileWriter", "dir_a2de6fd86e9b2cb1ade2dbd217a79f99.html", "dir_a2de6fd86e9b2cb1ade2dbd217a79f99" ],
     [ "AEFrame", "dir_f874924d2cc0884710483520e5002389.html", "dir_f874924d2cc0884710483520e5002389" ],

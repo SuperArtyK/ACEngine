@@ -1,0 +1,695 @@
+.TH "ace::math" 3 "Thu Nov 9 2023 20:42:39" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ace::math \- Mathematical functions and other things usefull in math\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBpi\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBtau\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's tau (pi*2) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBpiH\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi/2 (half) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBpiQ\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi/4 (quarter) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBe\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's euler number value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBsqrt2\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's sqrt(2) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBsinDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the sine of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBcosDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the cosine of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBtanDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the tangent of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBcotDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the cotangent of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBcscDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the cosecant of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> T \fBsecDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the secant of the given degrees\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBabsval\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Calculates the absolute value of a given number\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBfequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP=std::numeric_limits< T >\fB::epsilon\fP()) \fBnoexcept\fP"
+.br
+.RI "Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go further than float epsilon)\fP\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP bool \fBequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.br
+.RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBsqrt\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBintPow\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBuint\fP \fBpower\fP)"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBroot\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBuint\fP \fBrtNum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBmax\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.br
+.RI "Gets the biggest value between given two values\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBmin\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.br
+.RI "Gets the smallest value between given two values\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBintLength\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Calculate the length of the given integer number\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBfloatLength\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Calculate the length of the given float number\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBlerp\fP (\fBconst\fP T \fBa\fP, \fBconst\fP T \fBb\fP, \fBconst\fP T \fBc\fP)"
+.br
+.RI "Computes the linear inter/extrapolation with the given values a and b and a value c between or outside of them\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBhypot\fP (\fBconst\fP T \fBa\fP, \fBconst\fP T \fBb\fP)"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBisInf\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBisNan\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBisFinite\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBroundToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Rounds the given float of type Y to integer of type T\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBfloorToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.RI "Floor's, truncates the given float of type Y and converts to integer of type T\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBceilToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.ti -1c
+.RI "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T \fBtruncToInt\fP (\fBconst\fP \fBY\fP \fBnum\fP) \fBnoexcept\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Mathematical functions and other things usefull in math\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP T ace::math::absval (\fBconst\fP T num)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the absolute value of a given number\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The value to calculate absolute value of
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+absolute value of the float as the type T
+.RE
+.PP
+
+.PP
+Definition at line \fB166\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T ace::math::ceilToInt (\fBconst\fP \fBY\fP num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB387\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> T ace::math::cosDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the cosine of the given degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP Degree number to calculate cosine from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of cosine results
+.RE
+.PP
+
+.PP
+Definition at line \fB115\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> T ace::math::cotDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the cotangent of the given degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP Degree number to calculate cotangent from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of cotangent results
+.RE
+.PP
+
+.PP
+Definition at line \fB135\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> T ace::math::cscDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the cosecant of the given degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP Degree number to calculate cosecant from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of cosecant results
+.RE
+.PP
+
+.PP
+Definition at line \fB145\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::e (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Engine's euler number value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert e to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+e converted/rounded to a given type
+.RE
+.PP
+
+.PP
+Definition at line \fB85\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP bool ace::math::equals (\fBconst\fP T num, \fBconst\fP T num2)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Checks if given 2 numbers are equal, a generic function for all types\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the T type is a float, returns the result of \fBace::math::fequals()\fP with the default epsilon values
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the numbers passed
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The first number to compare
+.br
+\fInum2\fP The second number to compare
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the two numbers are equal, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB196\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::fequals (\fBconst\fP T num, \fBconst\fP T num2, \fBconst\fP T _epsilon = \fCstd::numeric_limits<T>\fB::epsilon\fP()\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go further than float epsilon)\fP\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the float
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The first float to compare
+.br
+\fInum2\fP The second float to compare
+.br
+\fI_epsilon\fP The epsilon to compare against\&. Defaults to the std::numeric_limits<T>::epsilon()
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if both numbers are equal, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB180\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP ace::math::floatLength (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculate the length of the given float number\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the float number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The number to calculate the length of
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Unsigned int of the length of the passed number
+.RE
+.PP
+
+.PP
+Definition at line \fB304\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T ace::math::floorToInt (\fBconst\fP \fBY\fP num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Floor's, truncates the given float of type Y and converts to integer of type T\&. 
+.PP
+\fBWarning\fP
+.RS 4
+It breaks if the num value is more than the max value of T! 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Float type Y should be a valid value (not NAN or inf) 
+.PP
+Exists here while C++23's constexpr floor is still being adopted 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23) 
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the integer to floor to
+.br
+\fIY\fP The type of the float to floor
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The floating point number to floor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The floored integer of type T, from the given float number
+.RE
+.PP
+
+.PP
+Definition at line \fB379\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::hypot (\fBconst\fP T a, \fBconst\fP T b)\fC [constexpr]\fP"
+
+.PP
+Definition at line \fB326\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP ace::math::intLength (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculate the length of the given integer number\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the integer number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The number to calculate the length of
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Unsigned int of the length of the passed number
+.RE
+.PP
+
+.PP
+Definition at line \fB288\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::intPow (\fBconst\fP T num, \fBconst\fP \fBuint\fP power)\fC [constexpr]\fP"
+
+.PP
+Definition at line \fB231\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::isFinite (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB344\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::isInf (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB331\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::isNan (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB338\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::lerp (\fBconst\fP T a, \fBconst\fP T b, \fBconst\fP T c)\fC [constexpr]\fP"
+
+.PP
+Computes the linear inter/extrapolation with the given values a and b and a value c between or outside of them\&. 
+.PP
+\fBNote\fP
+.RS 4
+If c is between 0 and 1, computes linear interpolation 
+.PP
+if c is outside of 0 and 1, computes linear extrapolation
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type to calculate it with
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP The value of a (lower known boundary)
+.br
+\fIb\fP The value of b (higher known boundary)
+.br
+\fIc\fP The value for inter/extrapolation (distance from value 'a')
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of type T of the inter/extrapolated value
+.RE
+.PP
+
+.PP
+Definition at line \fB320\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP T ace::math::max (\fBconst\fP T & a, \fBconst\fP T & b)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Gets the biggest value between given two values\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type of the values
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP The first value to compare
+.br
+\fIb\fP The second value to compare
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Value of a if it is bigger than b; value of b otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB265\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBconstexpr\fP T ace::math::min (\fBconst\fP T & a, \fBconst\fP T & b)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Gets the smallest value between given two values\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type of the values
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP The first value to compare
+.br
+\fIb\fP The second value to compare
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Value of a if it is smaller than b; value of b otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB277\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::pi (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Engine's pi value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert pi to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pi converted/rounded to a given type
+.RE
+.PP
+
+.PP
+Definition at line \fB44\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::piH (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Engine's pi/2 (half) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert pi/2 to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pi/2 converted/rounded to a given type
+.RE
+.PP
+
+.PP
+Definition at line \fB64\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::piQ (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Engine's pi/4 (quarter) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert pi/4 to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pi/4 converted/rounded to a given type
+.RE
+.PP
+
+.PP
+Definition at line \fB74\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::root (\fBconst\fP T num, \fBconst\fP \fBuint\fP rtNum)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB241\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T ace::math::roundToInt (\fBconst\fP \fBY\fP num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Rounds the given float of type Y to integer of type T\&. 
+.PP
+\fBWarning\fP
+.RS 4
+It breaks if the num value is more than the max value of T! 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Float type Y should be a valid value (not NAN or inf)
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the integer to round to
+.br
+\fIY\fP The type of the float to round
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The floating point number to round
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The rounded integer of type T, from the given float number
+.RE
+.PP
+
+.PP
+Definition at line \fB359\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> T ace::math::secDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the secant of the given degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP Degree number to calculate secant from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of secant results
+.RE
+.PP
+
+.PP
+Definition at line \fB155\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> T ace::math::sinDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the sine of the given degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP Degree number to calculate sine from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of sine results
+.RE
+.PP
+
+.PP
+Definition at line \fB105\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::sqrt (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Newton's method sqrt implementation, compatible with constexpr evaluation\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the variable to calculate it with
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The value to calculate the square root from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If the num is positive -> square root value from passed value of type T; -1 (as the type T) otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB212\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::sqrt2 (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Engine's sqrt(2) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert sqrt(2) to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+sqrt(2) converted/rounded to a given type
+.RE
+.PP
+
+.PP
+Definition at line \fB95\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> T ace::math::tanDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Calculates the tangent of the given degrees\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP Degree number to calculate tangent from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of tangent results
+.RE
+.PP
+
+.PP
+Definition at line \fB125\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::tau (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Engine's tau (pi*2) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert tau to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Tau converted/rounded to a given type
+.RE
+.PP
+
+.PP
+Definition at line \fB54\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T ace::math::truncToInt (\fBconst\fP \fBY\fP num)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB395\fP of file \fBAEMath\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.
