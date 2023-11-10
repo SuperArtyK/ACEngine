@@ -47,7 +47,7 @@ class AELogParser : public __AEModuleBase<AELogParser> {
 
 public:
 	explicit AELogParser(const std::string_view fname) : 
-		m_frLogReader(fname), m_ullLogEntries(0), m_cLastError(AELP_ERR_NOERROR){
+		m_frLogReader(fname), m_ullLogEntries(0){
 
 		for (int i = 0; i < m_arrEntryIndices.size(); i++) {
 			m_arrEntryIndices[i].reserve(256);
@@ -294,7 +294,6 @@ private:
 	std::array<std::vector<ullint>, 9> m_arrEntryIndices;
 	/// The amount of log entries read in the file;
 	ullint m_ullLogEntries;
-	cint m_cLastError;
 };
 
 //aaaand register it
