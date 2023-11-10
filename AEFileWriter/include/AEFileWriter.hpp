@@ -461,7 +461,7 @@ public:
 	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>If file is open, Current writ cursor position, starting from 0. If not -- AEFW_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</returns>
-	inline llint getCursorPos(void) noexcept {
+	inline llint getCursorPos(void) const noexcept {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 		return ftell(this->m_fpFilestr);
@@ -476,7 +476,7 @@ public:
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
 	/// <returns>0 on success, AEFW_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return</returns>
-	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) noexcept {
+	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const noexcept {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 

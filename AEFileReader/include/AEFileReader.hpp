@@ -55,9 +55,9 @@
 #define AEFR_ERR_FILE_ALREADY_OPEN -7
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFR_EXIT_ON_CLOSED_FILE if (this->isClosed()) { this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
+#define _AEFR_EXIT_ON_CLOSED_FILE if (this->isClosed()) { return AEFR_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for opened file during the read operation, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFR_EXIT_ON_READ_CLOSED_FILE if (this->isClosed()) { this->m_szLastReadAmount = 0; this->m_cLastError = AEFR_ERR_FILE_NOT_OPEN; return AEFR_ERR_FILE_NOT_OPEN; }
+#define _AEFR_EXIT_ON_READ_CLOSED_FILE if (this->isClosed()) { this->m_szLastReadAmount = 0; return AEFR_ERR_FILE_NOT_OPEN; }
 
 
 /// <summary>
@@ -83,7 +83,7 @@ public:
 	/// <summary>
 	/// Class constructor -- constructs the instance with default values, and doesn't open the file.
 	/// </summary>
-	AEFileReader(void) noexcept : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFR_ERR_NOERROR) {}
+	AEFileReader(void) noexcept : m_sFilename(""), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr) {}
 
 //we don't need those
 	/// <summary>
@@ -122,7 +122,6 @@ public:
 		this->m_szLastReadAmount = 0;
 		this->m_fpFilestr = nullptr;
 		this->m_sFilename.clear();
-		this->clearError();
 		return AEFR_ERR_NOERROR;
 	}
 
@@ -458,7 +457,7 @@ public:
 	/// Returns size of the file in bytes.
 	/// </summary>
 	/// <returns>File size in bytes if file is open, if not -- AEFR_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</returns>
-	inline llint getFileSize(void) noexcept {
+	inline llint getFileSize(void) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 
 		const llint curpos = ftell(this->m_fpFilestr); // get current position
@@ -481,7 +480,7 @@ public:
 	/// If the file was opened in the same directory as the executable, returns "./"
 	/// </summary>
 	/// <returns>std::string of the relative file path</returns>
-	inline std::string getRelativePath(void) const noexcept {
+	inline std::string getRelativePath(void) const {
 		const std::size_t found = this->m_sFilename.rfind('/');
 		if (found != std::string::npos) {
 			return this->m_sFilename.substr(0, found);
@@ -495,7 +494,7 @@ public:
 	/// Returns the name of the opened file, without any paths
 	/// </summary>
 	/// <returns>std::string of the opened file name</returns>
-	inline std::string getFileName(void) const noexcept {
+	inline std::string getFileName(void) const {
 		const std::size_t found = this->m_sFilename.rfind('/');
 		if (found != std::string::npos) {
 			return this->m_sFilename.substr(found, this->m_sFilename.size() - found);
@@ -527,7 +526,7 @@ public:
 	/// Returns current read cursor position.
 	/// </summary>
 	/// <returns>If file is open, Current read cursor position, starting from 0. If not -- AEFR_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</returns>
-	inline llint getCursorPos(void) noexcept {
+	inline llint getCursorPos(void) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		return ftell(this->m_fpFilestr);
 	}
@@ -540,10 +539,9 @@ public:
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
 	/// <returns>0 on success, AEFR_ERR_FILE_NOT_OPEN if file's closed, or other things that fseek can return</returns>
-	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) noexcept {
+	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		if(origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END){
-			this->m_cLastError = AEFR_ERR_READING_EOF;
 			return AEFR_ERR_READING_EOF;
 		}
 		return fseek(this->m_fpFilestr, pos, origin);
@@ -551,13 +549,6 @@ public:
 
 
 //misc stuff
-	/// <summary>
-	/// Returns the last error of the reader.
-	/// </summary>
-	/// <returns>Values of AEFR_ERR_* error codes</returns>
-	inline cint getLastError(void) const noexcept {
-		return this->m_cLastError;
-	}
 
 	/// <summary>
 	/// Returns total reader requests made to file.
@@ -577,13 +568,6 @@ public:
 	}
 
 	/// <summary>
-	/// Clears last error status variable and sets it to AEFR_ERR_NOERROR.
-	/// </summary>
-	inline void clearError(void) noexcept {
-		this->m_cLastError = AEFR_ERR_NOERROR;
-	}
-
-	/// <summary>
 	/// Checks if the file (cursor) has reached it's (file's) end (feof)
 	/// </summary>
 	/// <returns>True if end of file was reached, false otherwise</returns>
@@ -600,8 +584,6 @@ public:
 	}
 
 
-
-
 private:
 
 	/// Full filename and relative path
@@ -612,8 +594,6 @@ private:
 	std::size_t m_szLastReadAmount;
 	/// Object for file reading
 	FILE* m_fpFilestr;
-	/// Reader's last error indicator; Values are AEFR_ERR_* macros
-	cint m_cLastError;
 };
 
 //aaand register it
@@ -665,7 +645,6 @@ inline cint AEFileReader::readIntString(T& num) {
 
 	this->m_ullTotalReads++;
 	if (temp != 1) {
-		this->m_cLastError = AEFR_ERR_READING_EOF;
 		return AEFR_ERR_READING_EOF;
 	}
 	return AEFR_ERR_READ_SUCCESS;
@@ -690,7 +669,6 @@ inline cint AEFileReader::readFloatString(T& num) {
 
 	this->m_ullTotalReads++;
 	if (temp != 1) {
-		this->m_cLastError = AEFR_ERR_READING_EOF;
 		return AEFR_ERR_READING_EOF;
 	}
 	return AEFR_ERR_READ_SUCCESS;
