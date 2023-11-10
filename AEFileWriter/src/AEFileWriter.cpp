@@ -11,7 +11,7 @@
 
 AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, const ullint af_interval) :
 	m_ullFlushInterval(af_interval), m_ullTotalWrites(0), m_szLastWrittenAmount(0),
-	 m_fpFilestr(nullptr), m_cLastError(AEFW_ERR_NOERROR), m_cFlags(flags) {
+	 m_fpFilestr(nullptr), m_cFlags(flags) {
 
 	this->openFile(filename, flags);
 }
@@ -20,13 +20,12 @@ AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, co
 AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
 	m_ullFlushInterval(fw.m_ullFlushInterval), m_sFilename(std::move(fw.m_sFilename)),
 	m_ullTotalWrites(fw.m_ullTotalWrites), m_szLastWrittenAmount(fw.m_szLastWrittenAmount),
-	m_fpFilestr(fw.m_fpFilestr), m_cLastError(fw.m_cLastError), m_cFlags(fw.m_cFlags) {
+	m_fpFilestr(fw.m_fpFilestr), m_cFlags(fw.m_cFlags) {
 
 	fw.m_ullFlushInterval = 0;
 	fw.m_ullTotalWrites = 0;
 	fw.m_szLastWrittenAmount = 0;
 	fw.m_fpFilestr = nullptr;
-	fw.m_cLastError = 0;
 	fw.m_sFilename.clear();
 	fw.m_cFlags = 0;
 }
@@ -59,13 +58,11 @@ cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcou
 cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
 
 	if (this->isOpen()) { // open already -> pls close
-		this->m_cLastError = AEFW_ERR_FILE_ALREADY_OPEN;
 		return AEFW_ERR_FILE_ALREADY_OPEN;
 	}
 
 	if (str.empty()) {
 		this->m_sFilename.clear();
-		this->m_cLastError = AEFW_ERR_FILE_NAME_EMPTY;
 		return AEFW_ERR_FILE_NAME_EMPTY;
 	}
 
@@ -101,13 +98,11 @@ cint AEFileWriter::openFile(const std::string_view str, const cint flags, const 
 		break;
 
 	default:
-		this->m_cLastError = AEFW_ERR_FILE_WRONG_FLAG; //wrong flag, not opening the file
 		return AEFW_ERR_FILE_WRONG_FLAG;
 	}
 
 	// last check, to see if everything is okay
 	if (this->isClosed()) {
-		this->m_cLastError = AEFW_ERR_FILE_OPEN_ELSE; //file is still somehow nonexistent
 		return AEFW_ERR_FILE_OPEN_ELSE;
 	}
 

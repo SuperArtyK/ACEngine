@@ -175,7 +175,7 @@ public:
 	/// Get the path of the log file.
 	/// </summary>
 	/// <returns>std::string of the path of the opened log file</returns>
-	inline std::string getLogPath(void) const noexcept {
+	inline std::string getLogPath(void) const {
 		return this->m_fwLogger.getRelativePath();
 	}
 
@@ -183,7 +183,7 @@ public:
 	/// Get the full/absolute path of the log file.
 	/// </summary>
 	/// <returns>std::string of the absolute path of the opened log file</returns>
-	inline std::string getLogAbsolutePath(void) const noexcept {
+	inline std::string getLogAbsolutePath(void) const {
 		return this->m_fwLogger.getFullPath();
 	}
 
@@ -193,14 +193,6 @@ public:
 	/// <returns>ullint of the amount of times logger written to a file</returns>
 	inline ullint getEntryCount(void) const noexcept {
 		return this->m_ullLogOrderNum.load();
-	}
-
-	/// <summary>
-	/// Get the last error status code.
-	/// </summary>
-	/// <returns>ucint of the error code by the filewriter/logger</returns>
-	inline cint getLastError(void) const noexcept {
-		return this->m_fwLogger.getLastError();
 	}
 
 	/// <summary>

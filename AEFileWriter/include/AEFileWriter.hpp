@@ -65,11 +65,11 @@
 #define AEFW_ERR_FILE_ALREADY_OPEN -8
 
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFW_EXIT_ON_CLOSED_FILE if (this->isClosed()) { this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
+#define _AEFW_EXIT_ON_CLOSED_FILE if (this->isClosed()) { return AEFW_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for opened file during writing, set error flag and return error flag if closed", DO NOT TOUCH!
-#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE if (this->isClosed()) { this->m_szLastWrittenAmount = 0; this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN; return AEFW_ERR_FILE_NOT_OPEN; }
+#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE if (this->isClosed()) { this->m_szLastWrittenAmount = 0; return AEFW_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for the 'append no cursor move' flag to open file, set and return error flag ifo so", DO NOT TOUCH!
-#define _AEFW_EXIT_ON_NO_CURSOR_MOVE if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) { this->m_cLastError = AEFW_FLAG_APPEND_NO_CURSOR_MOVE; return AEFW_ERR_FILE_WRONG_FLAG; }
+#define _AEFW_EXIT_ON_NO_CURSOR_MOVE if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) { return AEFW_ERR_FILE_WRONG_FLAG; }
 
 
 
@@ -96,7 +96,7 @@ public:
 	/// <summary>
 	/// Class constructor -- creates the instance but doesn't do anything.
 	/// </summary>
-	AEFileWriter(void) noexcept : m_ullFlushInterval(AEFW_DEFAULT_AUTOFLUSH_INTERVAL), m_ullTotalWrites(0), m_szLastWrittenAmount(0), m_fpFilestr(nullptr), m_cLastError(AEFW_ERR_NOERROR), m_cFlags(AEFW_FLAG_NOFLAGS) {}
+	AEFileWriter(void) noexcept : m_ullFlushInterval(AEFW_DEFAULT_AUTOFLUSH_INTERVAL), m_ullTotalWrites(0), m_szLastWrittenAmount(0), m_fpFilestr(nullptr), m_cFlags(AEFW_FLAG_NOFLAGS) {}
 
 	/// <summary>
 	/// Move constructor.
@@ -142,11 +142,10 @@ public:
 	/// Flushes the opened file. That's it. If file isn't open, sets the last error status to AEFW_ERR_FILE_NOT_OPEN.
 	/// </summary>
 	/// <returns>AEFW_ERR_WRITE_SUCCESS (0) on success, otherwise AEFW_ERR_FLUSH_ERROR on error, or AEFW_ERR_FILE_NOT_OPEN if not open + last error value set</returns>
-	inline cint flushFile(void) noexcept {
+	inline cint flushFile(void) const noexcept {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 
 		if (fflush(this->m_fpFilestr)) {
-			this->m_cLastError = AEFW_ERR_FLUSH_ERROR;
 			return AEFW_ERR_FLUSH_ERROR;
 		}
 		return AEFW_ERR_WRITE_SUCCESS;
@@ -163,7 +162,6 @@ public:
 		fclose(this->m_fpFilestr);
 		this->m_fpFilestr = nullptr;
 		this->m_sFilename.clear();
-		this->clearError();
 	}
 
 
@@ -392,8 +390,8 @@ public:
 	/// @warning Fails and returns AEFW_ERR_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
 	/// <returns>File size in bytes if file is open, if not -- AEFW_ERR_FILE_NOT_OPEN (+last error status set to the same thing).</returns>
-	inline llint getFileSize(void) noexcept {
-		_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
+	inline llint getFileSize(void) const noexcept {
+		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 
 		const llint curpos = ftell(this->m_fpFilestr); // get current position
@@ -416,7 +414,7 @@ public:
 	/// If the file was opened in the same directory as the executable, returns "./"
 	/// </summary>
 	/// <returns>std::string of the relative file path</returns>
-	inline std::string getRelativePath(void) const noexcept {
+	inline std::string getRelativePath(void) const {
 		const std::size_t found = this->m_sFilename.rfind('/');
 		if (found != std::string::npos) {
 			return this->m_sFilename.substr(0, found);
@@ -430,7 +428,7 @@ public:
 	/// Returns the name of the opened file, without any paths
 	/// </summary>
 	/// <returns>std::string of the opened file name</returns>
-	inline std::string getFileName(void) const noexcept {
+	inline std::string getFileName(void) const {
 		const std::size_t found = this->m_sFilename.rfind('/');
 		if (found != std::string::npos) {
 			return this->m_sFilename.substr(found, this->m_sFilename.size()-found);
@@ -483,24 +481,14 @@ public:
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 
 		if (origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END) {
-			this->m_cLastError = AEFW_ERR_WRITE_ERROR;
 			return AEFW_ERR_WRITE_ERROR;
 		}
-
 		
 		return fseek(this->m_fpFilestr, pos, origin);
 	}
 
 
 //misc stuff
-	/// <summary>
-	/// Returns the last error of the writer.
-	/// </summary>
-	/// <returns>Values of AEFW_ERR_* error codes</returns>
-	inline cint getLastError(void) const noexcept {
-		return this->m_cLastError;
-	}
-
 	/// <summary>
 	/// Returns total write requests made to file.
 	/// </summary>
@@ -516,13 +504,6 @@ public:
 	/// <returns>std::size_t of the amount of bytes read in the last reading operation</returns>
 	inline std::size_t getLastWrittenAmount(void) const noexcept {
 		return this->m_szLastWrittenAmount;
-	}
-
-	/// <summary>
-	/// Clears last error status variable and sets it to AEFW_ERR_NOERROR.
-	/// </summary>
-	inline void clearError(void) noexcept {
-		this->m_cLastError = AEFW_ERR_NOERROR;
 	}
 
 	/// <summary>
@@ -557,8 +538,6 @@ private:
 	std::size_t m_szLastWrittenAmount;
 	/// Object for file writing
 	FILE* m_fpFilestr;
-	/// Writer's last error indicator; Values are AEFW_ERR_* macros
-	cint m_cLastError;
 	/// Flags that were used to open the file
 	cint m_cFlags;
 };
@@ -597,11 +576,7 @@ inline cint AEFileWriter::writeFloat(const T num, const bool useAutoFlush) {
 template<typename T>
 inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool useAutoFlush) {
 
-	//open file?
-	if (this->isClosed()) {
-		this->m_cLastError = AEFW_ERR_FILE_NOT_OPEN;
-		return AEFW_ERR_FILE_NOT_OPEN;
-	}
+	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
 	// check for bool and char first
 	// because they trip the std::is_integral<T>
