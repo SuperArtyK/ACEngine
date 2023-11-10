@@ -12,7 +12,7 @@
 
 #include "include/AEModuleBase.hpp"
 #include "include/AEFileWriter.hpp"
-#include "include/AETypes.hpp"
+#include "include/AELogEntry.hpp"
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
 #include "AELogTypes.hpp"

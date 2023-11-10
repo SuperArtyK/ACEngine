@@ -175,7 +175,6 @@
     <ClInclude Include="include\AEMath.hpp" />
     <ClInclude Include="include\AETrigLookup.hpp" />
     <ClInclude Include="include\AETypedefs.hpp" />
-    <ClInclude Include="include\AETypes.hpp" />
     <ClInclude Include="include\AEUtils.hpp" />
   </ItemGroup>
   <ItemGroup>

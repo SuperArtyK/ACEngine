@@ -1,23 +1,23 @@
 
-/** @file AEMisc/include/AETypes.hpp
- *  This file contains custom types and structs used throughout the engine
+/** @file NAME/include/NAME.hpp
+ *  This file contains the [stuff]
  *
  *  Should not cause everything to break :)
  */
 
 #pragma once
 
-#ifndef ENGINE_TYPES_HPP
-#define ENGINE_TYPES_HPP
+#ifndef ENGINE_AELOGENTRY_HPP
+#define ENGINE_AELOGENTRY_HPP
 
-#include "AETypedefs.hpp"
-#include "AEFlags.hpp"
+#include "include/AETypedefs.hpp"
+#include "include/AEFlags.hpp"
 #include <ctime>
 #include <atomic>
 
 
-//log entry stuff
-/// Macro for the AELogEntry's order number to be invalid.
+ //log entry stuff
+ /// Macro for the AELogEntry's order number to be invalid.
 #define AELOG_ENTRY_INVALID_ORDERNUM 0
 /// Macro for the AELogEntry's status to be: invalid.
 #define AELOG_ENTRY_STATUS_INVALID 0
@@ -36,9 +36,9 @@
 struct AELogEntry {
 
 	/// The message of the log entry
-	char m_sLogMessage[AELOG_ENTRY_MESSAGE_SIZE+1]{}; //+1 for the last null termination
+	char m_sLogMessage[AELOG_ENTRY_MESSAGE_SIZE + 1]{}; //+1 for the last null termination
 	/// The name of the module that issued the log entry
-	char m_sModuleName[AELOG_ENTRY_MODULENAME_SIZE+1]{}; //+1 for the last null termination
+	char m_sModuleName[AELOG_ENTRY_MODULENAME_SIZE + 1]{}; //+1 for the last null termination
 	/// The time when this log entry was created
 	std::time_t m_tmLogTime = NULL;
 	/// The order(or queue) number of the log entry, safety measure for consequent writing and thread-safety
@@ -70,4 +70,4 @@ struct AELogEntry {
 };
 
 
-#endif // !ENGINE_TYPES_HPP
+#endif // !ENGINE_AELOGENTRY_HPP

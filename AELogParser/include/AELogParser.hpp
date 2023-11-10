@@ -19,7 +19,7 @@
 #include "include/AETypedefs.hpp"
 #include "include/AELogTypes.hpp"
 #include "include/AEFlags.hpp"
-#include "include/AETypes.hpp"
+#include "include/AELogEntry.hpp"
 #include <vector>
 #include <array>
 #include <string_view>
