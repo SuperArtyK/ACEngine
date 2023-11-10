@@ -1,0 +1,6 @@
+Hello AEFileWriter!
+Hello ACEngine! -0.857168 -0.857167
+The timer tick is: 103
+The timer's world time is: 0.010300 seconds
+The vector is: 31783, 5352, 25320, 24457, 26485, 312, 24205, 18724, 14923, 27138, 20367, 1598, 7129, 7938, 14026, 1050, 13543, 5172, 11613, 22561, 25287, 6386, 20297, 20522, 5768, 2653, 13372, 22520, 13421, 1279, 27303, 22532]
+The magnitude of that vector is: 100661.829171

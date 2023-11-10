@@ -12,6 +12,7 @@
 
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
+#include "include/AEUtils.hpp"
 #include <ctime>
 #include <atomic>
 
@@ -51,16 +52,9 @@ struct AELogEntry {
 
 
 	static inline void clearEntry(AELogEntry* const entry) noexcept {
-		AELogEntry* const next = entry->m_pNextNode;
-		/*
-		std::memset(entry->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
-		std::memset(entry->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
-		entry->m_cStatus = AELOG_ENTRY_STATUS_INVALID; // clear the status
-		entry->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM; // clear the order num
-		*/
 
-		std::memset(entry, NULL, sizeof(AELogEntry));
-		entry->m_pNextNode = next;
+		std::memset(entry, NULL, aeoffsetof(AELogEntry, m_pNextNode));
+		entry->m_cStatus = AELOG_ENTRY_STATUS_INVALID;
 		entry->m_cLogType = -1;
 	}
 

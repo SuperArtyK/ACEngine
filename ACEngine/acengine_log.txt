@@ -1,0 +1,1 @@
+[2023-11-09.20:13:2] [OK            ] [AELogger]: Created the AELogger instance and opened the log session in the file: "C:/Users/artem/CODING/ACEngine/ACEngine/acengine_log.txt"

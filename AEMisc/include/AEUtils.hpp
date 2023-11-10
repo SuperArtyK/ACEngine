@@ -63,6 +63,14 @@
 /// <param name="x">The string literal to convert to wstring</param>
 #define WSTR(x) L ## x //converts the "string" to the L"string"
 
+/// Offsetof alternative if the compiler doesn't support the offsetof natively
+#ifdef offsetof
+#define aeoffsetof(type, memb) offsetof(type, memb)
+#else
+#define aeoffsetof(type, memb) (intptr_t)&(((type*)NULL)->memb)
+#endif //offsetof
+
+
 //other stuff
 /// Macro for newline char
 #define NLC '\n'
@@ -70,7 +78,8 @@
 /// Macro for newline string
 #define NLS "\n"
 
-
+/// Size of the string of the formatted date-time by the ace::utils::formatDate()
+#define DATETIME_STRING_SIZE 20
 
 
 // stuff for crosscompilation and 64bit access
@@ -207,8 +216,8 @@ namespace ace {
 #else
 			tstruct = *localtime(&timept);
 #endif
-			char buff[20]{};
-			snprintf(buff, 19, "%04d-%02d-%02d.%02d:%02d:%02d",
+			char buff[DATETIME_STRING_SIZE]{};
+			snprintf(buff, sizeof(buff), "%04d-%02d-%02d.%02d:%02d:%02d",
 				tstruct.tm_year + 1900, tstruct.tm_mon + 1,
 				tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,
 				tstruct.tm_sec);
@@ -234,10 +243,8 @@ namespace ace {
 #else
 			tstruct = *localtime(&timept);
 #endif
-			//std::memset(str, NULL, 20);
-
-			//strftime(str, 20, "%Y-%m-%d.%X", &tstruct);
-			snprintf(str, 19, "%04d-%02d-%02d.%02d:%02d:%02d",
+			
+			snprintf(str, DATETIME_STRING_SIZE, "%04d-%02d-%02d.%02d:%02d:%02d",
 				tstruct.tm_year + 1900, tstruct.tm_mon + 1,
 				tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,
 				tstruct.tm_sec);

@@ -151,7 +151,7 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	//populating it now!
 	ptr->m_cStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
 
-	ptr->m_tmLogTime = std::time(NULL);
+	ptr->m_tmLogTime = std::time(nullptr);
 	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() > AELOG_ENTRY_MESSAGE_SIZE) ? AELOG_ENTRY_MESSAGE_SIZE : logmessg.size());
 	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELOG_ENTRY_MODULENAME_SIZE) ? AELOG_ENTRY_MODULENAME_SIZE : logmodule.size());
 	ptr->m_cLogType = logtype;
@@ -169,7 +169,7 @@ void AELogger::logWriterThread(void) {
 	AELogEntry* oldptr = ePtr;
 
 	//string that stores the date and time formatted string
-	char timestr[20]{};
+	char timestr[DATETIME_STRING_SIZE]{};
 
 	//the final message to output
 	char str[AELOG_ENTRY_MAX_SIZE]{};
@@ -185,7 +185,6 @@ void AELogger::logWriterThread(void) {
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
 	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
-		queueFilledLabel:
 		while (this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
 			
 			//got it!. Now wait untill it's ready

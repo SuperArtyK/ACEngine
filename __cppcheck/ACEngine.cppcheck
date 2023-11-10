@@ -61,6 +61,10 @@
         <path name="C:/Users/artem/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp"/>
         <path name="C:/Users/artem/CODING/ACEngine/AETimer/main_AETimer.cpp"/>
         <path name="C:/Users/artem/CODING/ACEngine/AEVector/main_AEVector.cpp"/>
+        <path name="../AECustomTypes/Debug/"/>
+        <path name="../AECustomTypes/Release/"/>
+        <path name="../AECustomTypes/x64/"/>
+        <path name="C:/Users/artem/CODING/ACEngine/AECustomTypes/main_AECustomTypes.cpp"/>
     </exclude>
     <libraries>
         <library>boost</library>

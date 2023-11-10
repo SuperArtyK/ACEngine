@@ -16,53 +16,54 @@ AEFileWriter::AEFileWriter(const std::string_view filename, const cint flags, co
 C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:16:2: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
         this->openFile(filename, flags);
         ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src/../include/AEFileWriter.hpp:138:81: note: default parameter was declared here
-        int openFile(const std::string_view str, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
-                                                                                       ^
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src/../include/AEFileWriter.hpp:140:82: note: default parameter was declared here
+        cint openFile(const std::string_view str, const cint flags = AEFW_FLAG_NOFLAGS, const ullint af_interval = AEFW_DEFAULT_AUTOFLUSH_INTERVAL); //defined below class 
+                                                                                        ^
 C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:20:43: warning: parameter name 'fw' is too short, expected at least 3 characters [readability-identifier-length]
 AEFileWriter::AEFileWriter(AEFileWriter&& fw) noexcept :
                                           ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:36:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:35:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
 cint AEFileWriter::writeData_ptr(const void* const cdata, const std::size_t dcount, const std::size_t dsize, const bool useAutoFlush) noexcept {
 ~~~~               ^
 auto                                                                                                                                           -> cint
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:40:7: warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast [google-readability-casting]
-        if (!bool(cdata) || !bool(dcount) || !bool(dsize)) {
-             ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:40:23: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
-        if (!bool(cdata) || !bool(dcount) || !bool(dsize)) {
-                             ^~~~
-                             static_cast<bool>
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:40:40: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
-        if (!bool(cdata) || !bool(dcount) || !bool(dsize)) {
-                                              ^~~~
-                                              static_cast<bool>
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:59:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
-~~~               ^
-auto                                                                                               -> int
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:59:56: warning: 2 adjacent parameters of 'openFile' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters]
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
-                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:59:67: note: the first parameter in the range is 'flags'
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
-                                                                  ^~~~~
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:59:87: note: the last parameter in the range is 'af_interval'
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
-                                                                                      ^~~~~~~~~~~
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:59:56: note: 
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
-                                                       ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:59:74: note: 'const cint' and 'const ullint' may be implicitly converted: 'const cint' (as 'signed char') -> 'const ullint' (as 'unsigned long long'), 'const ullint' (as 'unsigned long long') -> 'const cint' (as 'signed char')
-int AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
-                                                                         ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:74:28: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:39:7: warning: implicit conversion 'const void *' -> bool [readability-implicit-bool-conversion]
+        if (!cdata || !dcount || !dsize) {
+            ~^
+            (      == nullptr)
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:39:17: warning: implicit conversion 'std::size_t' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+        if (!cdata || !dcount || !dsize) {
+                      ~^
+                      (       == 0u)
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:39:28: warning: implicit conversion 'std::size_t' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+        if (!cdata || !dcount || !dsize) {
+                                 ~^
+                                 (      == 0u)
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:58:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+~~~~               ^
+auto                                                                                                -> cint
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:58:57: warning: 2 adjacent parameters of 'openFile' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters]
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:58:68: note: the first parameter in the range is 'flags'
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+                                                                   ^~~~~
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:58:88: note: the last parameter in the range is 'af_interval'
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+                                                                                       ^~~~~~~~~~~
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:58:57: note: 
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+                                                        ^
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:58:75: note: 'const cint' and 'const ullint' may be implicitly converted: 'const cint' (as 'signed char') -> 'const ullint' (as 'unsigned long long'), 'const ullint' (as 'unsigned long long') -> 'const cint' (as 'signed char')
+cint AEFileWriter::openFile(const std::string_view str, const cint flags, const ullint af_interval) {
+                                                                          ^
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:72:28: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
         const std::size_t found = this->m_sFilename.rfind('/');
                                   ^
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring:4398:62: note: default parameter was declared here
     _NODISCARD _CONSTEXPR20 size_type rfind(const _Elem _Ch, const size_type _Off = npos) const noexcept {
                                                              ^
-C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:76:39: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
+C:\Users\artem\CODING\ACEngine\AEFileWriter\src\AEFileWriter.cpp:74:39: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
                 std::filesystem::create_directories(this->m_sFilename.substr(0, found));
                                                     ^
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\filesystem:649:35: note: default parameter was declared here
@@ -71,6 +72,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.3282
 
 
 
-206902 warnings generated.
-Suppressed 206891 warnings (206891 in non-user code).
+206918 warnings generated.
+Suppressed 206907 warnings (206907 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
