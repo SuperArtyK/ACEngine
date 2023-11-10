@@ -208,20 +208,24 @@ namespace ace {
 			tstruct = *localtime(&timept);
 #endif
 			char buff[20]{};
-			strftime(buff, sizeof(buff), "%Y-%m-%d.%X", &tstruct);
+			snprintf(buff, 19, "%04d-%02d-%02d.%02d:%02d:%02d",
+				tstruct.tm_year + 1900, tstruct.tm_mon + 1,
+				tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,
+				tstruct.tm_sec);
 			return buff;
 		}
 
 		/// <summary>
 		/// Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS
 		/// @warning If -1 was passed, fails and doesn't modify the string contents
+		/// @warning On fail, returns the passed string.
 		/// </summary>
 		/// <param name="timept">C time point</param>
 		/// <param name="str">The c-string to write the value to. Must be at least 20 bytes long (19 characters with 1 null terminator)</param>
-		/// <returns>std::string of the formatted string</returns>
-		inline void formatDate(const time_t timept, char* const str) noexcept {
+		/// <returns></returns>
+		inline char* formatDate(const time_t timept, char* const str) noexcept {
 			if (timept == -1 || !str) {
-				return;
+				return str;
 			}
 
 			struct tm tstruct { 0 };
@@ -232,7 +236,12 @@ namespace ace {
 #endif
 			//std::memset(str, NULL, 20);
 
-			strftime(str, 20, "%Y-%m-%d.%X", &tstruct);
+			//strftime(str, 20, "%Y-%m-%d.%X", &tstruct);
+			snprintf(str, 19, "%04d-%02d-%02d.%02d:%02d:%02d",
+				tstruct.tm_year + 1900, tstruct.tm_mon + 1,
+				tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,
+				tstruct.tm_sec);
+			return str;
 		}
 
 		/// <summary>

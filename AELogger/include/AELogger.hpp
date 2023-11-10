@@ -66,7 +66,7 @@ public:
 	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
-	explicit AELogger() : m_fwLogger(), m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0), 
+	explicit AELogger() : m_fwLogger(), m_ullLogOrderNum(AELOG_ENTRY_INVALID_ORDERNUM+1), m_ullFilledCount(0), m_ullNodeNumber(0),
 		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogger::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
 
@@ -110,7 +110,7 @@ public:
 		if (this->isOpen()) {
 			return AEFW_ERR_FILE_ALREADY_OPEN;
 		}
-		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND, 1);
+		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND);
 		if (ret != AEFW_ERR_NOERROR) {
 			return ret;
 		}
@@ -132,6 +132,7 @@ public:
 		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
 		this->stopWriter();
 		this->m_fwLogger.closeFile();
+		return AEFW_ERR_NOERROR;
 	}
 
 
@@ -145,9 +146,6 @@ public:
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
 	void writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
-
-	void writeToLog2(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
-
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file.
@@ -281,7 +279,6 @@ private:
 	/// </summary>
 	void logWriterThread(void);
 
-	void logWriterThread2(void);
 
 //variables
 	/// The file writer to actually write text to opened log file

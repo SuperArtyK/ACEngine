@@ -49,7 +49,7 @@ int main() {
 
 	while (mylp.parseEntry(testing) == AELP_ERR_NOERROR) {
 		cout << formatLogEntry(testing) << NLC;
-		AELogEntry::clearEntry(testing);
+		AELogEntry::clearEntry(&testing);
 	}
 	
 

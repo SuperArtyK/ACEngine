@@ -18,7 +18,7 @@
 
 //log entry stuff
 /// Macro for the AELogEntry's order number to be invalid.
-#define AELOG_ENTRY_INVALID_ORDERNUM ullint(-1)
+#define AELOG_ENTRY_INVALID_ORDERNUM 0
 /// Macro for the AELogEntry's status to be: invalid.
 #define AELOG_ENTRY_STATUS_INVALID 0
 /// Macro for the AELogEntry's status to be: currently being set up and written to.
@@ -53,15 +53,22 @@ struct AELogEntry {
 	cint m_cLogType = -1;
 
 
-	static inline void clearEntry(AELogEntry* entry) {
+	static inline void clearEntry(AELogEntry* const entry) {
+		AELogEntry* const next = entry->m_pNextNode;
+		/*
 		std::memset(entry->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
 		std::memset(entry->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
 		entry->m_cStatus = AELOG_ENTRY_STATUS_INVALID; // clear the status
 		entry->m_ullOrderNum = AELOG_ENTRY_INVALID_ORDERNUM; // clear the order num
+		*/
+
+		std::memset(entry, NULL, sizeof(AELogEntry));
+		entry->m_pNextNode = next;
+		entry->m_cLogType = -1;
 	}
 
 
-	static inline void clearEntry2(AELogEntry* entry) {
+	static inline void clearEntry2(AELogEntry* const entry) {
 		std::memset(entry->m_sLogMessage, NULL, AELOG_ENTRY_MESSAGE_SIZE); // clean log message
 		std::memset(entry->m_sModuleName, NULL, AELOG_ENTRY_MODULENAME_SIZE); // clean module name
 		entry->m_pNextNode = nullptr;

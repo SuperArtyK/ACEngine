@@ -39,7 +39,7 @@ AELogEntry* AELogger::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
 //constructor
 AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */), 
-	m_ullLogOrderNum(0), m_ullFilledCount(0), m_ullNodeNumber(0),
+	m_ullLogOrderNum(AELOG_ENTRY_INVALID_ORDERNUM+1), m_ullFilledCount(0), m_ullNodeNumber(0),
 	m_ullQueueSize(queuesize), m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), 
 	m_lepLastNode(m_lepQueue + queuesize - 1), m_bRunTrd(false), m_bQueueFilled(false){
 
@@ -161,65 +161,64 @@ void AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 }
 
 void AELogger::logWriterThread(void) {
+	//bit of announcements
 	this->writeToLog("Successfully launched the log-writing thread!", AELOG_TYPE_SUCCESS, this->m_sModulename);
 
+
+	//pointers to traverse the queue
 	AELogEntry* ePtr = this->m_lepQueue;
+	AELogEntry* oldptr = ePtr;
+
 	//string that stores the date and time formatted string
 	char timestr[20]{};
+
 	//the final message to output
 	char str[AELOG_ENTRY_MAX_SIZE]{};
-	// The node order number for the writing thread.
-	ullint m_ullWriterOrderNum = 0;
-	constexpr const char* const strformatDebug = "[%s] [%-14s] [%s]: DEBUG->%s\n";
 
-	if (this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
-		goto queueFilledLabel;
-	}
+	// The node order number for the writing thread.
+	ullint m_ullWriterOrderNum = AELOG_ENTRY_INVALID_ORDERNUM+1;
+
+	//and the string literals for the formatting
+	constexpr const char* const strformatDebug = "[%s] [%-14s] [%s]: DEBUG->%s\n";
+	constexpr const char* const strformat = "[%s] [%-14s] [%s]: %s\n";
+
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
-	while (this->m_bRunTrd.load(std::memory_order::relaxed)) {
+	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
 		queueFilledLabel:
 		while (this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
-			if (ePtr->m_ullOrderNum <= m_ullWriterOrderNum) {
-
-				//got it!. Now wait untill it's ready
-				while (ePtr->m_cStatus != AELOG_ENTRY_STATUS_READY) {
-					ace::utils::sleepUS(100);
-				}
-				//the entry is minee!
-				ePtr->m_cStatus = AELOG_ENTRY_STATUS_READING;
-
-				//formatting and writing
-				
-				
-// 				if (ePtr->m_cLogType == AELOG_TYPE_DEBUG) {
-// 					snprintf(str, sizeof(str), strformatDebug, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-// 				}
-// 				else {
-// 					snprintf(str, sizeof(str), strformat, timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-// 				}
-				ace::utils::formatDate(ePtr->m_tmLogTime, timestr);
-				snprintf(str, sizeof(str), "[%s] [%-14s] [%s]: %s\n", timestr, AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-				//std::cout << str;
-
-				this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
-				this->m_fwLogger.flushFile();
-
-
-				//cleanup
-				AELogEntry::clearEntry(ePtr);
-				this->m_ullFilledCount--;
-				m_ullWriterOrderNum++;
-				ePtr = ePtr->m_pNextNode;
+			
+			//got it!. Now wait untill it's ready
+			while (ePtr->m_cStatus != AELOG_ENTRY_STATUS_READY) {
+				ace::utils::sleepUS(100);
 			}
-			else
-			{
-				//next node pls
-				if (ePtr->m_ullOrderNum != AELOG_ENTRY_INVALID_ORDERNUM) {
-					ePtr = ePtr->m_pNextNode;
-				}
+			//the entry is minee!
+			ePtr->m_cStatus = AELOG_ENTRY_STATUS_READING;
+			
+			//formatting
+			if (ePtr->m_cLogType == AELOG_TYPE_DEBUG) {
+				snprintf(str, sizeof(str), strformatDebug, ace::utils::formatDate(ePtr->m_tmLogTime, timestr), AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
 			}
+			else {
+				snprintf(str, sizeof(str), strformat, ace::utils::formatDate(ePtr->m_tmLogTime, timestr), AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
+			}
+			
+			
+			//std::cout << str;
+			
+			//writing
+			this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
+			this->m_fwLogger.flushFile();
+			
+			//gotta go to the next ptr
+			ePtr = ePtr->m_pNextNode;
+
+			//cleanup
+			AELogEntry::clearEntry(oldptr);
+			oldptr = ePtr;
+			this->m_ullFilledCount--;
+			m_ullWriterOrderNum++;
 			
 		}
 
@@ -229,8 +228,9 @@ void AELogger::logWriterThread(void) {
 
 
 
-	snprintf(str, sizeof(str), "[%s] [%-14s] [%s]: %s\n", ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
-	this->m_fwLogger.writeData_ptr(str, 1, std::strlen(str), true);
+	snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
+	this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
+	this->m_fwLogger.flushFile();
 }
 
 
@@ -246,13 +246,5 @@ AELogEntry* AELogger::ptrFromIndex(ullint num) noexcept {
 	return m_lepQueue;
 }
 
-
-void AELogger::writeToLog2(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
-
-
-
-
-
-}
 
 

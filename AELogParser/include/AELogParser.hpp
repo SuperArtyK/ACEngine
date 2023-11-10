@@ -170,7 +170,7 @@ public:
 		sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, "%[^511\n]", logmessage);
 
 		//time to write stuff
-		AELogEntry::clearEntry(entry);
+		AELogEntry::clearEntry(&entry);
 
 		// what if the entry is a debug one?
 		if (entryType == AELOG_TYPE_DEBUG && std::strstr(logmessage, "DEBUG->") != nullptr) {

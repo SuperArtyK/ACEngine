@@ -86,4 +86,5 @@ int main() {
 	}
 	myfw.closeFile();
 	
+	return 0;
 }
