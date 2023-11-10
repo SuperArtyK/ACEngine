@@ -42,11 +42,14 @@
 /// Macro for the default reserve amount of the AELogger's allocation vector (stores all queue ptrs).
 /// @warning I personally wouldn't advise to play with it.
 #define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32
-#define AELOG_DEFAULT_LOG_PATH "logs/"
+/// Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable).
+/// Like global modules.
+#define AELOG_DEFAULT_LOG_PATH "./logs/"
 
 //AELogEntry flags
+/// The size of the AELogEntry message in characters (excluding null termination)
 #define AELOG_ENTRY_MESSAGE_SIZE 511
-
+/// The size of the AELogEntry module name in characters (excluding null termination)
 #define AELOG_ENTRY_MODULENAME_SIZE 31
 
 

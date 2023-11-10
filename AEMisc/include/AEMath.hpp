@@ -34,7 +34,6 @@ namespace ace::math {
 
 	//math stuff
 	
-	
 	/// <summary>
 	/// Engine's pi value.
 	/// </summary>
@@ -61,7 +60,7 @@ namespace ace::math {
 	/// <typeparam name="T">Type to convert pi/2 to</typeparam>
 	/// <returns>Pi/2 converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T piH(void) noexcept {
+	constexpr T pi2(void) noexcept {
 		return T(1.57079632679489661923L);
 	}
 
@@ -71,7 +70,7 @@ namespace ace::math {
 	/// <typeparam name="T">Type to convert pi/4 to</typeparam>
 	/// <returns>Pi/4 converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T piQ(void) noexcept {
+	constexpr T pi4(void) noexcept {
 		return T(0.785398163397448309616L);
 	}
 
@@ -227,16 +226,41 @@ namespace ace::math {
 		return val[1];
 	}
 
+	/// <summary>
+	/// Calculate the integer power of a given number
+	/// </summary>
+	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
+	/// <param name="num">The value to raise to power</param>
+	/// <param name="power">Integer power to raise the number to</param>
+	/// <returns>The [num] of type T raised to power [power]</returns>
 	template<typename T = long double>
-	constexpr T intPow(const T num, const uint power) {
+	constexpr T intPow(const T num, const int power) {
 		if (power == 1) { return num; }
+		if (power == 0) { return 1; }
 		T res = num;
-		for (uint i = 1; i < power; i++) {
-			res *= num;
+		
+		if (power > 1) {
+			for (uint i = 1; i < power; i++) {
+				res *= num;
+			}
 		}
+		else {
+			for (uint i = 1; i < power; i++) {
+				res /= num;
+			}
+		}
+		
 		return res;
 	}
 
+	/// <summary>
+	/// Calculate the n'th root of a number.
+	/// Thanks, Newton!
+	/// </summary>
+	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
+	/// <param name="num">The number to take a root of</param>
+	/// <param name="rtNum">The root degree to calculate</param>
+	/// <returns>The rtNum'th root of the number num of type T</returns>
 	template<typename T = long double>
 	constexpr T root(const T num, const uint rtNum) noexcept {
 		const uint rtMinusOne = rtNum - 1;
@@ -285,8 +309,8 @@ namespace ace::math {
 	/// <param name="num">The number to calculate the length of</param>
 	/// <returns>Unsigned int of the length of the passed number</returns>
 	template<typename T>
-	constexpr unsigned int intLength(const T num) noexcept {
-		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in the ace::math::intLength()");
+	constexpr unsigned int lengthOfInt(const T num) noexcept {
+		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in the ace::math::lengthOfInt()");
 		unsigned int dig = 1;
 		T numtemp = num;
 		while (numtemp /= 10)
@@ -301,8 +325,8 @@ namespace ace::math {
 	/// <param name="num">The number to calculate the length of</param>
 	/// <returns>Unsigned int of the length of the passed number</returns>
 	template<typename T>
-	constexpr unsigned int floatLength(const T num) noexcept {
-		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::floatLength()!");
+	constexpr unsigned int lengthOfFloat(const T num) noexcept {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::lengthOfFloat()!");
 		return ((num == 0) ? 1 : (unsigned int)std::log10(std::abs(num))) + 1;
 	}
 
@@ -321,25 +345,48 @@ namespace ace::math {
 		return  a + c * (b - a);
 	}
 
-
+	/// <summary>
+	/// Calculates the hypotenuse length from given values a and b
+	/// </summary>
+	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
+	/// <param name="a">The length of side a in the right triangle</param>
+	/// <param name="b">The length of side b in the right triangle</param>
+	/// <returns>The length of hypotenuse of type T with given lengths of a and b sides</returns>
 	template<typename T = long double>
 	constexpr T hypot(const T a, const T b) {
 		return ace::math::sqrt<T>(a * a + b * b);
 	}
 
+	/// <summary>
+	/// Checks whether the float is "infinite"
+	/// </summary>
+	/// <typeparam name="T">The type of a floating point number</typeparam>
+	/// <param name="num">The number to check</param>
+	/// <returns>True if the number is infinite; otherwise false</returns>
 	template<typename T = long double>
 	constexpr bool isInf(const T num) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isInf()!");
 		return (num == std::numeric_limits<T>::infinity());
 	}
 
-
+	/// <summary>
+	/// Checks whether the float is "NaN"
+	/// </summary>
+	/// <typeparam name="T">The type of a floating point number</typeparam>
+	/// <param name="num">The number to check</param>
+	/// <returns>True if the number is NaN; otherwise false</returns>
 	template<typename T = long double>
 	constexpr bool isNan(const T num) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isNan()!");
 		return (num != num);
 	}
 
+	/// <summary>
+	/// Checks whether the float is finite (not infinity or NaN)
+	/// </summary>
+	/// <typeparam name="T">The type of a floating point number</typeparam>
+	/// <param name="num">The number to check</param>
+	/// <returns>True if the number is finite; otherwise false</returns>
 	template<typename T = long double>
 	constexpr bool isFinite(const T num) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isFinite()!");
@@ -365,9 +412,10 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Floor's, truncates the given float of type Y and converts to integer of type T.
+	/// Floor's the given float of type Y and converts to integer of type T.
 	/// @warning It breaks if the num value is more than the max value of T!
-	/// @note Float type Y should be a valid value (not NAN or inf)
+	/// @note Value of num should be finite (not NAN or inf)
+	/// @note If num is positive, it truncates the decimal digits (towards zero); if negative, it ceil's the decimals (away from zero)
 	/// @note Exists here while C++23's constexpr floor is still being adopted
 	/// @todo Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23)
 	/// </summary>
@@ -383,14 +431,36 @@ namespace ace::math {
 		}
 	}
 
+	/// <summary>
+	/// Ceil's the given float of type Y and converts to integer of type T.
+	/// @warning It breaks if the num value is more than the max value of T!
+	/// @note Value of num should be finite (not NAN or inf)
+	/// @note Exists here while C++23's constexpr ceil is still being adopted
+	/// @todo Change the body of the function to use std::ceil() instead, when it gets constexpr (after c++23)
+	/// </summary>
+	/// <typeparam name="T">The type of the integer to ceil to</typeparam>
+	/// <typeparam name="Y">The type of the float to ceil</typeparam>
+	/// <param name="num">The floating point number to ceil</param>
+	/// <returns>The ceiled integer of type T, from the given float number</returns>
 	template<typename T = llint, typename Y = long double>
 	constexpr T ceilToInt(const Y num) noexcept {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
-			return (ace::math::fequals<Y>(num, num)) ? T(num) : T(num) + 1;
+			return (ace::math::fequals<Y>(num, T(num))) ? T(num) : T(num) + 1;
 		}
 	}
-
+	
+	/// <summary>
+	/// Truncates the given float of type Y and converts to integer of type T.
+	/// @warning It breaks if the num value is more than the max value of T!
+	/// @note Value of num should be finite (not NAN or inf)
+	/// @note Exists here while C++23's constexpr truncate is still being adopted
+	/// @todo Change the body of the function to use std::trunc() instead, when it gets constexpr (after c++23)
+	/// </summary>
+	/// <typeparam name="T">The type of the integer to truncate to</typeparam>
+	/// <typeparam name="Y">The type of the float to truncate</typeparam>
+	/// <param name="num">The floating point number to truncate</param>
+	/// <returns>The truncated integer of type T, from the given float number</returns>
 	template<typename T = llint, typename Y = long double>
 	constexpr T truncToInt(const Y num) noexcept {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway

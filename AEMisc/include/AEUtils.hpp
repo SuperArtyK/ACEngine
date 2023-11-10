@@ -64,6 +64,8 @@
 #define WSTR(x) L ## x //converts the "string" to the L"string"
 
 /// Offsetof alternative if the compiler doesn't support the offsetof natively
+/// <param name="type">The type/struct name</param>
+/// <param name="memb">The member of struct/type to calculate the offset between</param>
 #ifdef offsetof
 #define aeoffsetof(type, memb) offsetof(type, memb)
 #else
