@@ -86,14 +86,14 @@ struct AELogEntry {
 
 	// makes full copy of the given entry
 	// ctrl-c ctrl-v
-	inline void copyEntryFull(const AELogEntry& entry) {
+	inline void copyEntryFull(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, sizeof(AELogEntry));
 	}
 
 	// makes normal copy of the given entry
 	// only omits the pointer to the next one
 	// (you dont need it anyway)
-	inline void copyEntry(const AELogEntry& entry) {
+	inline void copyEntry(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
 		this->m_cStatus = entry.m_cStatus.load();
@@ -101,7 +101,7 @@ struct AELogEntry {
 
 	// makes a reduced data copy of the given entry
 	// omits the next node pointer and status
-	inline void copyEntryReduced(const AELogEntry& entry) {
+	inline void copyEntryReduced(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
 	}
@@ -153,7 +153,7 @@ struct AELogEntry {
 	}
 
 	//the size of char array (string together with null terminator) must be of AELE_FORMAT_MAX_SIZE
-	static inline void formatEntry(char* const str, const AELogEntry& entry) {
+	static inline void formatEntry(char* const str, const AELogEntry& entry) noexcept {
 		//string that stores the date and time formatted string
 		char timestr[DATETIME_STRING_SIZE]{};
 
@@ -321,8 +321,5 @@ struct AELogEntry {
 		return AELE_ERR_NOERROR;
 	}
 };
-
-
-#pragma warning(enable : 4996)
 
 #endif // !ENGINE_AELOGENTRY_HPP

@@ -172,6 +172,9 @@ cint AELogger::writeToLog(const AELogEntry& entry, const bool useCurrentTime) {
 
 	ptr->m_cStatus = AELE_STATUS_SETTING;
 	ptr->copyEntryReduced(entry);
+	if (useCurrentTime) {
+		ptr->m_tmLogTime = std::time(nullptr);
+	}
 	ptr->m_cStatus = AELE_STATUS_READY;
 
 	return AELOG_ERR_NOERROR;

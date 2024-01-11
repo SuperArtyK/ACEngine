@@ -75,20 +75,20 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileReader\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogger\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileReader\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogger\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogger\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileReader\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogger\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(SolutionDir)AEFileReader\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AEFileReader\src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -170,7 +170,9 @@
     <ClCompile Include="src\AELogParser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp" />
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />
+    <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp" />
     <ClInclude Include="..\AELogger\include\AELogger.hpp" />
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />

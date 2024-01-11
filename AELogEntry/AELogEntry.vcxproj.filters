@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{908082b4-cf3c-4607-a16b-3f2c450abe84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine modules">
+      <UniqueIdentifier>{e2677f0d-8029-4f5b-8bff-d1dd382b20f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_AELogEntry.cpp">
@@ -28,6 +31,24 @@
     </ClInclude>
     <ClInclude Include="include\AELogEntry.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEMath.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+      <Filter>Header Files\engine modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp">
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
