@@ -1,9 +1,3 @@
-C:\Users\artem\CODING\ACEngine\AELogParser\src/../include/AELogParser.hpp:74:24: error: no member named 'parseStringEntry' in 'AELogParser' [clang-diagnostic-error]
-                        parsedEntry = this->parseStringEntry(dummyentry, fileline, AELP_PARSE_STRING_WRITE_TYPE);
-                                      ~~~~  ^
-C:\Users\artem\CODING\ACEngine\AELogParser\src/../include/AELogParser.hpp:74:63: error: use of undeclared identifier 'AELP_PARSE_STRING_WRITE_TYPE' [clang-diagnostic-error]
-                        parsedEntry = this->parseStringEntry(dummyentry, fileline, AELP_PARSE_STRING_WRITE_TYPE);
-                                                                                   ^
 C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:11:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
 cint AELogParser::nextEntry(AELogEntry& entry, const cint severity) {
 ~~~~              ^
@@ -26,12 +20,9 @@ C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:30:35: warning: n
 C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:32:56: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
         const cint readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
                                                               ^
-C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:34:16: error: no member named 'parseStringEntry' in 'AELogParser' [clang-diagnostic-error]
-                return this->parseStringEntry(entry, str, AELP_PARSE_STRING_FULL);
-                       ~~~~  ^
-C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:34:45: error: use of undeclared identifier 'AELP_PARSE_STRING_FULL' [clang-diagnostic-error]
-                return this->parseStringEntry(entry, str, AELP_PARSE_STRING_FULL);
-                                                          ^
+C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:34:46: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+                return AELogEntry::parseStringEntry(entry, str, AELE_PARSE_STRING_FULL);
+                                                           ^
 C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:41:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
 cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity) {
 ~~~~              ^
@@ -52,8 +43,6 @@ C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp:56:9: warning: im
 
 
 
-209397 warnings and 4 errors generated.
-Error while processing C:\Users\artem\CODING\ACEngine\AELogParser\src\AELogParser.cpp.
-Suppressed 209382 warnings (209382 in non-user code).
+209403 warnings generated.
+Suppressed 209386 warnings (209386 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-Found compiler error(s).

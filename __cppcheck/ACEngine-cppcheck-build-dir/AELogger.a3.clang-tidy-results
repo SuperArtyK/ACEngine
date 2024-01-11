@@ -14,7 +14,7 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:22:20: warning: implici
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:24:13: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
         m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), 
                    ^
-C:/Users/artem/CODING/ACEngine/AECustomTypes\include/AELogEntry.hpp:128:93: note: default parameter was declared here
+C:/Users/artem/CODING/ACEngine/AELogEntry\include/AELogEntry.hpp:130:93: note: default parameter was declared here
         static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr, const bool loopQueue = true) {
                                                                                                    ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:24:82: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
@@ -109,7 +109,7 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:129:2: note: inferred a
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:109:26: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
                 AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
                                        ^
-C:/Users/artem/CODING/ACEngine/AECustomTypes\include/AELogEntry.hpp:128:93: note: default parameter was declared here
+C:/Users/artem/CODING/ACEngine/AELogEntry\include/AELogEntry.hpp:130:93: note: default parameter was declared here
         static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr, const bool loopQueue = true) {
                                                                                                    ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:113:34: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
@@ -141,14 +141,10 @@ auto                                                                          ->
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:168:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
         AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:146:63: warning: parameter 'useCurrentTime' is unused [misc-unused-parameters]
-cint AELogger::writeToLog(const AELogEntry& entry, const bool useCurrentTime) {
-                                                              ^~~~~~~~~~~~~~
-                                                               /*useCurrentTime*/
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:158:26: warning: calling a function that uses a default argument is disallowed [fuchsia-default-arguments-calls]
                 AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
                                        ^
-C:/Users/artem/CODING/ACEngine/AECustomTypes\include/AELogEntry.hpp:128:93: note: default parameter was declared here
+C:/Users/artem/CODING/ACEngine/AELogEntry\include/AELogEntry.hpp:130:93: note: default parameter was declared here
         static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr, const bool loopQueue = true) {
                                                                                                    ^
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:162:34: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
@@ -167,71 +163,71 @@ C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:169:2: warning: kernel 
 C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:169:9: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ptr' and may cause performance degradation [altera-id-dependent-backward-branch]
         while (ptr->m_cStatus != AELE_STATUS_INVALID) {
                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:181:32: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:184:32: warning: redundant void argument list in function definition [modernize-redundant-void-arg]
 void AELogger::logWriterThread(void) {
                                ^~~~
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:183:88: warning: static member accessed through instance [readability-static-accessed-through-instance]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:186:88: warning: static member accessed through instance [readability-static-accessed-through-instance]
         this->writeToLog("Successfully launched the log-writing thread!", AELOG_TYPE_SUCCESS, this->m_sModulename);
                                                                                               ^~~~~~
                                                                                               AELogger::
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:193:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:196:2: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
         char str[AELE_FORMAT_MAX_SIZE]{};
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:201:61: warning: implicit conversion '_TVal' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:204:61: warning: implicit conversion '_TVal' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
         while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
                                                                    ^
                                                                    (                                                                    != 0u)
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:202:10: warning: implicit conversion '_TVal' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:205:10: warning: implicit conversion '_TVal' (aka 'unsigned long long') -> bool [readability-implicit-bool-conversion]
                 while (this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
                        ^
                                                                                             != 0u
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:187:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:190:2: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
         AELogEntry* ePtr = this->m_lepQueue;
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:205:4: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:208:4: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
                         while (ePtr->m_cStatus != AELE_STATUS_READY) {
                         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:205:11: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ePtr' and may cause performance degradation [altera-id-dependent-backward-branch]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:208:11: warning: backward branch (while loop) is ID-dependent due to variable reference to 'ePtr' and may cause performance degradation [altera-id-dependent-backward-branch]
                         while (ePtr->m_cStatus != AELE_STATUS_READY) {
                                ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:206:25: warning: 100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:209:25: warning: 100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
                                 ace::utils::sleepUS(100);
                                                     ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:213:28: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:216:28: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
                         AELogEntry::formatEntry(str, *ePtr);
                                                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:218:35: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:221:35: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
                         this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
                                                        ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:218:52: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:221:52: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
                         this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
                                                                         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:233:23: warning: 1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:236:23: warning: 1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
                 ace::utils::sleepUS(1000);
                                     ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:237:26: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:240:26: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
         AELogEntry::formatEntry(str,
                                 ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:246:33: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:249:33: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
         this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
                                        ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:246:50: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:249:50: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]
         this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
                                                         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:251:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:254:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
 AELogEntry* AELogger::ptrFromIndex(ullint num) noexcept {
 ~~~~~~~~~~~           ^
 auto                                                    -> AELogEntry*
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:254:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:257:2: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^
-C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:254:2: warning: use range-based for loop instead [modernize-loop-convert]
+C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp:257:2: warning: use range-based for loop instead [modernize-loop-convert]
         for (std::size_t i = 0; i < this->m_vAllocTable.size(); i++) {
         ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             (auto & i : this->m_vAllocTable)
 
 
 
-208687 warnings generated.
-Suppressed 208617 warnings (208617 in non-user code).
+208683 warnings generated.
+Suppressed 208614 warnings (208614 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

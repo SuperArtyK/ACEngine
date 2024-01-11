@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="11414118146716401299">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\main_AELogEntry.cpp" line="1" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="17" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;sstream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;sstream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="18" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string_view&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string_view&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="17" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="23" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="24" column="0"/>
+        </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="90" column="8"/>
+            <symbol>memcpy</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="97" column="8"/>
+            <symbol>memcpy</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="105" column="8"/>
+            <symbol>memcpy</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memset&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memset&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="114" column="8"/>
+            <symbol>memset</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
+        <error id="operatorEqShouldBeLeftUnimplemented" severity="style" msg="&apos;operator=&apos; should either return reference to &apos;this&apos; instance or be declared private and left unimplemented." verbose="&apos;operator=&apos; should either return reference to &apos;this&apos; instance or be declared private and left unimplemented." cwe="398" file0="C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="83" column="14"/>
+        </error>
+  <FileInfo check="Class">
+<class name="AELogEntry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="61" col="1" hash="12386477107208275960"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:113:21" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="114" col="15" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:138:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="139" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:156:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="157" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:89:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="90" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:96:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="97" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:104:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="105" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:156:21" my-argnr="2" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="161" col="7" value="0"/>
+  </FileInfo>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AELogEntry.cpp.analyzerinfo.3600.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="266" column="34"/>
+        </error>
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AELogEntry.cpp.analyzerinfo.3600.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="277" column="11"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="main" lineNumber="6"/>
+    <functioncall functionName="AELogEntry"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="T"/>
+    <functioncall functionName="__AEModuleBase"/>
+    <functioncall functionName="abort"/>
+    <functioncall functionName="begin"/>
+    <functioncall functionName="clearEntry"/>
+    <functioncall functionName="copyEntry"/>
+    <functioncall functionName="data"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="find_if_not"/>
+    <functioncall functionName="fopen_s"/>
+    <functioncall functionName="formatDate"/>
+    <functioncall functionName="get_time"/>
+    <functioncall functionName="int8_t"/>
+    <functioncall functionName="isAlNumUs"/>
+    <functioncall functionName="isInRange"/>
+    <functioncall functionName="isalnum"/>
+    <functioncall functionName="iss"/>
+    <functioncall functionName="load"/>
+    <functioncall functionName="localtime_s"/>
+    <functioncall functionName="m_pNextNode"/>
+    <functioncall functionName="memcmp"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="microseconds"/>
+    <functioncall functionName="milliseconds"/>
+    <functioncall functionName="mktime"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sleep_for"/>
+    <functioncall functionName="snprintf"/>
+    <functioncall functionName="sscanf"/>
+    <functioncall functionName="stringToDate"/>
+    <functioncall functionName="stringToType"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strstr"/>
+    <functioncall functionName="strvMname"/>
+    <functioncall functionName="time"/>
+    <functioncall functionName="tm_hour"/>
+    <functioncall functionName="tm_mday"/>
+    <functioncall functionName="tm_min"/>
+    <functioncall functionName="tm_sec"/>
+    <functioncall functionName="tolower"/>
+    <functioncall functionName="toupper"/>
+    <functioncall functionName="transform"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="tstruct"/>
+    <functioncall functionName="typeToString"/>
+    <functioncall functionName="uint64_t"/>
+  </FileInfo>
+</analyzerinfo>

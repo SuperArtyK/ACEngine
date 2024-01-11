@@ -38,7 +38,7 @@ AELogger::AELogger(const std::string_view fname, const bool clearLog, const ulli
 }
 
 //destructor
-AELogger::~AELogger() {
+AELogger::~AELogger(void) {
 	this->writeToLog("Destroying the AELogger instance and closing", AELOG_TYPE_INFO, this->m_sModulename);
 	this->closeLog();
 

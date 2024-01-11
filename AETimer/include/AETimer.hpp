@@ -41,7 +41,7 @@ public:
 	/// <summary>
 	/// Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread
 	/// </summary>
-	AETimer() noexcept : m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) {}
+	AETimer(void) noexcept : m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) {}
 
 	/// <summary>
 	/// Copy constructor -- Just copies the data and then starts the timer if original timer was started.
@@ -62,8 +62,8 @@ public:
 	/// <returns>Reference to the resulting AETimer copy</returns>
 	AETimer& operator=(const AETimer& tm) {
 		this->m_rDelay = tm.m_rDelay;
-		this->m_ullTicks = tm.m_ullTicks.load();
-		this->m_bRunTrd = tm.m_bRunTrd.load();
+		this->m_ullTicks.store(tm.m_ullTicks.load());
+		this->m_bRunTrd.store(tm.m_bRunTrd.load());
 		if (this->m_bRunTrd) {
 			this->startThread();
 		}
@@ -73,7 +73,7 @@ public:
 	/// <summary>
 	/// Class destructor
 	/// </summary>
-	~AETimer() {
+	~AETimer(void) {
 		this->stopThread();
 	}
 

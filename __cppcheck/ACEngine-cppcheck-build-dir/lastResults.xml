@@ -2,10 +2,10 @@
 <results version="2">
     <cppcheck version="2.12.0"/>
     <errors>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
             <location file="..\AEMisc\include\AEUtils.hpp" line="266"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
             <location file="..\AEMisc\include\AEUtils.hpp" line="277"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
@@ -24,22 +24,25 @@
             <location file="..\AEFileReader\src\AEFileReader.cpp" line="128"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="88"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="90"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="95"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="97"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="103"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="105"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="112"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="114"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
             <location file="..\AELogger\src\AELogger.cpp" line="138"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="239"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="176"/>
+        </error>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="242"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;cint&amp;#039; (aka &amp;#039;signed char&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;cint&amp;#039; (aka &amp;#039;signed char&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AELogger\src\AELogger.cpp" line="22"/>
@@ -58,25 +61,25 @@
             <location file="..\AELogger\src\AELogger.cpp" line="140"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="193"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="196"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="206"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="209"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="213"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="216"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="218"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="221"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="233"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="236"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="237"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="240"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="246"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="249"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AELogParser\src\AELogParser.cpp" line="16"/>
@@ -86,6 +89,9 @@
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AELogParser\src\AELogParser.cpp" line="32"/>
+        </error>
+        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\src\AELogParser.cpp" line="34"/>
         </error>
     </errors>
 </results>

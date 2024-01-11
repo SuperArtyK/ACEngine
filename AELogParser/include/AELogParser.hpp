@@ -39,7 +39,7 @@ public:
 		
 	}
 
-	~AELogParser() {
+	~AELogParser(void) {
 		this->closeLog();
 	}
 

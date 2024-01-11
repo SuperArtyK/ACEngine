@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="18118879303827591546">
+<analyzerinfo hash="6997642472759020668">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
         </error>
@@ -52,13 +52,13 @@
             <location file="C:\Users\artem\CODING\ACEngine\AEFileWriter\include\AEFileWriter.hpp" line="29" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="20" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="22" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="21" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="23" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="22" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="24" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AELogger\include\AELogger.hpp" line="19" column="0"/>
@@ -82,40 +82,40 @@
             <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="14" column="0"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="88" column="8"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="90" column="8"/>
             <symbol>memcpy</symbol>
             <symbol>'std::atomic'</symbol>
         </error>
         <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="95" column="8"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="97" column="8"/>
             <symbol>memcpy</symbol>
             <symbol>'std::atomic'</symbol>
         </error>
         <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="103" column="8"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="105" column="8"/>
             <symbol>memcpy</symbol>
             <symbol>'std::atomic'</symbol>
         </error>
         <error id="memsetClass" severity="error" msg="Using &apos;memset&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memset&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="112" column="8"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="114" column="8"/>
             <symbol>memset</symbol>
             <symbol>'std::atomic'</symbol>
         </error>
         <error id="operatorEqShouldBeLeftUnimplemented" severity="style" msg="&apos;operator=&apos; should either return reference to &apos;this&apos; instance or be declared private and left unimplemented." verbose="&apos;operator=&apos; should either return reference to &apos;this&apos; instance or be declared private and left unimplemented." cwe="398" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="81" column="14"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AELogEntry\include\AELogEntry.hpp" line="83" column="14"/>
         </error>
         <error id="duplicateBreak" severity="style" msg="Consecutive return, break, continue, goto or throw statements are unnecessary." verbose="Consecutive return, break, continue, goto or throw statements are unnecessary. The second statement can never be executed, and so should be removed." cwe="561" file0="C:/Users/artem/CODING/ACEngine/AELogger/src/AELogger.cpp">
             <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="65" column="3"/>
         </error>
   <FileInfo check="Class">
-<class name="AELogEntry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="59" col="1" hash="3359913709643814940"/>
+<class name="AELogEntry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="61" col="1" hash="12386477107208275960"/>
 <class name="__AEModuleBase &lt; AEFileWriter &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="42" col="1" hash="9010697896583488137"/>
 <class name="__AEModuleBase &lt; AELogger &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="42" col="1" hash="13782881215293737502"/>
   </FileInfo>
   <FileInfo check="Null pointer">
     <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="22" value="0"/>
     <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="29" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:111:21" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="112" col="15" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:113:21" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="114" col="15" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:138:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="139" col="19" value="0"/>
@@ -123,30 +123,33 @@
     <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="22" value="0"/>
     <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="29" value="0"/>
     <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp:346:14" my-argnr="1" my-argname="cdata" file="C:/Users/artem/CODING/ACEngine/AEFileWriter/include/AEFileWriter.hpp" line="347" col="30" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:87:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="88" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:94:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="95" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:102:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="103" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:154:21" my-argnr="2" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="159" col="7" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:89:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="90" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:96:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="97" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:104:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="105" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp:156:21" my-argnr="2" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AELogEntry/include/AELogEntry.hpp" line="161" col="7" value="0"/>
   </FileInfo>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump">
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump">
             <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="266" column="34"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump">
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump">
             <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="277" column="11"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump">
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump">
             <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="138" column="26"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump">
-            <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="239" column="20"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="176" column="27"/>
+        </error>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogger\src\AELogger.cpp" line="242" column="20"/>
         </error>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="startWriter" lineNumber="52"/>
     <functiondecl functionName="stopWriter" lineNumber="71"/>
     <functiondecl functionName="writeToLog" lineNumber="83"/>
     <functiondecl functionName="writeToLog" lineNumber="146"/>
-    <functiondecl functionName="logWriterThread" lineNumber="181"/>
-    <functiondecl functionName="ptrFromIndex" lineNumber="251"/>
+    <functiondecl functionName="logWriterThread" lineNumber="184"/>
+    <functiondecl functionName="ptrFromIndex" lineNumber="254"/>
     <functioncall functionName="AEFileWriter"/>
     <functioncall functionName="AELogEntry"/>
     <functioncall functionName="AELogger"/>

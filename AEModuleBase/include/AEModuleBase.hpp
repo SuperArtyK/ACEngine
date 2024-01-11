@@ -46,7 +46,7 @@ public:
 	/// <summary>
 	/// Basic constructor that increases module count
 	/// </summary>
-	__AEModuleBase() noexcept {
+	__AEModuleBase(void) noexcept {
 		this->m_ullModulesAlive++;
 	}
 
@@ -62,7 +62,7 @@ public:
 	/// <summary>
 	/// Basic destructor that decreases module count
 	/// </summary>
-	virtual ~__AEModuleBase() noexcept {
+	virtual ~__AEModuleBase(void) noexcept {
 		m_ullModulesAlive--;
 	}
 	

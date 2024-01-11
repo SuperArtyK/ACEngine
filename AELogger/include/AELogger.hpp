@@ -72,7 +72,7 @@ public:
 	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
-	explicit AELogger() : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
+	explicit AELogger(void) : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
 		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
 
@@ -83,7 +83,7 @@ public:
 	/// <summary>
 	/// Class destructor.
 	/// </summary>
-	~AELogger();
+	~AELogger(void);
 
 
 	// we don't need the copy-constructor nor copy-assignment operators

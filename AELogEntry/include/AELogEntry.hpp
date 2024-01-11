@@ -68,11 +68,12 @@ struct AELogEntry {
 	std::time_t m_tmLogTime = NULL;
 	/// The pointer to the next log entry in the queue
 	AELogEntry* m_pNextNode = nullptr;
-	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
-	std::atomic<cint> m_cStatus = AELE_STATUS_INVALID;
 	/// The type of the log entry
 	/// @see AELogTypes.hpp
 	cint m_cLogType = -1; //means invalid entry. don't touch!
+	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
+	std::atomic<cint> m_cStatus = AELE_STATUS_INVALID;
+	
 
 	/// <summary>
 	/// Copy assignment operator -- copies data from the passed node
@@ -82,12 +83,14 @@ struct AELogEntry {
 	/// <returns></returns>
 	AELogEntry& operator=(const AELogEntry& entry) {
 		this->copyEntry(entry);
+		return *this;
 	}
 
 	// makes full copy of the given entry
 	// ctrl-c ctrl-v
 	inline void copyEntryFull(const AELogEntry& entry) noexcept {
-		std::memcpy(this, &entry, sizeof(AELogEntry));
+		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_cStatus));
+		this->m_cStatus.store(entry.m_cStatus);
 	}
 
 	// makes normal copy of the given entry
@@ -96,7 +99,7 @@ struct AELogEntry {
 	inline void copyEntry(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
-		this->m_cStatus = entry.m_cStatus.load();
+		this->m_cStatus.store(entry.m_cStatus);
 	}
 
 	// makes a reduced data copy of the given entry

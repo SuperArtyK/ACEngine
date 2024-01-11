@@ -34,3 +34,7 @@ AELogParser.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogP
 AELogParser.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp
 AELogParser.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp
 AELogParser.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp
+main_AELogEntry.a1:Debug|Win32:C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp
+main_AELogEntry.a2:Release|Win32:C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp
+main_AELogEntry.a3:Debug|x64:C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp
+main_AELogEntry.a4:Release|x64:C:/Users/artem/CODING/ACEngine/AELogEntry/main_AELogEntry.cpp
