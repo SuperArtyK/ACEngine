@@ -37,7 +37,7 @@
 
 //Error flags
 /// Macro for the indicator that everything is good.
-#define AEFR_ERR_NOERROR 0
+#define AEFR_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
 /// same as AEFR_ERR_NOERROR - value of a successfull read.
 #define AEFR_ERR_READ_SUCCESS 0
 /// Macro for the error if file isn't open and file operation functions of the file reader are used.
@@ -621,7 +621,7 @@ private:
 };
 
 //aaand register it
-REGISTER_CLASS(AEFileReader)
+REGISTER_MODULE(AEFileReader)
 
 
 

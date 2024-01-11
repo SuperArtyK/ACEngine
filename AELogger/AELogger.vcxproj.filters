@@ -19,8 +19,11 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{bcb4e47a-a135-4832-9167-18d2544ad5db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\engine">
+    <Filter Include="Header Files\engine modules">
       <UniqueIdentifier>{2bbc1061-fa9e-452b-b361-95982617e8b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\engine modules">
+      <UniqueIdentifier>{48f8080c-7b7a-4f78-804f-0eb24110b80e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +34,7 @@
       <Filter>Source Files\src</Filter>
     </ClCompile>
     <ClCompile Include="..\AEFileWriter\src\AEFileWriter.cpp">
-      <Filter>Source Files\src</Filter>
+      <Filter>Source Files\src\engine modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,25 +45,22 @@
       <Filter>Resource Files\Logo resources</Filter>
     </ClInclude>
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypes.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
-      <Filter>Header Files\engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\AELogTypes.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

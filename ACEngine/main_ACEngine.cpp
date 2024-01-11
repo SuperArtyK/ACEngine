@@ -32,6 +32,8 @@
 #include "include/AEVector.hpp"
 //aefr
 #include "include/AEFileReader.hpp"
+#include "include/AELogTypes.hpp"
+#include "include/AELogEntry.hpp"
 #include <cstdlib>
 #include <ctime>
 

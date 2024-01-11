@@ -19,8 +19,11 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{adb56693-a692-4740-beb9-0db607f0ffea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\engine">
+    <Filter Include="Header Files\engine modules">
       <UniqueIdentifier>{23a900e7-7043-4840-a334-e9f11c49277a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\engine modules">
+      <UniqueIdentifier>{a665d434-86af-4ea0-9853-0d4052d33edd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +34,7 @@
       <Filter>Source Files\src</Filter>
     </ClCompile>
     <ClCompile Include="..\AEFileReader\src\AEFileReader.cpp">
-      <Filter>Source Files\src</Filter>
+      <Filter>Source Files\src\engine modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,25 +45,22 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypes.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AELogger\include\AELogger.hpp">
-      <Filter>Header Files\engine</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AELogger\include\AELogTypes.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

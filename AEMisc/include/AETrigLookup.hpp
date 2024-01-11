@@ -3,7 +3,7 @@
  *  This file contains the results for the trigonometric function lookup tables.
  *  These will be insanely fast, almost as the direct memory access (since just value in array), 
  *  but won't offer much of precision -- within 1 degree.
- *  (Un)Define ENGINE_ENABLE_TRIG_LOOKUP flag in AEFlags.hpp to enable/disable this.
+ *  (Un)Define ENGINE_ENABLE_MATH_LOOKUP flag in AEFlags.hpp to enable/disable this.
  *  
  *  @todo Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
  *
@@ -21,7 +21,7 @@
 #include "include/AEMath.hpp"
 
 
-#ifdef ENGINE_ENABLE_TRIG_LOOKUP
+#ifdef ENGINE_ENABLE_MATH_LOOKUP
 
 /// A macro for the size of the trigonometric function lookup tables.
 /// @note For now - do not touch!
@@ -221,6 +221,6 @@ namespace ace {
 	}
 }
 
-#endif // ENGINE_ENABLE_TRIG_LOOKUP
+#endif // ENGINE_ENABLE_MATH_LOOKUP
 
 #endif // !ENGINE_TRIG_LOOKUP_HPP

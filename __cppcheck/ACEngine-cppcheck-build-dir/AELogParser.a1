@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="226860666382316955">
+<analyzerinfo hash="13373778259592840963">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
         </error>
@@ -55,10 +55,13 @@
             <location file="C:\Users\artem\CODING\ACEngine\AEFileReader\include\AEFileReader.hpp" line="26" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctime&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="16" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="20" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="17" column="0"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="21" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="22" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;vector&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="23" column="0"/>
@@ -69,48 +72,87 @@
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string_view&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string_view&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="25" column="0"/>
         </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="88" column="8"/>
+            <symbol>memcpy</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="95" column="8"/>
+            <symbol>memcpy</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
+        <error id="memsetClass" severity="error" msg="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memcpy&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="103" column="8"/>
+            <symbol>memcpy</symbol>
+            <symbol>'std::atomic'</symbol>
+        </error>
         <error id="memsetClass" severity="error" msg="Using &apos;memset&apos; on struct that contains a &apos;std::atomic&apos;." verbose="Using &apos;memset&apos; on struct that contains a &apos;std::atomic&apos; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="56" column="8"/>
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="112" column="8"/>
             <symbol>memset</symbol>
             <symbol>'std::atomic'</symbol>
         </error>
-        <error id="functionStatic" severity="performance" msg="Technically the member function &apos;AELogParser::parseEntryString&apos; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &apos;AELogParser::parseEntryString&apos; can be made a static function. Making a function static can bring a performance benefit since no &apos;this&apos; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to an unnamed namespace." cwe="398" inconclusive="true" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="105" column="7"/>
-            <symbol>AELogParser::parseEntryString</symbol>
+        <error id="operatorEqShouldBeLeftUnimplemented" severity="style" msg="&apos;operator=&apos; should either return reference to &apos;this&apos; instance or be declared private and left unimplemented." verbose="&apos;operator=&apos; should either return reference to &apos;this&apos; instance or be declared private and left unimplemented." cwe="398" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AECustomTypes\include\AELogEntry.hpp" line="81" column="14"/>
         </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;AELogParser::parseEntries&apos; can be const." verbose="The member function &apos;AELogParser::parseEntries&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="192" column="14"/>
-            <symbol>AELogParser::parseEntries</symbol>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fileRead&apos; can be reduced." verbose="The scope of the variable &apos;fileRead&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="62" column="8"/>
+            <symbol>fileRead</symbol>
         </error>
-        <error id="invalidscanf" severity="warning" msg="sscanf() without field width limits can crash with huge input data." verbose="sscanf() without field width limits can crash with huge input data. Add a field width specifier to fix this problem.\012\012Sample program that can crash:\012\012#include &lt;stdio.h&gt;\012int main()\012{\012    char c[5];\012    scanf(&quot;%s&quot;, c);\012    return 0;\012}\012\012Typing in 5 or more characters may make the program crash. The correct usage here is &apos;scanf(&quot;%4s&quot;, c);&apos;, as the maximum field width does not include the terminating null byte.\012Source: http://linux.die.net/man/3/scanf\012Source: http://www.opensource.apple.com/source/xnu/xnu-1456.1.26/libkern/stdio/scanf.c" cwe="119" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
-            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="170" column="3"/>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;parsedEntry&apos; can be reduced." verbose="The scope of the variable &apos;parsedEntry&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="63" column="8"/>
+            <symbol>parsedEntry</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;cursor&apos; can be reduced." verbose="The scope of the variable &apos;cursor&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="64" column="10"/>
+            <symbol>cursor</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;fileRead&apos; is assigned a value that is never used." verbose="Variable &apos;fileRead&apos; is assigned a value that is never used." cwe="563" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="62" column="17"/>
+            <symbol>fileRead</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;parsedEntry&apos; is assigned a value that is never used." verbose="Variable &apos;parsedEntry&apos; is assigned a value that is never used." cwe="563" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="63" column="20"/>
+            <symbol>parsedEntry</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;cursor&apos; is assigned a value that is never used." verbose="Variable &apos;cursor&apos; is assigned a value that is never used." cwe="563" file0="C:/Users/artem/CODING/ACEngine/AELogParser/src/AELogParser.cpp">
+            <location file="C:\Users\artem\CODING\ACEngine\AELogParser\include\AELogParser.hpp" line="64" column="17"/>
+            <symbol>cursor</symbol>
         </error>
   <FileInfo check="Class">
-<class name="AELogEntry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="37" col="1" hash="8487435595453549048"/>
-<class name="AELogParser" file="C:/Users/artem/CODING/ACEngine/AELogParser/include/AELogParser.hpp" line="46" col="1" hash="7753793672843122274"/>
-<class name="__AEModuleBase &lt; AEFileReader &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="39" col="1" hash="7067889260809021561"/>
-<class name="__AEModuleBase &lt; AELogParser &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="39" col="1" hash="10323890892902554891"/>
+<class name="AELogEntry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="59" col="1" hash="3359913709643814940"/>
+<class name="AELogParser" file="C:/Users/artem/CODING/ACEngine/AELogParser/include/AELogParser.hpp" line="33" col="1" hash="535525365992740623"/>
+<class name="__AEModuleBase &lt; AEFileReader &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="42" col="1" hash="7067889260809021561"/>
+<class name="__AEModuleBase &lt; AELogParser &gt;" file="C:/Users/artem/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="42" col="1" hash="10323890892902554891"/>
   </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:308:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="314" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:308:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="314" col="29" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEFileReader/include/AEFileReader.hpp:427:14" my-argnr="1" my-argname="cdata" file="C:/Users/artem/CODING/ACEngine/AEFileReader/include/AEFileReader.hpp" line="428" col="15" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:54:21" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="56" col="15" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEFileReader/include/AEFileReader.hpp:437:14" my-argnr="1" my-argname="cdata" file="C:/Users/artem/CODING/ACEngine/AEFileReader/include/AEFileReader.hpp" line="438" col="15" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:111:21" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="112" col="15" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:126:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="127" col="19" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:144:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="145" col="19" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:308:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="314" col="22" value="0"/>
-    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:308:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="314" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:138:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="139" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:156:15" my-argnr="1" my-argname="str1" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="157" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="1" my-argname="fname" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp:318:16" my-argnr="2" my-argname="flags" file="C:/Users/artem/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="324" col="29" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:87:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="88" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:94:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="95" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:102:14" my-argnr="1" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="103" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp:154:21" my-argnr="2" my-argname="entry" file="C:/Users/artem/CODING/ACEngine/AECustomTypes/include/AELogEntry.hpp" line="159" col="7" value="0"/>
   </FileInfo>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogParser.cpp.analyzerinfo.21852.dump">
-            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="256" column="34"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogParser.cpp.analyzerinfo.15684.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="266" column="34"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogParser.cpp.analyzerinfo.21852.dump">
-            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="267" column="11"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="C:/Users/artem/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/AELogParser.cpp.analyzerinfo.15684.dump">
+            <location file="C:\Users\artem\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="277" column="11"/>
         </error>
   <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="nextEntry" lineNumber="11"/>
+    <functiondecl functionName="logToQueue" lineNumber="41"/>
     <functioncall functionName="AEFileReader"/>
+    <functioncall functionName="AELP_PARSE_STRING_FULL"/>
+    <functioncall functionName="AELP_PARSE_STRING_WRITE_TYPE"/>
     <functioncall functionName="AELogEntry"/>
     <functioncall functionName="NULL"/>
     <functioncall functionName="T"/>
@@ -118,13 +160,19 @@
     <functioncall functionName="__AEModuleBase"/>
     <functioncall functionName="_fseeki64"/>
     <functioncall functionName="_ftelli64"/>
+    <functioncall functionName="abort"/>
     <functioncall functionName="absolute"/>
+    <functioncall functionName="amountValidEntries"/>
     <functioncall functionName="begin"/>
+    <functioncall functionName="cint"/>
     <functioncall functionName="clear"/>
     <functioncall functionName="clearEntry"/>
     <functioncall functionName="closeFile"/>
+    <functioncall functionName="closeLog"/>
+    <functioncall functionName="copyEntry"/>
     <functioncall functionName="data"/>
     <functioncall functionName="decay"/>
+    <functioncall functionName="emplace_back"/>
     <functioncall functionName="end"/>
     <functioncall functionName="false"/>
     <functioncall functionName="fclose"/>
@@ -132,6 +180,7 @@
     <functioncall functionName="ferror"/>
     <functioncall functionName="fetch_add"/>
     <functioncall functionName="find_if_not"/>
+    <functioncall functionName="first"/>
     <functioncall functionName="fopen_s"/>
     <functioncall functionName="formatDate"/>
     <functioncall functionName="fscanf_s"/>
@@ -141,23 +190,25 @@
     <functioncall functionName="int8_t"/>
     <functioncall functionName="isAlNumUs"/>
     <functioncall functionName="isClosed"/>
-    <functioncall functionName="isEOF"/>
     <functioncall functionName="isInRange"/>
     <functioncall functionName="isOpen"/>
     <functioncall functionName="isalnum"/>
     <functioncall functionName="iss"/>
     <functioncall functionName="load"/>
     <functioncall functionName="localtime_s"/>
-    <functioncall functionName="matchLogType"/>
+    <functioncall functionName="m_pNextNode"/>
+    <functioncall functionName="makeQueue"/>
     <functioncall functionName="memcmp"/>
     <functioncall functionName="memcpy"/>
     <functioncall functionName="memset"/>
     <functioncall functionName="microseconds"/>
     <functioncall functionName="milliseconds"/>
     <functioncall functionName="mktime"/>
-    <functioncall functionName="offsetof"/>
+    <functioncall functionName="nextEntry"/>
     <functioncall functionName="openFile"/>
-    <functioncall functionName="parseEntryString"/>
+    <functioncall functionName="openLog"/>
+    <functioncall functionName="pair"/>
+    <functioncall functionName="parseStringEntry"/>
     <functioncall functionName="push_back"/>
     <functioncall functionName="readData_ptr"/>
     <functioncall functionName="readString"/>
@@ -168,11 +219,13 @@
     <functioncall functionName="reserve"/>
     <functioncall functionName="resize"/>
     <functioncall functionName="rfind"/>
+    <functioncall functionName="setCursorPos"/>
     <functioncall functionName="size"/>
     <functioncall functionName="sleep_for"/>
     <functioncall functionName="snprintf"/>
     <functioncall functionName="sscanf"/>
     <functioncall functionName="stringToDate"/>
+    <functioncall functionName="stringToType"/>
     <functioncall functionName="strlen"/>
     <functioncall functionName="strstr"/>
     <functioncall functionName="strvMname"/>
@@ -187,7 +240,7 @@
     <functioncall functionName="transform"/>
     <functioncall functionName="true"/>
     <functioncall functionName="tstruct"/>
+    <functioncall functionName="typeToString"/>
     <functioncall functionName="uint64_t"/>
-    <functioncall functionName="vector"/>
   </FileInfo>
 </analyzerinfo>

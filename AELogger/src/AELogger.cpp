@@ -14,33 +14,14 @@
 #include <ctime>
 
 
-AELogEntry* AELogger::makeQueue(const std::size_t amt, AELogEntry* oldqueue) {
-	//damn, amt is really 0; get null!
-	if (amt == 0) {
-		throw std::runtime_error("queue size to allocate is 0!");
-	}
-	//allocate new log entry list
-	AELogEntry* leptr = new AELogEntry[amt]{};
-	for (std::size_t i = 0; i < amt; i++) {
-		leptr[i].m_pNextNode = leptr + i + 1; //set the next node pointers for our linked list
-	}
-	//loop the last log entry to the beginning
-	if (oldqueue) {
-		leptr[amt - 1].m_pNextNode = oldqueue; //beginning of old queue
-	}
-	else {
-		leptr[amt - 1].m_pNextNode = leptr; //beginning of itself
-	}
 
-	return leptr;
-}
 
 
 //constructor
 AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */), 
 	m_ullFilledCount(0), m_ullNodeNumber(0), m_ullQueueSize(queuesize),
-	m_lepQueue(AELogger::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), 
+	m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), 
 	m_bRunTrd(false), m_bQueueFilled(false){
 
 
@@ -100,11 +81,14 @@ cint AELogger::stopWriter(void) {
 
 // request a log entry and write to it
 cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
-	/// @todo REWRITE THE WAYS OF LOGGING!
 	if (this->isClosed()) {
 		return AEFW_ERR_FILE_NOT_OPEN; // file's closed/closing!
 	}
 
+	// The only reason this function isn't shortcutted to a writeToLog with an entry
+	// is simply because it is doing the same thing anyway
+	// copying string data to a log entry
+	// and we'll need to do the same thing if we want to use the 2nd version of writeToLog
 	
 	/// @todo Implement decrease in log queue size...somehow
 
@@ -122,7 +106,7 @@ cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 		const ullint qsize = this->m_ullQueueSize / 2;
 
 		//make new queue
-		AELogEntry* newQueue = AELogger::makeQueue(qsize, this->m_lepQueue);
+		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
 		//add the new queue to the vector
 		this->m_ullQueueSize += qsize;
 		this->m_lepLastNode->m_pNextNode = newQueue;
@@ -143,21 +127,56 @@ cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 
 	//increment node number and get the pointer
 	AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
-	while (ptr->m_cStatus != AELOG_ENTRY_STATUS_INVALID) {
+	while (ptr->m_cStatus != AELE_STATUS_INVALID) {
 		ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
 	}
 
 	
 	//populating it now!
-	ptr->m_cStatus = AELOG_ENTRY_STATUS_SETTING; //alright boys, we're setting this one up
+	ptr->m_cStatus = AELE_STATUS_SETTING; //alright boys, we're setting this one up
 
 	ptr->m_tmLogTime = std::time(nullptr);
-	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() > AELOG_ENTRY_MESSAGE_SIZE) ? AELOG_ENTRY_MESSAGE_SIZE : logmessg.size());
-	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELOG_ENTRY_MODULENAME_SIZE) ? AELOG_ENTRY_MODULENAME_SIZE : logmodule.size());
+	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() > AELE_MESSAGE_SIZE) ? AELE_MESSAGE_SIZE : logmessg.size());
+	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELE_MODULENAME_SIZE) ? AELE_MODULENAME_SIZE : logmodule.size());
 	ptr->m_cLogType = logtype;
-	ptr->m_cStatus = AELOG_ENTRY_STATUS_READY;
+	ptr->m_cStatus = AELE_STATUS_READY;
 	return AELOG_ERR_NOERROR;
 }
+
+cint AELogger::writeToLog(const AELogEntry& entry, const bool useCurrentTime) {
+	if (this->isClosed()) {
+		return AEFW_ERR_FILE_NOT_OPEN; // file's closed/closing!
+	}
+
+	this->m_ullFilledCount++;
+
+	if (this->m_ullFilledCount > this->m_ullQueueSize) {
+		const std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
+		const ullint qsize = this->m_ullQueueSize / 2;
+
+		//make new queue
+		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
+		//add the new queue to the vector
+		this->m_ullQueueSize += qsize;
+		this->m_lepLastNode->m_pNextNode = newQueue;
+		this->m_lepLastNode = newQueue + qsize - 1;
+		this->m_vAllocTable.emplace_back(this->m_ullQueueSize, newQueue);
+		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", this->m_sModulename);
+	}
+
+	//increment node number and get the pointer
+	AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
+	while (ptr->m_cStatus != AELE_STATUS_INVALID) {
+		ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
+	}
+
+	ptr->m_cStatus = AELE_STATUS_SETTING;
+	ptr->copyEntryReduced(entry);
+	ptr->m_cStatus = AELE_STATUS_READY;
+
+	return AELOG_ERR_NOERROR;
+}
+
 
 void AELogger::logWriterThread(void) {
 	//bit of announcements
@@ -168,18 +187,13 @@ void AELogger::logWriterThread(void) {
 	AELogEntry* ePtr = this->m_lepQueue;
 	AELogEntry* oldptr = ePtr;
 
-	//string that stores the date and time formatted string
-	char timestr[DATETIME_STRING_SIZE]{};
+	
 
 	//the final message to output
-	char str[AELOG_ENTRY_MAX_SIZE]{};
+	char str[AELE_FORMAT_MAX_SIZE]{};
 
 	// The node order number for the writing thread.
 	//ullint m_ullWriterOrderNum = 0;
-
-	//and the string literals for the formatting
-	constexpr const char* const strformatDebug = "[%s] [%-14s] [%s]: DEBUG->%s\n";
-	constexpr const char* const strformat = "[%s] [%-14s] [%s]: %s\n";
 
 
 	//and not stop untill it's done
@@ -188,20 +202,15 @@ void AELogger::logWriterThread(void) {
 		while (this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
 			
 			//got it!. Now wait untill it's ready
-			while (ePtr->m_cStatus != AELOG_ENTRY_STATUS_READY) {
+			while (ePtr->m_cStatus != AELE_STATUS_READY) {
 				ace::utils::sleepUS(100);
 			}
 			//the entry is minee!
-			ePtr->m_cStatus = AELOG_ENTRY_STATUS_READING;
+			ePtr->m_cStatus = AELE_STATUS_READING;
 			
 			//formatting
-			if (ePtr->m_cLogType == AELOG_TYPE_DEBUG) {
-				snprintf(str, sizeof(str), strformatDebug, ace::utils::formatDate(ePtr->m_tmLogTime, timestr), AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-			}
-			else {
-				snprintf(str, sizeof(str), strformat, ace::utils::formatDate(ePtr->m_tmLogTime, timestr), AELogger::typeToString(ePtr->m_cLogType), ePtr->m_sModuleName, ePtr->m_sLogMessage);
-			}
 			
+			AELogEntry::formatEntry(str, *ePtr);
 			
 			//std::cout << str;
 			
@@ -224,9 +233,16 @@ void AELogger::logWriterThread(void) {
 		ace::utils::sleepUS(1000);
 	}
 
+	//format the last entrys
+	AELogEntry::formatEntry(str,
+		{ .m_sLogMessage = "Successfully exited the writer thread.", .m_sModuleName = "this->m_sModulename.data()",
+		  .m_tmLogTime = time(nullptr), .m_cLogType = AELOG_TYPE_SUCCESS });
 
+	// old way of formatting
+	// snprintf(str, sizeof(str), AELE_FORMAT_STRING, ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
+	
 
-	snprintf(str, sizeof(str), strformat, ace::utils::getCurrentDate().c_str(), AELogger::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
+	//write and flush the last entry
 	this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
 	this->m_fwLogger.flushFile();
 }

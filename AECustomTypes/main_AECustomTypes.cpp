@@ -1,5 +1,5 @@
 #include <iostream>
-#include "AELogEntry.hpp"
+#include "AELogTypes.hpp"
 using std::cout;
 using std::cin;
 

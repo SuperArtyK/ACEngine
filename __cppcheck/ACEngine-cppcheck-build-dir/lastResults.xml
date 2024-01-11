@@ -2,74 +2,11 @@
 <results version="2">
     <cppcheck version="2.12.0"/>
     <errors>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.21852.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AEMisc\include\AEUtils.hpp" line="255"/>
-        </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.21852.dump" sinceDate="yyyy-MM-dd">
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
             <location file="..\AEMisc\include\AEUtils.hpp" line="266"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.21852.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AEMisc\include\AEUtils.hpp" line="256"/>
-        </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.21852.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AEMisc\include\AEUtils.hpp" line="267"/>
-        </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2884" info="default parameter was declared here"/>
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="15" info="calling a function that uses a default argument is disallowed "/>
-        </error>
-        <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;AEFileReader&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;AEFileReader&amp;#039; which should not throw exceptions " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="20"/>
-        </error>
-        <error id="clang-tidy-readability-identifier-length" severity="style" msg="parameter name &amp;#039;fr&amp;#039; is too short, expected at least 3 characters " verbose="parameter name &amp;#039;fr&amp;#039; is too short, expected at least 3 characters " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="20"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]" verbose="move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2758" info="candidate move constructor here"/>
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="2490" info="copy constructor being called"/>
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="21" info="move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="32"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="58"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="61"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="61"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="70"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="73"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="73"/>
-        </error>
-        <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast " verbose="C-style casts are discouraged; use static_cast " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="77"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="78"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="86"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="94"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;char *&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="97"/>
-        </error>
-        <error id="clang-tidy-google-readability-casting" severity="style" msg="C-style casts are discouraged; use static_cast (if needed, the cast may be redundant) " verbose="C-style casts are discouraged; use static_cast (if needed, the cast may be redundant) " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="107"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="113"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AEMisc\include\AEUtils.hpp" line="277"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AEFileReader\src\AEFileReader.cpp" line="115"/>
@@ -77,302 +14,78 @@
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AEFileReader\src\AEFileReader.cpp" line="117"/>
         </error>
-        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="118"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-pro-bounds-constant-array-index" severity="style" msg="do not use array subscript when the index is not an integer constant expression " verbose="do not use array subscript when the index is not an integer constant expression " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="119"/>
-        </error>
         <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;char&amp;#039; is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;char&amp;#039; is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AEFileReader\src\AEFileReader.cpp" line="119"/>
         </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="122"/>
-        </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AEFileReader\src\AEFileReader.cpp" line="122"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="128"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AEFileReader\src\AEFileReader.cpp" line="128"/>
         </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="136"/>
+        <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="88"/>
         </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;void *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;void *&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="139"/>
+        <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="95"/>
         </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="139"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="146"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;int&amp;#039; -&amp;gt; bool " file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="149"/>
-        </error>
-        <error id="clang-tidy-bugprone-easily-swappable-parameters" severity="style" msg="2 adjacent parameters of &amp;#039;AEFileWriter&amp;#039; of convertible types are easily swapped by mistake " verbose="2 adjacent parameters of &amp;#039;AEFileWriter&amp;#039; of convertible types are easily swapped by mistake " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="12" info="&amp;#039;const cint&amp;#039; and &amp;#039;const ullint&amp;#039; may be implicitly converted: &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;) -&amp;gt; &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;), &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;) -&amp;gt; &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;)"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="12" info=""/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="12" info="the last parameter in the range is &amp;#039;af_interval&amp;#039;"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="12" info="the first parameter in the range is &amp;#039;flags&amp;#039;"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="12" info="2 adjacent parameters of &amp;#039;AEFileWriter&amp;#039; of convertible types are easily swapped by mistake "/>
-        </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\include\AEFileWriter.hpp" line="140" info="default parameter was declared here"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="16" info="calling a function that uses a default argument is disallowed "/>
-        </error>
-        <error id="clang-tidy-readability-identifier-length" severity="style" msg="parameter name &amp;#039;fw&amp;#039; is too short, expected at least 3 characters " verbose="parameter name &amp;#039;fw&amp;#039; is too short, expected at least 3 characters " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="20"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="35"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;const void *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;const void *&amp;#039; -&amp;gt; bool " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="39"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;std::size_t&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="39"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="58"/>
-        </error>
-        <error id="clang-tidy-bugprone-easily-swappable-parameters" severity="style" msg="2 adjacent parameters of &amp;#039;openFile&amp;#039; of convertible types are easily swapped by mistake " verbose="2 adjacent parameters of &amp;#039;openFile&amp;#039; of convertible types are easily swapped by mistake " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="58" info="&amp;#039;const cint&amp;#039; and &amp;#039;const ullint&amp;#039; may be implicitly converted: &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;) -&amp;gt; &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;), &amp;#039;const ullint&amp;#039; (as &amp;#039;unsigned long long&amp;#039;) -&amp;gt; &amp;#039;const cint&amp;#039; (as &amp;#039;signed char&amp;#039;)"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="58" info=""/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="58" info="the last parameter in the range is &amp;#039;af_interval&amp;#039;"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="58" info="the first parameter in the range is &amp;#039;flags&amp;#039;"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="58" info="2 adjacent parameters of &amp;#039;openFile&amp;#039; of convertible types are easily swapped by mistake "/>
-        </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring" line="4398" info="default parameter was declared here"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="72" info="calling a function that uses a default argument is disallowed "/>
-        </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="../AEFileWriter/src/AEFileWriter.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\filesystem" line="649" info="default parameter was declared here"/>
-            <location file="..\AEFileWriter\src\AEFileWriter.cpp" line="74" info="calling a function that uses a default argument is disallowed "/>
+        <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="103"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="63"/>
+            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="112"/>
         </error>
-        <error id="memsetClass" severity="error" msg="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AECustomTypes\include\AELogEntry.hpp" line="56"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="138"/>
         </error>
-        <error id="duplicateBreak" severity="style" msg="Consecutive return, break, continue, goto or throw statements are unnecessary." verbose="Consecutive return, break, continue, goto or throw statements are unnecessary. The second statement can never be executed, and so should be removed." cwe="561" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="84"/>
-        </error>
-        <error id="unusedLabel" severity="style" msg="Label &amp;#039;queueFilledLabel&amp;#039; is not used." verbose="Label &amp;#039;queueFilledLabel&amp;#039; is not used." cwe="398" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="188"/>
-        </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.21852.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="154"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="17"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-owning-memory" severity="style" msg="initializing non-owner &amp;#039;AELogEntry *&amp;#039; with a newly created &amp;#039;gsl::owner&amp;lt;&amp;gt;&amp;#039; " verbose="initializing non-owner &amp;#039;AELogEntry *&amp;#039; with a newly created &amp;#039;gsl::owner&amp;lt;&amp;gt;&amp;#039; " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="23"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="use auto when initializing with new to avoid duplicating the type name [hicpp-use-auto,modernize-use-auto]" verbose="use auto when initializing with new to avoid duplicating the type name [hicpp-use-auto,modernize-use-auto]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="23"/>
-        </error>
-        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="24"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-pro-bounds-pointer-arithmetic" severity="style" msg="do not use pointer arithmetic " verbose="do not use pointer arithmetic " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="25"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;AELogEntry *&amp;#039; -&amp;gt; bool " verbose="implicit conversion &amp;#039;AELogEntry *&amp;#039; -&amp;gt; bool " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="28"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-pro-bounds-pointer-arithmetic" severity="style" msg="do not use pointer arithmetic " verbose="do not use pointer arithmetic " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="29"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-pro-bounds-pointer-arithmetic" severity="style" msg="do not use pointer arithmetic " verbose="do not use pointer arithmetic " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="32"/>
-        </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileWriter\include\AEFileWriter.hpp" line="95" info="default parameter was declared here"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="41" info="calling a function that uses a default argument is disallowed "/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.15684.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="239"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;cint&amp;#039; (aka &amp;#039;signed char&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;cint&amp;#039; (aka &amp;#039;signed char&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="41"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion bool -&amp;gt; &amp;#039;int&amp;#039; " verbose="implicit conversion bool -&amp;gt; &amp;#039;int&amp;#039; " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="41"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-pro-bounds-pointer-arithmetic" severity="style" msg="do not use pointer arithmetic " verbose="do not use pointer arithmetic " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="43"/>
-        </error>
-        <error id="clang-tidy-fuchsia-default-arguments-calls" severity="style" msg="calling a function that uses a default argument is disallowed " verbose="calling a function that uses a default argument is disallowed " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\filesystem" line="649" info="default parameter was declared here"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="53" info="calling a function that uses a default argument is disallowed "/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="53"/>
-        </error>
-        <error id="clang-tidy-bugprone-exception-escape" severity="style" msg="an exception may be thrown in function &amp;#039;~AELogger&amp;#039; which should not throw exceptions " verbose="an exception may be thrown in function &amp;#039;~AELogger&amp;#039; which should not throw exceptions " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="60"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="61"/>
-        </error>
-        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="64"/>
-        </error>
-        <error id="clang-tidy-modernize-loop-convert" severity="style" msg="use range-based for loop instead " verbose="use range-based for loop instead " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="64"/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-owning-memory" severity="style" msg="deleting a pointer through a type that is not marked &amp;#039;gsl::owner&amp;lt;&amp;gt;&amp;#039;; consider using a smart pointer instead " verbose="deleting a pointer through a type that is not marked &amp;#039;gsl::owner&amp;lt;&amp;gt;&amp;#039;; consider using a smart pointer instead " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\yvals_core.h" line="878" info="expanded from macro &amp;#039;_CONSTEXPR20&amp;#039;"/>
-            <location file="..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\vector" line="1882" info="variable declared here"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="65" info="deleting a pointer through a type that is not marked &amp;#039;gsl::owner&amp;lt;&amp;gt;&amp;#039;; consider using a smart pointer instead "/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="71"/>
-        </error>
-        <error id="clang-tidy-modernize-redundant-void-arg" severity="style" msg="redundant void argument list in function definition " verbose="redundant void argument list in function definition " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="71"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="72"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="74"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="81"/>
-        </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="90"/>
-        </error>
-        <error id="clang-tidy-modernize-redundant-void-arg" severity="style" msg="redundant void argument list in function definition " verbose="redundant void argument list in function definition " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="90"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="145" info="inferred assignment of ID-dependent value from ID-dependent  "/>
-            <location file="..\AELogger\src\AELogger.cpp" line="92" info="static member accessed through instance "/>
+            <location file="..\AELogger\src\AELogger.cpp" line="22"/>
         </error>
         <error id="clang-tidy-misc-no-recursion" severity="warning" msg="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain " verbose="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="131" info="... which was the starting point of the recursive call chain; there may be other cycles"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="131" info="Frame #2: function &amp;#039;writeToLog&amp;#039; calls function &amp;#039;writeToLogDebug&amp;#039; here:"/>
-            <location file="..\AELogger\include\AELogger.hpp" line="161" info="Frame #1: function &amp;#039;writeToLogDebug&amp;#039; calls function &amp;#039;writeToLog&amp;#039; here:"/>
-            <location file="..\AELogger\include\AELogger.hpp" line="159" info="example recursive call chain, starting from function &amp;#039;writeToLogDebug&amp;#039;"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="102" info="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain "/>
-        </error>
-        <error id="clang-tidy-cppcoreguidelines-pro-bounds-pointer-arithmetic" severity="style" msg="do not use pointer arithmetic " verbose="do not use pointer arithmetic " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="129"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="131"/>
-        </error>
-        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="146"/>
-        </error>
-        <error id="clang-tidy-altera-id-dependent-backward-branch" severity="style" msg="backward branch (while loop) is ID-dependent due to variable reference to &amp;#039;ptr&amp;#039; and may cause performance degradation " verbose="backward branch (while loop) is ID-dependent due to variable reference to &amp;#039;ptr&amp;#039; and may cause performance degradation " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="146"/>
-        </error>
-        <error id="clang-tidy-modernize-use-nullptr" severity="style" msg="use nullptr " verbose="use nullptr " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="154"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="115" info="... which was the starting point of the recursive call chain; there may be other cycles"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="115" info="Frame #2: function &amp;#039;writeToLog&amp;#039; calls function &amp;#039;writeToLogDebug&amp;#039; here:"/>
+            <location file="..\AELogger\include\AELogger.hpp" line="187" info="Frame #1: function &amp;#039;writeToLogDebug&amp;#039; calls function &amp;#039;writeToLog&amp;#039; here:"/>
+            <location file="..\AELogger\include\AELogger.hpp" line="185" info="example recursive call chain, starting from function &amp;#039;writeToLogDebug&amp;#039;"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="83" info="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain "/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="155"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="139"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="156"/>
-        </error>
-        <error id="clang-tidy-modernize-redundant-void-arg" severity="style" msg="redundant void argument list in function definition " verbose="redundant void argument list in function definition " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="162"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="164"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="140"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="172"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="20 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="20 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="172"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="175"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;_TVal&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;_TVal&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="187"/>
-        </error>
-        <error id="clang-tidy-readability-implicit-bool-conversion" severity="style" msg="implicit conversion &amp;#039;_TVal&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " verbose="implicit conversion &amp;#039;_TVal&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="168" info="inferred assignment of ID-dependent value from ID-dependent  "/>
-            <location file="..\AELogger\src\AELogger.cpp" line="189" info="implicit conversion &amp;#039;_TVal&amp;#039; (aka &amp;#039;unsigned long long&amp;#039;) -&amp;gt; bool "/>
-        </error>
-        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="192"/>
-        </error>
-        <error id="clang-tidy-altera-id-dependent-backward-branch" severity="style" msg="backward branch (while loop) is ID-dependent due to variable reference to &amp;#039;ePtr&amp;#039; and may cause performance degradation " verbose="backward branch (while loop) is ID-dependent due to variable reference to &amp;#039;ePtr&amp;#039; and may cause performance degradation " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="192"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
             <location file="..\AELogger\src\AELogger.cpp" line="193"/>
         </error>
-        <error id="clang-tidy-cert-err33-c" severity="style" msg="the value returned by this function should be used " verbose="the value returned by this function should be used " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="200" info="cast the expression to void to silence this warning"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="200" info="the value returned by this function should be used "/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]" verbose="do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="200"/>
+        <error id="clang-analyzer" severity="warning" msg="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="206"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="200"/>
-        </error>
-        <error id="clang-tidy-cert-err33-c" severity="style" msg="the value returned by this function should be used " verbose="the value returned by this function should be used " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="203" info="cast the expression to void to silence this warning"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="203" info="the value returned by this function should be used "/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]" verbose="do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="203"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="213"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="203"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="210"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="218"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="225"/>
-        </error>
-        <error id="clang-tidy-cert-err33-c" severity="style" msg="the value returned by this function should be used " verbose="the value returned by this function should be used " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="230" info="cast the expression to void to silence this warning"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="230" info="the value returned by this function should be used "/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]" verbose="do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg,hicpp-vararg]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="230"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="233"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="230"/>
-        </error>
-        <error id="clang-tidy-readability-static-accessed-through-instance" severity="style" msg="static member accessed through instance " verbose="static member accessed through instance " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="230"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="237"/>
         </error>
         <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="231"/>
+            <location file="..\AELogger\src\AELogger.cpp" line="246"/>
         </error>
-        <error id="clang-tidy-modernize-use-trailing-return-type" severity="style" msg="use a trailing return type for this function " verbose="use a trailing return type for this function " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="236"/>
+        <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\src\AELogParser.cpp" line="16"/>
         </error>
-        <error id="clang-tidy-altera-unroll-loops" severity="style" msg="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " verbose="kernel performance could be improved by unrolling this loop with a &amp;#039;#pragma unroll&amp;#039; directive " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="239"/>
+        <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;unsigned long long&amp;#039; to signed type &amp;#039;llint&amp;#039; (aka &amp;#039;long long&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;unsigned long long&amp;#039; to signed type &amp;#039;llint&amp;#039; (aka &amp;#039;long long&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\src\AELogParser.cpp" line="30"/>
         </error>
-        <error id="clang-tidy-modernize-loop-convert" severity="style" msg="use range-based for loop instead " verbose="use range-based for loop instead " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="239"/>
-        </error>
-        <error id="functionStatic" severity="performance" msg="Technically the member function &amp;#039;AELogParser::parseEntryString&amp;#039; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &amp;#039;AELogParser::parseEntryString&amp;#039; can be made a static function. Making a function static can bring a performance benefit since no &amp;#039;this&amp;#039; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to an unnamed namespace." inconclusive="true" cwe="398" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\include\AELogParser.hpp" line="105"/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;AELogParser::parseEntries&amp;#039; can be const." verbose="The member function &amp;#039;AELogParser::parseEntries&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\include\AELogParser.hpp" line="192"/>
-        </error>
-        <error id="invalidscanf" severity="warning" msg="sscanf() without field width limits can crash with huge input data." verbose="sscanf() without field width limits can crash with huge input data. Add a field width specifier to fix this problem.&#10;&#10;Sample program that can crash:&#10;&#10;#include &amp;lt;stdio.h&amp;gt;&#10;int main()&#10;{&#10;    char c[5];&#10;    scanf(&amp;quot;%s&amp;quot;, c);&#10;    return 0;&#10;}&#10;&#10;Typing in 5 or more characters may make the program crash. The correct usage here is &amp;#039;scanf(&amp;quot;%4s&amp;quot;, c);&amp;#039;, as the maximum field width does not include the terminating null byte.&#10;Source: http://linux.die.net/man/3/scanf&#10;Source: http://www.opensource.apple.com/source/xnu/xnu-1456.1.26/libkern/stdio/scanf.c" cwe="119" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\include\AELogParser.hpp" line="170"/>
+        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\src\AELogParser.cpp" line="32"/>
         </error>
     </errors>
 </results>

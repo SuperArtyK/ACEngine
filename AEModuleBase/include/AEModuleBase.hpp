@@ -23,10 +23,13 @@ template <typename T>
 constexpr std::string_view getTypeName(void) noexcept { return "getTypeName"; }
 
 /// adds module name to inherit from __AEModuleBase
-#define REGISTER_CLASS(T) template <> constexpr std::string_view getTypeName<T>() noexcept { return #T; }
+#define REGISTER_MODULE(T) template <> constexpr std::string_view getTypeName<T>() noexcept { return #T; }
+
+/// Global "no error" return flag for all engine modules
+#define ENGINE_MODULE_ERR_NOERROR 0
 
 // Usage to register the class:
-// add REGISTER_CLASS(<classname>)
+// add REGISTER_MODULE(<classname>)
 // after the class definition
 
 /// <summary>
@@ -96,6 +99,6 @@ protected:
 template<typename T>
 const std::string_view __AEModuleBase<T>::m_sModulename = getTypeName<T>();
 
-//REGISTER_CLASS(__AEModuleBase)
+//REGISTER_MODULE(__AEModuleBase)
 
 #endif // !ENGINE_AEMODULEBASE_HPP

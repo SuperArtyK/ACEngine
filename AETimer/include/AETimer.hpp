@@ -218,7 +218,7 @@ private:
 };
 
 //aaaand yeah, register the class
-REGISTER_CLASS(AETimer);
+REGISTER_MODULE(AETimer);
 
 
 #ifdef ENGINE_ENABLE_GLOBAL_MODULES

@@ -21,6 +21,10 @@
 /// Macro to enable the engine's global modules (like timer, logger, etc)
 /// @note Undefine or comment-out to disable this feature
 #define ENGINE_ENABLE_GLOBAL_MODULES 1
+/// Macro to enable the engine's trigonometry lookup code.
+/// @see AETrigLookup.hpp
+#define ENGINE_ENABLE_MATH_LOOKUP
+
 
 //AEFileWriter flags
 /// Macro to enable the auto-flushing mechanism.
@@ -28,15 +32,12 @@
 #define AEFW_AUTOFLUSH_ENABLE 
 /// Macro for the default "use auto-flush" argument value.
 #define AEFW_DEFAULT_AUTOFLUSH true
-/// Macro for the default auto-flush amount value.
+/// Macro for the default auto-flush trigger value.
 #define AEFW_DEFAULT_AUTOFLUSH_INTERVAL (ullint)-1
-/// Macro to enable the engine's trigonometry lookup code.
-/// @see AETrigLookup.hpp
-#define ENGINE_ENABLE_TRIG_LOOKUP
 
 //AELogger flags
 /// Macro for the AELogger's default queue size (if none was provided).
-#define AELOG_DEFAULT_QUEUE_SIZE 1024
+#define AELOG_DEFAULT_QUEUE_SIZE 2048
 /// Macro for the AELogger's default module name (if none was provided when calling the write-to-log request).
 #define AELOG_DEFAULT_MODULE_NAME "ACEngine"
 /// Macro for the default reserve amount of the AELogger's allocation vector (stores all queue ptrs).
@@ -44,17 +45,18 @@
 #define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32
 /// Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable).
 /// Like global modules.
+/// @note Currently used only in the globbal logger
 #define AELOG_DEFAULT_LOG_PATH "./logs/"
 
 //AELogEntry flags
 /// The size of the AELogEntry message in characters (excluding null termination)
-#define AELOG_ENTRY_MESSAGE_SIZE 511
+#define AELE_MESSAGE_SIZE 511
 /// The size of the AELogEntry module name in characters (excluding null termination)
-#define AELOG_ENTRY_MODULENAME_SIZE 31
+#define AELE_MODULENAME_SIZE 31
 
 
 //AEVector
-/// A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount.
+/// A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount.
 #define AEVEC_WRAP_DIMENSIONS 1
 
 #endif // !ENGINE_FLAGS_HPP

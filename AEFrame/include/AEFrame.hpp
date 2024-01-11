@@ -19,7 +19,7 @@
 
 /// <summary>
 /// @brief This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops.
-/// Hungarian notation is r.
+/// Hungarian notation is fd.
 /// So instead of guessing the delay for the main game loop, and having unreliable call to normal "sleep for x",
 /// you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier.
 /// @note To get this to work properly, make an object outside of the loop, and put the call to AEFrame::sleep() at the end of the loop.
@@ -99,6 +99,6 @@ private:
 	bool m_bNoDelay;
 };
 
-REGISTER_CLASS(AEFrame)
+REGISTER_MODULE(AEFrame)
 
 #endif // !ENGINE_FRAME_HPP

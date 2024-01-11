@@ -5,7 +5,6 @@
 #include "AEFlags.hpp"
 #include "AEMath.hpp"
 #include "AETrigLookup.hpp"
-#include "../AELogger/include/AELogTypes.hpp"
 #include <iomanip>
 #include <vector>
 using std::cout;

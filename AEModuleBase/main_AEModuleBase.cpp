@@ -15,7 +15,7 @@ public:
 };
 
 
-REGISTER_CLASS(Test3);
+REGISTER_MODULE(Test3);
 
 int main() {
     Test3 a = Test3(3);

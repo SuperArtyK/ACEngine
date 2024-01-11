@@ -16,7 +16,7 @@
     <Filter Include="Resource Files\Logo resources">
       <UniqueIdentifier>{e8d43547-6b59-463f-96fe-8e1803d84d61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\engine">
+    <Filter Include="Header Files\engine modules">
       <UniqueIdentifier>{311be645-bce5-4d6e-93fa-28e86bfc05f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -33,16 +33,16 @@
       <Filter>Resource Files\Logo resources</Filter>
     </ClInclude>
     <ClInclude Include="..\AEFrame\include\AEFrame.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
-      <Filter>Header Files\engine</Filter>
+      <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

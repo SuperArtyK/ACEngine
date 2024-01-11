@@ -168,8 +168,13 @@
     <ClCompile Include="main_AECustomTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEMath.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp" />
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
-    <ClInclude Include="include\AELogEntry.hpp" />
+    <ClInclude Include="include\AELogTypes.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\consoleprog1.rc" />

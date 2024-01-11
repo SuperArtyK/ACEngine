@@ -70,6 +70,11 @@
 #define aeoffsetof(type, memb) offsetof(type, memb)
 #else
 #define aeoffsetof(type, memb) (intptr_t)&(((type*)NULL)->memb)
+
+// MSVC Version of offsetof, in case my version fails to work
+// #define aeoffsetof(type,memb) ((::size_t)&reinterpret_cast<char const volatile&>((((type*)0)->memb)))
+// or
+// #define aeoffsetof(type,memb) ((size_t)&(((type*)0)->memb))
 #endif //offsetof
 
 

@@ -60,7 +60,7 @@ namespace ace::math {
 	/// <typeparam name="T">Type to convert pi/2 to</typeparam>
 	/// <returns>Pi/2 converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T pi2(void) noexcept {
+	constexpr T piHalf(void) noexcept {
 		return T(1.57079632679489661923L);
 	}
 
@@ -70,7 +70,7 @@ namespace ace::math {
 	/// <typeparam name="T">Type to convert pi/4 to</typeparam>
 	/// <returns>Pi/4 converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T pi4(void) noexcept {
+	constexpr T piQuarter(void) noexcept {
 		return T(0.785398163397448309616L);
 	}
 

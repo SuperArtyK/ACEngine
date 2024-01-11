@@ -45,7 +45,7 @@
 
 //Error flags
 /// Macro for the indicator that everything is good.
-#define AEFW_ERR_NOERROR 0
+#define AEFW_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
 /// Same as AEFW_ERR_NOERROR - value of a successfull write.
 #define AEFW_ERR_WRITE_SUCCESS 0
 /// Macro for the error if file isn't open and file operation functions of the file writer are used.
@@ -558,7 +558,7 @@ private:
 	cint m_cFlags;
 };
 
-REGISTER_CLASS(AEFileWriter);
+REGISTER_MODULE(AEFileWriter);
 
 
 // inline function definitions

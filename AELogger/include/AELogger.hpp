@@ -15,7 +15,7 @@
 #include "include/AELogEntry.hpp"
 #include "include/AETypedefs.hpp"
 #include "include/AEFlags.hpp"
-#include "AELogTypes.hpp"
+#include "include/AELogTypes.hpp"
 #include <vector>
 #include <atomic>
 #include <thread>
@@ -34,7 +34,7 @@
 
 //Error flags
 /// Macro for the indicator that everything is good.
-#define AELOG_ERR_NOERROR 0
+#define AELOG_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
 /// Macro for the error that's raised when the log-writing-thread cannot be started
 #define AELOG_ERR_UNABLE_START_THREAD -11
 /// Macro for the error that's raised when the log-writing-thread is attempted to be started again, while it's already running
@@ -60,6 +60,7 @@ class AELogger : public __AEModuleBase<AELogger> {
 public:
 
 //constructors
+
 	/// <summary>
 	/// Class constructor -- it opens the file to start the logging process.
 	/// </summary>
@@ -72,7 +73,7 @@ public:
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
 	explicit AELogger() : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
-		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogger::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
+		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
 
 		this->m_vAllocTable.reserve(AELOG_DEFAULT_ALLOC_VECTOR_RESERVE);
@@ -96,6 +97,7 @@ public:
 
 
 //util functions(threads, files)
+
 	/// <summary>
 	/// Starts the log-writing thread.
 	/// </summary>
@@ -150,6 +152,7 @@ public:
 
 
 //main utility function (bruh)
+
 	/// <summary>
 	/// Request a log entry to be written to the opened log file.
 	/// @note See AELOG_TYPE_* flags
@@ -160,6 +163,14 @@ public:
 	/// <param name="logmodule">The name of the module that invoked this request</param>
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
 	cint writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
+
+	/// <summary>
+	/// Request a log entry to be written to the opened log file, using data from a log entry type.
+	/// </summary>
+	/// <param name="entry">The log entry to write to the file</param>
+	/// <param name="useCurrentTime">Flag to use current time for the log entry, or use timestamp in the provided entry</param>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open</returns>
+	cint writeToLog(const AELogEntry& entry, const bool useCurrentTime = true);
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file.
@@ -175,6 +186,15 @@ public:
 #ifdef ENGINE_DEBUG
 		return this->writeToLog(logmessg, AELOG_TYPE_DEBUG, logmodule);
 #endif // ENGINE_DEBUG
+	}
+
+	/// <summary>
+	/// Writes the current status of the file logger instance (file name, and entries written).
+	/// </summary>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
+	inline cint writeStatus(void) {
+		return this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFullFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
+			AELOG_TYPE_INFO, m_sModulename);
 	}
 
 //getters of info
@@ -233,15 +253,6 @@ public:
 	inline bool isWriting(void) const noexcept {
 		return this->m_bRunTrd;
 	}
-	
-	/// <summary>
-	/// Writes the current status of the file logger instance (file name, and entries written).
-	/// </summary>
-	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
-	inline cint writeStatus(void) {
-		return this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFullFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
-			AELOG_TYPE_INFO, m_sModulename);
-	}
 
 	/// <summary>
 	/// Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current date][.extension] in a given directory
@@ -256,32 +267,6 @@ public:
 		return logname;
 	}
 
-
-	/// <summary>
-	/// Deduces the entry's log type and returns a c-string of it.
-	/// </summary>
-	/// <param name="logtype">The value of the log type</param>
-	/// <returns>c-string of the type</returns>
-	static constexpr const char* typeToString(const cint logtype) noexcept {
-		switch (logtype) {
-		case AELOG_TYPE_INFO: return "INFO";
-		case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
-		case AELOG_TYPE_OK: return "OK"; case AELOG_TYPE_SUCCESS: return "SUCCESS";
-		case AELOG_TYPE_ERROR: return "ERROR"; case AELOG_TYPE_FATAL_ERROR: return "FATAL_ERROR";
-		case AELOG_TYPE_DEBUG: return "DEBUG"; default: return "WRONG_TYPE!";
-		}
-	}
-
-	/// <summary>
-	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
-	/// Optionally may loop the newly-allocated queue to the old queue.
-	/// @note You should delete[] the pointer after you're done using it (unless you like mem-leaks)
-	/// @note If the amt is 0, throws the std::runtime exception
-	/// </summary>
-	/// <param name="amt">The amount of entries in the queue(size)</param>
-	/// <param name="oldqueue">The pointer to the old queue to loop the new queue to.</param>
-	/// <returns>Pointer to the first node of the allocated queue</returns>
-	static AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr);
 
 private:
 //functions
@@ -331,7 +316,7 @@ private:
 };
 
 //aaand we have to register it too
-REGISTER_CLASS(AELogger);
+REGISTER_MODULE(AELogger);
 
 
 #ifdef ENGINE_ENABLE_GLOBAL_MODULES

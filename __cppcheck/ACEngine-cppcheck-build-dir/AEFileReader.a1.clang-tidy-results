@@ -4,21 +4,9 @@ C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:15:2: warning: 
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring:2884:70: note: default parameter was declared here
     _CONSTEXPR20 explicit basic_string(const _StringViewIsh& _Right, const _Alloc& _Al = _Alloc())
                                                                      ^
-C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:20:15: warning: an exception may be thrown in function 'AEFileReader' which should not throw exceptions [bugprone-exception-escape]
-AEFileReader::AEFileReader(AEFileReader&& fr) noexcept :
-              ^
 C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:20:43: warning: parameter name 'fr' is too short, expected at least 3 characters [readability-identifier-length]
 AEFileReader::AEFileReader(AEFileReader&& fr) noexcept :
                                           ^
-C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:21:2: warning: move constructor initializes class member by calling a copy constructor [cert-oop11-cpp,performance-move-constructor-init]
-        m_sFilename(fr.m_sFilename), m_ullTotalReads(fr.m_ullTotalReads.load()), 
-        ^
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring:2490:18: note: copy constructor being called
-    _CONSTEXPR20 basic_string(const basic_string& _Right)
-                 ^
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring:2758:18: note: candidate move constructor here
-    _CONSTEXPR20 basic_string(basic_string&& _Right) noexcept
-                 ^
 C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:32:20: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
 cint AEFileReader::openFile(const std::string_view fname) {
 ~~~~               ^
@@ -134,6 +122,6 @@ C:\Users\artem\CODING\ACEngine\AEFileReader\src\AEFileReader.cpp:149:7: warning:
 
 
 
-207058 warnings generated.
-Suppressed 207017 warnings (207017 in non-user code).
+207053 warnings generated.
+Suppressed 207015 warnings (207015 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

@@ -84,6 +84,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AECustomTypes", "AECustomTy
 		{D63E2DA8-5302-405A-888D-17D090DA870D} = {D63E2DA8-5302-405A-888D-17D090DA870D}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AELogEntry", "AELogEntry\AELogEntry.vcxproj", "{7E142136-B1DC-4C63-8CF3-C81164822C6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -180,6 +182,14 @@ Global
 		{ED6518FF-9A74-4B8F-9D51-848B4578536A}.Release|x64.Build.0 = Release|x64
 		{ED6518FF-9A74-4B8F-9D51-848B4578536A}.Release|x86.ActiveCfg = Release|Win32
 		{ED6518FF-9A74-4B8F-9D51-848B4578536A}.Release|x86.Build.0 = Release|Win32
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Debug|x64.ActiveCfg = Debug|x64
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Debug|x64.Build.0 = Debug|x64
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Debug|x86.ActiveCfg = Debug|Win32
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Debug|x86.Build.0 = Debug|Win32
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Release|x64.ActiveCfg = Release|x64
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Release|x64.Build.0 = Release|x64
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Release|x86.ActiveCfg = Release|Win32
+		{7E142136-B1DC-4C63-8CF3-C81164822C6D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
