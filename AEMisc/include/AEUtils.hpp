@@ -26,18 +26,18 @@
 #define arrsize(arr) (sizeof(arr) / sizeof(arr[0]) )
 
 /// Macro for the check if modulo of x and y results in 0
-/// <param name="dvd">The dividend of the operation</param>
-/// <param name="dvs">The divisor of the operation</param>
+/// <param name="dividend">The dividend of the operation</param>
+/// <param name="divisor">The divisor of the operation</param>
 #define mod0(dividend, divisor) !(dividend % divisor)
 
 /// Macro to get the bit of the given value (bitwise operations)
-/// <param name="val">The value to get the bit of</param>
+/// <param name="value">The value to get the bit of</param>
 /// <param name="bit">The bit number to get</param>
 #define getBit(value, bit) (value& (1 << bit))
 
 /// Better-fomatted assertion for runtime checks
-/// <param name="expr">The logical expression to assert</param>
-/// <param name="msg">The message to display if the assertion fails</param>
+/// <param name="expression">The logical expression to assert</param>
+/// <param name="message">The message to display if the assertion fails</param>
 #define aceAssert(expression, message) if ( !(expression) ) { std::cerr << "Assertion failed!\nExpression: " << #expression << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << message << std::endl; abort(); }
 
 /// Macro for the debug printf() printing, use the same way as you have used printf before.
@@ -65,7 +65,7 @@
 
 /// Offsetof alternative if the compiler doesn't support the offsetof natively
 /// <param name="type">The type/struct name</param>
-/// <param name="memb">The member of struct/type to calculate the offset between</param>
+/// <param name="member">The member of struct/type to calculate the offset between</param>
 #ifdef offsetof
 #define aeoffsetof(type, member) offsetof(type, member)
 #else
@@ -341,7 +341,7 @@ namespace ace {
 		/// <summary>
 		/// Converts the given int value to char (0 to '0'), if it is within the 0->9 range
 		/// </summary>
-		/// <param name="c">The integer value to convert</param>
+		/// <param name="i">The integer value to convert</param>
 		/// <returns>char's '0'->'9' values if the given char value is within range, -1 otherwise</returns>
 		constexpr char intToChar(const int i) noexcept {
 			return (ace::utils::isInRange<int>(0, 9, i)) ? (i + '0') : -1;

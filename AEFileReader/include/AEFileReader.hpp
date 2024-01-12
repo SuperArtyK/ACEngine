@@ -326,7 +326,7 @@ public:
 	/// @note AEFileReader::readVariable()
 	/// </summary>
 	/// <typeparam name="T">The type of the int passed</typeparam>
-	/// <param name="var">The int to fill with bytes</param>
+	/// <param name="num">The int to fill with bytes</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readInt(T& num) {
@@ -381,7 +381,7 @@ public:
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
 	/// </summary>
-	/// <param name="var">The bool to read</param>
+	/// <param name="num">The bool to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readBool(bool& num) noexcept {
 		return this->readVariable<bool>(num);
@@ -403,7 +403,7 @@ public:
 	/// @note AEFileReader::readVariable()
 	/// @note Same as AEFileReader::readByte()
 	/// </summary>
-	/// <param name="var">The char to read</param>
+	/// <param name="num">The char to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readChar(signed char& num) noexcept {
 		return this->readVariable<signed char>(num);
@@ -415,7 +415,7 @@ public:
 	/// @note If the file is closed, it doesn't modify the data
 	/// @note AEFileReader::readVariable()
 	/// </summary>
-	/// <param name="var">The char to read</param>
+	/// <param name="num">The char to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readByte(unsigned char& num) noexcept {
 		return this->readVariable<unsigned char>(num);
