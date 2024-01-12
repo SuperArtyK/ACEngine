@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Fri Jan 12 2024 01:05:07" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -70,7 +70,7 @@ Intended to be inherited from in class declaration, not direct usage\&. Usage: c
 .PP
 
 .PP
-Definition at line \fB47\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB46\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
@@ -78,7 +78,7 @@ Definition at line \fB47\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Basic constructor that increases module count\&. 
 .PP
-Definition at line \fB54\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB53\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > & val)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -91,13 +91,13 @@ Basic copy constructor that increases module count\&.
 .PP
 
 .PP
-Definition at line \fB62\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB61\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
 
 .PP
 Basic destructor that decreases module count\&. 
 .PP
-Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB69\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
@@ -112,7 +112,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB77\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBstatic\fP std::string_view \fB__AEModuleBase\fP< T >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -125,7 +125,7 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB86\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fBconst\fP std::string_view \fB__AEModuleBase\fP< T >::m_sModulename = \fB__getTypeName\fP<T>()\fC [static]\fP, \fC [protected]\fP"
@@ -140,13 +140,13 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB96\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP"
 
 .PP
 Amount of alive module instances\&. 
 .PP
-Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB99\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

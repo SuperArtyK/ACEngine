@@ -1,4 +1,4 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Fri Jan 12 2024 01:05:06" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -58,13 +58,13 @@ Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Global 'no error' return flag for all engine modules\&. 
 .PP
-Definition at line \fB34\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB33\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "#\fBdefine\fP REGISTER_MODULE(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fB__getTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
 
 .PP
 Adds module name to inherit from \fB__AEModuleBase\fP\&. 
 .PP
-Definition at line \fB31\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB30\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fBconstexpr\fP std::string_view __getTypeName (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
@@ -82,7 +82,6 @@ Please don't use it anywhere else\&.\&.\&.and where \fIcan\fP you use it other t
 \fIT\fP 'Type', name of the struct/class
 .RE
 .PP
-.PP
 \fBReturns\fP
 .RS 4
 Without registration and overloads, default '__getTypeName'\&. With them, in correct setting, the name of the regitered module
@@ -90,7 +89,7 @@ Without registration and overloads, default '__getTypeName'\&. With them, in cor
 .PP
 
 .PP
-Definition at line \fB28\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB27\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

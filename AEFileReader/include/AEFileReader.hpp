@@ -354,7 +354,7 @@ public:
 	/// @note AEFileReader::readVariable()
 	/// </summary>
 	/// <typeparam name="T">The type of the float passed</typeparam>
-	/// <param name="var">The float to fill with bytes</param>
+	/// <param name="num">The float to fill with bytes</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
 	inline cint readFloat(T& num) {
