@@ -259,7 +259,7 @@ Private Attributes</h2></td></tr>
 <p>A wrapper around AEFW functionality for writing, and <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> for mass-formatting of entries to text</p>
 <p>The log is written by requesting and filling the entry in the queue. The <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> instance launches the separate thread that looks at the entries in the queue, retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.</p>
 <p>Hungarian notation is lg. (m_lgMyLogger)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo:</a></b></dt><dd><p class="startdd">Implement copy constructors and copy assignment </p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd><p class="startdd">Implement copy constructors and copy assignment </p>
 <p class="enddd">Add the ability to open the same log file/redirect the instance requests to the one that has it open first. </p>
 </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="../../de/da5/bug.html#_bug000001">Bug:</a></b></dt><dd>The queue can expand if it's too little. But....I don't know how to shrink it. (working on it) </dd></dl>
@@ -1189,7 +1189,7 @@ The module name should contain only alphanumeric characters or underscores (no s
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000010">Todo:</a></b></dt><dd>Implement decrease in log queue size...somehow </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo:</a></b></dt><dd>Implement decrease in log queue size...somehow </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00083">83</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
 
@@ -1426,7 +1426,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 <p>Name of the module (class), same as in code. </p>
 <p>Sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000008">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
@@ -1598,7 +1598,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a></li>
-    <li class="footer">Generated on Fri Jan 12 2024 01:05:07 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Jan 12 2024 01:05:42 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
