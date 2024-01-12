@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../logo.ico"/></td>
   <td id="projectalign">
-   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8a</span>
+   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8.5a</span>
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
@@ -99,18 +99,27 @@ $(document).ready(function(){initNavTree('da/dea/struct_a_e_log_entry.html','../
 <p>This is the complete list of members for <a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a06cdd3e9a781dd78d133bfba71a669dd">clearEntry</a>(AELogEntry *const entry) noexcept</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a0fc1a114dbbaf785643b6558509f8e0c">copyEntry</a>(const AELogEntry &amp;entry) noexcept</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab9d11cb753b484c09fb2f5f8f6262038">copyEntryFull</a>(const AELogEntry &amp;entry) noexcept</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#aa3fd2716af875e983273399b7d5ae1f8">copyEntryReduced</a>(const AELogEntry &amp;entry) noexcept</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a637a1b60a40a884b1b221f4c186e103e">formatEntry</a>(char *const str, const AELogEntry &amp;entry) noexcept</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180">m_cLogType</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac59b70ca8c0f5ce4fc3605009b433b59">m_cStatus</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a6df47dbc166ac44e08fb9f7d393acb42">m_pNextNode</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab81e345534f9b5d212d9ea23c13e2eef">m_sLogMessage</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab5b54823cc4fd22511fedac949ec408a">m_sModuleName</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac63357a7507b916c49a33215e54f66b3">m_sLogMessage</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#acbd2ed1f9e622f79d960012fb0a9393f">m_sModuleName</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#af8328cce79f245ad06bd5c5f90f23b3f">m_tmLogTime</a></td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ae4f89ef4010aa6b05a3525961bedabce">makeQueue</a>(const std::size_t amt, AELogEntry *oldqueue=nullptr, const bool loopQueue=true)</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#ae074d4d3f627c13d08f23d6e92196b49">operator=</a>(const AELogEntry &amp;entry)</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a7e8aa04faf251d62a79baab9e2cc531a">parseStringEntry</a>(AELogEntry &amp;entry, const std::string_view entryString, const cint flags=0b0001111)</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#abad9abebfc19569b2dd6beafddc117dd">stringToType</a>(const std::string_view str)</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html#a0c66585d8dea832ef8f745adbced507f">typeToString</a>(const cint logtype) noexcept</td><td class="entry"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 10 2023 00:47:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

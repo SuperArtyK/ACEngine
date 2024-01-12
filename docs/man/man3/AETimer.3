@@ -1,4 +1,4 @@
-.TH "AETimer" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AETimer" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,7 +19,7 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 .br
 .RI "Class constructor -- starts the timer automatically\&. "
 .ti -1c
-.RI "\fBAETimer\fP () \fBnoexcept\fP"
+.RI "\fBAETimer\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread\&. "
 .ti -1c
@@ -31,7 +31,7 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 .br
 .RI "The copy assignment operator\&. "
 .ti -1c
-.RI "\fB~AETimer\fP ()"
+.RI "\fB~AETimer\fP (\fBvoid\fP)"
 .br
 .RI "Class destructor\&. "
 .ti -1c
@@ -153,7 +153,7 @@ Class constructor -- starts the timer automatically\&.
 
 .PP
 Definition at line \fB36\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "AETimer::AETimer ()\fC [inline]\fP, \fC [noexcept]\fP"
+.SS "AETimer::AETimer (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
 Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread\&. 
@@ -172,7 +172,7 @@ Copy constructor -- Just copies the data and then starts the timer if original t
 
 .PP
 Definition at line \fB50\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "AETimer::~AETimer ()\fC [inline]\fP"
+.SS "AETimer::~AETimer (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
 Class destructor\&. 
@@ -228,7 +228,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB73\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -241,7 +241,7 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB81\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBullint\fP AETimer::getTick (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -414,7 +414,7 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::thread AETimer::m_trdCounting\fC [private]\fP"
 
 .PP
@@ -426,7 +426,7 @@ Definition at line \fB211\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 amount of alive module instances 
 .PP
-Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AETimer::m_ullTicks\fC [private]\fP"
 
 .PP

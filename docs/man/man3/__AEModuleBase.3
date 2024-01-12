@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,7 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 
 .in +1c
 .ti -1c
-.RI "\fB__AEModuleBase\fP () \fBnoexcept\fP"
+.RI "\fB__AEModuleBase\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Basic constructor that increases module count\&. "
 .ti -1c
@@ -21,7 +21,7 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 .br
 .RI "Basic copy constructor that increases module count\&. "
 .ti -1c
-.RI "\fBvirtual\fP \fB~__AEModuleBase\fP () \fBnoexcept\fP"
+.RI "\fBvirtual\fP \fB~__AEModuleBase\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Basic destructor that decreases module count\&. "
 .in -1c
@@ -65,15 +65,15 @@ Intended to be inherited from in class declaration, not direct usage\&. Usage: c
 .PP
 
 .PP
-Definition at line \fB39\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB42\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP ()\fC [inline]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
 Basic constructor that increases module count\&. 
 .PP
-Definition at line \fB46\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB49\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > & val)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -86,13 +86,13 @@ Basic copy constructor that increases module count\&.
 .PP
 
 .PP
-Definition at line \fB54\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP ()\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+Definition at line \fB57\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
 
 .PP
 Basic destructor that decreases module count\&. 
 .PP
-Definition at line \fB62\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB65\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
@@ -107,7 +107,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB73\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBstatic\fP std::string_view \fB__AEModuleBase\fP< T >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -120,7 +120,7 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB81\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fBconst\fP std::string_view \fB__AEModuleBase\fP< T >::m_sModulename = \fBgetTypeName\fP<T>()\fC [static]\fP, \fC [protected]\fP"
@@ -135,13 +135,13 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP"
 
 .PP
 amount of alive module instances 
 .PP
-Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

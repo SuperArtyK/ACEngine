@@ -22,7 +22,6 @@ var searchData=
   ['gettick_19',['getTick',['../da/d62/class_a_e_timer.html#aa6c9d51957b618a3da21e2b8082fc471',1,'AETimer']]],
   ['gettotalreads_20',['getTotalReads',['../dd/dd5/class_a_e_file_reader.html#aa2c6d668f2412967b90981e1f87db87a',1,'AEFileReader']]],
   ['gettotalwrites_21',['getTotalWrites',['../db/d15/class_a_e_file_writer.html#a91b40186ef167a8f3b0e3fcc9fe3c9a6',1,'AEFileWriter']]],
-  ['gettypeindices_22',['getTypeIndices',['../d8/d52/class_a_e_log_parser.html#a36c3d639d0daeacd203e38d5cd541fe4',1,'AELogParser']]],
-  ['gettypename_23',['getTypeName',['../d7/d7f/_a_e_module_base_8hpp.html#acf6823002291892df1c5afb64f1e072d',1,'AEModuleBase.hpp']]],
-  ['getworldtime_24',['getWorldTime',['../da/d62/class_a_e_timer.html#a2a6447a8cfe20c387d27182a7fecb70e',1,'AETimer']]]
+  ['gettypename_22',['getTypeName',['../d7/d7f/_a_e_module_base_8hpp.html#acf6823002291892df1c5afb64f1e072d',1,'AEModuleBase.hpp']]],
+  ['getworldtime_23',['getWorldTime',['../da/d62/class_a_e_timer.html#a2a6447a8cfe20c387d27182a7fecb70e',1,'AETimer']]]
 ];

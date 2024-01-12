@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ArtyK&#39;s Console Engine: AECustomTypes/include/AELogEntry.hpp File Reference</title>
+<title>ArtyK&#39;s Console Engine: AELogEntry/include/AELogEntry.hpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../logo.ico"/></td>
   <td id="projectalign">
-   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8a</span>
+   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8.5a</span>
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
@@ -98,14 +98,14 @@ $(document).ready(function(){initNavTree('dc/dc6/_a_e_log_entry_8hpp.html','../.
   <div class="headertitle"><div class="title">AELogEntry.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>This file contains the code for the log entry &ndash; struct containing data from the entry of the log file.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">include/AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">include/AEFlags.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">include/AEUtils.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp_source.html">include/AELogTypes.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">include/AEModuleBase.hpp</a>&quot;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -117,112 +117,368 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a24548d11e5dd63b0d9f30a4a619e8b6d" id="r_a24548d11e5dd63b0d9f30a4a619e8b6d"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a24548d11e5dd63b0d9f30a4a619e8b6d">AELOG_ENTRY_STATUS_INVALID</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a24548d11e5dd63b0d9f30a4a619e8b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: invalid.  <br /></td></tr>
-<tr class="separator:a24548d11e5dd63b0d9f30a4a619e8b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66b10bb7920c0ec595d5c6e61dc733c" id="r_ae66b10bb7920c0ec595d5c6e61dc733c"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ae66b10bb7920c0ec595d5c6e61dc733c">AELOG_ENTRY_STATUS_SETTING</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memdesc:ae66b10bb7920c0ec595d5c6e61dc733c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently being set up and written to.  <br /></td></tr>
-<tr class="separator:ae66b10bb7920c0ec595d5c6e61dc733c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cb07bb59321e8eabaea41c6ec2fc777" id="r_a8cb07bb59321e8eabaea41c6ec2fc777"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a8cb07bb59321e8eabaea41c6ec2fc777">AELOG_ENTRY_STATUS_READY</a>&#160;&#160;&#160;2</td></tr>
-<tr class="memdesc:a8cb07bb59321e8eabaea41c6ec2fc777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently read.  <br /></td></tr>
-<tr class="separator:a8cb07bb59321e8eabaea41c6ec2fc777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68dc8dee236c9844949d4b522fa7fe6e" id="r_a68dc8dee236c9844949d4b522fa7fe6e"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a68dc8dee236c9844949d4b522fa7fe6e">AELOG_ENTRY_STATUS_READING</a>&#160;&#160;&#160;3</td></tr>
-<tr class="memdesc:a68dc8dee236c9844949d4b522fa7fe6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently being read by the log-writing thread.  <br /></td></tr>
-<tr class="separator:a68dc8dee236c9844949d4b522fa7fe6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad05bd6a344d8d3e41582350dd414c387" id="r_ad05bd6a344d8d3e41582350dd414c387"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ad05bd6a344d8d3e41582350dd414c387">AELOG_ENTRY_MAX_SIZE</a>&#160;&#160;&#160;(<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a611f1bcd6cf06c6a629476f17ec92b19">AELOG_ENTRY_MESSAGE_SIZE</a> + <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a18d9066ba31bd949ad4feeafbbe5f853">AELOG_ENTRY_MODULENAME_SIZE</a> + <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">sizeof</a>(&quot;[YYYY-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">MM</a>-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DD.HH:mm:SS</a>] [] []: \<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">n&quot;</a>))</td></tr>
-<tr class="separator:ad05bd6a344d8d3e41582350dd414c387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57a988925005a9b71e0e95defb351ca" id="r_af57a988925005a9b71e0e95defb351ca"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#af57a988925005a9b71e0e95defb351ca">AELE_STATUS_INVALID</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:af57a988925005a9b71e0e95defb351ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: invalid.  <br /></td></tr>
+<tr class="separator:af57a988925005a9b71e0e95defb351ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20321a1d16f982b7d190250232bc83ef" id="r_a20321a1d16f982b7d190250232bc83ef"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a20321a1d16f982b7d190250232bc83ef">AELE_STATUS_SETTING</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a20321a1d16f982b7d190250232bc83ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently being set up and written to.  <br /></td></tr>
+<tr class="separator:a20321a1d16f982b7d190250232bc83ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fe2574dd97fe6d3dcb8cfc9a9b8f909" id="r_a0fe2574dd97fe6d3dcb8cfc9a9b8f909"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a0fe2574dd97fe6d3dcb8cfc9a9b8f909">AELE_STATUS_READY</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a0fe2574dd97fe6d3dcb8cfc9a9b8f909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently ready to be parsed and written to file.  <br /></td></tr>
+<tr class="separator:a0fe2574dd97fe6d3dcb8cfc9a9b8f909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a1da00568f81fde96f1b641eb254e6b" id="r_a2a1da00568f81fde96f1b641eb254e6b"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a2a1da00568f81fde96f1b641eb254e6b">AELE_STATUS_READING</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a2a1da00568f81fde96f1b641eb254e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently being read by the log-writing thread.  <br /></td></tr>
+<tr class="separator:a2a1da00568f81fde96f1b641eb254e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad485b760c5feec63dfe84599069c58a6" id="r_ad485b760c5feec63dfe84599069c58a6"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ad485b760c5feec63dfe84599069c58a6">AELE_FORMAT_MAX_SIZE</a>&#160;&#160;&#160;(<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">AELE_MESSAGE_SIZE</a> + <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a> + <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">sizeof</a>(&quot;[YYYY-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">MM</a>-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DD.HH:mm:SS</a>] [] []: <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DEBUG</a>-&gt;\<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">n&quot;</a>))</td></tr>
+<tr class="memdesc:ad485b760c5feec63dfe84599069c58a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the maximum size of the formatted <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a> as a string.  <br /></td></tr>
+<tr class="separator:ad485b760c5feec63dfe84599069c58a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3108e8a19d8760db5d2813b45b42a47e" id="r_a3108e8a19d8760db5d2813b45b42a47e"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a3108e8a19d8760db5d2813b45b42a47e">AELE_FORMAT_STRING</a>&#160;&#160;&#160;&quot;[%s] [%-14<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>] [%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>]: %<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s\n&quot;</a></td></tr>
+<tr class="memdesc:a3108e8a19d8760db5d2813b45b42a47e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the snprintf format of the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>, when converting it to a string.  <br /></td></tr>
+<tr class="separator:a3108e8a19d8760db5d2813b45b42a47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeded7bbc8d1ebbf30876c1a5b408cc8a" id="r_aeded7bbc8d1ebbf30876c1a5b408cc8a"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#aeded7bbc8d1ebbf30876c1a5b408cc8a">AELE_FORMAT_STRING_DEBUG</a>&#160;&#160;&#160;&quot;[%s] [%-14<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>] [%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>]: <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DEBUG</a>-&gt;%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s\n&quot;</a></td></tr>
+<tr class="memdesc:aeded7bbc8d1ebbf30876c1a5b408cc8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the snprintf format of the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a> (of type DEBUG), when converting it to a string.  <br /></td></tr>
+<tr class="separator:aeded7bbc8d1ebbf30876c1a5b408cc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60dd7729643e9e1c2b6a0c81970e7e77" id="r_a60dd7729643e9e1c2b6a0c81970e7e77"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a60dd7729643e9e1c2b6a0c81970e7e77">AELE_ERR_NOERROR</a>&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td></tr>
+<tr class="separator:a60dd7729643e9e1c2b6a0c81970e7e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98a696f316ab9f910a1f645959398e6c" id="r_a98a696f316ab9f910a1f645959398e6c"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a98a696f316ab9f910a1f645959398e6c">AELE_ERR_INVALID_LENGTH</a>&#160;&#160;&#160;-11</td></tr>
+<tr class="separator:a98a696f316ab9f910a1f645959398e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae695b3b3a2d9f33d3b24cc778a93c165" id="r_ae695b3b3a2d9f33d3b24cc778a93c165"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ae695b3b3a2d9f33d3b24cc778a93c165">AELE_ERR_INVALID_TIME</a>&#160;&#160;&#160;-12</td></tr>
+<tr class="separator:ae695b3b3a2d9f33d3b24cc778a93c165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0602b4a6b3d8ea04b8db5988e333f113" id="r_a0602b4a6b3d8ea04b8db5988e333f113"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a0602b4a6b3d8ea04b8db5988e333f113">AELE_ERR_INVALID_TYPE</a>&#160;&#160;&#160;-13</td></tr>
+<tr class="separator:a0602b4a6b3d8ea04b8db5988e333f113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca850cfcba07845271554d8384279149" id="r_aca850cfcba07845271554d8384279149"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#aca850cfcba07845271554d8384279149">AELE_ERR_INVALID_MNAME</a>&#160;&#160;&#160;-14</td></tr>
+<tr class="separator:aca850cfcba07845271554d8384279149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca0b534b88ed03e501b725bef848091" id="r_a1ca0b534b88ed03e501b725bef848091"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a1ca0b534b88ed03e501b725bef848091">AELE_ERR_INVALID_FORMAT</a>&#160;&#160;&#160;-15</td></tr>
+<tr class="separator:a1ca0b534b88ed03e501b725bef848091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf3f616f26374373ed97a0b15b44b228" id="r_acf3f616f26374373ed97a0b15b44b228"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#acf3f616f26374373ed97a0b15b44b228">AELE_PARSE_STRING_JUST_VALIDATE</a>&#160;&#160;&#160;0b0000000</td></tr>
+<tr class="separator:acf3f616f26374373ed97a0b15b44b228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a988a3e35a46f841068530a8a5313aebb" id="r_a988a3e35a46f841068530a8a5313aebb"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a988a3e35a46f841068530a8a5313aebb">AELE_PARSE_STRING_WRITE_MESSG</a>&#160;&#160;&#160;0b0000001</td></tr>
+<tr class="separator:a988a3e35a46f841068530a8a5313aebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af35850080c4f1b1f74b7e25ff5c57333" id="r_af35850080c4f1b1f74b7e25ff5c57333"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#af35850080c4f1b1f74b7e25ff5c57333">AELE_PARSE_STRING_WRITE_MNAME</a>&#160;&#160;&#160;0b0000010</td></tr>
+<tr class="separator:af35850080c4f1b1f74b7e25ff5c57333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ba94374fcdd6c2f80daff51147553c" id="r_ab7ba94374fcdd6c2f80daff51147553c"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ab7ba94374fcdd6c2f80daff51147553c">AELE_PARSE_STRING_WRITE_TIME</a>&#160;&#160;&#160;0b0000100</td></tr>
+<tr class="separator:ab7ba94374fcdd6c2f80daff51147553c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b3fa6180ed87fdd041941da4ca483a" id="r_a79b3fa6180ed87fdd041941da4ca483a"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a79b3fa6180ed87fdd041941da4ca483a">AELE_PARSE_STRING_WRITE_TYPE</a>&#160;&#160;&#160;0b0001000</td></tr>
+<tr class="separator:a79b3fa6180ed87fdd041941da4ca483a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50af521311922fa79c281f986d3f3599" id="r_a50af521311922fa79c281f986d3f3599"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a50af521311922fa79c281f986d3f3599">AELE_PARSE_STRING_FULL</a>&#160;&#160;&#160;0b0001111</td></tr>
+<tr class="separator:a50af521311922fa79c281f986d3f3599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains the code for the log entry &ndash; struct containing data from the entry of the log file. </p>
-<p>Should not cause everything to break :) </p>
-
-<p class="definition">Definition in file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ad05bd6a344d8d3e41582350dd414c387" name="ad05bd6a344d8d3e41582350dd414c387"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad05bd6a344d8d3e41582350dd414c387">&#9670;&#160;</a></span>AELOG_ENTRY_MAX_SIZE</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a1ca0b534b88ed03e501b725bef848091" name="a1ca0b534b88ed03e501b725bef848091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca0b534b88ed03e501b725bef848091">&#9670;&#160;</a></span>AELE_ERR_INVALID_FORMAT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELOG_ENTRY_MAX_SIZE&#160;&#160;&#160;(<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a611f1bcd6cf06c6a629476f17ec92b19">AELOG_ENTRY_MESSAGE_SIZE</a> + <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a18d9066ba31bd949ad4feeafbbe5f853">AELOG_ENTRY_MODULENAME_SIZE</a> + <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">sizeof</a>(&quot;[YYYY-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">MM</a>-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DD.HH:mm:SS</a>] [] []: \<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">n&quot;</a>))</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_ERR_INVALID_FORMAT&#160;&#160;&#160;-15</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00048">48</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a24548d11e5dd63b0d9f30a4a619e8b6d" name="a24548d11e5dd63b0d9f30a4a619e8b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24548d11e5dd63b0d9f30a4a619e8b6d">&#9670;&#160;</a></span>AELOG_ENTRY_STATUS_INVALID</h2>
+<a id="a98a696f316ab9f910a1f645959398e6c" name="a98a696f316ab9f910a1f645959398e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98a696f316ab9f910a1f645959398e6c">&#9670;&#160;</a></span>AELE_ERR_INVALID_LENGTH</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELOG_ENTRY_STATUS_INVALID&#160;&#160;&#160;0</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_ERR_INVALID_LENGTH&#160;&#160;&#160;-11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aca850cfcba07845271554d8384279149" name="aca850cfcba07845271554d8384279149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca850cfcba07845271554d8384279149">&#9670;&#160;</a></span>AELE_ERR_INVALID_MNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_ERR_INVALID_MNAME&#160;&#160;&#160;-14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae695b3b3a2d9f33d3b24cc778a93c165" name="ae695b3b3a2d9f33d3b24cc778a93c165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae695b3b3a2d9f33d3b24cc778a93c165">&#9670;&#160;</a></span>AELE_ERR_INVALID_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_ERR_INVALID_TIME&#160;&#160;&#160;-12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0602b4a6b3d8ea04b8db5988e333f113" name="a0602b4a6b3d8ea04b8db5988e333f113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0602b4a6b3d8ea04b8db5988e333f113">&#9670;&#160;</a></span>AELE_ERR_INVALID_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_ERR_INVALID_TYPE&#160;&#160;&#160;-13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a60dd7729643e9e1c2b6a0c81970e7e77" name="a60dd7729643e9e1c2b6a0c81970e7e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60dd7729643e9e1c2b6a0c81970e7e77">&#9670;&#160;</a></span>AELE_ERR_NOERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_ERR_NOERROR&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00043">43</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad485b760c5feec63dfe84599069c58a6" name="ad485b760c5feec63dfe84599069c58a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad485b760c5feec63dfe84599069c58a6">&#9670;&#160;</a></span>AELE_FORMAT_MAX_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_FORMAT_MAX_SIZE&#160;&#160;&#160;(<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">AELE_MESSAGE_SIZE</a> + <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a> + <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">sizeof</a>(&quot;[YYYY-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">MM</a>-<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DD.HH:mm:SS</a>] [] []: <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DEBUG</a>-&gt;\<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">n&quot;</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the maximum size of the formatted <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a> as a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3108e8a19d8760db5d2813b45b42a47e" name="a3108e8a19d8760db5d2813b45b42a47e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3108e8a19d8760db5d2813b45b42a47e">&#9670;&#160;</a></span>AELE_FORMAT_STRING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_FORMAT_STRING&#160;&#160;&#160;&quot;[%s] [%-14<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>] [%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>]: %<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s\n&quot;</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the snprintf format of the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>, when converting it to a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aeded7bbc8d1ebbf30876c1a5b408cc8a" name="aeded7bbc8d1ebbf30876c1a5b408cc8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeded7bbc8d1ebbf30876c1a5b408cc8a">&#9670;&#160;</a></span>AELE_FORMAT_STRING_DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_FORMAT_STRING_DEBUG&#160;&#160;&#160;&quot;[%s] [%-14<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>] [%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>]: <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">DEBUG</a>-&gt;%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s\n&quot;</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the snprintf format of the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a> (of type DEBUG), when converting it to a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a50af521311922fa79c281f986d3f3599" name="a50af521311922fa79c281f986d3f3599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50af521311922fa79c281f986d3f3599">&#9670;&#160;</a></span>AELE_PARSE_STRING_FULL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_PARSE_STRING_FULL&#160;&#160;&#160;0b0001111</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acf3f616f26374373ed97a0b15b44b228" name="acf3f616f26374373ed97a0b15b44b228"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf3f616f26374373ed97a0b15b44b228">&#9670;&#160;</a></span>AELE_PARSE_STRING_JUST_VALIDATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_PARSE_STRING_JUST_VALIDATE&#160;&#160;&#160;0b0000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a988a3e35a46f841068530a8a5313aebb" name="a988a3e35a46f841068530a8a5313aebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a988a3e35a46f841068530a8a5313aebb">&#9670;&#160;</a></span>AELE_PARSE_STRING_WRITE_MESSG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_PARSE_STRING_WRITE_MESSG&#160;&#160;&#160;0b0000001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af35850080c4f1b1f74b7e25ff5c57333" name="af35850080c4f1b1f74b7e25ff5c57333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af35850080c4f1b1f74b7e25ff5c57333">&#9670;&#160;</a></span>AELE_PARSE_STRING_WRITE_MNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_PARSE_STRING_WRITE_MNAME&#160;&#160;&#160;0b0000010</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab7ba94374fcdd6c2f80daff51147553c" name="ab7ba94374fcdd6c2f80daff51147553c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ba94374fcdd6c2f80daff51147553c">&#9670;&#160;</a></span>AELE_PARSE_STRING_WRITE_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_PARSE_STRING_WRITE_TIME&#160;&#160;&#160;0b0000100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00052">52</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a79b3fa6180ed87fdd041941da4ca483a" name="a79b3fa6180ed87fdd041941da4ca483a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b3fa6180ed87fdd041941da4ca483a">&#9670;&#160;</a></span>AELE_PARSE_STRING_WRITE_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_PARSE_STRING_WRITE_TYPE&#160;&#160;&#160;0b0001000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af57a988925005a9b71e0e95defb351ca" name="af57a988925005a9b71e0e95defb351ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57a988925005a9b71e0e95defb351ca">&#9670;&#160;</a></span>AELE_STATUS_INVALID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_STATUS_INVALID&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: invalid. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a68dc8dee236c9844949d4b522fa7fe6e" name="a68dc8dee236c9844949d4b522fa7fe6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68dc8dee236c9844949d4b522fa7fe6e">&#9670;&#160;</a></span>AELOG_ENTRY_STATUS_READING</h2>
+<a id="a2a1da00568f81fde96f1b641eb254e6b" name="a2a1da00568f81fde96f1b641eb254e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a1da00568f81fde96f1b641eb254e6b">&#9670;&#160;</a></span>AELE_STATUS_READING</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELOG_ENTRY_STATUS_READING&#160;&#160;&#160;3</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_STATUS_READING&#160;&#160;&#160;3</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently being read by the log-writing thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a8cb07bb59321e8eabaea41c6ec2fc777" name="a8cb07bb59321e8eabaea41c6ec2fc777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cb07bb59321e8eabaea41c6ec2fc777">&#9670;&#160;</a></span>AELOG_ENTRY_STATUS_READY</h2>
+<a id="a0fe2574dd97fe6d3dcb8cfc9a9b8f909" name="a0fe2574dd97fe6d3dcb8cfc9a9b8f909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fe2574dd97fe6d3dcb8cfc9a9b8f909">&#9670;&#160;</a></span>AELE_STATUS_READY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELOG_ENTRY_STATUS_READY&#160;&#160;&#160;2</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_STATUS_READY&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently read. </p>
+<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently ready to be parsed and written to file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ae66b10bb7920c0ec595d5c6e61dc733c" name="ae66b10bb7920c0ec595d5c6e61dc733c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66b10bb7920c0ec595d5c6e61dc733c">&#9670;&#160;</a></span>AELOG_ENTRY_STATUS_SETTING</h2>
+<a id="a20321a1d16f982b7d190250232bc83ef" name="a20321a1d16f982b7d190250232bc83ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20321a1d16f982b7d190250232bc83ef">&#9670;&#160;</a></span>AELE_STATUS_SETTING</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELOG_ENTRY_STATUS_SETTING&#160;&#160;&#160;1</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> AELE_STATUS_SETTING&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the log entry data in the queue of AELogger.">AELogEntry</a>'s status to be: currently being set up and written to. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -231,8 +487,8 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c7fd627511514fa4f3972160e00d4a6c.html">AECustomTypes</a></li><li class="navelem"><a class="el" href="../../dir_c2e9e0e2b65c0688dd0dbae3ac760500.html">include</a></li><li class="navelem"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html">AELogEntry.hpp</a></li>
-    <li class="footer">Generated on Fri Nov 10 2023 00:47:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="../../dir_b450b085a2d5f73d1e9a79d402837006.html">AELogEntry</a></li><li class="navelem"><a class="el" href="../../dir_0bdee72a35da4bf2fc480d0b60f6735e.html">include</a></li><li class="navelem"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html">AELogEntry.hpp</a></li>
+    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
-.TH "ace::utils" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::utils" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -106,7 +106,7 @@ std::string with the hexadecimal version of the adress
 .PP
 
 .PP
-Definition at line \fB281\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB286\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBconst\fP char * ace::utils::boolToString (\fBconst\fP bool b)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -124,7 +124,7 @@ const char* of 'true' or 'false'
 .PP
 
 .PP
-Definition at line \fB111\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB116\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBint\fP ace::utils::charToInt (\fBconst\fP char c)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -142,7 +142,7 @@ int's 0-9 values if the given char value is within range, -1 otherwise
 .PP
 
 .PP
-Definition at line \fB332\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB337\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBFILE\fP * ace::utils::fopenCC (\fBconst\fP char *\fBconst\fP fname, \fBconst\fP char *\fBconst\fP flags)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -157,7 +157,7 @@ fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it pr
 .PP
 
 .PP
-Definition at line \fB313\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB318\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::formatDate (\fBconst\fP time_t timept)\fC [inline]\fP"
 
 .PP
@@ -180,7 +180,7 @@ std::string of the formatted string
 .PP
 
 .PP
-Definition at line \fB210\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB215\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "char * ace::utils::formatDate (\fBconst\fP time_t timept, char *\fBconst\fP str)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -206,7 +206,7 @@ On fail, returns the passed string\&.
 .PP
 
 .PP
-Definition at line \fB237\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB242\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::getCurrentDate (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
@@ -219,7 +219,7 @@ std::stringof the current date in YYYY-MM-DD\&.HH:mm:SS format
 .PP
 
 .PP
-Definition at line \fB260\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB265\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconstexpr\fP char ace::utils::intToChar (\fBconst\fP \fBint\fP i)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -237,15 +237,15 @@ char's '0'->'9' values if the given char value is within range, -1 otherwise
 .PP
 
 .PP
-Definition at line \fB341\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB346\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconstexpr\fP bool ace::utils::isAlNum (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [constexpr]\fP"
 
 .PP
-Definition at line \fB346\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB351\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconstexpr\fP bool ace::utils::isAlNumUs (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [constexpr]\fP"
 
 .PP
-Definition at line \fB351\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB356\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBconstexpr\fP bool ace::utils::isInRange (\fBconst\fP T minval, \fBconst\fP T maxval, \fBconst\fP T i)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -277,7 +277,7 @@ True if the value is in the range, false otherwise
 .PP
 
 .PP
-Definition at line \fB125\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB130\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconstexpr\fP bool ace::utils::isNum (\fBconst\fP char *\fBconst\fP strnum)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -295,7 +295,7 @@ True if that string is indeed a number, false otherwise
 .PP
 
 .PP
-Definition at line \fB170\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB175\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBvoid\fP ace::utils::sleepMS (\fBconst\fP \fBint\fP ms)\fC [inline]\fP"
 
 .PP
@@ -313,7 +313,7 @@ May be inaccurate in delay (as\&.\&.\&.all sleep functions are)
 .PP
 
 .PP
-Definition at line \fB292\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB297\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBvoid\fP ace::utils::sleepUS (\fBconst\fP \fBint\fP us)\fC [inline]\fP"
 
 .PP
@@ -331,11 +331,11 @@ May be inaccurate in delay (as\&.\&.\&.all sleep functions are)
 .PP
 
 .PP
-Definition at line \fB301\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB306\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBconst\fP time_t ace::utils::stringToDate (\fBconst\fP char *\fBconst\fP timestr, \fBconst\fP char *\fBconst\fP timeformat = \fC'%Y\-%\fBm\fP\-%d\&.%\fBX'\fP\fP)\fC [inline]\fP"
 
 .PP
-Definition at line \fB264\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB269\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBvoid\fP ace::utils::toLowerRef (std::string & str1)\fC [inline]\fP"
 
 .PP
@@ -348,7 +348,7 @@ Lowers the passed std::string by reference\&.
 .PP
 
 .PP
-Definition at line \fB133\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB138\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::toLowerVal (std::string str1)\fC [inline]\fP"
 
 .PP
@@ -366,7 +366,7 @@ The lowered version of the string
 .PP
 
 .PP
-Definition at line \fB142\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB147\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "\fBvoid\fP ace::utils::toUpperRef (std::string & str1)\fC [inline]\fP"
 
 .PP
@@ -379,7 +379,7 @@ Uppers the passed std::string by reference\&.
 .PP
 
 .PP
-Definition at line \fB151\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB156\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::toUpperVal (std::string str1)\fC [inline]\fP"
 
 .PP
@@ -397,7 +397,7 @@ The uppered version of the string
 .PP
 
 .PP
-Definition at line \fB160\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB165\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

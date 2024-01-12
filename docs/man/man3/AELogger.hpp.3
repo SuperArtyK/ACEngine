@@ -1,4 +1,4 @@
-.TH "AELogger/include/AELogger.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogger/include/AELogger.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,7 +17,7 @@ AELogger/include/AELogger.hpp \- This file contains the code for the engine's lo
 .br
 \fC#include 'include/AEFlags\&.hpp'\fP
 .br
-\fC#include 'AELogTypes\&.hpp'\fP
+\fC#include 'include/AELogTypes\&.hpp'\fP
 .br
 \fC#include <vector>\fP
 .br
@@ -42,7 +42,7 @@ AELogger/include/AELogger.hpp \- This file contains the code for the engine's lo
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ERR_NOERROR\fP   0"
+.RI "#\fBdefine\fP \fBAELOG_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
 .RI "Macro for the indicator that everything is good\&. "
 .ti -1c
@@ -66,7 +66,7 @@ AELogger/include/AELogger.hpp \- This file contains the code for the engine's lo
 
 .in +1c
 .ti -1c
-.RI "\fBREGISTER_CLASS\fP (\fBAELogger\fP)"
+.RI "\fBREGISTER_MODULE\fP (\fBAELogger\fP)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -84,7 +84,7 @@ Definition in file \fBAELogger\&.hpp\fP\&.
 Macro for the error that's raised when invalid data is passed to \fBAELogger::writeToLog()\fP (like empty message, empty/non-alphanumeric module name, type outside of range) 
 .PP
 Definition at line \fB45\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ERR_NOERROR   0"
+.SS "#\fBdefine\fP AELOG_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good\&. 
@@ -110,7 +110,7 @@ Macro for the error that's raised when the log-writing-thread cannot be started\
 Definition at line \fB39\fP of file \fBAELogger\&.hpp\fP\&.
 .SH "Function Documentation"
 .PP 
-.SS "REGISTER_CLASS (\fBAELogger\fP)"
+.SS "REGISTER_MODULE (\fBAELogger\fP)"
 
 .SH "Author"
 .PP 

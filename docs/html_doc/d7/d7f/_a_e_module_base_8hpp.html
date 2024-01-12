@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../logo.ico"/></td>
   <td id="projectalign">
-   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8a</span>
+   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8.5a</span>
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
@@ -117,9 +117,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a8004a020b408d0c73c73360c9176268a" id="r_a8004a020b408d0c73c73360c9176268a"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a8004a020b408d0c73c73360c9176268a">REGISTER_CLASS</a>(T)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">template</a> &lt;&gt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> std::string_view <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#acf6823002291892df1c5afb64f1e072d">getTypeName</a>&lt;T&gt;() <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a> { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> #T; }</td></tr>
-<tr class="memdesc:a8004a020b408d0c73c73360c9176268a"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds module name to inherit from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>  <br /></td></tr>
-<tr class="separator:a8004a020b408d0c73c73360c9176268a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b64810cd4803a6d80ccd70d17533edf" id="r_a3b64810cd4803a6d80ccd70d17533edf"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf">REGISTER_MODULE</a>(T)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">template</a> &lt;&gt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> std::string_view <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#acf6823002291892df1c5afb64f1e072d">getTypeName</a>&lt;T&gt;() <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a> { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">return</a> #T; }</td></tr>
+<tr class="memdesc:a3b64810cd4803a6d80ccd70d17533edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds module name to inherit from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>  <br /></td></tr>
+<tr class="separator:a3b64810cd4803a6d80ccd70d17533edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81996a8e3c2e7fad98e16cb177d206f1" id="r_a81996a8e3c2e7fad98e16cb177d206f1"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a81996a8e3c2e7fad98e16cb177d206f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global "no error" return flag for all engine modules.  <br /></td></tr>
+<tr class="separator:a81996a8e3c2e7fad98e16cb177d206f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -133,14 +136,32 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a8004a020b408d0c73c73360c9176268a" name="a8004a020b408d0c73c73360c9176268a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8004a020b408d0c73c73360c9176268a">&#9670;&#160;</a></span>REGISTER_CLASS</h2>
+<a id="a81996a8e3c2e7fad98e16cb177d206f1" name="a81996a8e3c2e7fad98e16cb177d206f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81996a8e3c2e7fad98e16cb177d206f1">&#9670;&#160;</a></span>ENGINE_MODULE_ERR_NOERROR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> REGISTER_CLASS</td>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> ENGINE_MODULE_ERR_NOERROR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Global "no error" return flag for all engine modules. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3b64810cd4803a6d80ccd70d17533edf" name="a3b64810cd4803a6d80ccd70d17533edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b64810cd4803a6d80ccd70d17533edf">&#9670;&#160;</a></span>REGISTER_MODULE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a> REGISTER_MODULE</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">T</td><td>)</td>
@@ -192,7 +213,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_45777126148804f015c4da13b6453d69.html">AEModuleBase</a></li><li class="navelem"><a class="el" href="../../dir_47464e78d58c188133fdafef465ba07d.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html">AEModuleBase.hpp</a></li>
-    <li class="footer">Generated on Fri Nov 10 2023 00:47:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

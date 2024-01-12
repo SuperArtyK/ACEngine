@@ -1,4 +1,4 @@
-.TH "todo" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "todo" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,33 +27,8 @@ Add the ability to open the same log file/redirect the instance requests to the 
 .PP
 .PP
 update the docs on returning functions  
-.IP "\fBMember \fBAELogger::writeToLog\fP (const std::string_view logmessg, const cint logtype=1, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME)\fP" 1c
-REWRITE THE WAYS OF LOGGING! 
-.PP
+.IP "\fBMember \fBAELogger::writeToLog\fP (const std::string_view logmessg, const cint logtype=AELOG_TYPE_INFO, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME)\fP" 1c
 Implement decrease in log queue size\&.\&.\&.somehow  
-.IP "\fBClass \fBAELogParser\fP \fP" 1c
-add function to parse 1 line 
-.PP
-.PP
-add a way to filter the logs by severity 
-.PP
-.PP
-add a way to error out about invalid entry 
-.PP
-.PP
-add reading entries from the whole file and record their order 
-.PP
-.PP
-add filtering entries from the whole file 
-.PP
-.PP
-add a way to validate the entry without reading it (if possible) -> populate the entry index array 
-.PP
-.PP
-add reading of the entry upon request, by giving it's order number in the log 
-.PP
-.PP
-fix the mixups of string_view and char array/ptr (\&.\&.\&.why)  
 .IP "\fBFile \fBAETrigLookup\&.hpp\fP \fP" 1c
 Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing 
 .IP "\fBFile \fBmain_ACEngine\&.cpp\fP \fP" 1c

@@ -22,5 +22,6 @@ var searchData=
   ['stopthread_19',['stopThread',['../da/d62/class_a_e_timer.html#a29f3aaf12a9832c55dff8875d94c4548',1,'AETimer']]],
   ['stopwriter_20',['stopWriter',['../d8/dfc/class_a_e_logger.html#a53b212c259c40bda694476f09d1f171b',1,'AELogger']]],
   ['stringtodate_21',['stringToDate',['../de/dde/namespaceace_1_1utils.html#a87457565590bb82350cc56e875bdafcb',1,'ace::utils']]],
-  ['systime_22',['SysTime',['../dc/d89/_a_e_typedefs_8hpp.html#a95aaa4d93eab3da4479f9b95d5c20a02',1,'AETypedefs.hpp']]]
+  ['stringtotype_22',['stringToType',['../da/dea/struct_a_e_log_entry.html#abad9abebfc19569b2dd6beafddc117dd',1,'AELogEntry']]],
+  ['systime_23',['SysTime',['../dc/d89/_a_e_typedefs_8hpp.html#a95aaa4d93eab3da4479f9b95d5c20a02',1,'AETypedefs.hpp']]]
 ];

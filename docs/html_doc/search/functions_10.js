@@ -15,5 +15,6 @@ var searchData=
   ['startwriter_12',['startWriter',['../d8/dfc/class_a_e_logger.html#a284034896688215f7e87242764c5985d',1,'AELogger']]],
   ['stopthread_13',['stopThread',['../da/d62/class_a_e_timer.html#a29f3aaf12a9832c55dff8875d94c4548',1,'AETimer']]],
   ['stopwriter_14',['stopWriter',['../d8/dfc/class_a_e_logger.html#a53b212c259c40bda694476f09d1f171b',1,'AELogger']]],
-  ['stringtodate_15',['stringToDate',['../de/dde/namespaceace_1_1utils.html#a87457565590bb82350cc56e875bdafcb',1,'ace::utils']]]
+  ['stringtodate_15',['stringToDate',['../de/dde/namespaceace_1_1utils.html#a87457565590bb82350cc56e875bdafcb',1,'ace::utils']]],
+  ['stringtotype_16',['stringToType',['../da/dea/struct_a_e_log_entry.html#abad9abebfc19569b2dd6beafddc117dd',1,'AELogEntry']]]
 ];

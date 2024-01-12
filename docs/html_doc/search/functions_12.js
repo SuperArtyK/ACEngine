@@ -13,7 +13,7 @@ var searchData=
   ['writeint_10',['writeInt',['../db/d15/class_a_e_file_writer.html#a02dcf1db70b26b77a2b9d5f233640a16',1,'AEFileWriter']]],
   ['writestatus_11',['writeStatus',['../d8/dfc/class_a_e_logger.html#a42debdcd6da993064afc1f4d2357ecfb',1,'AELogger']]],
   ['writestring_12',['writestring',['../db/d15/class_a_e_file_writer.html#a82c2ff80c34bc34745d1b49311384dc7',1,'AEFileWriter::writeString(const std::string &amp;str, const bool includeNull=false, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept'],['../db/d15/class_a_e_file_writer.html#a15d275e505374f13aa78c977712ff14a',1,'AEFileWriter::writeString(const std::vector&lt; char &gt; &amp;str, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept'],['../db/d15/class_a_e_file_writer.html#a3812c23603d8d1c9dffd655cf2df24c4',1,'AEFileWriter::writeString(const char *const cdata, const bool includeNull=false, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept']]],
-  ['writetolog_13',['writeToLog',['../d8/dfc/class_a_e_logger.html#a6e0282dfa66202a1fe49b5ae2729429b',1,'AELogger']]],
+  ['writetolog_13',['writetolog',['../d8/dfc/class_a_e_logger.html#a263c29a62ddbf117139d5b9703b87ac1',1,'AELogger::writeToLog(const std::string_view logmessg, const cint logtype=AELOG_TYPE_INFO, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME)'],['../d8/dfc/class_a_e_logger.html#aa38725e74a352cd316126b32c614c12f',1,'AELogger::writeToLog(const AELogEntry &amp;entry, const bool useCurrentTime=true)']]],
   ['writetologdebug_14',['writeToLogDebug',['../d8/dfc/class_a_e_logger.html#a50dfd96a74d13471faebd4de499db5bf',1,'AELogger']]],
   ['writeuint_15',['writeUInt',['../db/d15/class_a_e_file_writer.html#a43d9cf8585c27a5ec995ac72ec8eec9c',1,'AEFileWriter']]]
 ];

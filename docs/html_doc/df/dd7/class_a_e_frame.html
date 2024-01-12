@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../logo.ico"/></td>
   <td id="projectalign">
-   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8a</span>
+   <div id="projectname">ArtyK&#39;s Console Engine<span id="projectnumber">&#160;v0.0.8.5a</span>
    </div>
    <div id="projectbrief">The Console engine for apps and games</div>
   </td>
@@ -174,7 +174,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the ArtyK's Engine's frame delay module &ndash; it allows to create precise delays for game loops. </p>
-<p>Hungarian notation is r. So instead of guessing the delay for the main game loop, and having unreliable call to normal "sleep for x", you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier. </p><dl class="section note"><dt>Note</dt><dd>To get this to work properly, make an object outside of the loop, and put the call to <a class="el" href="../../df/dd7/class_a_e_frame.html#aa3459df5ce99cf186b18f7d4c37ba161" title="Puts the current thread to sleep up to the set fps goal.">AEFrame::sleep()</a> at the end of the loop. </dd>
+<p>Hungarian notation is fd. So instead of guessing the delay for the main game loop, and having unreliable call to normal "sleep for x", you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier. </p><dl class="section note"><dt>Note</dt><dd>To get this to work properly, make an object outside of the loop, and put the call to <a class="el" href="../../df/dd7/class_a_e_frame.html#aa3459df5ce99cf186b18f7d4c37ba161" title="Puts the current thread to sleep up to the set fps goal.">AEFrame::sleep()</a> at the end of the loop. </dd>
 <dd>
 This works by looking at the time spent by the game loop and sleeping up to the time to meet the fps goal. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>If the game loop takes more time than the set fps goal amount, the frame times can be unpredictable (and...delay might also not work) </dd></dl>
@@ -308,7 +308,7 @@ This works by looking at the time spent by the game loop and sleeping up to the 
 <p>Returns the amount of instances of the module currently existing. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -339,7 +339,7 @@ This works by looking at the time spent by the game loop and sleeping up to the 
 <p>Returns the name of the registered module. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -515,9 +515,9 @@ This works by looking at the time spent by the game loop and sleeping up to the 
 
 <p>Name of the module (class), same as in code. </p>
 <p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000010">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000011">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -596,7 +596,7 @@ This works by looking at the time spent by the game loop and sleeping up to the 
 
 <p>amount of alive module instances </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +609,7 @@ This works by looking at the time spent by the game loop and sleeping up to the 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a></li>
-    <li class="footer">Generated on Fri Nov 10 2023 00:47:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

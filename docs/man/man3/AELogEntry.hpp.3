@@ -1,9 +1,8 @@
-.TH "AECustomTypes/include/AELogEntry.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntry/include/AELogEntry.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AECustomTypes/include/AELogEntry.hpp \- This file contains the code for the log entry -- struct containing data from the entry of the log file\&.  
-
+AELogEntry/include/AELogEntry.hpp
 .SH SYNOPSIS
 .br
 .PP
@@ -13,9 +12,15 @@ AECustomTypes/include/AELogEntry.hpp \- This file contains the code for the log 
 .br
 \fC#include 'include/AEUtils\&.hpp'\fP
 .br
+\fC#include 'include/AELogTypes\&.hpp'\fP
+.br
+\fC#include 'include/AEModuleBase\&.hpp'\fP
+.br
 \fC#include <ctime>\fP
 .br
 \fC#include <atomic>\fP
+.br
+\fC#include <iostream>\fP
 .br
 
 .SS "Classes"
@@ -30,62 +35,162 @@ AECustomTypes/include/AELogEntry.hpp \- This file contains the code for the log 
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_INVALID\fP   0"
+.RI "#\fBdefine\fP \fBAELE_STATUS_INVALID\fP   0"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: invalid\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_SETTING\fP   1"
+.RI "#\fBdefine\fP \fBAELE_STATUS_SETTING\fP   1"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_READY\fP   2"
+.RI "#\fBdefine\fP \fBAELE_STATUS_READY\fP   2"
 .br
-.RI "Macro for the \fBAELogEntry\fP's status to be: currently read\&. "
+.RI "Macro for the \fBAELogEntry\fP's status to be: currently ready to be parsed and written to file\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_STATUS_READING\fP   3"
+.RI "#\fBdefine\fP \fBAELE_STATUS_READING\fP   3"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_MAX_SIZE\fP   (\fBAELOG_ENTRY_MESSAGE_SIZE\fP + \fBAELOG_ENTRY_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \\\fBn'\fP))"
+.RI "#\fBdefine\fP \fBAELE_FORMAT_MAX_SIZE\fP   (\fBAELE_MESSAGE_SIZE\fP + \fBAELE_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \fBDEBUG\fP\->\\\fBn'\fP))"
+.br
+.RI "Macro for the maximum size of the formatted \fBAELogEntry\fP as a string\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_FORMAT_STRING\fP   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: %\fBs\\n'\fP"
+.br
+.RI "Macro for the snprintf format of the \fBAELogEntry\fP, when converting it to a string\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_FORMAT_STRING_DEBUG\fP   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: \fBDEBUG\fP\->%\fBs\\n'\fP"
+.br
+.RI "Macro for the snprintf format of the \fBAELogEntry\fP (of type DEBUG), when converting it to a string\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_LENGTH\fP   \-11"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_TIME\fP   \-12"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_TYPE\fP   \-13"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_MNAME\fP   \-14"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_FORMAT\fP   \-15"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_JUST_VALIDATE\fP   0b0000000"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_MESSG\fP   0b0000001"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_MNAME\fP   0b0000010"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_TIME\fP   0b0000100"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_TYPE\fP   0b0001000"
+.br
+.ti -1c
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_FULL\fP   0b0001111"
 .br
 .in -1c
-.SH "Detailed Description"
-.PP 
-This file contains the code for the log entry -- struct containing data from the entry of the log file\&. 
-
-Should not cause everything to break :) 
-.PP
-Definition in file \fBAELogEntry\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP AELOG_ENTRY_MAX_SIZE   (\fBAELOG_ENTRY_MESSAGE_SIZE\fP + \fBAELOG_ENTRY_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \\\fBn'\fP))"
+.SS "#\fBdefine\fP AELE_ERR_INVALID_FORMAT   \-15"
 
 .PP
-Definition at line \fB30\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_INVALID   0"
+Definition at line \fB48\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_ERR_INVALID_LENGTH   \-11"
+
+.PP
+Definition at line \fB44\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_ERR_INVALID_MNAME   \-14"
+
+.PP
+Definition at line \fB47\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_ERR_INVALID_TIME   \-12"
+
+.PP
+Definition at line \fB45\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_ERR_INVALID_TYPE   \-13"
+
+.PP
+Definition at line \fB46\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
+
+.PP
+Definition at line \fB43\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_FORMAT_MAX_SIZE   (\fBAELE_MESSAGE_SIZE\fP + \fBAELE_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \fBDEBUG\fP\->\\\fBn'\fP))"
+
+.PP
+Macro for the maximum size of the formatted \fBAELogEntry\fP as a string\&. 
+.PP
+Definition at line \fB37\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_FORMAT_STRING   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: %\fBs\\n'\fP"
+
+.PP
+Macro for the snprintf format of the \fBAELogEntry\fP, when converting it to a string\&. 
+.PP
+Definition at line \fB39\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_FORMAT_STRING_DEBUG   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: \fBDEBUG\fP\->%\fBs\\n'\fP"
+
+.PP
+Macro for the snprintf format of the \fBAELogEntry\fP (of type DEBUG), when converting it to a string\&. 
+.PP
+Definition at line \fB41\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_PARSE_STRING_FULL   0b0001111"
+
+.PP
+Definition at line \fB54\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_PARSE_STRING_JUST_VALIDATE   0b0000000"
+
+.PP
+Definition at line \fB49\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_MESSG   0b0000001"
+
+.PP
+Definition at line \fB50\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_MNAME   0b0000010"
+
+.PP
+Definition at line \fB51\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_TIME   0b0000100"
+
+.PP
+Definition at line \fB52\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_TYPE   0b0001000"
+
+.PP
+Definition at line \fB53\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_STATUS_INVALID   0"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: invalid\&. 
 .PP
-Definition at line \fB22\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_READING   3"
+Definition at line \fB29\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_STATUS_READING   3"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. 
 .PP
-Definition at line \fB28\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_READY   2"
+Definition at line \fB35\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_STATUS_READY   2"
 
 .PP
-Macro for the \fBAELogEntry\fP's status to be: currently read\&. 
+Macro for the \fBAELogEntry\fP's status to be: currently ready to be parsed and written to file\&. 
 .PP
-Definition at line \fB26\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ENTRY_STATUS_SETTING   1"
+Definition at line \fB33\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_STATUS_SETTING   1"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. 
 .PP
-Definition at line \fB24\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB31\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

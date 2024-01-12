@@ -9,5 +9,5 @@ var searchData=
   ['toupperref_6',['toUpperRef',['../de/dde/namespaceace_1_1utils.html#adcd86509ef063a237d87e65a23255d99',1,'ace::utils']]],
   ['toupperval_7',['toUpperVal',['../de/dde/namespaceace_1_1utils.html#a1e5593ccf0f98b5f42a32d10d34c2a65',1,'ace::utils']]],
   ['trunctoint_8',['truncToInt',['../d5/d0f/namespaceace_1_1math.html#a9461ad066823e3689f9d9c27c6e354cd',1,'ace::math']]],
-  ['typetostring_9',['typetostring',['../d8/dfc/class_a_e_logger.html#a9f82b0faf533408d033570e5ac8e2512',1,'AELogger::typeToString()'],['../d0/db9/main___a_e_log_parser_8cpp.html#a86542811bb326f58a9af93baba95da5a',1,'typeToString():&#160;main_AELogParser.cpp']]]
+  ['typetostring_9',['typeToString',['../da/dea/struct_a_e_log_entry.html#a0c66585d8dea832ef8f745adbced507f',1,'AELogEntry']]]
 ];

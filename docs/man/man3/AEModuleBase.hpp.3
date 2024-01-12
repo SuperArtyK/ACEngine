@@ -1,4 +1,4 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -28,9 +28,13 @@ AEModuleBase/include/AEModuleBase.hpp \- This file contains the code for the mod
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBREGISTER_CLASS\fP(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fBgetTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
+.RI "#\fBdefine\fP \fBREGISTER_MODULE\fP(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fBgetTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
 .br
 .RI "adds module name to inherit from \fB__AEModuleBase\fP "
+.ti -1c
+.RI "#\fBdefine\fP \fBENGINE_MODULE_ERR_NOERROR\fP   0"
+.br
+.RI "Global 'no error' return flag for all engine modules\&. "
 .in -1c
 .SS "Functions"
 
@@ -48,7 +52,13 @@ Should not cause everything to break :)
 Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP REGISTER_CLASS(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fBgetTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
+.SS "#\fBdefine\fP ENGINE_MODULE_ERR_NOERROR   0"
+
+.PP
+Global 'no error' return flag for all engine modules\&. 
+.PP
+Definition at line \fB29\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "#\fBdefine\fP REGISTER_MODULE(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fBgetTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
 
 .PP
 adds module name to inherit from \fB__AEModuleBase\fP 

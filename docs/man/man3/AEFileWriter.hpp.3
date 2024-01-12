@@ -1,4 +1,4 @@
-.TH "AEFileWriter/include/AEFileWriter.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFileWriter/include/AEFileWriter.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -58,7 +58,7 @@ AEFileWriter/include/AEFileWriter.hpp \- This file contains the code for the eng
 .br
 .RI "Macro for no write flags\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAEFW_ERR_NOERROR\fP   0"
+.RI "#\fBdefine\fP \fBAEFW_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
 .RI "Macro for the indicator that everything is good\&. "
 .ti -1c
@@ -118,7 +118,7 @@ AEFileWriter/include/AEFileWriter.hpp \- This file contains the code for the eng
 
 .in +1c
 .ti -1c
-.RI "\fBREGISTER_CLASS\fP (\fBAEFileWriter\fP)"
+.RI "\fBREGISTER_MODULE\fP (\fBAEFileWriter\fP)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -162,7 +162,7 @@ Definition at line \fB52\fP of file \fBAEFileWriter\&.hpp\fP\&.
 Macro for the error that has occurred in flushing (if fflush returned a non-zero value)\&. 
 .PP
 Definition at line \fB67\fP of file \fBAEFileWriter\&.hpp\fP\&.
-.SS "#\fBdefine\fP AEFW_ERR_NOERROR   0"
+.SS "#\fBdefine\fP AEFW_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good\&. 
@@ -263,7 +263,7 @@ Macro to put the write cursor at the start of the file, truncating the contents 
 Definition at line \fB41\fP of file \fBAEFileWriter\&.hpp\fP\&.
 .SH "Function Documentation"
 .PP 
-.SS "REGISTER_CLASS (\fBAEFileWriter\fP)"
+.SS "REGISTER_MODULE (\fBAEFileWriter\fP)"
 
 .SH "Author"
 .PP 

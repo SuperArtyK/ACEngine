@@ -1,4 +1,4 @@
-.TH "AELogParser" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,31 +17,28 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .RI "\fBAELogParser\fP (\fBconst\fP std::string_view \fBfname\fP)"
 .br
 .ti -1c
+.RI "\fB~AELogParser\fP (\fBvoid\fP)"
+.br
+.ti -1c
 .RI "\fBcint\fP \fBopenLog\fP (\fBconst\fP std::string_view \fBfname\fP)"
 .br
 .ti -1c
 .RI "\fBcint\fP \fBcloseLog\fP (\fBvoid\fP)"
 .br
 .ti -1c
-.RI "\fBcint\fP \fBparseEntry\fP (\fBAELogEntry\fP &\fBentry\fP)"
+.RI "\fBcint\fP \fBnextEntry\fP (\fBAELogEntry\fP &\fBentry\fP, \fBconst\fP \fBcint\fP \fBseverity\fP=\fBAELOG_TYPE_DEBUG\fP)"
 .br
 .ti -1c
-.RI "\fBcint\fP \fBparseEntryString\fP (\fBAELogEntry\fP &\fBentry\fP, \fBconst\fP std::string_view \fBentryString\fP)"
+.RI "\fBcint\fP \fBlogToQueue\fP (\fBAELogEntry\fP *&\fBbegin\fP, \fBconst\fP \fBcint\fP \fBseverity\fP=\fBAELOG_TYPE_DEBUG\fP)"
 .br
 .ti -1c
-.RI "\fBcint\fP \fBparseEntries\fP (\fBAELogEntry\fP &queue)"
-.br
-.ti -1c
-.RI "\fBullint\fP \fBamountValidEntries\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.RI "\fBullint\fP \fBamountValidEntries\fP (\fBconst\fP \fBcint\fP \fBseverity\fP=\fBAELOG_TYPE_DEBUG\fP) \fBconst\fP \fBnoexcept\fP"
 .br
 .ti -1c
 .RI "\fBullint\fP \fBamountInvalidEntries\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
 .ti -1c
-.RI "\fBullint\fP \fBamountEntries\fP (\fBconst\fP \fBcint\fP \fBlogtype\fP) \fBconst\fP \fBnoexcept\fP"
-.br
-.ti -1c
-.RI "\fBconst\fP std::vector< \fBullint\fP > & \fBgetTypeIndices\fP (\fBconst\fP \fBcint\fP \fBlogtype\fP) \fBconst\fP \fBnoexcept\fP"
+.RI "\fBullint\fP \fBamountTypeEntries\fP (\fBconst\fP \fBcint\fP \fBseverity\fP) \fBconst\fP \fBnoexcept\fP"
 .br
 .ti -1c
 .RI "bool \fBisOpen\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
@@ -74,13 +71,6 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .br
 .RI "amount of alive module instances "
 .in -1c
-.SS "Static Private Member Functions"
-
-.in +1c
-.ti -1c
-.RI "\fBstatic\fP \fBcint\fP \fBmatchLogType\fP (\fBconst\fP std::string_view \fBstr\fP) \fBnoexcept\fP"
-.br
-.in -1c
 .SS "Private Attributes"
 
 .in +1c
@@ -89,64 +79,51 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .br
 .RI "The reader of the opened log file\&. "
 .ti -1c
-.RI "std::array< std::vector< \fBullint\fP >, 9 > \fBm_arrEntryIndices\fP"
+.RI "std::vector< std::pair< \fBullint\fP, \fBcint\fP > > \fBm_vecEntryIndices\fP"
 .br
 .RI "The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including 'invalid entry' for invalid stuff) "
 .ti -1c
-.RI "\fBullint\fP \fBm_ullLogEntries\fP"
+.RI "std::vector< \fBullint\fP > \fBm_vecInvalidEntryIndices\fP"
+.br
+.ti -1c
+.RI "std::array< \fBullint\fP, 9 > \fBm_arrEntryAmount\fP"
 .br
 .RI "The amount of log entries read in the file;\&. "
+.ti -1c
+.RI "std::atomic< \fBullint\fP > \fBm_ullCurrentEntry\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
-
-.PP
-\fBTodo\fP
-.RS 4
-add function to parse 1 line 
-.PP
-add a way to filter the logs by severity 
-.PP
-add a way to error out about invalid entry 
-.PP
-add reading entries from the whole file and record their order 
-.PP
-add filtering entries from the whole file 
-.PP
-add a way to validate the entry without reading it (if possible) -> populate the entry index array 
-.PP
-add reading of the entry upon request, by giving it's order number in the log 
-.PP
-fix the mixups of string_view and char array/ptr (\&.\&.\&.why) 
-.RE
-.PP
-
-.PP
-Definition at line \fB46\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB31\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "AELogParser::AELogParser (\fBconst\fP std::string_view fname)\fC [inline]\fP, \fC [explicit]\fP"
 
 .PP
-Definition at line \fB49\fP of file \fBAELogParser\&.hpp\fP\&.
-.SH "Member Function Documentation"
-.PP 
-.SS "\fBullint\fP AELogParser::amountEntries (\fBconst\fP \fBcint\fP logtype) const\fC [inline]\fP, \fC [noexcept]\fP"
+Definition at line \fB34\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "AELogParser::~AELogParser (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
-Definition at line \fB223\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB42\fP of file \fBAELogParser\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
 .SS "\fBullint\fP AELogParser::amountInvalidEntries (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB219\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBullint\fP AELogParser::amountValidEntries (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+Definition at line \fB118\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBullint\fP AELogParser::amountTypeEntries (\fBconst\fP \fBcint\fP severity) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB211\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB122\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBullint\fP AELogParser::amountValidEntries (\fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB107\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBcint\fP AELogParser::closeLog (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
-Definition at line \fB74\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB92\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -159,7 +136,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB73\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -172,53 +149,41 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "\fBconst\fP std::vector< \fBullint\fP > & AELogParser::getTypeIndices (\fBconst\fP \fBcint\fP logtype) const\fC [inline]\fP, \fC [noexcept]\fP"
-
-.PP
-Definition at line \fB233\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB81\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "bool AELogParser::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB249\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB133\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "bool AELogParser::isOpen (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB245\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBstatic\fP \fBcint\fP AELogParser::matchLogType (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [static]\fP, \fC [private]\fP, \fC [noexcept]\fP"
+Definition at line \fB129\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBcint\fP AELogParser::logToQueue (\fBAELogEntry\fP *& begin, \fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP)"
 
 .PP
-Definition at line \fB256\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB41\fP of file \fBAELogParser\&.cpp\fP\&.
+.SS "\fBcint\fP AELogParser::nextEntry (\fBAELogEntry\fP & entry, \fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP)"
+
+.PP
+Definition at line \fB11\fP of file \fBAELogParser\&.cpp\fP\&.
 .SS "\fBcint\fP AELogParser::openLog (\fBconst\fP std::string_view fname)\fC [inline]\fP"
 
 .PP
-Definition at line \fB59\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::parseEntries (\fBAELogEntry\fP & queue)\fC [inline]\fP"
-
-.PP
-Definition at line \fB192\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::parseEntry (\fBAELogEntry\fP & entry)\fC [inline]\fP"
-
-.PP
-Definition at line \fB80\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::parseEntryString (\fBAELogEntry\fP & entry, \fBconst\fP std::string_view entryString)\fC [inline]\fP"
-
-.PP
-Definition at line \fB105\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB47\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "std::array<std::vector<\fBullint\fP>, 9> AELogParser::m_arrEntryIndices\fC [private]\fP"
+.SS "std::array<\fBullint\fP, 9> AELogParser::m_arrEntryAmount\fC [private]\fP"
 
 .PP
-The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including 'invalid entry' for invalid stuff) 
+The amount of log entries read in the file;\&. 
 .PP
-Definition at line \fB293\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB152\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBAEFileReader\fP AELogParser::m_frLogReader\fC [private]\fP"
 
 .PP
 The reader of the opened log file\&. 
 .PP
-Definition at line \fB291\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB144\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
@@ -231,19 +196,27 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "\fBullint\fP AELogParser::m_ullLogEntries\fC [private]\fP"
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "std::atomic<\fBullint\fP> AELogParser::m_ullCurrentEntry\fC [private]\fP"
 
 .PP
-The amount of log entries read in the file;\&. 
-.PP
-Definition at line \fB295\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB153\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
 amount of alive module instances 
 .PP
-Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "std::vector<std::pair<\fBullint\fP, \fBcint\fP> > AELogParser::m_vecEntryIndices\fC [private]\fP"
+
+.PP
+The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including 'invalid entry' for invalid stuff) 
+.PP
+Definition at line \fB148\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::vector<\fBullint\fP> AELogParser::m_vecInvalidEntryIndices\fC [private]\fP"
+
+.PP
+Definition at line \fB149\fP of file \fBAELogParser\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

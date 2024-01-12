@@ -1,4 +1,4 @@
-.TH "AEFrame" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFrame" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -88,7 +88,7 @@ Inherits \fB__AEModuleBase< AEFrame >\fP\&.
 .PP 
 This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops\&. 
 
-Hungarian notation is r\&. So instead of guessing the delay for the main game loop, and having unreliable call to normal 'sleep for x', you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier\&. 
+Hungarian notation is fd\&. So instead of guessing the delay for the main game loop, and having unreliable call to normal 'sleep for x', you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier\&. 
 .PP
 \fBNote\fP
 .RS 4
@@ -165,7 +165,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB73\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -178,7 +178,7 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB81\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBvoid\fP AEFrame::resetTimePoint (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -233,7 +233,7 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBtimeDur\fP<double> AEFrame::m_tdChronoDelay\fC [private]\fP"
 
 .PP
@@ -253,7 +253,7 @@ Definition at line \fB96\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 amount of alive module instances 
 .PP
-Definition at line \fB92\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

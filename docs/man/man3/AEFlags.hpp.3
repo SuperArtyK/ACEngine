@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEFlags.hpp" 3 "Fri Nov 10 2023 00:47:23" "Version v0.0.8a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,6 +23,10 @@ AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to a
 .br
 .RI "Macro to enable the engine's global modules (like timer, logger, etc) "
 .ti -1c
+.RI "#\fBdefine\fP \fBENGINE_ENABLE_MATH_LOOKUP\fP"
+.br
+.RI "Macro to enable the engine's trigonometry lookup code\&. "
+.ti -1c
 .RI "#\fBdefine\fP \fBAEFW_AUTOFLUSH_ENABLE\fP"
 .br
 .RI "Macro to enable the auto-flushing mechanism\&. "
@@ -33,13 +37,9 @@ AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to a
 .ti -1c
 .RI "#\fBdefine\fP \fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP   (\fBullint\fP)\-1"
 .br
-.RI "Macro for the default auto-flush amount value\&. "
+.RI "Macro for the default auto-flush trigger value\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_ENABLE_TRIG_LOOKUP\fP"
-.br
-.RI "Macro to enable the engine's trigonometry lookup code\&. "
-.ti -1c
-.RI "#\fBdefine\fP \fBAELOG_DEFAULT_QUEUE_SIZE\fP   1024"
+.RI "#\fBdefine\fP \fBAELOG_DEFAULT_QUEUE_SIZE\fP   2048"
 .br
 .RI "Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. "
 .ti -1c
@@ -55,17 +55,17 @@ AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to a
 .br
 .RI "Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_MESSAGE_SIZE\fP   511"
+.RI "#\fBdefine\fP \fBAELE_MESSAGE_SIZE\fP   511"
 .br
 .RI "The size of the \fBAELogEntry\fP message in characters (excluding null termination) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_ENTRY_MODULENAME_SIZE\fP   31"
+.RI "#\fBdefine\fP \fBAELE_MODULENAME_SIZE\fP   31"
 .br
 .RI "The size of the \fBAELogEntry\fP module name in characters (excluding null termination) "
 .ti -1c
 .RI "#\fBdefine\fP \fBAEVEC_WRAP_DIMENSIONS\fP   1"
 .br
-.RI "A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount\&. "
+.RI "A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -88,19 +88,31 @@ Undefine or comment out to disable the feature\&.
 .PP
 
 .PP
-Definition at line \fB28\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB32\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH   \fBtrue\fP"
 
 .PP
 Macro for the default 'use auto-flush' argument value\&. 
 .PP
-Definition at line \fB30\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB34\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
 
 .PP
-Macro for the default auto-flush amount value\&. 
+Macro for the default auto-flush trigger value\&. 
 .PP
-Definition at line \fB32\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB36\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_MESSAGE_SIZE   511"
+
+.PP
+The size of the \fBAELogEntry\fP message in characters (excluding null termination) 
+.PP
+Definition at line \fB53\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELE_MODULENAME_SIZE   31"
+
+.PP
+The size of the \fBAELogEntry\fP module name in characters (excluding null termination) 
+.PP
+Definition at line \fB55\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
 
 .PP
@@ -113,43 +125,38 @@ I personally wouldn't advise to play with it\&.
 .PP
 
 .PP
-Definition at line \fB44\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
 
 .PP
 Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. Like global modules\&. 
 .PP
-Definition at line \fB47\fP of file \fBAEFlags\&.hpp\fP\&.
+\fBNote\fP
+.RS 4
+Currently used only in the globbal logger 
+.RE
+.PP
+
+.PP
+Definition at line \fB49\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
 
 .PP
 Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. 
 .PP
-Definition at line \fB41\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_DEFAULT_QUEUE_SIZE   1024"
+Definition at line \fB42\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELOG_DEFAULT_QUEUE_SIZE   2048"
 
 .PP
 Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. 
 .PP
-Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ENTRY_MESSAGE_SIZE   511"
-
-.PP
-The size of the \fBAELogEntry\fP message in characters (excluding null termination) 
-.PP
-Definition at line \fB51\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_ENTRY_MODULENAME_SIZE   31"
-
-.PP
-The size of the \fBAELogEntry\fP module name in characters (excluding null termination) 
-.PP
-Definition at line \fB53\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB40\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEVEC_WRAP_DIMENSIONS   1"
 
 .PP
-A macro for the AEVectors operator[] to wrap dimensions if the index is bigger than the dimension amount\&. 
+A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. 
 .PP
-Definition at line \fB58\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB60\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_DEBUG   1"
 
 .PP
@@ -169,7 +176,7 @@ Undefine or comment-out to disable this feature
 
 .PP
 Definition at line \fB23\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_ENABLE_TRIG_LOOKUP"
+.SS "#\fBdefine\fP ENGINE_ENABLE_MATH_LOOKUP"
 
 .PP
 Macro to enable the engine's trigonometry lookup code\&. 
@@ -181,7 +188,7 @@ Macro to enable the engine's trigonometry lookup code\&.
 .PP
 
 .PP
-Definition at line \fB35\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB26\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_FPS   60\&.0"
 
 .PP
