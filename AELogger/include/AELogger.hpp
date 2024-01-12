@@ -32,46 +32,66 @@
 // Though how to delete information from those delete-me nodes, since the writer-thread is the only thing
 // That still has access to those nodes. And we don't want to delete the unfilled ones
 
+
+
 //Error flags
-/// Macro for the indicator that everything is good.
+/// Macro for the indicator that everything is good/no error was encountered in the process
 #define AELOG_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
+
 /// Macro for the error that's raised when the log-writing-thread cannot be started
 #define AELOG_ERR_UNABLE_START_THREAD -11
+
 /// Macro for the error that's raised when the log-writing-thread is attempted to be started again, while it's already running
 #define AELOG_ERR_THREAD_ALREADY_RUNNING -12 
+
 /// Macro for the error that's raised when the log-writing-thread is attempted to be stopped again, while it was already stopped
 #define AELOG_ERR_THREAD_ALREADY_STOPPED -13
+
 /// Macro for the error that's raised when invalid data is passed to AELogger::writeToLog() (like empty message, empty/non-alphanumeric module name, type outside of range)
 #define AELOG_ERR_INVALID_ENTRY_DATA -14
 
+
+
 /// <summary>
 /// @brief The ArtyK's Engine's Logger module -- it manages the writing to the log files.
+/// A wrapper around AEFW functionality for writing, and AELogEntry for mass-formatting of entries to text
 /// 
 /// The log is written by requesting and filling the entry in the queue.
 /// The AELogger instance launches the separate thread that looks at the entries in the queue,
 /// retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.
-/// The queue can expand if it's too little. But....I don't know how to shrink it. 
+/// 
+/// Hungarian notation is lg. (m_lgMyLogger)
 /// </summary>
 /// @todo Implement copy constructors and copy assignment
 /// @todo Add the ability to open the same log file/redirect the instance requests to the one that has it open first.
-/// @todo update the docs on returning functions
+/// @bug The queue can expand if it's too little. But....I don't know how to shrink it. (working on it)
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
 
 //constructors
-
 	/// <summary>
-	/// Class constructor -- it opens the file to start the logging process.
+	/// Class constructor -- it opens the file with the given name and starts logging to it.
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
 	explicit AELogger(const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
 
+	/// <summary>
+	/// Class constructor -- it opens the file with the given path and name and start logging to it.
+	/// </summary>
+	/// <param name="logpath">The path of the log file to open it in</param>
+	/// <param name="fname">Name of the log file</param>
+	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
+	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
 	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
+	/// <summary>
+	/// Default class construct0r -- doesn't open the file, but setups the instance for one.
+	/// </summary>
+	/// <param name=""></param>
 	explicit AELogger(void) : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
 		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
@@ -152,7 +172,6 @@ public:
 
 
 //main utility function (bruh)
-
 	/// <summary>
 	/// Request a log entry to be written to the opened log file.
 	/// @note See AELOG_TYPE_* flags

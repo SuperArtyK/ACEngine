@@ -21,7 +21,7 @@
 
 /// <summary>
 /// The ArtyK's Engine's mathematical vector -- for mathematically-correct vector operations.
-/// Yeah, the mathematical vectors, that are in CS..just labeled arrays of numbers for ease of use.
+/// Yeah, the mathematical vectors, that are in CS..just labeled arrays of numbers for ease of use lol.
 /// </summary>
 /// <typeparam name="T">The numberical type to use in the vector</typeparam>
 /// <typeparam name="dimAmount">The amount of dimensions in the vector</typeparam>

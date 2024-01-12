@@ -1,6 +1,6 @@
 
 /** @file AEMisc/include/AEUtils.hpp
- *  This file contains engine function (hopefully useful)utilities.
+ *  This file contains engine function (hopefully useful) utilities.
  *
  *  Should not cause everything to break :)
  */
@@ -28,17 +28,17 @@
 /// Macro for the check if modulo of x and y results in 0
 /// <param name="dvd">The dividend of the operation</param>
 /// <param name="dvs">The divisor of the operation</param>
-#define mod0(dvd,dvs) !(dvd % dvs)
+#define mod0(dividend, divisor) !(dividend % divisor)
 
 /// Macro to get the bit of the given value (bitwise operations)
 /// <param name="val">The value to get the bit of</param>
 /// <param name="bit">The bit number to get</param>
-#define getBit(val, bit) (val& (1 << bit))
+#define getBit(value, bit) (value& (1 << bit))
 
 /// Better-fomatted assertion for runtime checks
 /// <param name="expr">The logical expression to assert</param>
 /// <param name="msg">The message to display if the assertion fails</param>
-#define aceAssert(expr, msg) if ( !(expr) ) { std::cerr << "Assertion failed!\nExpression: " << #expr << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << msg << std::endl; abort(); }
+#define aceAssert(expression, message) if ( !(expression) ) { std::cerr << "Assertion failed!\nExpression: " << #expression << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << message << std::endl; abort(); }
 
 /// Macro for the debug printf() printing, use the same way as you have used printf before.
 /// @note Prints additional newline with each print
@@ -54,7 +54,7 @@
 /// @note It decays both types and omits const-ness
 /// <param name="T">The first type to compare</param>
 /// <param name="Y">The second type to compare</param>
-#define IS_SAME_NOC(T,Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
+#define IS_SAME_NOC(T, Y) (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)
 
 /// Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!"
 /// <param name="x">The string literal to convert to utf8</param>
@@ -67,14 +67,14 @@
 /// <param name="type">The type/struct name</param>
 /// <param name="memb">The member of struct/type to calculate the offset between</param>
 #ifdef offsetof
-#define aeoffsetof(type, memb) offsetof(type, memb)
+#define aeoffsetof(type, member) offsetof(type, member)
 #else
-#define aeoffsetof(type, memb) (intptr_t)&(((type*)NULL)->memb)
+#define aeoffsetof(type, member) (intptr_t)&(((type*)NULL)->member)
 
 // MSVC Version of offsetof, in case my version fails to work
-// #define aeoffsetof(type,memb) ((::size_t)&reinterpret_cast<char const volatile&>((((type*)0)->memb)))
+// #define aeoffsetof(type,member) ((::size_t)&reinterpret_cast<char const volatile&>((((type*)0)->member)))
 // or
-// #define aeoffsetof(type,memb) ((size_t)&(((type*)0)->memb))
+// #define aeoffsetof(type,member) ((size_t)&(((type*)0)->member))
 #endif //offsetof
 
 
@@ -100,12 +100,12 @@
 #endif
 
 
-///This namespace contains all of things that any of the part of program can use, and is useful.
-///Such things as flags, utilities, handles to windows, status(we're starting or closing), etc.
-///Basically everything for everyone and public access
+/// This namespace contains all of things that any of the part of program can use, and is useful.
+/// Such things as flags, utilities, handles to windows, status(we're starting or closing), etc.
+/// Basically everything for everyone and public access
 namespace ace {
 
-	///Global usefull utilities
+	/// Global usefull utilities
 	namespace utils {
 
 		/// <summary>
@@ -347,12 +347,20 @@ namespace ace {
 			return (ace::utils::isInRange<int>(0, 9, i)) ? (i + '0') : -1;
 		}
 
-		//alphanumeric string
+		/// <summary>
+		/// Checks if the passed string is alpha-numeric (contains only numbers and english letters)
+		/// </summary>
+		/// <param name="str">The passed string to check</param>
+		/// <returns>true if it is alpha-numeric, false otherwise</returns>
 		constexpr inline bool isAlNum(const std::string_view str) {
 			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c); }) == str.end();
 		}
 
-		//alphanumeric + underscore string
+		/// <summary>
+		/// Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores)
+		/// </summary>
+		/// <param name="str">The passed string to check</param>
+		/// <returns>true if it is alpha-numeric with underscores, false otherwise</returns>
 		constexpr inline bool isAlNumUs(const std::string_view str) {
 			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c) || c == '_'; }) == str.end();
 		}

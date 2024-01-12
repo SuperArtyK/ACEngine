@@ -35,28 +35,49 @@
 #define AELE_STATUS_READING 3
 /// Macro for the maximum size of the formatted AELogEntry as a string
 #define AELE_FORMAT_MAX_SIZE (AELE_MESSAGE_SIZE + AELE_MODULENAME_SIZE + sizeof("[YYYY-MM-DD.HH:mm:SS] [] []: DEBUG->\n"))
+/// Macro for the minimum size of the formatted AELogEntry as a string
+#define AELE_FORMAT_MIN_SIZE (sizeof("[YYYY-MM-DD.HH:mm:SS] [INFO          ] [A]: B"))
 /// Macro for the snprintf format of the AELogEntry, when converting it to a string
 #define AELE_FORMAT_STRING "[%s] [%-14s] [%s]: %s\n"
 /// Macro for the snprintf format of the AELogEntry (of type DEBUG), when converting it to a string
 #define AELE_FORMAT_STRING_DEBUG "[%s] [%-14s] [%s]: DEBUG->%s\n"
 
+
+//Error flags
+/// Macro for the indicator that everything is good/no error was encountered in the process
 #define AELE_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
+/// Macro for the error that occurs if the passed log string has an invalid length (bigger than maximum, smaller than minimum)
 #define AELE_ERR_INVALID_LENGTH -11
+/// Macro for the error that occurs if the passed log string has an invalid text time format
 #define AELE_ERR_INVALID_TIME -12
+/// Macro for the error that occurs if the passed log string has an invalid type/severity
 #define AELE_ERR_INVALID_TYPE -13
+/// Macro for the error that occurs if the passed log string has an invalid module name
+/// Invalid module name is more than 31 characters long, and/or isn't alpha-numeric with underscores (has special symbols)
 #define AELE_ERR_INVALID_MNAME -14
+/// Macro for the error that occurs if the passed log string has an invalid format overall
+/// Invalid format is not having "][" between parts, and not corresponding to position values
 #define AELE_ERR_INVALID_FORMAT -15
+
+//Parse string flags
+/// Macro-flag for the parseStringEntry() to not write the data to the given entry object (essentially, just validate it)
 #define AELE_PARSE_STRING_JUST_VALIDATE 0b0000000	//decimal: 0;  hex: 0
+/// Macro-flag for the parseStringEntry() to write just the entry's message to the given entry object
 #define AELE_PARSE_STRING_WRITE_MESSG   0b0000001	//decimal: 1;  hex: 1
+/// Macro-flag for the parseStringEntry() to write just the entry's module name to the given entry object
 #define AELE_PARSE_STRING_WRITE_MNAME   0b0000010	//decimal: 2;  hex: 2
+/// Macro-flag for the parseStringEntry() to write just the entry's timestamp to the given entry object
 #define AELE_PARSE_STRING_WRITE_TIME    0b0000100	//decimal: 4;  hex: 4
+/// Macro-flag for the parseStringEntry() to write just the entry's type to the given entry object
 #define AELE_PARSE_STRING_WRITE_TYPE    0b0001000	//decimal: 8;  hex: 8
+/// Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour)
 #define AELE_PARSE_STRING_FULL          0b0001111	//decimal: 15; hex: F
 
 
 
 /// <summary>
-/// The structure for the log entry data in the queue of AELogger.
+/// The structure for the data of the log entry to be manipulated with the log files.
+/// The flags start with AELE_
 /// </summary>
 struct AELogEntry {
 
@@ -78,6 +99,7 @@ struct AELogEntry {
 	/// <summary>
 	/// Copy assignment operator -- copies data from the passed node
 	/// @note The pointer to the next node is omitted from the operation;
+	/// @note Uses the AELogEntry::copyEntry()
 	/// </summary>
 	/// <param name="entry"></param>
 	/// <returns></returns>
@@ -86,24 +108,29 @@ struct AELogEntry {
 		return *this;
 	}
 
-	// makes full copy of the given entry
-	// ctrl-c ctrl-v
+	/// <summary>
+	/// Makes a full copy of the log entry, including the pointer to the next node
+	/// </summary>
+	/// <param name="entry">The entry to copy data from</param>
 	inline void copyEntryFull(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_cStatus));
 		this->m_cStatus.store(entry.m_cStatus);
 	}
 
-	// makes normal copy of the given entry
-	// only omits the pointer to the next one
-	// (you dont need it anyway)
+	/// <summary>
+	/// Makes a normal copy of the log entry, copying everything but the pointer to the next node
+	/// </summary>
+	/// <param name="entry">The entry to copy data from</param>
 	inline void copyEntry(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
 		this->m_cStatus.store(entry.m_cStatus);
 	}
 
-	// makes a reduced data copy of the given entry
-	// omits the next node pointer and status
+	/// <summary>
+	/// Makes a reduced copy of the log entry, including only the message, module name, and type.
+	/// </summary>
+	/// <param name="entry">The entry to copy data from</param>
 	inline void copyEntryReduced(const AELogEntry& entry) noexcept {
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
@@ -113,11 +140,10 @@ struct AELogEntry {
 	/// Clears the current entry and sets its values to zero/invalid
 	/// </summary>
 	/// <param name="entry">The entry to clear</param>
-	static inline void clearEntry(AELogEntry* const entry) noexcept {
-		std::memset(entry, NULL, aeoffsetof(AELogEntry, m_pNextNode));
-		entry->m_cLogType = -1;
-		entry->m_cStatus = AELE_STATUS_INVALID;
-		
+	static inline void clearEntry(AELogEntry& entry) noexcept {
+		std::memset(&entry, NULL, aeoffsetof(AELogEntry, m_pNextNode));
+		entry.m_cLogType = -1;
+		entry.m_cStatus = AELE_STATUS_INVALID;
 	}	
 
 	/// <summary>
@@ -156,10 +182,16 @@ struct AELogEntry {
 	}
 
 	//the size of char array (string together with null terminator) must be of AELE_FORMAT_MAX_SIZE
+	
+	/// <summary>
+	/// Formats the passed entry to the given c-string
+	/// @note The size of the c-string must be of AELE_FORMAT_MAX_SIZE !
+	/// </summary>
+	/// <param name="str">The c-string to format the data to</param>
+	/// <param name="entry">The entry object to format its data to string</param>
 	static inline void formatEntry(char* const str, const AELogEntry& entry) noexcept {
 		//string that stores the date and time formatted string
 		char timestr[DATETIME_STRING_SIZE]{};
-
 
 		if (entry.m_cLogType == AELOG_TYPE_DEBUG) {
 			snprintf(str, AELE_FORMAT_MAX_SIZE, AELE_FORMAT_STRING_DEBUG, ace::utils::formatDate(entry.m_tmLogTime, timestr), AELogEntry::typeToString(entry.m_cLogType), entry.m_sModuleName, entry.m_sLogMessage);
@@ -167,8 +199,6 @@ struct AELogEntry {
 		else {
 			snprintf(str, AELE_FORMAT_MAX_SIZE, AELE_FORMAT_STRING, ace::utils::formatDate(entry.m_tmLogTime, timestr), AELogEntry::typeToString(entry.m_cLogType), entry.m_sModuleName, entry.m_sLogMessage);
 		}
-
-
 
 	}
 	
@@ -219,12 +249,18 @@ struct AELogEntry {
 		}
 	}
 
-
-	//parse a log entry from a string, and write it into given entry
+	/// <summary>
+	/// Parses a given string as a log entry, and write it into passed entry object
+	/// @note If the string is less than AELE_FORMAT_MIN_SIZE or more than AELE_FORMAT_MAX_SIZE, fails the check with AELE_ERR_INVALID_LENGTH
+	/// </summary>
+	/// <param name="entry">The log entry object to write data to</param>
+	/// <param name="entryString">The string to parse</param>
+	/// <param name="flags">The flags for parsing. Refer to AELE_PARSE_STRING_* (like AELE_PARSE_STRING_JUST_VALIDATE)</param>
+	/// <returns>AELE_ERR_NOERROR (0) on success, other AELE error flags otherwise</returns>
 	static inline cint parseStringEntry(AELogEntry& entry, const std::string_view entryString, const cint flags = AELE_PARSE_STRING_FULL) {
 
 		constexpr std::size_t POS_TYPE = 22, POS_MNAME = 39;
-		if (entryString.size() == AELE_FORMAT_MAX_SIZE + 1 || entryString.size() < 47) { // it is more then the max size or less than possible size -- invalid or...somehow modified
+		if (entryString.size() > AELE_FORMAT_MAX_SIZE || entryString.size() < AELE_FORMAT_MIN_SIZE) { // it is more then the max size or less than possible size -- invalid or...somehow modified
 			return AELE_ERR_INVALID_LENGTH;
 		}
 
@@ -290,7 +326,7 @@ struct AELogEntry {
 		}
 
 		//time to write stuff
-		AELogEntry::clearEntry(&entry);
+		AELogEntry::clearEntry(entry);
 
 		if (flags & AELE_PARSE_STRING_WRITE_MESSG) {
 			//cool, passed. now read untill the end

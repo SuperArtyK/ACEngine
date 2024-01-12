@@ -36,31 +36,39 @@
 
 
 //Error flags
-/// Macro for the indicator that everything is good.
+/// Macro for the indicator that everything is good/no error was encountered in the process
 #define AEFR_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
+
 /// same as AEFR_ERR_NOERROR - value of a successfull read.
 #define AEFR_ERR_READ_SUCCESS 0
+
 /// Macro for the error if file isn't open and file operation functions of the file reader are used.
 #define AEFR_ERR_FILE_NOT_OPEN -1
+
+
 //file creation/manipulation
 /// Macro for the error if the file name is empty.
 #define AEFR_ERR_OPEN_FILE_NAME_EMPTY -2
+
 /// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.
 #define AEFR_ERR_OPEN_FILE_DOESNT_EXIST -3
+
 /// Macro for the error that occurs when trying to open the file, while the AEFileReader instance already has an opened file
 #define AEFR_ERR_OPEN_FILE_ALREADY_OPENED -4
+
 /// Macro for the error occurring when end of file was reached when reading the file.
 #define AEFR_ERR_READ_EOF -5
+
 /// Macro for the reading error that occurred when reading the file (look up ferror() ).
 #define AEFR_ERR_READ_ERROR -6
+
 /// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileReader::readData_ptr().
 #define AEFR_ERR_READ_ZERO_SIZE -7
+
 /// Macro for the error that occurs if invalid cursor origin (not SEEK_SET, SEEK_CUR, or SEEK_END) was passed to AEFileReader::setCursorPos()
 #define AEFR_ERR_WRONG_CURSOR_ORIGIN -8
 
-
-
-
+//macros for code
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
 #define _AEFR_EXIT_ON_CLOSED_FILE if (this->isClosed()) { return AEFR_ERR_FILE_NOT_OPEN; }
 /// Macro for the shortened "check for opened file during the read operation, set error flag and return error flag if closed", DO NOT TOUCH!
@@ -69,10 +77,14 @@
 
 /// <summary>
 /// ArtyK's Engine File Reader; umm, it reads data from the given file.
-/// Just create it and, read stuff, and dump the gigabytes of data from the file to your memory and what not.
-/// Hungarian notation is fr.
+/// It is a wrapper around the C's FILE api, for speed and convenience.
+/// It can read strings (untill: max string size, newline, NULL character), bools, ints, and floats
+/// 
+/// Just create it, read stuff, and dump the terabytes of data from the file to your memory and what not.
+/// Hungarian notation is fr. (m_frMyFileReader)
 /// Flags start with AEFR_
-/// @warning This is not thread safe!
+/// 
+/// @warning This is not thread-safe!
 /// </summary>
 /// @todo add generic read function
 class AEFileReader : public __AEModuleBase<AEFileReader> {
@@ -99,12 +111,18 @@ public:
 
 //we don't need those
 	/// <summary>
-	/// Deleted copy constructor.
+	/// Deleted copy constructor. 
+	/// There is no need to copy AEFR, since access to file is in instance's FILE pointer.
+	/// If in original instance, the file gets closed, the pointer is invalidated.
+	/// Which can lead to...bad consequences using it again in the copied instance.
 	/// </summary>
 	AEFileReader(const AEFileReader&) = delete;
 
 	/// <summary>
 	/// Deleted copy assignment operator.
+	/// There is no need to copy AEFR, since access to file is in instance's FILE pointer.
+	/// If in original instance, the file gets closed, the pointer is invalidated.
+	/// Which can lead to...bad consequences using it again in the copied instance.
 	/// </summary>
 	AEFileReader& operator=(const AEFileReader&) = delete;
 
@@ -155,7 +173,6 @@ public:
 	}
 
 //read strings as normal
-	
 	/// <summary>
 	/// Reads the given amount of bytes and interprets them as the string.
 	/// @note Modifies the length of the std::string to the dcount+1 size (to accomodate for the trailing null-termiantion character).
@@ -573,7 +590,6 @@ public:
 
 
 //misc stuff
-
 	/// <summary>
 	/// Returns total reader requests made to file.
 	/// </summary>

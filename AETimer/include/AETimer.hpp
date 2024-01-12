@@ -21,8 +21,10 @@
 
 /// <summary>
 /// @brief ArtyK's Engine Timer -- the engine's internal timer for, um, timing events or anything, with variable tick speed.
+/// It makes a separate thread that increments the tick number every set time period. For the delay, it uses AEFrame.
+/// 
 /// Just create it and look at the ticks of the timer from anywhere in the program...that you can access it.
-/// Hungarian notation is tm
+/// Hungarian notation is tm. (m_tmMyTimer)
 /// </summary>
 class AETimer : public __AEModuleBase<AETimer> {
 

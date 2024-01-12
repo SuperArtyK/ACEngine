@@ -105,7 +105,7 @@ typedef std::chrono::steady_clock SteadyTime;
 /// <param name="tp1">The first, starting point of time (time point)</param>
 /// <param name="tp2">The second, starting point of time (time point)</param>
 /// <param name="typ">The type of the resulting operation</param>
-#define calculateTime(tp1,tp2,typ) std::chrono::duration<typ>(tp2 - tp1).count()
+#define calculateTime(tp1, tp2, type) std::chrono::duration<type>(tp2 - tp1).count()
 
 /// A macro as the shortcut of chrono's time point. I couldn't shove it into a typedef so...a macro
 #define timePoint std::chrono::time_point

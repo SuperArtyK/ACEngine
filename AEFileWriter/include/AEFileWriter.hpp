@@ -34,44 +34,64 @@
 /// Macro to put the write cursor at the end of the file, appending to the file.
 /// @note Cursor change allowed
 #define AEFW_FLAG_APPEND 1
+
 /// Macro to put the write cursor at the end of the file, appending to the file.
 /// @note Changing the cursor position/writing anywhere else (than eof) is not allowed
 #define AEFW_FLAG_APPEND_NO_CURSOR_MOVE 2 
+
 /// Macro to put the write cursor at the start of the file, truncating the contents if existed.
 #define AEFW_FLAG_TRUNCATE 3
+
 /// Macro for no write flags.
 /// @note Same as AEFW_FLAG_TRUNCATE
 #define AEFW_FLAG_NOFLAGS 0
 
+
 //Error flags
-/// Macro for the indicator that everything is good.
+/// Macro for the indicator that everything is good/no error was encountered in the process
 #define AEFW_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
+
 /// Same as AEFW_ERR_NOERROR - value of a successfull write.
 #define AEFW_ERR_WRITE_SUCCESS 0
+
 /// Macro for the error if file isn't open and file operation functions of the file writer are used.
 #define AEFW_ERR_FILE_NOT_OPEN -1
+
+
 //file creation/manipulation
 /// Macro for the error if the file name is empty.
 #define AEFW_ERR_OPEN_FILE_NAME_EMPTY -2
+
 /// Macro for the error if the given file flag is wrong and nonexistent.
 #define AEFW_ERR_OPEN_FILE_WRONG_FLAG -3
+
 /// Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files.
 #define AEFW_ERR_OPEN_FILE_ELSE -4
+
 /// Macro for the error that occurs when trying to open the file, while the AEFileWriter instance already has an opened file
 #define AEFW_ERR_OPEN_FILE_ALREADY_OPENED -5
+
 /// Macro for the error that has occurred in writing (if fwrite returned a non-zero value).
 #define AEFW_ERR_WRITE_ERROR -6
+
 /// Macro for the error that occurs if the data pointer, item count and item size is null/zero in AEFileWriter::writeData_ptr().
 #define AEFW_ERR_WRITE_ZERO_SIZE -7
+
 /// Macro for the error that has occurred in flushing (if fflush returned a non-zero value).
 #define AEFW_ERR_FLUSH_ERROR -8
+
 /// Macro for the error that occurs if invalid cursor origin (not SEEK_SET, SEEK_CUR, or SEEK_END) was passed to AEFileWriter::setCursorPos()
 #define AEFW_ERR_WRONG_CURSOR_ORIGIN -9
 
+
+//macros for code
 /// Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH!
+
 #define _AEFW_EXIT_ON_CLOSED_FILE if (this->isClosed()) { return AEFW_ERR_FILE_NOT_OPEN; }
+
 /// Macro for the shortened "check for opened file during writing, set error flag and return error flag if closed", DO NOT TOUCH!
 #define _AEFW_EXIT_ON_WRITE_CLOSED_FILE if (this->isClosed()) { this->m_szLastWrittenAmount = 0; return AEFW_ERR_FILE_NOT_OPEN; }
+
 /// Macro for the shortened "check for the 'append no cursor move' flag to open file, set and return error flag ifo so", DO NOT TOUCH!
 #define _AEFW_EXIT_ON_NO_CURSOR_MOVE if (this->m_cFlags == AEFW_FLAG_APPEND_NO_CURSOR_MOVE) { return AEFW_ERR_OPEN_FILE_WRONG_FLAG; }
 
@@ -79,8 +99,11 @@
 
 /// <summary>
 /// ArtyK's Engine File Writer; umm, it writes data to given file.
+/// It is a wrapper around the C's FILE api, for speed and convenience.
+/// It can write strings, bools, ints, and floats, both as raw bytes and formatted to text
+/// 
 /// Just create it and dump the gigabytes of data to your files.
-/// Hungarian notation is fw.
+/// Hungarian notation is fw. (m_fwMyFileWriter)
 /// Flags start with AEFW_
 /// @warning This is not thread safe!
 /// </summary>
@@ -111,11 +134,17 @@ public:
 //we don't need those
 	/// <summary>
 	/// Deleted copy constructor.
+	/// There is no need to copy AEFW, since access to file is in instance's FILE pointer.
+	/// If in original instance, the file gets closed, the pointer is invalidated.
+	/// Which can lead to...bad consequences using it again in the copied instance.
 	/// </summary>
 	AEFileWriter(const AEFileWriter&) = delete;
 
 	/// <summary>
 	/// Deleted copy assignment operator.
+	/// There is no need to copy AEFW, since access to file is in instance's FILE pointer.
+	/// If in original instance, the file gets closed, the pointer is invalidated.
+	/// Which can lead to...bad consequences using it again in the copied instance.
 	/// </summary>
 	AEFileWriter& operator=(const AEFileWriter&) = delete;
 
@@ -530,6 +559,7 @@ public:
 
 
 private:
+
 	/// <summary>
 	/// Checks for and performs the auto-flush operation if required.
 	/// @note Does nothing if AEFW_AUTOFLUSH_ENABLE is not defined

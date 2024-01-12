@@ -1,7 +1,6 @@
 
 /** @file AEModuleBase/include/AEModuleBase.hpp
- *  This file contains the code for the module that all (utility) modules 
- *  base on in the ArtyK's Console Engine class.
+ *  This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class.
  *
  *  Should not cause everything to break :)
  */
@@ -18,12 +17,18 @@
 
 //file meaning: base classes for all modules
 
-
+/// <summary>
+/// The support function for __AEModuleBase's module name registration
+/// @note Please don't use it anywhere else...and where *can* you use it other than here?
+/// </summary>
+/// <typeparam name="T">"Type", name of the struct/class</typeparam>
+/// <param name=""></param>
+/// <returns>Without registration and overloads, default "__getTypeName". With them, in correct setting, the name of the regitered module</returns>
 template <typename T>
-constexpr std::string_view getTypeName(void) noexcept { return "getTypeName"; }
+constexpr std::string_view __getTypeName(void) noexcept { return "__getTypeName"; }
 
-/// adds module name to inherit from __AEModuleBase
-#define REGISTER_MODULE(T) template <> constexpr std::string_view getTypeName<T>() noexcept { return #T; }
+/// Adds module name to inherit from __AEModuleBase
+#define REGISTER_MODULE(T) template <> constexpr std::string_view __getTypeName<T>() noexcept { return #T; }
 
 /// Global "no error" return flag for all engine modules
 #define ENGINE_MODULE_ERR_NOERROR 0
@@ -34,10 +39,10 @@ constexpr std::string_view getTypeName(void) noexcept { return "getTypeName"; }
 
 /// <summary>
 /// @brief This is a base class for all basic modules, meaning that the module is not using other modules to work. 
-/// Intended to be inherited from in class declaration, not direct usage.
+/// @note Intended to be inherited from in class declaration, not direct usage.
 /// Usage: class [classname] : public __AEModuleBase<[classname]>
 /// </summary>
-/// <typeparam name="T">Module's class name</typeparam>
+/// <typeparam name="T">Inheriting module's class name</typeparam>
 template<typename T>
 class __AEModuleBase
 {
@@ -90,14 +95,14 @@ protected:
 	/// </summary>
 	static const std::string_view m_sModulename;
 	/// <summary>
-	/// amount of alive module instances
+	/// Amount of alive module instances
 	/// </summary>
 	static inline std::atomic<ullint> m_ullModulesAlive = 0;
 };
 
-/// sets up the static variable values for the base class (and inherited classes)
+/// Sets up the static variable values for the base class (and inherited classes)
 template<typename T>
-const std::string_view __AEModuleBase<T>::m_sModulename = getTypeName<T>();
+const std::string_view __AEModuleBase<T>::m_sModulename = __getTypeName<T>();
 
 //REGISTER_MODULE(__AEModuleBase)
 

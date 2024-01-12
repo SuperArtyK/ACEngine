@@ -225,7 +225,7 @@ void AELogger::logWriterThread(void) {
 			ePtr = ePtr->m_pNextNode;
 
 			//cleanup
-			AELogEntry::clearEntry(oldptr);
+			AELogEntry::clearEntry(*oldptr);
 			oldptr = ePtr;
 			this->m_ullFilledCount--;
 			//m_ullWriterOrderNum++;

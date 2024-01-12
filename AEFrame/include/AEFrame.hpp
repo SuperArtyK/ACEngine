@@ -19,12 +19,14 @@
 
 /// <summary>
 /// @brief This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops.
-/// Hungarian notation is fd.
-/// So instead of guessing the delay for the main game loop, and having unreliable call to normal "sleep for x",
-/// you can always rely on this to delay/sleep the thread to make the game loop run at same time to achieve the fps that you set earlier.
-/// @note To get this to work properly, make an object outside of the loop, and put the call to AEFrame::sleep() at the end of the loop.
-/// @note This works by looking at the time spent by the game loop and sleeping up to the time to meet the fps goal.
-/// @warning If the game loop takes more time than the set fps goal amount, the frame times can be unpredictable (and...delay might also not work)
+/// It works by sleeping the difference between the time spent by code in the loop and the time per each frame.
+/// 
+/// For example: if you want the loop to have 100 cycles/second or fps (10 milliseconds), and the code takes 5ms to complete, 
+/// then the AEFrame will sleep that loop thread for 5ms.
+/// 
+/// Hungarian notation is fd. (m_fdMyFrameDelay)
+/// @note To get this to work properly, make an object outside of the loop, and put the call to AEFrame::sleep() as the very last/first thing in the loop.
+/// @warning If the game loop takes more time than the set fps goal amount, the frame times can be unpredictable (and...delay might also not work) (working to fix that)
 /// </summary>
 class AEFrame : public __AEModuleBase<AEFrame> {
 
