@@ -7,6 +7,8 @@ The code is divided into projects to ease development and testing. (so I don't n
 You can find the engine code documentation [here](https://superartyk.github.io/ACEngine "ACEngine doxygen...docs") 
 (It isn't fully done, so for all engine info visit the "Namespaces" or "Data Structures" pages)
 
+You can also track the progress of the engine here: [trello board](https://trello.com/b/egICmbPv/artyks-engine "trello board") 
+
 ##### Current project list:
 
 * ACEngine -- main project where everything is combined
