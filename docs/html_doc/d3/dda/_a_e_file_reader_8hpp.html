@@ -125,7 +125,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a32412662c108d7b4ae1407274bee52f4" id="r_a32412662c108d7b4ae1407274bee52f4"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a32412662c108d7b4ae1407274bee52f4">AEFR_ERR_NOERROR</a>&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td></tr>
-<tr class="memdesc:a32412662c108d7b4ae1407274bee52f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the indicator that everything is good.  <br /></td></tr>
+<tr class="memdesc:a32412662c108d7b4ae1407274bee52f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the indicator that everything is good/no error was encountered in the process.  <br /></td></tr>
 <tr class="separator:a32412662c108d7b4ae1407274bee52f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef15849d62077aa52db4aa6ff4d365c9" id="r_aef15849d62077aa52db4aa6ff4d365c9"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#aef15849d62077aa52db4aa6ff4d365c9">AEFR_ERR_READ_SUCCESS</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:aef15849d62077aa52db4aa6ff4d365c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as AEFR_ERR_NOERROR - value of a successfull read.  <br /></td></tr>
@@ -187,7 +187,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH! </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00065">65</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the shortened "check for opened file during the read operation, set error flag and return error flag if closed", DO NOT TOUCH! </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00067">67</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00075">75</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -223,7 +223,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error if file isn't open and file operation functions of the file reader are used. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +239,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the indicator that everything is good. </p>
+<p>Macro for the indicator that everything is good/no error was encountered in the process. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
@@ -259,7 +259,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error that occurs when trying to open the file, while the <a class="el" href="../../dd/dd5/class_a_e_file_reader.html" title="ArtyK&#39;s Engine File Reader; umm, it reads data from the given file.">AEFileReader</a> instance already has an opened file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +277,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -295,7 +295,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error if the file name is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -313,7 +313,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error occurring when end of file was reached when reading the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00060">60</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the reading error that occurred when reading the file (look up <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">ferror()</a> ). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00063">63</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -349,7 +349,7 @@ Functions</h2></td></tr>
 
 <p>same as AEFR_ERR_NOERROR - value of a successfull read. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00043">43</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -367,7 +367,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error that occurs if the data pointer, item count and item size is null/zero in <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd...">AEFileReader::readData_ptr()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00066">66</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -385,7 +385,7 @@ Functions</h2></td></tr>
 
 <p>Macro for the error that occurs if invalid cursor origin (not SEEK_SET, SEEK_CUR, or SEEK_END) was passed to <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a477effa6d568ec7993c4d506d0d0420c" title="Sets read cursor position to pos from origin.">AEFileReader::setCursorPos()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00624">624</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00640">640</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -416,7 +416,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3da38e614281be5a2938b27bbc39cb74.html">AEFileReader</a></li><li class="navelem"><a class="el" href="../../dir_7ecab22c60312b67bd1e323ce6ef6108.html">include</a></li><li class="navelem"><a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html">AEFileReader.hpp</a></li>
-    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Jan 12 2024 00:59:44 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

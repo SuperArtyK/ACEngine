@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AETypedefs.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AETypedefs.hpp" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -78,7 +78,7 @@ AEMisc/include/AETypedefs.hpp \- This file contains typedefs/aliases of the vari
 .br
 .RI "A macro to get the steady time's \fBnow()\fP "
 .ti -1c
-.RI "#\fBdefine\fP \fBcalculateTime\fP(\fBtp1\fP,  \fBtp2\fP,  \fBtyp\fP)   \fBstd::chrono::duration\fP<\fBtyp\fP>(\fBtp2\fP \- \fBtp1\fP)\&.\fBcount\fP()"
+.RI "#\fBdefine\fP \fBcalculateTime\fP(\fBtp1\fP,  \fBtp2\fP,  \fBtype\fP)   \fBstd::chrono::duration\fP<\fBtype\fP>(\fBtp2\fP \- \fBtp1\fP)\&.\fBcount\fP()"
 .br
 .RI "A macro to calculate time between 2 timepoints as some type\&. "
 .ti -1c
@@ -159,7 +159,7 @@ Should not cause everything to break :)
 Definition in file \fBAETypedefs\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP calculateTime(\fBtp1\fP, \fBtp2\fP, \fBtyp\fP)   \fBstd::chrono::duration\fP<\fBtyp\fP>(\fBtp2\fP \- \fBtp1\fP)\&.\fBcount\fP()"
+.SS "#\fBdefine\fP calculateTime(\fBtp1\fP, \fBtp2\fP, \fBtype\fP)   \fBstd::chrono::duration\fP<\fBtype\fP>(\fBtp2\fP \- \fBtp1\fP)\&.\fBcount\fP()"
 
 .PP
 A macro to calculate time between 2 timepoints as some type\&. 
@@ -170,7 +170,7 @@ A macro to calculate time between 2 timepoints as some type\&.
 .br
 \fItp2\fP The second, starting point of time (time point)
 .br
-\fItyp\fP The type of the resulting operation
+\fItype\fP The type of the resulting operation
 .RE
 .PP
 

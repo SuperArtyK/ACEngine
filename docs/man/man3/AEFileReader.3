@@ -1,4 +1,4 @@
-.TH "AEFileReader" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFileReader" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -209,7 +209,7 @@ Inherits \fB__AEModuleBase< AEFileReader >\fP\&.
 .ti -1c
 .RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP"
 .br
-.RI "amount of alive module instances "
+.RI "Amount of alive module instances\&. "
 .in -1c
 .SS "Private Attributes"
 
@@ -235,11 +235,13 @@ Inherits \fB__AEModuleBase< AEFileReader >\fP\&.
 .PP 
 ArtyK's Engine File Reader; umm, it reads data from the given file\&. 
 
-Just create it and, read stuff, and dump the gigabytes of data from the file to your memory and what not\&. Hungarian notation is fr\&. Flags start with AEFR_ 
+It is a wrapper around the C's FILE api, for speed and convenience\&. It can read strings (untill: max string size, newline, NULL character), bools, ints, and floats
+.PP
+Just create it, read stuff, and dump the terabytes of data from the file to your memory and what not\&. Hungarian notation is fr\&. (m_frMyFileReader) Flags start with AEFR_
 .PP
 \fBWarning\fP
 .RS 4
-This is not thread safe!
+This is not thread-safe!
 .RE
 .PP
 \fBTodo\fP
@@ -249,7 +251,7 @@ add generic read function
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB90\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "AEFileReader::AEFileReader (\fBconst\fP std::string_view fname)\fC [explicit]\fP"
@@ -275,7 +277,7 @@ Definition at line \fB14\fP of file \fBAEFileReader\&.cpp\fP\&.
 .PP
 Class constructor -- constructs the instance with default values, and doesn't open the file\&. 
 .PP
-Definition at line \fB93\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB105\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "AEFileReader::AEFileReader (\fBAEFileReader\fP && fr)\fC [noexcept]\fP"
 
 .PP
@@ -285,13 +287,13 @@ Definition at line \fB20\fP of file \fBAEFileReader\&.cpp\fP\&.
 .SS "AEFileReader::AEFileReader (\fBconst\fP \fBAEFileReader\fP &)\fC [delete]\fP"
 
 .PP
-Deleted copy constructor\&. 
+Deleted copy constructor\&. There is no need to copy AEFR, since access to file is in instance's FILE pointer\&. If in original instance, the file gets closed, the pointer is invalidated\&. Which can lead to\&.\&.\&.bad consequences using it again in the copied instance\&. 
 .SS "AEFileReader::~AEFileReader (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
 Default Destructor\&. Just flushes and closes the file\&. 
 .PP
-Definition at line \fB114\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB132\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBcint\fP AEFileReader::closeFile (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
@@ -306,7 +308,7 @@ AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file
 .PP
 
 .PP
-Definition at line \fB131\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB149\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBllint\fP AEFileReader::getCursorPos (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -319,7 +321,7 @@ Current read cursor position, starting from 0, if file is open; otherwise AEFR_E
 .PP
 
 .PP
-Definition at line \fB553\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB570\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::getFileName (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
@@ -332,7 +334,7 @@ std::string of the opened file name; emtpy string otherwise
 .PP
 
 .PP
-Definition at line \fB518\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB535\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBFILE\fP * AEFileReader::getFilePtr (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -345,7 +347,7 @@ Pointer to FILE used in the file reader
 .PP
 
 .PP
-Definition at line \fB543\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB560\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBllint\fP AEFileReader::getFileSize (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -358,7 +360,7 @@ File size in bytes if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN
 .PP
 
 .PP
-Definition at line \fB477\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB494\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::getFullFileName (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -376,7 +378,7 @@ std::string of the opened file (including relative path if was given); empty str
 .PP
 
 .PP
-Definition at line \fB492\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB509\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::getFullPath (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
@@ -389,7 +391,7 @@ std::string of the absolute path of the opened file; empty string otherwise
 .PP
 
 .PP
-Definition at line \fB532\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB549\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::size_t AEFileReader::getLastReadAmount (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -407,7 +409,7 @@ std::size_t of the amount of bytes read in the last reading operation
 .PP
 
 .PP
-Definition at line \fB590\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB606\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -420,7 +422,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB73\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -433,7 +435,7 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB81\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB86\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::string AEFileReader::getRelativePath (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
@@ -446,7 +448,7 @@ std::string of the relative file path of opened file; empty string otherwise
 .PP
 
 .PP
-Definition at line \fB501\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB518\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBullint\fP AEFileReader::getTotalReads (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -459,7 +461,7 @@ Amount of times the read operation has been called on this \fBAEFileReader\fP in
 .PP
 
 .PP
-Definition at line \fB581\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB597\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -472,7 +474,7 @@ True if file is closed/not open, false if otherwise
 .PP
 
 .PP
-Definition at line \fB469\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB486\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isEOF (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -485,7 +487,7 @@ True if end of file was reached, false otherwise
 .PP
 
 .PP
-Definition at line \fB598\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB614\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isError (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -498,7 +500,7 @@ True if end of file was reached, false otherwise
 .PP
 
 .PP
-Definition at line \fB606\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB622\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "bool AEFileReader::isOpen (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -511,7 +513,7 @@ True if file is open, false if otherwise
 .PP
 
 .PP
-Definition at line \fB461\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB478\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::openFile (\fBconst\fP std::string_view fname)"
 
 .PP
@@ -533,7 +535,7 @@ Definition at line \fB32\fP of file \fBAEFileReader\&.cpp\fP\&.
 .SS "\fBAEFileReader\fP & AEFileReader::operator= (\fBconst\fP \fBAEFileReader\fP &)\fC [delete]\fP"
 
 .PP
-Deleted copy assignment operator\&. 
+Deleted copy assignment operator\&. There is no need to copy AEFR, since access to file is in instance's FILE pointer\&. If in original instance, the file gets closed, the pointer is invalidated\&. Which can lead to\&.\&.\&.bad consequences using it again in the copied instance\&. 
 .SS "\fBcint\fP AEFileReader::readBool (bool & num)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -550,7 +552,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBParameters\fP
 .RS 4
-\fIvar\fP The bool to read
+\fInum\fP The bool to read
 .RE
 .PP
 \fBReturns\fP
@@ -560,7 +562,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB369\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB386\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readBoolString (bool & num)\fC [noexcept]\fP"
 
 .PP
@@ -602,7 +604,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBParameters\fP
 .RS 4
-\fIvar\fP The char to read
+\fInum\fP The char to read
 .RE
 .PP
 \fBReturns\fP
@@ -612,7 +614,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB403\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB420\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readBytes (std::vector< \fBunsigned\fP char > & cdata, \fBconst\fP std::size_t dcount)\fC [inline]\fP"
 
 .PP
@@ -641,7 +643,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB419\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB436\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readBytes (\fBvoid\fP * cdata, \fBconst\fP std::size_t dcount)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -672,7 +674,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB437\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB454\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readChar (\fBsigned\fP char & num)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -691,7 +693,7 @@ Same as \fBAEFileReader::readByte()\fP
 .PP
 \fBParameters\fP
 .RS 4
-\fIvar\fP The char to read
+\fInum\fP The char to read
 .RE
 .PP
 \fBReturns\fP
@@ -701,7 +703,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB391\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB408\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readData_ptr (\fBvoid\fP * cdata, \fBconst\fP std::size_t dcount, \fBconst\fP std::size_t dsize = \fC\fBsizeof\fP(char)\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -762,7 +764,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB343\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB360\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readFloatString (T & num)\fC [inline]\fP"
 
 .PP
@@ -792,7 +794,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB678\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB694\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readInt (T & num)\fC [inline]\fP"
 
 .PP
@@ -814,7 +816,7 @@ If the file is closed, it doesn't modify the data
 .PP
 \fBParameters\fP
 .RS 4
-\fIvar\fP The int to fill with bytes
+\fInum\fP The int to fill with bytes
 .RE
 .PP
 \fBReturns\fP
@@ -824,7 +826,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB315\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB332\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readIntString (T & num)\fC [inline]\fP"
 
 .PP
@@ -910,7 +912,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB168\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB185\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readString (std::vector< char > & str, \fBconst\fP std::size_t dcount)\fC [inline]\fP"
 
 .PP
@@ -939,7 +941,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB187\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB204\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNL (char * str, \fBconst\fP \fBint\fP dcount)\fC [noexcept]\fP"
 
 .PP
@@ -997,7 +999,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB220\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB237\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNL (std::vector< char > & str, \fBconst\fP \fBint\fP dcount)\fC [inline]\fP"
 
 .PP
@@ -1026,7 +1028,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB237\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB254\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNULL (char * str, \fBconst\fP \fBllint\fP dcount)"
 
 .PP
@@ -1084,7 +1086,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB267\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB284\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBcint\fP AEFileReader::readStringNULL (std::vector< char > & str, \fBconst\fP \fBllint\fP dcount)\fC [inline]\fP"
 
 .PP
@@ -1113,7 +1115,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB284\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB301\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBcint\fP AEFileReader::readVariable (T & var)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1141,7 +1143,7 @@ AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't
 .PP
 
 .PP
-Definition at line \fB151\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB169\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBint\fP AEFileReader::setCursorPos (\fBconst\fP \fBllint\fP pos, \fBconst\fP \fBint\fP origin = \fC\fBSEEK_CUR\fP\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1168,7 +1170,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF
 .PP
 
 .PP
-Definition at line \fB566\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB583\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBFILE\fP* AEFileReader::m_fpFilestr\fC [private]\fP"
@@ -1176,17 +1178,17 @@ Definition at line \fB566\fP of file \fBAEFileReader\&.hpp\fP\&.
 .PP
 Object for file reading\&. 
 .PP
-Definition at line \fB620\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB636\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::string AEFileReader::m_sFilename\fC [private]\fP"
 
 .PP
 Full filename and relative path\&. 
 .PP
-Definition at line \fB614\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB630\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
-Name of the module (class), same as in code\&. sets up the static variable values for the base class (and inherited classes)
+Name of the module (class), same as in code\&. Sets up the static variable values for the base class (and inherited classes)
 .PP
 \fBTodo\fP
 .RS 4
@@ -1195,25 +1197,25 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB96\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::size_t AEFileReader::m_szLastReadAmount\fC [private]\fP"
 
 .PP
 The amount of read bytes during last operation\&. 
 .PP
-Definition at line \fB618\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB634\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
-amount of alive module instances 
+Amount of alive module instances\&. 
 .PP
-Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AEFileReader::m_ullTotalReads\fC [private]\fP"
 
 .PP
 Counter for total read operations for file\&. 
 .PP
-Definition at line \fB616\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB632\fP of file \fBAEFileReader\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

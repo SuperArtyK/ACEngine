@@ -102,6 +102,9 @@ $(document).ready(function(){initNavTree('d8/d52/class_a_e_log_parser.html','../
 </div><!--header-->
 <div class="contents">
 
+<p>ArtyK's Engine's Log Parser; it parses the log files that <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> writes.  
+ <a href="../../d8/d52/class_a_e_log_parser.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for AELogParser:</div>
@@ -118,26 +121,37 @@ $(document).ready(function(){initNavTree('d8/d52/class_a_e_log_parser.html','../
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ea4aef815bb40a53a30ed2da94b8c91" id="r_a3ea4aef815bb40a53a30ed2da94b8c91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a3ea4aef815bb40a53a30ed2da94b8c91">AELogParser</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>)</td></tr>
+<tr class="memdesc:a3ea4aef815bb40a53a30ed2da94b8c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor &ndash; opens the file and start the indexing process.  <br /></td></tr>
 <tr class="separator:a3ea4aef815bb40a53a30ed2da94b8c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c35902cdfa4f883d1d8f10dd546f4ed" id="r_a2c35902cdfa4f883d1d8f10dd546f4ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a2c35902cdfa4f883d1d8f10dd546f4ed">~AELogParser</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>)</td></tr>
+<tr class="memdesc:a2c35902cdfa4f883d1d8f10dd546f4ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor &ndash; closes the log file.  <br /></td></tr>
 <tr class="separator:a2c35902cdfa4f883d1d8f10dd546f4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e90913ac25c938e2e84a9887c5bae66" id="r_a8e90913ac25c938e2e84a9887c5bae66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a8e90913ac25c938e2e84a9887c5bae66">openLog</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>)</td></tr>
+<tr class="memdesc:a8e90913ac25c938e2e84a9887c5bae66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the log file, reading and parsing every single entry, classifying it by type.  <br /></td></tr>
 <tr class="separator:a8e90913ac25c938e2e84a9887c5bae66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79df0ff0313d4414ce55c13c7078ece" id="r_ad79df0ff0313d4414ce55c13c7078ece"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#ad79df0ff0313d4414ce55c13c7078ece">closeLog</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>)</td></tr>
+<tr class="memdesc:ad79df0ff0313d4414ce55c13c7078ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the log file and clears the memory.  <br /></td></tr>
 <tr class="separator:ad79df0ff0313d4414ce55c13c7078ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fdb8cb7ef4bff708780930542cb04da" id="r_a3fdb8cb7ef4bff708780930542cb04da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a3fdb8cb7ef4bff708780930542cb04da">nextEntry</a> (<a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> &amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">entry</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">severity</a>=<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">AELOG_TYPE_DEBUG</a>)</td></tr>
+<tr class="memdesc:a3fdb8cb7ef4bff708780930542cb04da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next entry in the log file of the given severity filter, and parse it to the given <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> object.  <br /></td></tr>
 <tr class="separator:a3fdb8cb7ef4bff708780930542cb04da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698f9197277ffa4de49c2af6ea7169ab" id="r_a698f9197277ffa4de49c2af6ea7169ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a698f9197277ffa4de49c2af6ea7169ab">logToQueue</a> (<a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> *&amp;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">begin</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">severity</a>=<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">AELOG_TYPE_DEBUG</a>)</td></tr>
+<tr class="memdesc:a698f9197277ffa4de49c2af6ea7169ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as the <a class="el" href="../../d8/d52/class_a_e_log_parser.html#a3fdb8cb7ef4bff708780930542cb04da" title="Read the next entry in the log file of the given severity filter, and parse it to the given AELogEntr...">AELogParser::nextEntry()</a> but on massive scale &ndash; scans the whole log file and parses it to the freshly-allocated queue.  <br /></td></tr>
 <tr class="separator:a698f9197277ffa4de49c2af6ea7169ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5416b243bdf15dcc073d7923c5e1765f" id="r_a5416b243bdf15dcc073d7923c5e1765f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a5416b243bdf15dcc073d7923c5e1765f">amountValidEntries</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">severity</a>=<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">AELOG_TYPE_DEBUG</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a5416b243bdf15dcc073d7923c5e1765f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the amount of valid entries in the log (with optional lowest severity setting).  <br /></td></tr>
 <tr class="separator:a5416b243bdf15dcc073d7923c5e1765f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1674bacccf5e2aa161a2c8f199237fb" id="r_ae1674bacccf5e2aa161a2c8f199237fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#ae1674bacccf5e2aa161a2c8f199237fb">amountInvalidEntries</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:ae1674bacccf5e2aa161a2c8f199237fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the amount of invalid entries in the log.  <br /></td></tr>
 <tr class="separator:ae1674bacccf5e2aa161a2c8f199237fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5256e5dbb3be0e0cb5edb3e7667aeada" id="r_a5256e5dbb3be0e0cb5edb3e7667aeada"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a5256e5dbb3be0e0cb5edb3e7667aeada">amountTypeEntries</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">severity</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a5256e5dbb3be0e0cb5edb3e7667aeada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the amount of entries of a certain type/severity.  <br /></td></tr>
 <tr class="separator:a5256e5dbb3be0e0cb5edb3e7667aeada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a318c93562f4b8d14aff66a63998bf157" id="r_a318c93562f4b8d14aff66a63998bf157"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a318c93562f4b8d14aff66a63998bf157">isOpen</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a318c93562f4b8d14aff66a63998bf157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the file is opened by the <a class="el" href="../../d8/d52/class_a_e_log_parser.html" title="ArtyK&#39;s Engine&#39;s Log Parser; it parses the log files that AELogger writes.">AELogParser</a>.  <br /></td></tr>
 <tr class="separator:a318c93562f4b8d14aff66a63998bf157"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af349b880be4cdd8c6d27960a038680ab" id="r_af349b880be4cdd8c6d27960a038680ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#af349b880be4cdd8c6d27960a038680ab">isClosed</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:af349b880be4cdd8c6d27960a038680ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the file is closed by the <a class="el" href="../../d8/d52/class_a_e_log_parser.html" title="ArtyK&#39;s Engine&#39;s Log Parser; it parses the log files that AELogger writes.">AELogParser</a>.  <br /></td></tr>
 <tr class="separator:af349b880be4cdd8c6d27960a038680ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -155,28 +169,34 @@ Static Protected Attributes</h2></td></tr>
 <tr class="memdesc:ad7c14b208c80c9a6478fdf797cb4e558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the module (class), same as in code.  <br /></td></tr>
 <tr class="separator:ad7c14b208c80c9a6478fdf797cb4e558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a743510be245f7b22abe7959c190497df" id="r_a743510be245f7b22abe7959c190497df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">static</a> std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a743510be245f7b22abe7959c190497df">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:a743510be245f7b22abe7959c190497df"><td class="mdescLeft">&#160;</td><td class="mdescRight">amount of alive module instances  <br /></td></tr>
+<tr class="memdesc:a743510be245f7b22abe7959c190497df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of alive module instances.  <br /></td></tr>
 <tr class="separator:a743510be245f7b22abe7959c190497df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7a38c688d9485750a19f272ceee513fd" id="r_a7a38c688d9485750a19f272ceee513fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a7a38c688d9485750a19f272ceee513fd">m_frLogReader</a></td></tr>
-<tr class="memdesc:a7a38c688d9485750a19f272ceee513fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reader of the opened log file.  <br /></td></tr>
+<tr class="memdesc:a7a38c688d9485750a19f272ceee513fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file reader of the opened log file.  <br /></td></tr>
 <tr class="separator:a7a38c688d9485750a19f272ceee513fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfa7bc9ce627c53f25787ecad7bb19b5" id="r_acfa7bc9ce627c53f25787ecad7bb19b5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#acfa7bc9ce627c53f25787ecad7bb19b5">m_vecEntryIndices</a></td></tr>
-<tr class="memdesc:acfa7bc9ce627c53f25787ecad7bb19b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including "invalid entry" for invalid stuff)  <br /></td></tr>
+<tr class="memdesc:acfa7bc9ce627c53f25787ecad7bb19b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of all indexed <em>valid</em> entries in the log file.  <br /></td></tr>
 <tr class="separator:acfa7bc9ce627c53f25787ecad7bb19b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f46e2f61eba53a3e8441e5307ed2628" id="r_a0f46e2f61eba53a3e8441e5307ed2628"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a0f46e2f61eba53a3e8441e5307ed2628">m_vecInvalidEntryIndices</a></td></tr>
+<tr class="memdesc:a0f46e2f61eba53a3e8441e5307ed2628"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of all indexed <em>invalid</em> entries in the log file Each item contains their corresponding cursor position in the file.  <br /></td></tr>
 <tr class="separator:a0f46e2f61eba53a3e8441e5307ed2628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c7c7db04ea7f316e6c8905d6bb43984" id="r_a9c7c7db04ea7f316e6c8905d6bb43984"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a>, 9 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#a9c7c7db04ea7f316e6c8905d6bb43984">m_arrEntryAmount</a></td></tr>
-<tr class="memdesc:a9c7c7db04ea7f316e6c8905d6bb43984"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount of log entries read in the file;.  <br /></td></tr>
+<tr class="memdesc:a9c7c7db04ea7f316e6c8905d6bb43984"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount of log entries read in the file, separated by type/severity.  <br /></td></tr>
 <tr class="separator:a9c7c7db04ea7f316e6c8905d6bb43984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2d395e57af4f9f076b998677e462762" id="r_af2d395e57af4f9f076b998677e462762"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d52/class_a_e_log_parser.html#af2d395e57af4f9f076b998677e462762">m_ullCurrentEntry</a></td></tr>
+<tr class="memdesc:af2d395e57af4f9f076b998677e462762"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number corresponding to the currently-read <em>valid</em> entry in the log file.  <br /></td></tr>
 <tr class="separator:af2d395e57af4f9f076b998677e462762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<div class="textblock"><p>ArtyK's Engine's Log Parser; it parses the log files that <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> writes. </p>
+<p>Wrapper around <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> for parsing and <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> for reading functionality, (ab)using them both.</p>
+<p>When opening a file, it reads it and indexes it for log information, and after the parsing/reading the log file to memory can be requested (one entry at a time/the whole thing). Such info would be the amount of entries, amount of entries of each type, etc. Also it allows to filter the log by severity and read only important (to the use-case) data.</p>
+<p>Hungarian notation is lp. (m_lpMyLogParser) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3ea4aef815bb40a53a30ed2da94b8c91" name="a3ea4aef815bb40a53a30ed2da94b8c91"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ea4aef815bb40a53a30ed2da94b8c91">&#9670;&#160;</a></span>AELogParser()</h2>
@@ -202,7 +222,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Class constructor &ndash; opens the file and start the indexing process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>The name of the file to open</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -230,7 +258,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Class destructor &ndash; closes the log file. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00062">62</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +289,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Get the amount of invalid entries in the log. </p>
+<p>Invalid entries are of type AELOG_TYPE_INVALID</p>
+<dl class="section return"><dt>Returns</dt><dd>ullint amount of invalid entries</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00169">169</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -287,7 +321,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00122">122</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Get the amount of entries of a certain type/severity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">severity</td><td>The severity/type of the log to find</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00178">178</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -315,7 +358,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Get the amount of valid entries in the log (with optional lowest severity setting). </p>
+<p>Valid entries are entries that are not AELOG_TYPE_INVALID</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">severity</td><td>The lowest severity of the log to find</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -343,7 +396,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Closes the log file and clears the memory. </p>
+<dl class="section return"><dt>Returns</dt><dd>return value of the AEFileReader::closefile() (AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open)</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +430,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the amount of instances of the module currently existing. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -405,7 +461,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the name of the registered module. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -433,7 +489,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Checks if the file is closed by the <a class="el" href="../../d8/d52/class_a_e_log_parser.html" title="ArtyK&#39;s Engine&#39;s Log Parser; it parses the log files that AELogger writes.">AELogParser</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>true is file is closed (no file opened), false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00199">199</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +520,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00129">129</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Checks if the file is opened by the <a class="el" href="../../d8/d52/class_a_e_log_parser.html" title="ArtyK&#39;s Engine&#39;s Log Parser; it parses the log files that AELogger writes.">AELogParser</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if file is opened, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00190">190</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -490,6 +552,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Same as the <a class="el" href="../../d8/d52/class_a_e_log_parser.html#a3fdb8cb7ef4bff708780930542cb04da" title="Read the next entry in the log file of the given severity filter, and parse it to the given AELogEntr...">AELogParser::nextEntry()</a> but on massive scale &ndash; scans the whole log file and parses it to the freshly-allocated queue. </p>
+<dl class="section warning"><dt>Warning</dt><dd>If this queue isn't deallocated (deleted) before dropping the queue pointer, this <b>WILL</b> lead to memory leaks!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">begin</td><td>The pointer to which the queue will be allocated</td></tr>
+    <tr><td class="paramname">severity</td><td>The lowest severity of the log to find</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d77/_a_e_log_parser_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d2/d77/_a_e_log_parser_8cpp_source.html">AELogParser.cpp</a>.</p>
 
@@ -521,6 +594,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Read the next entry in the log file of the given severity filter, and parse it to the given <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> object. </p>
+<dl class="section note"><dt>Note</dt><dd>The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry</td><td>The log entry object to parse things into</td></tr>
+    <tr><td class="paramname">severity</td><td>The lowest severity of the log to find</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="../../d2/d77/_a_e_log_parser_8cpp_source.html#l00011">11</a> of file <a class="el" href="../../d2/d77/_a_e_log_parser_8cpp_source.html">AELogParser.cpp</a>.</p>
 
 </div>
@@ -549,7 +633,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>Opens the log file, reading and parsing every single entry, classifying it by type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>The name of the file to open</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00071">71</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -574,9 +667,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The amount of log entries read in the file;. </p>
+<p>The amount of log entries read in the file, separated by type/severity. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00152">152</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00215">215</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -600,9 +693,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The reader of the opened log file. </p>
+<p>The file reader of the opened log file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00207">207</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -627,10 +720,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Name of the module (class), same as in code. </p>
-<p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000011">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<p>Sets up the static variable values for the base class (and inherited classes)</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +747,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>The number corresponding to the currently-read <em>valid</em> entry in the log file. </p>
+<p>The maximum value corresponds to the size of m_vecEntryIndices </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00218">218</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -678,9 +774,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>amount of alive module instances </p>
+<p>Amount of alive module instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -704,9 +800,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The array of the arrays of log entry cursor indices in the file, corresponding to each log type (including "invalid entry" for invalid stuff) </p>
+<p>The list of all indexed <em>valid</em> entries in the log file. </p>
+<p>Each item contains their corresponding cursor position in the file and their type/severity. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00148">148</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00210">210</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -730,7 +827,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p>The list of all indexed <em>invalid</em> entries in the log file Each item contains their corresponding cursor position in the file. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00213">213</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -744,7 +843,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d52/class_a_e_log_parser.html">AELogParser</a></li>
-    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Jan 12 2024 00:59:44 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

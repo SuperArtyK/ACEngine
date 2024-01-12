@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -41,13 +41,13 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP \fBconst\fP std::string_view \fBm_sModulename\fP = \fBgetTypeName\fP<T>()"
+.RI "\fBstatic\fP \fBconst\fP std::string_view \fBm_sModulename\fP = \fB__getTypeName\fP<T>()"
 .br
 .RI "Name of the module (class), same as in code\&. "
 .ti -1c
 .RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP = 0"
 .br
-.RI "amount of alive module instances "
+.RI "Amount of alive module instances\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -56,16 +56,21 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 .br
 class __AEModuleBase< T >"This is a base class for all basic modules, meaning that the module is not using other modules to work\&. 
 
+
+.PP
+\fBNote\fP
+.RS 4
 Intended to be inherited from in class declaration, not direct usage\&. Usage: class [classname] : public __AEModuleBase<[classname]>
+.RE
 .PP
 \fBTemplate Parameters\fP
 .RS 4
-\fIT\fP Module's class name
+\fIT\fP Inheriting module's class name
 .RE
 .PP
 
 .PP
-Definition at line \fB42\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB47\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
@@ -73,7 +78,7 @@ Definition at line \fB42\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Basic constructor that increases module count\&. 
 .PP
-Definition at line \fB49\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB54\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > & val)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -86,13 +91,13 @@ Basic copy constructor that increases module count\&.
 .PP
 
 .PP
-Definition at line \fB57\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB62\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
 
 .PP
 Basic destructor that decreases module count\&. 
 .PP
-Definition at line \fB65\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB70\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "template<\fBtypename\fP T > \fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
@@ -107,7 +112,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB73\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB78\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBstatic\fP std::string_view \fB__AEModuleBase\fP< T >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -120,13 +125,13 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB81\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB86\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > \fBconst\fP std::string_view \fB__AEModuleBase\fP< T >::m_sModulename = \fBgetTypeName\fP<T>()\fC [static]\fP, \fC [protected]\fP"
+.SS "template<\fBtypename\fP T > \fBconst\fP std::string_view \fB__AEModuleBase\fP< T >::m_sModulename = \fB__getTypeName\fP<T>()\fC [static]\fP, \fC [protected]\fP"
 
 .PP
-Name of the module (class), same as in code\&. sets up the static variable values for the base class (and inherited classes)
+Name of the module (class), same as in code\&. Sets up the static variable values for the base class (and inherited classes)
 .PP
 \fBTodo\fP
 .RS 4
@@ -135,13 +140,13 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB96\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP"
 
 .PP
-amount of alive module instances 
+Amount of alive module instances\&. 
 .PP
-Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

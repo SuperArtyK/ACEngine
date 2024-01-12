@@ -58,7 +58,6 @@ public:
 	/// <summary>
 	/// Class destructor -- closes the log file
 	/// </summary>
-	/// <param name=""></param>
 	~AELogParser(void) {
 		this->closeLog();
 	}
@@ -116,7 +115,6 @@ public:
 	/// <summary>
 	/// Closes the log file and clears the memory
 	/// </summary>
-	/// <param name=""></param>
 	/// <returns>return value of the AEFileReader::closefile() (AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open)</returns>
 	inline cint closeLog(void) {
 		m_vecEntryIndices.clear();
@@ -164,7 +162,6 @@ public:
 	/// <summary>
 	/// Get the amount of invalid entries in the log. Invalid entries are of type AELOG_TYPE_INVALID
 	/// </summary>
-	/// <param name=""></param>
 	/// <returns>ullint amount of invalid entries</returns>
 	inline ullint amountInvalidEntries(void) const noexcept {
 		return m_arrEntryAmount[0]; // shortened version of AELOG_TYPE_INVALID (which is -1) + 1
@@ -185,7 +182,6 @@ public:
 	/// <summary>
 	/// Checks if the file is opened by the AELogParser
 	/// </summary>
-	/// <param name=""></param>
 	/// <returns>true if file is opened, false otherwise</returns>
 	inline bool isOpen(void) const noexcept {
 		return this->m_frLogReader.isOpen();
@@ -194,7 +190,6 @@ public:
 	/// <summary>
 	/// Checks if the file is closed by the AELogParser
 	/// </summary>
-	/// <param name=""></param>
 	/// <returns>true is file is closed (no file opened), false otherwise</returns>
 	inline bool isClosed(void) const noexcept {
 		return this->m_frLogReader.isClosed();

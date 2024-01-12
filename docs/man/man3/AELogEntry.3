@@ -1,8 +1,8 @@
-.TH "AELogEntry" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntry" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\fP\&.  
+AELogEntry \- The structure for the data of the log entry to be manipulated with the log files\&.  
 
 .SH SYNOPSIS
 .br
@@ -19,18 +19,21 @@ AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\f
 .ti -1c
 .RI "\fBvoid\fP \fBcopyEntryFull\fP (\fBconst\fP \fBAELogEntry\fP &\fBentry\fP) \fBnoexcept\fP"
 .br
+.RI "Makes a full copy of the log entry, including the pointer to the next node\&. "
 .ti -1c
 .RI "\fBvoid\fP \fBcopyEntry\fP (\fBconst\fP \fBAELogEntry\fP &\fBentry\fP) \fBnoexcept\fP"
 .br
+.RI "Makes a normal copy of the log entry, copying everything but the pointer to the next node\&. "
 .ti -1c
 .RI "\fBvoid\fP \fBcopyEntryReduced\fP (\fBconst\fP \fBAELogEntry\fP &\fBentry\fP) \fBnoexcept\fP"
 .br
+.RI "Makes a reduced copy of the log entry, including only the message, module name, and type\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP \fBvoid\fP \fBclearEntry\fP (\fBAELogEntry\fP *\fBconst\fP \fBentry\fP) \fBnoexcept\fP"
+.RI "\fBstatic\fP \fBvoid\fP \fBclearEntry\fP (\fBAELogEntry\fP &\fBentry\fP) \fBnoexcept\fP"
 .br
 .RI "Clears the current entry and sets its values to zero/invalid\&. "
 .ti -1c
@@ -40,6 +43,7 @@ AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\f
 .ti -1c
 .RI "\fBstatic\fP \fBvoid\fP \fBformatEntry\fP (char *\fBconst\fP \fBstr\fP, \fBconst\fP \fBAELogEntry\fP &\fBentry\fP) \fBnoexcept\fP"
 .br
+.RI "Formats the passed entry to the given c-string\&. "
 .ti -1c
 .RI "\fBstatic\fP \fBconstexpr\fP \fBconst\fP char * \fBtypeToString\fP (\fBconst\fP \fBcint\fP \fBlogtype\fP) \fBnoexcept\fP"
 .br
@@ -50,6 +54,7 @@ AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\f
 .ti -1c
 .RI "\fBstatic\fP \fBcint\fP \fBparseStringEntry\fP (\fBAELogEntry\fP &\fBentry\fP, \fBconst\fP std::string_view \fBentryString\fP, \fBconst\fP \fBcint\fP \fBflags\fP=0b0001111)"
 .br
+.RI "Parses a given string as a log entry, and write it into passed entry object\&. "
 .in -1c
 .SS "Public Attributes"
 
@@ -81,12 +86,14 @@ AELogEntry \- The structure for the log entry data in the queue of \fBAELogger\f
 .in -1c
 .SH "Detailed Description"
 .PP 
-The structure for the log entry data in the queue of \fBAELogger\fP\&. 
+The structure for the data of the log entry to be manipulated with the log files\&. 
+
+The flags start with AELE_ 
 .PP
-Definition at line \fB61\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB82\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "\fBstatic\fP \fBvoid\fP AELogEntry::clearEntry (\fBAELogEntry\fP *\fBconst\fP entry)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
+.SS "\fBstatic\fP \fBvoid\fP AELogEntry::clearEntry (\fBAELogEntry\fP & entry)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
 
 .PP
 Clears the current entry and sets its values to zero/invalid\&. 
@@ -98,23 +105,66 @@ Clears the current entry and sets its values to zero/invalid\&.
 .PP
 
 .PP
-Definition at line \fB116\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB143\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBvoid\fP AELogEntry::copyEntry (\fBconst\fP \fBAELogEntry\fP & entry)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB99\fP of file \fBAELogEntry\&.hpp\fP\&.
+Makes a normal copy of the log entry, copying everything but the pointer to the next node\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The entry to copy data from
+.RE
+.PP
+
+.PP
+Definition at line \fB124\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBvoid\fP AELogEntry::copyEntryFull (\fBconst\fP \fBAELogEntry\fP & entry)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB91\fP of file \fBAELogEntry\&.hpp\fP\&.
+Makes a full copy of the log entry, including the pointer to the next node\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The entry to copy data from
+.RE
+.PP
+
+.PP
+Definition at line \fB115\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBvoid\fP AELogEntry::copyEntryReduced (\fBconst\fP \fBAELogEntry\fP & entry)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB107\fP of file \fBAELogEntry\&.hpp\fP\&.
+Makes a reduced copy of the log entry, including only the message, module name, and type\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The entry to copy data from
+.RE
+.PP
+
+.PP
+Definition at line \fB134\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBvoid\fP AELogEntry::formatEntry (char *\fBconst\fP str, \fBconst\fP \fBAELogEntry\fP & entry)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
 
 .PP
-Definition at line \fB159\fP of file \fBAELogEntry\&.hpp\fP\&.
+Formats the passed entry to the given c-string\&. 
+.PP
+\fBNote\fP
+.RS 4
+The size of the c-string must be of AELE_FORMAT_MAX_SIZE !
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP The c-string to format the data to
+.br
+\fIentry\fP The entry object to format its data to string
+.RE
+.PP
+
+.PP
+Definition at line \fB192\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBAELogEntry\fP * AELogEntry::makeQueue (\fBconst\fP std::size_t amt, \fBAELogEntry\fP * oldqueue = \fC\fBnullptr\fP\fP, \fBconst\fP bool loopQueue = \fC\fBtrue\fP\fP)\fC [inline]\fP, \fC [static]\fP"
 
 .PP
@@ -143,7 +193,7 @@ Pointer to the first node of the allocated queue
 .PP
 
 .PP
-Definition at line \fB133\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB159\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBAELogEntry\fP & AELogEntry::operator= (\fBconst\fP \fBAELogEntry\fP & entry)\fC [inline]\fP"
 
 .PP
@@ -151,7 +201,9 @@ Copy assignment operator -- copies data from the passed node\&.
 .PP
 \fBNote\fP
 .RS 4
-The pointer to the next node is omitted from the operation;
+The pointer to the next node is omitted from the operation; 
+.PP
+Uses the \fBAELogEntry::copyEntry()\fP
 .RE
 .PP
 \fBParameters\fP
@@ -165,15 +217,38 @@ The pointer to the next node is omitted from the operation;
 .PP
 
 .PP
-Definition at line \fB84\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB106\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBcint\fP AELogEntry::parseStringEntry (\fBAELogEntry\fP & entry, \fBconst\fP std::string_view entryString, \fBconst\fP \fBcint\fP flags = \fC0b0001111\fP)\fC [inline]\fP, \fC [static]\fP"
 
 .PP
-Definition at line \fB224\fP of file \fBAELogEntry\&.hpp\fP\&.
+Parses a given string as a log entry, and write it into passed entry object\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the string is less than AELE_FORMAT_MIN_SIZE or more than AELE_FORMAT_MAX_SIZE, fails the check with AELE_ERR_INVALID_LENGTH
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The log entry object to write data to
+.br
+\fIentryString\fP The string to parse
+.br
+\fIflags\fP The flags for parsing\&. Refer to AELE_PARSE_STRING_* (like AELE_PARSE_STRING_JUST_VALIDATE)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELE_ERR_NOERROR (0) on success, other AELE error flags otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB260\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBconstexpr\fP \fBcint\fP AELogEntry::stringToType (\fBconst\fP std::string_view str)\fC [inline]\fP, \fC [static]\fP, \fC [constexpr]\fP"
 
 .PP
-Definition at line \fB190\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB220\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBconstexpr\fP \fBconst\fP char * AELogEntry::typeToString (\fBconst\fP \fBcint\fP logtype)\fC [inline]\fP, \fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -191,7 +266,7 @@ c-string of the type
 .PP
 
 .PP
-Definition at line \fB180\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB210\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBcint\fP AELogEntry::m_cLogType = \-1"
@@ -206,37 +281,37 @@ The type of the log entry\&.
 .PP
 
 .PP
-Definition at line \fB73\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB94\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "std::atomic<\fBcint\fP> AELogEntry::m_cStatus = 0"
 
 .PP
 The status flag in the entry to show if the entry is ready, being read/set, or is invalid\&. 
 .PP
-Definition at line \fB75\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB96\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "\fBAELogEntry\fP* AELogEntry::m_pNextNode = \fBnullptr\fP"
 
 .PP
 The pointer to the next log entry in the queue\&. 
 .PP
-Definition at line \fB70\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB91\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "char AELogEntry::m_sLogMessage[\fBAELE_MESSAGE_SIZE\fP+1] {}"
 
 .PP
 The message of the log entry\&. 
 .PP
-Definition at line \fB64\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB85\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "char AELogEntry::m_sModuleName[\fBAELE_MODULENAME_SIZE\fP+1] {}"
 
 .PP
 The name of the module that issued the log entry\&. 
 .PP
-Definition at line \fB66\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB87\fP of file \fBAELogEntry\&.hpp\fP\&.
 .SS "std::time_t AELogEntry::m_tmLogTime = \fBNULL\fP"
 
 .PP
 The time when this log entry was created\&. 
 .PP
-Definition at line \fB68\fP of file \fBAELogEntry\&.hpp\fP\&.
+Definition at line \fB89\fP of file \fBAELogEntry\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

@@ -89,9 +89,8 @@ public:
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
 	/// <summary>
-	/// Default class construct0r -- doesn't open the file, but setups the instance for one.
+	/// Default class constructor -- doesn't open the file, but setups the instance for one.
 	/// </summary>
-	/// <param name=""></param>
 	explicit AELogger(void) : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
 		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
@@ -198,6 +197,7 @@ public:
 	/// @see AELogger::writeToLog()
 	/// </summary>
 	/// <param name="logmessg">The message of the requested log entry</param>
+	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
 	inline cint writeToLogDebug(const std::string_view logmessg, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {

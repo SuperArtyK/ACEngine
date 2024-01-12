@@ -1,7 +1,7 @@
 var _a_e_math_8hpp =
 [
-    [ "todeg", "d1/da4/_a_e_math_8hpp.html#a622814d06a002ac0d77f7d75c76951a9", null ],
-    [ "torad", "d1/da4/_a_e_math_8hpp.html#a744cc7d1815ec917b0f81415392a964e", null ],
+    [ "todeg", "d1/da4/_a_e_math_8hpp.html#a874799b71fd05c846a99051ebb283924", null ],
+    [ "torad", "d1/da4/_a_e_math_8hpp.html#a0f78d8d34baf65872e8199a36235724f", null ],
     [ "absval", "d1/da4/_a_e_math_8hpp.html#a6136e240d0a8dbf2dc81d9b19634ef7b", null ],
     [ "ceilToInt", "d1/da4/_a_e_math_8hpp.html#ae1be03123afa0580383d35cbc5181819", null ],
     [ "cosDeg", "d1/da4/_a_e_math_8hpp.html#a6d6fc7afd09d4c910a45218da9ae2bc6", null ],

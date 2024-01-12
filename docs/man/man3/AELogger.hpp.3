@@ -1,4 +1,4 @@
-.TH "AELogger/include/AELogger.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogger/include/AELogger.hpp" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -44,7 +44,7 @@ AELogger/include/AELogger.hpp \- This file contains the code for the engine's lo
 .ti -1c
 .RI "#\fBdefine\fP \fBAELOG_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
-.RI "Macro for the indicator that everything is good\&. "
+.RI "Macro for the indicator that everything is good/no error was encountered in the process\&. "
 .ti -1c
 .RI "#\fBdefine\fP \fBAELOG_ERR_UNABLE_START_THREAD\fP   \-11"
 .br
@@ -83,31 +83,31 @@ Definition in file \fBAELogger\&.hpp\fP\&.
 .PP
 Macro for the error that's raised when invalid data is passed to \fBAELogger::writeToLog()\fP (like empty message, empty/non-alphanumeric module name, type outside of range) 
 .PP
-Definition at line \fB45\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB51\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
-Macro for the indicator that everything is good\&. 
+Macro for the indicator that everything is good/no error was encountered in the process\&. 
 .PP
-Definition at line \fB37\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB39\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ERR_THREAD_ALREADY_RUNNING   \-12"
 
 .PP
 Macro for the error that's raised when the log-writing-thread is attempted to be started again, while it's already running\&. 
 .PP
-Definition at line \fB41\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB45\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ERR_THREAD_ALREADY_STOPPED   \-13"
 
 .PP
 Macro for the error that's raised when the log-writing-thread is attempted to be stopped again, while it was already stopped\&. 
 .PP
-Definition at line \fB43\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB48\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_ERR_UNABLE_START_THREAD   \-11"
 
 .PP
 Macro for the error that's raised when the log-writing-thread cannot be started\&. 
 .PP
-Definition at line \fB39\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB42\fP of file \fBAELogger\&.hpp\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "REGISTER_MODULE (\fBAELogger\fP)"

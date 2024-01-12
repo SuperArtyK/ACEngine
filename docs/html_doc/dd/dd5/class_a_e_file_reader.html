@@ -270,7 +270,7 @@ Static Protected Attributes</h2></td></tr>
 <tr class="memdesc:ad7c14b208c80c9a6478fdf797cb4e558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the module (class), same as in code.  <br /></td></tr>
 <tr class="separator:ad7c14b208c80c9a6478fdf797cb4e558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a743510be245f7b22abe7959c190497df" id="r_a743510be245f7b22abe7959c190497df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">static</a> std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a743510be245f7b22abe7959c190497df">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:a743510be245f7b22abe7959c190497df"><td class="mdescLeft">&#160;</td><td class="mdescRight">amount of alive module instances  <br /></td></tr>
+<tr class="memdesc:a743510be245f7b22abe7959c190497df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of alive module instances.  <br /></td></tr>
 <tr class="separator:a743510be245f7b22abe7959c190497df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -290,10 +290,12 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ArtyK's Engine File Reader; umm, it reads data from the given file. </p>
-<p>Just create it and, read stuff, and dump the gigabytes of data from the file to your memory and what not. Hungarian notation is fr. Flags start with AEFR_ </p><dl class="section warning"><dt>Warning</dt><dd>This is not thread safe!</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo:</a></b></dt><dd>add generic read function </dd></dl>
+<p>It is a wrapper around the C's FILE api, for speed and convenience. It can read strings (untill: max string size, newline, NULL character), bools, ints, and floats</p>
+<p>Just create it, read stuff, and dump the terabytes of data from the file to your memory and what not. Hungarian notation is fr. (m_frMyFileReader) Flags start with AEFR_</p>
+<dl class="section warning"><dt>Warning</dt><dd>This is not thread-safe!</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>add generic read function </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7d0c498896f1c10c36330ef4efaee81e" name="a7d0c498896f1c10c36330ef4efaee81e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d0c498896f1c10c36330ef4efaee81e">&#9670;&#160;</a></span>AEFileReader() <span class="overload">[1/4]</span></h2>
@@ -358,7 +360,7 @@ Private Attributes</h2></td></tr>
 
 <p>Class constructor &ndash; constructs the instance with default values, and doesn't open the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -417,6 +419,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Deleted copy constructor. </p>
+<p>There is no need to copy AEFR, since access to file is in instance's FILE pointer. If in original instance, the file gets closed, the pointer is invalidated. Which can lead to...bad consequences using it again in the copied instance. </p>
 
 </div>
 </div>
@@ -447,7 +450,7 @@ Private Attributes</h2></td></tr>
 <p>Default Destructor. </p>
 <p>Just flushes and closes the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00132">132</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +482,7 @@ Private Attributes</h2></td></tr>
 <p>Closes the currently opened file. </p>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -510,7 +513,7 @@ Private Attributes</h2></td></tr>
 <p>Returns current read cursor position. </p>
 <dl class="section return"><dt>Returns</dt><dd>Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00553">553</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00570">570</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -541,7 +544,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the name of the opened file, devoid of the path. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string of the opened file name; emtpy string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00518">518</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00535">535</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -572,7 +575,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the file pointer of this file-reader. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to FILE used in the file reader</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00543">543</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00560">560</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -603,7 +606,7 @@ Private Attributes</h2></td></tr>
 <p>Returns size of the file in bytes. </p>
 <dl class="section return"><dt>Returns</dt><dd>File size in bytes if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00477">477</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00494">494</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +638,7 @@ Private Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If no relative path was provided when opening the file, then output of <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#aacd2c57289ebfe1f9549a3ce13067d2c" title="Returns the full name of currently open file, including the relative path, if such was provided.">AEFileReader::getFullFileName()</a> is equivalent to <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a753c6f40c4a15739ed88aa0937f72969" title="Returns the name of the opened file, devoid of the path.">AEFileReader::getFileName()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string of the opened file (including relative path if was given); empty string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00492">492</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00509">509</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -666,7 +669,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the full, absolute path of the opened file. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string of the absolute path of the opened file; empty string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00532">532</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00549">549</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -698,7 +701,7 @@ Private Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If last operation failed and no bytes were read (closed file, full EOF) &ndash; returns 0;</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>std::size_t of the amount of bytes read in the last reading operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00590">590</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00606">606</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +732,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the amount of instances of the module currently existing. </p>
 <dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -760,7 +763,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the name of the registered module. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -792,7 +795,7 @@ Private Attributes</h2></td></tr>
 <p>If the file was opened in the same directory as the executable (no relative path provided), returns "./"</p>
 <dl class="section return"><dt>Returns</dt><dd>std::string of the relative file path of opened file; empty string otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00501">501</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00518">518</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -823,7 +826,7 @@ Private Attributes</h2></td></tr>
 <p>Returns total reader requests made to file. </p>
 <dl class="section return"><dt>Returns</dt><dd>Amount of times the read operation has been called on this <a class="el" href="../../dd/dd5/class_a_e_file_reader.html" title="ArtyK&#39;s Engine File Reader; umm, it reads data from the given file.">AEFileReader</a> instance</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00581">581</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00597">597</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -854,7 +857,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if a file isn't open by this file-reader. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if file is closed/not open, false if otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00469">469</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00486">486</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +888,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if the file (cursor) has reached it's (file's) end (feof) </p>
 <dl class="section return"><dt>Returns</dt><dd>True if end of file was reached, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00598">598</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00614">614</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -916,7 +919,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if error was encountered while reading the file data (ferror) </p>
 <dl class="section return"><dt>Returns</dt><dd>True if end of file was reached, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00606">606</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00622">622</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -947,7 +950,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if a file is open by this file-reader. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if file is open, false if otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00461">461</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00478">478</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1005,6 +1008,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Deleted copy assignment operator. </p>
+<p>There is no need to copy AEFR, since access to file is in instance's FILE pointer. If in original instance, the file gets closed, the pointer is invalidated. Which can lead to...bad consequences using it again in the copied instance. </p>
 
 </div>
 </div>
@@ -1040,13 +1044,13 @@ If the file is closed, it doesn't modify the data </dd>
 <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari...">AEFileReader::readVariable()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">var</td><td>The bool to read</td></tr>
+    <tr><td class="paramname">num</td><td>The bool to read</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00369">369</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00386">386</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1122,13 +1126,13 @@ If the file is closed, it doesn't modify the data </dd>
 <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari...">AEFileReader::readVariable()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">var</td><td>The char to read</td></tr>
+    <tr><td class="paramname">num</td><td>The char to read</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00403">403</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00420">420</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1181,7 +1185,7 @@ If the file is closed, it doesn't modify the std::vector&lt;unsigned char&gt;</d
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00419">419</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00436">436</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1236,7 +1240,7 @@ Just a shortcut for the <a class="el" href="../../dd/dd5/class_a_e_file_reader.h
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00437">437</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00454">454</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1274,13 +1278,13 @@ If the file is closed, it doesn't modify the data </dd>
 Same as <a class="el" href="../../dd/dd5/class_a_e_file_reader.html#a9bc4766a80101a9b3c2e3d9a66f807be" title="Reads the byte from the file and writes you to a given unsigned.">AEFileReader::readByte()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">var</td><td>The char to read</td></tr>
+    <tr><td class="paramname">num</td><td>The char to read</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00391">391</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00408">408</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1388,7 +1392,7 @@ If the file is closed, it doesn't modify the data </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00343">343</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00360">360</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1436,7 +1440,7 @@ If the file is closed, it doesn't modify the data</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00678">678</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00694">694</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1480,13 +1484,13 @@ If the file is closed, it doesn't modify the data </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">var</td><td>The int to fill with bytes</td></tr>
+    <tr><td class="paramname">num</td><td>The int to fill with bytes</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00315">315</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00332">332</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1638,7 +1642,7 @@ If the file is closed, it doesn't modify the string</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00168">168</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00185">185</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1691,7 +1695,7 @@ If the file is closed, it doesn't modify the std::vector&lt;char&gt;</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00187">187</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00204">204</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1797,7 +1801,7 @@ If the file is closed, it doesn't modify the string</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00220">220</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00237">237</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1850,7 +1854,7 @@ If the file is closed, it doesn't modify the std::vector&lt;char&gt;</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00237">237</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00254">254</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -1948,7 +1952,7 @@ If the file is closed, it doesn't modify the string</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00267">267</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2001,7 +2005,7 @@ If the file is closed, it doesn't modify the std::vector&lt;char&gt;</dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00301">301</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2047,7 +2051,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00151">151</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00169">169</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2098,7 +2102,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file's closed, AEFR_ERR_WRONG_CURSOR_ORIGIN on invalid origin, or things that fseek can return</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00566">566</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00583">583</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2125,7 +2129,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 
 <p>Object for file reading. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00620">620</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00636">636</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2151,7 +2155,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 
 <p>Full filename and relative path. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00614">614</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00630">630</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2176,10 +2180,10 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 </div><div class="memdoc">
 
 <p>Name of the module (class), same as in code. </p>
-<p>sets up the static variable values for the base class (and inherited classes)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000011">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
+<p>Sets up the static variable values for the base class (and inherited classes)</p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo:</a></b></dt><dd>Find a way to make it constexpr and compile-time evaluated </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2205,7 +2209,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 
 <p>The amount of read bytes during last operation. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00618">618</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00634">634</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2229,9 +2233,9 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 </table>
 </div><div class="memdoc">
 
-<p>amount of alive module instances </p>
+<p>Amount of alive module instances. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2257,7 +2261,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 
 <p>Counter for total read operations for file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00616">616</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html#l00632">632</a> of file <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp_source.html">AEFileReader.hpp</a>.</p>
 
 </div>
 </div>
@@ -2271,7 +2275,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a></li>
-    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Jan 12 2024 00:59:44 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

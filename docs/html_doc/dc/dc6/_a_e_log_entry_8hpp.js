@@ -8,6 +8,7 @@ var _a_e_log_entry_8hpp =
     [ "AELE_ERR_INVALID_TYPE", "dc/dc6/_a_e_log_entry_8hpp.html#a0602b4a6b3d8ea04b8db5988e333f113", null ],
     [ "AELE_ERR_NOERROR", "dc/dc6/_a_e_log_entry_8hpp.html#a60dd7729643e9e1c2b6a0c81970e7e77", null ],
     [ "AELE_FORMAT_MAX_SIZE", "dc/dc6/_a_e_log_entry_8hpp.html#ad485b760c5feec63dfe84599069c58a6", null ],
+    [ "AELE_FORMAT_MIN_SIZE", "dc/dc6/_a_e_log_entry_8hpp.html#aa9216535152f8fc490c250316be9a71f", null ],
     [ "AELE_FORMAT_STRING", "dc/dc6/_a_e_log_entry_8hpp.html#a3108e8a19d8760db5d2813b45b42a47e", null ],
     [ "AELE_FORMAT_STRING_DEBUG", "dc/dc6/_a_e_log_entry_8hpp.html#aeded7bbc8d1ebbf30876c1a5b408cc8a", null ],
     [ "AELE_PARSE_STRING_FULL", "dc/dc6/_a_e_log_entry_8hpp.html#a50af521311922fa79c281f986d3f3599", null ],

@@ -155,8 +155,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae71cf91f54be4b0c560726acb5bccae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given int value to char (0 to '0'), if it is within the 0-&gt;9 range.  <br /></td></tr>
 <tr class="separator:ae71cf91f54be4b0c560726acb5bccae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7b0c29ad928aac8db8dde13860e8252" id="r_ab7b0c29ad928aac8db8dde13860e8252"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ab7b0c29ad928aac8db8dde13860e8252">isAlNum</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">str</a>)</td></tr>
+<tr class="memdesc:ab7b0c29ad928aac8db8dde13860e8252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the passed string is alpha-numeric (contains only numbers and english letters)  <br /></td></tr>
 <tr class="separator:ab7b0c29ad928aac8db8dde13860e8252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3eadc5f289b54059322023f3c5eed96" id="r_ac3eadc5f289b54059322023f3c5eed96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ac3eadc5f289b54059322023f3c5eed96">isAlNumUs</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::string_view <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">str</a>)</td></tr>
+<tr class="memdesc:ac3eadc5f289b54059322023f3c5eed96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores)  <br /></td></tr>
 <tr class="separator:ac3eadc5f289b54059322023f3c5eed96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -468,7 +470,7 @@ On fail, returns the passed string.</dd></dl>
 <p>Converts the given int value to char (0 to '0'), if it is within the 0-&gt;9 range. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>The integer value to convert</td></tr>
+    <tr><td class="paramname">i</td><td>The integer value to convert</td></tr>
   </table>
   </dd>
 </dl>
@@ -502,7 +504,16 @@ On fail, returns the passed string.</dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00351">351</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p>Checks if the passed string is alpha-numeric (contains only numbers and english letters) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The passed string to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it is alpha-numeric, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00355">355</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -530,7 +541,16 @@ On fail, returns the passed string.</dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00356">356</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p>Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The passed string to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it is alpha-numeric with underscores, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00364">364</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -899,7 +919,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d23/namespaceace.html">ace</a></li><li class="navelem"><a class="el" href="../../de/dde/namespaceace_1_1utils.html">utils</a></li>
-    <li class="footer">Generated on Thu Jan 11 2024 21:33:35 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Jan 12 2024 00:59:44 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

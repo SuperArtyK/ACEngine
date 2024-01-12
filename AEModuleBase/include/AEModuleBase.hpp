@@ -22,7 +22,6 @@
 /// @note Please don't use it anywhere else...and where *can* you use it other than here?
 /// </summary>
 /// <typeparam name="T">"Type", name of the struct/class</typeparam>
-/// <param name=""></param>
 /// <returns>Without registration and overloads, default "__getTypeName". With them, in correct setting, the name of the regitered module</returns>
 template <typename T>
 constexpr std::string_view __getTypeName(void) noexcept { return "__getTypeName"; }

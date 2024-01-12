@@ -40,6 +40,7 @@ var NAVTREE =
     [ "AEVector project", "d4/d91/md__a_e_vector_2_r_e_a_d_m_e.html", null ],
     [ "LICENSE", "d2/d35/md__l_i_c_e_n_s_e.html", null ],
     [ "Todo List", "dd/da0/todo.html", null ],
+    [ "Bug List", "de/da5/bug.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -73,8 +74,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090",
-"de/de8/_a_e_utils_8hpp.html#a1e5593ccf0f98b5f42a32d10d34c2a65"
+"db/d15/class_a_e_file_writer.html#a0c238267ee45ca15672d4e9246cdca2c",
+"de/de8/_a_e_utils_8hpp.html#a1de11fe2ff331d6f9c0b26f105dfae12"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

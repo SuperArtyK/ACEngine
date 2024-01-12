@@ -1,8 +1,8 @@
-.TH "AELogParser/include/AELogParser.hpp" 3 "Thu Jan 11 2024 21:33:35" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser/include/AELogParser.hpp" 3 "Fri Jan 12 2024 00:59:44" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AELogParser/include/AELogParser.hpp \- This file contains the [stuff]\&.  
+AELogParser/include/AELogParser.hpp \- This file contains the engine's log parser module\&.  
 
 .SH SYNOPSIS
 .br
@@ -34,6 +34,7 @@ AELogParser/include/AELogParser.hpp \- This file contains the [stuff]\&.
 .ti -1c
 .RI "class \fBAELogParser\fP"
 .br
+.RI "ArtyK's Engine's Log Parser; it parses the log files that \fBAELogger\fP writes\&. "
 .in -1c
 .SS "Macros"
 
@@ -41,29 +42,29 @@ AELogParser/include/AELogParser.hpp \- This file contains the [stuff]\&.
 .ti -1c
 .RI "#\fBdefine\fP \fBAELP_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
-.ti -1c
-.RI "#\fBdefine\fP \fB_AELP_INVALID_ENTRY_INDEX\fP   8"
-.br
+.RI "Macro for the indicator that everything is good/no error was encountered in the process\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains the [stuff]\&. 
+This file contains the engine's log parser module\&. 
 
 This file contains the definitions of the engine's [stuff]\&.
+.PP
+It parses the log files that \fBAELogger\fP writes and turns them back to \fBAELogEntry\fP objects
+.PP
+Should not cause everything to break :)
 .PP
 Should not cause everything to break :) 
 .PP
 Definition in file \fBAELogParser\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP _AELP_INVALID_ENTRY_INDEX   8"
-
-.PP
-Definition at line \fB28\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELP_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
-Definition at line \fB25\fP of file \fBAELogParser\&.hpp\fP\&.
+Macro for the indicator that everything is good/no error was encountered in the process\&. 
+.PP
+Definition at line \fB29\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.
