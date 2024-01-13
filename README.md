@@ -33,18 +33,43 @@ You can also track the progress of the engine here: [trello board](https://trell
 ### DESIRED FEATURES
 
 * Engine file format
-* Read and parse logs from file
+* Read and parse logs from file (partially implemented + testing)
 * Get input from keyboard and mouse
 * Control console's window properties
 * Control characters on the screen: write them/change color individually and in bulk
-* Make it crossplatform and support multiple build systems
+* Make it crossplatform and support multiple build systems (cmake babyyyy. Maybe I'll need to rework it from scratch :') )
 * Play and synthesize sound
 
 (For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)
 
 Yeah, I have yet to release any working version.
 
-**Technical stuff:** When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the "$(SolutionDir)\\(Dependency project name)\include" (or src) to the paths of your project...and add the source file(s) of the module you're including to the project, if they exist.
+
+### How to build
+
+#### Windows
+
+* Clone the project
+* Open the .sln
+* Build the solution/projects
+
+#### Linux
+
+* Sadly...you can't, unless manually (or untill sacred cmake appears in this engine)
+
+
+### Technical stuff for people that wish to use this
+
+When creating a new project in the engine, use the template "ACEngine project template.zip" so you don't have to setup all the include and source paths, etc.
+
+In future there will be another template for advanced modules, that rely on much more functionalty and...other modules to work.
+
+Also, to be consistent with the engine's include system (if developing engine stuff), add all headers in the "include" folder, and source files to the "src" folder (except the main.cpp of course)
+
+And to differentiate the headers of the current project and projects that it depends upon, when including a header file of the project -- include it just in quotes. While add the "include/" before the name for the headers that the project depends on. **BUT** in source files of those projects that include the projects' headers (like .cpp implementation file for a class), add the "../include/" before header file name anyway. Otherwise, it can mess up compilation, if you depend on that project later.
+
+Also make sure that the include/source paths are set up properly: add the "$(SolutionDir)\\(Dependency project name)\include" and the "$(SolutionDir)\\(Dependency project name)\src" to the paths.
+
 
 
 And all of this stuff is backed by [**MIT License**](./LICENSE.md "**MIT License**"). **Free Software, Hell Yeah!**
