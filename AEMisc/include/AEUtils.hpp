@@ -10,12 +10,11 @@
 #ifndef ENGINE_UTILS_HPP
 #define ENGINE_UTILS_HPP
 
-#include "AETypedefs.hpp"
 #include "AEFlags.hpp"
-#include <string>
+#include "AETypedefs.hpp"
 #include <algorithm>
-#include <ctime>
-#include <sstream>
+#include <iostream>
+#include <string>
 
 //function-like macros
 //since it's more convenient to have them as a macro
@@ -315,10 +314,10 @@ namespace ace {
 		/// </summary>
 		/// <param name="fname">File name, as you'd pass to fopen</param>
 		/// <param name="flags">File flags, as you'd pass to fopen</param>
-		inline FILE* fopenCC(const char* const fname, const char* const flags) noexcept {
+		inline std::FILE* fopenCC(const char* const fname, const char* const flags) noexcept {
 			//safety, so our compiler shuts up about the unsafe and deprecated function
 			//and trigger only on vc++
-			FILE* filestr = nullptr;
+			std::FILE* filestr = nullptr;
 //if our compiler is vc++
 #ifdef _WIN32 
 			fopen_s(&filestr, fname, flags);

@@ -12,11 +12,8 @@
 #define ENGINE_TIMER_HPP
 
 #include "include/AEFrame.hpp"
-#include "include/AETypedefs.hpp"
-#include "include/AEModuleBase.hpp"
-#include "include/AEFlags.hpp"
-#include <thread>
 #include <atomic>
+#include <thread>
 
 
 /// <summary>

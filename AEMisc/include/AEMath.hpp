@@ -12,10 +12,9 @@
 #ifndef ENGINE_MATH_HPP
 #define ENGINE_MATH_HPP
 
-#include <cmath>
+#include "AETypedefs.hpp"
 #include <limits>
 #include <type_traits>
-#include "AETypedefs.hpp"
 
 
 /// Macro to convert degrees value x to radians.

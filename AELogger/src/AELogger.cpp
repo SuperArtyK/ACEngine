@@ -8,14 +8,6 @@
  */
 
 #include "../include/AELogger.hpp"
-#include "include/AEUtils.hpp"
-#include "include/AEFlags.hpp"
-#include <utility>
-#include <ctime>
-
-
-
-
 
 //constructor
 AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :

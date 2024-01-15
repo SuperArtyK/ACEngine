@@ -15,10 +15,8 @@
 #ifndef ENGINE_TRIG_LOOKUP_HPP
 #define ENGINE_TRIG_LOOKUP_HPP
 
-#include <limits>
-#include "AETypedefs.hpp"
-#include "include/AEFlags.hpp"
-#include "include/AEMath.hpp"
+#include "AEFlags.hpp"
+#include "AEMath.hpp"
 
 
 #ifdef ENGINE_ENABLE_MATH_LOOKUP

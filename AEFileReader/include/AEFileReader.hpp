@@ -14,16 +14,12 @@
 #define ENGINE_FILE_READER_HPP
 
 #include "include/AEModuleBase.hpp"
-#include "include/AETypedefs.hpp"
 #include "include/AEUtils.hpp"
-#include <cstring>
-#include <vector>
 #include <atomic>
+#include <filesystem>
 #include <string>
 #include <string_view>
-#include <limits>
-#include <cstdio>
-#include <filesystem>
+#include <vector>
 
 
 // Do NOT touch!
@@ -557,7 +553,7 @@ public:
 	/// Returns the file pointer of this file-reader.
 	/// </summary>
 	/// <returns>Pointer to FILE used in the file reader</returns>
-	inline FILE* getFilePtr(void) const noexcept {
+	inline std::FILE* getFilePtr(void) const noexcept {
 		return this->m_fpFilestr;
 	}
 
@@ -633,7 +629,7 @@ private:
 	/// The amount of read bytes during last operation
 	std::size_t m_szLastReadAmount;
 	/// Object for file reading
-	FILE* m_fpFilestr;
+	std::FILE* m_fpFilestr;
 };
 
 //aaand register it

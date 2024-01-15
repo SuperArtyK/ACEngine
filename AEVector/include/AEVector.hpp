@@ -12,9 +12,8 @@
 #ifndef ENGINE_VECTOR_HPP
 #define ENGINE_VECTOR_HPP
 
-#include "include/AEMath.hpp"
 #include "include/AEFlags.hpp"
-#include <ostream>
+#include "include/AEMath.hpp"
 #include <string>
 
 

@@ -1,8 +1,8 @@
 
-#include <iostream>
 #include "AELogger.hpp"
-#include "include/AEUtils.hpp"
 #include "include/AEFrame.hpp"
+#include "include/AEUtils.hpp"
+#include <iostream>
 using std::cout;
 
 

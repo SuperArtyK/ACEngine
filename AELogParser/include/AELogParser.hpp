@@ -11,17 +11,11 @@
 #ifndef ENGINE_LOG_PARSER_HPP
 #define ENGINE_LOG_PARSER_HPP
 
-#include "include/AEModuleBase.hpp"
-#include "include/AETypedefs.hpp"
-#include "include/AEUtils.hpp"
 #include "include/AEFileReader.hpp"
-#include "include/AETypedefs.hpp"
-#include "include/AELogTypes.hpp"
-#include "include/AEFlags.hpp"
 #include "include/AELogEntry.hpp"
-#include <vector>
 #include <array>
 #include <string_view>
+#include <vector>
 
 
 //Error flags

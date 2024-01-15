@@ -18,15 +18,10 @@
 
 #include "include/AEModuleBase.hpp"
 #include "include/AEUtils.hpp"
-#include "include/AETypedefs.hpp"
-#include "include/AEFlags.hpp"
-#include <cstring>
 #include <atomic>
-#include <vector>
-#include <string>
-#include <limits>
-#include <cstdio>
 #include <filesystem>
+#include <string>
+#include <vector>
 
 // Do NOT touch!
 
@@ -495,7 +490,7 @@ public:
 	/// Returns the file pointer of this file-writer.
 	/// </summary>
 	/// <returns>Pointer to FILE used in the file writer</returns>
-	inline FILE* getFilePtr(void) const noexcept {
+	inline std::FILE* getFilePtr(void) const noexcept {
 		return this->m_fpFilestr;
 	}
 
@@ -583,7 +578,7 @@ private:
 	/// The amount of written bytes during last operation
 	std::size_t m_szLastWrittenAmount;
 	/// Object for file writing
-	FILE* m_fpFilestr;
+	std::FILE* m_fpFilestr;
 	/// Flags that were used to open the file
 	cint m_cFlags;
 };

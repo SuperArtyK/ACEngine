@@ -10,17 +10,13 @@
 #ifndef ENGINE_AELOGGER_HPP
 #define ENGINE_AELOGGER_HPP
 
-#include "include/AEModuleBase.hpp"
 #include "include/AEFileWriter.hpp"
 #include "include/AELogEntry.hpp"
-#include "include/AETypedefs.hpp"
-#include "include/AEFlags.hpp"
-#include "include/AELogTypes.hpp"
-#include <vector>
 #include <atomic>
-#include <thread>
 #include <mutex>
 #include <string_view>
+#include <thread>
+#include <vector>
 
 
 // queue decrease algorithm

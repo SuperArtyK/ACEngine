@@ -13,9 +13,8 @@
 #ifndef ENGINE_FRAME_HPP
 #define ENGINE_FRAME_HPP
 
-#include "include/AETypedefs.hpp"
-#include "include/AEModuleBase.hpp"
 #include "include/AEFlags.hpp"
+#include "include/AEModuleBase.hpp"
 
 /// <summary>
 /// @brief This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops.
