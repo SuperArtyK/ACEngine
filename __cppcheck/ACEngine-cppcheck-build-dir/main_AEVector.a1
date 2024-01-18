@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="7638649435768014083">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEVector\main_AEVector.cpp" line="1" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;limits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;limits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEMath.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;type_traits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;type_traits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEMath.hpp" line="17" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEVector\include\AEVector.hpp" line="17" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;algorithm&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="17" column="0"/>
+        </error>
+  <FileInfo check="Class">
+<class name="AEVector &lt; int , 2 &gt;" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="30" col="1" hash="10201042984310675187"/>
+<class name="AEVector &lt; int , 3 &gt;" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="30" col="1" hash="13832660424997544851"/>
+<class name="AEVector &lt; float , 2 &gt;" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="30" col="1" hash="11198934387827864901"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:317:21" my-argnr="1" my-argname="fname" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="323" col="22" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:317:21" my-argnr="2" my-argname="flags" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="323" col="29" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:137:15" my-argnr="1" my-argname="str1" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="138" col="19" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:155:15" my-argnr="1" my-argname="str1" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="156" col="19" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:317:21" my-argnr="1" my-argname="fname" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="323" col="22" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp:317:21" my-argnr="2" my-argname="flags" file="D:/CODING/ACEngine/AEMisc/include/AEUtils.hpp" line="323" col="29" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEVector/include/AEVector.hpp:191:30" my-argnr="1" my-argname="out" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="192" col="3" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEVector/include/AEVector.hpp:191:30" my-argnr="2" my-argname="two" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="192" col="10" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEVector/include/AEVector.hpp:191:30" my-argnr="1" my-argname="out" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="192" col="3" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEVector/include/AEVector.hpp:191:30" my-argnr="2" my-argname="two" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="192" col="10" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEVector/include/AEVector.hpp:191:30" my-argnr="1" my-argname="out" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="192" col="3" value="0"/>
+    <unsafe-usage my-id="D:/CODING/ACEngine/AEVector/include/AEVector.hpp:191:30" my-argnr="2" my-argname="two" file="D:/CODING/ACEngine/AEVector/include/AEVector.hpp" line="192" col="10" value="0"/>
+  </FileInfo>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AEVector.cpp.analyzerinfo.13640.dump">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="265" column="34"/>
+        </error>
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="D:/CODING/ACEngine/__cppcheck/ACEngine-cppcheck-build-dir/main_AEVector.cpp.analyzerinfo.13640.dump">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AEUtils.hpp" line="276" column="11"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="isEqual" lineNumber="7"/>
+    <functiondecl functionName="main" lineNumber="23"/>
+    <functioncall functionName="F"/>
+    <functioncall functionName="T"/>
+    <functioncall functionName="T1"/>
+    <functioncall functionName="T2"/>
+    <functioncall functionName="Y"/>
+    <functioncall functionName="abs"/>
+    <functioncall functionName="absval"/>
+    <functioncall functionName="append"/>
+    <functioncall functionName="begin"/>
+    <functioncall functionName="cos"/>
+    <functioncall functionName="dimAmount"/>
+    <functioncall functionName="dotProduct"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="equals"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fequals"/>
+    <functioncall functionName="find_if_not"/>
+    <functioncall functionName="fopen_s"/>
+    <functioncall functionName="formatDate"/>
+    <functioncall functionName="get_time"/>
+    <functioncall functionName="infinity"/>
+    <functioncall functionName="intPow"/>
+    <functioncall functionName="isInRange"/>
+    <functioncall functionName="isInf"/>
+    <functioncall functionName="isNan"/>
+    <functioncall functionName="isalnum"/>
+    <functioncall functionName="iss"/>
+    <functioncall functionName="llint"/>
+    <functioncall functionName="localtime_s"/>
+    <functioncall functionName="log10"/>
+    <functioncall functionName="magnitude"/>
+    <functioncall functionName="microseconds"/>
+    <functioncall functionName="milliseconds"/>
+    <functioncall functionName="mktime"/>
+    <functioncall functionName="normalise"/>
+    <functioncall functionName="operator*="/>
+    <functioncall functionName="operator+="/>
+    <functioncall functionName="operator=="/>
+    <functioncall functionName="operator[]"/>
+    <functioncall functionName="pi"/>
+    <functioncall functionName="push_back"/>
+    <functioncall functionName="reserve"/>
+    <functioncall functionName="sin"/>
+    <functioncall functionName="sleep_for"/>
+    <functioncall functionName="snprintf"/>
+    <functioncall functionName="sqrt"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="tan"/>
+    <functioncall functionName="time"/>
+    <functioncall functionName="tm_hour"/>
+    <functioncall functionName="tm_mday"/>
+    <functioncall functionName="tm_min"/>
+    <functioncall functionName="tm_sec"/>
+    <functioncall functionName="toString"/>
+    <functioncall functionName="to_string"/>
+    <functioncall functionName="tolower"/>
+    <functioncall functionName="toupper"/>
+    <functioncall functionName="transform"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="tstruct"/>
+  </FileInfo>
+</analyzerinfo>

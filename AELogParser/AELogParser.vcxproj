@@ -171,13 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp" />
-    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />
+    <ClInclude Include="..\AEFileReader\include\AEFileReader.hpp" />
     <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp" />
-    <ClInclude Include="..\AELogger\include\AELogger.hpp" />
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
-    <ClInclude Include="..\AEMisc\include\AETypes.hpp" />
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AELogParser.hpp" />
   </ItemGroup>

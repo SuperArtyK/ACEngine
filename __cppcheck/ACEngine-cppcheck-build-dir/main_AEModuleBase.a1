@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="7576675904379864309">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp" line="2" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;climits&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="14" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;chrono&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;thread&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEMisc\include\AETypedefs.hpp" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;atomic&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="14" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string_view&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string_view&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="D:\CODING\ACEngine\AEModuleBase\include\AEModuleBase.hpp" line="16" column="0"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;Test3&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;Test3&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="D:/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp">
+            <location file="D:\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp" line="11" column="5"/>
+            <symbol>Test3</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;a&apos; is assigned a value that is never used." verbose="Variable &apos;a&apos; is assigned a value that is never used." cwe="563" file0="D:/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp">
+            <location file="D:\CODING\ACEngine\AEModuleBase\main_AEModuleBase.cpp" line="21" column="13"/>
+            <symbol>a</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="Test3" file="D:/CODING/ACEngine/AEModuleBase/main_AEModuleBase.cpp" line="8" col="1" hash="7972232955385532715"/>
+<class name="__AEModuleBase &lt; Test3 &gt;" file="D:/CODING/ACEngine/AEModuleBase/include/AEModuleBase.hpp" line="46" col="1" hash="14916607844612528964"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="__getTypeName &lt; Test3 &gt;" lineNumber="18"/>
+    <functiondecl functionName="main" lineNumber="20"/>
+    <functioncall functionName="T"/>
+    <functioncall functionName="Test3"/>
+    <functioncall functionName="__AEModuleBase"/>
+    <functioncall functionName="getModuleAmount"/>
+    <functioncall functionName="getModuleName"/>
+    <functioncall functionName="load"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="uint64_t"/>
+  </FileInfo>
+</analyzerinfo>

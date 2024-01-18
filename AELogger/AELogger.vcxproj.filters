@@ -44,28 +44,25 @@
     <ClInclude Include="..\resources\resource1.h">
       <Filter>Resource Files\Logo resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
+    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AETypes.hpp">
+    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp">
+    <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>

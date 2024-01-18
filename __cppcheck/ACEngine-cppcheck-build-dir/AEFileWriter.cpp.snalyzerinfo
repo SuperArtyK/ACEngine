@@ -1,4 +1,4 @@
-getTypeName
+__getTypeName
 boolToString call:[return]
 toLowerRef call:[begin,end,transform] noreturn:[transform]
 toLowerVal call:[begin,end,transform]
@@ -45,7 +45,7 @@ setCursorPos call:[_fseeki64,isClosed] noreturn:[_fseeki64]
 getTotalWrites call:[load] noreturn:[load]
 getLastWrittenAmount
 autoFlush call:[flushFile,load] noreturn:[flushFile]
-getTypeName < AEFileWriter >
+__getTypeName < AEFileWriter >
 writeFloat call:[isClosed,sizeof,snprintf,static_assert,writeString] noreturn:[writeString]
 write call:[isClosed,sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
 AEFileWriter call:[openFile] noreturn:[openFile]

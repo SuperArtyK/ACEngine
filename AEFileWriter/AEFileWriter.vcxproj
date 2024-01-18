@@ -179,9 +179,6 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="hello.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="..\resources\consoleprog1.rc" />
   </ItemGroup>
   <ItemGroup>

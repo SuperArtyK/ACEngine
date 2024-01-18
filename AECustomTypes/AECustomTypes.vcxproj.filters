@@ -29,21 +29,6 @@
     <ClInclude Include="..\resources\resource1.h">
       <Filter>Resource Files\Logo resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AEMath.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
     <ClInclude Include="include\AELogTypes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

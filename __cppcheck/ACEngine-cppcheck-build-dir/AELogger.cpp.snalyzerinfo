@@ -1,4 +1,4 @@
-getTypeName
+__getTypeName
 boolToString call:[return]
 toLowerRef call:[begin,end,transform] noreturn:[transform]
 toLowerVal call:[begin,end,transform]
@@ -45,12 +45,12 @@ setCursorPos call:[_fseeki64,isClosed] noreturn:[_fseeki64]
 getTotalWrites call:[load] noreturn:[load]
 getLastWrittenAmount
 autoFlush call:[flushFile,load] noreturn:[flushFile]
-getTypeName < AEFileWriter >
+__getTypeName < AEFileWriter >
 writeFloat call:[isClosed,sizeof,snprintf,static_assert,writeString] noreturn:[writeString]
 write call:[isClosed,sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
-operator= call:[copyEntry] noreturn:[copyEntry]
-copyEntryFull call:[memcpy,sizeof] noreturn:[memcpy]
-copyEntry call:[load,memcpy] noreturn:[load]
+operator= call:[copyEntry]
+copyEntryFull call:[memcpy,store] noreturn:[store]
+copyEntry call:[memcpy,store] noreturn:[store]
 copyEntryReduced call:[memcpy]
 clearEntry call:[memset]
 makeQueue call:[abort] noreturn:[abort]
@@ -73,7 +73,7 @@ isOpen call:[isOpen] noreturn:[isOpen]
 isClosed call:[isClosed] noreturn:[isClosed]
 isWriting
 genLogName call:[c_str,data,getCurrentDate,snprintf,substr]
-getTypeName < AELogger >
+__getTypeName < AELogger >
 AELogger call:[absolute,emplace_back,generic_string,isOpen,reserve,startWriter,writeToLog] noreturn:[startWriter]
 AELogger call:[clear,closeLog,size,writeToLog] noreturn:[clear]
 startWriter call:[closeLog,joinable,runtime_error,thread,writeToLog]

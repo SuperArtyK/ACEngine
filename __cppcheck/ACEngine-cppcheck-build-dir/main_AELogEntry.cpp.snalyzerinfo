@@ -1,3 +1,9 @@
+__getTypeName
+__AEModuleBase
+__AEModuleBase
+__AEModuleBase
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
 boolToString call:[return]
 toLowerRef call:[begin,end,transform] noreturn:[transform]
 toLowerVal call:[begin,end,transform]
@@ -16,15 +22,9 @@ charToInt call:[isInRange < char >,return]
 intToChar call:[isInRange < int >,return]
 isAlNum call:[begin,end,find_if_not,isalnum] noreturn:[end,isalnum]
 isAlNumUs call:[begin,end,find_if_not,isalnum] noreturn:[end]
-getTypeName
-__AEModuleBase
-__AEModuleBase
-__AEModuleBase
-getModuleAmount call:[load] noreturn:[load]
-getModuleName
-operator= call:[copyEntry] noreturn:[copyEntry]
-copyEntryFull call:[memcpy,sizeof] noreturn:[memcpy]
-copyEntry call:[load,memcpy] noreturn:[load]
+operator= call:[copyEntry]
+copyEntryFull call:[memcpy,store] noreturn:[store]
+copyEntry call:[memcpy,store] noreturn:[store]
 copyEntryReduced call:[memcpy]
 clearEntry call:[memset]
 makeQueue call:[abort] noreturn:[abort]

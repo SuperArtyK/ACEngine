@@ -32,22 +32,19 @@
     <ClInclude Include="include\AELogEntry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
+    <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AEMath.hpp">
-      <Filter>Header Files\engine modules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp">
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
+    <ClInclude Include="..\AEMisc\include\AEFlags.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp">
+    <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
   </ItemGroup>

@@ -174,7 +174,6 @@
     <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp" />
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
-    <ClInclude Include="..\AEMisc\include\AETypes.hpp" />
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />
     <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
     <ClInclude Include="..\resources\resource1.h" />

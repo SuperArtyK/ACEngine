@@ -1,0 +1,224 @@
+__getTypeName
+boolToString call:[return]
+toLowerRef call:[begin,end,transform] noreturn:[transform]
+toLowerVal call:[begin,end,transform]
+toUpperRef call:[begin,end,transform] noreturn:[transform]
+toUpperVal call:[begin,end,transform]
+isNum call:[strlen]
+formatDate call:[localtime_s,sizeof,snprintf]
+formatDate call:[localtime_s,snprintf]
+getCurrentDate call:[formatDate,time] noreturn:[formatDate]
+stringToDate call:[get_time,iss,mktime] noreturn:[mktime]
+addrToStr call:[int,sizeof,snprintf]
+sleepMS call:[milliseconds,sleep_for] noreturn:[sleep_for]
+sleepUS call:[microseconds,sleep_for] noreturn:[sleep_for]
+fopenCC call:[fopen_s]
+charToInt call:[isInRange < char >,return]
+intToChar call:[isInRange < int >,return]
+isAlNum call:[begin,end,find_if_not,isalnum] noreturn:[end,isalnum]
+isAlNumUs call:[begin,end,find_if_not,isalnum] noreturn:[end]
+AEFileWriter
+AEFileWriter call:[closeFile,flushFile] noreturn:[closeFile]
+flushFile call:[fflush,isClosed]
+closeFile call:[clear,fclose,isClosed]
+writeString call:[c_str,empty,isClosed,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeString call:[data,empty,isClosed,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeString call:[isClosed,sizeof,strlen,writeData_ptr] noreturn:[writeData_ptr]
+writeInt call:[isClosed,sizeof,snprintf,writeString] noreturn:[writeString]
+writeUInt call:[isClosed,sizeof,snprintf,writeString] noreturn:[writeString]
+writeBool call:[boolToString,writeString] noreturn:[writeString]
+writeChar call:[writeByte] noreturn:[writeByte]
+writeByte call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeBytes call:[writeData_ptr] noreturn:[writeData_ptr]
+writeBytes call:[data,size,sizeof,writeData_ptr] noreturn:[writeData_ptr]
+writeData_ref call:[sizeof,writeData_ptr] noreturn:[writeData_ptr]
+isOpen
+isClosed call:[isOpen] noreturn:[isOpen]
+getFileSize call:[_fseeki64,_ftelli64,isClosed]
+getFullFileName
+getRelativePath call:[isClosed,rfind,substr] noreturn:[substr]
+getFileName call:[rfind,size,substr] noreturn:[substr]
+getFullPath call:[absolute,generic_string,isClosed] noreturn:[generic_string]
+getFilePtr
+getCursorPos call:[_ftelli64,isClosed] noreturn:[_ftelli64]
+setCursorPos call:[_fseeki64,isClosed] noreturn:[_fseeki64]
+getTotalWrites call:[load] noreturn:[load]
+getLastWrittenAmount
+autoFlush call:[flushFile,load] noreturn:[flushFile]
+__getTypeName < AEFileWriter >
+writeFloat call:[isClosed,sizeof,snprintf,static_assert,writeString] noreturn:[writeString]
+write call:[isClosed,sizeof,writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt] noreturn:[writeBool,writeByte,writeBytes,writeData_ref,writeFloat,writeInt,writeString,writeUInt]
+pi call:[T] noreturn:[T]
+tau call:[T] noreturn:[T]
+piHalf call:[T] noreturn:[T]
+piQuarter call:[T] noreturn:[T]
+e call:[T] noreturn:[T]
+sqrt2 call:[T] noreturn:[T]
+sinDeg call:[T,sin] noreturn:[sin]
+tanDeg call:[T,tan] noreturn:[tan]
+cotDeg call:[T,tan] noreturn:[tan]
+cscDeg call:[T,sin] noreturn:[sin]
+secDeg call:[T,cos] noreturn:[cos]
+absval call:[return]
+fequals call:[return,static_assert]
+equals call:[fequals,return] noreturn:[fequals,return]
+sqrt call:[T,equals] noreturn:[T]
+intPow
+root call:[T,equals]
+max call:[return]
+min call:[return]
+lengthOfInt call:[static_assert]
+lengthOfFloat call:[abs,log10,return,static_assert]
+hypot
+isInf call:[infinity,return,static_assert] noreturn:[return]
+isNan call:[return,static_assert] noreturn:[return]
+isFinite call:[static_assert]
+floorToInt call:[T,return] noreturn:[T]
+ceilToInt call:[T,return]
+truncToInt call:[T] noreturn:[T]
+_getTrigTableIndex call:[return]
+sinDeg_table call:[_getTrigTableIndex,roundToInt < int64_t , double >]
+cosDeg_table call:[_getTrigTableIndex,roundToInt < int64_t , double >]
+tanDeg_table call:[_getTrigTableIndex,roundToInt < int64_t , double >]
+cotDeg_table call:[_getTrigTableIndex,roundToInt < int64_t , double >]
+cscDeg_table call:[_getTrigTableIndex,roundToInt < int64_t , double >]
+secDeg_table call:[_getTrigTableIndex,roundToInt < int64_t , double >]
+sinDeg_tableInterp call:[_getTrigTableIndex,lerp < float >,truncToInt] noreturn:[lerp < float >]
+cosDeg_tableInterp call:[_getTrigTableIndex,lerp < float >,truncToInt] noreturn:[lerp < float >]
+tanDeg_tableInterp call:[_getTrigTableIndex,lerp < float >,truncToInt] noreturn:[lerp < float >]
+cotDeg_tableInterp call:[_getTrigTableIndex,lerp < float >,truncToInt] noreturn:[lerp < float >]
+cscDeg_tableInterp call:[_getTrigTableIndex,lerp < float >,truncToInt] noreturn:[lerp < float >]
+secDeg_tableInterp call:[_getTrigTableIndex,lerp < float >,truncToInt] noreturn:[lerp < float >]
+operator= call:[copyEntry]
+copyEntryFull call:[memcpy,store] noreturn:[store]
+copyEntry call:[memcpy,store] noreturn:[store]
+copyEntryReduced call:[memcpy]
+clearEntry call:[memset]
+makeQueue call:[abort] noreturn:[abort]
+formatEntry call:[formatDate,sizeof,snprintf,typeToString] noreturn:[snprintf]
+typeToString
+stringToType call:[size]
+parseStringEntry call:[clearEntry,data,isAlNumUs,memcmp,memcpy,size,sizeof,sscanf,stringToDate,stringToType,strstr,strvMname] noreturn:[memcpy]
+AELogger
+AELogger call:[emplace_back,reserve] noreturn:[emplace_back]
+openLog call:[openFile,startWriter,string,writeToLog] noreturn:[startWriter]
+openLog call:[openLog,string] noreturn:[openLog]
+closeLog call:[closeFile,getFullFileName,isClosed,stopWriter,writeToLog]
+writeToLogDebug call:[writeToLog] noreturn:[writeToLog]
+writeStatus call:[getEntryCount,getFullFileName,to_string,writeToLog] noreturn:[writeToLog]
+getLogName call:[getFullFileName] noreturn:[getFullFileName]
+getLogPath call:[getRelativePath] noreturn:[getRelativePath]
+getLogAbsolutePath call:[getFullPath] noreturn:[getFullPath]
+getEntryCount call:[getTotalWrites] noreturn:[getTotalWrites]
+isOpen call:[isOpen] noreturn:[isOpen]
+isClosed call:[isClosed] noreturn:[isClosed]
+isWriting
+genLogName call:[c_str,data,getCurrentDate,snprintf,substr]
+__getTypeName < AELogger >
+AEFrame
+setFps call:[microseconds,now,uint64_t]
+sleep call:[sleep_until] noreturn:[sleep_until]
+resetTimePoint call:[now] noreturn:[now]
+getFrameRate
+getDelay call:[count] noreturn:[count]
+__getTypeName < AEFrame >
+AETimer call:[startThread] noreturn:[startThread]
+AETimer
+AETimer call:[startThread] noreturn:[startThread]
+operator= call:[load,startThread,store] noreturn:[startThread]
+AETimer call:[stopThread] noreturn:[stopThread]
+startThread call:[joinable,runtime_error,thread] noreturn:[runtime_error]
+stopThread call:[join,joinable] noreturn:[join]
+resetTick
+setTick
+setDelay call:[setFps,startThread,stopThread] noreturn:[startThread]
+getTick
+getWorldTime call:[getDelay,load] noreturn:[getDelay]
+getFrameRate call:[getFrameRate] noreturn:[getFrameRate]
+getDelay call:[getDelay] noreturn:[getDelay]
+waitForTick call:[fr,getFrameRate,getTick,sleep] noreturn:[sleep]
+waitTicks call:[waitForTick] noreturn:[waitForTick]
+tickTimer call:[load,sleep]
+__getTypeName < AETimer >
+AEFileReader
+AEFileReader call:[closeFile] noreturn:[closeFile]
+closeFile call:[clear,fclose,isClosed]
+readString call:[data,isClosed,readString,resize] noreturn:[resize]
+readString call:[data,isClosed,readString,resize] noreturn:[resize]
+readStringNL call:[data,isClosed,readStringNL,resize]
+readStringNL call:[data,isClosed,readStringNL,resize]
+readStringNULL call:[data,isClosed,long,readStringNULL,resize]
+readStringNULL call:[data,isClosed,long,readStringNULL,resize]
+readInt call:[static_assert]
+readFloat call:[static_assert]
+readBool call:[readVariable < bool >] noreturn:[readVariable < bool >]
+readChar call:[readVariable < signed char >] noreturn:[readVariable < signed char >]
+readByte call:[readVariable < unsigned char >] noreturn:[readVariable < unsigned char >]
+readBytes call:[data,isClosed,readData_ptr,resize,sizeof] noreturn:[resize]
+readBytes call:[memset,readData_ptr,sizeof] noreturn:[readData_ptr]
+isOpen
+isClosed call:[isOpen] noreturn:[isOpen]
+getFileSize call:[_fseeki64,_ftelli64,isClosed]
+getFullFileName
+getRelativePath call:[isClosed,rfind,substr] noreturn:[substr]
+getFileName call:[rfind,size,substr] noreturn:[substr]
+getFullPath call:[absolute,generic_string,isClosed] noreturn:[generic_string]
+getFilePtr
+getCursorPos call:[_ftelli64,isClosed] noreturn:[_ftelli64]
+setCursorPos call:[_fseeki64,isClosed] noreturn:[_fseeki64]
+getTotalReads call:[load] noreturn:[load]
+getLastReadAmount
+isEOF call:[feof] noreturn:[feof]
+isError call:[ferror] noreturn:[ferror]
+__getTypeName < AEFileReader >
+readIntString call:[fetch_add,fscanf_s,isClosed,memset,sizeof,static_assert] noreturn:[fscanf_s]
+readFloatString call:[fetch_add,fscanf_s,isClosed,memset,sizeof,static_assert] noreturn:[fscanf_s]
+main call:[clear,closeFile,cosDeg < float >,cosDeg_table,count,flushFile,getTick,getWorldTime,magnitude,myfr,myfw,mylog,mytm,now,rand,reserve,sizeof,sleep,srand,string,time,toString,to_string,writeStatus,writeString,writeToLog] noreturn:[rand,sleep]
+readVariable < bool > call:[isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
+readVariable < signed char > call:[isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
+readVariable < unsigned char > call:[isClosed,memset,readData_ptr,sizeof] noreturn:[readData_ptr]
+zero
+operator[]
+operator[]
+operator==
+operator!=
+operator+=
+operator+ call:[operator+=] noreturn:[operator+=]
+operator*=
+operator* call:[operator*=] noreturn:[operator*=]
+toString call:[append,push_back,reserve,to_string] noreturn:[append]
+operator<< call:[toString]
+magnitude
+normDim call:[operator[]]
+normalise
+dotProduct
+roundToInt < int64_t , double > call:[double,int64_t,return] noreturn:[int64_t]
+lerp < float >
+cosDeg < float > call:[cos,float] noreturn:[cos]
+isInRange < char > call:[return]
+isInRange < int > call:[return]
+__AEModuleBase < AEFileWriter >
+__AEModuleBase < AEFileWriter >
+__AEModuleBase < AEFileWriter >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
+__AEModuleBase < AELogger >
+__AEModuleBase < AELogger >
+__AEModuleBase < AELogger >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
+__AEModuleBase < AEFrame >
+__AEModuleBase < AEFrame >
+__AEModuleBase < AEFrame >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
+__AEModuleBase < AETimer >
+__AEModuleBase < AETimer >
+__AEModuleBase < AETimer >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName
+__AEModuleBase < AEFileReader >
+__AEModuleBase < AEFileReader >
+__AEModuleBase < AEFileReader >
+getModuleAmount call:[load] noreturn:[load]
+getModuleName

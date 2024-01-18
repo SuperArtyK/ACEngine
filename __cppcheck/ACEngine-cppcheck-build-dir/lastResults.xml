@@ -2,96 +2,143 @@
 <results version="2">
     <cppcheck version="2.12.0"/>
     <errors>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AEMisc\include\AEUtils.hpp" line="266"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AEMisc\include\AEUtils.hpp" line="265"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AEMisc\include\AEUtils.hpp" line="277"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="115"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="117"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;char&amp;#039; is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;char&amp;#039; is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="119"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="122"/>
-        </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AEFileReader/src/AEFileReader.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AEFileReader\src\AEFileReader.cpp" line="128"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="mktime is Y2038-unsafe" verbose="mktime is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AEFileReader.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AEMisc\include\AEUtils.hpp" line="276"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogEntry\include\AELogEntry.hpp" line="90"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="112"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogEntry\include\AELogEntry.hpp" line="97"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="121"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memcpy&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogEntry\include\AELogEntry.hpp" line="105"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="131"/>
         </error>
         <error id="memsetClass" severity="error" msg="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039;." verbose="Using &amp;#039;memset&amp;#039; on struct that contains a &amp;#039;std::atomic&amp;#039; is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created." cwe="762" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogEntry\include\AELogEntry.hpp" line="114"/>
+            <location file="..\AELogEntry\include\AELogEntry.hpp" line="140"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="138"/>
+        <error id="duplicateBreak" severity="style" msg="Consecutive return, break, continue, goto or throw statements are unnecessary." verbose="Consecutive return, break, continue, goto or throw statements are unnecessary. The second statement can never be executed, and so should be removed." cwe="561" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="57"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="176"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="130"/>
         </error>
-        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.3600.dump" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="242"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="168"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;cint&amp;#039; (aka &amp;#039;signed char&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;int&amp;#039; to signed type &amp;#039;cint&amp;#039; (aka &amp;#039;signed char&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="22"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\src\AELogger.cpp" line="234"/>
         </error>
-        <error id="clang-tidy-misc-no-recursion" severity="warning" msg="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain " verbose="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain " file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="115" info="... which was the starting point of the recursive call chain; there may be other cycles"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="115" info="Frame #2: function &amp;#039;writeToLog&amp;#039; calls function &amp;#039;writeToLogDebug&amp;#039; here:"/>
-            <location file="..\AELogger\include\AELogger.hpp" line="187" info="Frame #1: function &amp;#039;writeToLogDebug&amp;#039; calls function &amp;#039;writeToLog&amp;#039; here:"/>
-            <location file="..\AELogger\include\AELogger.hpp" line="185" info="example recursive call chain, starting from function &amp;#039;writeToLogDebug&amp;#039;"/>
-            <location file="..\AELogger\src\AELogger.cpp" line="83" info="function &amp;#039;writeToLog&amp;#039; is within a recursive call chain "/>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;a&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;a&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="../ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\ACEngine\main_ACEngine.cpp" line="56"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="139"/>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." cwe="563" file0="../ACEngine/main_ACEngine.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\ACEngine\main_ACEngine.cpp" line="56"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="140"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\ACEngine\main_ACEngine.cpp" line="87"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="196"/>
+        <error id="y2038-unsafe-call" severity="warning" msg="time is Y2038-unsafe" verbose="time is Y2038-unsafe" file0="ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\ACEngine\main_ACEngine.cpp" line="44"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="100 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="209"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFrame\include\AEFrame.hpp" line="61"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="216"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AETimer\include\AETimer.hpp" line="177"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="221"/>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_ACEngine.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AETimer\include\AETimer.hpp" line="201"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" verbose="1000 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="236"/>
+        <error id="syntaxError" severity="error" msg="No pair for character (&amp;quot;). Can&amp;#039;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&amp;quot;). Can&amp;#039;t process file. File is either invalid or unicode, which is currently not supported." sinceDate="yyyy-MM-dd">
+            <location file="..\AEFileWriter\main_AEFileWriter.cpp" line="2"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="240"/>
+        <error id="noExplicitConstructor" severity="style" msg="Class &amp;#039;Test3&amp;#039; has a constructor with 1 argument that is not explicit." verbose="Class &amp;#039;Test3&amp;#039; has a constructor with 1 argument that is not explicit. Such, so called &amp;quot;Converting constructors&amp;quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="../AEModuleBase/main_AEModuleBase.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AEModuleBase\main_AEModuleBase.cpp" line="11"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogger/src/AELogger.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogger\src\AELogger.cpp" line="249"/>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;a&amp;#039; is assigned a value that is never used." cwe="563" file0="../AEModuleBase/main_AEModuleBase.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AEModuleBase\main_AEModuleBase.cpp" line="21"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" verbose="do not declare C-style arrays, use std::array&amp;lt;&amp;gt; instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\src\AELogParser.cpp" line="16"/>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;__getTypeName&amp;#039; is never used." verbose="The function &amp;#039;__getTypeName&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AEModuleBase\main_AEModuleBase.cpp" line="18"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="narrowing conversion from &amp;#039;unsigned long long&amp;#039; to signed type &amp;#039;llint&amp;#039; (aka &amp;#039;long long&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" verbose="narrowing conversion from &amp;#039;unsigned long long&amp;#039; to signed type &amp;#039;llint&amp;#039; (aka &amp;#039;long long&amp;#039;) is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\src\AELogParser.cpp" line="30"/>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &amp;#039;entrydata&amp;#039; has a constructor with 1 argument that is not explicit." verbose="Struct &amp;#039;entrydata&amp;#039; has a constructor with 1 argument that is not explicit. Such, so called &amp;quot;Converting constructors&amp;quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="../AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="68"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\src\AELogParser.cpp" line="32"/>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &amp;#039;node&amp;#039; has a constructor with 1 argument that is not explicit." verbose="Struct &amp;#039;node&amp;#039; has a constructor with 1 argument that is not explicit. Such, so called &amp;quot;Converting constructors&amp;quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="../AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="77"/>
         </error>
-        <error id="clang-analyzer" severity="warning" msg="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" verbose="do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay,hicpp-no-array-decay]" file0="../AELogParser/src/AELogParser.cpp" sinceDate="yyyy-MM-dd">
-            <location file="..\AELogParser\src\AELogParser.cpp" line="34"/>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;nptr&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;nptr&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="../AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="162"/>
+        </error>
+        <error id="unusedLabel" severity="style" msg="Label &amp;#039;fexit&amp;#039; is not used." verbose="Label &amp;#039;fexit&amp;#039; is not used." cwe="398" file0="../AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="123"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="../AELogger/main_AELogger.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="15"/>
+        </error>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="29"/>
+        </error>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="56"/>
+        </error>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="184"/>
+        </error>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_AELogger.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="196"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;oldmain&amp;#039; is never used." verbose="The function &amp;#039;oldmain&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="36"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;readqueue&amp;#039; is never used." verbose="The function &amp;#039;readqueue&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="161"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;writequeue&amp;#039; is never used." verbose="The function &amp;#039;writequeue&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogger\main_AELogger.cpp" line="191"/>
+        </error>
+        <error id="threadsafety-unsafe-call" severity="warning" msg="sleep is MT-unsafe" verbose="sleep is MT-unsafe" file0="ACEngine-cppcheck-build-dir/main_AEFrame.cpp.analyzerinfo.13640.dump" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFrame\main_AEFrame.cpp" line="14"/>
+        </error>
+        <error id="constParameterReference" severity="style" msg="Parameter &amp;#039;a&amp;#039; can be declared as reference to const" verbose="Parameter &amp;#039;a&amp;#039; can be declared as reference to const" cwe="398" file0="../AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFileReader\main_AEFileReader.cpp" line="10"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &amp;#039;ab::a&amp;#039; is never used." verbose="struct member &amp;#039;ab::a&amp;#039; is never used." cwe="563" file0="../AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFileReader\main_AEFileReader.cpp" line="6"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;bl&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;bl&amp;#039; is assigned a value that is never used." cwe="563" file0="../AEFileReader/main_AEFileReader.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFileReader\main_AEFileReader.cpp" line="26"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;outputVec&amp;#039; is never used." verbose="The function &amp;#039;outputVec&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFileReader\main_AEFileReader.cpp" line="10"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;fileRead&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;fileRead&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="../AELogParser/main_AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\include\AELogParser.hpp" line="77"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;parsedEntry&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;parsedEntry&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="../AELogParser/main_AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\include\AELogParser.hpp" line="78"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;cursor&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;cursor&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="../AELogParser/main_AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\include\AELogParser.hpp" line="79"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;fileRead&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;fileRead&amp;#039; is assigned a value that is never used." cwe="563" file0="../AELogParser/main_AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\include\AELogParser.hpp" line="77"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;parsedEntry&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;parsedEntry&amp;#039; is assigned a value that is never used." cwe="563" file0="../AELogParser/main_AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\include\AELogParser.hpp" line="78"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;cursor&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;cursor&amp;#039; is assigned a value that is never used." cwe="563" file0="../AELogParser/main_AELogParser.cpp" sinceDate="yyyy-MM-dd">
+            <location file="..\AELogParser\include\AELogParser.hpp" line="79"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;isEqual&amp;#039; is never used." verbose="The function &amp;#039;isEqual&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AEVector\main_AEVector.cpp" line="7"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;readBoolString&amp;#039; is never used." verbose="The function &amp;#039;readBoolString&amp;#039; is never used." cwe="561" sinceDate="yyyy-MM-dd">
+            <location file="..\AEFileReader\src\AEFileReader.cpp" line="113"/>
         </error>
     </errors>
 </results>

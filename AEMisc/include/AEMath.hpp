@@ -54,6 +54,16 @@ namespace ace::math {
 	}
 
 	/// <summary>
+	/// Engine's pi*2 variable (tau). Another name for ace::math::tau()
+	/// </summary>
+	/// <typeparam name="T">Type to convert tau to</typeparam>
+	/// <returns>Tau converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T piDouble(void) noexcept {
+		return ace::math::tau<T>();
+	}
+
+	/// <summary>
 	/// Engine's pi/2 (half) value.
 	/// </summary>
 	/// <typeparam name="T">Type to convert pi/2 to</typeparam>
@@ -90,7 +100,7 @@ namespace ace::math {
 	/// <typeparam name="T">Type to convert sqrt(2) to</typeparam>
 	/// <returns>sqrt(2) converted/rounded to a given type</returns>
 	template<typename T = long double>
-	constexpr T sqrt2(void) noexcept {
+	constexpr T sqrtOf2(void) noexcept {
 		return T(1.41421356237309504880L);
 	}
 
@@ -101,7 +111,7 @@ namespace ace::math {
 	/// <returns>Float of sine results</returns>
 	template<typename T = long double>
 	inline T sinDeg(const T degrees) noexcept {
-		return sin(torad(degrees, T));
+		return std::sin(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -111,7 +121,7 @@ namespace ace::math {
 	/// <returns>Float of cosine results</returns>
 	template<typename T = long double>
 	inline T cosDeg(const T degrees) noexcept {
-		return cos(torad(degrees, T));
+		return std::cos(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -121,7 +131,7 @@ namespace ace::math {
 	/// <returns>Float of tangent results</returns>
 	template<typename T = long double>
 	inline T tanDeg(const T degrees) noexcept {
-		return tan(torad(degrees, T));
+		return std::tan(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -131,7 +141,7 @@ namespace ace::math {
 	/// <returns>Float of cotangent results</returns>
 	template<typename T = long double>
 	inline T cotDeg(const T degrees) noexcept {
-		return 1 / tan(torad(degrees, T));
+		return 1 / std::tan(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -141,7 +151,7 @@ namespace ace::math {
 	/// <returns>Float of cosecant results</returns>
 	template<typename T = long double>
 	inline T cscDeg(const T degrees) noexcept {
-		return 1 / sin(torad(degrees, T));
+		return 1 / std::sin(torad(degrees, T));
 	}
 
 	/// <summary>
@@ -151,7 +161,7 @@ namespace ace::math {
 	/// <returns>Float of secant results</returns>
 	template<typename T = long double>
 	inline T secDeg(const T degrees) noexcept {
-		return 1 / cos(torad(degrees, T));
+		return 1 / std::cos(torad(degrees, T));
 	}
 	
 	/// <summary>
@@ -233,18 +243,41 @@ namespace ace::math {
 	/// <param name="power">Integer power to raise the number to</param>
 	/// <returns>The [num] of type T raised to power [power]</returns>
 	template<typename T = long double>
-	constexpr T intPow(const T num, const int power) {
-		if (power == 1) { return num; }
-		if (power == 0) { return 1; }
-		T res = num;
+	constexpr T intPow(const T num, int power) {
+
+		//switch to save up on conditionals and jumps
+		//yeah microoptimisation, but it's fine, doesn't hurt
+		
+		if(num == 0) { return std::numeric_limits<T>::infinity(); } // 1/0 -- infinity to comply with floats 
+		if(num == 1) { return T(1); } // 1 to power of anything is still 1
+
+		switch (power) {
+
+			case -1:
+				return T(1) / num;
+
+			case 0: // power is 0, anything to power 0 is 1
+				return 1;
+				break;
+
+			case 1: // power is 0, anything to power 1 is itself
+				return num;
+				break;
+
+		}
+
+		T res;
 		
 		if (power > 1) {
-			for (uint i = 1; i < power; i++) {
+			res = num;
+			for (int i = 1; i < power; i++) {
 				res *= num;
 			}
 		}
 		else {
-			for (uint i = 1; i < power; i++) {
+			res = 1;
+			power = -power;
+			for (int i = 1; i < power; i++) {
 				res /= num;
 			}
 		}

@@ -57,11 +57,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="hello.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="..\resources\consoleprog1.rc">
       <Filter>Resource Files\Logo resources</Filter>
     </ResourceCompile>

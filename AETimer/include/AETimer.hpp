@@ -145,7 +145,7 @@ public:
 	/// </summary>
 	/// <returns>double of the approximate world time the timer has counted (using it's ticks)</returns>
 	inline long double getWorldTime(void) const noexcept {
-		return this->m_ullTicks.load() * this->m_rDelay.getDelay();
+		return this->m_ullTicks.load() * (long double) this->m_rDelay.getDelay();
 	}
 
 	/// <summary>

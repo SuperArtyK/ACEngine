@@ -1,4 +1,4 @@
-getTypeName
+__getTypeName
 boolToString call:[return]
 toLowerRef call:[begin,end,transform] noreturn:[transform]
 toLowerVal call:[begin,end,transform]
@@ -47,7 +47,7 @@ getTotalReads call:[load] noreturn:[load]
 getLastReadAmount
 isEOF call:[feof] noreturn:[feof]
 isError call:[ferror] noreturn:[ferror]
-getTypeName < AEFileReader >
+__getTypeName < AEFileReader >
 readIntString call:[fetch_add,fscanf_s,isClosed,memset,sizeof,static_assert] noreturn:[fscanf_s]
 readFloatString call:[fetch_add,fscanf_s,isClosed,memset,sizeof,static_assert] noreturn:[fscanf_s]
 AEFileReader call:[openFile] noreturn:[openFile]

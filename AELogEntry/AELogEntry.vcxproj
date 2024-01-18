@@ -170,10 +170,9 @@
   <ItemGroup>
     <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp" />
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
-    <ClInclude Include="..\AEMisc\include\AEMath.hpp" />
-    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp" />
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />
+    <ClInclude Include="..\AEModuleBase\include\AEModuleBase.hpp" />
     <ClInclude Include="..\resources\resource1.h" />
     <ClInclude Include="include\AELogEntry.hpp" />
   </ItemGroup>

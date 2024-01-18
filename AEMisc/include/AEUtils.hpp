@@ -265,7 +265,7 @@ namespace ace {
 			return ace::utils::formatDate(time(nullptr));
 		}
 
-		inline const time_t stringToDate(const char* const timestr, const char* const timeformat = "%Y-%m-%d.%X") {
+		inline time_t stringToDate(const char* const timestr, const char* const timeformat = "%Y-%m-%d.%X") {
 			struct tm tstruct { 0 };
 			std::istringstream iss(timestr);
 			iss >> std::get_time(&tstruct, timeformat);
