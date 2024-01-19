@@ -193,8 +193,8 @@ void AELogger::logWriterThread(void) {
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
-	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
-		while (this->m_ullFilledCount.load(std::memory_order::memory_order_relaxed)) {
+	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount.load(std::memory_order::relaxed)) {
+		while (this->m_ullFilledCount.load(std::memory_order::relaxed)) {
 			
 			//got it!. Now wait untill it's ready
 			while (ePtr->m_cStatus != AELE_STATUS_READY) {
@@ -228,10 +228,16 @@ void AELogger::logWriterThread(void) {
 		ace::utils::sleepUS(1000);
 	}
 
+
 	//format the last entrys
 	AELogEntry::formatEntry(str,
-		{ .m_sLogMessage = "Successfully exited the writer thread.", .m_sModuleName = "this->m_sModulename.data()",
-		  .m_tmLogTime = time(nullptr), .m_cLogType = AELOG_TYPE_SUCCESS });
+		AELogEntry{ "Successfully exited the writer thread.", "this->m_sModulename.data()", // for gcc bugs
+		  std::time(nullptr), nullptr, AELOG_TYPE_SUCCESS });
+
+
+// 	AELogEntry::formatEntry(str,
+// 		AELogEntry{ .m_sLogMessage{"Successfully exited the writer thread."}, .m_sModuleName{"this->m_sModulename.data()"}, // for gcc bugs
+// 		  .m_tmLogTime{time(nullptr)}, .m_cLogType{AELOG_TYPE_SUCCESS} });
 
 	// old way of formatting
 	// snprintf(str, sizeof(str), AELE_FORMAT_STRING, ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");

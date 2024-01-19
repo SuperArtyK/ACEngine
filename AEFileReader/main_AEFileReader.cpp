@@ -19,6 +19,9 @@ std::string outputVec(std::vector<char>& a) {
 
 int main(){
 
+
+	cout << AEFileReader::getModuleName() << endl;
+
     AEFileReader myfr("test.txt");
 
 	std::string a,b;

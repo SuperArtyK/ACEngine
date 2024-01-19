@@ -17,7 +17,7 @@
 
 #include "AEFlags.hpp"
 #include "AEMath.hpp"
-
+#include <cfloat>
 
 #ifdef ENGINE_ENABLE_MATH_LOOKUP
 

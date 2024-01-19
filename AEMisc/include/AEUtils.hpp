@@ -15,6 +15,10 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <ctime>
+#include <sstream>
+#include <iomanip>
 
 //function-like macros
 //since it's more convenient to have them as a macro

@@ -75,20 +75,16 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -99,6 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,6 +116,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,6 +133,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,6 +155,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>false</OmitFramePointers>
       <StringPooling>true</StringPooling>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

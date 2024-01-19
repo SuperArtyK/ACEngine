@@ -22,6 +22,8 @@
 #include <filesystem>
 #include <string>
 #include <vector>
+#include <cstring>
+#include <cfloat>
 
 // Do NOT touch!
 

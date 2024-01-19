@@ -14,7 +14,9 @@
 
 #include "AETypedefs.hpp"
 #include <limits>
+#include <cmath>
 #include <type_traits>
+
 
 
 /// Macro to convert degrees value x to radians.

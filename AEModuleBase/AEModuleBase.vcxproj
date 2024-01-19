@@ -75,22 +75,18 @@
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>
 $(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>
 $(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
     <SourcePath>
 $(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(ProjectDir)include\;$(IncludePath)</IncludePath>
     <SourcePath>
 $(SourcePath)</SourcePath>
   </PropertyGroup>
@@ -102,6 +98,7 @@ $(SourcePath)</SourcePath>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +119,7 @@ $(SourcePath)</SourcePath>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +136,7 @@ $(SourcePath)</SourcePath>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,6 +158,7 @@ $(SourcePath)</SourcePath>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>false</OmitFramePointers>
       <StringPooling>true</StringPooling>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(ProjectDir)include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

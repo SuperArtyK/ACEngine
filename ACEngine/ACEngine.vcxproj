@@ -74,7 +74,6 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
     <ClangTidyChecks>
     </ClangTidyChecks>
     <CodeAnalysisRuleSet>CppCoreCheckRules.ruleset</CodeAnalysisRuleSet>
@@ -83,13 +82,11 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
     <ClangTidyChecks>
     </ClangTidyChecks>
     <CodeAnalysisRuleSet>CppCoreCheckRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <RunCodeAnalysis>true</RunCodeAnalysis>
@@ -98,7 +95,6 @@
     <CodeAnalysisRuleSet>CppCoreCheckRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src\;$(SolutionDir)AELogger\src\;$(SolutionDir)AEFileReader\src\;$(SolutionDir)AEFileWriter\src\;$(SolutionDir)AELogParser\src\;$(SourcePath)</SourcePath>
     <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
     <RunCodeAnalysis>true</RunCodeAnalysis>
@@ -117,6 +113,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <EnablePREfast>true</EnablePREfast>
       <DisableSpecificWarnings>26481;4514;5266;5045</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +137,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <EnablePREfast>true</EnablePREfast>
       <DisableSpecificWarnings>26481;4514;5266;5045</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,6 +157,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <EnablePREfast>true</EnablePREfast>
       <DisableSpecificWarnings>26481;4514;5266;5045</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -183,6 +182,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <EnablePREfast>true</EnablePREfast>
       <DisableSpecificWarnings>26481;4514;5266;5045</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)AEMisc\;$(SolutionDir)AEModuleBase\;$(SolutionDir)AEFileWriter\;$(ProjectDir)include\;$(SolutionDir)AELogger\;$(SolutionDir)AEFrame\;$(SolutionDir)AETimer\;$(SolutionDir)AEVector\;$(SolutionDir)AEFileReader\;$(SolutionDir)AELogParser\;$(SolutionDir)AECustomTypes\;$(SolutionDir)AELogEntry\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

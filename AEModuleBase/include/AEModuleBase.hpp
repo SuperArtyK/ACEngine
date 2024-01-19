@@ -15,19 +15,8 @@
 #include <string>
 #include <string_view>
 
-//file meaning: base classes for all modules
-
-/// <summary>
-/// The support function for __AEModuleBase's module name registration
-/// @note Please don't use it anywhere else...and where *can* you use it other than here?
-/// </summary>
-/// <typeparam name="T">"Type", name of the struct/class</typeparam>
-/// <returns>Without registration and overloads, default "__getTypeName". With them, in correct setting, the name of the regitered module</returns>
-template <typename T>
-constexpr std::string_view __getTypeName(void) noexcept { return "__getTypeName"; }
-
 /// Adds module name to inherit from __AEModuleBase
-#define REGISTER_MODULE(T) template <> constexpr std::string_view __getTypeName<T>() noexcept { return #T; }
+#define REGISTER_MODULE(T) template<> const inline std::string_view __AEModuleBase<T>::m_sModulename = #T;
 
 /// Global "no error" return flag for all engine modules
 #define ENGINE_MODULE_ERR_NOERROR 0
@@ -99,9 +88,7 @@ protected:
 	static inline std::atomic<ullint> m_ullModulesAlive = 0;
 };
 
-/// Sets up the static variable values for the base class (and inherited classes)
-template<typename T>
-const std::string_view __AEModuleBase<T>::m_sModulename = __getTypeName<T>();
+
 
 //REGISTER_MODULE(__AEModuleBase)
 
