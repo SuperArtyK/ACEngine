@@ -1,9 +1,8 @@
-.TH "AEMisc/include/AEFlags.hpp" 3 "Fri Jan 12 2024 01:10:12" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEFlags.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to alter it's code and behaviour\&.  
-
+AEMisc/include/AEFlags.hpp
 .SH SYNOPSIS
 .br
 .PP
@@ -23,7 +22,11 @@ AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to a
 .br
 .RI "Macro to enable the engine's global modules (like timer, logger, etc) "
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_ENABLE_MATH_LOOKUP\fP"
+.RI "#\fBdefine\fP \fBENGINE_ENABLE_ASSERT\fP   1"
+.br
+.RI "Macro to enable the engine's assert code\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBENGINE_ENABLE_MATH_LOOKUP\fP   1"
 .br
 .RI "Macro to enable the engine's trigonometry lookup code\&. "
 .ti -1c
@@ -69,8 +72,8 @@ AEMisc/include/AEFlags.hpp \- This file contains engine flags that are used to a
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains engine flags that are used to alter it's code and behaviour\&. 
-
+This file contains engine flags that are used to alter it's code and behaviour\&.
+.PP
 Should not cause everything to break :) 
 .PP
 Definition in file \fBAEFlags\&.hpp\fP\&.
@@ -88,31 +91,31 @@ Undefine or comment out to disable the feature\&.
 .PP
 
 .PP
-Definition at line \fB32\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB35\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH   \fBtrue\fP"
 
 .PP
 Macro for the default 'use auto-flush' argument value\&. 
 .PP
-Definition at line \fB34\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB37\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
 
 .PP
 Macro for the default auto-flush trigger value\&. 
 .PP
-Definition at line \fB36\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELE_MESSAGE_SIZE   511"
 
 .PP
 The size of the \fBAELogEntry\fP message in characters (excluding null termination) 
 .PP
-Definition at line \fB53\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB56\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELE_MODULENAME_SIZE   31"
 
 .PP
 The size of the \fBAELogEntry\fP module name in characters (excluding null termination) 
 .PP
-Definition at line \fB55\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB58\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
 
 .PP
@@ -125,7 +128,7 @@ I personally wouldn't advise to play with it\&.
 .PP
 
 .PP
-Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB48\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
 
 .PP
@@ -138,31 +141,44 @@ Currently used only in the globbal logger
 .PP
 
 .PP
-Definition at line \fB49\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB52\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
 
 .PP
 Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. 
 .PP
-Definition at line \fB42\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELOG_DEFAULT_QUEUE_SIZE   2048"
 
 .PP
 Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. 
 .PP
-Definition at line \fB40\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB43\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP AEVEC_WRAP_DIMENSIONS   1"
 
 .PP
 A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. 
 .PP
-Definition at line \fB60\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB63\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_DEBUG   1"
 
 .PP
 Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. 
 .PP
 Definition at line \fB18\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#\fBdefine\fP ENGINE_ENABLE_ASSERT   1"
+
+.PP
+Macro to enable the engine's assert code\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBaceAssert()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB26\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_ENABLE_GLOBAL_MODULES   1"
 
 .PP
@@ -176,7 +192,7 @@ Undefine or comment-out to disable this feature
 
 .PP
 Definition at line \fB23\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_ENABLE_MATH_LOOKUP"
+.SS "#\fBdefine\fP ENGINE_ENABLE_MATH_LOOKUP   1"
 
 .PP
 Macro to enable the engine's trigonometry lookup code\&. 
@@ -188,7 +204,7 @@ Macro to enable the engine's trigonometry lookup code\&.
 .PP
 
 .PP
-Definition at line \fB26\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB29\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_FPS   60\&.0"
 
 .PP

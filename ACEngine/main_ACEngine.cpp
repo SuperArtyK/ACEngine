@@ -1,5 +1,5 @@
 
-/** @file ACEngine/main_ACEngine.cpp
+/*! @file ACEngine/main_ACEngine.cpp
  *  This file contains the testing code for the engine or..larger project code, like a game.
  *  
  *  @todo Add the global variable list from my older engine

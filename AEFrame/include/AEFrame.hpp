@@ -1,5 +1,5 @@
 
-/** @file AEFrame/include/AEFrame.hpp
+/*! @file AEFrame/include/AEFrame.hpp
  *  This file contains the frame delay module code.
  *  Useful if you need to limit the execution time of the program. It makes
  *  sure that the loop executes with same delay, if contents of loop are

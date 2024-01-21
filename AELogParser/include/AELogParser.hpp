@@ -1,5 +1,5 @@
 
-/** @file AELogParser/include/AELogParser.hpp
+/*! @file AELogParser/include/AELogParser.hpp
  *  This file contains the engine's log parser module.
  *  It parses the log files that AELogger writes and turns them back to AELogEntry objects
  *

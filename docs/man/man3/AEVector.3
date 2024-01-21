@@ -1,4 +1,4 @@
-.TH "AEVector< T, dimAmount >" 3 "Fri Jan 12 2024 01:10:12" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEVector< T, dimAmount >" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -96,7 +96,7 @@ AEVector< T, dimAmount > \- The ArtyK's Engine's mathematical vector -- for math
 .br
 struct AEVector< T, dimAmount >"The ArtyK's Engine's mathematical vector -- for mathematically-correct vector operations\&. 
 
-Yeah, the mathematical vectors, that are in CS\&.\&.just labeled arrays of numbers for ease of use lol\&.
+Yeah, the mathematical vectors, that are in CS\&.\&.just labeled arrays of numbers for ease of use lol\&. Most of the \fBAEVector\fP functionality is made to be constexpr -- so it can be calculated and optimised the same way as the default, fundamental types of c++\&. The only exceptions are the \fBtoString()\fP and \fBoperator<<()\fP since both std::string and ostream cannot be constexpr (for now)\&.
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -107,7 +107,7 @@ Yeah, the mathematical vectors, that are in CS\&.\&.just labeled arrays of numbe
 .PP
 
 .PP
-Definition at line \fB29\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB30\fP of file \fBAEVector\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double, \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBF\fP \fBAEVector\fP< T, \fBdimAmount\fP >::dotProduct (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
@@ -134,7 +134,7 @@ The value of the dot product of the type F
 .PP
 
 .PP
-Definition at line \fB242\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB243\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBF\fP \fBAEVector\fP< T, \fBdimAmount\fP >::magnitude (\fBvoid\fP) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -152,7 +152,7 @@ The magnitude of the vector as the float type F
 .PP
 
 .PP
-Definition at line \fB202\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB203\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBAEVector\fP< \fBF\fP, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >::normalise (\fBvoid\fP) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -170,7 +170,7 @@ The normalised vector
 .PP
 
 .PP
-Definition at line \fB223\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB224\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBF\fP  = long double> \fBconstexpr\fP \fBF\fP \fBAEVector\fP< T, \fBdimAmount\fP >::normDim (\fBconst\fP std::size_t index) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -193,7 +193,7 @@ The normalised value of the dimension as the float type F
 .PP
 
 .PP
-Definition at line \fB213\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB214\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator!\fP= (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -221,7 +221,7 @@ True if the vectors are not equal, false otherwise
 .PP
 
 .PP
-Definition at line \fB105\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB106\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP > \fBconstexpr\fP \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP* (\fBconst\fP \fBY\fP two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -244,7 +244,7 @@ The value of the resulting vector after the operation
 .PP
 
 .PP
-Definition at line \fB158\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB159\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP > \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP*= (\fBconst\fP \fBY\fP two)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -267,7 +267,7 @@ The reference to the resulting vector after the operation
 .PP
 
 .PP
-Definition at line \fB144\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB145\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP+ (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -295,7 +295,7 @@ The value of the resulting vector after the operation
 .PP
 
 .PP
-Definition at line \fB132\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB133\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP+= (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -323,7 +323,7 @@ The reference to the resulting vector after the operation
 .PP
 
 .PP
-Definition at line \fB117\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB118\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> template<\fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP== (\fBconst\fP \fBAEVector\fP< \fBY\fP, \fBdimAmount\fP > & two) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -351,7 +351,7 @@ True if the vectors are equal, false otherwise
 .PP
 
 .PP
-Definition at line \fB86\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB87\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBconstexpr\fP \fBconst\fP T & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP[] (\fBconst\fP std::size_t index) const\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -374,7 +374,7 @@ Constant reference to the dimension pointed by index
 .PP
 
 .PP
-Definition at line \fB68\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB69\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBconstexpr\fP T & \fBAEVector\fP< T, \fBdimAmount\fP >\fB::operator\fP[] (\fBconst\fP std::size_t index)\fC [inline]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -397,7 +397,7 @@ Reference to the dimension pointed by index
 .PP
 
 .PP
-Definition at line \fB51\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB52\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBconst\fP std::string \fBAEVector\fP< T, \fBdimAmount\fP >::toString (\fBvoid\fP) const\fC [inline]\fP"
 
 .PP
@@ -410,7 +410,7 @@ std::string of values of the vector in brackets
 .PP
 
 .PP
-Definition at line \fB167\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB168\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> \fBstatic\fP \fBconstexpr\fP \fBAEVector\fP< T, \fBdimAmount\fP > \fBAEVector\fP< T, \fBdimAmount\fP >::zero (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -423,7 +423,7 @@ std::string of values of the vector in brackets
 .PP
 
 .PP
-Definition at line \fB39\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB40\fP of file \fBAEVector\&.hpp\fP\&.
 .SH "Friends And Related Symbol Documentation"
 .PP 
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> std::ostream & \fBoperator\fP<< (std::ostream & out, \fBconst\fP \fBAEVector\fP< T, \fBdimAmount\fP > & two)\fC [friend]\fP"
@@ -452,7 +452,7 @@ The reference to the resulting ostream object
 .PP
 
 .PP
-Definition at line \fB190\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB191\fP of file \fBAEVector\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "template<\fBtypename\fP T , \fBconst\fP std::size_t dimAmount> T \fBAEVector\fP< T, \fBdimAmount\fP >::dims[\fBdimAmount\fP] {}"
@@ -460,7 +460,7 @@ Definition at line \fB190\fP of file \fBAEVector\&.hpp\fP\&.
 .PP
 The array of the vector's dimension values of the type T and size dimAmount\&. 
 .PP
-Definition at line \fB33\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB34\fP of file \fBAEVector\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

@@ -8,7 +8,7 @@ var searchData=
   ['m_5fclogtype_5',['m_cLogType',['../da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180',1,'AELogEntry']]],
   ['m_5fcstatus_6',['m_cStatus',['../da/dea/struct_a_e_log_entry.html#ac59b70ca8c0f5ce4fc3605009b433b59',1,'AELogEntry']]],
   ['m_5fffps_7',['m_fFPS',['../df/dd7/class_a_e_frame.html#ab06c8ac7fefff8614270dff6f4f08ebf',1,'AEFrame']]],
-  ['m_5ffpfilestr_8',['m_fpfilestr',['../db/d15/class_a_e_file_writer.html#abc668469c5d4c8ab137ada57367a398d',1,'AEFileWriter::m_fpFilestr'],['../dd/dd5/class_a_e_file_reader.html#a6989cead45587e69d4fb16c5758018b3',1,'AEFileReader::m_fpFilestr']]],
+  ['m_5ffpfilestr_8',['m_fpfilestr',['../db/d15/class_a_e_file_writer.html#ad5269db1c4bfe2416840f8e92f2ac9f6',1,'AEFileWriter::m_fpFilestr'],['../dd/dd5/class_a_e_file_reader.html#ae4c35d3e1af1bffbcc684dab2017f24d',1,'AEFileReader::m_fpFilestr']]],
   ['m_5ffrlogreader_9',['m_frLogReader',['../d8/d52/class_a_e_log_parser.html#a7a38c688d9485750a19f272ceee513fd',1,'AELogParser']]],
   ['m_5ffwlogger_10',['m_fwLogger',['../d8/dfc/class_a_e_logger.html#ae9895e282c5bdf81312106acd988e1d8',1,'AELogger']]],
   ['m_5fleplastnode_11',['m_lepLastNode',['../d8/dfc/class_a_e_logger.html#a5fb2a77428439b46c140f2d84132f2d0',1,'AELogger']]],

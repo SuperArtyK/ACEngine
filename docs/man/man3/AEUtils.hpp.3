@@ -1,23 +1,28 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Fri Jan 12 2024 01:10:12" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEMisc/include/AEUtils.hpp \- This file contains engine function (hopefully useful) utilities\&.  
-
+AEMisc/include/AEUtils.hpp
 .SH SYNOPSIS
 .br
 .PP
+\fC#include 'AEFlags\&.hpp'\fP
+.br
 \fC#include 'AETypedefs\&.hpp'\fP
 .br
-\fC#include 'AEFlags\&.hpp'\fP
+\fC#include <algorithm>\fP
+.br
+\fC#include <iostream>\fP
 .br
 \fC#include <string>\fP
 .br
-\fC#include <algorithm>\fP
+\fC#include <cstring>\fP
 .br
 \fC#include <ctime>\fP
 .br
 \fC#include <sstream>\fP
+.br
+\fC#include <iomanip>\fP
 .br
 
 .SS "Namespaces"
@@ -73,18 +78,9 @@ AEMisc/include/AEUtils.hpp \- This file contains engine function (hopefully usef
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBaceAssert\fP(\fBexpression\fP,  \fBmessage\fP)   \fBif\fP ( !(\fBexpression\fP) ) { \fBstd::cerr\fP << 'Assertion \fBfailed!\\nExpression:\fP ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << \fBstd::endl\fP; \fBabort\fP(); }"
+.RI "#\fBdefine\fP \fBaceAssert\fP(\fBexpression\fP,  \fBmessage\fP)   \fBif\fP ( !(\fBexpression\fP) ) { \fBstd::cerr\fP << '\\n\\nAssertion \fBfailed!\\nExpression:\fP ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << \fBstd::endl\fP; \fBabort\fP(); }"
 .br
-.RI "Better-fomatted assertion for runtime checks 
-.PP
-\fBParameters\fP
-.RS 4
-\fIexpression\fP The logical expression to assert
-.br
-\fImessage\fP The message to display if the assertion fails
-.RE
-.PP
-"
+.RI "Better-fomatted assertion for runtime checks\&. "
 .ti -1c
 .RI "#\fBdefine\fP \fBdprintf\fP(\&.\&.\&.)   \fBif\fP \fBconstexpr\fP (\fBENGINE_DEBUG\fP) { \fBprintf\fP('DEBUG::%\fBs\fP()\-> ', __FUNCTION__); \fBprintf\fP(\fB__VA_ARGS__\fP); \fBprintf\fP('\\n'); }"
 .br
@@ -191,7 +187,7 @@ AEMisc/include/AEUtils.hpp \- This file contains engine function (hopefully usef
 .br
 .RI "Retrieves the current date and time and formats it in the YYYY-MM-DD\&.HH:mm:SS\&. "
 .ti -1c
-.RI "\fBconst\fP time_t \fBace::utils::stringToDate\fP (\fBconst\fP char *\fBconst\fP \fBtimestr\fP, \fBconst\fP char *\fBconst\fP \fBtimeformat\fP='%Y\-%\fBm\fP\-%d\&.%\fBX'\fP)"
+.RI "time_t \fBace::utils::stringToDate\fP (\fBconst\fP char *\fBconst\fP \fBtimestr\fP, \fBconst\fP char *\fBconst\fP \fBtimeformat\fP='%Y\-%\fBm\fP\-%d\&.%\fBX'\fP)"
 .br
 .ti -1c
 .RI "std::string \fBace::utils::addrToStr\fP (\fBconst\fP \fBvoid\fP *\fBconst\fP \fBmyptr\fP)"
@@ -206,7 +202,7 @@ AEMisc/include/AEUtils.hpp \- This file contains engine function (hopefully usef
 .br
 .RI "Convenient sleep function to sleep the thread for ms microseconds\&. "
 .ti -1c
-.RI "\fBFILE\fP * \fBace::utils::fopenCC\fP (\fBconst\fP char *\fBconst\fP \fBfname\fP, \fBconst\fP char *\fBconst\fP \fBflags\fP) \fBnoexcept\fP"
+.RI "std::FILE * \fBace::utils::fopenCC\fP (\fBconst\fP char *\fBconst\fP \fBfname\fP, \fBconst\fP char *\fBconst\fP \fBflags\fP) \fBnoexcept\fP"
 .br
 .RI "fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it properly\&. "
 .ti -1c
@@ -228,17 +224,21 @@ AEMisc/include/AEUtils.hpp \- This file contains engine function (hopefully usef
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains engine function (hopefully useful) utilities\&. 
-
+This file contains engine function (hopefully useful) utilities\&.
+.PP
 Should not cause everything to break :) 
 .PP
 Definition in file \fBAEUtils\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP aceAssert(\fBexpression\fP, \fBmessage\fP)   \fBif\fP ( !(\fBexpression\fP) ) { \fBstd::cerr\fP << 'Assertion \fBfailed!\\nExpression:\fP ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << \fBstd::endl\fP; \fBabort\fP(); }"
+.SS "#\fBdefine\fP aceAssert(\fBexpression\fP, \fBmessage\fP)   \fBif\fP ( !(\fBexpression\fP) ) { \fBstd::cerr\fP << '\\n\\nAssertion \fBfailed!\\nExpression:\fP ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << \fBstd::endl\fP; \fBabort\fP(); }"
 
 .PP
-Better-fomatted assertion for runtime checks 
+Better-fomatted assertion for runtime checks\&. 
+.PP
+\fBNote\fP
+.RS 4
+Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 
 .PP
 \fBParameters\fP
 .RS 4
@@ -247,9 +247,11 @@ Better-fomatted assertion for runtime checks
 \fImessage\fP The message to display if the assertion fails
 .RE
 .PP
+.RE
+.PP
 
 .PP
-Definition at line \fB41\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB46\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP aeoffsetof(\fBtype\fP, \fBmember\fP)   (\fBintptr_t\fP)&(((\fBtype\fP*)\fBNULL\fP)\->\fBmember\fP)"
 
 .PP
@@ -264,7 +266,7 @@ Offsetof alternative if the compiler doesn't support the offsetof natively
 .PP
 
 .PP
-Definition at line \fB72\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB80\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP arrsize(\fBarr\fP)   (\fBsizeof\fP(\fBarr\fP) / \fBsizeof\fP(\fBarr\fP[0]) )"
 
 .PP
@@ -277,13 +279,13 @@ Macro for the calculation of static, compile-time array
 .PP
 
 .PP
-Definition at line \fB26\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB29\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP DATETIME_STRING_SIZE   20"
 
 .PP
 Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP 
 .PP
-Definition at line \fB89\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB97\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP dprintf( \&.\&.\&.)   \fBif\fP \fBconstexpr\fP (\fBENGINE_DEBUG\fP) { \fBprintf\fP('DEBUG::%\fBs\fP()\-> ', __FUNCTION__); \fBprintf\fP(\fB__VA_ARGS__\fP); \fBprintf\fP('\\n'); }"
 
 .PP
@@ -293,20 +295,20 @@ Macro for the debug \fBprintf()\fP printing, use the same way as you have used p
 .RS 4
 Prints additional newline with each print 
 .PP
-Does nothing if ENGINE_DEBUG is not defined and set to 1 
+Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 
 .RE
 .PP
 
 .PP
-Definition at line \fB47\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB55\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP fseek   \fBfseeko\fP"
 
 .PP
-Definition at line \fB99\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB107\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP ftell   \fBftello\fP"
 
 .PP
-Definition at line \fB98\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB106\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP getBit(\fBvalue\fP, \fBbit\fP)   (\fBvalue\fP& (1 << \fBbit\fP))"
 
 .PP
@@ -321,7 +323,7 @@ Macro to get the bit of the given value (bitwise operations)
 .PP
 
 .PP
-Definition at line \fB36\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB39\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP IS_SAME_NOC(T, \fBY\fP)   (\fBstd::is_same\fP<\fBtypename\fP \fBstd::decay\fP<\fBconst\fP T>\fB::type\fP, \fBtypename\fP \fBstd::decay\fP<\fBconst\fP \fBY\fP>\fB::type\fP>\fB::value\fP)"
 
 .PP
@@ -342,7 +344,7 @@ It decays both types and omits const-ness
 .PP
 
 .PP
-Definition at line \fB57\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB65\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP mod0(\fBdividend\fP, \fBdivisor\fP)   !(\fBdividend\fP % \fBdivisor\fP)"
 
 .PP
@@ -357,19 +359,19 @@ Macro for the check if modulo of x and y results in 0
 .PP
 
 .PP
-Definition at line \fB31\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB34\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP NLC   '\\\fBn\fP'"
 
 .PP
 Macro for newline char\&. 
 .PP
-Definition at line \fB83\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB91\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP NLS   '\\n'"
 
 .PP
 Macro for newline string\&. 
 .PP
-Definition at line \fB86\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB94\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP UTF8(\fBx\fP)   \fBu8\fP ## \fBx\fP"
 
 .PP
@@ -382,7 +384,7 @@ Macro to convert the normal string literal to utf-8/unicode string literal; u8'H
 .PP
 
 .PP
-Definition at line \fB61\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB69\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP WSTR(\fBx\fP)   \fBL\fP ## \fBx\fP"
 
 .PP
@@ -395,7 +397,7 @@ Macro to convert the 'string literal' to L'wide string literal'
 .PP
 
 .PP
-Definition at line \fB64\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB72\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

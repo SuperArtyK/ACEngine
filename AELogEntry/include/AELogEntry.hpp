@@ -1,5 +1,5 @@
 
-/** @file AELogEntry/include/AELogEntry.hpp
+/*! @file AELogEntry/include/AELogEntry.hpp
  *  This file contains the code for the log entry -- struct containing data from the entry of the log file.
  *  And the code for it's basic functions, like copying, clearing, formatting to string and back,
  *  deducing its type to string and making the queue

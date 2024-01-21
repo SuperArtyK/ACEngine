@@ -1,5 +1,5 @@
 ﻿
-/** @file AEVector/include/AEVector.hpp
+/*! @file AEVector/include/AEVector.hpp
  *  This file contains the engine's math vector code.
  *  So you can make more math calculations with it...and things in graphics and games
  *  that need (math) vectors to accomplish

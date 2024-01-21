@@ -1,10 +1,10 @@
 
-/** @file AEFileReader/src/AEFileReader.cpp
+/*! @file AEFileReader/src/AEFileReader.cpp
  *  This file contains the definitions of the engine's file reader's functions
  *  @see AEFileReader
  *  @see AEFileReader.hpp
  *
- *  Should not cause everything to break.
+ *  Should not cause everything to break :)
  */
 
 #include "../include/AEFileReader.hpp"

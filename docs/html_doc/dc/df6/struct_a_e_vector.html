@@ -180,7 +180,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">typename</a> T, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> std::size_t dimAmount&gt;<br />
 struct AEVector&lt; T, dimAmount &gt;</div><p>The ArtyK's Engine's mathematical vector &ndash; for mathematically-correct vector operations. </p>
-<p>Yeah, the mathematical vectors, that are in CS..just labeled arrays of numbers for ease of use lol.</p>
+<p>Yeah, the mathematical vectors, that are in CS..just labeled arrays of numbers for ease of use lol. Most of the <a class="el" href="../../dc/df6/struct_a_e_vector.html" title="The ArtyK&#39;s Engine&#39;s mathematical vector – for mathematically-correct vector operations.">AEVector</a> functionality is made to be constexpr &ndash; so it can be calculated and optimised the same way as the default, fundamental types of c++. The only exceptions are the <a class="el" href="../../dc/df6/struct_a_e_vector.html#a59390b36ea5f70b78d6698fb9a60e9e6" title="Converts the vector to std::string, of format [a, b, c, ...].">toString()</a> and <a class="el" href="../../dc/df6/struct_a_e_vector.html#af4430ee7a2a439fd2d2aab2567bab02f" title="The ostream&#39;s &lt;&lt; operator overload...to output the vector through the ostreams.">operator&lt;&lt;()</a> since both std::string and ostream cannot be constexpr (for now).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The numberical type to use in the vector</td></tr>
@@ -189,7 +189,7 @@ struct AEVector&lt; T, dimAmount &gt;</div><p>The ArtyK's Engine's mathematical 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0e6834afbffd655191c22f048a02298c" name="a0e6834afbffd655191c22f048a02298c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e6834afbffd655191c22f048a02298c">&#9670;&#160;</a></span>dotProduct()</h2>
@@ -235,7 +235,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of the dot product of the type F</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00242">242</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00243">243</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -276,7 +276,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The magnitude of the vector as the float type F</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00202">202</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -317,7 +317,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The normalised vector</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00223">223</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00224">224</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The normalised value of the dimension as the float type F</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00213">213</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00214">214</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -412,7 +412,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the vectors are not equal, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +459,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of the resulting vector after the operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00158">158</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00159">159</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +506,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +554,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of the resulting vector after the operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00132">132</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -602,7 +602,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00117">117</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -650,7 +650,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the vectors are equal, false otherwise</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -690,7 +690,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Constant reference to the dimension pointed by index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00068">68</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -730,7 +730,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the dimension pointed by index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00052">52</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -763,7 +763,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <p>Converts the vector to std::string, of format [a, b, c, ...]. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string of values of the vector in brackets</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00167">167</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00168">168</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -796,7 +796,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <p>Returns the zeroed vector (of given dimensions and type) </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string of values of the vector in brackets</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -854,7 +854,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The reference to the resulting ostream object</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00190">190</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00191">191</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -875,7 +875,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 
 <p>The array of the vector's dimension values of the type T and size dimAmount. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -888,7 +888,7 @@ template&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a></li>
-    <li class="footer">Generated on Fri Jan 12 2024 01:10:12 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 20 2024 16:30:37 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

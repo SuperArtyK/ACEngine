@@ -1,5 +1,5 @@
 
-/** @file AEMisc/include/AEMath.hpp
+/*! @file AEMisc/include/AEMath.hpp
  *  This file contains the engine math functions, (probably)optimised for engine stuff.
  *  may be faster or equivalent to what can you find/do yourself.
  *  And yeah...easier to use.

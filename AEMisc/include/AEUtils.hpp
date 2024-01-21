@@ -1,5 +1,5 @@
 
-/** @file AEMisc/include/AEUtils.hpp
+/*! @file AEMisc/include/AEUtils.hpp
  *  This file contains engine function (hopefully useful) utilities.
  *
  *  Should not cause everything to break :)
@@ -38,18 +38,23 @@
 /// <param name="bit">The bit number to get</param>
 #define getBit(value, bit) (value& (1 << bit))
 
+#if ENGINE_ENABLE_ASSERT
 /// Better-fomatted assertion for runtime checks
+/// @note Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1
 /// <param name="expression">The logical expression to assert</param>
 /// <param name="message">The message to display if the assertion fails</param>
-#define aceAssert(expression, message) if ( !(expression) ) { std::cerr << "Assertion failed!\nExpression: " << #expression << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << message << std::endl; abort(); }
+#define aceAssert(expression, message) if ( !(expression) ) { std::cerr << "\n\nAssertion failed!\nExpression: " << #expression << "\nFile: " << __FILE__ << "\nLine: " << __LINE__ << "\nMessage: " << message << std::endl; abort(); }
+#else
+#define aceAssert(expression, message) {}
+#endif
 
+#if ENGINE_DEBUG
 /// Macro for the debug printf() printing, use the same way as you have used printf before.
 /// @note Prints additional newline with each print
-/// @note Does nothing if ENGINE_DEBUG is not defined and set to 1
-#if ENGINE_DEBUG
+/// @note Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1
 #define dprintf(...) if constexpr (ENGINE_DEBUG) { printf("DEBUG::%s()-> ", __FUNCTION__); printf(__VA_ARGS__); printf("\n"); }
 #else
-#define dprintf(...) 
+#define dprintf(...) {}
 #endif
 
 /// Macro to check if the given type T is about the same as Y

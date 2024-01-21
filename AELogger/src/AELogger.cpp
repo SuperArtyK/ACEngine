@@ -1,10 +1,10 @@
 
-/** @file AELogger/src/AELogger.cpp
+/*! @file AELogger/src/AELogger.cpp
  *  This file contains the definitions of the engine's logger's functions.
  *  @see AELogger
  *  @see AELogger.hpp
  *
- *  Should not cause everything to break.
+ *  Should not cause everything to break :)
  */
 
 #include "../include/AELogger.hpp"

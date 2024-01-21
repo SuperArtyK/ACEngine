@@ -13,7 +13,16 @@ var searchData=
   ['copyentryfull_10',['copyEntryFull',['../da/dea/struct_a_e_log_entry.html#ab9d11cb753b484c09fb2f5f8f6262038',1,'AELogEntry']]],
   ['copyentryreduced_11',['copyEntryReduced',['../da/dea/struct_a_e_log_entry.html#aa3fd2716af875e983273399b7d5ae1f8',1,'AELogEntry']]],
   ['cosdeg_12',['cosDeg',['../d5/d0f/namespaceace_1_1math.html#a6d6fc7afd09d4c910a45218da9ae2bc6',1,'ace::math']]],
-  ['cotdeg_13',['cotDeg',['../d5/d0f/namespaceace_1_1math.html#a6ae1260251ad68d4b5d97276dfe067f1',1,'ace::math']]],
-  ['cscdeg_14',['cscDeg',['../d5/d0f/namespaceace_1_1math.html#aeb83e68b525d9da76ba43522371e1faf',1,'ace::math']]],
-  ['current_20project_20list_3a_15',['Current project list:',['../index.html#current-project-list',1,'']]]
+  ['cosdeg_5ftable_13',['cosDeg_table',['../d5/d0f/namespaceace_1_1math.html#a87335418d422478a1c6ed62a58d0cd0c',1,'ace::math']]],
+  ['cosdeg_5ftableinterp_14',['cosDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a18ebf5127edf0556e8f1e25dffd8c1a1',1,'ace::math']]],
+  ['costable_15',['cosTable',['../d5/d0f/namespaceace_1_1math.html#abcbae3c4abff8b62074886e1e0fb5cf1',1,'ace::math']]],
+  ['cotdeg_16',['cotDeg',['../d5/d0f/namespaceace_1_1math.html#a6ae1260251ad68d4b5d97276dfe067f1',1,'ace::math']]],
+  ['cotdeg_5ftable_17',['cotDeg_table',['../d5/d0f/namespaceace_1_1math.html#add8d8d764538a610f0e7502f6fb772fb',1,'ace::math']]],
+  ['cotdeg_5ftableinterp_18',['cotDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a9251fed86320f2ebdb6ab999631d538c',1,'ace::math']]],
+  ['cottable_19',['cotTable',['../d5/d0f/namespaceace_1_1math.html#ae263b3231a5d96b8f92f660887cc6a50',1,'ace::math']]],
+  ['cscdeg_20',['cscDeg',['../d5/d0f/namespaceace_1_1math.html#aeb83e68b525d9da76ba43522371e1faf',1,'ace::math']]],
+  ['cscdeg_5ftable_21',['cscDeg_table',['../d5/d0f/namespaceace_1_1math.html#a99c321c1ec7c050aa5cb7fdba6feda7d',1,'ace::math']]],
+  ['cscdeg_5ftableinterp_22',['cscDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a6707069eefabdb087b2fd2d38da37435',1,'ace::math']]],
+  ['csctable_23',['cscTable',['../d5/d0f/namespaceace_1_1math.html#a407e7fcaa7b1d1f48b2ed01a1fac27ee',1,'ace::math']]],
+  ['current_20project_20list_3a_24',['Current project list:',['../index.html#current-project-list',1,'']]]
 ];

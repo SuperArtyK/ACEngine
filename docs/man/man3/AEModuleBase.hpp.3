@@ -1,17 +1,16 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Fri Jan 12 2024 01:10:12" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEModuleBase/include/AEModuleBase.hpp \- This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class\&.  
-
+AEModuleBase/include/AEModuleBase.hpp
 .SH SYNOPSIS
 .br
 .PP
 \fC#include 'include/AETypedefs\&.hpp'\fP
 .br
-\fC#include <string>\fP
-.br
 \fC#include <atomic>\fP
+.br
+\fC#include <string>\fP
 .br
 \fC#include <string_view>\fP
 .br
@@ -28,7 +27,7 @@ AEModuleBase/include/AEModuleBase.hpp \- This file contains the code for the mod
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBREGISTER_MODULE\fP(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fB__getTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
+.RI "#\fBdefine\fP \fBREGISTER_MODULE\fP(T)   \fBtemplate\fP<> \fBconst\fP \fBinline\fP std::string_view \fB__AEModuleBase\fP<T>::m_sModulename = #T;"
 .br
 .RI "Adds module name to inherit from \fB__AEModuleBase\fP\&. "
 .ti -1c
@@ -36,18 +35,10 @@ AEModuleBase/include/AEModuleBase.hpp \- This file contains the code for the mod
 .br
 .RI "Global 'no error' return flag for all engine modules\&. "
 .in -1c
-.SS "Functions"
-
-.in +1c
-.ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP std::string_view \fB__getTypeName\fP (\fBvoid\fP) \fBnoexcept\fP"
-.br
-.RI "The support function for \fB__AEModuleBase\fP's module name registration\&. "
-.in -1c
 .SH "Detailed Description"
 .PP 
-This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class\&. 
-
+This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class\&.
+.PP
 Should not cause everything to break :) 
 .PP
 Definition in file \fBAEModuleBase\&.hpp\fP\&.
@@ -58,38 +49,13 @@ Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Global 'no error' return flag for all engine modules\&. 
 .PP
-Definition at line \fB33\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "#\fBdefine\fP REGISTER_MODULE(T)   \fBtemplate\fP <> \fBconstexpr\fP std::string_view \fB__getTypeName\fP<T>() \fBnoexcept\fP { \fBreturn\fP #T; }"
+Definition at line \fB22\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "#\fBdefine\fP REGISTER_MODULE(T)   \fBtemplate\fP<> \fBconst\fP \fBinline\fP std::string_view \fB__AEModuleBase\fP<T>::m_sModulename = #T;"
 
 .PP
 Adds module name to inherit from \fB__AEModuleBase\fP\&. 
 .PP
-Definition at line \fB30\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SH "Function Documentation"
-.PP 
-.SS "template<\fBtypename\fP T > \fBconstexpr\fP std::string_view __getTypeName (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
-
-.PP
-The support function for \fB__AEModuleBase\fP's module name registration\&. 
-.PP
-\fBNote\fP
-.RS 4
-Please don't use it anywhere else\&.\&.\&.and where \fIcan\fP you use it other than here?
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP 'Type', name of the struct/class
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Without registration and overloads, default '__getTypeName'\&. With them, in correct setting, the name of the regitered module
-.RE
-.PP
-
-.PP
-Definition at line \fB27\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB19\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

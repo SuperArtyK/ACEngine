@@ -99,15 +99,15 @@ $(document).ready(function(){initNavTree('de/de8/_a_e_utils_8hpp.html','../../')
   <div class="headertitle"><div class="title">AEUtils.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>This file contains engine function (hopefully useful) utilities.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
 </div>
 <p><a href="../../de/de8/_a_e_utils_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -151,15 +151,8 @@ Macros</h2></td></tr>
 </dl>
  <br /></td></tr>
 <tr class="separator:ad79dd34fd474eec49ab69b41e1bd1a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2223c0fea4b1e7a9eb8e0f20086a7e26" id="r_a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2223c0fea4b1e7a9eb8e0f20086a7e26">aceAssert</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expression</a>,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">message</a>)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> ( !(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expression</a>) ) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::cerr</a> &lt;&lt; &quot;Assertion <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">failed!\nExpression:</a> &quot; &lt;&lt; #expression &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; message &lt;&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::endl</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">abort</a>(); }</td></tr>
-<tr class="memdesc:a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Better-fomatted assertion for runtime checks </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">expression</td><td>The logical expression to assert</td></tr>
-    <tr><td class="paramname">message</td><td>The message to display if the assertion fails</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memitem:a2223c0fea4b1e7a9eb8e0f20086a7e26" id="r_a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2223c0fea4b1e7a9eb8e0f20086a7e26">aceAssert</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expression</a>,  <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">message</a>)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> ( !(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expression</a>) ) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::cerr</a> &lt;&lt; &quot;\n\nAssertion <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">failed!\nExpression:</a> &quot; &lt;&lt; #expression &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; message &lt;&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::endl</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">abort</a>(); }</td></tr>
+<tr class="memdesc:a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Better-fomatted assertion for runtime checks.  <br /></td></tr>
 <tr class="separator:a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fb7bf82c787085c8b1ef0ad7d028424" id="r_a0fb7bf82c787085c8b1ef0ad7d028424"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424">dprintf</a>(...)&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> (<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a>) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">printf</a>(&quot;DEBUG::%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">s</a>()-&gt; &quot;, __FUNCTION__); <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">printf</a>(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">__VA_ARGS__</a>); <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">printf</a>(&quot;\n&quot;); }</td></tr>
 <tr class="memdesc:a0fb7bf82c787085c8b1ef0ad7d028424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the debug <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">printf()</a> printing, use the same way as you have used printf before.  <br /></td></tr>
@@ -242,8 +235,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a5ef830bd659e4848847aa793e2f60852" id="r_a5ef830bd659e4848847aa793e2f60852"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>)</td></tr>
 <tr class="memdesc:a5ef830bd659e4848847aa793e2f60852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
 <tr class="separator:a5ef830bd659e4848847aa793e2f60852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87457565590bb82350cc56e875bdafcb" id="r_a87457565590bb82350cc56e875bdafcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a87457565590bb82350cc56e875bdafcb">ace::utils::stringToDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timestr</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timeformat</a>=&quot;%Y-%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">m</a>-%d.%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">X&quot;</a>)</td></tr>
-<tr class="separator:a87457565590bb82350cc56e875bdafcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4eb2977c40497242a679e5364f92c62" id="r_aa4eb2977c40497242a679e5364f92c62"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#aa4eb2977c40497242a679e5364f92c62">ace::utils::stringToDate</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timestr</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">timeformat</a>=&quot;%Y-%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">m</a>-%d.%<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">X&quot;</a>)</td></tr>
+<tr class="separator:aa4eb2977c40497242a679e5364f92c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4af4be5bbce90b720b5fc7566e9b0b09" id="r_a4af4be5bbce90b720b5fc7566e9b0b09"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a4af4be5bbce90b720b5fc7566e9b0b09">ace::utils::addrToStr</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a> *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">myptr</a>)</td></tr>
 <tr class="memdesc:a4af4be5bbce90b720b5fc7566e9b0b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the hex address value to string.  <br /></td></tr>
 <tr class="separator:a4af4be5bbce90b720b5fc7566e9b0b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,9 +246,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acfa0966e8fb72f8844c26d4411c9348a" id="r_acfa0966e8fb72f8844c26d4411c9348a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#acfa0966e8fb72f8844c26d4411c9348a">ace::utils::sleepUS</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">int</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">us</a>)</td></tr>
 <tr class="memdesc:acfa0966e8fb72f8844c26d4411c9348a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to sleep the thread for ms microseconds.  <br /></td></tr>
 <tr class="separator:acfa0966e8fb72f8844c26d4411c9348a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a810ed53b72f953d7da3e75edbd56d37a" id="r_a810ed53b72f953d7da3e75edbd56d37a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">FILE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a810ed53b72f953d7da3e75edbd56d37a">ace::utils::fopenCC</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">flags</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
-<tr class="memdesc:a810ed53b72f953d7da3e75edbd56d37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">fopen-cross-compiler &ndash;just a cross-compiler wrapper of FILE's fopen to do it properly.  <br /></td></tr>
-<tr class="separator:a810ed53b72f953d7da3e75edbd56d37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eb2322353edc04f78dbc3589e60d98c" id="r_a6eb2322353edc04f78dbc3589e60d98c"><td class="memItemLeft" align="right" valign="top">std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c">ace::utils::fopenCC</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>, <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char *<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">flags</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memdesc:a6eb2322353edc04f78dbc3589e60d98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">fopen-cross-compiler &ndash;just a cross-compiler wrapper of FILE's fopen to do it properly.  <br /></td></tr>
+<tr class="separator:a6eb2322353edc04f78dbc3589e60d98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac203feb6c6323da0d38130bd7f6ede3" id="r_aac203feb6c6323da0d38130bd7f6ede3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#aac203feb6c6323da0d38130bd7f6ede3">ace::utils::charToInt</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> char <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">c</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
 <tr class="memdesc:aac203feb6c6323da0d38130bd7f6ede3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given character value to int ('0' to 0), if it is within the '0'-&gt;'9' range.  <br /></td></tr>
 <tr class="separator:aac203feb6c6323da0d38130bd7f6ede3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,7 +263,7 @@ Functions</h2></td></tr>
 <tr class="separator:ac3eadc5f289b54059322023f3c5eed96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains engine function (hopefully useful) utilities. </p>
+<div class="textblock"><p>This file contains engine function (hopefully useful) utilities.</p>
 <p>Should not cause everything to break :) </p>
 
 <p class="definition">Definition in file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
@@ -296,21 +289,22 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> ( !(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expression</a>) ) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::cerr</a> &lt;&lt; &quot;Assertion <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">failed!\nExpression:</a> &quot; &lt;&lt; #expression &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; message &lt;&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::endl</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">abort</a>(); }</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">if</a> ( !(<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">expression</a>) ) { <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::cerr</a> &lt;&lt; &quot;\n\nAssertion <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">failed!\nExpression:</a> &quot; &lt;&lt; #expression &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; message &lt;&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">std::endl</a>; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">abort</a>(); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Better-fomatted assertion for runtime checks </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Better-fomatted assertion for runtime checks. </p>
+<dl class="section note"><dt>Note</dt><dd>Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">expression</td><td>The logical expression to assert</td></tr>
     <tr><td class="paramname">message</td><td>The message to display if the assertion fails</td></tr>
   </table>
   </dd>
 </dl>
-</p>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -349,7 +343,7 @@ Functions</h2></td></tr>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00080">80</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -377,7 +371,7 @@ Functions</h2></td></tr>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +389,7 @@ Functions</h2></td></tr>
 
 <p>Size of the string of the formatted date-time by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb" title="Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.">ace::utils::formatDate()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00089">89</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -418,9 +412,9 @@ Functions</h2></td></tr>
 <p>Macro for the debug <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">printf()</a> printing, use the same way as you have used printf before. </p>
 <dl class="section note"><dt>Note</dt><dd>Prints additional newline with each print </dd>
 <dd>
-Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
+Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -436,7 +430,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00099">99</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -452,7 +446,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -491,7 +485,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00036">36</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -531,7 +525,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 </dl>
 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00065">65</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -570,7 +564,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -588,7 +582,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
 <p>Macro for newline char. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -606,7 +600,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 
 <p>Macro for newline string. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -634,7 +628,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00061">61</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -662,7 +656,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00064">64</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -672,7 +666,7 @@ Does nothing if ENGINE_DEBUG is not defined and set to 1 </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html">AEUtils.hpp</a></li>
-    <li class="footer">Generated on Fri Jan 12 2024 01:10:12 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 20 2024 16:30:37 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

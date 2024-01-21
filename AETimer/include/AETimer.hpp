@@ -1,5 +1,5 @@
 
-/** @file AETimer/include/AETimer.hpp
+/*! @file AETimer/include/AETimer.hpp
  *  This file contains the code for engine's timer. You can use it to time events.
  *  Or like...wait for the tick of the timer for a certain delay or even to happen.
  *  

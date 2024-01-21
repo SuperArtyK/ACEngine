@@ -1,5 +1,5 @@
 
-/** @file AECustomTypes/include/AELogTypes.hpp
+/*! @file AECustomTypes/include/AELogTypes.hpp
  *  This file contains the macros for the AELogEntry (and consequently AELogger's) log types.
  *  Please do not touch! (Unless really-really sure) Thank you.
  *

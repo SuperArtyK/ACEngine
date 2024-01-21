@@ -126,16 +126,36 @@ ACCOMPLISHED FEATURES</h2>
 DESIRED FEATURES</h2>
 <ul>
 <li>Engine file format</li>
-<li>Read and parse logs from file</li>
+<li>Read and parse logs from file (partially implemented + testing)</li>
 <li>Get input from keyboard and mouse</li>
 <li>Control console's window properties</li>
 <li>Control characters on the screen: write them/change color individually and in bulk</li>
-<li>Make it crossplatform and support multiple build systems</li>
+<li>Make it crossplatform and support multiple build systems (cmake babyyyy. Maybe I'll need to rework it from scratch :') )</li>
 <li>Play and synthesize sound</li>
 </ul>
 <p>(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)</p>
 <p>Yeah, I have yet to release any working version.</p>
-<p><b>Technical stuff:</b> When including a header file that belongs to a project, just include it's name in quotes. Otherwise add the "include/" before it's name. Also yeah, make that the include/source path is set up properly - add the "$(SolutionDir)\\&zwj;(Dependency project name)\include" (or src) to the paths of your project...and add the source <a class="el" href="dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2" title="A macro as the shortcut of chrono&#39;s time point. I couldn&#39;t shove it into a typedef so....">file(s)</a> of the module you're including to the project, if they exist.</p>
+<h2><a class="anchor" id="how-to-build"></a>
+How to build</h2>
+<h3><a class="anchor" id="windows"></a>
+Windows</h3>
+<ul>
+<li>Clone the project</li>
+<li>Open the .sln</li>
+<li>Build the solution/projects</li>
+</ul>
+<h3><a class="anchor" id="linux"></a>
+Linux</h3>
+<ul>
+<li>Sadly...you can't, unless manually (or untill sacred cmake appears in this engine)</li>
+</ul>
+<h2><a class="anchor" id="technical-stuff-for-people-that-wish-to-use-this"></a>
+Technical stuff for people that wish to use this</h2>
+<p>When creating a new project in the engine, use the template "ACEngine project template.zip" so you don't have to setup all the include and source paths, etc.</p>
+<p>In future there will be another template for advanced modules, that rely on much more functionalty and...other modules to work.</p>
+<p>Also, to be consistent with the engine's include system (if developing engine stuff), add all headers in the "include" folder, and source files to the "src" folder (except the main.cpp of course)</p>
+<p>And to differentiate the headers of the current project and projects that it depends upon, when including a header file of the project &ndash; include it just in quotes. While add the "include/" before the name for the headers that the project depends on. <b>BUT</b> in source files of those projects that include the projects' headers (like .cpp implementation file for a class), add the "../include/" before header file name anyway. Otherwise, it can mess up compilation, if you depend on that project later.</p>
+<p>Also make sure that the include/source paths are set up properly: add the "$(SolutionDir)\\&zwj;(Dependency project name)\include" and the "$(SolutionDir)\\&zwj;(Dependency project name)\src" to the paths.</p>
 <p>And all of this stuff is backed by <a class="el" href="d2/d35/md__l_i_c_e_n_s_e.html">**MIT License**</a>. <b>Free Software, Hell Yeah!</b> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
@@ -143,7 +163,7 @@ DESIRED FEATURES</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 12 2024 01:10:12 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 20 2024 16:30:37 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

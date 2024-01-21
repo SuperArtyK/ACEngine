@@ -1,4 +1,4 @@
-.TH "AEFrame" 3 "Fri Jan 12 2024 01:10:12" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFrame" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -106,7 +106,7 @@ If the game loop takes more time than the set fps goal amount, the frame times c
 .PP
 
 .PP
-Definition at line \fB31\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB30\fP of file \fBAEFrame\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "AEFrame::AEFrame (\fBconst\fP double fps = \fC\fBENGINE_FPS\fP\fP)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
@@ -126,7 +126,7 @@ if you pass it 0 or negative number it will disable the delay untill a proper va
 .PP
 
 .PP
-Definition at line \fB40\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB39\fP of file \fBAEFrame\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "double AEFrame::getDelay (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
@@ -141,7 +141,7 @@ double of the maximum \fBAEFrame\fP's delay in real-world seconds
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB90\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "double AEFrame::getFrameRate (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -154,7 +154,7 @@ double of the given fps goal
 .PP
 
 .PP
-Definition at line \fB85\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB84\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -167,7 +167,7 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB77\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB66\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -180,13 +180,13 @@ Returns the name of the registered module\&.
 .PP
 
 .PP
-Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB74\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBvoid\fP AEFrame::resetTimePoint (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
 Resets the time point in the \fBAEFrame\fP to current system time\&. Helps if the gameloop delay was much bigger than AEFrames for a long time (it causes delay to stop working untill it catches up) 
 .PP
-Definition at line \fB77\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB76\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBvoid\fP AEFrame::setFps (\fBconst\fP double fps)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -204,13 +204,13 @@ if you pass it 0 or negative number it will disable the delay untill a proper va
 .PP
 
 .PP
-Definition at line \fB50\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB49\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBvoid\fP AEFrame::sleep (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
 Puts the current thread to sleep up to the set fps goal\&. Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, then the thread will sleep the rest of 20ms to make the game loop run at 30fps\&. 
 .PP
-Definition at line \fB62\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB61\fP of file \fBAEFrame\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "bool AEFrame::m_bNoDelay\fC [private]\fP"
@@ -218,15 +218,15 @@ Definition at line \fB62\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 The flag if we don't need the delay, err, for some reason\&. 
 .PP
-Definition at line \fB101\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB100\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "double AEFrame::m_fFPS\fC [private]\fP"
 
 .PP
-Definition at line \fB99\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB98\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAEFrame\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
-Name of the module (class), same as in code\&. Sets up the static variable values for the base class (and inherited classes)
+Name of the module (class), same as in code\&. 
 .PP
 \fBTodo\fP
 .RS 4
@@ -235,7 +235,7 @@ Find a way to make it constexpr and compile-time evaluated
 .PP
 
 .PP
-Definition at line \fB95\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB84\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBtimeDur\fP<double> AEFrame::m_tdChronoDelay\fC [private]\fP"
 
 .PP
@@ -243,19 +243,19 @@ The time duration for the delay in sleeps
 .br
  
 .PP
-Definition at line \fB96\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBtimePoint\fP<\fBSteadyTime\fP, \fBdecltype\fP(\fBm_tdChronoDelay\fP)> AEFrame::m_tpTimepoint\fC [private]\fP"
 
 .PP
 The timepoint, that sets time when to wake up the thread\&. 
 .PP
-Definition at line \fB98\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB97\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAEFrame\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
 Amount of alive module instances\&. 
 .PP
-Definition at line \fB99\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

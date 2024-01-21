@@ -1,19 +1,18 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Fri Jan 12 2024 01:10:12" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (probably)optimised for engine stuff\&.  
-
+AEMisc/include/AEMath.hpp
 .SH SYNOPSIS
 .br
 .PP
-\fC#include <cmath>\fP
+\fC#include 'AETypedefs\&.hpp'\fP
 .br
 \fC#include <limits>\fP
 .br
-\fC#include <type_traits>\fP
+\fC#include <cmath>\fP
 .br
-\fC#include 'AETypedefs\&.hpp'\fP
+\fC#include <type_traits>\fP
 .br
 
 .SS "Namespaces"
@@ -52,6 +51,10 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .br
 .RI "Engine's tau (pi*2) value\&. "
 .ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piDouble\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's pi*2 variable (tau)\&. "
+.ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piHalf\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Engine's pi/2 (half) value\&. "
@@ -60,13 +63,65 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .br
 .RI "Engine's pi/4 (quarter) value\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::e\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piSquared\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's euler number value\&. "
+.RI "Engine's pi^2 (squared) value\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrt2\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::piInv\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's 1/pi (inverse) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::log2e\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's \fBlog2(e)\fP value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::log10e\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's \fBlog10(e)\fP value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::ln2\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's \fBln(2)\fP value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::ln10\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's \fBln(10)\fP value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOf2\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Engine's sqrt(2) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOf3\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's sqrt(3) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOf2Inv\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's 1/sqrt(2) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOf3Inv\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's 1/sqrt(3) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOfPi\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's sqrt(pi) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOfPiInv\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's 1/sqrt(pi) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::e\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's euler's number value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::eGamma\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's euler's gamma function (euler's constant) value\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::phi\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Engine's golden ratio (phi) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> T \fBace::math::sinDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
 .br
@@ -108,7 +163,7 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .br
 .RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBint\fP \fBpower\fP)"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBint\fP \fBpower\fP)"
 .br
 .RI "Calculate the integer power of a given number\&. "
 .ti -1c
@@ -170,9 +225,7 @@ AEMisc/include/AEMath.hpp \- This file contains the engine math functions, (prob
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains the engine math functions, (probably)optimised for engine stuff\&. 
-
-may be faster or equivalent to what can you find/do yourself\&. And yeah\&.\&.\&.easier to use\&.
+This file contains the engine math functions, (probably)optimised for engine stuff\&. may be faster or equivalent to what can you find/do yourself\&. And yeah\&.\&.\&.easier to use\&.
 .PP
 Should not cause everything to break :) 
 .PP
@@ -193,7 +246,7 @@ Macro to convert radians value x to degrees\&.
 .PP
 
 .PP
-Definition at line \fB29\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB30\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "#\fBdefine\fP torad(\fBdeg\fP, \fBtype\fP)   (\fBdeg\fP * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
 
 .PP
@@ -208,7 +261,7 @@ Macro to convert degrees value x to radians\&.
 .PP
 
 .PP
-Definition at line \fB24\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB25\fP of file \fBAEMath\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

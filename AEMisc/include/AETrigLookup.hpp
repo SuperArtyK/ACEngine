@@ -1,5 +1,5 @@
 
-/** @file AEMisc/include/AETrigLookup.hpp
+/*! @file AEMisc/include/AETrigLookup.hpp
  *  This file contains the results for the trigonometric function lookup tables.
  *  These will be insanely fast, almost as the direct memory access (since just value in array), 
  *  but won't offer much of precision -- within 1 degree.

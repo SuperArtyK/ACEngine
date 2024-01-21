@@ -1,5 +1,5 @@
 
-/** @file AEMisc/include/AETypedefs.hpp
+/*! @file AEMisc/include/AETypedefs.hpp
  *  This file contains typedefs/aliases of the variable types that are long and
  *  are used often/inconvenient to use in their long original naming.
  *

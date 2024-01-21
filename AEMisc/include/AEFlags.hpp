@@ -1,5 +1,5 @@
 
-/** @file AEMisc/include/AEFlags.hpp
+/*! @file AEMisc/include/AEFlags.hpp
  *  This file contains engine flags that are used to alter it's code and behaviour.
  *
  *  Should not cause everything to break :)
@@ -21,9 +21,12 @@
 /// Macro to enable the engine's global modules (like timer, logger, etc)
 /// @note Undefine or comment-out to disable this feature
 #define ENGINE_ENABLE_GLOBAL_MODULES 1
+/// Macro to enable the engine's assert code
+/// @see aceAssert()
+#define ENGINE_ENABLE_ASSERT 1
 /// Macro to enable the engine's trigonometry lookup code.
 /// @see AETrigLookup.hpp
-#define ENGINE_ENABLE_MATH_LOOKUP
+#define ENGINE_ENABLE_MATH_LOOKUP 1
 
 
 //AEFileWriter flags

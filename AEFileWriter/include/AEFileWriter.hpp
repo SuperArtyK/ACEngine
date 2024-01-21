@@ -1,5 +1,5 @@
 ﻿
-/** @file AEFileWriter/include/AEFileWriter.hpp
+/*! @file AEFileWriter/include/AEFileWriter.hpp
  *  This file contains the code for the engine's file writer.
  *  Which is just a small wrapper around the c's FILE api, for speed and convenience.
  *  One note when using it though: file is blocked from access by other programs when open.
