@@ -76,7 +76,7 @@ public:
 		char fileline[AELE_FORMAT_MAX_SIZE + 1]{}; //+1 more character to determine the validity)
 		cint fileRead = AEFR_ERR_NOERROR;
 		cint parsedEntry = AELP_ERR_NOERROR;
-		ullint cursor = 0;
+		llint cursor = 0;
 		AELogEntry dummyentry{};
 
 		while (1) {
@@ -197,10 +197,10 @@ private:
 	AEFileReader m_frLogReader;
 	/// The list of all indexed *valid* entries in the log file.
 	/// Each item contains their corresponding cursor position in the file and their type/severity.
-	std::vector<std::pair<ullint, cint>> m_vecEntryIndices;
+	std::vector<std::pair<llint, cint>> m_vecEntryIndices;
 	/// The list of all indexed *invalid* entries in the log file
 	/// Each item contains their corresponding cursor position in the file.
-	std::vector<ullint> m_vecInvalidEntryIndices;
+	std::vector<llint> m_vecInvalidEntryIndices;
 	/// The amount of log entries read in the file, separated by type/severity.
 	std::array<ullint, 9> m_arrEntryAmount;
 	/// The number corresponding to the currently-read *valid* entry in the log file.

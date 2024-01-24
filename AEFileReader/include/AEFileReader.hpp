@@ -563,8 +563,8 @@ public:
 	/// <summary>
 	/// Returns current read cursor position.
 	/// </summary>
-	/// <returns>Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN; On error returns ULLINT_MAX (-1)</returns>
-	inline ullint getCursorPos(void) const noexcept {
+	/// <returns>Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN</returns>
+	inline llint getCursorPos(void) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		return ftell(this->m_fpFilestr);
 	}
@@ -577,7 +577,7 @@ public:
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
 	/// <returns>0 on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file's closed, AEFR_ERR_WRONG_CURSOR_ORIGIN on invalid origin, or things that fseek can return</returns>
-	inline int setCursorPos(const ullint pos, const int origin = SEEK_CUR) const noexcept {
+	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		if(origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END){
 			return AEFR_ERR_READ_EOF;
