@@ -362,3 +362,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /build
+
+# Fun nix and ccls stuff
+# We don't need this spam
+.ccls-cache
