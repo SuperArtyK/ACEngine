@@ -25,12 +25,12 @@
 /// <summary>
 /// ArtyK's Engine's Log Parser; it parses the log files that AELogger writes.
 /// Wrapper around AELogEntry for parsing and AEFileWriter for reading functionality, (ab)using them both.
-/// 
+///
 /// When opening a file, it reads it and indexes it for log information,
 /// and after the parsing/reading the log file to memory can be requested (one entry at a time/the whole thing).
 /// Such info would be the amount of entries, amount of entries of each type, etc.
 /// Also it allows to filter the log by severity and read only important (to the use-case) data.
-/// 
+///
 /// Hungarian notation is lp. (m_lpMyLogParser)
 /// </summary>
 class AELogParser : public __AEModuleBase<AELogParser> {
@@ -41,12 +41,12 @@ public:
 	/// Class constructor -- opens the file and start the indexing process.
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
-	explicit AELogParser(const std::string_view fname) : 
+	explicit AELogParser(const std::string_view fname) :
 		m_vecEntryIndices({}), m_vecInvalidEntryIndices({}), m_arrEntryAmount({}), m_ullCurrentEntry(0) {
 		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
 		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
 		this->openLog(fname);
-		
+
 	}
 
 	/// <summary>
@@ -69,8 +69,8 @@ public:
 		if (ret != AELP_ERR_NOERROR) {
 			return ret;
 		}
-		
-		
+
+
 
 		// and index/parse log
 		char fileline[AELE_FORMAT_MAX_SIZE + 1]{}; //+1 more character to determine the validity)
@@ -113,11 +113,12 @@ public:
 	inline cint closeLog(void) {
 		m_vecEntryIndices.clear();
 		m_vecInvalidEntryIndices.clear();
-		std::memset(this->m_arrEntryAmount.data(), NULL, sizeof(this->m_arrEntryAmount.data()));
+		// the most stupid decision, but it works (whyy tf is using nested types ill-formed??)
+		std::memset(this->m_arrEntryAmount.data(), NULL, this->m_arrEntryAmount.size()* sizeof(this->m_arrEntryAmount[0]));
 		m_ullCurrentEntry = 0;
 		return this->m_frLogReader.closeFile();
 	}
-	
+
 	/// <summary>
 	/// Read the next entry in the log file of the given severity filter, and parse it to the given AELogEntry object
 	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
@@ -126,7 +127,7 @@ public:
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG);
-	
+
 	/// <summary>
 	/// Same as the AELogParser::nextEntry() but on massive scale -- scans the whole log file and parses it to the freshly-allocated queue.
 	/// @warning If this queue isn't deallocated (deleted) before dropping the queue pointer, this **WILL** lead to memory leaks!
@@ -135,7 +136,7 @@ public:
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	cint logToQueue(AELogEntry*& begin, const cint severity = AELOG_TYPE_DEBUG);
-	
+
 	/// <summary>
 	/// Get the amount of valid entries in the log (with optional lowest severity setting).
 	/// Valid entries are entries that are not AELOG_TYPE_INVALID

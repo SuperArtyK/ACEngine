@@ -219,7 +219,7 @@ public:
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
-	inline cint readString(char* str, const std::size_t dcount) noexcept; //defined below class
+	cint readString(char* str, const std::size_t dcount) noexcept; //defined below class
 
 
 //read string untill new linecharacter
@@ -466,7 +466,7 @@ public:
 	/// <param name="dcount">The amount of elements to read from the file</param>
 	/// <param name="dsize">The size of each element</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
-	inline cint readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)) noexcept; //defined below class
+	cint readData_ptr(void* cdata, const std::size_t dcount, const std::size_t dsize = sizeof(char)) noexcept; //defined below class
 
 
 //file info get-setters
