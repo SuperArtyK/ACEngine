@@ -366,3 +366,5 @@ FodyWeavers.xsd
 # Fun nix and ccls stuff
 # We don't need this spam
 .ccls-cache
+
+ACEngine-cppcheck-build-dir/

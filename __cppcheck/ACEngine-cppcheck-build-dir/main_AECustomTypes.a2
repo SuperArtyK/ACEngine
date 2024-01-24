@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<analyzerinfo hash="8515423991137181692">
-        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="D:\CODING\ACEngine\AECustomTypes\main_AECustomTypes.cpp" line="1" column="0"/>
-        </error>
-  <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="main" lineNumber="6"/>
-  </FileInfo>
-</analyzerinfo>
