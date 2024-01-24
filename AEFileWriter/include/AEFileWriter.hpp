@@ -24,6 +24,7 @@
 #include <vector>
 #include <cstring>
 #include <cfloat>
+#include <cstdio>
 
 // Do NOT touch!
 

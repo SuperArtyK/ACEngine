@@ -20,6 +20,11 @@
 #include <sstream>
 #include <iomanip>
 
+// Thanks, Arjun! https://stackoverflow.com/questions/11350878/how-can-i-determine-if-the-operating-system-is-posix-in-c
+#if defined (__unix__) || (defined (__APPLE__) && defined (__MACH__)) 
+#include <unistd.h> // unix stuff, wooooo!
+#endif
+
 //function-like macros
 //since it's more convenient to have them as a macro
 //because...syntax
@@ -102,9 +107,9 @@
 #ifdef _WIN32
 #define ftell _ftelli64
 #define fseek _fseeki64
-#else
-#define ftell ftello
-#define fseek fseeko
+#elif _POSIX_VERSION 
+#define ftell ftello64
+#define fseek fseeko64
 #endif
 
 

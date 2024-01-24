@@ -20,7 +20,7 @@
 
 
 // queue decrease algorithm
-// since we have the access to the maximum queue value, and it is being checked in the 
+// since we have the access to the maximum queue value, and it is being checked in the
 // ptrFromIndex(), we have a way to restrict the access to certain nodes for the writeToLog()
 // All by changing the max queue value to the value of the second-to-last node in the allocation vector
 // That way, when we wrap the index around next time, it wraps around the nodes that we want to keep
@@ -38,7 +38,7 @@
 #define AELOG_ERR_UNABLE_START_THREAD -11
 
 /// Macro for the error that's raised when the log-writing-thread is attempted to be started again, while it's already running
-#define AELOG_ERR_THREAD_ALREADY_RUNNING -12 
+#define AELOG_ERR_THREAD_ALREADY_RUNNING -12
 
 /// Macro for the error that's raised when the log-writing-thread is attempted to be stopped again, while it was already stopped
 #define AELOG_ERR_THREAD_ALREADY_STOPPED -13
@@ -51,11 +51,11 @@
 /// <summary>
 /// @brief The ArtyK's Engine's Logger module -- it manages the writing to the log files.
 /// A wrapper around AEFW functionality for writing, and AELogEntry for mass-formatting of entries to text
-/// 
+///
 /// The log is written by requesting and filling the entry in the queue.
 /// The AELogger instance launches the separate thread that looks at the entries in the queue,
 /// retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.
-/// 
+///
 /// Hungarian notation is lg. (m_lgMyLogger)
 /// </summary>
 /// @todo Implement copy constructors and copy assignment
@@ -81,14 +81,14 @@ public:
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
-	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) : 
+	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) :
 		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
 
 	/// <summary>
 	/// Default class constructor -- doesn't open the file, but setups the instance for one.
 	/// </summary>
 	explicit AELogger(void) : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
-		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)), 
+		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)),
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
 
 		this->m_vAllocTable.reserve(AELOG_DEFAULT_ALLOC_VECTOR_RESERVE);
@@ -102,9 +102,9 @@ public:
 
 
 	// we don't need the copy-constructor nor copy-assignment operators
-	// Okay, okay, fine, we don't need it *for now* 
+	// Okay, okay, fine, we don't need it *for now*
 	// I'll implement multithreading and multiple instances later
-	
+
 	/// Deleted (for now) copy-constructor.
 	AELogger(const AELogger&) = delete;
 	/// Deleted (for now) copy-assignment.
