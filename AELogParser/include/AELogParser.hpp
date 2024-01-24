@@ -61,50 +61,7 @@ public:
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint openLog(const std::string_view fname) {
-		if (this->isOpen()) {
-			return AEFR_ERR_OPEN_FILE_ALREADY_OPENED;
-		}
-		const cint ret = this->m_frLogReader.openFile(fname);
-		if (ret != AELP_ERR_NOERROR) {
-			return ret;
-		}
-
-
-
-		// and index/parse log
-		char fileline[AELE_FORMAT_MAX_SIZE + 1]{}; //+1 more character to determine the validity)
-		cint fileRead = AEFR_ERR_NOERROR;
-		cint parsedEntry = AELP_ERR_NOERROR;
-		llint cursor = 0;
-		AELogEntry dummyentry{};
-
-		while (1) {
-			cursor = this->m_frLogReader.getCursorPos();
-			fileRead = this->m_frLogReader.readStringNL(fileline, sizeof(fileline) - 1);
-
-			if (fileline[0] == '\n') { //first character is an empty line -- skipping...
-				break;
-			}
-			parsedEntry = AELogEntry::parseStringEntry(dummyentry, fileline, AELE_PARSE_STRING_WRITE_TYPE);
-
-			if (parsedEntry != AELP_ERR_NOERROR) {
-				if (fileRead != AEFR_ERR_NOERROR) {
-					break;
-				}
-				this->m_vecInvalidEntryIndices.push_back(cursor);
-				this->m_arrEntryAmount[0]++;
-			}
-			else {
-				this->m_vecEntryIndices.emplace_back(cursor, dummyentry.m_cLogType);
-				this->m_arrEntryAmount[dummyentry.m_cLogType + 1]++;
-			}
-		}
-
-
-
-		return ret;
-	}
+	cint openLog(const std::string_view fname);
 
 	/// <summary>
 	/// Closes the log file and clears the memory
@@ -120,13 +77,69 @@ public:
 	}
 
 	/// <summary>
-	/// Read the next entry in the log file of the given severity filter, and parse it to the given AELogEntry object
+	/// Read the next *valid* entry in the log file of the given severity filter, and parse it to the given AELogEntry object
 	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
+	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG);
+
+	/// <summary>
+	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's cursor index in the file
+	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
+	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
+	/// </summary>
+	/// <param name="severity">The lowest severity of the log to find</param>
+	/// <returns>The cursor index of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
+	inline llint getNextEntryIndex(const cint severity = AELOG_TYPE_DEBUG) {
+		if (this->isClosed()) {
+			return AEFR_ERR_FILE_NOT_OPEN;
+		}
+		//cycle the current entry number untill we find an entry with proper severity level
+		while (1) {
+			if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
+				return AEFR_ERR_READ_EOF;
+			}
+			if (this->m_vecEntryIndices[this->m_ullCurrentEntry].second >= severity) {
+				break;
+			}
+		}
+		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
+	}
+
+	/// <summary>
+	/// Get the cursor index of the current valid entry
+	/// This entry is the one that was read by a previous call to AELogParser::nextEntry() or AELogParser::getNextEntryIndex()
+	/// </summary>
+	/// <returns>The cursor index of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
+	inline llint getCurrentEntryIndex(void) const {
+		if (this->isClosed()) {
+			return AEFR_ERR_FILE_NOT_OPEN;
+		}
+		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
+	}
+
+	/// <summary>
+	/// Get the list of indices of the valid entries, separated by type.
+	/// In the return vector's std::pair<llint, cint>, llint is the index of the cursor in the file, cint is the entry type
+	/// @note If the file is not open, the returned vector is empty
+	/// </summary>
+	/// <returns>(by value) The vector of pairs, each having the (cursor) index and type of each valid entry</returns>
+	inline std::vector<std::pair<llint, cint>> getValidEntryIndices(void) const noexcept {
+		return this->m_vecEntryIndices;
+	}
+
+	/// <summary>
+	/// Get the list of indices of the invalid entries.
+	/// In the return vector, llint is the index of the cursor in the file
+	/// @note If the file is not open, the returned vector is empty
+	/// </summary>
+	/// <returns>(by value) The vector of llint's, having the cursor indices for each invalid entry</returns>
+	inline std::vector<llint> getInvalidEntryIndices(void) const noexcept {
+		return this->m_vecInvalidEntryIndices;
+	}
 
 	/// <summary>
 	/// Same as the AELogParser::nextEntry() but on massive scale -- scans the whole log file and parses it to the freshly-allocated queue.
