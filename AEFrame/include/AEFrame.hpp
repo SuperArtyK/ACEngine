@@ -30,8 +30,6 @@
 class AEFrame : public __AEModuleBase<AEFrame> {
 
 public:
-	//aaand we have to register it too
-	REGISTER_MODULE(AEFrame)
 
 //constructors
 	/// <summary>
@@ -118,6 +116,9 @@ private:
 	double m_fFPS;
 	/// The flag if we don't need the delay, err, for some reason
 	bool m_bNoDelay;
+
+	//aaand we have to register it too
+	REGISTER_MODULE(AEFrame)
 };
 
 #endif // !ENGINE_FRAME_HPP

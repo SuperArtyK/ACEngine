@@ -30,7 +30,7 @@ int main() {
 	
 	char estr[AELE_FORMAT_MAX_SIZE]{};
 	while (entryptr) {
-		std::memset(estr, NULL, AELE_FORMAT_MAX_SIZE);
+		std::memset(estr, AENULL, AELE_FORMAT_MAX_SIZE);
 		AELogEntry::formatEntry(estr, *entryptr);
 		cout << estr;
 		entryptr = entryptr->m_pNextNode;

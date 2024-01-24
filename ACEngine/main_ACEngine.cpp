@@ -41,7 +41,7 @@
 
 int main() {
 	
-	std::srand(std::time(NULL));
+	std::srand(std::time(nullptr));
 	AEFrame myr;
 	AEFileWriter myfw("acenginetest.txt", AEFW_FLAG_TRUNCATE, 1);
 	AETimer mytm(10000);

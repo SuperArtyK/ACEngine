@@ -27,9 +27,6 @@ class AETimer : public __AEModuleBase<AETimer> {
 
 public:
 
-	//aaaand yeah, register the class
-	REGISTER_MODULE(AETimer);
-
 //constructors
 	/// <summary>
 	/// Class constructor -- starts the timer automatically
@@ -218,7 +215,8 @@ private:
 	/// The flag to continue running the tick counting loop
 	std::atomic<bool> m_bRunTrd;
 
-
+	//aaaand yeah, register the class
+	REGISTER_MODULE(AETimer);
 };
 
 

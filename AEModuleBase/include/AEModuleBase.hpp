@@ -16,13 +16,22 @@
 #include <string>
 #include <string_view>
 
-/// Adds module name to inherit from __AEModuleBase
-#define REGISTER_MODULE2(T) template<> const inline std::string_view __AEModuleBase<T>::m_sModulename = #T;
-
-#define REGISTER_MODULE(T) static inline std::string_view getModuleName(void) noexcept { \
-	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp");\
+/// A process to register the module (that inherited from __AEModuleBase)
+/// (under the hood: finish specialising __AEModuleBase::getModuleName() specially for the inheriting class)
+/// Usage: Always put it as the **last** entry to the class, before the closing brace }
+/// @warning If you won't do it, the project won't compile with the "unresolved external" error
+/// <typeparam name="T">Inheriting module's class name</typeparam>
+#define REGISTER_MODULE(T) public: static constexpr std::string_view getModuleName(void) noexcept { \
+	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp"); \
 	return #T; }
 
+/// A process to correctly copy-construct the module (that inherited from __AEModuleBase)
+/// (under the hood: calls the copy-constructor of the __AEModuleBase)
+/// Usage: put it as the first item of the initializer list
+/// Example: TestClass(const TestClass& val) : COPYCONSTRUCT_MODULE(T, val), [other member initialisation] {...}
+/// @warning If you won't do it, the module count (done by __AEModuleBase) won't be incremented
+/// <typeparam name="T">Inheriting module's class name</typeparam>
+/// <typeparam name="val">The name of the argument to be copy-constructed from</typeparam>
 #define COPYCONSTRUCT_MODULE(T, val) __AEModuleBase<T>(val)
 
 /// Global "no error" return flag for all engine modules
@@ -36,6 +45,8 @@
 /// @brief This is a base class for all basic modules, meaning that the module is not using other modules to work. 
 /// @note Intended to be inherited from in class declaration, not direct usage.
 /// Usage: class [classname] : public __AEModuleBase<[classname]>
+/// @warning If you do not include REGISTER_MODULE(T) after the whole class definition (before closing '}'), the program won't compile
+/// @warning If you do not include COPYCONSTRUCT_MODULE(T, val) in the copy-constructor, the module increment (every constructing action) won't work!
 /// </summary>
 /// <typeparam name="T">Inheriting module's class name</typeparam>
 template<typename T>

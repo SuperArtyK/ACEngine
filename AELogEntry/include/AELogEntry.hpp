@@ -82,7 +82,7 @@ struct AELogEntry {
 	/// The name of the module that issued the log entry
 	char m_sModuleName[AELE_MODULENAME_SIZE + 1]{}; //+1 for the last null termination
 	/// The time when this log entry was created
-	std::time_t m_tmLogTime = NULL; //looong time ago, lol
+	std::time_t m_tmLogTime = AENULL; //looong time ago, lol
 	/// The pointer to the next log entry in the queue
 	AELogEntry* m_pNextNode = nullptr;
 	/// The type of the log entry
@@ -137,7 +137,7 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="entry">The entry to clear</param>
 	static inline void clearEntry(AELogEntry& entry) noexcept {
-		std::memset(&entry, NULL, aeoffsetof(AELogEntry, m_pNextNode));
+		std::memset(&entry, AENULL, aeoffsetof(AELogEntry, m_pNextNode));
 		entry.m_cLogType = -1;
 		entry.m_cStatus = AELE_STATUS_INVALID;
 	}	

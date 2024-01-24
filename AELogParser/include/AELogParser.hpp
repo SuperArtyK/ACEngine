@@ -114,7 +114,7 @@ public:
 		m_vecEntryIndices.clear();
 		m_vecInvalidEntryIndices.clear();
 		// the most stupid decision, but it works (whyy tf is using nested types ill-formed??)
-		std::memset(this->m_arrEntryAmount.data(), NULL, this->m_arrEntryAmount.size()* sizeof(this->m_arrEntryAmount[0]));
+		std::memset(this->m_arrEntryAmount.data(), AENULL, this->m_arrEntryAmount.size()* sizeof(this->m_arrEntryAmount[0]));
 		m_ullCurrentEntry = 0;
 		return this->m_frLogReader.closeFile();
 	}
@@ -207,10 +207,11 @@ private:
 	/// The maximum value corresponds to the size of m_vecEntryIndices
 	std::atomic<ullint> m_ullCurrentEntry;
 
+	//aaaand register it
+	REGISTER_MODULE(AELogParser)
 };
 
-//aaaand register it
-REGISTER_MODULE(AELogParser)
+
 
 
 #endif // !ENGINE_LOG_PARSER_HPP

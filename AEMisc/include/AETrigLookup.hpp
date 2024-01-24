@@ -94,7 +94,7 @@ namespace ace {
 		/// <param name="a">The integer degree number</param>
 		/// <returns>The legal index to the lookup tables</returns>
 		constexpr std::size_t _getTrigTableIndex(const llint a) noexcept {
-			if constexpr ( a < 0 ){ //a is less than 0; then straiten the value after modulo
+			if ( a < 0 ){ //a is less than 0; then straiten the value after modulo
 				return (AETRIG_TABLE_SIZE + (a % AETRIG_TABLE_SIZE));
 			}
 			return  (a % AETRIG_TABLE_SIZE);

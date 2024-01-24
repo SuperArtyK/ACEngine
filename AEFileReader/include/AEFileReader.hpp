@@ -87,8 +87,6 @@
 class AEFileReader : public __AEModuleBase<AEFileReader> {
 
 public:
-	//aaand register it
-	REGISTER_MODULE(AEFileReader)
 
 //constructors
 	/// <summary>
@@ -167,7 +165,7 @@ public:
 	template<typename T>
 	inline cint readVariable(T& var) noexcept {
 		_AEFR_EXIT_ON_READ_CLOSED_FILE;
-		std::memset(&var, NULL, sizeof(T));
+		std::memset(&var, AENULL, sizeof(T));
 		return this->readData_ptr(&var, sizeof(T), 1);
 	}
 
@@ -451,7 +449,7 @@ public:
 	/// <param name="dcount">The amount of bytes to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	inline cint readBytes(void* cdata, const std::size_t dcount) noexcept {
-		std::memset(cdata, NULL, dcount);
+		std::memset(cdata, AENULL, dcount);
 		return this->readData_ptr(cdata, dcount, sizeof(char));
 	}
 
@@ -565,8 +563,8 @@ public:
 	/// <summary>
 	/// Returns current read cursor position.
 	/// </summary>
-	/// <returns>Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN</returns>
-	inline llint getCursorPos(void) const noexcept {
+	/// <returns>Current read cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN; On error returns ULLINT_MAX (-1)</returns>
+	inline ullint getCursorPos(void) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		return ftell(this->m_fpFilestr);
 	}
@@ -579,7 +577,7 @@ public:
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
 	/// <returns>0 on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file's closed, AEFR_ERR_WRONG_CURSOR_ORIGIN on invalid origin, or things that fseek can return</returns>
-	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const noexcept {
+	inline int setCursorPos(const ullint pos, const int origin = SEEK_CUR) const noexcept {
 		_AEFR_EXIT_ON_CLOSED_FILE;
 		if(origin != SEEK_SET && origin != SEEK_CUR && origin != SEEK_END){
 			return AEFR_ERR_READ_EOF;
@@ -633,6 +631,9 @@ private:
 	std::size_t m_szLastReadAmount;
 	/// Object for file reading
 	std::FILE* m_fpFilestr;
+
+	//aaand register it
+	REGISTER_MODULE(AEFileReader)
 };
 
 
@@ -643,7 +644,7 @@ inline cint AEFileReader::readIntString(T& num) {
 	static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readIntString()");
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
-	std::memset(&num, NULL, sizeof(T));
+	std::memset(&num, AENULL, sizeof(T));
 	cint temp = 0;
 	if constexpr (IS_SAME_NOC(T, signed char)) {
 		temp = fscanf(m_fpFilestr, "%hhd", &num);
@@ -691,7 +692,7 @@ inline cint AEFileReader::readFloatString(T& num) {
 	static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileReader::readFloatString()");
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
-	std::memset(&num, NULL, sizeof(T));
+	std::memset(&num, AENULL, sizeof(T));
 	cint temp = 0;
 	if constexpr (IS_SAME_NOC(T, float)) {
 		temp = fscanf(m_fpFilestr, "%f", &num);

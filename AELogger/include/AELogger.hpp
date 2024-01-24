@@ -64,8 +64,6 @@
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
-	//aaand we have to register it too
-	REGISTER_MODULE(AETimer);
 
 //constructors
 	/// <summary>
@@ -328,6 +326,9 @@ private:
 	// and amount of log entries we did, etc.
 	// All because we: 1) already have it through AEFileWriter
 	// And 2) we'll write to file only once, after formatting the strings
+	
+	//aaand we have to register it too
+	REGISTER_MODULE(AETimer);
 };
 
 

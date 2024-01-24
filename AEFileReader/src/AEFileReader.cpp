@@ -62,7 +62,7 @@ cint AEFileReader::readString(char* str, const std::size_t dcount) noexcept {
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
 
-	std::memset(str, NULL, dcount + 1);
+	std::memset(str, AENULL, dcount + 1);
 	return this->readData_ptr(str, dcount, sizeof(char));
 }
 
@@ -74,7 +74,7 @@ cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 		return AEFR_ERR_READ_ZERO_SIZE;
 	}
 
-	std::memset(str, NULL, std::size_t(dcount) + 1);
+	std::memset(str, AENULL, std::size_t(dcount) + 1);
 	const bool temp = std::fgets(str, dcount, this->m_fpFilestr);
 	this->m_szLastReadAmount = std::strlen(str);
 	this->m_ullTotalReads.fetch_add(1, std::memory_order::relaxed);
@@ -99,7 +99,7 @@ cint AEFileReader::readStringNULL(char* str, const llint dcount) {
 	}
 
 	//clear buffer and read
-	std::memset(str, NULL, dcount + 1);
+	std::memset(str, AENULL, dcount + 1);
 	const cint temp = this->readData_ptr(str, dcount, sizeof(char));
 
 	//look for the null char and move the read cursor to the next char after null (if appeared)

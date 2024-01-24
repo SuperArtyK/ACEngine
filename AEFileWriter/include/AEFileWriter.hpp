@@ -108,8 +108,6 @@
 class AEFileWriter : public __AEModuleBase<AEFileWriter> {
 
 public:
-	//yep, you guessed it, register the class
-	REGISTER_MODULE(AEFileWriter);
 
 //construction
 	/// <summary>
@@ -506,8 +504,8 @@ public:
 	/// Returns current write cursor position.
 	/// @warning Fails and returns AEFW_ERR_OPEN_FILE_WRONG_FLAG, if the flag that was used to open the current file is AEFW_FLAG_APPEND_NO_CURSOR_MOVE
 	/// </summary>
-	/// <returns>Current write cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given</returns>
-	inline llint getCursorPos(void) const noexcept {
+	/// <returns>Current write cursor position, starting from 0, if file is open; otherwise AEFR_ERR_FILE_NOT_OPEN, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given; On error returns ULLINT_MAX (-1)</returns>
+	inline ullint getCursorPos(void) const noexcept {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 		return ftell(this->m_fpFilestr);
@@ -522,7 +520,7 @@ public:
 	/// <param name="pos">Position to be set to relative to origin (same as "offset" in fseek)</param>
 	/// <param name="origin">Relative origin for the operation. Google SEEK_SET, SEEK_CUR and SEEK_END for more details</param>
 	/// <returns>0 on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_OPEN_FILE_WRONG_FLAG if wrong open flag given, or other things that fseek can return</returns>
-	inline int setCursorPos(const llint pos, const int origin = SEEK_CUR) const noexcept {
+	inline int setCursorPos(const ullint pos, const int origin = SEEK_CUR) const noexcept {
 		_AEFW_EXIT_ON_CLOSED_FILE;
 		_AEFW_EXIT_ON_NO_CURSOR_MOVE;
 
@@ -587,6 +585,9 @@ private:
 	std::FILE* m_fpFilestr;
 	/// Flags that were used to open the file
 	cint m_cFlags;
+
+	//yep, you guessed it, register the class
+	REGISTER_MODULE(AEFileWriter);
 };
 
 

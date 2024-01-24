@@ -78,6 +78,8 @@ typedef unsigned short ushort;
 /// Macro for the minimum value of the ushrt type (unsigned short/16bit int)
 #define USHRT_MIN 0
 
+/// Macro for the NULL as a 0, not a pointer (we have nullptr for that)
+#define AENULL 0
 
 
 //time so we don't need to use autos and init every time

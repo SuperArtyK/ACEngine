@@ -22,7 +22,7 @@ int main() {
 	std::string b = "abc\0def";
 	const char* c = "abc\0def";
 	const Tempstruct d;
-	std::srand(std::time(NULL));
+	std::srand(std::time(nullptr));
 
 	AEFileWriter myfw;
 	myfw.openFile("./folder/new/test/hello.txt", AEFW_FLAG_TRUNCATE, 1);
