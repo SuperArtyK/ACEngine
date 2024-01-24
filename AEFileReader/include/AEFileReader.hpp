@@ -87,6 +87,8 @@
 class AEFileReader : public __AEModuleBase<AEFileReader> {
 
 public:
+	//aaand register it
+	REGISTER_MODULE(AEFileReader)
 
 //constructors
 	/// <summary>
@@ -632,9 +634,6 @@ private:
 	/// Object for file reading
 	std::FILE* m_fpFilestr;
 };
-
-//aaand register it
-REGISTER_MODULE(AEFileReader)
 
 
 

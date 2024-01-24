@@ -11,12 +11,18 @@
 #define ENGINE_AEMODULEBASE_HPP
 
 #include "include/AETypedefs.hpp"
+#include "include/AEFlags.hpp"
 #include <atomic>
 #include <string>
 #include <string_view>
 
 /// Adds module name to inherit from __AEModuleBase
-#define REGISTER_MODULE(T) template<> const inline std::string_view __AEModuleBase<T>::m_sModulename = #T;
+#define REGISTER_MODULE2(T) template<> const inline std::string_view __AEModuleBase<T>::m_sModulename = #T;
+
+#define REGISTER_MODULE(T) static inline std::string_view getModuleName(void) noexcept { \
+	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp");\
+	return #T; }
+
 
 /// Global "no error" return flag for all engine modules
 #define ENGINE_MODULE_ERR_NOERROR 0
@@ -71,23 +77,19 @@ public:
 	/// Returns the name of the registered module
 	/// </summary>
 	/// <returns></returns>
-	static inline std::string_view getModuleName(void) noexcept {
-		return m_sModulename;
-	}
+	static constexpr std::string_view getModuleName(void) noexcept;
 
 protected:
 
-	/// <summary>
-	/// Name of the module (class), same as in code
-	/// @todo Find a way to make it constexpr and compile-time evaluated 
-	/// </summary>
-	static const std::string_view m_sModulename;
 	/// <summary>
 	/// Amount of alive module instances
 	/// </summary>
 	static inline std::atomic<ullint> m_ullModulesAlive = 0;
 };
 
+constexpr std::string_view getModuleName2(void) noexcept{
+	return "__AEModuleBase<>";
+}
 
 
 //REGISTER_MODULE(__AEModuleBase)

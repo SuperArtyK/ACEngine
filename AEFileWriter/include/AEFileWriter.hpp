@@ -106,7 +106,10 @@
 /// @warning This is not thread safe!
 /// </summary>
 class AEFileWriter : public __AEModuleBase<AEFileWriter> {
+
 public:
+	//yep, you guessed it, register the class
+	REGISTER_MODULE(AEFileWriter);
 
 //construction
 	/// <summary>
@@ -585,8 +588,6 @@ private:
 	/// Flags that were used to open the file
 	cint m_cFlags;
 };
-
-REGISTER_MODULE(AEFileWriter);
 
 
 // inline function definitions

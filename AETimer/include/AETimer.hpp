@@ -27,6 +27,9 @@ class AETimer : public __AEModuleBase<AETimer> {
 
 public:
 
+	//aaaand yeah, register the class
+	REGISTER_MODULE(AETimer);
+
 //constructors
 	/// <summary>
 	/// Class constructor -- starts the timer automatically
@@ -215,9 +218,6 @@ private:
 
 
 };
-
-//aaaand yeah, register the class
-REGISTER_MODULE(AETimer);
 
 
 #ifdef ENGINE_ENABLE_GLOBAL_MODULES

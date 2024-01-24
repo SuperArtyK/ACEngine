@@ -64,6 +64,8 @@
 class AELogger : public __AEModuleBase<AELogger> {
 
 public:
+	//aaand we have to register it too
+	REGISTER_MODULE(AETimer);
 
 //constructors
 	/// <summary>
@@ -136,7 +138,7 @@ public:
 		if (ret != AEFW_ERR_NOERROR) {
 			return ret;
 		}
-		this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->m_sModulename);
+		this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->getModuleName());
 		return this->startWriter();
 	}
 
@@ -159,7 +161,7 @@ public:
 		if (this->isClosed()) {
 			return AEFW_ERR_FILE_NOT_OPEN;
 		}
-		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->m_sModulename);
+		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->getModuleName());
 		this->stopWriter();
 		this->m_fwLogger.closeFile();
 		return AELOG_ERR_NOERROR;
@@ -207,7 +209,7 @@ public:
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
 	inline cint writeStatus(void) {
 		return this->writeToLog("AELogger's status: log file: \"" + this->m_fwLogger.getFullFileName() + "\"; entries written: " + std::to_string(this->getEntryCount()) + "(+1)",
-			AELOG_TYPE_INFO, m_sModulename);
+			AELOG_TYPE_INFO, this->getModuleName());
 	}
 
 //getters of info
@@ -327,9 +329,6 @@ private:
 	// All because we: 1) already have it through AEFileWriter
 	// And 2) we'll write to file only once, after formatting the strings
 };
-
-//aaand we have to register it too
-REGISTER_MODULE(AELogger);
 
 
 #ifdef ENGINE_ENABLE_GLOBAL_MODULES
