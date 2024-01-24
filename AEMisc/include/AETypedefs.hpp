@@ -25,16 +25,16 @@ typedef uint8_t ucint;
 typedef int8_t cint;
 
 /// A shortcut for big unsigned (long long) integer (64bit)
-typedef uint64_t ullint;
+typedef unsigned long long ullint;
 
 /// A shortcut for big signed (long long) integer (64bit)
-typedef int64_t llint;
+typedef long long llint;
 
 /// A shortcut for a just signed int (32bit)
-typedef int32_t sint;
+typedef signed int sint;
 
 /// A shortcut for a just unsigned int (32bit)
-typedef uint32_t uint;
+typedef unsigned int uint;
 
 /// A shortcut for a just unsigned short (at least 16 bit)
 typedef unsigned short ushort;

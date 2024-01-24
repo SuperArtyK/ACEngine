@@ -33,11 +33,15 @@ set(CMAKE_CONFIGURATION_TYPES
 ################################################################################
 # Global compiler options
 ################################################################################
-if(MSVC)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     # remove default flags provided with CMake for MSVC
     set(CMAKE_CXX_FLAGS "")
     set(CMAKE_CXX_FLAGS_DEBUG "")
     set(CMAKE_CXX_FLAGS_RELEASE "")
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Walloc-zero -Wcast-qual -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Warith-conversion -Wfloat-conversion -Wfloat-equal -Wformat=2 -Wformat-signedness -Winit-self -Wlogical-op -Wlogical-not-parentheses -Wpadded -Wshadow -Wundef -Wunused-macros -Wwrite-strings -Wsign-conversion -Wsign-compare -Wstrict-overflow=5 -Wcast-align=strict")
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wcast-qual -Wdouble-promotion -Wconversion -Wfloat-conversion -Wfloat-equal -Wformat -Wformat-signedness -Winit-self -Wparentheses -Wlogical-not-parentheses -Wpadded -Wshadow-all -Wundef -Wunused-macros -Wwrite-strings -Wsign-conversion -Wsign-compare -Wstrict-overflow=5 -Wcast-align=strict")
 endif()
 
 ################################################################################

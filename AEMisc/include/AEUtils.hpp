@@ -230,7 +230,7 @@ namespace ace {
 				return "";
 			}
 
-			struct tm tstruct { 0 };
+			struct tm tstruct {};
 #ifdef _WIN32
 			localtime_s(&tstruct, &timept);
 #else
@@ -257,7 +257,7 @@ namespace ace {
 				return str;
 			}
 
-			struct tm tstruct { 0 };
+			struct tm tstruct {};
 #ifdef _WIN32
 			localtime_s(&tstruct, &timept);
 #else
@@ -280,7 +280,7 @@ namespace ace {
 		}
 
 		inline time_t stringToDate(const char* const timestr, const char* const timeformat = "%Y-%m-%d.%X") {
-			struct tm tstruct { 0 };
+			struct tm tstruct {};
 			std::istringstream iss(timestr);
 			iss >> std::get_time(&tstruct, timeformat);
 

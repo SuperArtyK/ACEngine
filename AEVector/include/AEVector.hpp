@@ -87,7 +87,7 @@ public:
 	constexpr bool operator==(const AEVector<Y, dimAmount>& two) const noexcept {
 
 		for (std::size_t i = 0; i < dimAmount; i++) {
-			if (this->dims[i] != two.dims[i]) {
+			if (ace::math::equals(this->dims[i], two.dims[i])) {
 				return false;
 			}
 		}

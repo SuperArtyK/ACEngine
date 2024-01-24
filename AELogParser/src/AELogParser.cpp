@@ -45,10 +45,10 @@ cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity) {
 	
 	AELogEntry* ptr = begin = AELogEntry::makeQueue(this->amountValidEntries(severity), nullptr, false);
 	cint retval = 0;
-	// Yes, this will underflow But in nextEntry it will pre-increment it before checking
+	// Yes, this is..weird, But in nextEntry it will pre-increment it before checking
 	// whether it's EOF or not. So...set it to 1 less from the start, instead of subtracting 1 every time
 	// Just an optimisation, uint over/underflow is well-defined anyway
-	this->m_ullCurrentEntry = -1; 
+	this->m_ullCurrentEntry = ULLINT_MAX; 
 
 	
 	int test = 0;

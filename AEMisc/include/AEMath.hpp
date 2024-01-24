@@ -328,17 +328,24 @@ namespace ace::math {
 	/// Checks if given 2 numbers are equal, a generic function for all types.
 	/// @note If the T type is a float, returns the result of ace::math::fequals() with the default epsilon values
 	/// </summary>
-	/// <typeparam name="T">The type of the numbers passed</typeparam>
+	/// <typeparam name="T">The type of the first number passed</typeparam>
+	/// <typeparam name="Y">The type of the second number passed</typeparam>
 	/// <param name="num">The first number to compare</param>
 	/// <param name="num2">The second number to compare</param>
 	/// <returns>True if the two numbers are equal, false otherwise</returns>
-	template<typename T>
-	constexpr bool equals(const T num, const T num2) noexcept {
+	template<typename T, typename Y>
+	constexpr bool equals(const T num, const Y num2) noexcept {
 		if constexpr (std::is_floating_point<T>::value) {
-			return ace::math::fequals(num, num2);
+			return ace::math::fequals(num, T(num2));
 		}
 		else {
-			return (num == num2);
+			if constexpr (std::is_floating_point<Y>::value) {
+				return ace::math::fequals(Y(num), num2);
+			}
+			else{
+				return (num == num2);
+			}
+			
 		}
 	}
 
@@ -375,17 +382,15 @@ namespace ace::math {
 	/// <param name="power">Integer power to raise the number to</param>
 	/// <returns>The [num] of type T raised to power [power]</returns>
 	template<typename T = long double>
-	constexpr T intPow(const T num, int power) {
+	constexpr T intPow(const T num, llint power) {
 
 		//switch to save up on conditionals and jumps
 		//yeah microoptimisation, but it's fine, doesn't hurt
-		
-		if(num == 0) { return std::numeric_limits<T>::infinity(); } // 1/0 -- infinity to comply with floats 
-		if(num == 1) { return T(1); } // 1 to power of anything is still 1
 
 		switch (power) {
 
 			case -1:
+				if(ace::math::equals(num, T(0))) { return std::numeric_limits<T>::infinity(); } // 1/0 -- infinity to comply with floats 
 				return T(1) / num;
 
 			case 0: // power is 0, anything to power 0 is 1
@@ -395,7 +400,10 @@ namespace ace::math {
 			case 1: // power is 0, anything to power 1 is itself
 				return num;
 				break;
-
+			
+			default:
+				if(ace::math::equals(num, T(1))) { return T(1); } // 1 to power of anything is still 1
+				break;
 		}
 
 		T res;

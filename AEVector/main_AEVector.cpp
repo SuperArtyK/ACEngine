@@ -6,7 +6,7 @@ using std::cout;
 template <typename T1, typename T2, std::size_t dimAmount>
 bool isEqual(const AEVector<T1, dimAmount>& vec1, const AEVector<T2, dimAmount>& vec2) {
 	// Check if the number of dimensions is the same
-	if (dimAmount != dimAmount)
+	if (vec1.dimAmount != vec2.dimAmount)
 		return false;
 
 	// Compare the values in the dims arrays

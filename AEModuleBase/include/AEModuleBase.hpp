@@ -23,6 +23,7 @@
 	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp");\
 	return #T; }
 
+#define COPYCONSTRUCT_MODULE(T, val) __AEModuleBase<T>(val)
 
 /// Global "no error" return flag for all engine modules
 #define ENGINE_MODULE_ERR_NOERROR 0
@@ -54,7 +55,6 @@ public:
 	/// </summary>
 	/// <param name="val">The value to be copied...useless since we have nothing to copy lol (but we need it)</param>
 	__AEModuleBase(const __AEModuleBase<T>& val) noexcept {
-		*this = val;
 		m_ullModulesAlive++;
 	}
 
@@ -64,7 +64,9 @@ public:
 	virtual ~__AEModuleBase(void) noexcept {
 		m_ullModulesAlive--;
 	}
-	
+
+	__AEModuleBase& operator=(const __AEModuleBase<T>&) = delete;
+
 	/// <summary>
 	/// Returns the amount of instances of the module currently existing
 	/// </summary>

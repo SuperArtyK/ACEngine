@@ -39,9 +39,26 @@ public:
 	/// @note if you pass it 0 or negative number it will disable the delay untill a proper value is given
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
-	explicit AEFrame(const double fps = ENGINE_FPS) noexcept : m_tdChronoDelay((fps <= 0) ? microSec(0) : microSec(ullint(1000000.0 / fps))),
+	explicit AEFrame(const double fps = ENGINE_FPS) noexcept : 
+		m_tdChronoDelay((fps <= 0) ? microSec(0) : microSec(ullint(1000000.0 / fps))),
 		m_tpTimepoint(getSteadyTime()), m_fFPS(fps), m_bNoDelay((fps <= 0))
-	{}
+		{}
+
+	AEFrame(const AEFrame& two) :  
+		COPYCONSTRUCT_MODULE(AEFrame, two), m_tdChronoDelay(two.m_tdChronoDelay),
+		m_tpTimepoint(getSteadyTime()), m_fFPS(two.m_fFPS), m_bNoDelay(two.m_bNoDelay)
+		{}
+
+	AEFrame& operator=(const AEFrame& two) {
+		this->m_tdChronoDelay = two.m_tdChronoDelay;
+		this->m_tpTimepoint = getSteadyTime();
+		this->m_fFPS = two.m_fFPS;
+		this->m_bNoDelay = two.m_bNoDelay;
+		this->resetTimePoint();
+
+		return *this;
+	}
+
 
 //utils
 	/// <summary>

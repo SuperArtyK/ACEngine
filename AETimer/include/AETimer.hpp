@@ -43,14 +43,16 @@ public:
 	/// <summary>
 	/// Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread
 	/// </summary>
-	AETimer(void) noexcept : m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) {}
+	AETimer(void) noexcept : 
+		m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) 
+		{}
 
 	/// <summary>
 	/// Copy constructor -- Just copies the data and then starts the timer if original timer was started.
 	/// </summary>
 	/// <param name="tm">The original AETimer instance to make a copy of</param>
 	AETimer(const AETimer& tm) :
-		m_rDelay(tm.m_rDelay), m_ullTicks(tm.m_ullTicks.load()), m_bRunTrd(tm.m_bRunTrd.load()) {
+		COPYCONSTRUCT_MODULE(AETimer, tm), m_rDelay(tm.m_rDelay), m_ullTicks(tm.m_ullTicks.load()), m_bRunTrd(tm.m_bRunTrd.load()) {
 
 		if (this->m_bRunTrd) {
 			this->startThread();
