@@ -136,6 +136,23 @@ public:
 		return a.operator+=<Y>(two);
 	}
 
+	template<typename Y = T, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
+	constexpr AEVector<T, dimAmount>& operator+=(const Y two) noexcept {
+		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			this->dims[i] += two;
+		}
+		return *this;
+	}
+
+
+	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
+	constexpr AEVector<T, dimAmount> operator+(const Y two) const noexcept {
+		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
+		AEVector<T, dimAmount> a = *this;
+		return a.operator+=(two);
+	}
+
 	template<typename Y = T>
 	constexpr AEVector<T, dimAmount>& operator-=(const AEVector<Y, dimAmount>& two) noexcept {
 		for (std::size_t i = 0; i < dimAmount; i++) {
