@@ -158,7 +158,7 @@ public:
 	/// <returns>The reference to the resulting vector after the operation</returns>
 	template<typename Y = T, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
 	constexpr AEVector<T, dimAmount>& operator*=(const Y two) noexcept {
-		//static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
+		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			this->dims[i] *= two;
 		}
@@ -173,9 +173,27 @@ public:
 	/// <returns>The value of the resulting vector after the operation</returns>
 	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
 	constexpr const AEVector<T, dimAmount> operator*(const Y two) const noexcept {
-		//static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
+		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
 		return a.operator*=(two);
+	}
+
+	
+	template<typename Y = T, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
+	constexpr AEVector<T, dimAmount>& operator/=(const Y two) noexcept {
+		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			this->dims[i] /= two;
+		}
+		return *this;
+	}
+
+	
+	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
+	constexpr const AEVector<T, dimAmount> operator/(const Y two) const noexcept {
+		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
+		AEVector<T, dimAmount> a = *this;
+		return a.operator/=(two);
 	}
 
 	/// <summary>

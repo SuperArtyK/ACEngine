@@ -37,6 +37,7 @@ int main() {
 	cout << a.dotProduct<float>(c)<<NLC;
 	cout << (a + c)<<NLC;
 	cout << (a * 3) << NLC;
+	cout << (a / 3) << NLC;
 
 
 	cout << "\n\n\n";
