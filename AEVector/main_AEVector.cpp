@@ -47,7 +47,7 @@ int main() {
 
 	constexpr long double cos1 = f.cosAngleBetween(g);
 	
-	AEVec3Int test1{ -1,2,-3 }, test2{ 0,-4,1 }, N = test1.crossProduct(test2);
+	AEVec3Int test1{ -1,2,-3 }, test2{ 0,-4,1 }, N = test1.crossProduct(test2), test3{ -test1 };
 
 
 	cout << cos1<<NLC;
@@ -69,6 +69,6 @@ int main() {
 	cout << N.isOrthogonal(test2) << NLC;
 	cout << N.isCollinear(N) << NLC;
 	cout << N.isCollinear(test1) << NLC;
-
+	cout << test3 << NLC;
     return 0;
 }

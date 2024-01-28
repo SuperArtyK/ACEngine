@@ -172,7 +172,7 @@ public:
 	/// <param name="two">The second vector</param>
 	/// <returns>The value of the resulting vector after the operation</returns>
 	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr const AEVector<T, dimAmount> operator*(const Y two) const noexcept {
+	constexpr AEVector<T, dimAmount> operator*(const Y two) const noexcept {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
 		return a.operator*=(two);
@@ -190,10 +190,18 @@ public:
 
 	
 	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr const AEVector<T, dimAmount> operator/(const Y two) const noexcept {
+	constexpr AEVector<T, dimAmount> operator/(const Y two) const noexcept {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
 		return a.operator/=(two);
+	}
+
+	constexpr AEVector<T, dimAmount> operator-(void) const noexcept {
+		AEVector<T, dimAmount> result = *this;
+		for (std::size_t i = 0; i < dimAmount; i++) {
+			result.dims[i] *= -1;
+		}
+		return result;
 	}
 
 	/// <summary>

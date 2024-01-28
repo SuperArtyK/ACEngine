@@ -312,7 +312,7 @@ namespace ace::math {
 	constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
 		const T dif = ace::math::absval<T>(num - num2);
-		return (dif) < _epsilon;
+		return (dif) <= _epsilon;
 	}
 
 	/// <summary>
