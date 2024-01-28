@@ -38,5 +38,30 @@ int main() {
 	cout << (a + c)<<NLC;
 	cout << (a * 3) << NLC;
 
+
+	cout << "\n\n\n";
+	constexpr AEVec2Int f{ 3,4 }, g{ 4,3 };
+	//constexpr AEVec3Int testval = AEVec3Int{1,2,3}.crossProduct(AEVec3Int{ 1,2,3 });
+
+
+	constexpr long double cos1 = f.cosAngleBetween(g);
+	
+	AEVec3Int test1{ -1,2,-3 }, test2{ 0,-4,1 };
+
+
+	cout << cos1<<NLC;
+	cout << f.angleBetweenRad(g) << NLC;
+	cout << f.angleBetweenDeg(g) << NLC;
+	cout << (f-g) << NLC;
+
+
+	AEVector<int, 10> vec{ 0,1,2,3,4,5,6,7,8,9 };
+	cout << vec<<NLC;
+
+
+	cout << "\n\n\n";
+	cout << test1.crossProduct(test2)<<NLC;
+	cout << test2.crossProduct(test1)<<NLC;
+
     return 0;
 }

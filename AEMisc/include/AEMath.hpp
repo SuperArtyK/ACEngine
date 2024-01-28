@@ -22,12 +22,12 @@
 /// Macro to convert degrees value x to radians.
 /// <param name="deg">Value of degrees to convert</param>
 /// <param name="type">The type of the resulting operation</param>
-#define torad(deg, type) (deg * ace::math::pi<type>() / type(180))
+#define toRad(deg, type) ((deg) * ace::math::pi<type>() / type(180))
 
 /// Macro to convert radians value x to degrees.
 /// <param name="rad">Value of radians to convert</param>
 /// <param name="type">The type of the resulting operation</param>
-#define todeg(rad, type) (rad*type(180)/ace::math::pi<type>())
+#define toDeg(rad, type) ((rad) * type(180) / ace::math::pi<type>() )
 
 
 ///Mathematical functions and other things usefull in math
@@ -243,7 +243,7 @@ namespace ace::math {
 	/// <returns>Float of sine results</returns>
 	template<typename T = long double>
 	inline T sinDeg(const T degrees) noexcept {
-		return std::sin(torad(degrees, T));
+		return std::sin(toRad(degrees, T));
 	}
 
 	/// <summary>
@@ -253,7 +253,7 @@ namespace ace::math {
 	/// <returns>Float of cosine results</returns>
 	template<typename T = long double>
 	inline T cosDeg(const T degrees) noexcept {
-		return std::cos(torad(degrees, T));
+		return std::cos(toRad(degrees, T));
 	}
 
 	/// <summary>
@@ -263,7 +263,7 @@ namespace ace::math {
 	/// <returns>Float of tangent results</returns>
 	template<typename T = long double>
 	inline T tanDeg(const T degrees) noexcept {
-		return std::tan(torad(degrees, T));
+		return std::tan(toRad(degrees, T));
 	}
 
 	/// <summary>
@@ -273,7 +273,7 @@ namespace ace::math {
 	/// <returns>Float of cotangent results</returns>
 	template<typename T = long double>
 	inline T cotDeg(const T degrees) noexcept {
-		return 1 / std::tan(torad(degrees, T));
+		return 1 / std::tan(toRad(degrees, T));
 	}
 
 	/// <summary>
@@ -283,7 +283,7 @@ namespace ace::math {
 	/// <returns>Float of cosecant results</returns>
 	template<typename T = long double>
 	inline T cscDeg(const T degrees) noexcept {
-		return 1 / std::sin(torad(degrees, T));
+		return 1 / std::sin(toRad(degrees, T));
 	}
 
 	/// <summary>
@@ -293,7 +293,7 @@ namespace ace::math {
 	/// <returns>Float of secant results</returns>
 	template<typename T = long double>
 	inline T secDeg(const T degrees) noexcept {
-		return 1 / std::cos(torad(degrees, T));
+		return 1 / std::cos(toRad(degrees, T));
 	}
 	
 	/// <summary>
