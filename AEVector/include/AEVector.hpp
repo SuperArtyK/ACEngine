@@ -321,6 +321,18 @@ public:
 	}
 
 
+
+	template<typename F = long double, typename Y = T>
+	constexpr bool isOrthogonal(const AEVector<Y, dimAmount>& two) const noexcept {
+		return ace::math::equals<F>(this->dotProduct<F, Y>(two), F(0));
+	}
+
+	template<typename F = long double, typename Y = T>
+	constexpr bool isCollinear(const AEVector<Y, dimAmount>& two) const noexcept {
+		return ace::math::equals<F, F>( this->dotProduct<F, Y>(two), this->magnitude<F>() * two.magnitude<F>()  );
+	}
+
+
 };
 
 /// The shortcut typedef for the 2-dimensional integer vector

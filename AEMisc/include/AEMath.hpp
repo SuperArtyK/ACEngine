@@ -308,6 +308,13 @@ namespace ace::math {
 			(num < 0) ? -num : num;
 	}
 
+	template<typename T = long double>
+	constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept {
+		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
+		const T dif = ace::math::absval<T>(num - num2);
+		return (dif) < _epsilon;
+	}
+
 	/// <summary>
 	/// Checks if given 2 floats of type T are equal, using given epsilon(must not go further than float epsilon).
 	/// </summary>
@@ -317,11 +324,12 @@ namespace ace::math {
 	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
 	/// <returns>True if both numbers are equal, false otherwise</returns>
 	template<typename T = long double>
-	constexpr bool fequals(const T num, const T num2, const T _epsilon = std::numeric_limits<T>::epsilon()) noexcept {
-		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
-		const T dif = ace::math::absval<T>(num - num2);
-		return (dif) < _epsilon;
+	constexpr bool fequals(const T num, const T num2) noexcept {
+		const T _epsilon = std::min<T>(std::numeric_limits<T>::epsilon() * num, std::numeric_limits<T>::epsilon() * num2);
+		return ace::math::fequals<T>(num, num2, _epsilon);
 	}
+
+	
 
 
 	/// <summary>
@@ -338,14 +346,11 @@ namespace ace::math {
 		if constexpr (std::is_floating_point<T>::value) {
 			return ace::math::fequals(num, T(num2));
 		}
+		if constexpr (std::is_floating_point<Y>::value) {
+			return ace::math::fequals(Y(num), num2);
+		}
 		else {
-			if constexpr (std::is_floating_point<Y>::value) {
-				return ace::math::fequals(Y(num), num2);
-			}
-			else{
-				return (num == num2);
-			}
-			
+			return (num == num2);
 		}
 	}
 
