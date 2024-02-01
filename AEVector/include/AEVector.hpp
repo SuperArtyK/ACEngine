@@ -318,17 +318,19 @@ public:
 		return temp;
 	}
 	
-	
+	//calculates the distance between vectors (end points) squared
 	template<typename F = long double, typename Y = T>
 	constexpr F distanceBetweenSquared(const AEVector<Y, dimAmount>& two) const noexcept {
 		return (two - *this).magnitudeSquared();
 	}
 
+	//calculates the distance between vectors (their end points)
 	template<typename F = long double, typename Y = T>
 	constexpr F distanceBetween(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::sqrt(this->distanceBetweenSquared<F, Y>(two));
 	}
 	
+	// calculates the cross product of the 2 3d vectors
 	template<typename F = T, typename Y = T>
 	constexpr AEVector<F, dimAmount> crossProduct(const AEVector<Y, dimAmount>& two) const noexcept requires (dimAmount == 3) {
 		return AEVector<F, dimAmount>{ 
@@ -338,6 +340,7 @@ public:
 				};
 	}
 
+	// calculates the value of the cosine of the angle between the vectors
 	template<typename F = long double, typename Y = T>
 	constexpr F cosAngleBetween(const AEVector<Y, dimAmount>& two) const noexcept {
 		return this->dotProduct<F>(two) / (this->magnitude<F>() * two.magnitude<F>());
@@ -358,24 +361,27 @@ public:
 		return std::acos(this->cosAngleBetween<F, Y>(two));
 	}
 
+	//calculates the angle between the 1st and 2nd vector in degrees
 	template<typename F = long double, typename Y = T>
 	F angleBetweenDeg(const AEVector<Y, dimAmount>& two) const noexcept {
 		return toDeg( (this->angleBetweenRad<F, Y>(two)), Y );
 	}
 
 
-
+	//checks if the 2nd vector is orthogonal to the 1st
 	template<typename F = long double, typename Y = T>
 	constexpr bool isOrthogonal(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::equals<F>(this->dotProduct<F, Y>(two), F(0));
 	}
 
+	//checks if the 2nd vector is perfectly-collinear with the 1st
 	template<typename F = long double, typename Y = T>
 	constexpr bool isCollinear(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::equals<F, F>( this->dotProduct<F, Y>(two), this->magnitude<F>() * two.magnitude<F>()  );
 	}
 
-
+	//projects the 2nd vector onto the 1st
+	//returns the length of the projection
 	template<typename F = long double, typename Y = T>
 	constexpr F projectOnVector(const AEVector<Y, dimAmount>& two) const noexcept {
 		return this->dotProduct<F, Y>(two) / two.magnitude();
@@ -388,6 +394,8 @@ public:
 		return this->perpendicularToVector<T, T>(*this);
 	}
 
+	//it approximates the perpendicular vector to the vector, using the given vector's projection
+	//basically the perpendicular vector to the current vector with it's length being the length of the projection of the 2nd vector onto the 1st
 	template<typename F = long double, typename Y = T>
 	constexpr AEVector<F, dimAmount> perpendicularToVector(const AEVector<Y, dimAmount>& two) const noexcept {
 		if constexpr (dimAmount == 1) {
