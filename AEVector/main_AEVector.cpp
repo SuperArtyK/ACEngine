@@ -70,5 +70,11 @@ int main() {
 	cout << N.isCollinear(N) << NLC;
 	cout << N.isCollinear(test1) << NLC;
 	cout << test3 << NLC;
+	
+
+	cout << "\n\n\n";
+	cout << c << NLC;
+	cout << c.perpendicularToItself() << NLC;
+	cout << (c.perpendicularToItself()).isOrthogonal(c) << NLC;
     return 0;
 }

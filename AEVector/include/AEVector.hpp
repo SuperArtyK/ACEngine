@@ -382,6 +382,24 @@ public:
 	}
 
 
+	//It *approximates* the perpendicular vector to itself
+	//that has the *same length*
+	constexpr AEVector<T, dimAmount> perpendicularToItself() const noexcept {
+		return this->perpendicularToVector<T, T>(*this);
+	}
+
+	template<typename F = long double, typename Y = T>
+	constexpr AEVector<F, dimAmount> perpendicularToVector(const AEVector<Y, dimAmount>& two) const noexcept {
+		if constexpr (dimAmount == 1) {
+			return *this;
+		}
+		const long double mag = ace::math::sqrt(two.projectOnVector(*this) / (this->dims[1] * -(this->dims[0])));
+		AEVector<T, dimAmount> res{};
+		res[0] = this->dims[1] * mag;
+		res[1] = -(this->dims[0] * mag);
+
+		return res;
+	}
 
 };
 
