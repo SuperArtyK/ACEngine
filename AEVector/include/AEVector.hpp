@@ -329,7 +329,7 @@ public:
 		return ace::math::sqrt(this->distanceBetweenSquared<F, Y>(two));
 	}
 	
-	template<typename Y = T, typename F = T>
+	template<typename F = T, typename Y = T>
 	constexpr AEVector<F, dimAmount> crossProduct(const AEVector<Y, dimAmount>& two) const noexcept requires (dimAmount == 3) {
 		return AEVector<F, dimAmount>{ 
 							(this->dims[1] * two.dims[2]) - (this->dims[2] * two.dims[1]),  //dimension 1
@@ -374,6 +374,13 @@ public:
 	constexpr bool isCollinear(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::equals<F, F>( this->dotProduct<F, Y>(two), this->magnitude<F>() * two.magnitude<F>()  );
 	}
+
+
+	template<typename F = long double, typename Y = T>
+	constexpr F projectOnVector(const AEVector<Y, dimAmount>& two) const noexcept {
+		return this->dotProduct<F, Y>(two) / two.magnitude();
+	}
+
 
 
 };
