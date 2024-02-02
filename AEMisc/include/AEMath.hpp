@@ -308,6 +308,14 @@ namespace ace::math {
 			(num < 0) ? -num : num;
 	}
 
+	/// <summary>
+	/// Checks if given 2 floats of type T are equal, using given epsilon
+	/// </summary>
+	/// <typeparam name="T">The type of the float</typeparam>
+	/// <param name="num">The first float to compare</param>
+	/// <param name="num2">The second float to compare</param>
+	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
+	/// <returns>True if both numbers are equal (with epsilon), false otherwise</returns>
 	template<typename T = long double>
 	constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
@@ -316,21 +324,18 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Checks if given 2 floats of type T are equal, using given epsilon(must not go further than float epsilon).
+	/// Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values)
+	/// @note this is a helper function of ace::math::fequals(const T num, const T num2, const T _epsilon)
 	/// </summary>
 	/// <typeparam name="T">The type of the float</typeparam>
 	/// <param name="num">The first float to compare</param>
 	/// <param name="num2">The second float to compare</param>
-	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
-	/// <returns>True if both numbers are equal, false otherwise</returns>
+	/// <returns>True if both numbers are equal (with epsilon), false otherwise</returns>
 	template<typename T = long double>
 	constexpr bool fequals(const T num, const T num2) noexcept {
 		const T _epsilon = std::min<T>(std::numeric_limits<T>::epsilon() * num, std::numeric_limits<T>::epsilon() * num2);
 		return ace::math::fequals<T>(num, num2, _epsilon);
 	}
-
-	
-
 
 	/// <summary>
 	/// Checks if given 2 numbers are equal, a generic function for all types.
@@ -343,11 +348,19 @@ namespace ace::math {
 	/// <returns>True if the two numbers are equal, false otherwise</returns>
 	template<typename T, typename Y>
 	constexpr bool equals(const T num, const Y num2) noexcept {
-		if constexpr (std::is_floating_point<T>::value) {
+
+	
+		if constexpr (std::is_floating_point<T>::value && !std::is_floating_point<Y>::value) { // 1st type is float, 2nd one isn't
 			return ace::math::fequals(num, T(num2));
 		}
-		if constexpr (std::is_floating_point<Y>::value) {
+		if constexpr (!std::is_floating_point<T>::value && std::is_floating_point<Y>::value) { // 1st type isn't float, 2nd one is
 			return ace::math::fequals(Y(num), num2);
+		}
+		if constexpr (std::is_floating_point<T>::value && std::is_floating_point<Y>::value) { // both are float
+			if constexpr (std::numeric_limits<T>::max_digits10 > std::numeric_limits<Y>::max_digits10) { // 1st type is larger
+				return ace::math::fequals(num, T(num2)); 
+			}
+			return ace::math::fequals(Y(num), num2); // 2nd type is larger
 		}
 		else {
 			return (num == num2);
