@@ -5,8 +5,6 @@ var _a_e_utils_8hpp =
     [ "arrsize", "de/de8/_a_e_utils_8hpp.html#ab9d7a2dfdef90a2f8526373fb708e76c", null ],
     [ "DATETIME_STRING_SIZE", "de/de8/_a_e_utils_8hpp.html#a2afa1079625f51a032ea458fdc22f729", null ],
     [ "dprintf", "de/de8/_a_e_utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424", null ],
-    [ "fseek", "de/de8/_a_e_utils_8hpp.html#a8a777150133445feb2cd8a3f846216d9", null ],
-    [ "ftell", "de/de8/_a_e_utils_8hpp.html#afea8baccc13623417424635d63c81a17", null ],
     [ "getBit", "de/de8/_a_e_utils_8hpp.html#ad79dd34fd474eec49ab69b41e1bd1a95", null ],
     [ "IS_SAME_NOC", "de/de8/_a_e_utils_8hpp.html#a913272c684270c11c1a96a982e9f9b44", null ],
     [ "mod0", "de/de8/_a_e_utils_8hpp.html#a0b18554cc402bdf206516c506cc83ce6", null ],

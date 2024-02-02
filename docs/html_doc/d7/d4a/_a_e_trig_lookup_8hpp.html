@@ -123,7 +123,7 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a979611f412d7ed1d25ff28bf50e5463a" id="r_a979611f412d7ed1d25ff28bf50e5463a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a">ace::math::_getTrigTableIndex</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a1f1cfc1526b3d29817a3d2efbb931d0a">llint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">a</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
+<tr class="memitem:a979611f412d7ed1d25ff28bf50e5463a" id="r_a979611f412d7ed1d25ff28bf50e5463a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a">ace::math::_getTrigTableIndex</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a01c88e5c03ebee098af42984516b9aaf">llint</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">a</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
 <tr class="memdesc:a979611f412d7ed1d25ff28bf50e5463a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index to the trig table from the given (int) degree number.  <br /></td></tr>
 <tr class="separator:a979611f412d7ed1d25ff28bf50e5463a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d54b758ac8f4209a9e73cd654a9df9" id="r_a42d54b758ac8f4209a9e73cd654a9df9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">constexpr</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a42d54b758ac8f4209a9e73cd654a9df9">ace::math::sinDeg_table</a> (<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">const</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">float</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">degrees</a>) <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a></td></tr>
@@ -186,7 +186,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the results for the trigonometric function lookup tables. These will be insanely fast, almost as the direct memory access (since just value in array), but won't offer much of precision &ndash; within 1 degree. (Un)Define ENGINE_ENABLE_MATH_LOOKUP flag in <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html">AEFlags.hpp</a> to enable/disable this.</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000008">Todo:</a></b></dt><dd>Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000007">Todo:</a></b></dt><dd>Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing</dd></dl>
 <p>Should not cause everything to break :) </p>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp_source.html">AETrigLookup.hpp</a>.</p>
@@ -216,7 +216,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp.html">AETrigLookup.hpp</a></li>
-    <li class="footer">Generated on Sat Jan 20 2024 16:30:37 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Feb 2 2024 00:44:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

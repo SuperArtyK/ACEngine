@@ -14,7 +14,7 @@ var class_a_e_file_reader =
     [ "getFullPath", "dd/dd5/class_a_e_file_reader.html#ad762205dbc9d1c3f2e2043bf8aeebf7c", null ],
     [ "getLastReadAmount", "dd/dd5/class_a_e_file_reader.html#ac8725dee6f14c97d4dcb338c29eee307", null ],
     [ "getModuleAmount", "dd/dd5/class_a_e_file_reader.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "dd/dd5/class_a_e_file_reader.html#a0556631c382fb08daaa05dc30e661f45", null ],
+    [ "getModuleName", "dd/dd5/class_a_e_file_reader.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
     [ "getRelativePath", "dd/dd5/class_a_e_file_reader.html#aa1f9d6a22bac28f3409558084eb03103", null ],
     [ "getTotalReads", "dd/dd5/class_a_e_file_reader.html#aa2c6d668f2412967b90981e1f87db87a", null ],
     [ "isClosed", "dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073", null ],
@@ -47,7 +47,6 @@ var class_a_e_file_reader =
     [ "setCursorPos", "dd/dd5/class_a_e_file_reader.html#a477effa6d568ec7993c4d506d0d0420c", null ],
     [ "m_fpFilestr", "dd/dd5/class_a_e_file_reader.html#ae4c35d3e1af1bffbcc684dab2017f24d", null ],
     [ "m_sFilename", "dd/dd5/class_a_e_file_reader.html#aed38f6c7a1032a0d4a0db205ff4ebb15", null ],
-    [ "m_sModulename", "dd/dd5/class_a_e_file_reader.html#ad7c14b208c80c9a6478fdf797cb4e558", null ],
     [ "m_szLastReadAmount", "dd/dd5/class_a_e_file_reader.html#a1bea127bba2ee9a6f13d71f8e17acd3d", null ],
     [ "m_ullModulesAlive", "dd/dd5/class_a_e_file_reader.html#a743510be245f7b22abe7959c190497df", null ],
     [ "m_ullTotalReads", "dd/dd5/class_a_e_file_reader.html#a95b7e3bd96a862b5be938162aeb9ae46", null ]

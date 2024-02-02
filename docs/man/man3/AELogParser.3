@@ -1,4 +1,4 @@
-.TH "AELogParser" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -33,7 +33,23 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .ti -1c
 .RI "\fBcint\fP \fBnextEntry\fP (\fBAELogEntry\fP &\fBentry\fP, \fBconst\fP \fBcint\fP \fBseverity\fP=\fBAELOG_TYPE_DEBUG\fP)"
 .br
-.RI "Read the next entry in the log file of the given severity filter, and parse it to the given \fBAELogEntry\fP object\&. "
+.RI "Read the next \fIvalid\fP entry in the log file of the given severity filter, and parse it to the given \fBAELogEntry\fP object\&. "
+.ti -1c
+.RI "\fBllint\fP \fBgetNextEntryIndex\fP (\fBconst\fP \fBcint\fP \fBseverity\fP=\fBAELOG_TYPE_DEBUG\fP)"
+.br
+.RI "Read the next indexed \fIvalid\fP log entry in the file of the given severity filter and return it's cursor index in the file\&. "
+.ti -1c
+.RI "\fBllint\fP \fBgetCurrentEntryIndex\fP (\fBvoid\fP) \fBconst\fP"
+.br
+.RI "Get the cursor index of the current valid entry This entry is the one that was read by a previous call to \fBAELogParser::nextEntry()\fP or \fBAELogParser::getNextEntryIndex()\fP "
+.ti -1c
+.RI "std::vector< std::pair< \fBllint\fP, \fBcint\fP > > \fBgetValidEntryIndices\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "Get the list of indices of the valid entries, separated by type\&. "
+.ti -1c
+.RI "std::vector< \fBllint\fP > \fBgetInvalidEntryIndices\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.br
+.RI "Get the list of indices of the invalid entries\&. "
 .ti -1c
 .RI "\fBcint\fP \fBlogToQueue\fP (\fBAELogEntry\fP *&\fBbegin\fP, \fBconst\fP \fBcint\fP \fBseverity\fP=\fBAELOG_TYPE_DEBUG\fP)"
 .br
@@ -67,17 +83,13 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .br
 .RI "Returns the amount of instances of the module currently existing\&. "
 .ti -1c
-.RI "\fBstatic\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "\fBstatic\fP \fBconstexpr\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Returns the name of the registered module\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
 .in +1c
-.ti -1c
-.RI "\fBstatic\fP \fBconst\fP std::string_view \fBm_sModulename\fP"
-.br
-.RI "Name of the module (class), same as in code\&. "
 .ti -1c
 .RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP"
 .br
@@ -91,11 +103,11 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .br
 .RI "The file reader of the opened log file\&. "
 .ti -1c
-.RI "std::vector< std::pair< \fBullint\fP, \fBcint\fP > > \fBm_vecEntryIndices\fP"
+.RI "std::vector< std::pair< \fBllint\fP, \fBcint\fP > > \fBm_vecEntryIndices\fP"
 .br
 .RI "The list of all indexed \fIvalid\fP entries in the log file\&. "
 .ti -1c
-.RI "std::vector< \fBullint\fP > \fBm_vecInvalidEntryIndices\fP"
+.RI "std::vector< \fBllint\fP > \fBm_vecInvalidEntryIndices\fP"
 .br
 .RI "The list of all indexed \fIinvalid\fP entries in the log file Each item contains their corresponding cursor position in the file\&. "
 .ti -1c
@@ -153,7 +165,7 @@ ullint amount of invalid entries
 .PP
 
 .PP
-Definition at line \fB160\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB174\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBullint\fP AELogParser::amountTypeEntries (\fBconst\fP \fBcint\fP severity) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -171,7 +183,7 @@ ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount o
 .PP
 
 .PP
-Definition at line \fB169\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB183\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBullint\fP AELogParser::amountValidEntries (\fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -189,7 +201,7 @@ ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount o
 .PP
 
 .PP
-Definition at line \fB145\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB159\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBcint\fP AELogParser::closeLog (\fBvoid\fP)\fC [inline]\fP"
 
 .PP
@@ -202,7 +214,38 @@ return value of the AEFileReader::closefile() (AEFR_ERR_NOERROR if file was clos
 .PP
 
 .PP
-Definition at line \fB113\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB70\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "\fBllint\fP AELogParser::getCurrentEntryIndex (\fBvoid\fP) const\fC [inline]\fP"
+
+.PP
+Get the cursor index of the current valid entry This entry is the one that was read by a previous call to \fBAELogParser::nextEntry()\fP or \fBAELogParser::getNextEntryIndex()\fP 
+.PP
+\fBReturns\fP
+.RS 4
+The cursor index of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB117\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::vector< \fBllint\fP > AELogParser::getInvalidEntryIndices (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Get the list of indices of the invalid entries\&. In the return vector, llint is the index of the cursor in the file 
+.PP
+\fBNote\fP
+.RS 4
+If the file is not open, the returned vector is empty
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+(by value) The vector of llint's, having the cursor indices for each invalid entry
+.RE
+.PP
+
+.PP
+Definition at line \fB140\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
@@ -215,8 +258,8 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB66\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
+Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBstatic\fP \fBconstexpr\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleName (\fBvoid\fP)\fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
 Returns the name of the registered module\&. 
@@ -227,8 +270,49 @@ Returns the name of the registered module\&.
 .RE
 .PP
 
+.SS "\fBllint\fP AELogParser::getNextEntryIndex (\fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP)\fC [inline]\fP"
+
 .PP
-Definition at line \fB74\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Read the next indexed \fIvalid\fP log entry in the file of the given severity filter and return it's cursor index in the file\&. 
+.PP
+\fBNote\fP
+.RS 4
+The severity value just changes the lowest limit of the log severity (lowest by default is debug)\&. If a higher severity is encountered, it's read as well\&. 
+.PP
+AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIseverity\fP The lowest severity of the log to find
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The cursor index of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB96\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::vector< std::pair< \fBllint\fP, \fBcint\fP > > AELogParser::getValidEntryIndices (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Get the list of indices of the valid entries, separated by type\&. In the return vector's std::pair<llint, cint>, llint is the index of the cursor in the file, cint is the entry type 
+.PP
+\fBNote\fP
+.RS 4
+If the file is not open, the returned vector is empty
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+(by value) The vector of pairs, each having the (cursor) index and type of each valid entry
+.RE
+.PP
+
+.PP
+Definition at line \fB130\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "bool AELogParser::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -241,7 +325,7 @@ true is file is closed (no file opened), false otherwise
 .PP
 
 .PP
-Definition at line \fB188\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB202\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "bool AELogParser::isOpen (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -254,7 +338,7 @@ true if file is opened, false otherwise
 .PP
 
 .PP
-Definition at line \fB180\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB194\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBcint\fP AELogParser::logToQueue (\fBAELogEntry\fP *& begin, \fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP)"
 
 .PP
@@ -279,15 +363,17 @@ AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to 
 .PP
 
 .PP
-Definition at line \fB41\fP of file \fBAELogParser\&.cpp\fP\&.
+Definition at line \fB85\fP of file \fBAELogParser\&.cpp\fP\&.
 .SS "\fBcint\fP AELogParser::nextEntry (\fBAELogEntry\fP & entry, \fBconst\fP \fBcint\fP severity = \fC\fBAELOG_TYPE_DEBUG\fP\fP)"
 
 .PP
-Read the next entry in the log file of the given severity filter, and parse it to the given \fBAELogEntry\fP object\&. 
+Read the next \fIvalid\fP entry in the log file of the given severity filter, and parse it to the given \fBAELogEntry\fP object\&. 
 .PP
 \fBNote\fP
 .RS 4
-The severity value just changes the lowest limit of the log severity (lowest by default is debug)\&. If a higher severity is encountered, it's read as well\&.
+The severity value just changes the lowest limit of the log severity (lowest by default is debug)\&. If a higher severity is encountered, it's read as well\&. 
+.PP
+AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&.
 .RE
 .PP
 \fBParameters\fP
@@ -304,8 +390,8 @@ AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to 
 .PP
 
 .PP
-Definition at line \fB11\fP of file \fBAELogParser\&.cpp\fP\&.
-.SS "\fBcint\fP AELogParser::openLog (\fBconst\fP std::string_view fname)\fC [inline]\fP"
+Definition at line \fB56\fP of file \fBAELogParser\&.cpp\fP\&.
+.SS "\fBcint\fP AELogParser::openLog (\fBconst\fP std::string_view fname)"
 
 .PP
 Opens the log file, reading and parsing every single entry, classifying it by type\&. 
@@ -322,7 +408,7 @@ AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to 
 .PP
 
 .PP
-Definition at line \fB64\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB10\fP of file \fBAELogParser\&.cpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "std::array<\fBullint\fP, 9> AELogParser::m_arrEntryAmount\fC [private]\fP"
@@ -330,50 +416,37 @@ Definition at line \fB64\fP of file \fBAELogParser\&.hpp\fP\&.
 .PP
 The amount of log entries read in the file, separated by type/severity\&. 
 .PP
-Definition at line \fB204\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB218\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBAEFileReader\fP AELogParser::m_frLogReader\fC [private]\fP"
 
 .PP
 The file reader of the opened log file\&. 
 .PP
-Definition at line \fB196\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
-
-.PP
-Name of the module (class), same as in code\&. 
-.PP
-\fBTodo\fP
-.RS 4
-Find a way to make it constexpr and compile-time evaluated 
-.RE
-.PP
-
-.PP
-Definition at line \fB84\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB210\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AELogParser::m_ullCurrentEntry\fC [private]\fP"
 
 .PP
 The number corresponding to the currently-read \fIvalid\fP entry in the log file\&. The maximum value corresponds to the size of m_vecEntryIndices 
 .PP
-Definition at line \fB207\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB221\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
 
 .PP
 Amount of alive module instances\&. 
 .PP
-Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "std::vector<std::pair<\fBullint\fP, \fBcint\fP> > AELogParser::m_vecEntryIndices\fC [private]\fP"
+Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "std::vector<std::pair<\fBllint\fP, \fBcint\fP> > AELogParser::m_vecEntryIndices\fC [private]\fP"
 
 .PP
 The list of all indexed \fIvalid\fP entries in the log file\&. Each item contains their corresponding cursor position in the file and their type/severity\&. 
 .PP
-Definition at line \fB199\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::vector<\fBullint\fP> AELogParser::m_vecInvalidEntryIndices\fC [private]\fP"
+Definition at line \fB213\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::vector<\fBllint\fP> AELogParser::m_vecInvalidEntryIndices\fC [private]\fP"
 
 .PP
 The list of all indexed \fIinvalid\fP entries in the log file Each item contains their corresponding cursor position in the file\&. 
 .PP
-Definition at line \fB202\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB216\fP of file \fBAELogParser\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

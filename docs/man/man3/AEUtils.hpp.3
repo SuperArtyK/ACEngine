@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -136,12 +136,6 @@ AEMisc/include/AEUtils.hpp
 .RI "#\fBdefine\fP \fBDATETIME_STRING_SIZE\fP   20"
 .br
 .RI "Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP "
-.ti -1c
-.RI "#\fBdefine\fP \fBftell\fP   \fBftello\fP"
-.br
-.ti -1c
-.RI "#\fBdefine\fP \fBfseek\fP   \fBfseeko\fP"
-.br
 .in -1c
 .SS "Functions"
 
@@ -251,7 +245,7 @@ Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined
 .PP
 
 .PP
-Definition at line \fB46\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB51\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP aeoffsetof(\fBtype\fP, \fBmember\fP)   (\fBintptr_t\fP)&(((\fBtype\fP*)\fBNULL\fP)\->\fBmember\fP)"
 
 .PP
@@ -266,7 +260,7 @@ Offsetof alternative if the compiler doesn't support the offsetof natively
 .PP
 
 .PP
-Definition at line \fB80\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB85\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP arrsize(\fBarr\fP)   (\fBsizeof\fP(\fBarr\fP) / \fBsizeof\fP(\fBarr\fP[0]) )"
 
 .PP
@@ -279,13 +273,13 @@ Macro for the calculation of static, compile-time array
 .PP
 
 .PP
-Definition at line \fB29\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB34\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP DATETIME_STRING_SIZE   20"
 
 .PP
 Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP 
 .PP
-Definition at line \fB97\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB102\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP dprintf( \&.\&.\&.)   \fBif\fP \fBconstexpr\fP (\fBENGINE_DEBUG\fP) { \fBprintf\fP('DEBUG::%\fBs\fP()\-> ', __FUNCTION__); \fBprintf\fP(\fB__VA_ARGS__\fP); \fBprintf\fP('\\n'); }"
 
 .PP
@@ -300,15 +294,7 @@ Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined
 .PP
 
 .PP
-Definition at line \fB55\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP fseek   \fBfseeko\fP"
-
-.PP
-Definition at line \fB107\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP ftell   \fBftello\fP"
-
-.PP
-Definition at line \fB106\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB60\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP getBit(\fBvalue\fP, \fBbit\fP)   (\fBvalue\fP& (1 << \fBbit\fP))"
 
 .PP
@@ -323,7 +309,7 @@ Macro to get the bit of the given value (bitwise operations)
 .PP
 
 .PP
-Definition at line \fB39\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB44\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP IS_SAME_NOC(T, \fBY\fP)   (\fBstd::is_same\fP<\fBtypename\fP \fBstd::decay\fP<\fBconst\fP T>\fB::type\fP, \fBtypename\fP \fBstd::decay\fP<\fBconst\fP \fBY\fP>\fB::type\fP>\fB::value\fP)"
 
 .PP
@@ -344,7 +330,7 @@ It decays both types and omits const-ness
 .PP
 
 .PP
-Definition at line \fB65\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB70\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP mod0(\fBdividend\fP, \fBdivisor\fP)   !(\fBdividend\fP % \fBdivisor\fP)"
 
 .PP
@@ -359,19 +345,19 @@ Macro for the check if modulo of x and y results in 0
 .PP
 
 .PP
-Definition at line \fB34\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB39\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP NLC   '\\\fBn\fP'"
 
 .PP
 Macro for newline char\&. 
 .PP
-Definition at line \fB91\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB96\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP NLS   '\\n'"
 
 .PP
 Macro for newline string\&. 
 .PP
-Definition at line \fB94\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB99\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP UTF8(\fBx\fP)   \fBu8\fP ## \fBx\fP"
 
 .PP
@@ -384,7 +370,7 @@ Macro to convert the normal string literal to utf-8/unicode string literal; u8'H
 .PP
 
 .PP
-Definition at line \fB69\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB74\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#\fBdefine\fP WSTR(\fBx\fP)   \fBL\fP ## \fBx\fP"
 
 .PP
@@ -397,7 +383,7 @@ Macro to convert the 'string literal' to L'wide string literal'
 .PP
 
 .PP
-Definition at line \fB72\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB77\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

@@ -18,6 +18,5 @@ var _a_e_file_writer_8hpp =
     [ "AEFW_FLAG_APPEND", "db/da4/_a_e_file_writer_8hpp.html#a012e155bd84945bb9ebd1840526c6740", null ],
     [ "AEFW_FLAG_APPEND_NO_CURSOR_MOVE", "db/da4/_a_e_file_writer_8hpp.html#a4ddf3085d2d3dbf8764ae17d531fbf30", null ],
     [ "AEFW_FLAG_NOFLAGS", "db/da4/_a_e_file_writer_8hpp.html#a8d58469b1f4d2c20ebbff0b201de5594", null ],
-    [ "AEFW_FLAG_TRUNCATE", "db/da4/_a_e_file_writer_8hpp.html#a05c8d382fec7c226dcbcbd7026f1a6bf", null ],
-    [ "REGISTER_MODULE", "db/da4/_a_e_file_writer_8hpp.html#acf0a51d810526669693be607bd8030aa", null ]
+    [ "AEFW_FLAG_TRUNCATE", "db/da4/_a_e_file_writer_8hpp.html#a05c8d382fec7c226dcbcbd7026f1a6bf", null ]
 ];

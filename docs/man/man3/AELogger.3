@@ -1,4 +1,4 @@
-.TH "AELogger" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogger" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -115,17 +115,13 @@ Inherits \fB__AEModuleBase< AELogger >\fP\&.
 .br
 .RI "Returns the amount of instances of the module currently existing\&. "
 .ti -1c
-.RI "\fBstatic\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "\fBstatic\fP \fBconstexpr\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
 .RI "Returns the name of the registered module\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
 .in +1c
-.ti -1c
-.RI "\fBstatic\fP \fBconst\fP std::string_view \fBm_sModulename\fP"
-.br
-.RI "Name of the module (class), same as in code\&. "
 .ti -1c
 .RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP"
 .br
@@ -142,6 +138,9 @@ Inherits \fB__AEModuleBase< AELogger >\fP\&.
 .RI "\fBvoid\fP \fBlogWriterThread\fP (\fBvoid\fP)"
 .br
 .RI "The function of the log writing thread to\&.\&.\&.read the entries, format them, write them, and clear them\&. "
+.ti -1c
+.RI "\fBREGISTER_MODULE\fP (\fBAETimer\fP)"
+.br
 .in -1c
 .SS "Private Attributes"
 
@@ -371,8 +370,8 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB66\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "\fBstatic\fP std::string_view \fB__AEModuleBase\fP< \fBAELogger\fP  >::getModuleName (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
+Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBstatic\fP \fBconstexpr\fP std::string_view \fB__AEModuleBase\fP< \fBAELogger\fP  >::getModuleName (\fBvoid\fP)\fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP, \fC [inherited]\fP"
 
 .PP
 Returns the name of the registered module\&. 
@@ -383,8 +382,6 @@ Returns the name of the registered module\&.
 .RE
 .PP
 
-.PP
-Definition at line \fB74\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "bool AELogger::isClosed (\fBvoid\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -498,7 +495,9 @@ Pointer to the node of that index
 .PP
 
 .PP
-Definition at line \fB252\fP of file \fBAELogger\&.cpp\fP\&.
+Definition at line \fB259\fP of file \fBAELogger\&.cpp\fP\&.
+.SS "AELogger::REGISTER_MODULE (\fBAETimer\fP)\fC [private]\fP"
+
 .SS "\fBcint\fP AELogger::startWriter (\fBvoid\fP)"
 
 .PP
@@ -664,19 +663,6 @@ Definition at line \fB316\fP of file \fBAELogger\&.hpp\fP\&.
 The mutex to lock when allocating new queue chunks\&. 
 .PP
 Definition at line \fB304\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAELogger\fP  >::m_sModulename\fC [static]\fP, \fC [protected]\fP, \fC [inherited]\fP"
-
-.PP
-Name of the module (class), same as in code\&. 
-.PP
-\fBTodo\fP
-.RS 4
-Find a way to make it constexpr and compile-time evaluated 
-.RE
-.PP
-
-.PP
-Definition at line \fB84\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::thread AELogger::m_trdWriter\fC [private]\fP"
 
 .PP
@@ -694,7 +680,7 @@ Definition at line \fB310\fP of file \fBAELogger\&.hpp\fP\&.
 .PP
 Amount of alive module instances\&. 
 .PP
-Definition at line \fB88\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AELogger::m_ullNodeNumber\fC [private]\fP"
 
 .PP

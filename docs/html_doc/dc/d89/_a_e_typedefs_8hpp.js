@@ -1,5 +1,6 @@
 var _a_e_typedefs_8hpp =
 [
+    [ "AENULL", "dc/d89/_a_e_typedefs_8hpp.html#a71255fd98ff05f38ca0d8d178b09954d", null ],
     [ "calculateTime", "dc/d89/_a_e_typedefs_8hpp.html#af72a119acd49a0eaaf8caf36930cbb07", null ],
     [ "CINT_MAX", "dc/d89/_a_e_typedefs_8hpp.html#a9c55ef6d515bfd72f8da55f745f81f75", null ],
     [ "CINT_MIN", "dc/d89/_a_e_typedefs_8hpp.html#a8a43bedb281ed9a54b3ec860b3da04b5", null ],
@@ -24,12 +25,12 @@ var _a_e_typedefs_8hpp =
     [ "USHRT_MIN", "dc/d89/_a_e_typedefs_8hpp.html#a57f617d9cf5cce12e8499f7512ebd948", null ],
     [ "cint", "dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710", null ],
     [ "HighResTime", "dc/d89/_a_e_typedefs_8hpp.html#a49951feffd9b7a616a344e8c141c2af4", null ],
-    [ "llint", "dc/d89/_a_e_typedefs_8hpp.html#a1f1cfc1526b3d29817a3d2efbb931d0a", null ],
-    [ "sint", "dc/d89/_a_e_typedefs_8hpp.html#ab9731c2b2f199bcb03ed94acd840b93d", null ],
+    [ "llint", "dc/d89/_a_e_typedefs_8hpp.html#a01c88e5c03ebee098af42984516b9aaf", null ],
+    [ "sint", "dc/d89/_a_e_typedefs_8hpp.html#ada7e83fdfe943aba4f1d5bf80cb66f40", null ],
     [ "SteadyTime", "dc/d89/_a_e_typedefs_8hpp.html#a9617f7f0337791e090da1a53ce2f2300", null ],
     [ "SysTime", "dc/d89/_a_e_typedefs_8hpp.html#a95aaa4d93eab3da4479f9b95d5c20a02", null ],
     [ "ucint", "dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706", null ],
-    [ "uint", "dc/d89/_a_e_typedefs_8hpp.html#a4f5fce8c1ef282264f9214809524d836", null ],
-    [ "ullint", "dc/d89/_a_e_typedefs_8hpp.html#a504dd9d703e10dc10e6b9dc83ef7ea6e", null ],
+    [ "uint", "dc/d89/_a_e_typedefs_8hpp.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
+    [ "ullint", "dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb", null ],
     [ "ushort", "dc/d89/_a_e_typedefs_8hpp.html#ab95f123a6c9bcfee6a343170ef8c5f69", null ]
 ];

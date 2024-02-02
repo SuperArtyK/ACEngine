@@ -1,4 +1,4 @@
-.TH "ace::math" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::math" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -119,11 +119,15 @@ ace::math \- Mathematical functions and other things usefull in math\&.
 .br
 .RI "Calculates the absolute value of a given number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBfequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP=std::numeric_limits< T >\fB::epsilon\fP()) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBfequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP) \fBnoexcept\fP"
 .br
-.RI "Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go further than float epsilon)\fP\&. "
+.RI "Checks if given 2 floats of type T are equal, using given epsilon\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP bool \fBequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBfequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.br
+.RI "Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) "
+.ti -1c
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP bool \fBequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBY\fP \fBnum2\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
 .ti -1c
@@ -131,7 +135,7 @@ ace::math \- Mathematical functions and other things usefull in math\&.
 .br
 .RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBintPow\fP (\fBconst\fP T \fBnum\fP, \fBint\fP \fBpower\fP)"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBintPow\fP (\fBconst\fP T \fBnum\fP, \fBllint\fP \fBpower\fP)"
 .br
 .RI "Calculate the integer power of a given number\&. "
 .ti -1c
@@ -358,7 +362,7 @@ The ceiled integer of type T, from the given float number
 .PP
 
 .PP
-Definition at line \fB610\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB636\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> T ace::math::cosDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -394,7 +398,7 @@ Float cosine lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB114\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB117\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::cosDeg_tableInterp (\fBconst\fP \fBfloat\fP degrees)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -417,7 +421,7 @@ Float of interpolated cosine value/returns>
 .PP
 
 .PP
-Definition at line \fB171\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB174\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> T ace::math::cotDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -453,7 +457,7 @@ Float cotangent lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB132\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB135\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::cotDeg_tableInterp (\fBconst\fP \fBfloat\fP degrees)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -476,7 +480,7 @@ Float of interpolated cotangent value/returns>
 .PP
 
 .PP
-Definition at line \fB193\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB196\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> T ace::math::cscDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -512,7 +516,7 @@ Float cosecant lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB141\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB144\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::cscDeg_tableInterp (\fBconst\fP \fBfloat\fP degrees)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -535,7 +539,7 @@ Float of interpolated cosecant value/returns>
 .PP
 
 .PP
-Definition at line \fB204\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB207\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::e (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -577,7 +581,7 @@ The constant converted/rounded to a given type
 
 .PP
 Definition at line \fB225\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fBconstexpr\fP bool ace::math::equals (\fBconst\fP T num, \fBconst\fP T num2)\fC [constexpr]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP bool ace::math::equals (\fBconst\fP T num, \fBconst\fP \fBY\fP num2)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
 Checks if given 2 numbers are equal, a generic function for all types\&. 
@@ -589,7 +593,9 @@ If the T type is a float, returns the result of \fBace::math::fequals()\fP with 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
-\fIT\fP The type of the numbers passed
+\fIT\fP The type of the first number passed
+.br
+\fIY\fP The type of the second number passed
 .RE
 .PP
 \fBParameters\fP
@@ -606,11 +612,41 @@ True if the two numbers are equal, false otherwise
 .PP
 
 .PP
-Definition at line \fB336\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::fequals (\fBconst\fP T num, \fBconst\fP T num2, \fBconst\fP T _epsilon = \fCstd::numeric_limits<T>\fB::epsilon\fP()\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+Definition at line \fB350\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::fequals (\fBconst\fP T num, \fBconst\fP T num2)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
-Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go further than float epsilon)\fP\&. 
+Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) 
+.PP
+\fBNote\fP
+.RS 4
+this is a helper function of \fBace::math::fequals(const T num, const T num2, const T _epsilon)\fP
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the float
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The first float to compare
+.br
+\fInum2\fP The second float to compare
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if both numbers are equal (with epsilon), false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB335\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::fequals (\fBconst\fP T num, \fBconst\fP T num2, \fBconst\fP T _epsilon)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Checks if given 2 floats of type T are equal, using given epsilon\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -628,7 +664,7 @@ Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go
 .PP
 \fBReturns\fP
 .RS 4
-True if both numbers are equal, false otherwise
+True if both numbers are equal (with epsilon), false otherwise
 .RE
 .PP
 
@@ -677,7 +713,7 @@ The floored integer of type T, from the given float number
 .PP
 
 .PP
-Definition at line \fB591\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB617\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::hypot (\fBconst\fP T a, \fBconst\fP T b)\fC [constexpr]\fP"
 
 .PP
@@ -702,8 +738,8 @@ The length of hypotenuse of type T with given lengths of a and b sides
 .PP
 
 .PP
-Definition at line \fB520\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::intPow (\fBconst\fP T num, \fBint\fP power)\fC [constexpr]\fP"
+Definition at line \fB546\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::intPow (\fBconst\fP T num, \fBllint\fP power)\fC [constexpr]\fP"
 
 .PP
 Calculate the integer power of a given number\&. 
@@ -727,7 +763,7 @@ The [num] of type T raised to power [power]
 .PP
 
 .PP
-Definition at line \fB378\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB403\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::isFinite (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -750,7 +786,7 @@ True if the number is finite; otherwise false
 .PP
 
 .PP
-Definition at line \fB555\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB581\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::isInf (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -773,7 +809,7 @@ True if the number is infinite; otherwise false
 .PP
 
 .PP
-Definition at line \fB531\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB557\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool ace::math::isNan (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -796,7 +832,7 @@ True if the number is NaN; otherwise false
 .PP
 
 .PP
-Definition at line \fB543\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB569\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP ace::math::lengthOfFloat (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -819,7 +855,7 @@ Unsigned int of the length of the passed number
 .PP
 
 .PP
-Definition at line \fB492\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB518\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP ace::math::lengthOfInt (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -842,7 +878,7 @@ Unsigned int of the length of the passed number
 .PP
 
 .PP
-Definition at line \fB476\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB502\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::lerp (\fBconst\fP T a, \fBconst\fP T b, \fBconst\fP T c)\fC [constexpr]\fP"
 
 .PP
@@ -876,7 +912,7 @@ The value of type T of the inter/extrapolated value
 .PP
 
 .PP
-Definition at line \fB508\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB534\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::ln10 (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -973,7 +1009,7 @@ Value of a if it is bigger than b; value of b otherwise
 .PP
 
 .PP
-Definition at line \fB453\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB479\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T > \fBconstexpr\fP T ace::math::min (\fBconst\fP T & a, \fBconst\fP T & b)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -998,7 +1034,7 @@ Value of a if it is smaller than b; value of b otherwise
 .PP
 
 .PP
-Definition at line \fB465\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB491\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::phi (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1149,7 +1185,7 @@ The rtNum'th root of the number num of type T
 .PP
 
 .PP
-Definition at line \fB429\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB455\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = llint, \fBtypename\fP \fBY\fP  = long double> \fBconstexpr\fP T ace::math::roundToInt (\fBconst\fP \fBY\fP num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1184,7 +1220,7 @@ The rounded integer of type T, from the given float number
 .PP
 
 .PP
-Definition at line \fB570\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB596\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> T ace::math::secDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1220,7 +1256,7 @@ Float secant lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB150\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB153\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::secDeg_tableInterp (\fBconst\fP \fBfloat\fP degrees)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1243,7 +1279,7 @@ Float of interpolated secant value/returns>
 .PP
 
 .PP
-Definition at line \fB215\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB218\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> T ace::math::sinDeg (\fBconst\fP T degrees)\fC [inline]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1279,7 +1315,7 @@ Float sine lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB105\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB108\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::sinDeg_tableInterp (\fBconst\fP \fBfloat\fP degrees)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1302,7 +1338,7 @@ Float of interpolated sine value/returns>
 .PP
 
 .PP
-Definition at line \fB160\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB163\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::sqrt (\fBconst\fP T num)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1325,7 +1361,7 @@ If the num is positive -> square root value from passed value of type T; -1 (as 
 .PP
 
 .PP
-Definition at line \fB352\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB377\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::sqrtOf2 (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1469,7 +1505,7 @@ Float tangent lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB123\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB126\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::tanDeg_tableInterp (\fBconst\fP \fBfloat\fP degrees)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1492,7 +1528,7 @@ Float of interpolated tangent value/returns>
 .PP
 
 .PP
-Definition at line \fB182\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB185\fP of file \fBAETrigLookup\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::tau (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
 
 .PP
@@ -1552,7 +1588,7 @@ The truncated integer of type T, from the given float number
 .PP
 
 .PP
-Definition at line \fB629\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB655\fP of file \fBAEMath\&.hpp\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "\fBconstexpr\fP \fBfloat\fP ace::math::cosTable[360]\fC [constexpr]\fP"

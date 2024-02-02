@@ -1,12 +1,10 @@
-.TH "todo" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "todo" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 todo \- Todo List 
 .PP
 
-.IP "\fBMember \fB__AEModuleBase< T >::m_sModulename\fP \fP" 1c
-Find a way to make it constexpr and compile-time evaluated  
 .IP "\fBMember \fBace::math::ceilToInt\fP (const Y num) noexcept\fP" 1c
 Change the body of the function to use std::ceil() instead, when it gets constexpr (after c++23)  
 .IP "\fBMember \fBace::math::floorToInt\fP (const Y num) noexcept\fP" 1c
@@ -29,6 +27,10 @@ Add the ability to open the same log file/redirect the instance requests to the 
 Implement decrease in log queue size\&.\&.\&.somehow  
 .IP "\fBFile \fBAETrigLookup\&.hpp\fP \fP" 1c
 Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing 
+.IP "\fBMember \fBAEVector< T, dimAmount, >::angleBetweenDeg\fP (const AEVector< Y, dimAmount > &two) const noexcept\fP" 1c
+Change this function to constexpr once the constexpr solution appears  
+.IP "\fBMember \fBAEVector< T, dimAmount, >::angleBetweenRad\fP (const AEVector< Y, dimAmount > &two) const noexcept\fP" 1c
+Change this function to constexpr once the constexpr solution appears  
 .IP "\fBFile \fBmain_ACEngine\&.cpp\fP \fP" 1c
 Add the global variable list from my older engine 
 .PP

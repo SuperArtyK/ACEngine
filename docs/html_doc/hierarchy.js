@@ -20,5 +20,5 @@ var hierarchy =
       [ "AETimer", "da/d62/class_a_e_timer.html", null ]
     ] ],
     [ "AELogEntry", "da/dea/struct_a_e_log_entry.html", null ],
-    [ "AEVector< T, dimAmount >", "dc/df6/struct_a_e_vector.html", null ]
+    [ "AEVector< T, dimAmount, >", "dc/df6/struct_a_e_vector.html", null ]
 ];

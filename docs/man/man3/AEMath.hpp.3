@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -31,11 +31,11 @@ AEMisc/include/AEMath.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBtorad\fP(\fBdeg\fP,  \fBtype\fP)   (\fBdeg\fP * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
+.RI "#\fBdefine\fP \fBtoRad\fP(\fBdeg\fP,  \fBtype\fP)   ((\fBdeg\fP) * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
 .br
 .RI "Macro to convert degrees value x to radians\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBtodeg\fP(\fBrad\fP,  \fBtype\fP)   (\fBrad\fP*\fBtype\fP(180)/\fBace::math::pi\fP<\fBtype\fP>())"
+.RI "#\fBdefine\fP \fBtoDeg\fP(\fBrad\fP,  \fBtype\fP)   ((\fBrad\fP) * \fBtype\fP(180) / \fBace::math::pi\fP<\fBtype\fP>() )"
 .br
 .RI "Macro to convert radians value x to degrees\&. "
 .in -1c
@@ -151,11 +151,15 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Calculates the absolute value of a given number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP=std::numeric_limits< T >\fB::epsilon\fP()) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP) \fBnoexcept\fP"
 .br
-.RI "Checks if given 2 floats of type T are equal, using given \fBepsilon(must not go further than float epsilon)\fP\&. "
+.RI "Checks if given 2 floats of type T are equal, using given epsilon\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.br
+.RI "Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) "
+.ti -1c
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBY\fP \fBnum2\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
 .ti -1c
@@ -163,7 +167,7 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBint\fP \fBpower\fP)"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBllint\fP \fBpower\fP)"
 .br
 .RI "Calculate the integer power of a given number\&. "
 .ti -1c
@@ -232,7 +236,7 @@ Should not cause everything to break :)
 Definition in file \fBAEMath\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP todeg(\fBrad\fP, \fBtype\fP)   (\fBrad\fP*\fBtype\fP(180)/\fBace::math::pi\fP<\fBtype\fP>())"
+.SS "#\fBdefine\fP toDeg(\fBrad\fP, \fBtype\fP)   ((\fBrad\fP) * \fBtype\fP(180) / \fBace::math::pi\fP<\fBtype\fP>() )"
 
 .PP
 Macro to convert radians value x to degrees\&. 
@@ -247,7 +251,7 @@ Macro to convert radians value x to degrees\&.
 
 .PP
 Definition at line \fB30\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "#\fBdefine\fP torad(\fBdeg\fP, \fBtype\fP)   (\fBdeg\fP * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
+.SS "#\fBdefine\fP toRad(\fBdeg\fP, \fBtype\fP)   ((\fBdeg\fP) * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
 
 .PP
 Macro to convert degrees value x to radians\&. 

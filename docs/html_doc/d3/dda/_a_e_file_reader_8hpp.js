@@ -12,6 +12,5 @@ var _a_e_file_reader_8hpp =
     [ "AEFR_ERR_READ_ERROR", "d3/dda/_a_e_file_reader_8hpp.html#afac5875f977af5bc707940dc028cd4f0", null ],
     [ "AEFR_ERR_READ_SUCCESS", "d3/dda/_a_e_file_reader_8hpp.html#aef15849d62077aa52db4aa6ff4d365c9", null ],
     [ "AEFR_ERR_READ_ZERO_SIZE", "d3/dda/_a_e_file_reader_8hpp.html#a1a4fc9be25a446d307e34224581b3479", null ],
-    [ "AEFR_ERR_WRONG_CURSOR_ORIGIN", "d3/dda/_a_e_file_reader_8hpp.html#a4f29dbcb8ffb6ec890991d83a55bda57", null ],
-    [ "REGISTER_MODULE", "d3/dda/_a_e_file_reader_8hpp.html#afb77c1f0105da22a244087f95dc31327", null ]
+    [ "AEFR_ERR_WRONG_CURSOR_ORIGIN", "d3/dda/_a_e_file_reader_8hpp.html#a4f29dbcb8ffb6ec890991d83a55bda57", null ]
 ];

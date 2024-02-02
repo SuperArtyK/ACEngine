@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['register_5fmodule_0',['REGISTER_MODULE',['../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf',1,'AEModuleBase.hpp']]]
+  ['platform_5fid_0',['PLATFORM_ID',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'CMakeCXXCompilerId.cpp']]]
 ];

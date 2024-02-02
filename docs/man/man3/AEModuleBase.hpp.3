@@ -1,4 +1,4 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Sat Jan 20 2024 16:30:37" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,6 +7,8 @@ AEModuleBase/include/AEModuleBase.hpp
 .br
 .PP
 \fC#include 'include/AETypedefs\&.hpp'\fP
+.br
+\fC#include 'include/AEFlags\&.hpp'\fP
 .br
 \fC#include <atomic>\fP
 .br
@@ -27,13 +29,24 @@ AEModuleBase/include/AEModuleBase.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBREGISTER_MODULE\fP(T)   \fBtemplate\fP<> \fBconst\fP \fBinline\fP std::string_view \fB__AEModuleBase\fP<T>::m_sModulename = #T;"
+.RI "#\fBdefine\fP \fBREGISTER_MODULE\fP(T)"
 .br
-.RI "Adds module name to inherit from \fB__AEModuleBase\fP\&. "
+.RI "A process to register the module (that inherited from \fB__AEModuleBase\fP) (under the hood: finish specialising \fB__AEModuleBase::getModuleName()\fP specially for the inheriting class) Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace }\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBCOPYCONSTRUCT_MODULE\fP(T,  \fBval\fP)   \fB__AEModuleBase\fP<T>(\fBval\fP)"
+.br
+.RI "A process to correctly copy-construct the module (that inherited from \fB__AEModuleBase\fP) (under the hood: calls the copy-constructor of the \fB__AEModuleBase\fP) Usage: put it as the first item of the initializer list Example: \fBTestClass(const TestClass& val)\fP : \fBCOPYCONSTRUCT_MODULE(T, val)\fP, [other member initialisation] {\&.\&.\&.}\&. "
 .ti -1c
 .RI "#\fBdefine\fP \fBENGINE_MODULE_ERR_NOERROR\fP   0"
 .br
 .RI "Global 'no error' return flag for all engine modules\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconstexpr\fP std::string_view \fBgetModuleName2\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -44,18 +57,64 @@ Should not cause everything to break :)
 Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
+.SS "#\fBdefine\fP COPYCONSTRUCT_MODULE(T, \fBval\fP)   \fB__AEModuleBase\fP<T>(\fBval\fP)"
+
+.PP
+A process to correctly copy-construct the module (that inherited from \fB__AEModuleBase\fP) (under the hood: calls the copy-constructor of the \fB__AEModuleBase\fP) Usage: put it as the first item of the initializer list Example: \fBTestClass(const TestClass& val)\fP : \fBCOPYCONSTRUCT_MODULE(T, val)\fP, [other member initialisation] {\&.\&.\&.}\&. 
+.PP
+\fBWarning\fP
+.RS 4
+If you won't do it, the module count (done by \fB__AEModuleBase\fP) won't be incremented 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Inheriting module's class name
+.br
+\fIval\fP The name of the argument to be copy-constructed from
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB35\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "#\fBdefine\fP ENGINE_MODULE_ERR_NOERROR   0"
 
 .PP
 Global 'no error' return flag for all engine modules\&. 
 .PP
-Definition at line \fB22\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "#\fBdefine\fP REGISTER_MODULE(T)   \fBtemplate\fP<> \fBconst\fP \fBinline\fP std::string_view \fB__AEModuleBase\fP<T>::m_sModulename = #T;"
+Definition at line \fB38\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "#\fBdefine\fP REGISTER_MODULE(T)"
+\fBValue:\fP.PP
+.nf
+    public: static constexpr std::string_view getModuleName(void) noexcept { \\
+	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
+    return #T; }
+.fi
 
 .PP
-Adds module name to inherit from \fB__AEModuleBase\fP\&. 
+A process to register the module (that inherited from \fB__AEModuleBase\fP) (under the hood: finish specialising \fB__AEModuleBase::getModuleName()\fP specially for the inheriting class) Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace }\&. 
 .PP
-Definition at line \fB19\fP of file \fBAEModuleBase\&.hpp\fP\&.
+\fBWarning\fP
+.RS 4
+If you won't do it, the project won't compile with the 'unresolved external' error 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Inheriting module's class name
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB24\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBconstexpr\fP std::string_view getModuleName2 (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
+
+.PP
+Definition at line \fB103\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.
