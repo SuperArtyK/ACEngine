@@ -111,6 +111,7 @@ public:
 	/// <summary>
 	/// The addition-assignment operator -- add another vector to "this" 
 	/// @note The second vector must have the same amount of dimensions (to even compile)
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
 	/// </summary>
 	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
@@ -124,8 +125,9 @@ public:
 	}
 
 	/// <summary>
-	/// The addition operator -- "add" this and another vector
+	/// The addition operator -- add "this" and another vector
 	/// @note The second vector must have the same amount of dimensions (to even compile)
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
 	/// </summary>
 	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
@@ -136,8 +138,15 @@ public:
 		return a.operator+=<Y>(two);
 	}
 
-	template<typename Y = T, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr AEVector<T, dimAmount>& operator+=(const Y two) noexcept {
+	/// <summary>
+	/// The addition-assignment operator -- add the scalar number to "this"
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
+	/// </summary>
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
+	/// <returns>The reference to the resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr AEVector<T, dimAmount>& operator+=(const Y two) noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			this->dims[i] += two;
@@ -145,14 +154,27 @@ public:
 		return *this;
 	}
 
-
-	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr AEVector<T, dimAmount> operator+(const Y two) const noexcept {
+	/// <summary>
+	/// The addition operator -- add the scalar number and "this" together
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
+	/// </summary>
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
+	/// <returns>The resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr AEVector<T, dimAmount> operator+(const Y two) const noexcept requires(std::is_arithmetic<T>::value, bool) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
 		return a.operator+=(two);
 	}
 
+	/// <summary>
+	/// The subtraction-assignment operator -- subtract another vector from "this"
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
+	/// </summary>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The reference to the resulting vector after the operation</returns>
 	template<typename Y = T>
 	constexpr AEVector<T, dimAmount>& operator-=(const AEVector<Y, dimAmount>& two) noexcept {
 		for (std::size_t i = 0; i < dimAmount; i++) {
@@ -161,6 +183,13 @@ public:
 		return *this;
 	}
 
+	/// <summary>
+	/// The subtraction operator -- subtract "this" and another vector
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
+	/// </summary>
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
+	/// <returns>The resulting vector after the operation</returns>
 	template<typename Y = T>
 	constexpr AEVector<T, dimAmount> operator-(const AEVector<Y, dimAmount>& two) const noexcept {
 		AEVector<T, dimAmount> a = *this;
@@ -169,12 +198,13 @@ public:
 
 	/// <summary>
 	/// The multiplication-assignment operator -- multiply "this" by a scalar
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
 	/// </summary>
-	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
-	/// <param name="two">The second vector</param>
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
 	/// <returns>The reference to the resulting vector after the operation</returns>
-	template<typename Y = T, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr AEVector<T, dimAmount>& operator*=(const Y two) noexcept {
+	template<typename Y>
+	constexpr AEVector<T, dimAmount>& operator*=(const Y two) noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			this->dims[i] *= two;
@@ -183,21 +213,28 @@ public:
 	}
 
 	/// <summary>
-	/// The multiplication operator -- multiply this and a scalar
+	/// The multiplication operator -- multiply "this" and a scalar
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
 	/// </summary>
-	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
-	/// <param name="two">The second vector</param>
-	/// <returns>The value of the resulting vector after the operation</returns>
-	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr AEVector<T, dimAmount> operator*(const Y two) const noexcept {
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
+	/// <returns>The resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr AEVector<T, dimAmount> operator*(const Y two) const noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
 		return a.operator*=(two);
 	}
 
-	
-	template<typename Y = T, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr AEVector<T, dimAmount>& operator/=(const Y two) noexcept {
+	/// <summary>
+	/// The division-assignment operator -- divide "this" by a scalar
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
+	/// </summary>
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
+	/// <returns>The reference to the resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr AEVector<T, dimAmount>& operator/=(const Y two) noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		for (std::size_t i = 0; i < dimAmount; i++) {
 			this->dims[i] /= two;
@@ -205,14 +242,25 @@ public:
 		return *this;
 	}
 
-	
-	template<typename Y, std::enable_if_t<std::is_arithmetic<T>::value, bool> = true>
-	constexpr AEVector<T, dimAmount> operator/(const Y two) const noexcept {
+	/// <summary>
+	/// The division operator -- divide "this" and a scalar"
+	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
+	/// </summary>
+	/// <typeparam name="Y">The arithmetic type of the scalar number</typeparam>
+	/// <param name="two">The scalar number</param>
+	/// <returns>The resulting vector after the operation</returns>
+	template<typename Y>
+	constexpr AEVector<T, dimAmount> operator/(const Y two) const noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
 		return a.operator/=(two);
 	}
 
+	/// <summary>
+	/// Unary negation operator -- returns a copy "this" but negative
+	/// @note The if the value is of unsigned type -- underflow will happen
+	/// </summary>
+	/// <returns>Negated copy of "this" vector</returns>
 	constexpr AEVector<T, dimAmount> operator-(void) const noexcept {
 		AEVector<T, dimAmount> result = *this;
 		for (std::size_t i = 0; i < dimAmount; i++) {
@@ -259,6 +307,11 @@ public:
 
 //math functions
 
+	/// <summary>
+	/// Calculates the squared magnitude/length of the vector
+	/// </summary>
+	/// <typeparam name="F">The type to calculate the magnitude with</typeparam>
+	/// <returns>The magnitude of the vector as the type F</returns>
 	template<typename F = long double>
 	constexpr F magnitudeSquared(void) const noexcept {
 		return this->dotProduct<F, T>(*this);
@@ -267,8 +320,8 @@ public:
 	/// <summary>
 	/// Calculates the magnitude/length of the vector
 	/// </summary>
-	/// <typeparam name="F">The float type to calculate the magnitude with</typeparam>
-	/// <returns>The magnitude of the vector as the float type F</returns>
+	/// <typeparam name="F">The type to calculate the magnitude with</typeparam>
+	/// <returns>The magnitude of the vector as the type F</returns>
 	template<typename F = long double>
 	constexpr F magnitude(void) const noexcept {
 		return ace::math::sqrt<F>( this->magnitudeSquared<F>() );
@@ -277,9 +330,9 @@ public:
 	/// <summary>
 	/// Calculates the normalised value of the given dimension
 	/// </summary>
-	/// <typeparam name="F">The float type to calculate it all with</typeparam>
+	/// <typeparam name="F">The type to calculate it all with</typeparam>
 	/// <param name="index">The index of the dimension</param>
-	/// <returns>The normalised value of the dimension as the float type F</returns>
+	/// <returns>The normalised value of the dimension as the type F</returns>
 	template<typename F = long double>
 	constexpr F normDim(const std::size_t index) const noexcept {
 		return this->operator[](index)/this->magnitude<F>();
@@ -288,7 +341,7 @@ public:
 	/// <summary>
 	/// Calculates the normalised vector from the current vector
 	/// </summary>
-	/// <typeparam name="F">The float type of the resulting normalised vector</typeparam>
+	/// <typeparam name="F">The type of the resulting normalised vector</typeparam>
 	/// <returns>The normalised vector</returns>
 	template<typename F = long double>
 	constexpr AEVector<F, dimAmount> normalise(void) const noexcept {
@@ -305,7 +358,7 @@ public:
 	/// <summary>
 	/// Calculate the dot product of "this" and another vector
 	/// </summary>
-	/// <typeparam name="F">The float type of the resulting scalar</typeparam>
+	/// <typeparam name="F">The type of the resulting scalar</typeparam>
 	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
 	/// <returns>The value of the dot product of the type F</returns>
@@ -318,19 +371,38 @@ public:
 		return temp;
 	}
 	
-	//calculates the distance between vectors (end points) squared
+	/// <summary>
+	/// Calculate the squared distance between "this" and another vector
+	/// </summary>
+	/// <typeparam name="F">The type of the resulting scalar</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The value of the resulting operation as type F</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F distanceBetweenSquared(const AEVector<Y, dimAmount>& two) const noexcept {
 		return (two - *this).magnitudeSquared();
 	}
 
-	//calculates the distance between vectors (their end points)
+	/// <summary>
+	/// Calculate the distance between "this" and another vector
+	/// </summary>
+	/// <typeparam name="F">The type of the resulting scalar</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The value of the resulting operation as type F</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F distanceBetween(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::sqrt(this->distanceBetweenSquared<F, Y>(two));
 	}
 	
-	// calculates the cross product of the 2 3d vectors
+	/// <summary>
+	/// Calculate the cross product of "this" and the given vector
+	/// @note Only works for 3d vectors!
+	/// </summary>
+	/// <typeparam name="F">The dimension type of the resulting vector</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The resulting vector of the type F after the cross product operation</returns>
 	template<typename F = T, typename Y = T>
 	constexpr AEVector<F, dimAmount> crossProduct(const AEVector<Y, dimAmount>& two) const noexcept requires (dimAmount == 3) {
 		return AEVector<F, dimAmount>{ 
@@ -340,7 +412,13 @@ public:
 				};
 	}
 
-	// calculates the value of the cosine of the angle between the vectors
+	/// <summary>
+	/// Calculates the cosine value of the angle between "this" and given vector
+	/// </summary>
+	/// <typeparam name="F">The type of the resulting scalar</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The resulting angle of type F after the operation</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F cosAngleBetween(const AEVector<Y, dimAmount>& two) const noexcept {
 		return this->dotProduct<F>(two) / (this->magnitude<F>() * two.magnitude<F>());
@@ -348,54 +426,91 @@ public:
 
 
 	/// <summary>
-	/// Calculate the angle between the vectors
+	/// Calculate the angle between the vectors as radians
 	/// @note This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!)
 	/// @todo Change this function to constexpr once the constexpr solution appears
 	/// </summary>
 	/// <typeparam name="F">The type to calculate this as</typeparam>
-	/// <typeparam name="Y">The arithmetic type of the second vector</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
-	/// <returns>Angle between the current and given vector, in radians</returns>
+	/// <returns>Angle between the current and given vector in radians, as type F</returns>
 	template<typename F = long double, typename Y = T>
 	F angleBetweenRad(const AEVector<Y, dimAmount>& two) const noexcept {
 		return std::acos(this->cosAngleBetween<F, Y>(two));
 	}
 
-	//calculates the angle between the 1st and 2nd vector in degrees
+	/// <summary>
+	/// Calculate the angle between the vectors as degrees
+	/// @note This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!)
+	/// @todo Change this function to constexpr once the constexpr solution appears
+	/// </summary>
+	/// <typeparam name="F">The type to calculate this as</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>Angle between the current and given vector in degrees, as type F</returns>
 	template<typename F = long double, typename Y = T>
 	F angleBetweenDeg(const AEVector<Y, dimAmount>& two) const noexcept {
 		return toDeg( (this->angleBetweenRad<F, Y>(two)), Y );
 	}
 
 
-	//checks if the 2nd vector is orthogonal to the 1st
+	/// <summary>
+	/// Checks if "this" and given vector are orthogonal (perpendicular), by comparing their dot product to 0
+	/// </summary>
+	/// <typeparam name="F">The type to use in comparison</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>True if they are orthogonal to each other, false otherwise</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr bool isOrthogonal(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::equals<F>(this->dotProduct<F, Y>(two), F(0));
 	}
 
-	//checks if the 2nd vector is perfectly-collinear with the 1st
+	/// <summary>
+	/// Checks if "this" and given vector are collinear (parallel), by comparing their dot product to product of their magnitudes
+	/// </summary>
+	/// <typeparam name="F">The type to use in comparison</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>True if they are collinear to each other, false otherwise</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr bool isCollinear(const AEVector<Y, dimAmount>& two) const noexcept {
 		return ace::math::equals<F, F>( this->dotProduct<F, Y>(two), this->magnitude<F>() * two.magnitude<F>()  );
 	}
 
-	//projects the 2nd vector onto the 1st
-	//returns the length of the projection
+	/// <summary>
+	/// Calculates the projection of the given vector onto "this" vector
+	/// </summary>
+	/// <typeparam name="F">The type of the resulting scalar</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The length of the projection as type F</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F projectOnVector(const AEVector<Y, dimAmount>& two) const noexcept {
 		return this->dotProduct<F, Y>(two) / two.magnitude();
 	}
 
-
-	//It *approximates* the perpendicular vector to itself
-	//that has the *same length*
+	/// <summary>
+	/// Calculates the vector that is perpendicular to "this" vector, with the same length (and same dimension type)
+	/// @warning For integer types, it *approximates* the value instead (integers *round down* all the values)
+	/// @note If the vector type is an integer type, then the length of the resulting vector may be close to but not equal to the vector "this", due to rounding
+	/// @note If the vector type is an integer type, then the calls to AEVector::isOrthogonal() may return false, due to rounding
+	/// </summary>
+	/// <returns>The perpendicular vector of the same type and length</returns>
 	constexpr AEVector<T, dimAmount> perpendicularToItself() const noexcept {
 		return this->perpendicularToVector<T, T>(*this);
 	}
 
-	//it approximates the perpendicular vector to the vector, using the given vector's projection
-	//basically the perpendicular vector to the current vector with it's length being the length of the projection of the 2nd vector onto the 1st
+	/// <summary>
+	/// Calculates the vector that is perpendicular to "this", with the length of projection of the given vector onto "this"
+	/// @warning For integer types, it *approximates* the value instead (integers *round down* all the values)
+	/// @note If the vector type is an integer type, then the length of the resulting vector may be close to but not equal to the vector "this", due to rounding
+	/// @note If the vector type is an integer type, then the calls to AEVector::isOrthogonal() may return false, due to rounding
+	/// </summary>
+	/// <typeparam name="F">The dimension type of the resulting vector</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The perpendicular vector of the type F and length of the calculated projection of another vector onto "this"</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr AEVector<F, dimAmount> perpendicularToVector(const AEVector<Y, dimAmount>& two) const noexcept {
 		if constexpr (dimAmount == 1) {
