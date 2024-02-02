@@ -88,7 +88,7 @@ public:
 	constexpr bool operator==(const AEVector<Y, dimAmount>& two) const noexcept {
 
 		for (std::size_t i = 0; i < dimAmount; i++) {
-			if (ace::math::equals(this->dims[i], two.dims[i])) {
+			if (ace::math::equals<T, Y>(this->dims[i], two.dims[i])) {
 				return false;
 			}
 		}
@@ -162,10 +162,10 @@ public:
 	/// <param name="two">The scalar number</param>
 	/// <returns>The resulting vector after the operation</returns>
 	template<typename Y>
-	constexpr AEVector<T, dimAmount> operator+(const Y two) const noexcept requires(std::is_arithmetic<T>::value, bool) {
+	constexpr AEVector<T, dimAmount> operator+(const Y two) const noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
-		return a.operator+=(two);
+		return a.operator+=<Y>(two);
 	}
 
 	/// <summary>
@@ -223,7 +223,7 @@ public:
 	constexpr AEVector<T, dimAmount> operator*(const Y two) const noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
-		return a.operator*=(two);
+		return a.operator*=<Y>(two);
 	}
 
 	/// <summary>
@@ -253,7 +253,7 @@ public:
 	constexpr AEVector<T, dimAmount> operator/(const Y two) const noexcept requires(std::is_arithmetic<T>::value == true) {
 		static_assert(std::is_arithmetic<Y>::value, "You cannot scalar-multiply a vector with a non-arithmetic type!");
 		AEVector<T, dimAmount> a = *this;
-		return a.operator/=(two);
+		return a.operator/=<Y>(two);
 	}
 
 	/// <summary>
@@ -330,21 +330,21 @@ public:
 	/// <summary>
 	/// Calculates the normalised value of the given dimension
 	/// </summary>
-	/// <typeparam name="F">The type to calculate it all with</typeparam>
+	/// <typeparam name="F">The float type to calculate it all with</typeparam>
 	/// <param name="index">The index of the dimension</param>
-	/// <returns>The normalised value of the dimension as the type F</returns>
+	/// <returns>The normalised value of the dimension as the type float F</returns>
 	template<typename F = long double>
-	constexpr F normDim(const std::size_t index) const noexcept {
+	constexpr F normDim(const std::size_t index) const noexcept requires(std::is_floating_point<F>::value == true) {
 		return this->operator[](index)/this->magnitude<F>();
 	}
 
 	/// <summary>
 	/// Calculates the normalised vector from the current vector
 	/// </summary>
-	/// <typeparam name="F">The type of the resulting normalised vector</typeparam>
-	/// <returns>The normalised vector</returns>
+	/// <typeparam name="F">The float type of the resulting normalised vector</typeparam>
+	/// <returns>The normalised vector of float type F</returns>
 	template<typename F = long double>
-	constexpr AEVector<F, dimAmount> normalise(void) const noexcept {
+	constexpr AEVector<F, dimAmount> normalise(void) const noexcept requires(std::is_floating_point<F>::value == true) {
 		//vector magnitude
 		const F vecmag = this->magnitude<F>();
 		AEVector<F, dimAmount> ret;
@@ -380,7 +380,7 @@ public:
 	/// <returns>The value of the resulting operation as type F</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F distanceBetweenSquared(const AEVector<Y, dimAmount>& two) const noexcept {
-		return (two - *this).magnitudeSquared();
+		return (two.operator-(*this)).magnitudeSquared<F>();
 	}
 
 	/// <summary>
@@ -392,7 +392,7 @@ public:
 	/// <returns>The value of the resulting operation as type F</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F distanceBetween(const AEVector<Y, dimAmount>& two) const noexcept {
-		return ace::math::sqrt(this->distanceBetweenSquared<F, Y>(two));
+		return ace::math::sqrt<F>(this->distanceBetweenSquared<F, Y>(two));
 	}
 	
 	/// <summary>
@@ -415,12 +415,12 @@ public:
 	/// <summary>
 	/// Calculates the cosine value of the angle between "this" and given vector
 	/// </summary>
-	/// <typeparam name="F">The type of the resulting scalar</typeparam>
+	/// <typeparam name="F">The float type of the resulting scalar</typeparam>
 	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
-	/// <returns>The resulting angle of type F after the operation</returns>
+	/// <returns>The resulting angle of float type F after the operation</returns>
 	template<typename F = long double, typename Y = T>
-	constexpr F cosAngleBetween(const AEVector<Y, dimAmount>& two) const noexcept {
+	constexpr F cosAngleBetween(const AEVector<Y, dimAmount>& two) const noexcept requires(std::is_floating_point<F>::value == true) {
 		return this->dotProduct<F>(two) / (this->magnitude<F>() * two.magnitude<F>());
 	}
 
@@ -430,12 +430,12 @@ public:
 	/// @note This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!)
 	/// @todo Change this function to constexpr once the constexpr solution appears
 	/// </summary>
-	/// <typeparam name="F">The type to calculate this as</typeparam>
+	/// <typeparam name="F">The float type to calculate this as</typeparam>
 	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
-	/// <returns>Angle between the current and given vector in radians, as type F</returns>
+	/// <returns>Angle between the current and given vector in radians, as float type F</returns>
 	template<typename F = long double, typename Y = T>
-	F angleBetweenRad(const AEVector<Y, dimAmount>& two) const noexcept {
+	F angleBetweenRad(const AEVector<Y, dimAmount>& two) const noexcept requires(std::is_floating_point<F>::value == true) {
 		return std::acos(this->cosAngleBetween<F, Y>(two));
 	}
 
@@ -444,12 +444,12 @@ public:
 	/// @note This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!)
 	/// @todo Change this function to constexpr once the constexpr solution appears
 	/// </summary>
-	/// <typeparam name="F">The type to calculate this as</typeparam>
+	/// <typeparam name="F">The float type to calculate this as</typeparam>
 	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
 	/// <param name="two">The second vector</param>
-	/// <returns>Angle between the current and given vector in degrees, as type F</returns>
+	/// <returns>Angle between the current and given vector in degrees, as float type F</returns>
 	template<typename F = long double, typename Y = T>
-	F angleBetweenDeg(const AEVector<Y, dimAmount>& two) const noexcept {
+	F angleBetweenDeg(const AEVector<Y, dimAmount>& two) const noexcept requires(std::is_floating_point<F>::value == true) {
 		return toDeg( (this->angleBetweenRad<F, Y>(two)), Y );
 	}
 
@@ -463,7 +463,7 @@ public:
 	/// <returns>True if they are orthogonal to each other, false otherwise</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr bool isOrthogonal(const AEVector<Y, dimAmount>& two) const noexcept {
-		return ace::math::equals<F>(this->dotProduct<F, Y>(two), F(0));
+		return ace::math::equals<F, F>(this->dotProduct<F, Y>(two), F(0));
 	}
 
 	/// <summary>
@@ -487,7 +487,7 @@ public:
 	/// <returns>The length of the projection as type F</returns>
 	template<typename F = long double, typename Y = T>
 	constexpr F projectOnVector(const AEVector<Y, dimAmount>& two) const noexcept {
-		return this->dotProduct<F, Y>(two) / two.magnitude();
+		return this->dotProduct<F, Y>(two) / two.magnitude<F>();
 	}
 
 	/// <summary>
@@ -516,7 +516,7 @@ public:
 		if constexpr (dimAmount == 1) {
 			return *this;
 		}
-		const long double mag = ace::math::sqrt(two.projectOnVector(*this) / (this->dims[1] * -(this->dims[0])));
+		const long double mag = ace::math::sqrt(two.projectOnVector<F, Y>(*this) / (this->dims[1] * -(this->dims[0])));
 		AEVector<T, dimAmount> res{};
 		res[0] = this->dims[1] * mag;
 		res[1] = -(this->dims[0] * mag);
