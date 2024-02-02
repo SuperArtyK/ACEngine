@@ -39,6 +39,7 @@ int main() {
 	cout << (a * 3) << NLC;
 	cout << (a / 3) << NLC;
 	cout << (a + 5) << NLC;
+	cout << (a * c) << NLC;
 
 	cout << "\n\n\n";
 	constexpr AEVec2Int f{ 3,4 }, g{ 4,3 };

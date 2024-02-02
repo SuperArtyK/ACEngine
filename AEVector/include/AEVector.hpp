@@ -197,6 +197,18 @@ public:
 	}
 
 	/// <summary>
+	/// The multiplication operator -- calculate the dot product of "this" and another vector
+	/// </summary>
+	/// <typeparam name="F">The type of the resulting scalar</typeparam>
+	/// <typeparam name="Y">The dimension type in the second vector</typeparam>
+	/// <param name="two">The second vector</param>
+	/// <returns>The value of the dot product of the type F</returns>
+	template<typename F = long double, typename Y = T>
+	constexpr F operator*(const AEVector<Y, dimAmount>& two) const noexcept {
+		return this->dotProduct<F, Y>(two);
+	}
+
+	/// <summary>
 	/// The multiplication-assignment operator -- multiply "this" by a scalar
 	/// @note The final value will be of "this" vector's type! So all the rounding and overflow issues -- your problem now
 	/// </summary>
