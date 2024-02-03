@@ -100,11 +100,6 @@ protected:
 	static inline std::atomic<ullint> m_ullModulesAlive = 0;
 };
 
-constexpr std::string_view getModuleName2(void) noexcept{
-	return "__AEModuleBase<>";
-}
-
-
 //REGISTER_MODULE(__AEModuleBase)
 
 #endif // !ENGINE_AEMODULEBASE_HPP
