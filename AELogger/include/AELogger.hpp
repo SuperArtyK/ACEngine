@@ -67,12 +67,14 @@ public:
 
 //constructors
 	/// <summary>
-	/// Class constructor -- it opens the file with the given name and starts logging to it.
+	/// Class constructor -- it opens the file with the given name  and starts logging to it.
+	/// @note Puts the file into the default log path location (AELOG_DEFAULT_LOG_PATH)
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
-	explicit AELogger(const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
+	explicit AELogger(const std::string fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) :
+		AELogger(AELOG_DEFAULT_LOG_PATH, fname, clearLog, queuesize) {}
 
 	/// <summary>
 	/// Class constructor -- it opens the file with the given path and name and start logging to it.
@@ -81,8 +83,7 @@ public:
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	/// <param name="queuesize">The size of the queue to create when creating AELogger instance</param>
-	explicit AELogger(const std::string_view logpath, const std::string_view fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE) :
-		AELogger(std::string(logpath)+std::string(fname), clearLog, queuesize) {}
+	explicit AELogger(const std::string logpath, const std::string fname, const bool clearLog = false, const ullint queuesize = AELOG_DEFAULT_QUEUE_SIZE);
 
 	/// <summary>
 	/// Default class constructor -- doesn't open the file, but setups the instance for one.
@@ -127,12 +128,24 @@ public:
 
 	/// <summary>
 	/// Open the file to start logging.
+	/// @note Puts the file into the default log path location (AELOG_DEFAULT_LOG_PATH)
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
 	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
-	inline cint openLog(const std::string_view fname, const bool clearLog = false) {
-		const cint ret = this->m_fwLogger.openFile(fname, !clearLog * AEFW_FLAG_APPEND);
+	inline cint openLog(const std::string fname, const bool clearLog = false) {
+		return this->openLog(AELOG_DEFAULT_LOG_PATH, fname, clearLog);
+	}
+
+	/// <summary>
+	/// Open the file to start logging.
+	/// </summary>
+	/// <param name="fpath">Path to put the log file in</param>
+	/// <param name="fname">Name of the log file</param>
+	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
+	inline cint openLog(const std::string fpath, const std::string fname, const bool clearLog = false) {
+		const cint ret = this->m_fwLogger.openFile(fpath+fname, !clearLog * AEFW_FLAG_APPEND);
 		if (ret != AEFW_ERR_NOERROR) {
 			return ret;
 		}
@@ -270,13 +283,12 @@ public:
 	/// <summary>
 	/// Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current date][.extension] in a given directory
 	/// </summary>
-	/// <param name="logpath">The path of the log file</param>
 	/// <param name="logpref">The prefix of log file</param>
 	/// <param name="logext">The extension of the log file. Include the period before the extension.</param>
 	/// <returns>std::string of the file name to feed to the logger for opening</returns>
-	static inline std::string genLogName(const std::string_view logpath, const std::string_view logpref, const std::string_view logext = ".log") {
+	static inline std::string genLogName(const std::string_view logpref, const std::string_view logext = ".log") {
 		char logname[256]{};
-		snprintf(logname, 255, "%s%s_%s%s", logpath.data(), logpref.data(), (ace::utils::getCurrentDate().substr(0, 10)).c_str(), logext.data());
+		snprintf(logname, 255, "%s_%s%s", logpref.data(), (ace::utils::getCurrentDate().substr(0, 10)).c_str(), logext.data());
 		return logname;
 	}
 
@@ -336,7 +348,7 @@ private:
 
 /// The global logger of the engine to log engine-wide events.
 /// It starts the writing thread and logging as soon as the program starts.
-inline AELogger globalLogger(AELogger::genLogName(AELOG_DEFAULT_LOG_PATH, "LOG", ".log"));
+inline AELogger globalLogger(AELogger::genLogName("LOG", ".log"));
 
 #endif // ENGINE_ENABLE_GLOBAL_MODULES
 

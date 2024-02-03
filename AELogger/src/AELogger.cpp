@@ -10,11 +10,11 @@
 #include "../include/AELogger.hpp"
 
 //constructor
-AELogger::AELogger(const std::string_view fname, const bool clearLog, const ullint queuesize) :
-	m_fwLogger(fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */), 
+AELogger::AELogger(const std::string logpath, const std::string fname, const bool clearLog, const ullint queuesize) :
+	m_fwLogger(logpath + fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */),
 	m_ullFilledCount(0), m_ullNodeNumber(0), m_ullQueueSize(queuesize),
-	m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1), 
-	m_bRunTrd(false), m_bQueueFilled(false){
+	m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1),
+	m_bRunTrd(false), m_bQueueFilled(false) {
 
 
 	//add the allocated queue pointed to the list
@@ -26,7 +26,7 @@ AELogger::AELogger(const std::string_view fname, const bool clearLog, const ulli
 		this->writeToLog("Created the AELogger instance and opened the log session in the file: \"" + std::filesystem::absolute(fname).generic_string() + '\"', AELOG_TYPE_OK, this->getModuleName());
 		this->startWriter();
 	}
-	
+
 }
 
 //destructor
