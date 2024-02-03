@@ -20,6 +20,7 @@ bool isEqual(const AEVector<T1, dimAmount>& vec1, const AEVector<T2, dimAmount>&
 }
 
 
+
 int main() {
 
 

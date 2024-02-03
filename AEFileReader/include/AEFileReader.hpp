@@ -312,7 +312,7 @@ public:
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
-	cint readStringNULL(char* str, const llint dcount); //defined below class
+	cint readStringNULL(char* str, const llint dcount) noexcept; //defined below class
 
 
 //read int
@@ -326,8 +326,8 @@ public:
 	/// <param name="num">The int to fill with bytes</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
-	inline cint readInt(T& num) {
-		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readInt()");
+	inline cint readInt(T& num) noexcept requires(std::is_integral<T>::value == true) {
+		//static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readInt()");
 		return this->readVariable<T>(num);
 	}
 
@@ -340,7 +340,7 @@ public:
 	/// <param name="num">The int to read the value to</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
-	inline cint readIntString(T& num); //defined below class
+	inline cint readIntString(T& num) noexcept requires(std::is_integral<T>::value == true); //defined below class
 
 
 //read floats
@@ -354,7 +354,7 @@ public:
 	/// <param name="num">The float to fill with bytes</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
-	inline cint readFloat(T& num) {
+	inline cint readFloat(T& num) noexcept (std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileReader::readFloat()");
 		return this->readVariable<T>(num);
 	}
@@ -368,7 +368,7 @@ public:
 	/// <param name="num">The float to read the value to</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
 	template<typename T>
-	inline cint readFloatString(T& num); //defined below class
+	inline cint readFloatString(T& num) noexcept requires(std::is_floating_point<T>::value == true); //defined below class
 
 
 //read misc
@@ -640,7 +640,7 @@ private:
 
 //and inline definitions of functions
 template<typename T>
-inline cint AEFileReader::readIntString(T& num) {
+inline cint AEFileReader::readIntString(T& num) noexcept requires(std::is_integral<T>::value == true) {
 	static_assert(std::is_integral<T>::value, "Cannot use non-integral types in AEFileReader::readIntString()");
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
@@ -688,7 +688,7 @@ inline cint AEFileReader::readIntString(T& num) {
 }
 
 template<typename T>
-inline cint AEFileReader::readFloatString(T& num) {
+inline cint AEFileReader::readFloatString(T& num) noexcept requires(std::is_floating_point<T>::value == true) {
 	static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileReader::readFloatString()");
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 

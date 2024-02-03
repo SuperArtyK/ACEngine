@@ -91,7 +91,7 @@ cint AEFileReader::readStringNL(char* str, const int dcount) noexcept {
 
 //reads the string untill the null, or untill dcount
 //moves the cursor to the found null char+1
-cint AEFileReader::readStringNULL(char* str, const llint dcount) {
+cint AEFileReader::readStringNULL(char* str, const llint dcount) noexcept {
 	_AEFR_EXIT_ON_READ_CLOSED_FILE;
 
 	if (!str || dcount < 1) {
