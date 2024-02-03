@@ -173,7 +173,7 @@ public:
 	/// </summary>
 	/// <param name="timer">The instance of the AETimer to wait for</param>
 	/// <param name="tick">The AETimer instance tick value to wait for</param>
-	static inline void waitForTick(const AETimer& timer, const ullint tick) {
+	static inline void waitForTick(const AETimer& timer, const ullint tick) noexcept {
 		AEFrame fr(timer.getFrameRate()*2);
 		while (tick > timer.getTick()){
 			fr.sleep();
@@ -185,7 +185,7 @@ public:
 	/// </summary>
 	/// <param name="timer">The instance of the AETimer to wait for</param>
 	/// <param name="tick">The amount of ticks to wait for in the AETimer instance</param>
-	static inline void waitTicks(const AETimer& timer, const ullint tick) {
+	static inline void waitTicks(const AETimer& timer, const ullint tick) noexcept {
 		AETimer::waitForTick(timer, tick + timer.m_ullTicks);
 	}
 
@@ -195,7 +195,7 @@ private:
 	/// <summary>
 	/// The function that does the tick counting for the timer
 	/// </summary>
-	inline void tickTimer(void) {
+	inline void tickTimer(void) noexcept {
 		//load the atomic in the loop as fast as possible
 		//we don't care about a lot of sync, since...it's 1 byte
 		//and we just need approximate time to stop the timer

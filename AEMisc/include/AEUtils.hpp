@@ -296,7 +296,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="myptr">Pointer to whatever memory adress</param>
 		/// <returns>std::string with the hexadecimal version of the adress</returns>
-		inline std::string addrToStr(const void* const myptr) {//adds address value to string
+		inline std::string addrToStr(const void* const myptr) noexcept {//adds address value to string
 			char buf[int(sizeof(void*) * 2.5)]{}; 
 			snprintf(buf, sizeof(buf), "0x%p", myptr);
 			return buf;
@@ -307,7 +307,7 @@ namespace ace {
 		/// @note May be inaccurate in delay (as...all sleep functions are)
 		/// </summary>
 		/// <param name="ms">The amount of milliseconds to sleep</param>
-		inline void sleepMS(const int ms) {
+		inline void sleepMS(const int ms) noexcept {
 			sleepFor(milliSec(ms));
 		}
 
@@ -316,7 +316,7 @@ namespace ace {
 		/// @note May be inaccurate in delay (as...all sleep functions are)
 		/// </summary>
 		/// <param name="us">The amount of microseconds to sleep</param>
-		inline void sleepUS(const int us) {
+		inline void sleepUS(const int us) noexcept {
 			sleepFor(microSec(us));
 		}
 

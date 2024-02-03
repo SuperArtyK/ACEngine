@@ -21,7 +21,7 @@
 /// Usage: Always put it as the **last** entry to the class, before the closing brace }
 /// @warning If you won't do it, the project won't compile with the "unresolved external" error
 /// <typeparam name="T">Inheriting module's class name</typeparam>
-#define REGISTER_MODULE(T) public: static constexpr std::string_view getModuleName(void) noexcept { \
+#define REGISTER_MODULE(T) public: [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \
 	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp"); \
 	return #T; }
 
@@ -90,7 +90,7 @@ public:
 	/// Returns the name of the registered module
 	/// </summary>
 	/// <returns></returns>
-	static constexpr std::string_view getModuleName(void) noexcept;
+	[[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept;
 
 protected:
 

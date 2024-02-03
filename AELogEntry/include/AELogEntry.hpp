@@ -99,7 +99,7 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="entry"></param>
 	/// <returns></returns>
-	AELogEntry& operator=(const AELogEntry& entry) {
+	AELogEntry& operator=(const AELogEntry& entry) noexcept {
 		this->copyEntry(entry);
 		return *this;
 	}
@@ -213,7 +213,7 @@ struct AELogEntry {
 		}
 	}
 
-	static constexpr cint stringToType(const std::string_view str) {
+	static constexpr cint stringToType(const std::string_view str) noexcept {
 		if (str.size() != 14) { return AELOG_TYPE_INVALID; }
 
 		if (str == "DEBUG         ") {

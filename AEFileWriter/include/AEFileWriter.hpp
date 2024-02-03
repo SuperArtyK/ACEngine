@@ -212,7 +212,7 @@ public:
 	/// <returns>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</returns>
 	/// @todo Add a way to add custom types to this generic write function.
 	template<typename T>
-	inline cint write(const T& var, const size_t datasz = 0, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH); // defined below class
+	inline cint write(const T& var, const size_t datasz = 0, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept; // defined below class
 
 
 //write string
@@ -316,7 +316,7 @@ public:
 	/// <returns>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</returns>
 	/// @todo Add custom way to format the float number
 	template<typename T>
-	inline cint writeFloat(const T num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH); //defined below class
+	inline cint writeFloat(const T num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept requires(std::is_floating_point<T>::value == true); //defined below class
 
 
 //write misc
@@ -400,7 +400,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	/// <returns>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</returns>
 	template<typename T>
-	inline cint writeData_ref(const T& cdata, const std::size_t tsize = sizeof(T), const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) {
+	inline cint writeData_ref(const T& cdata, const std::size_t tsize = sizeof(T), const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept {
 		return this->writeData_ptr(&cdata, sizeof(unsigned char), tsize, useAutoFlush);
 	}
 
@@ -595,7 +595,7 @@ private:
 // (so the class declaration isn't cluttered
 
 template<typename T>
-inline cint AEFileWriter::writeFloat(const T num, const bool useAutoFlush) {
+inline cint AEFileWriter::writeFloat(const T num, const bool useAutoFlush) noexcept requires(std::is_floating_point<T>::value == true) {
 	static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in AEFileWriter::writeFloat!");
 
 	//check for the opened file here, before potentially setting 300+ digits for nothing
@@ -620,7 +620,7 @@ inline cint AEFileWriter::writeFloat(const T num, const bool useAutoFlush) {
 
 // write stuff dependant on data
 template<typename T>
-inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool useAutoFlush) {
+inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool useAutoFlush) noexcept{
 
 	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 

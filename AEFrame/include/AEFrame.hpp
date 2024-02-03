@@ -47,7 +47,7 @@ public:
 		m_tpTimepoint(getSteadyTime()), m_fFPS(two.m_fFPS), m_bNoDelay(two.m_bNoDelay)
 		{}
 
-	AEFrame& operator=(const AEFrame& two) {
+	AEFrame& operator=(const AEFrame& two) noexcept {
 		this->m_tdChronoDelay = two.m_tdChronoDelay;
 		this->m_tpTimepoint = getSteadyTime();
 		this->m_fFPS = two.m_fFPS;
@@ -76,7 +76,7 @@ public:
 	/// Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, 
 	/// then the thread will sleep the rest of 20ms to make the game loop run at 30fps.
 	/// </summary>
-	inline void sleep(void) {
+	inline void sleep(void) noexcept{
 		// add to time point
 		if (this->m_bNoDelay) {
 			return;

@@ -317,7 +317,7 @@ namespace ace::math {
 	/// <param name="_epsilon">The epsilon to compare against. Defaults to the std::numeric_limits<T>::epsilon()</param>
 	/// <returns>True if both numbers are equal (with epsilon), false otherwise</returns>
 	template<typename T = long double>
-	constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept {
+	constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
 		const T dif = ace::math::absval<T>(num - num2);
 		return (dif) <= _epsilon;
@@ -332,7 +332,7 @@ namespace ace::math {
 	/// <param name="num2">The second float to compare</param>
 	/// <returns>True if both numbers are equal (with epsilon), false otherwise</returns>
 	template<typename T = long double>
-	constexpr bool fequals(const T num, const T num2) noexcept {
+	constexpr bool fequals(const T num, const T num2) noexcept requires(std::is_floating_point<T>::value == true) {
 		const T _epsilon = std::min<T>(std::numeric_limits<T>::epsilon() * num, std::numeric_limits<T>::epsilon() * num2);
 		return ace::math::fequals<T>(num, num2, _epsilon);
 	}
@@ -400,7 +400,7 @@ namespace ace::math {
 	/// <param name="power">Integer power to raise the number to</param>
 	/// <returns>The [num] of type T raised to power [power]</returns>
 	template<typename T = long double>
-	constexpr T intPow(const T num, llint power) {
+	constexpr T intPow(const T num, llint power) noexcept {
 
 		//switch to save up on conditionals and jumps
 		//yeah microoptimisation, but it's fine, doesn't hurt
@@ -499,7 +499,7 @@ namespace ace::math {
 	/// <param name="num">The number to calculate the length of</param>
 	/// <returns>Unsigned int of the length of the passed number</returns>
 	template<typename T>
-	constexpr unsigned int lengthOfInt(const T num) noexcept {
+	constexpr unsigned int lengthOfInt(const T num) noexcept requires(std::is_integral<T>::value == true) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in the ace::math::lengthOfInt()");
 		unsigned int dig = 1;
 		T numtemp = num;
@@ -515,7 +515,7 @@ namespace ace::math {
 	/// <param name="num">The number to calculate the length of</param>
 	/// <returns>Unsigned int of the length of the passed number</returns>
 	template<typename T>
-	constexpr unsigned int lengthOfFloat(const T num) noexcept {
+	constexpr unsigned int lengthOfFloat(const T num) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::lengthOfFloat()!");
 		return ((num == 0) ? 1 : (unsigned int)std::log10(std::abs(num))) + 1;
 	}
@@ -554,7 +554,7 @@ namespace ace::math {
 	/// <param name="num">The number to check</param>
 	/// <returns>True if the number is infinite; otherwise false</returns>
 	template<typename T = long double>
-	constexpr bool isInf(const T num) noexcept {
+	constexpr bool isInf(const T num) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isInf()!");
 		return (num == std::numeric_limits<T>::infinity());
 	}
@@ -566,7 +566,7 @@ namespace ace::math {
 	/// <param name="num">The number to check</param>
 	/// <returns>True if the number is NaN; otherwise false</returns>
 	template<typename T = long double>
-	constexpr bool isNan(const T num) noexcept {
+	constexpr bool isNan(const T num) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isNan()!");
 		return (num != num);
 	}
@@ -578,7 +578,7 @@ namespace ace::math {
 	/// <param name="num">The number to check</param>
 	/// <returns>True if the number is finite; otherwise false</returns>
 	template<typename T = long double>
-	constexpr bool isFinite(const T num) noexcept {
+	constexpr bool isFinite(const T num) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::isFinite()!");
 		return !(ace::math::isInf<T>(num) || ace::math::isNan<T>(num));
 	}
