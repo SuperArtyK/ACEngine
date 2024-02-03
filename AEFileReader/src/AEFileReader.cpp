@@ -99,13 +99,18 @@ cint AEFileReader::readStringNULL(char* str, const llint dcount) noexcept {
 	}
 
 	//clear buffer and read
-	std::memset(str, AENULL, dcount + 1);
+	//std::memset(str, AENULL, dcount + 1);
+	str[dcount] = '\0'; //set the 0 to the last character (dcount+1) (just in case user didnt)
 	const cint temp = this->readData_ptr(str, dcount, sizeof(char));
+	this->m_szLastReadAmount = std::strlen(str);
+	const llint differenceRead = dcount - llint(this->m_szLastReadAmount); // it's in bounds of the llint dcount anyway;
+	//fill the rest of the buffer with 0's
+	std::memset(str + this->m_szLastReadAmount, AENULL, differenceRead);
 
 	//look for the null char and move the read cursor to the next char after null (if appeared)
-	const char* const nulchar = std::strchr(str, '\0');
-	fseek(m_fpFilestr, -llint((dcount - (nulchar - str) - 1)), SEEK_CUR);
-	this->m_szLastReadAmount = std::strlen(str);
+	//const char* const nulchar = std::strchr(str, '\0');
+	fseek(m_fpFilestr, -differenceRead, SEEK_CUR);
+	
 
 	return temp;
 }

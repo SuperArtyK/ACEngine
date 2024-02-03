@@ -312,7 +312,7 @@ public:
 	/// <param name="str">The pointer to the c-string to read the bytes of string to</param>
 	/// <param name="dcount">The amount of characters to read</param>
 	/// <returns>AEFR_ERR_READ_SUCCESS on success; otherwise AEFR_ERR_FILE_NOT_OPEN if file isn't open, or other AEFR_ERR_READ_* flags (like AEFR_ERR_READ_EOF)</returns>
-	cint readStringNULL(char* str, const llint dcount) noexcept; //defined below class
+	cint readStringNULL(char* str, const llint dcount) noexcept; 
 
 
 //read int
