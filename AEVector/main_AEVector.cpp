@@ -25,12 +25,12 @@ int main() {
 
 
 	cout << ace::math::sqrt(12345)<< NLC;
-		
+
 	AEVec2Int a{ 3,4 };
 	AEVec3Int b{ 3,4,5 };
 	AEVec2Float c{ 3.1f,4.5f };
 
-	
+
 	cout << a.magnitude<int>() << "; " << b.magnitude() << "; " << c.magnitude()<<NLC;
 	cout << a<<"; "<<b<<"; "<<c<<NLC;
 	cout << a.normalise() << "; " << b.normalise() << "; " << c.normalise() << NLC;
@@ -47,8 +47,8 @@ int main() {
 	//constexpr AEVec3Int testval = AEVec3Int{1,2,3}.crossProduct(AEVec3Int{ 1,2,3 });
 
 
-	constexpr long double cos1 = f.cosAngleBetween(g);
-	
+	long double cos1 = f.cosAngleBetween(g);
+
 	AEVec3Int test1{ -1,2,-3 }, test2{ 0,-4,1 }, N = test1.crossProduct(test2), test3{ -test1 };
 
 
@@ -72,7 +72,7 @@ int main() {
 	cout << N.isCollinear(N) << NLC;
 	cout << N.isCollinear(test1) << NLC;
 	cout << test3 << NLC;
-	
+
 
 	cout << "\n\n\n";
 	cout << c << NLC;
