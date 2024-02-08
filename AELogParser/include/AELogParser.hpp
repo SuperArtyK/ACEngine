@@ -39,6 +39,10 @@ class AELogParser : public __AEModuleBase<AELogParser> {
 
 public:
 //Constructor
+	/// <summary>
+	/// Class constructor -- just initialises the object
+	/// </summary>
+	/// <param name=""></param>
 	AELogParser(void) :
 		m_arrEntryAmount({}), m_ullCurrentEntry(-1)
 	{
@@ -95,30 +99,78 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG);
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "debug" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntryDebug(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_DEBUG); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "info" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntryInfo(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_INFO); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "warning" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntryWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_WARN); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "severe warning" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntrySevereWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SEVERE_WARN); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "OK" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntryOK(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_OK); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "success" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntrySuccess(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SUCCESS); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "error" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntryError(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_ERROR); }
 
+	/// <summary>
+	/// Read next *valud* entry in the log file of "fatal error" type, and parse it to the given AELogEntry object
+	/// @see AELogEntry::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	inline cint nextEntryFatalError(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_FATAL_ERROR); }
 
 
 	/// <summary>
-	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's cursor index in the file
+	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's file cursors in the file
 	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
 	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
 	/// </summary>
 	/// <param name="severity">The lowest severity of the log to find</param>
-	/// <returns>The cursor index of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG) {
 		_AELP_CHECK_IF_FILE_OPEN;
 
@@ -153,10 +205,10 @@ public:
 
 
 	/// <summary>
-	/// Get the cursor index of the current valid entry
+	/// Get the file cursors of the current valid entry
 	/// This entry is the one that was read by a previous call to AELogParser::nextEntry() or AELogParser::getNextEntryIndex()
 	/// </summary>
-	/// <returns>The cursor index of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
+	/// <returns>The file cursors of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint currentEntryCursor(void) const {
 		_AELP_CHECK_IF_FILE_OPEN;
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
@@ -175,7 +227,7 @@ public:
 	}
 
 	/// <summary>
-	/// Get the list of indices of the valid entries, separated by type.
+	/// Get the list of file cursors of the valid entries, separated by type.
 	/// In the return vector's std::pair<llint, cint>, llint is the index of the cursor in the file, cint is the entry type
 	/// @note If the file is not open, the returned vector is empty
 	/// </summary>
@@ -185,7 +237,7 @@ public:
 	}
 
 	/// <summary>
-	/// Get the list of indices of the invalid entries.
+	/// Get the list of file cursors of the invalid entries.
 	/// In the return vector, llint is the index of the cursor in the file
 	/// @note If the file is not open, the returned vector is empty
 	/// </summary>
@@ -294,6 +346,11 @@ public:
 		return this->m_frLogReader.getFullPath();
 	}
 
+	/// <summary>
+	/// Return the reference to the AEFileReader object of this instance of AELogParser
+	/// @warning Be carefull with it
+	/// </summary>
+	/// <returns>the reference to the AEFileReader object</returns>
 	inline AEFileReader& getFileReader(void) noexcept {
 		return this->m_frLogReader;
 	}
