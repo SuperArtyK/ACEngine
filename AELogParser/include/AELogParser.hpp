@@ -40,7 +40,7 @@ class AELogParser : public __AEModuleBase<AELogParser> {
 public:
 //Constructor
 	AELogParser(void) :
-		m_arrEntryAmount({}), m_ullCurrentEntry(0)
+		m_arrEntryAmount({}), m_ullCurrentEntry(-1)
 	{
 		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
 		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
@@ -51,7 +51,7 @@ public:
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
 	explicit AELogParser(const std::string_view fname) :
-		m_arrEntryAmount({}), m_ullCurrentEntry(0) 
+		m_arrEntryAmount({}), m_ullCurrentEntry(-1) 
 	{
 		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
 		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
@@ -77,11 +77,11 @@ public:
 	/// </summary>
 	/// <returns>return value of the AEFileReader::closefile() (AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open)</returns>
 	inline cint closeLog(void) {
-		m_vecEntryIndices.clear();
-		m_vecInvalidEntryIndices.clear();
+		this->m_vecEntryIndices.clear();
+		this->m_vecInvalidEntryIndices.clear();
 		// the most stupid decision, but it works (whyy tf is using nested types ill-formed??)
 		std::memset(this->m_arrEntryAmount.data(), AENULL, this->m_arrEntryAmount.size()* sizeof(this->m_arrEntryAmount[0]));
-		m_ullCurrentEntry = 0;
+		this->m_ullCurrentEntry = -1;
 		return this->m_frLogReader.closeFile();
 	}
 
