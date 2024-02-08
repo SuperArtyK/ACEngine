@@ -88,6 +88,23 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
 	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG);
 
+	inline cint nextEntryDebug(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_DEBUG); }
+
+	inline cint nextEntryInfo(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_INFO); }
+
+	inline cint nextEntryWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_WARN); }
+
+	inline cint nextEntrySevereWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SEVERE_WARN); }
+
+	inline cint nextEntryOk(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_OK); }
+
+	inline cint nextEntrySuccess(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SUCCESS); }
+
+	inline cint nextEntryError(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_ERROR); }
+
+	inline cint nextEntryFatalError(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_FATAL_ERROR); }
+
+
 	/// <summary>
 	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's cursor index in the file
 	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
