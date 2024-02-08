@@ -1,4 +1,4 @@
-.TH "AELogParser" 3 "Wed Feb 7 2024 23:24:43" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser" 3 "Thu Feb 8 2024 13:09:56" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -77,27 +77,35 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorDebug\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'debug', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorInfo\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'info', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorWarn\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'warning', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorSevereWarn\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'severe warning', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorOK\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'OK', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorSuccess\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'success', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorError\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'rror', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBnextEntryCursorFatalError\fP (\fBvoid\fP)"
 .br
+.RI "Read the next indexed valid log entry in the opened file of type 'fatal error', and return the file cursor to it\&. "
 .ti -1c
 .RI "\fBllint\fP \fBcurrentEntryCursor\fP (\fBvoid\fP) \fBconst\fP"
 .br
@@ -257,7 +265,7 @@ ullint amount of invalid entries
 .PP
 
 .PP
-Definition at line \fB279\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB317\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBullint\fP AELogParser::amountTypeEntries (\fBconst\fP \fBcint\fP severity) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -275,7 +283,7 @@ ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount o
 .PP
 
 .PP
-Definition at line \fB288\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB326\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBullint\fP AELogParser::amountValidEntries (\fBconst\fP \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -293,7 +301,7 @@ ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount o
 .PP
 
 .PP
-Definition at line \fB264\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB302\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBcint\fP AELogParser::closeLog (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
@@ -319,11 +327,11 @@ The file cursors of the current valid entry (in the currently-opened log file); 
 .PP
 
 .PP
-Definition at line \fB212\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB250\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::size_t AELogParser::getCurrentEntryIndex (\fBvoid\fP) const\fR [inline]\fP"
 
 .PP
-Definition at line \fB217\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB255\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::string AELogParser::getFileName (\fBvoid\fP) const\fR [inline]\fP"
 
 .PP
@@ -341,7 +349,7 @@ std::string of the opened file name; emtpy string otherwise
 .PP
 
 .PP
-Definition at line \fB336\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB374\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBAEFileReader\fP & AELogParser::getFileReader (\fBvoid\fP)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -359,7 +367,7 @@ the reference to the \fBAEFileReader\fP object
 .PP
 
 .PP
-Definition at line \fB354\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB392\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::string AELogParser::getFullFileName (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -377,7 +385,7 @@ std::string of the opened file (including relative path if was given); empty str
 .PP
 
 .PP
-Definition at line \fB318\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB356\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::string AELogParser::getFullPath (\fBvoid\fP) const\fR [inline]\fP"
 
 .PP
@@ -395,7 +403,7 @@ std::string of the absolute path of the opened file; empty string otherwise
 .PP
 
 .PP
-Definition at line \fB345\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB383\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::vector< \fBllint\fP > AELogParser::getInvalidEntryCursorAll (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -413,7 +421,7 @@ If the file is not open, the returned vector is empty
 .PP
 
 .PP
-Definition at line \fB245\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB283\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleAmount (\fBvoid\fP)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
@@ -455,7 +463,7 @@ std::string of the relative file path of opened file; empty string otherwise
 .PP
 
 .PP
-Definition at line \fB327\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB365\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::vector< std::pair< \fBllint\fP, \fBcint\fP > > AELogParser::getValidEntryCursorAll (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -473,7 +481,7 @@ If the file is not open, the returned vector is empty
 .PP
 
 .PP
-Definition at line \fB235\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB273\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "bool AELogParser::isClosed (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -491,7 +499,7 @@ true is file is closed (no file opened), false otherwise
 .PP
 
 .PP
-Definition at line \fB309\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB347\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "bool AELogParser::isOpen (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -509,7 +517,7 @@ true if file is opened, false otherwise
 .PP
 
 .PP
-Definition at line \fB300\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB338\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBcint\fP AELogParser::logToQueue (\fBAELogEntry\fP *& begin, \fBconst\fP \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP)"
 
 .PP
@@ -590,35 +598,147 @@ Definition at line \fB174\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorDebug (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB189\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'debug', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid debug entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB194\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorError (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB201\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'rror', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid rror entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB236\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorFatalError (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB203\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'fatal error', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid fatal error entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB243\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorInfo (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB191\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'info', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid info entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB201\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorOK (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB197\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'OK', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid OK entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB222\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorSevereWarn (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB195\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'severe warning', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid severe warning entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB215\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorSuccess (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB199\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'success', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid success entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB229\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBllint\fP AELogParser::nextEntryCursorWarn (\fBvoid\fP)\fR [inline]\fP"
 
 .PP
-Definition at line \fB193\fP of file \fBAELogParser\&.hpp\fP\&.
+Read the next indexed valid log entry in the opened file of type 'warning', and return the file cursor to it\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid warning entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB208\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBcint\fP AELogParser::nextEntryDebug (\fBAELogEntry\fP & entry)\fR [inline]\fP"
 
 .PP
@@ -824,7 +944,7 @@ Definition at line \fB10\fP of file \fBAELogParser\&.cpp\fP\&.
 .SS "\fBcint\fP AELogParser::setCurrentEntryIndex (\fBconst\fP std::size_t entryIndex)\fR [inline]\fP"
 
 .PP
-Definition at line \fB221\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB259\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "std::array<\fBullint\fP, 9> AELogParser::m_arrEntryAmount\fR [private]\fP"
@@ -832,19 +952,19 @@ Definition at line \fB221\fP of file \fBAELogParser\&.hpp\fP\&.
 .PP
 The amount of log entries read in the file, separated by type/severity\&. 
 .PP
-Definition at line \fB369\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB407\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBAEFileReader\fP AELogParser::m_frLogReader\fR [private]\fP"
 
 .PP
 The file reader of the opened log file\&. 
 .PP
-Definition at line \fB361\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB399\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::atomic<std::size_t> AELogParser::m_ullCurrentEntry\fR [private]\fP"
 
 .PP
 The number corresponding to the currently-read \fIvalid\fP entry in the log file\&. The maximum value corresponds to the size of m_vecEntryIndices 
 .PP
-Definition at line \fB372\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB410\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
 
 .PP
@@ -856,13 +976,13 @@ Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 The list of all indexed \fIvalid\fP entries in the log file\&. Each item contains their corresponding cursor position in the file and their type/severity\&. 
 .PP
-Definition at line \fB364\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB402\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::vector<\fBllint\fP> AELogParser::m_vecInvalidEntryIndices\fR [private]\fP"
 
 .PP
 The list of all indexed \fIinvalid\fP entries in the log file Each item contains their corresponding cursor position in the file\&. 
 .PP
-Definition at line \fB367\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB405\fP of file \fBAELogParser\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

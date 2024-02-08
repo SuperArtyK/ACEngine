@@ -108,29 +108,29 @@ $(function(){initNavTree('d9/d6e/_a_e_file_reader_8cpp_source.html','../../'); i
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/dd5/class_a_e_file_reader.html#a7d0c498896f1c10c36330ef4efaee81e">   14</a></span><a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#aa72c5fa73daecad2c6bc09ec459d8cac">AEFileReader::AEFileReader</a>(<span class="keyword">const</span> std::string_view <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>) :</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    m_sFilename(<a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(<a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">nullptr</a>) {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/dd5/class_a_e_file_reader.html#a7d0c498896f1c10c36330ef4efaee81e">   14</a></span><a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#aa72c5fa73daecad2c6bc09ec459d8cac">AEFileReader::AEFileReader</a>(<span class="keyword">const</span> std::string_view fname) :</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    m_sFilename(fname), m_ullTotalReads(0), m_szLastReadAmount(0), m_fpFilestr(nullptr) {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    this-&gt;<a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee">openFile</a>(fname);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/dd5/class_a_e_file_reader.html#a19c679b978bc5c2d64a06816a7e3805f">   20</a></span><a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#aa72c5fa73daecad2c6bc09ec459d8cac">AEFileReader::AEFileReader</a>(<a class="code hl_class" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>&amp;&amp; <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>) <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">noexcept</a> :</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    m_sFilename(std::move(<a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_sFilename)), m_ullTotalReads(<a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_ullTotalReads.load()),</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    m_szLastReadAmount(<a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_szLastReadAmount), m_fpFilestr(<a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_fpFilestr) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/dd5/class_a_e_file_reader.html#a19c679b978bc5c2d64a06816a7e3805f">   20</a></span><a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#aa72c5fa73daecad2c6bc09ec459d8cac">AEFileReader::AEFileReader</a>(<a class="code hl_class" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>&amp;&amp; fr) noexcept :</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    m_sFilename(std::move(fr.m_sFilename)), m_ullTotalReads(fr.m_ullTotalReads.load()),</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    m_szLastReadAmount(fr.m_szLastReadAmount), m_fpFilestr(fr.m_fpFilestr) {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_sFilename.clear();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_ullTotalReads = 0;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_szLastReadAmount = 0;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fr</a>.m_fpFilestr = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    fr.m_sFilename.clear();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    fr.m_ullTotalReads = 0;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    fr.m_szLastReadAmount = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    fr.m_fpFilestr = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee">   32</a></span><a class="code hl_typedef" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee">AEFileReader::openFile</a>(<span class="keyword">const</span> std::string_view <a class="code hl_define" href="../../dc/d89/_a_e_typedefs_8hpp.html#a9bc5ace876de58da08cd948ba7edb6e2">fname</a>) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee">   32</a></span><a class="code hl_typedef" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> <a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee">AEFileReader::openFile</a>(<span class="keyword">const</span> std::string_view fname) {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="../../dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1">isOpen</a>()) {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d3/dda/_a_e_file_reader_8hpp.html#acb87b892819345de8820452e64b8da4a">AEFR_ERR_OPEN_FILE_ALREADY_OPENED</a>;</div>
@@ -303,7 +303,7 @@ $(function(){initNavTree('d9/d6e/_a_e_file_reader_8cpp_source.html','../../'); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3da38e614281be5a2938b27bbc39cb74.html">AEFileReader</a></li><li class="navelem"><a class="el" href="../../dir_1907480fdfa4dacd830c495b5a9bddcf.html">src</a></li><li class="navelem"><a class="el" href="../../d9/d6e/_a_e_file_reader_8cpp.html">AEFileReader.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 7 2024 23:24:43 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Feb 8 2024 13:09:56 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>
