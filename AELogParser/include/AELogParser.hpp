@@ -39,16 +39,23 @@ class AELogParser : public __AEModuleBase<AELogParser> {
 
 public:
 //Constructor
+	AELogParser(void) :
+		m_arrEntryAmount({}), m_ullCurrentEntry(0)
+	{
+		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
+		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
+	}
+
 	/// <summary>
 	/// Class constructor -- opens the file and start the indexing process.
 	/// </summary>
 	/// <param name="fname">The name of the file to open</param>
 	explicit AELogParser(const std::string_view fname) :
-		m_vecEntryIndices({}), m_vecInvalidEntryIndices({}), m_arrEntryAmount({}), m_ullCurrentEntry(0) {
+		m_arrEntryAmount({}), m_ullCurrentEntry(0) 
+	{
 		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
 		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
 		this->openLog(fname);
-
 	}
 
 	/// <summary>
