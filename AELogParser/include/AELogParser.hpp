@@ -242,6 +242,7 @@ public:
 
 	/// <summary>
 	/// Checks if the file is opened by the AELogParser
+	/// @see AEFileReader::isOpen()
 	/// </summary>
 	/// <returns>true if file is opened, false otherwise</returns>
 	inline bool isOpen(void) const noexcept {
@@ -250,12 +251,52 @@ public:
 
 	/// <summary>
 	/// Checks if the file is closed by the AELogParser
+	/// @see AEFileReader::isClosed()
 	/// </summary>
 	/// <returns>true is file is closed (no file opened), false otherwise</returns>
 	inline bool isClosed(void) const noexcept {
 		return this->m_frLogReader.isClosed();
 	}
 
+	/// <summary>
+	/// Returns the full name of currently open file, including the relative path, if such was provided.
+	/// @see AEFileReader::getFullFileName()
+	/// </summary>
+	/// <returns>std::string of the opened file (including relative path if was given); empty string otherwise</returns>
+	inline std::string getFullFileName(void) const noexcept {
+		return this->m_frLogReader.getFullFileName();
+	}
+
+	/// <summary>
+	/// Returns the relative path of the opened file.
+	/// @see AEFileReader::getRelativePath()
+	/// </summary>
+	/// <returns>std::string of the relative file path of opened file; empty string otherwise</returns>
+	inline std::string getRelativePath(void) const {
+		return this->m_frLogReader.getRelativePath();
+	}
+
+	/// <summary>
+	/// Returns the name of the opened file, devoid of the path
+	/// @see AEFileReader::getFileName()
+	/// </summary>
+	/// <returns>std::string of the opened file name; emtpy string otherwise</returns>
+	inline std::string getFileName(void) const {
+		return this->m_frLogReader.getFileName();
+	}
+
+	/// <summary>
+	/// Returns the full, absolute path of the opened file
+	/// @see AEFileReader::getFullPath()
+	/// </summary>
+	/// <returns>std::string of the absolute path of the opened file; empty string otherwise</returns>
+	inline std::string getFullPath(void) const {
+		return this->m_frLogReader.getFullPath();
+	}
+
+	inline AEFileReader& getFileReader(void) noexcept {
+		return this->m_frLogReader;
+	}
 
 private:
 
