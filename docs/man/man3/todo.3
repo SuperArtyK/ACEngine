@@ -1,4 +1,4 @@
-.TH "todo" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "todo" 3 "Wed Feb 7 2024 23:24:43" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,9 +13,9 @@ Change the body of the function to use std::floor() instead, when it gets conste
 Change the body of the function to use std::trunc() instead, when it gets constexpr (after c++23)  
 .IP "\fBClass \fBAEFileReader\fP \fP" 1c
 add generic read function  
-.IP "\fBMember \fBAEFileWriter::write\fP (const T &var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)\fP" 1c
+.IP "\fBMember \fBAEFileWriter::write\fP (const T &var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept\fP" 1c
 Add a way to add custom types to this generic write function\&.  
-.IP "\fBMember \fBAEFileWriter::writeFloat\fP (const T num, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH)\fP" 1c
+.IP "\fBMember \fBAEFileWriter::writeFloat\fP (const T num, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept\fP" 1c
 Add custom way to format the float number  
 .IP "\fBClass \fBAELogger\fP \fP" 1c
 Implement copy constructors and copy assignment 

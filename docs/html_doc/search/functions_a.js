@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['lengthoffloat_0',['lengthOfFloat',['../d5/d0f/namespaceace_1_1math.html#a6918cf1612a4d644e54bd9452335ca0c',1,'ace::math']]],
-  ['lengthofint_1',['lengthOfInt',['../d5/d0f/namespaceace_1_1math.html#aa101ca905bf2fad1db40bd149bfafcba',1,'ace::math']]],
+  ['lengthoffloat_0',['lengthOfFloat',['../d5/d0f/namespaceace_1_1math.html#af90213c439a147312f4a612f623daa9b',1,'ace::math']]],
+  ['lengthofint_1',['lengthOfInt',['../d5/d0f/namespaceace_1_1math.html#ae28a6a265b52a8753276834768387190',1,'ace::math']]],
   ['lerp_2',['lerp',['../d5/d0f/namespaceace_1_1math.html#a7280d15740f450feb6b3fef8fc959e62',1,'ace::math']]],
   ['ln10_3',['ln10',['../d5/d0f/namespaceace_1_1math.html#aaf47e71c0360f95e5f08f41842b42125',1,'ace::math']]],
   ['ln2_4',['ln2',['../d5/d0f/namespaceace_1_1math.html#a4fd85a17e0f314642a99ad954f9727c2',1,'ace::math']]],

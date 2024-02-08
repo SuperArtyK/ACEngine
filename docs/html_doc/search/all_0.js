@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_5f_5faemodulebase_0',['__aemodulebase',['../d0/d8a/class_____a_e_module_base.html',1,'__AEModuleBase&lt; T &gt;'],['../d0/d8a/class_____a_e_module_base.html#a291a7e93cd77fe2c0fbdd575928e22c4',1,'__AEModuleBase::__AEModuleBase(void) noexcept'],['../d0/d8a/class_____a_e_module_base.html#a79ceb132d53da279cac50cd248766cbb',1,'__AEModuleBase::__AEModuleBase(const __AEModuleBase&lt; T &gt; &amp;val) noexcept']]],
+  ['_5f_5faemodulebase_0',['__AEModuleBase',['../d0/d8a/class_____a_e_module_base.html',1,'__AEModuleBase&lt; T &gt;'],['../d0/d8a/class_____a_e_module_base.html#a291a7e93cd77fe2c0fbdd575928e22c4',1,'__AEModuleBase::__AEModuleBase(void) noexcept'],['../d0/d8a/class_____a_e_module_base.html#a79ceb132d53da279cac50cd248766cbb',1,'__AEModuleBase::__AEModuleBase(const __AEModuleBase&lt; T &gt; &amp;val) noexcept']]],
   ['_5f_5faemodulebase_3c_20aefilereader_20_3e_1',['__AEModuleBase&lt; AEFileReader &gt;',['../d0/d8a/class_____a_e_module_base.html',1,'']]],
   ['_5f_5faemodulebase_3c_20aefilewriter_20_3e_2',['__AEModuleBase&lt; AEFileWriter &gt;',['../d0/d8a/class_____a_e_module_base.html',1,'']]],
   ['_5f_5faemodulebase_3c_20aeframe_20_3e_3',['__AEModuleBase&lt; AEFrame &gt;',['../d0/d8a/class_____a_e_module_base.html',1,'']]],
@@ -13,5 +13,6 @@ var searchData=
   ['_5faefw_5fexit_5fon_5fclosed_5ffile_10',['_AEFW_EXIT_ON_CLOSED_FILE',['../db/da4/_a_e_file_writer_8hpp.html#ad018394c7f674570329dffee1a572c17',1,'AEFileWriter.hpp']]],
   ['_5faefw_5fexit_5fon_5fno_5fcursor_5fmove_11',['_AEFW_EXIT_ON_NO_CURSOR_MOVE',['../db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2',1,'AEFileWriter.hpp']]],
   ['_5faefw_5fexit_5fon_5fwrite_5fclosed_5ffile_12',['_AEFW_EXIT_ON_WRITE_CLOSED_FILE',['../db/da4/_a_e_file_writer_8hpp.html#ada79b127cc72e03786a33b74a8009e31',1,'AEFileWriter.hpp']]],
-  ['_5fgettrigtableindex_13',['_getTrigTableIndex',['../d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a',1,'ace::math']]]
+  ['_5faelp_5fcheck_5fif_5ffile_5fopen_13',['_AELP_CHECK_IF_FILE_OPEN',['../d0/dab/_a_e_log_parser_8hpp.html#a38b3381dd8a29aa28fc59d89a25bb51d',1,'AELogParser.hpp']]],
+  ['_5fgettrigtableindex_14',['_getTrigTableIndex',['../d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a',1,'ace::math']]]
 ];

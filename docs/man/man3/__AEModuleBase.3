@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Wed Feb 7 2024 23:24:43" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,7 +8,7 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 .br
 .PP
 .PP
-\fC#include <AEModuleBase\&.hpp>\fP
+\fR#include <AEModuleBase\&.hpp>\fP
 .SS "Public Member Functions"
 
 .in +1c
@@ -79,13 +79,13 @@ If you do not include \fBCOPYCONSTRUCT_MODULE(T, val)\fP in the copy-constructor
 Definition at line \fB53\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBvoid\fP)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Basic constructor that increases module count\&. 
 .PP
 Definition at line \fB60\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > & val)\fC [inline]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > & val)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Basic copy constructor that increases module count\&. 
@@ -98,7 +98,7 @@ Basic copy constructor that increases module count\&.
 
 .PP
 Definition at line \fB68\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (\fBvoid\fP)\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (\fBvoid\fP)\fR [inline]\fP, \fR [virtual]\fP, \fR [noexcept]\fP"
 
 .PP
 Basic destructor that decreases module count\&. 
@@ -106,7 +106,7 @@ Basic destructor that decreases module count\&.
 Definition at line \fB75\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > \fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (\fBvoid\fP)\fC [inline]\fP, \fC [static]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T > \fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (\fBvoid\fP)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the amount of instances of the module currently existing\&. 
@@ -119,7 +119,7 @@ Unsigned long long of the module amount
 
 .PP
 Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fBstatic\fP \fBconstexpr\fP std::string_view \fB__AEModuleBase\fP< T >::getModuleName (\fBvoid\fP)\fC [static]\fP, \fC [constexpr]\fP, \fC [noexcept]\fP"
+.SS "template<\fBtypename\fP T > \fBstatic\fP \fBconstexpr\fP std::string_view \fB__AEModuleBase\fP< T >::getModuleName (\fBvoid\fP)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the name of the registered module\&. 
@@ -130,11 +130,11 @@ Returns the name of the registered module\&.
 .RE
 .PP
 
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP & \fB__AEModuleBase\fP< T >\fB::operator\fP= (\fBconst\fP \fB__AEModuleBase\fP< T > &)\fC [delete]\fP"
+.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP & \fB__AEModuleBase\fP< T >\fB::operator\fP= (\fBconst\fP \fB__AEModuleBase\fP< T > &)\fR [delete]\fP"
 
 .SH "Member Data Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fC [inline]\fP, \fC [static]\fP, \fC [protected]\fP"
+.SS "template<\fBtypename\fP T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP"
 
 .PP
 Amount of alive module instances\&. 

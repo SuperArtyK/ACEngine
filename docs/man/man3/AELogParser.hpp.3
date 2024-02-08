@@ -1,4 +1,4 @@
-.TH "AELogParser/include/AELogParser.hpp" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser/include/AELogParser.hpp" 3 "Wed Feb 7 2024 23:24:43" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,15 +6,15 @@ AELogParser/include/AELogParser.hpp
 .SH SYNOPSIS
 .br
 .PP
-\fC#include 'include/AEFileReader\&.hpp'\fP
+\fR#include 'include/AEFileReader\&.hpp'\fP
 .br
-\fC#include 'include/AELogEntry\&.hpp'\fP
+\fR#include 'include/AELogEntry\&.hpp'\fP
 .br
-\fC#include <array>\fP
+\fR#include <array>\fP
 .br
-\fC#include <string_view>\fP
+\fR#include <string_view>\fP
 .br
-\fC#include <vector>\fP
+\fR#include <vector>\fP
 .br
 
 .SS "Classes"
@@ -32,6 +32,9 @@ AELogParser/include/AELogParser.hpp
 .RI "#\fBdefine\fP \fBAELP_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
 .RI "Macro for the indicator that everything is good/no error was encountered in the process\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fB_AELP_CHECK_IF_FILE_OPEN\fP   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -46,6 +49,10 @@ Should not cause everything to break :)
 Definition in file \fBAELogParser\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
+.SS "#\fBdefine\fP _AELP_CHECK_IF_FILE_OPEN   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Definition at line \fB25\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELP_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP

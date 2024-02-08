@@ -1,4 +1,4 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Wed Feb 7 2024 23:24:43" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,15 +6,15 @@ AEModuleBase/include/AEModuleBase.hpp
 .SH SYNOPSIS
 .br
 .PP
-\fC#include 'include/AETypedefs\&.hpp'\fP
+\fR#include 'include/AETypedefs\&.hpp'\fP
 .br
-\fC#include 'include/AEFlags\&.hpp'\fP
+\fR#include 'include/AEFlags\&.hpp'\fP
 .br
-\fC#include <atomic>\fP
+\fR#include <atomic>\fP
 .br
-\fC#include <string>\fP
+\fR#include <string>\fP
 .br
-\fC#include <string_view>\fP
+\fR#include <string_view>\fP
 .br
 
 .SS "Classes"
@@ -40,13 +40,6 @@ AEModuleBase/include/AEModuleBase.hpp
 .RI "#\fBdefine\fP \fBENGINE_MODULE_ERR_NOERROR\fP   0"
 .br
 .RI "Global 'no error' return flag for all engine modules\&. "
-.in -1c
-.SS "Functions"
-
-.in +1c
-.ti -1c
-.RI "\fBconstexpr\fP std::string_view \fBgetModuleName2\fP (\fBvoid\fP) \fBnoexcept\fP"
-.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -87,7 +80,7 @@ Definition at line \fB38\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "#\fBdefine\fP REGISTER_MODULE(T)"
 \fBValue:\fP.PP
 .nf
-    public: static constexpr std::string_view getModuleName(void) noexcept { \\
+    public: [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \\
 	static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
     return #T; }
 .fi
@@ -109,12 +102,6 @@ If you won't do it, the project won't compile with the 'unresolved external' err
 
 .PP
 Definition at line \fB24\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SH "Function Documentation"
-.PP 
-.SS "\fBconstexpr\fP std::string_view getModuleName2 (\fBvoid\fP)\fC [constexpr]\fP, \fC [noexcept]\fP"
-
-.PP
-Definition at line \fB103\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

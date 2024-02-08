@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Fri Feb 2 2024 00:44:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Wed Feb 7 2024 23:24:43" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,13 +6,13 @@ AEMisc/include/AEMath.hpp
 .SH SYNOPSIS
 .br
 .PP
-\fC#include 'AETypedefs\&.hpp'\fP
+\fR#include 'AETypedefs\&.hpp'\fP
 .br
-\fC#include <limits>\fP
+\fR#include <limits>\fP
 .br
-\fC#include <cmath>\fP
+\fR#include <cmath>\fP
 .br
-\fC#include <type_traits>\fP
+\fR#include <type_traits>\fP
 .br
 
 .SS "Namespaces"
@@ -151,11 +151,15 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Calculates the absolute value of a given number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> 
+.br
+requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP, \fBconst\fP T \fB_epsilon\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 floats of type T are equal, using given epsilon\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> 
+.br
+requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP bool \fBace::math::fequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP T \fBnum2\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) "
 .ti -1c
@@ -167,7 +171,7 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Newton's method sqrt implementation, compatible with constexpr evaluation\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBllint\fP \fBpower\fP)"
+.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::intPow\fP (\fBconst\fP T \fBnum\fP, \fBllint\fP \fBpower\fP) \fBnoexcept\fP"
 .br
 .RI "Calculate the integer power of a given number\&. "
 .ti -1c
@@ -183,11 +187,15 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Gets the smallest value between given two values\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::lengthOfInt\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T > 
+.br
+requires (std::is_integral<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::lengthOfInt\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Calculate the length of the given integer number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::lengthOfFloat\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T > 
+.br
+requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP \fBunsigned\fP \fBint\fP \fBace::math::lengthOfFloat\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Calculate the length of the given float number\&. "
 .ti -1c
@@ -199,15 +207,21 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Calculates the hypotenuse length from given values a and b\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isInf\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> 
+.br
+requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP bool \fBace::math::isInf\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Checks whether the float is 'infinite'\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isNan\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> 
+.br
+requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP bool \fBace::math::isNan\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Checks whether the float is 'NaN'\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP bool \fBace::math::isFinite\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T  = long double> 
+.br
+requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP bool \fBace::math::isFinite\fP (\fBconst\fP T \fBnum\fP) \fBnoexcept\fP"
 .br
 .RI "Checks whether the float is finite (not infinity or NaN) "
 .ti -1c

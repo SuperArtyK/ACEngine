@@ -3,8 +3,8 @@ var searchData=
   ['ceiltoint_0',['ceilToInt',['../d5/d0f/namespaceace_1_1math.html#ae1be03123afa0580383d35cbc5181819',1,'ace::math']]],
   ['chartoint_1',['charToInt',['../de/dde/namespaceace_1_1utils.html#aac203feb6c6323da0d38130bd7f6ede3',1,'ace::utils']]],
   ['clearentry_2',['clearEntry',['../da/dea/struct_a_e_log_entry.html#a58aeadbca0c2c0863b534a52d40d22a8',1,'AELogEntry']]],
-  ['closefile_3',['closefile',['../dd/dd5/class_a_e_file_reader.html#a681b11ead576756061301a46844ef571',1,'AEFileReader::closeFile()'],['../db/d15/class_a_e_file_writer.html#a05ceb471801ae111d68859f9d3b9eb78',1,'AEFileWriter::closeFile()']]],
-  ['closelog_4',['closelog',['../d8/dfc/class_a_e_logger.html#a2f64d8f5de2f249f7cb973a82ec1e48a',1,'AELogger::closeLog()'],['../d8/d52/class_a_e_log_parser.html#ad79df0ff0313d4414ce55c13c7078ece',1,'AELogParser::closeLog()']]],
+  ['closefile_3',['closeFile',['../dd/dd5/class_a_e_file_reader.html#a681b11ead576756061301a46844ef571',1,'AEFileReader::closeFile()'],['../db/d15/class_a_e_file_writer.html#a05ceb471801ae111d68859f9d3b9eb78',1,'AEFileWriter::closeFile()']]],
+  ['closelog_4',['closeLog',['../d8/dfc/class_a_e_logger.html#a2f64d8f5de2f249f7cb973a82ec1e48a',1,'AELogger::closeLog()'],['../d8/d52/class_a_e_log_parser.html#ad79df0ff0313d4414ce55c13c7078ece',1,'AELogParser::closeLog()']]],
   ['copyentry_5',['copyEntry',['../da/dea/struct_a_e_log_entry.html#a0fc1a114dbbaf785643b6558509f8e0c',1,'AELogEntry']]],
   ['copyentryfull_6',['copyEntryFull',['../da/dea/struct_a_e_log_entry.html#ab9d11cb753b484c09fb2f5f8f6262038',1,'AELogEntry']]],
   ['copyentryreduced_7',['copyEntryReduced',['../da/dea/struct_a_e_log_entry.html#aa3fd2716af875e983273399b7d5ae1f8',1,'AELogEntry']]],
@@ -18,5 +18,6 @@ var searchData=
   ['crossproduct_15',['crossProduct',['../dc/df6/struct_a_e_vector.html#a7b5b6905cb99a63c04f7ff2829c3303a',1,'AEVector']]],
   ['cscdeg_16',['cscDeg',['../d5/d0f/namespaceace_1_1math.html#aeb83e68b525d9da76ba43522371e1faf',1,'ace::math']]],
   ['cscdeg_5ftable_17',['cscDeg_table',['../d5/d0f/namespaceace_1_1math.html#a99c321c1ec7c050aa5cb7fdba6feda7d',1,'ace::math']]],
-  ['cscdeg_5ftableinterp_18',['cscDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a6707069eefabdb087b2fd2d38da37435',1,'ace::math']]]
+  ['cscdeg_5ftableinterp_18',['cscDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a6707069eefabdb087b2fd2d38da37435',1,'ace::math']]],
+  ['currententrycursor_19',['currentEntryCursor',['../d8/d52/class_a_e_log_parser.html#a3172d787ba4be2aedb615be88758eab1',1,'AELogParser']]]
 ];
