@@ -186,23 +186,61 @@ public:
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
 	}
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "debug", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid debug entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorDebug(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_DEBUG); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "info", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid info entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorInfo(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_INFO); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "warning", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid warning entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_WARN); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "severe warning", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid severe warning entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorSevereWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_SEVERE_WARN); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "OK", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid OK entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorOK(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_OK); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "success", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid success entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorSuccess(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_SUCCESS); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "rror", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid rror entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_ERROR); }
 
+	/// <summary>
+	/// Read the next indexed valid log entry in the opened file of type "fatal error", and return the file cursor to it.
+	/// @see AELogParser::nextEntryCursor()
+	/// </summary>
+	/// <returns>The file cursors of the next valid fatal error entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint nextEntryCursorFatalError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_FATAL_ERROR); }
-
-
 
 	/// <summary>
 	/// Get the file cursors of the current valid entry
