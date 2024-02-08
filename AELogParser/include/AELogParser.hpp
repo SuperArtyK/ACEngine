@@ -22,6 +22,8 @@
 /// Macro for the indicator that everything is good/no error was encountered in the process
 #define AELP_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
 
+#define _AELP_CHECK_IF_FILE_OPEN if (this->isClosed()) { return AEFR_ERR_FILE_NOT_OPEN; }
+
 /// <summary>
 /// ArtyK's Engine's Log Parser; it parses the log files that AELogger writes.
 /// Wrapper around AELogEntry for parsing and AEFileWriter for reading functionality, (ab)using them both.
@@ -93,10 +95,9 @@ public:
 	/// </summary>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>The cursor index of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint getNextEntryIndex(const cint severity = AELOG_TYPE_DEBUG) {
-		if (this->isClosed()) {
-			return AEFR_ERR_FILE_NOT_OPEN;
-		}
+	inline llint getNextEntryCursor(const cint severity = AELOG_TYPE_DEBUG) {
+		_AELP_CHECK_IF_FILE_OPEN;
+
 		//cycle the current entry number untill we find an entry with proper severity level
 		while (1) {
 			if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
@@ -114,11 +115,21 @@ public:
 	/// This entry is the one that was read by a previous call to AELogParser::nextEntry() or AELogParser::getNextEntryIndex()
 	/// </summary>
 	/// <returns>The cursor index of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint getCurrentEntryIndex(void) const {
-		if (this->isClosed()) {
-			return AEFR_ERR_FILE_NOT_OPEN;
-		}
+	inline llint getCurrentEntryCursor(void) const {
+		_AELP_CHECK_IF_FILE_OPEN;
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
+	}
+
+	inline std::size_t getCurrentEntryIndex(void) const {
+		return this->m_ullCurrentEntry.load();
+	}
+
+	inline cint setCurrentEntryIndex(const std::size_t entryIndex) {
+		_AELP_CHECK_IF_FILE_OPEN;
+		if (entryIndex >= this->m_vecEntryIndices.size()) {
+			return AEFR_ERR_READ_EOF;
+		}
+		this->m_ullCurrentEntry = entryIndex;
 	}
 
 	/// <summary>
@@ -127,7 +138,7 @@ public:
 	/// @note If the file is not open, the returned vector is empty
 	/// </summary>
 	/// <returns>(by value) The vector of pairs, each having the (cursor) index and type of each valid entry</returns>
-	inline std::vector<std::pair<llint, cint>> getValidEntryIndices(void) const noexcept {
+	inline std::vector<std::pair<llint, cint>> getValidEntryCursorAll(void) const noexcept {
 		return this->m_vecEntryIndices;
 	}
 
@@ -137,7 +148,7 @@ public:
 	/// @note If the file is not open, the returned vector is empty
 	/// </summary>
 	/// <returns>(by value) The vector of llint's, having the cursor indices for each invalid entry</returns>
-	inline std::vector<llint> getInvalidEntryIndices(void) const noexcept {
+	inline std::vector<llint> getInvalidEntryCursorAll(void) const noexcept {
 		return this->m_vecInvalidEntryIndices;
 	}
 
@@ -218,7 +229,7 @@ private:
 	std::array<ullint, 9> m_arrEntryAmount;
 	/// The number corresponding to the currently-read *valid* entry in the log file.
 	/// The maximum value corresponds to the size of m_vecEntryIndices
-	std::atomic<ullint> m_ullCurrentEntry;
+	std::atomic<std::size_t> m_ullCurrentEntry;
 
 	//aaaand register it
 	REGISTER_MODULE(AELogParser)
