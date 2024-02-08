@@ -96,7 +96,7 @@ public:
 
 	inline cint nextEntrySevereWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SEVERE_WARN); }
 
-	inline cint nextEntryOk(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_OK); }
+	inline cint nextEntryOK(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_OK); }
 
 	inline cint nextEntrySuccess(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SUCCESS); }
 
@@ -112,7 +112,7 @@ public:
 	/// </summary>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>The cursor index of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint getNextEntryCursor(const cint severity = AELOG_TYPE_DEBUG) {
+	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG) {
 		_AELP_CHECK_IF_FILE_OPEN;
 
 		//cycle the current entry number untill we find an entry with proper severity level
@@ -127,12 +127,30 @@ public:
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
 	}
 
+	inline llint nextEntryCursorDebug(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_DEBUG); }
+
+	inline llint nextEntryCursorInfo(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_INFO); }
+
+	inline llint nextEntryCursorWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_WARN); }
+
+	inline llint nextEntryCursorSevereWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_SEVERE_WARN); }
+
+	inline llint nextEntryCursorOK(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_OK); }
+
+	inline llint nextEntryCursorSuccess(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_SUCCESS); }
+
+	inline llint nextEntryCursorError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_ERROR); }
+
+	inline llint nextEntryCursorFatalError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_FATAL_ERROR); }
+
+
+
 	/// <summary>
 	/// Get the cursor index of the current valid entry
 	/// This entry is the one that was read by a previous call to AELogParser::nextEntry() or AELogParser::getNextEntryIndex()
 	/// </summary>
 	/// <returns>The cursor index of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint getCurrentEntryCursor(void) const {
+	inline llint currentEntryCursor(void) const {
 		_AELP_CHECK_IF_FILE_OPEN;
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
 	}
