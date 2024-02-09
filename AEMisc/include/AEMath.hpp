@@ -19,16 +19,6 @@
 
 
 
-/// Macro to convert degrees value x to radians.
-/// <param name="deg">Value of degrees to convert</param>
-/// <param name="type">The type of the resulting operation</param>
-#define toRad(deg, type) ((deg) * ace::math::pi<type>() / type(180))
-
-/// Macro to convert radians value x to degrees.
-/// <param name="rad">Value of radians to convert</param>
-/// <param name="type">The type of the resulting operation</param>
-#define toDeg(rad, type) ((rad) * type(180) / ace::math::pi<type>() )
-
 
 ///Mathematical functions and other things usefull in math
 namespace ace::math {
@@ -227,6 +217,28 @@ namespace ace::math {
 	}
 
 	/// <summary>
+	/// Convert given degrees to radians
+	/// </summary>
+	/// <typeparam name="T">The type of the degrees value and the resulting operation</typeparam>
+	/// <param name="deg">Value of degrees to conver</param>
+	/// <returns>Radians from given degrees as type T</returns>
+	template<typename T>
+	constexpr T toRad(const T deg) noexcept {
+		return ((deg)*ace::math::pi<T>() / T(180));
+	}
+
+	/// <summary>
+	/// Convert given radians to degrees
+	/// </summary>
+	/// <typeparam name="T">The type of the radians value and the resulting operation</typeparam>
+	/// <param name="rad">Value of radians to conver</param>
+	/// <returns>Degrees from given radians as type T</returns>
+	template<typename T>
+	constexpr T toDeg(const T rad) noexcept {
+		return ((rad)*T(180) / ace::math::pi<T>());
+	}
+
+	/// <summary>
 	/// Engine's golden ratio (phi) value.
 	/// </summary>
 	/// <typeparam name="T">Type to convert the constant to</typeparam>
@@ -243,7 +255,7 @@ namespace ace::math {
 	/// <returns>Float of sine results</returns>
 	template<typename T = long double>
 	inline T sinDeg(const T degrees) noexcept {
-		return std::sin(toRad(degrees, T));
+		return std::sin(ace::math::toRad(degrees));
 	}
 
 	/// <summary>
@@ -253,7 +265,7 @@ namespace ace::math {
 	/// <returns>Float of cosine results</returns>
 	template<typename T = long double>
 	inline T cosDeg(const T degrees) noexcept {
-		return std::cos(toRad(degrees, T));
+		return std::cos(ace::math::toRad(degrees));
 	}
 
 	/// <summary>
@@ -263,7 +275,7 @@ namespace ace::math {
 	/// <returns>Float of tangent results</returns>
 	template<typename T = long double>
 	inline T tanDeg(const T degrees) noexcept {
-		return std::tan(toRad(degrees, T));
+		return std::tan(ace::math::toRad(degrees));
 	}
 
 	/// <summary>
@@ -273,7 +285,7 @@ namespace ace::math {
 	/// <returns>Float of cotangent results</returns>
 	template<typename T = long double>
 	inline T cotDeg(const T degrees) noexcept {
-		return 1 / std::tan(toRad(degrees, T));
+		return 1 / std::tan(ace::math::toRad(degrees));
 	}
 
 	/// <summary>
@@ -283,7 +295,7 @@ namespace ace::math {
 	/// <returns>Float of cosecant results</returns>
 	template<typename T = long double>
 	inline T cscDeg(const T degrees) noexcept {
-		return 1 / std::sin(toRad(degrees, T));
+		return 1 / std::sin(ace::math::toRad(degrees));
 	}
 
 	/// <summary>
@@ -293,7 +305,7 @@ namespace ace::math {
 	/// <returns>Float of secant results</returns>
 	template<typename T = long double>
 	inline T secDeg(const T degrees) noexcept {
-		return 1 / std::cos(toRad(degrees, T));
+		return 1 / std::cos(ace::math::toRad(degrees));
 	}
 	
 	/// <summary>

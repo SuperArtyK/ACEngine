@@ -462,7 +462,7 @@ public:
 	/// <returns>Angle between the current and given vector in degrees, as float type F</returns>
 	template<typename F = long double, typename Y = T>
 	F angleBetweenDeg(const AEVector<Y, dimAmount>& two) const noexcept requires(std::is_floating_point<F>::value == true) {
-		return toDeg( (this->template angleBetweenRad<F, Y>(two)), Y );
+		return ace::math::toDeg( this->template angleBetweenRad<F, Y>(two) );
 	}
 
 
