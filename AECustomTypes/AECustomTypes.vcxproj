@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\resources\resource1.h" />
+    <ClInclude Include="include\AELogEntryInfo.hpp" />
     <ClInclude Include="include\AELogTypes.hpp" />
   </ItemGroup>
   <ItemGroup>
