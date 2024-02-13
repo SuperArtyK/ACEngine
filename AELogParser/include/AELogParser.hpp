@@ -126,6 +126,7 @@ public:
 	/// <summary>
 	/// Read the next *valid* entry in the log file of the given severity, and parse it to the given AELogEntry object
 	/// @note This severity search is non-strict (calls AELogParser::nextEntry() and sets strictSeverity to false)
+	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <param name="severity">The lowest limit of severity of the log entry to look for</param>
@@ -137,6 +138,7 @@ public:
 	/// <summary>
 	/// Read the next *valid* entry in the log file of the given severity, and parse it to the given AELogEntry object
 	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
+	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <param name="severity">The severity of the log entry to look for</param>
@@ -147,67 +149,75 @@ public:
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "debug" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntryDebug(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_DEBUG); }
+	inline cint nextEntryDebug(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_DEBUG); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "info" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntryInfo(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_INFO); }
+	inline cint nextEntryInfo(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_INFO); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "warning" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntryWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_WARN); }
+	inline cint nextEntryWarn(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_WARN); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "severe warning" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntrySevereWarn(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SEVERE_WARN); }
+	inline cint nextEntrySevereWarn(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_SEVERE_WARN); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "OK" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntryOK(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_OK); }
+	inline cint nextEntryOK(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_OK); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "success" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntrySuccess(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_SUCCESS); }
+	inline cint nextEntrySuccess(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_SUCCESS); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "error" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntryError(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_ERROR); }
+	inline cint nextEntryError(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_ERROR); }
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "fatal error" type, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
 	/// @see AELogEntry::nextEntry()
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	inline cint nextEntryFatalError(AELogEntry& entry) { this->nextEntry(entry, AELOG_TYPE_FATAL_ERROR); }
+	inline cint nextEntryFatalError(AELogEntry& entry) { this->nextEntryTypeStrict(entry, AELOG_TYPE_FATAL_ERROR); }
 
 
 	/// <summary>
