@@ -103,15 +103,47 @@ public:
 
 	/// <summary>
 	/// Read the next *valid* entry in the log file of the given severity and module name filter, and parse it to the given AELogEntry object
-	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
+	/// @note If the strictSeverity is false, then the severity value just changes the lowest limit of the log severity. Otherwise it sets the exact severity to look for
 	/// @note The module name filter is applied after the severity filter.
 	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
-	/// <param name="severity">The lowest severity of the log to find</param>
-	/// <param name="mname">The name of the module to search for</param>
-	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
+	/// <param name="severity">The severity of the log entry to look for</param>
+	/// <param name="mname">The module name of the log entry to search for</param>
+	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_NO_MODULENAME if invalid module name was passed (-20)</returns>
 	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG, const std::string_view mname = AELP_NO_MODULENAME, const bool strictSeverity = false);
+
+	/// <summary>
+	/// Read the next *valid* entry in the log file of the given module name, and parse it into the given AELogEntry object
+	/// @see AELogParser::nextEntry()
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <param name="mname">The module name of the log entry to search for</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_NO_MODULENAME if invalid module name was passed (-20)</returns>
+	inline cint nextEntryName(AELogEntry& entry, const std::string_view mname = AELP_NO_MODULENAME) { return this->nextEntry(entry, AELP_SEVERITY_ALL, mname, false); }
+
+	/// <summary>
+	/// Read the next *valid* entry in the log file of the given severity, and parse it to the given AELogEntry object
+	/// @note This severity search is non-strict (calls AELogParser::nextEntry() and sets strictSeverity to false)
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <param name="severity">The lowest limit of severity of the log entry to look for</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
+	inline cint nextEntryType(AELogEntry& entry, const cint severity) {
+		return this->nextEntry(entry, severity, AELP_NO_MODULENAME, false);
+	}
+
+	/// <summary>
+	/// Read the next *valid* entry in the log file of the given severity, and parse it to the given AELogEntry object
+	/// @note This severity search is strict (calls AELogParser::nextEntry() and sets strictSeverity to true)
+	/// </summary>
+	/// <param name="entry">The log entry object to parse things into</param>
+	/// <param name="severity">The severity of the log entry to look for</param>
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
+	inline cint nextEntryTypeStrict(AELogEntry& entry, const cint severity) {
+		return this->nextEntry(entry, severity, AELP_NO_MODULENAME, true);
+	}
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "debug" type, and parse it to the given AELogEntry object
