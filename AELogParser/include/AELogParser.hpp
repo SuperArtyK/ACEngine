@@ -13,16 +13,27 @@
 
 #include "include/AEFileReader.hpp"
 #include "include/AELogEntry.hpp"
+#include "include/AELogEntryInfo.hpp"
 #include <array>
 #include <string_view>
+#include <unordered_map>
 #include <vector>
 
 
 //Error flags
 /// Macro for the indicator that everything is good/no error was encountered in the process
 #define AELP_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
+/// Macro for the error when the passed module name doesn't match the parsed modulenames in the log
+/// @see AELogParser::nextEntry()
+#define AELP_ERR_INVALID_MODULE_NAME -20
+/// Macro for the severity value that includes all entries/severities in parsing
+/// @see AELogParser::nextEntry()
+#define AELP_SEVERITY_ALL AELOG_TYPE_DEBUG
+/// Macro for the "no"/empty modulename to pass for parsing
+#define AELP_NO_MODULENAME ""
 
-#define _AELP_CHECK_IF_FILE_OPEN if (this->isClosed()) { return AEFR_ERR_FILE_NOT_OPEN; }
+#define _AELP_CHECK_IF_FILE_OPEN { if (this->isClosed()) { return AEFR_ERR_FILE_NOT_OPEN; } }
+
 
 /// <summary>
 /// ArtyK's Engine's Log Parser; it parses the log files that AELogger writes.
@@ -45,10 +56,7 @@ public:
 	/// <param name=""></param>
 	AELogParser(void) :
 		m_arrEntryAmount({}), m_ullCurrentEntry(-1)
-	{
-		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
-		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
-	}
+	{}
 
 	/// <summary>
 	/// Class constructor -- opens the file and start the indexing process.
@@ -57,8 +65,6 @@ public:
 	explicit AELogParser(const std::string_view fname) :
 		m_arrEntryAmount({}), m_ullCurrentEntry(-1) 
 	{
-		m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
-		m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
 		this->openLog(fname);
 	}
 
@@ -82,7 +88,13 @@ public:
 	/// <returns>return value of the AEFileReader::closefile() (AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open)</returns>
 	inline cint closeLog(void) {
 		this->m_vecEntryIndices.clear();
+		this->m_vecEntryIndices.shrink_to_fit();
+
 		this->m_vecInvalidEntryIndices.clear();
+		this->m_vecInvalidEntryIndices.shrink_to_fit();
+
+		this->m_mapModuleNames.clear();
+		
 		// the most stupid decision, but it works (whyy tf is using nested types ill-formed??)
 		std::memset(this->m_arrEntryAmount.data(), AENULL, this->m_arrEntryAmount.size()* sizeof(this->m_arrEntryAmount[0]));
 		this->m_ullCurrentEntry = -1;
@@ -90,14 +102,16 @@ public:
 	}
 
 	/// <summary>
-	/// Read the next *valid* entry in the log file of the given severity filter, and parse it to the given AELogEntry object
+	/// Read the next *valid* entry in the log file of the given severity and module name filter, and parse it to the given AELogEntry object
 	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
+	/// @note The module name filter is applied after the severity filter.
 	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <param name="severity">The lowest severity of the log to find</param>
+	/// <param name="mname">The name of the module to search for</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG);
+	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG, const std::string_view mname = AELP_NO_MODULENAME, const bool strictSeverity = false);
 
 	/// <summary>
 	/// Read next *valud* entry in the log file of "debug" type, and parse it to the given AELogEntry object
@@ -179,11 +193,11 @@ public:
 			if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
 				return AEFR_ERR_READ_EOF;
 			}
-			if (this->m_vecEntryIndices[this->m_ullCurrentEntry].second >= severity) {
+			if (this->m_vecEntryIndices[this->m_ullCurrentEntry].logType >= severity) {
 				break;
 			}
 		}
-		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
+		return this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex;
 	}
 
 	/// <summary>
@@ -249,7 +263,7 @@ public:
 	/// <returns>The file cursors of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
 	inline llint currentEntryCursor(void) const {
 		_AELP_CHECK_IF_FILE_OPEN;
-		return this->m_vecEntryIndices[this->m_ullCurrentEntry].first;
+		return this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex;
 	}
 
 	inline std::size_t getCurrentEntryIndex(void) const {
@@ -266,11 +280,10 @@ public:
 
 	/// <summary>
 	/// Get the list of file cursors of the valid entries, separated by type.
-	/// In the return vector's std::pair<llint, cint>, llint is the index of the cursor in the file, cint is the entry type
 	/// @note If the file is not open, the returned vector is empty
 	/// </summary>
-	/// <returns>(by value) The vector of pairs, each having the (cursor) index and type of each valid entry</returns>
-	inline std::vector<std::pair<llint, cint>> getValidEntryCursorAll(void) const noexcept {
+	/// <returns>(by value) The vector of AELogEntryInfo, each having the (cursor) index, index of the module name, and type of each valid entry</returns>
+	inline std::vector<AELogEntryInfo> getValidEntryCursorAll(void) const noexcept {
 		return this->m_vecEntryIndices;
 	}
 
@@ -393,16 +406,19 @@ public:
 		return this->m_frLogReader;
 	}
 
+
 private:
 
 	/// The file reader of the opened log file.
 	AEFileReader m_frLogReader;
 	/// The list of all indexed *valid* entries in the log file.
 	/// Each item contains their corresponding cursor position in the file and their type/severity.
-	std::vector<std::pair<llint, cint>> m_vecEntryIndices;
+	std::vector<AELogEntryInfo> m_vecEntryIndices;
 	/// The list of all indexed *invalid* entries in the log file
 	/// Each item contains their corresponding cursor position in the file.
 	std::vector<llint> m_vecInvalidEntryIndices;
+	/// The map of the all module names parsed in the log file
+	std::unordered_map<std::string, short> m_mapModuleNames;
 	/// The amount of log entries read in the file, separated by type/severity.
 	std::array<ullint, 9> m_arrEntryAmount;
 	/// The number corresponding to the currently-read *valid* entry in the log file.

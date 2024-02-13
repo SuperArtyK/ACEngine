@@ -13,31 +13,17 @@ int main() {
 	AELogEntry testing{};
 	
 
-// 	while (mylp.parseEntry(testing) == AELP_ERR_NOERROR) {
-// 		cout << formatLogEntry(testing);
-// 		AELogEntry::clearEntry(&testing);
-// 	}
-	
-	AELogEntry* entryptr = nullptr;
-
-	mylp.logToQueue(entryptr);
-	//mylp.parseLogFile();
-
 	cout << "Parsed entries: " << mylp.amountValidEntries() << NLC;
 	for (int i = -1; i < 8; i++) {
 		cout << "Parsed entries of type \"" << AELogEntry::typeToString(i) << "\": " << mylp.amountTypeEntries(i)<<NLC;
 	}
 	
 	char estr[AELE_FORMAT_MAX_SIZE]{};
-	while (entryptr) {
+	while (mylp.nextEntry(testing, AELP_SEVERITY_ALL, "AELogger") == AEFR_ERR_NOERROR) {
 		std::memset(estr, AENULL, AELE_FORMAT_MAX_SIZE);
-		AELogEntry::formatEntry(estr, *entryptr);
+		AELogEntry::formatEntry(estr, testing);
 		cout << estr;
-		entryptr = entryptr->m_pNextNode;
 	}
-
-
-	delete[] entryptr;
 
 	// 39 + 1('[') + mname size + 3("]: ") + 1(message)
 	return 0;

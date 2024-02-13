@@ -6,6 +6,7 @@
  */
 
 #include "../include/AELogParser.hpp"
+#include <functional>
 
 cint AELogParser::openLog(const std::string_view fname) {
 	if (this->isOpen()) {
@@ -22,19 +23,34 @@ cint AELogParser::openLog(const std::string_view fname) {
 	cint parsedEntry = AELP_ERR_NOERROR;
 	llint cursor = 0;
 	AELogEntry dummyentry{};
+	short mnameIndex = 0;
+
+
+	m_vecEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE * 10);
+	m_vecInvalidEntryIndices.reserve(AELOG_DEFAULT_QUEUE_SIZE);
+	m_mapModuleNames.reserve(AELOG_DEFAULT_QUEUE_SIZE);
 
 	while (1) {
 		cursor = this->m_frLogReader.getCursorPos();
 		fileRead = this->m_frLogReader.readStringNL(fileline, sizeof(fileline) - 1);
 
-		if (fileline[0] == '\n') { //first character is an empty line -- skipping...
+		if (fileline[0] == '\n') { // it's an empty line -- skipping...
 			break;
 		}
-		parsedEntry = AELogEntry::parseStringEntry(dummyentry, fileline, AELE_PARSE_STRING_WRITE_TYPE);
+		parsedEntry = AELogEntry::parseStringEntry(dummyentry, fileline, AELE_PARSE_STRING_TYPE | AELE_PARSE_STRING_MNAME);
+
 
 		switch (parsedEntry) {
 			case AELP_ERR_NOERROR:
-				this->m_vecEntryIndices.emplace_back(cursor, dummyentry.m_cLogType);
+				if (this->m_mapModuleNames.contains(dummyentry.m_sModuleName)) {
+					this->m_vecEntryIndices.emplace_back(cursor, this->m_mapModuleNames[dummyentry.m_sModuleName], dummyentry.m_cLogType);
+				}
+				else {
+					this->m_mapModuleNames[dummyentry.m_sModuleName] = mnameIndex++;
+					this->m_vecEntryIndices.emplace_back(cursor, mnameIndex, dummyentry.m_cLogType); // a bit of optimisation
+				}
+				
+				
 				this->m_arrEntryAmount[dummyentry.m_cLogType + 1]++;
 				break;
 
@@ -53,25 +69,45 @@ cint AELogParser::openLog(const std::string_view fname) {
 }
 
 
-cint AELogParser::nextEntry(AELogEntry& entry, const cint severity) {
-	if (this->isClosed()) {
-		return AEFR_ERR_FILE_NOT_OPEN;
+cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::string_view mname, const bool strictSeverity) {
+	_AELP_CHECK_IF_FILE_OPEN;
+
+	if (!mname.empty() && !this->m_mapModuleNames.contains(mname.data())) {
+		return AELP_ERR_INVALID_MODULE_NAME;
 	}
+
 
 	char str[AELE_FORMAT_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the validity with size
 
-	//cycle the current entry number untill we find an entry with proper severity level
+	// ternary with lambda.
+	// F to code readability
+	// basically a lambda to check severity of passed severity values
+	// strictSeverity requires the severities to be the *same*
+	// otherwise check if the passed severity is equal or higher than the "filter"
+	const auto checkSeverity = (strictSeverity) ?
+		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity == curSeverity; } : // the strict, *exact* severity check
+		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity >= curSeverity; }; // the normal severity check
+	
+	const short mnameIndex = (!mname.empty()) ? this->m_mapModuleNames[mname.data()] : -1;
+
+	const auto checkMName = (mname.empty()) ?
+		[](const short& controlIndex, const short& mIndex) noexcept { return true; } : // if the module name is empty -- return true always (we aren't checking for it)
+		[](const short& controlIndex, const short& mIndex) noexcept { return (controlIndex == mIndex); };
+	
 	while (1) {
 
 		if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
 			return AEFR_ERR_READ_EOF;
 		}
-		if (this->m_vecEntryIndices[this->m_ullCurrentEntry].second >= severity) {
+		if (checkSeverity(this->m_vecEntryIndices[this->m_ullCurrentEntry].logType, severity) && //check the severity with lambdas
+			checkMName(mnameIndex, this->m_vecEntryIndices[this->m_ullCurrentEntry].mnameIndex)) {
+
 			break;
 		}
 	}
+	
 
-	this->m_frLogReader.setCursorPos(this->m_vecEntryIndices[this->m_ullCurrentEntry].first, SEEK_SET);
+	this->m_frLogReader.setCursorPos(this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex, SEEK_SET);
 
 	const cint readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
 	if (readret == AEFR_ERR_NOERROR || readret == AEFR_ERR_READ_EOF) { // check even if it's EOF. It's not an error, but a warning from file reader
@@ -83,9 +119,7 @@ cint AELogParser::nextEntry(AELogEntry& entry, const cint severity) {
 
 
 cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity) {
-	if (this->isClosed()) {
-		return AEFR_ERR_FILE_NOT_OPEN;
-	}
+	_AELP_CHECK_IF_FILE_OPEN;
 	
 	AELogEntry* ptr = begin = AELogEntry::makeQueue(this->amountValidEntries(severity), nullptr, false);
 	cint retval = 0;
