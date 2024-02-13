@@ -20,8 +20,8 @@
 #include <atomic>
 
 
-//log entry stuff
-/// Macro for the AELogEntry's status to be: invalid.
+ //log entry stuff
+ /// Macro for the AELogEntry's status to be: invalid.
 #define AELE_STATUS_INVALID 0
 /// Macro for the AELogEntry's status to be: currently being set up and written to.
 #define AELE_STATUS_SETTING 1
@@ -59,13 +59,13 @@
 /// Macro-flag for the parseStringEntry() to not write the data to the given entry object (essentially, just validate it)
 #define AELE_PARSE_STRING_JUST_VALIDATE 0b0000000	//decimal: 0;  hex: 0
 /// Macro-flag for the parseStringEntry() to write just the entry's message to the given entry object
-#define AELE_PARSE_STRING_WRITE_MESSG   0b0000001	//decimal: 1;  hex: 1
+#define AELE_PARSE_STRING_MESSG   0b0000001	//decimal: 1;  hex: 1
 /// Macro-flag for the parseStringEntry() to write just the entry's module name to the given entry object
-#define AELE_PARSE_STRING_WRITE_MNAME   0b0000010	//decimal: 2;  hex: 2
+#define AELE_PARSE_STRING_MNAME   0b0000010	//decimal: 2;  hex: 2
 /// Macro-flag for the parseStringEntry() to write just the entry's timestamp to the given entry object
-#define AELE_PARSE_STRING_WRITE_TIME    0b0000100	//decimal: 4;  hex: 4
+#define AELE_PARSE_STRING_TIME    0b0000100	//decimal: 4;  hex: 4
 /// Macro-flag for the parseStringEntry() to write just the entry's type to the given entry object
-#define AELE_PARSE_STRING_WRITE_TYPE    0b0001000	//decimal: 8;  hex: 8
+#define AELE_PARSE_STRING_TYPE    0b0001000	//decimal: 8;  hex: 8
 /// Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour)
 #define AELE_PARSE_STRING_FULL          0b0001111	//decimal: 15; hex: F
 
@@ -90,7 +90,7 @@ struct AELogEntry {
 	cint m_cLogType = -1; //means invalid entry. don't touch!
 	/// The status flag in the entry to show if the entry is ready, being read/set, or is invalid
 	std::atomic<cint> m_cStatus = AELE_STATUS_INVALID;
-	
+
 
 	/// <summary>
 	/// Copy assignment operator -- copies data from the passed node
@@ -140,7 +140,7 @@ struct AELogEntry {
 		std::memset(&entry, AENULL, aeoffsetof(AELogEntry, m_pNextNode));
 		entry.m_cLogType = -1;
 		entry.m_cStatus = AELE_STATUS_INVALID;
-	}	
+	}
 
 	/// <summary>
 	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
@@ -160,7 +160,7 @@ struct AELogEntry {
 
 		//allocate new log entry list
 		AELogEntry* leptr = new AELogEntry[amt]{};
-		for (std::size_t i = 0; i < amt-1; i++) {
+		for (std::size_t i = 0; i < amt - 1; i++) {
 			leptr[i].m_pNextNode = leptr + i + 1; //set the next node pointers for our linked list
 		}
 		//loop the last log entry to the beginning
@@ -178,7 +178,7 @@ struct AELogEntry {
 	}
 
 	//the size of char array (string together with null terminator) must be of AELE_FORMAT_MAX_SIZE
-	
+
 	/// <summary>
 	/// Formats the passed entry to the given c-string
 	/// @note The size of the c-string must be of AELE_FORMAT_MAX_SIZE !
@@ -197,7 +197,7 @@ struct AELogEntry {
 		}
 
 	}
-	
+
 	/// <summary>
 	/// Deduces the entry's log type and returns a c-string of it.
 	/// </summary>
@@ -205,11 +205,11 @@ struct AELogEntry {
 	/// <returns>c-string of the type</returns>
 	static constexpr const char* typeToString(const cint logtype) noexcept {
 		switch (logtype) {
-		case AELOG_TYPE_INFO: return "INFO";
-		case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
-		case AELOG_TYPE_OK: return "OK"; case AELOG_TYPE_SUCCESS: return "SUCCESS";
-		case AELOG_TYPE_ERROR: return "ERROR"; case AELOG_TYPE_FATAL_ERROR: return "FATAL_ERROR";
-		case AELOG_TYPE_DEBUG: return "DEBUG"; default: return "WRONG_TYPE!";
+			case AELOG_TYPE_INFO: return "INFO";
+			case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
+			case AELOG_TYPE_OK: return "OK"; case AELOG_TYPE_SUCCESS: return "SUCCESS";
+			case AELOG_TYPE_ERROR: return "ERROR"; case AELOG_TYPE_FATAL_ERROR: return "FATAL_ERROR";
+			case AELOG_TYPE_DEBUG: return "DEBUG"; default: return "WRONG_TYPE!";
 		}
 	}
 
@@ -324,7 +324,7 @@ struct AELogEntry {
 		//time to write stuff
 		AELogEntry::clearEntry(entry);
 
-		if (flags & AELE_PARSE_STRING_WRITE_MESSG) {
+		if (flags & AELE_PARSE_STRING_MESSG) {
 			//cool, passed. now read untill the end
 			//the newline and or the size is guaranteed to exist
 			sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, "%518[^\n]", logmessage);
@@ -338,13 +338,13 @@ struct AELogEntry {
 
 		}
 
-		if (flags & AELE_PARSE_STRING_WRITE_MNAME) {
+		if (flags & AELE_PARSE_STRING_MNAME) {
 			std::memcpy(entry.m_sModuleName, mname, strvMname.size()); //module name
 		}
-		if (flags & AELE_PARSE_STRING_WRITE_TIME) {
+		if (flags & AELE_PARSE_STRING_TIME) {
 			entry.m_tmLogTime = entryTime; //time
 		}
-		if (flags & AELE_PARSE_STRING_WRITE_TYPE) {
+		if (flags & AELE_PARSE_STRING_TYPE) {
 			entry.m_cLogType = entryType; //type
 		}
 
