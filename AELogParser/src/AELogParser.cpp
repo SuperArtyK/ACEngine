@@ -70,46 +70,19 @@ cint AELogParser::openLog(const std::string_view fname) {
 
 
 cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::string_view mname, const bool strictSeverity) {
-	_AELP_CHECK_IF_FILE_OPEN;
 
-	if (!mname.empty() && !this->m_mapModuleNames.contains(mname.data())) {
-		return AELP_ERR_INVALID_MODULE_NAME;
+	const AELogEntryInfo leInfo = this->findNextEntry(severity, mname, strictSeverity);
+	
+	cint readret = this->errorFromAELEI(leInfo);
+	if (readret != AELP_ERR_NOERROR) {
+		return readret; // return the error code from the AELEI
 	}
-
 
 	char str[AELE_FORMAT_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the validity with size
 
-	// ternary with lambda.
-	// F to code readability
-	// basically a lambda to check severity of passed severity values
-	// strictSeverity requires the severities to be the *same*
-	// otherwise check if the passed severity is equal or higher than the "filter"
-	const auto checkSeverity = (strictSeverity) ?
-		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity == curSeverity; } : // the strict, *exact* severity check
-		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity >= curSeverity; }; // the normal severity check
-	
-	const short mnameIndex = (!mname.empty()) ? this->m_mapModuleNames[mname.data()] : -1;
-
-	const auto checkMName = (mname.empty()) ?
-		[](const short& controlIndex, const short& mIndex) noexcept { return true; } : // if the module name is empty -- return true always (we aren't checking for it)
-		[](const short& controlIndex, const short& mIndex) noexcept { return (controlIndex == mIndex); };
-	
-	while (1) {
-
-		if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
-			return AEFR_ERR_READ_EOF;
-		}
-		if (checkSeverity(this->m_vecEntryIndices[this->m_ullCurrentEntry].logType, severity) && //check the severity with lambdas
-			checkMName(mnameIndex, this->m_vecEntryIndices[this->m_ullCurrentEntry].mnameIndex)) {
-
-			break;
-		}
-	}
-	
-
 	this->m_frLogReader.setCursorPos(this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex, SEEK_SET);
 
-	const cint readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
+	readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
 	if (readret == AEFR_ERR_NOERROR || readret == AEFR_ERR_READ_EOF) { // check even if it's EOF. It's not an error, but a warning from file reader
 		return AELogEntry::parseStringEntry(entry, str, AELE_PARSE_STRING_FULL);
 	}
@@ -139,4 +112,47 @@ cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity) {
 
 
 	return retval;
+}
+
+
+
+AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string_view mname, const bool strictSeverity) {
+
+	if (this->isClosed()) {
+		return AELogEntryInfo::invalidEntry();
+	}
+
+	if (!mname.empty() && !this->m_mapModuleNames.contains(mname.data())) {
+		return AELogEntryInfo{.mnameIndex = AELEI_INVLAID_MNAME};
+	}
+
+	// ternary with lambda.
+	// F to code readability
+	// basically a lambda to check severity of passed severity values
+	// strictSeverity requires the severities to be the *same*
+	// otherwise check if the passed severity is equal or higher than the "filter"
+	const auto checkSeverity = (strictSeverity) ?
+		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity == curSeverity; } : // the strict, *exact* severity check
+		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity >= curSeverity; }; // the normal severity check
+
+	const short mnameIndex = (!mname.empty()) ? this->m_mapModuleNames[mname.data()] : -1;
+
+	const auto checkMName = (mname.empty()) ?
+		[](const short& controlIndex, const short& mIndex) noexcept { return true; } : // if the module name is empty -- return true always (we aren't checking for it)
+		[](const short& controlIndex, const short& mIndex) noexcept { return (controlIndex == mIndex); };
+
+	while (1) {
+
+		if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
+			return AELogEntryInfo { .cursorIndex = AELEI_INVALID_CURSOR};
+		}
+		if (checkSeverity(this->m_vecEntryIndices[this->m_ullCurrentEntry].logType, severity) && //check the severity with lambdas
+			checkMName(mnameIndex, this->m_vecEntryIndices[this->m_ullCurrentEntry].mnameIndex)) {
+
+			break;
+		}
+	}
+
+	return this->m_vecEntryIndices[this->m_ullCurrentEntry];
+
 }

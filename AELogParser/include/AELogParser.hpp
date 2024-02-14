@@ -26,6 +26,8 @@
 /// Macro for the error when the passed module name doesn't match the parsed modulenames in the log
 /// @see AELogParser::nextEntry()
 #define AELP_ERR_INVALID_MODULE_NAME -20
+/// Macro for the error when the passed severity (log type) is outside of defined severities
+#define AELP_ERR_INVALID_SEVERITY -21
 /// Macro for the severity value that includes all entries/severities in parsing
 /// @see AELogParser::nextEntry()
 #define AELP_SEVERITY_ALL AELOG_TYPE_DEBUG
@@ -121,7 +123,7 @@ public:
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_NO_MODULENAME if invalid module name was passed (-20)</returns>
-	inline cint nextEntryName(AELogEntry& entry, const std::string_view mname = AELP_NO_MODULENAME) { return this->nextEntry(entry, AELP_SEVERITY_ALL, mname, false); }
+	inline cint nextEntryName(AELogEntry& entry, const std::string_view mname) { return this->nextEntry(entry, AELP_SEVERITY_ALL, mname, false); }
 
 	/// <summary>
 	/// Read the next *valid* entry in the log file of the given severity, and parse it to the given AELogEntry object
@@ -221,82 +223,125 @@ public:
 
 
 	/// <summary>
-	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's file cursors in the file
+	/// Read the next indexed *valid* log entry in the file of the given severity and module name filter, and return it's file cursors in the file
 	/// @note The severity value just changes the lowest limit of the log severity (lowest by default is debug). If a higher severity is encountered, it's read as well.
 	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
 	/// </summary>
 	/// <param name="severity">The lowest severity of the log to find</param>
-	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG) {
-		_AELP_CHECK_IF_FILE_OPEN;
+	/// <param name="mname">The module name of the log entry to search for</param>
+	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG, const std::string_view mname = AELP_NO_MODULENAME, const bool strictSeverity = false) {
 
-		//cycle the current entry number untill we find an entry with proper severity level
-		while (1) {
-			if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
-				return AEFR_ERR_READ_EOF;
-			}
-			if (this->m_vecEntryIndices[this->m_ullCurrentEntry].logType >= severity) {
-				break;
-			}
+		const AELogEntryInfo leInfo = this->findNextEntry(severity, AELP_NO_MODULENAME, strictSeverity);
+		const cint ret = this->errorFromAELEI(leInfo);
+		if (ret != AELP_ERR_NOERROR) {
+			return ret; // return the error code from the AELEI
 		}
+
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex;
 	}
 
 	/// <summary>
+	/// Read the next indexed *valid* log entry in the file of the given module name filter, and return it's file cursors in the file
+	/// </summary>
+	/// <param name="mname">The module name of the log entry to search for</param>
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorName(const std::string_view mname) { return this->nextEntryCursor(AELP_SEVERITY_ALL, mname, false); }
+
+	/// <summary>
+	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's file cursors in the file
+	/// @note This severity search is non-strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to false)
+	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
+	/// </summary>
+	/// <param name="severity">The lowest severity of the log to find</param>
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorType(const cint severity) { return this->nextEntryCursor(severity, AELP_NO_MODULENAME, false); }
+
+	/// <summary>
+	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's file cursors in the file
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
+	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
+	/// </summary>
+	/// <param name="severity">The lowest severity of the log to find</param>
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorTypeStrict(const cint severity) { return this->nextEntryCursor(severity, AELP_NO_MODULENAME, true); }
+
+	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "debug", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid debug entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorDebug(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_DEBUG); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorDebug(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_DEBUG); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "info", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid info entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorInfo(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_INFO); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorInfo(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_INFO); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "warning", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid warning entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_WARN); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_WARN); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "severe warning", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid severe warning entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorSevereWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_SEVERE_WARN); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorSevereWarn(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_SEVERE_WARN); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "OK", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid OK entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorOK(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_OK); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorOK(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_OK); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "success", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid success entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorSuccess(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_SUCCESS); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorSuccess(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_SUCCESS); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "rror", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid rror entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_ERROR); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_ERROR); }
 
 	/// <summary>
 	/// Read the next indexed valid log entry in the opened file of type "fatal error", and return the file cursor to it.
+	/// @note This severity search is strict (calls AELogParser::nextEntryCursor() and sets strictSeverity to true)
 	/// @see AELogParser::nextEntryCursor()
 	/// </summary>
-	/// <returns>The file cursors of the next valid fatal error entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
-	inline llint nextEntryCursorFatalError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursor(AELOG_TYPE_FATAL_ERROR); }
+	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
+	/// @see AELogParser::errorFromAELEI()
+	inline llint nextEntryCursorFatalError(void) { _AELP_CHECK_IF_FILE_OPEN; this->nextEntryCursorTypeStrict(AELOG_TYPE_FATAL_ERROR); }
 
 	/// <summary>
 	/// Get the file cursors of the current valid entry
@@ -308,16 +353,24 @@ public:
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex;
 	}
 
-	inline std::size_t getCurrentEntryIndex(void) const {
-		return this->m_ullCurrentEntry.load();
-	}
+	/// <summary>
+	/// Return the order number (index) of the current log entry (that was just read)
+	/// </summary>
+	/// <returns>The index of the current entry as std::size_t</returns>
+	inline std::size_t getCurrentEntryIndex(void) const noexcept { return this->m_ullCurrentEntry.load(); }
 
-	inline cint setCurrentEntryIndex(const std::size_t entryIndex) {
+	/// <summary>
+	/// Set the order number (index) of the next log entry to be parsed
+	/// </summary>
+	/// <param name="entryIndex">The order number of the next entry</param>
+	/// <returns>AELP_ERR_NOERROR on success; AEFR_ERR_READ_EOF if the value was larger than the (amount of valid parsed entries - 1); AEFR_ERR_FILE_NOT_OPEN if file wasn't open</returns>
+	inline cint setNextEntryIndex(const std::size_t entryIndex) noexcept {
 		_AELP_CHECK_IF_FILE_OPEN;
 		if (entryIndex >= this->m_vecEntryIndices.size()) {
 			return AEFR_ERR_READ_EOF;
 		}
 		this->m_ullCurrentEntry = entryIndex;
+		return AELP_ERR_NOERROR; 
 	}
 
 	/// <summary>
@@ -451,6 +504,39 @@ public:
 
 private:
 
+	/// <summary>
+	/// Finds the AELogEntryInfo corresponding to the next log entry with the specified severity and module name
+	/// </summary>
+	/// <param name="severity">The severity of the log entry to look for</param>
+	/// <param name="mname">The module name of the log entry to search for</param>
+	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
+	/// <returns>The AELogEntryInfo instance that corresponds to that log entry</returns>
+	AELogEntryInfo findNextEntry(const cint severity, const std::string_view mname, const bool strictSeverity);
+
+	/// <summary>
+	/// Determines the error codes from the invalid values in the passed AELogEntryInfo instance
+	/// </summary>
+	/// <param name="leInfo">The passed AELogEntryInfo instance to check</param>
+	/// <returns>AELP_ERR_NOERROR if everything is okay; AEFR_ERR_FILE_NOT_OPEN if it's fully invalid; AEFR_ERR_READ_EOF on invalid cursor; AELP_ERR_INVALID_MODULE_NAME on invalid module name; AELP_ERR_INVALID_SEVERITY on invalid type</returns>
+	constexpr bool errorFromAELEI(const AELogEntryInfo& leInfo) const noexcept {
+		if (leInfo.isInvalid()) {
+			return AEFR_ERR_FILE_NOT_OPEN;
+		}
+		if (leInfo.isBroken()) {
+			if (leInfo.isInvalidCursor()) {
+				return AEFR_ERR_READ_EOF;
+			}
+			if (leInfo.isInvalidMName()) {
+				return AELP_ERR_INVALID_MODULE_NAME;
+			}
+			if (leInfo.isInvalidType()) {
+				return AELP_ERR_INVALID_SEVERITY;
+			}
+		}
+		// everything is okay
+		return AELP_ERR_NOERROR;
+	}
+
 	/// The file reader of the opened log file.
 	AEFileReader m_frLogReader;
 	/// The list of all indexed *valid* entries in the log file.
@@ -468,7 +554,7 @@ private:
 	std::atomic<std::size_t> m_ullCurrentEntry;
 
 	//aaaand register it
-	REGISTER_MODULE(AELogParser)
+	REGISTER_MODULE(AELogParser);
 };
 
 
