@@ -85,7 +85,7 @@ cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	/// @todo Implement decrease in log queue size...somehow
 
 	// check for invalid arguments
-	if (logmessg.empty() || logmodule.empty() || !ace::utils::isInRange<cint>(AELOG_TYPE_DEBUG, AELOG_TYPE_FATAL_ERROR, logtype) || //empty/invalid stuff
+	if (logmessg.empty() || logmodule.empty() || !ace::utils::isInRange(AELOG_TYPE_DEBUG, AELOG_TYPE_FATAL_ERROR, logtype) || //empty/invalid stuff
 		!ace::utils::isAlNumUs(logmodule)) { //log module stuff
 		return AELOG_ERR_INVALID_ENTRY_DATA;
 	}

@@ -270,7 +270,7 @@ public:
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries</returns>
 	inline ullint amountValidEntries(const cint severity = AELOG_TYPE_DEBUG) const noexcept {
-		if (!ace::utils::isInRange<cint>(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
+		if (!ace::utils::isInRange(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
 			return ULLINT_MAX;
 		}
 		ullint tempres = 0;
@@ -294,7 +294,7 @@ public:
 	/// <param name="severity">The severity/type of the log to find</param>
 	/// <returns>ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries</returns>
 	inline ullint amountTypeEntries(const cint severity) const noexcept {
-		if (!ace::utils::isInRange<cint>(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
+		if (!ace::utils::isInRange(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
 			return ULLINT_MAX;
 		}
 		return this->m_arrEntryAmount[severity + 1];

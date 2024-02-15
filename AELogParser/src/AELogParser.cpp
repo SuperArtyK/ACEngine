@@ -126,6 +126,10 @@ AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string
 		return AELogEntryInfo{.mnameIndex = AELEI_INVLAID_MNAME};
 	}
 
+	if (!ace::utils::isInRange(AELOG_TYPE_DEBUG, AELOG_TYPE_FATAL_ERROR, severity)) {
+		return AELogEntryInfo{ .logType = AELEI_INVALID_TYPE };
+	}
+
 	// ternary with lambda.
 	// F to code readability
 	// basically a lambda to check severity of passed severity values

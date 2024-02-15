@@ -134,13 +134,15 @@ namespace ace {
 		/// Checks if the value that you passed is within range
 		/// @note The type of the values you pass to this function shall be the same
 		/// </summary>
-		/// <typeparam name="T">The type of values to compare</typeparam>
+		/// <typeparam name="T">The 1st type of values to compare</typeparam>
+		/// <typeparam name="Y">The 2nd type of values to compare (defaults to T)</typeparam>
+		/// <typeparam name="U">The 3rd type of values to compare (defaults to T)</typeparam>
 		/// <param name="minval">Minimum value of the range of values</param>
 		/// <param name="maxval">Maximum value of the range of values</param>
 		/// <param name="i">The value to check</param>
 		/// <returns>True if the value is in the range, false otherwise</returns>
-		template<typename T>
-		constexpr bool isInRange(const T minval, const T maxval, const T i) noexcept {
+		template<typename T, typename Y = T , typename U = T>
+		constexpr bool isInRange(const T minval, const Y maxval, const U i) noexcept {
 			return (minval <= i) && (i <= maxval);
 		}
 
