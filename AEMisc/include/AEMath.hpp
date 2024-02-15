@@ -217,6 +217,16 @@ namespace ace::math {
 	}
 
 	/// <summary>
+	/// Engine's golden ratio (phi) value.
+	/// </summary>
+	/// <typeparam name="T">Type to convert the constant to</typeparam>
+	/// <returns>The constant converted/rounded to a given type</returns>
+	template<typename T = long double>
+	constexpr T phi(void) noexcept {
+		return T(1.61803398874989484821L);
+	}
+
+	/// <summary>
 	/// Convert given degrees to radians
 	/// </summary>
 	/// <typeparam name="T">The type of the degrees value and the resulting operation</typeparam>
@@ -236,16 +246,6 @@ namespace ace::math {
 	template<typename T>
 	constexpr T toDeg(const T rad) noexcept {
 		return ((rad)*T(180) / ace::math::pi<T>());
-	}
-
-	/// <summary>
-	/// Engine's golden ratio (phi) value.
-	/// </summary>
-	/// <typeparam name="T">Type to convert the constant to</typeparam>
-	/// <returns>The constant converted/rounded to a given type</returns>
-	template<typename T = long double>
-	constexpr T phi(void) noexcept {
-		return T(1.61803398874989484821L);
 	}
 
 	/// <summary>
@@ -354,11 +354,11 @@ namespace ace::math {
 	/// @note If the T type is a float, returns the result of ace::math::fequals() with the default epsilon values
 	/// </summary>
 	/// <typeparam name="T">The type of the first number passed</typeparam>
-	/// <typeparam name="Y">The type of the second number passed</typeparam>
+	/// <typeparam name="Y">The type of the second number passed (defaults to T)</typeparam>
 	/// <param name="num">The first number to compare</param>
 	/// <param name="num2">The second number to compare</param>
 	/// <returns>True if the two numbers are equal, false otherwise</returns>
-	template<typename T, typename Y>
+	template<typename T, typename Y = T>
 	constexpr bool equals(const T num, const Y num2) noexcept {
 
 	
@@ -483,11 +483,12 @@ namespace ace::math {
 	/// <summary>
 	/// Gets the biggest value between given two values.
 	/// </summary>
-	/// <typeparam name="T">Type of the values</typeparam>
+	/// <typeparam name="T">1st Type of the values</typeparam>
+	/// <typeparam name="Y">2nd Type of the values (defaults to T)</typeparam>
 	/// <param name="a">The first value to compare</param>
 	/// <param name="b">The second value to compare</param>
 	/// <returns>Value of a if it is bigger than b; value of b otherwise</returns>
-	template<typename T>
+	template<typename T, typename Y = T>
 	constexpr T max(const T& a, const T& b) noexcept {
 		return (a > b) ? a : b;
 	}
@@ -495,11 +496,12 @@ namespace ace::math {
 	/// <summary>
 	/// Gets the smallest value between given two values.
 	/// </summary>
-	/// <typeparam name="T">Type of the values</typeparam>
+	/// <typeparam name="T">1st Type of the values</typeparam>
+	/// <typeparam name="Y">2nd Type of the values (defaults to T)</typeparam>
 	/// <param name="a">The first value to compare</param>
 	/// <param name="b">The second value to compare</param>
 	/// <returns>Value of a if it is smaller than b; value of b otherwise</returns>
-	template<typename T>
+	template<typename T, typename Y>
 	constexpr T min(const T& a, const T& b) noexcept {
 		return (a < b) ? a : b;
 	}
