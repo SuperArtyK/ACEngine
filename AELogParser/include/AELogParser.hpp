@@ -55,7 +55,6 @@ public:
 	/// <summary>
 	/// Class constructor -- just initialises the object
 	/// </summary>
-	/// <param name=""></param>
 	AELogParser(void) :
 		m_arrEntryAmount({}), m_ullCurrentEntry(-1)
 	{}

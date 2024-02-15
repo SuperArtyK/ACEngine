@@ -1,4 +1,4 @@
-.TH "AELogEntry/include/AELogEntry.hpp" 3 "Thu Feb 8 2024 13:09:56" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntry/include/AELogEntry.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -87,19 +87,19 @@ AELogEntry/include/AELogEntry.hpp
 .br
 .RI "Macro-flag for the parseStringEntry() to not write the data to the given entry object (essentially, just validate it) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_MESSG\fP   0b0000001"
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_MESSG\fP   0b0000001"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's message to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_MNAME\fP   0b0000010"
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_MNAME\fP   0b0000010"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's module name to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_TIME\fP   0b0000100"
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_TIME\fP   0b0000100"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's timestamp to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_WRITE_TYPE\fP   0b0001000"
+.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_TYPE\fP   0b0001000"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's type to the given entry object\&. "
 .ti -1c
@@ -188,25 +188,25 @@ Definition at line \fB70\fP of file \fBAELogEntry\&.hpp\fP\&.
 Macro-flag for the parseStringEntry() to not write the data to the given entry object (essentially, just validate it) 
 .PP
 Definition at line \fB60\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_MESSG   0b0000001"
+.SS "#\fBdefine\fP AELE_PARSE_STRING_MESSG   0b0000001"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's message to the given entry object\&. 
 .PP
 Definition at line \fB62\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_MNAME   0b0000010"
+.SS "#\fBdefine\fP AELE_PARSE_STRING_MNAME   0b0000010"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's module name to the given entry object\&. 
 .PP
 Definition at line \fB64\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_TIME   0b0000100"
+.SS "#\fBdefine\fP AELE_PARSE_STRING_TIME   0b0000100"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's timestamp to the given entry object\&. 
 .PP
 Definition at line \fB66\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_WRITE_TYPE   0b0001000"
+.SS "#\fBdefine\fP AELE_PARSE_STRING_TYPE   0b0001000"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's type to the given entry object\&. 

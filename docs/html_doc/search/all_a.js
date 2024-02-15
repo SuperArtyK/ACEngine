@@ -17,5 +17,6 @@ var searchData=
   ['log10e_14',['log10e',['../d5/d0f/namespaceace_1_1math.html#acc6819e628c59f489e5a081de3363c54',1,'ace::math']]],
   ['log2e_15',['log2e',['../d5/d0f/namespaceace_1_1math.html#ae4224e25b5b30a139e3bb327612094c6',1,'ace::math']]],
   ['logtoqueue_16',['logToQueue',['../d8/d52/class_a_e_log_parser.html#a698f9197277ffa4de49c2af6ea7169ab',1,'AELogParser']]],
-  ['logwriterthread_17',['logWriterThread',['../d8/dfc/class_a_e_logger.html#a5938787b6933f4b96ebff10643bd2497',1,'AELogger']]]
+  ['logtype_17',['logType',['../db/d7b/struct_a_e_log_entry_info.html#ad6df63b5aa789efe8450458307e65f42',1,'AELogEntryInfo']]],
+  ['logwriterthread_18',['logWriterThread',['../d8/dfc/class_a_e_logger.html#a5938787b6933f4b96ebff10643bd2497',1,'AELogger']]]
 ];

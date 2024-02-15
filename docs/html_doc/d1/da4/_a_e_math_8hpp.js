@@ -1,7 +1,5 @@
 var _a_e_math_8hpp =
 [
-    [ "toDeg", "d1/da4/_a_e_math_8hpp.html#a6b640ed2559acd4af22873285cf3f7ec", null ],
-    [ "toRad", "d1/da4/_a_e_math_8hpp.html#a7864d0f85aba76791827384dbc363e68", null ],
     [ "absval", "d1/da4/_a_e_math_8hpp.html#a6136e240d0a8dbf2dc81d9b19634ef7b", null ],
     [ "ceilToInt", "d1/da4/_a_e_math_8hpp.html#ae1be03123afa0580383d35cbc5181819", null ],
     [ "cosDeg", "d1/da4/_a_e_math_8hpp.html#a6d6fc7afd09d4c910a45218da9ae2bc6", null ],
@@ -25,8 +23,8 @@ var _a_e_math_8hpp =
     [ "ln2", "d1/da4/_a_e_math_8hpp.html#a4fd85a17e0f314642a99ad954f9727c2", null ],
     [ "log10e", "d1/da4/_a_e_math_8hpp.html#acc6819e628c59f489e5a081de3363c54", null ],
     [ "log2e", "d1/da4/_a_e_math_8hpp.html#ae4224e25b5b30a139e3bb327612094c6", null ],
-    [ "max", "d1/da4/_a_e_math_8hpp.html#aa051a7ad7f5c07d22e4d7ccab3aa3c62", null ],
-    [ "min", "d1/da4/_a_e_math_8hpp.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b", null ],
+    [ "max", "d1/da4/_a_e_math_8hpp.html#a1b5d56a3c69297998e84ff84e0e452e6", null ],
+    [ "min", "d1/da4/_a_e_math_8hpp.html#aa51d09e1b4ba5a8707d4e6df95a0ef4c", null ],
     [ "phi", "d1/da4/_a_e_math_8hpp.html#a8730146052c1afecf389cfc04c3b79df", null ],
     [ "pi", "d1/da4/_a_e_math_8hpp.html#aa0a6e86cf56576a0c0bed60a719407f7", null ],
     [ "piDouble", "d1/da4/_a_e_math_8hpp.html#a6ddbd8fa1d940c41daf629f0e6a97cb2", null ],
@@ -47,5 +45,7 @@ var _a_e_math_8hpp =
     [ "sqrtOfPiInv", "d1/da4/_a_e_math_8hpp.html#a45e5289c2553584d77826e44a79e9995", null ],
     [ "tanDeg", "d1/da4/_a_e_math_8hpp.html#a15512ebb416126f59cdb7669b5c39b48", null ],
     [ "tau", "d1/da4/_a_e_math_8hpp.html#a1f990bc18b68137376f1f2c2cf54bf3f", null ],
+    [ "toDeg", "d1/da4/_a_e_math_8hpp.html#a368a7c4b20718dbf45bd3b0b144ec216", null ],
+    [ "toRad", "d1/da4/_a_e_math_8hpp.html#a34df987782d57f3ccb8d1cf75deb2fd2", null ],
     [ "truncToInt", "d1/da4/_a_e_math_8hpp.html#a9461ad066823e3689f9d9c27c6e354cd", null ]
 ];

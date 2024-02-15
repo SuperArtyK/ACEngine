@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Thu Feb 8 2024 13:09:56" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -26,18 +26,6 @@ AEMisc/include/AEMath.hpp
 .RI "namespace \fBace::math\fP"
 .br
 .RI "Mathematical functions and other things usefull in math\&. "
-.in -1c
-.SS "Macros"
-
-.in +1c
-.ti -1c
-.RI "#\fBdefine\fP \fBtoRad\fP(\fBdeg\fP,  \fBtype\fP)   ((\fBdeg\fP) * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
-.br
-.RI "Macro to convert degrees value x to radians\&. "
-.ti -1c
-.RI "#\fBdefine\fP \fBtoDeg\fP(\fBrad\fP,  \fBtype\fP)   ((\fBrad\fP) * \fBtype\fP(180) / \fBace::math::pi\fP<\fBtype\fP>() )"
-.br
-.RI "Macro to convert radians value x to degrees\&. "
 .in -1c
 .SS "Functions"
 
@@ -123,6 +111,14 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Engine's golden ratio (phi) value\&. "
 .ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::toRad\fP (\fBconst\fP T \fBdeg\fP) \fBnoexcept\fP"
+.br
+.RI "Convert given degrees to radians\&. "
+.ti -1c
+.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::toDeg\fP (\fBconst\fP T \fBrad\fP) \fBnoexcept\fP"
+.br
+.RI "Convert given radians to degrees\&. "
+.ti -1c
 .RI "template<\fBtypename\fP T  = long double> T \fBace::math::sinDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
 .br
 .RI "Calculates the sine of the given degrees\&. "
@@ -163,7 +159,7 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP b
 .br
 .RI "Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBY\fP \fBnum2\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBY\fP \fBnum2\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
 .ti -1c
@@ -179,11 +175,11 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP b
 .br
 .RI "Calculate the n'th root of a number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::max\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T \fBace::math::max\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
 .br
 .RI "Gets the biggest value between given two values\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T > \fBconstexpr\fP T \fBace::math::min\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T \fBace::math::min\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
 .br
 .RI "Gets the smallest value between given two values\&. "
 .ti -1c
@@ -248,38 +244,6 @@ This file contains the engine math functions, (probably)optimised for engine stu
 Should not cause everything to break :) 
 .PP
 Definition in file \fBAEMath\&.hpp\fP\&.
-.SH "Macro Definition Documentation"
-.PP 
-.SS "#\fBdefine\fP toDeg(\fBrad\fP, \fBtype\fP)   ((\fBrad\fP) * \fBtype\fP(180) / \fBace::math::pi\fP<\fBtype\fP>() )"
-
-.PP
-Macro to convert radians value x to degrees\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIrad\fP Value of radians to convert
-.br
-\fItype\fP The type of the resulting operation
-.RE
-.PP
-
-.PP
-Definition at line \fB30\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "#\fBdefine\fP toRad(\fBdeg\fP, \fBtype\fP)   ((\fBdeg\fP) * \fBace::math::pi\fP<\fBtype\fP>() / \fBtype\fP(180))"
-
-.PP
-Macro to convert degrees value x to radians\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdeg\fP Value of degrees to convert
-.br
-\fItype\fP The type of the resulting operation
-.RE
-.PP
-
-.PP
-Definition at line \fB25\fP of file \fBAEMath\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

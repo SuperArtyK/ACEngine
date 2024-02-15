@@ -1,4 +1,4 @@
-.TH "AELogParser/include/AELogParser.hpp" 3 "Thu Feb 8 2024 13:09:56" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser/include/AELogParser.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,9 +10,13 @@ AELogParser/include/AELogParser.hpp
 .br
 \fR#include 'include/AELogEntry\&.hpp'\fP
 .br
+\fR#include 'include/AELogEntryInfo\&.hpp'\fP
+.br
 \fR#include <array>\fP
 .br
 \fR#include <string_view>\fP
+.br
+\fR#include <unordered_map>\fP
 .br
 \fR#include <vector>\fP
 .br
@@ -33,7 +37,23 @@ AELogParser/include/AELogParser.hpp
 .br
 .RI "Macro for the indicator that everything is good/no error was encountered in the process\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fB_AELP_CHECK_IF_FILE_OPEN\fP   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+.RI "#\fBdefine\fP \fBAELP_ERR_INVALID_MODULE_NAME\fP   \-20"
+.br
+.RI "Macro for the error when the passed module name doesn't match the parsed modulenames in the log\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELP_ERR_INVALID_SEVERITY\fP   \-21"
+.br
+.RI "Macro for the error when the passed severity (log type) is outside of defined severities\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELP_SEVERITY_ALL\fP   \fBAELOG_TYPE_DEBUG\fP"
+.br
+.RI "Macro for the severity value that includes all entries/severities in parsing\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fBAELP_NO_MODULENAME\fP   ''"
+.br
+.RI "Macro for the 'no'/empty modulename to pass for parsing\&. "
+.ti -1c
+.RI "#\fBdefine\fP \fB_AELP_CHECK_IF_FILE_OPEN\fP   { \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; } }"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -49,16 +69,54 @@ Should not cause everything to break :)
 Definition in file \fBAELogParser\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP _AELP_CHECK_IF_FILE_OPEN   \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+.SS "#\fBdefine\fP _AELP_CHECK_IF_FILE_OPEN   { \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; } }"
 
 .PP
-Definition at line \fB25\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB37\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELP_ERR_INVALID_MODULE_NAME   \-20"
+
+.PP
+Macro for the error when the passed module name doesn't match the parsed modulenames in the log\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntry()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELP_ERR_INVALID_SEVERITY   \-21"
+
+.PP
+Macro for the error when the passed severity (log type) is outside of defined severities\&. 
+.PP
+Definition at line \fB30\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "#\fBdefine\fP AELP_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good/no error was encountered in the process\&. 
 .PP
-Definition at line \fB23\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB25\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELP_NO_MODULENAME   ''"
+
+.PP
+Macro for the 'no'/empty modulename to pass for parsing\&. 
+.PP
+Definition at line \fB35\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#\fBdefine\fP AELP_SEVERITY_ALL   \fBAELOG_TYPE_DEBUG\fP"
+
+.PP
+Macro for the severity value that includes all entries/severities in parsing\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntry()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB33\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

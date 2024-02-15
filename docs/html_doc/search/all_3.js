@@ -30,6 +30,7 @@ var searchData=
   ['cscdeg_5ftableinterp_27',['cscDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a6707069eefabdb087b2fd2d38da37435',1,'ace::math']]],
   ['csctable_28',['cscTable',['../d5/d0f/namespaceace_1_1math.html#a407e7fcaa7b1d1f48b2ed01a1fac27ee',1,'ace::math']]],
   ['current_20project_20list_3a_29',['Current project list:',['../index.html#current-project-list',1,'']]],
-  ['currententrycursor_30',['currentEntryCursor',['../d8/d52/class_a_e_log_parser.html#a3172d787ba4be2aedb615be88758eab1',1,'AELogParser']]],
-  ['cxx_5fstd_31',['CXX_STD',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a34cc889e576a1ae6c84ae9e0a851ba21',1,'CMakeCXXCompilerId.cpp']]]
+  ['currententrycursor_30',['currentEntryCursor',['../d8/d52/class_a_e_log_parser.html#a997df337f3e8b44e441a804d6b876494',1,'AELogParser']]],
+  ['cursorindex_31',['cursorIndex',['../db/d7b/struct_a_e_log_entry_info.html#a6e56679d15680bd640d618bd2d81d565',1,'AELogEntryInfo']]],
+  ['cxx_5fstd_32',['CXX_STD',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a34cc889e576a1ae6c84ae9e0a851ba21',1,'CMakeCXXCompilerId.cpp']]]
 ];
