@@ -72,7 +72,7 @@ cint AELogger::stopWriter(void) {
 }
 
 // request a log entry and write to it
-cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule) {
+cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, const std::string_view logmodule, const std::time_t logTime) {
 	if (this->isClosed()) {
 		return AEFW_ERR_FILE_NOT_OPEN; // file's closed/closing!
 	}
@@ -127,7 +127,7 @@ cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	//populating it now!
 	ptr->m_cStatus = AELE_STATUS_SETTING; //alright boys, we're setting this one up
 
-	ptr->m_tmLogTime = std::time(nullptr);
+	ptr->m_tmLogTime = (logTime == 0) ? std::time(nullptr) : logTime;
 	memcpy(ptr->m_sLogMessage, logmessg.data(), (logmessg.size() > AELE_MESSAGE_SIZE) ? AELE_MESSAGE_SIZE : logmessg.size());
 	memcpy(ptr->m_sModuleName, logmodule.data(), (logmodule.size() > AELE_MODULENAME_SIZE) ? AELE_MODULENAME_SIZE : logmodule.size());
 	ptr->m_cLogType = logtype;
@@ -135,42 +135,6 @@ cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 	return AELOG_ERR_NOERROR;
 }
 
-cint AELogger::writeToLog(const AELogEntry& entry, const bool useCurrentTime) {
-	if (this->isClosed()) {
-		return AEFW_ERR_FILE_NOT_OPEN; // file's closed/closing!
-	}
-
-	this->m_ullFilledCount++;
-
-	if (this->m_ullFilledCount > this->m_ullQueueSize) {
-		const std::lock_guard<std::mutex> lock(this->m_mtxAllocLock);
-		const ullint qsize = this->m_ullQueueSize / 2;
-
-		//make new queue
-		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
-		//add the new queue to the vector
-		this->m_ullQueueSize += qsize;
-		this->m_lepLastNode->m_pNextNode = newQueue;
-		this->m_lepLastNode = newQueue + qsize - 1;
-		this->m_vAllocTable.emplace_back(this->m_ullQueueSize, newQueue);
-		this->writeToLogDebug("The queue was too small, resized it to " + std::to_string(this->m_ullQueueSize) + " entries", this->getModuleName());
-	}
-
-	//increment node number and get the pointer
-	AELogEntry* ptr = this->ptrFromIndex(m_ullNodeNumber++);
-	while (ptr->m_cStatus != AELE_STATUS_INVALID) {
-		ptr = this->ptrFromIndex(m_ullNodeNumber++); //if current node is filled -> continue looking for unpopulated one
-	}
-
-	ptr->m_cStatus = AELE_STATUS_SETTING;
-	ptr->copyEntryReduced(entry);
-	if (useCurrentTime) {
-		ptr->m_tmLogTime = std::time(nullptr);
-	}
-	ptr->m_cStatus = AELE_STATUS_READY;
-
-	return AELOG_ERR_NOERROR;
-}
 
 
 void AELogger::logWriterThread(void) {

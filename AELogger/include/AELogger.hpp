@@ -188,8 +188,9 @@ public:
 	/// <param name="logmessg">The message of the requested log entry</param>
 	/// <param name="logtype">The type of the log entry</param>
 	/// <param name="logmodule">The name of the module that invoked this request</param>
+	/// <param name="logTime">The custom time of the log entry to insert, *if you really need that*!</param>
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
-	cint writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME);
+	cint writeToLog(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME, const std::time_t logTime = 0);
 
 	/// <summary>
 	/// Request a log entry to be written to the opened log file, using data from a log entry type.
@@ -197,7 +198,9 @@ public:
 	/// <param name="entry">The log entry to write to the file</param>
 	/// <param name="useCurrentTime">Flag to use current time for the log entry, or use timestamp in the provided entry</param>
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open</returns>
-	cint writeToLog(const AELogEntry& entry, const bool useCurrentTime = true);
+	inline cint writeToLog(const AELogEntry& entry, const bool useCurrentTime = true) {
+		this->writeToLog(entry.m_sLogMessage, entry.m_cLogType, entry.m_sModuleName, ((useCurrentTime) ? 0 : entry.m_tmLogTime ));
+	}
 
 	/// <summary>
 	/// Request a debug log entry to be written to the opened log file.
