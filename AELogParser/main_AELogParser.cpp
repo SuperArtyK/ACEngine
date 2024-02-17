@@ -13,9 +13,9 @@ int main() {
 	AELogEntry testing{};
 	
 
-	cout << "Parsed entries: " << mylp.amountValidEntries() << NLC;
+	cout << "Parsed entries: " << mylp.amountEntriesValid() << NLC;
 	for (int i = -1; i < 8; i++) {
-		cout << "Parsed entries of type \"" << AELogEntry::typeToString(i) << "\": " << mylp.amountTypeEntries(i)<<NLC;
+		cout << "Parsed entries of type \"" << AELogEntry::typeToString(i) << "\": " << mylp.amountEntriesType(i)<<NLC;
 	}
 	
 	char estr[AELE_FORMAT_MAX_SIZE]{};

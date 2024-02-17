@@ -43,14 +43,14 @@ cint AELogParser::openLog(const std::string_view fname) {
 		switch (parsedEntry) {
 			case AELP_ERR_NOERROR:
 				if (this->m_mapModuleNames.contains(dummyentry.m_sModuleName)) {
-					this->m_vecEntryIndices.emplace_back(cursor, this->m_mapModuleNames[dummyentry.m_sModuleName], dummyentry.m_cLogType);
+					this->m_vecEntryIndices.emplace_back(cursor, this->m_mapModuleNames[dummyentry.m_sModuleName].second, dummyentry.m_cLogType);
 				}
 				else {
-					this->m_mapModuleNames[dummyentry.m_sModuleName] = mnameIndex++;
+					this->m_mapModuleNames[dummyentry.m_sModuleName].second = mnameIndex++;
 					this->m_vecEntryIndices.emplace_back(cursor, mnameIndex, dummyentry.m_cLogType); // a bit of optimisation
 				}
 				
-				
+				this->m_mapModuleNames[dummyentry.m_sModuleName].first++;
 				this->m_arrEntryAmount[dummyentry.m_cLogType + 1]++;
 				break;
 
@@ -91,10 +91,10 @@ cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::s
 }
 
 
-cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity) {
+cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity, const bool strictSeverity) {
 	_AELP_CHECK_IF_FILE_OPEN;
 	
-	AELogEntry* ptr = begin = AELogEntry::makeQueue(this->amountValidEntries(severity), nullptr, false);
+	AELogEntry* ptr = begin = AELogEntry::makeQueue(this->amountEntriesValid(severity), nullptr, false);
 	cint retval = 0;
 	// Yes, this is..weird, But in nextEntry it will pre-increment it before checking
 	// whether it's EOF or not. So...set it to 1 less from the start, instead of subtracting 1 every time
@@ -122,7 +122,9 @@ AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string
 		return AELogEntryInfo::invalidEntry();
 	}
 
-	if (!mname.empty() && !this->m_mapModuleNames.contains(mname.data())) {
+	std::string mnameStr = mname.data();
+
+	if (!mnameStr.empty() && !this->m_mapModuleNames.contains(mnameStr)) {
 		return AELogEntryInfo{.mnameIndex = AELEI_INVLAID_MNAME};
 	}
 
@@ -139,7 +141,10 @@ AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string
 		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity == curSeverity; } : // the strict, *exact* severity check
 		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity >= curSeverity; }; // the normal severity check
 
-	const short mnameIndex = (!mname.empty()) ? this->m_mapModuleNames[mname.data()] : -1;
+	const short mnameIndex = (!mnameStr.empty()) ? this->m_mapModuleNames[mnameStr].second : -1;
+
+	mnameStr.clear();
+	mnameStr.shrink_to_fit();
 
 	const auto checkMName = (mname.empty()) ?
 		[](const short& controlIndex, const short& mIndex) noexcept { return true; } : // if the module name is empty -- return true always (we aren't checking for it)

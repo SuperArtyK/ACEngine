@@ -239,7 +239,7 @@ public:
 	/// @note If the file is not open, the returned vector is empty
 	/// </summary>
 	/// <returns>(by value) The vector of AELogEntryInfo, each having the (cursor) index, index of the module name, and type of each valid entry</returns>
-	inline std::vector<AELogEntryInfo> getValidEntryCursorAll(void) const noexcept {
+	inline std::vector<AELogEntryInfo> getEntryCursorAll(void) const noexcept {
 		return this->m_vecEntryIndices;
 	}
 
@@ -260,7 +260,7 @@ public:
 	/// <param name="begin">The pointer to which the queue will be allocated</param>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	cint logToQueue(AELogEntry*& begin, const cint severity = AELOG_TYPE_DEBUG);
+	cint logToQueue(AELogEntry*& begin, const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false);
 
 	/// <summary>
 	/// Get the amount of valid entries in the log (with optional lowest severity setting).
@@ -268,7 +268,7 @@ public:
 	/// </summary>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries</returns>
-	inline ullint amountValidEntries(const cint severity = AELOG_TYPE_DEBUG) const noexcept {
+	inline ullint amountEntriesValid(const cint severity = AELOG_TYPE_DEBUG) const noexcept {
 		if (!ace::utils::isInRange(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
 			return ULLINT_MAX;
 		}
@@ -283,7 +283,7 @@ public:
 	/// Get the amount of invalid entries in the log. Invalid entries are of type AELOG_TYPE_INVALID
 	/// </summary>
 	/// <returns>ullint amount of invalid entries</returns>
-	inline ullint amountInvalidEntries(void) const noexcept {
+	inline ullint amountEntriesInvalid(void) const noexcept {
 		return m_arrEntryAmount[0]; // shortened version of AELOG_TYPE_INVALID (which is -1) + 1
 	}
 
@@ -292,11 +292,20 @@ public:
 	/// </summary>
 	/// <param name="severity">The severity/type of the log to find</param>
 	/// <returns>ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries</returns>
-	inline ullint amountTypeEntries(const cint severity) const noexcept {
+	inline ullint amountEntriesType(const cint severity) const noexcept {
 		if (!ace::utils::isInRange(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
 			return ULLINT_MAX;
 		}
 		return this->m_arrEntryAmount[severity + 1];
+	}
+
+	inline ullint amountEntriesName(const std::string_view mname) const noexcept {
+		const decltype(this->m_mapModuleNames)::const_iterator iter = this->m_mapModuleNames.find(mname.data());
+		if (iter == this->m_mapModuleNames.end()) {
+			return ULLINT_MAX;
+		}
+
+		return iter->second.second; 
 	}
 
 	/// <summary>
@@ -407,7 +416,7 @@ private:
 	/// Each item contains their corresponding cursor position in the file.
 	std::vector<llint> m_vecInvalidEntryIndices;
 	/// The map of the all module names parsed in the log file
-	std::unordered_map<std::string, short> m_mapModuleNames;
+	std::unordered_map < std::string, std::pair <ullint, short>> m_mapModuleNames;
 	/// The amount of log entries read in the file, separated by type/severity.
 	std::array<ullint, 9> m_arrEntryAmount;
 	/// The number corresponding to the currently-read *valid* entry in the log file.
