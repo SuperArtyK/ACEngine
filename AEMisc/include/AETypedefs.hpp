@@ -109,11 +109,27 @@ typedef std::chrono::steady_clock SteadyClock;
 /// <param name="type">The type of the resulting operation</param>
 #define calculateTime(tp1, tp2, type) std::chrono::duration<type>(tp2 - tp1).count()
 
-/// A macro as the shortcut of chrono's time point. I couldn't shove it into a typedef so...a macro
-#define timePoint std::chrono::time_point
+// A macro as the shortcut of chrono's time point. I couldn't shove it into a typedef so...a macro
+//#define timePoint std::chrono::time_point
+
+/// <summary>
+/// An alias for the std::chrono::time_point to not type...as much
+/// </summary>
+/// <typeparam name="Clock">The clock (system, hi-res, steady) on which this time point is measured</typeparam>
+/// <typeparam name="Duration">a std::chrono::duration type used to measure the time since epoch</typeparam>
+template<class Clock, class Duration = typename Clock::duration>
+using timePoint = std::chrono::time_point<Clock, Duration>;
 
 /// A macro as the shortcut of chrono's time duration. Same reason as timePoint
-#define timeDur std::chrono::duration
+//#define timeDur std::chrono::duration
+
+/// <summary>
+/// An alias for the std::chrono::duration to not type as much
+/// </summary>
+/// <typeparam name="Rep">An arithmetic type representing the number of ticks</typeparam>
+/// <typeparam name="Period">a std::ratio representing the tick period (i.e. the number of second's fractions per tick)</typeparam>
+template<class Rep, class Period = std::ratio<1>>
+using timeDur = std::chrono::duration<Rep, Period>;
 
 /// A macro as the shortcut of chrono's milliseconds.
 /// <param name="ms">The number of milliseconds to convert to</param>
