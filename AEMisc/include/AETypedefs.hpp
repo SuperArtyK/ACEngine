@@ -84,13 +84,13 @@ typedef unsigned short ushort;
 
 //time so we don't need to use autos and init every time
 /// A shortcut for chrono's system time
-typedef std::chrono::system_clock SysTime;
+typedef std::chrono::system_clock SysClock;
 
 /// A shortcut for chrono's high resolution time
-typedef std::chrono::high_resolution_clock HighResTime;
+typedef std::chrono::high_resolution_clock HighResClock;
 
 /// A shortcut for chrono's steady time
-typedef std::chrono::steady_clock SteadyTime;
+typedef std::chrono::steady_clock SteadyClock;
 
 
 /// A macro to get the system time's now()

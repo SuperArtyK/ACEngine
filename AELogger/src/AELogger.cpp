@@ -66,8 +66,11 @@ cint AELogger::stopWriter(void) {
 	this->m_bRunTrd = false;
 	if (this->m_trdWriter.joinable()) {
 		this->m_trdWriter.join();
+		
+		this->writeToLogDirectly("Successfully exited the writer thread.", AELOG_TYPE_OK, this->getModuleName()); // the log is closed, so is the queue
 		return AELOG_ERR_NOERROR;
 	}
+	this->writeToLogDirectly("Cannot close the already-closed thread!", AELOG_TYPE_ERROR, this->getModuleName());
 	return AELOG_ERR_THREAD_ALREADY_STOPPED;
 }
 
@@ -157,6 +160,8 @@ void AELogger::logWriterThread(void) {
 
 	//and not stop untill it's done
 	//untill we written everything *and* we stopped the thread
+	
+
 	while (this->m_bRunTrd.load(std::memory_order::relaxed) || this->m_ullFilledCount.load(std::memory_order::relaxed)) {
 		while (this->m_ullFilledCount.load(std::memory_order::relaxed)) {
 			
@@ -191,32 +196,7 @@ void AELogger::logWriterThread(void) {
 		//since we're done writing the entries, sleep and check if some appear again
 		ace::utils::sleepUS(1000);
 	}
-
-
-	//format the last entry
-	AELogEntry exitEntry{
-		"Successfully exited the writer thread.", // m_sLogMessage
-		"", // m_sModuleName (will be written to later)
-		std::time(nullptr), // m_tmLogTime
-		nullptr, // m_pNextNode
-		AELOG_TYPE_SUCCESS, // m_cLogType
-		//AELE_STATUS_INVALID, // m_cStatus; isn't needed since the function doesn't check it anyway
-	};
-	std::memcpy(exitEntry.m_sModuleName, this->getModuleName().data(), this->getModuleName().size());
-	AELogEntry::formatEntry(str, exitEntry);
-
-
-// 	AELogEntry::formatEntry(str,
-// 		AELogEntry{ .m_sLogMessage{"Successfully exited the writer thread."}, .m_sModuleName{"this->m_sModulename.data()"}, // for gcc bugs
-// 		  .m_tmLogTime{time(nullptr)}, .m_cLogType{AELOG_TYPE_SUCCESS} });
-
-	// old way of formatting
-	// snprintf(str, sizeof(str), AELE_FORMAT_STRING, ace::utils::getCurrentDate().c_str(), AELogEntry::typeToString(AELOG_TYPE_SUCCESS), this->m_sModulename.data(), "Successfully exited the writer thread.");
-	
-
-	//write and flush the last entry
-	this->m_fwLogger.writeData_ptr(str, std::strlen(str), 1, false);
-	this->m_fwLogger.flushFile();
+	this->writeToLogDirectly("Reached the end of the log-writing thread function", AELOG_TYPE_OK, this->getModuleName());
 }
 
 

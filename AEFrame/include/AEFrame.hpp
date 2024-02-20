@@ -112,7 +112,7 @@ private:
 	/// The time duration for the delay in sleeps	
 	timeDur<double> m_tdChronoDelay;
 	/// The timepoint, that sets time when to wake up the thread
-	timePoint<SteadyTime, decltype(m_tdChronoDelay)> m_tpTimepoint; 
+	timePoint<SteadyClock, decltype(m_tdChronoDelay)> m_tpTimepoint; 
 	double m_fFPS;
 	/// The flag if we don't need the delay, err, for some reason
 	bool m_bNoDelay;

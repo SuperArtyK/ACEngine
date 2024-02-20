@@ -185,15 +185,16 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="str">The c-string to format the data to</param>
 	/// <param name="entry">The entry object to format its data to string</param>
-	static inline void formatEntry(char* const str, const AELogEntry& entry) noexcept {
+	/// <returns>The length of the resulting string</returns>
+	static inline int formatEntry(char* const str, const AELogEntry& entry) noexcept {
 		//string that stores the date and time formatted string
 		char timestr[DATETIME_STRING_SIZE]{};
 
 		if (entry.m_cLogType == AELOG_TYPE_DEBUG) {
-			snprintf(str, AELE_FORMAT_MAX_SIZE, AELE_FORMAT_STRING_DEBUG, ace::utils::formatDate(entry.m_tmLogTime, timestr), AELogEntry::typeToString(entry.m_cLogType), entry.m_sModuleName, entry.m_sLogMessage);
+			return snprintf(str, AELE_FORMAT_MAX_SIZE, AELE_FORMAT_STRING_DEBUG, ace::utils::formatDate(entry.m_tmLogTime, timestr), AELogEntry::typeToString(entry.m_cLogType), entry.m_sModuleName, entry.m_sLogMessage);
 		}
 		else {
-			snprintf(str, AELE_FORMAT_MAX_SIZE, AELE_FORMAT_STRING, ace::utils::formatDate(entry.m_tmLogTime, timestr), AELogEntry::typeToString(entry.m_cLogType), entry.m_sModuleName, entry.m_sLogMessage);
+			return snprintf(str, AELE_FORMAT_MAX_SIZE, AELE_FORMAT_STRING, ace::utils::formatDate(entry.m_tmLogTime, timestr), AELogEntry::typeToString(entry.m_cLogType), entry.m_sModuleName, entry.m_sLogMessage);
 		}
 
 	}

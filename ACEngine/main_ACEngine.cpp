@@ -57,7 +57,7 @@ int main() {
 
 
 	std::string tempstr;
-	timePoint<HighResTime> tp1;
+	timePoint<HighResClock> tp1;
 	while (1) {
 		tp1 = getHighResTime();
 		

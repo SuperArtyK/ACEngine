@@ -128,6 +128,22 @@ public:
 
 	/// <summary>
 	/// Open the file to start logging.
+	/// </summary>
+	/// <param name="fpath">Path to put the log file in</param>
+	/// <param name="fname">Name of the log file</param>
+	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
+	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
+	inline cint openLog(const std::string fpath, const std::string fname, const bool clearLog = false) {
+		const cint ret = this->m_fwLogger.openFile(fpath + fname, !clearLog * AEFW_FLAG_APPEND);
+		if (ret != AEFW_ERR_NOERROR) {
+			return ret;
+		}
+		this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_SUCCESS, this->getModuleName());
+		return this->startWriter();
+	}
+
+	/// <summary>
+	/// Open the file to start logging.
 	/// @note Puts the file into the default log path location (AELOG_DEFAULT_LOG_PATH)
 	/// </summary>
 	/// <param name="fname">Name of the log file</param>
@@ -135,22 +151,6 @@ public:
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
 	inline cint openLog(const std::string fname, const bool clearLog = false) {
 		return this->openLog(AELOG_DEFAULT_LOG_PATH, fname, clearLog);
-	}
-
-	/// <summary>
-	/// Open the file to start logging.
-	/// </summary>
-	/// <param name="fpath">Path to put the log file in</param>
-	/// <param name="fname">Name of the log file</param>
-	/// <param name="clearLog">Flag to clear the log file if it exists instead of appending it</param>
-	/// <returns>AELOG_ERR_NOERROR on success; otherwise return values of AEFileWriter::openFile() or AELogger::startWriter()</returns>
-	inline cint openLog(const std::string fpath, const std::string fname, const bool clearLog = false) {
-		const cint ret = this->m_fwLogger.openFile(fpath+fname, !clearLog * AEFW_FLAG_APPEND);
-		if (ret != AEFW_ERR_NOERROR) {
-			return ret;
-		}
-		this->writeToLog("Opened the log session in the file: \"" + std::string(fname) + '\"', AELOG_TYPE_OK, this->getModuleName());
-		return this->startWriter();
 	}
 
 	/// <summary>
@@ -172,8 +172,10 @@ public:
 		if (this->isClosed()) {
 			return AEFW_ERR_FILE_NOT_OPEN;
 		}
-		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_OK, this->getModuleName());
+		this->writeToLog("Closing the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_INFO, this->getModuleName());
 		this->stopWriter();
+
+		this->writeToLogDirectly("Successfully closed the log session in the file: \"" + this->m_fwLogger.getFullFileName() + '\"', AELOG_TYPE_SUCCESS, this->getModuleName());
 		this->m_fwLogger.closeFile();
 		return AELOG_ERR_NOERROR;
 	}
@@ -213,6 +215,7 @@ public:
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
 	inline cint writeToLogDebug(const std::string_view logmessg, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
 #ifdef ENGINE_DEBUG
+		// the code for formatting the log entry (adding that DEBUG-> thing) will be executed in the logWriterThread()
 		return this->writeToLog(logmessg, AELOG_TYPE_DEBUG, logmodule);
 #endif // ENGINE_DEBUG
 	}
@@ -307,6 +310,32 @@ private:
 	AELogEntry* ptrFromIndex(ullint num) noexcept;
 
 	/// <summary>
+	/// Writes to log directly, without thinking of the queue
+	/// @warning Use it with caution, when you sure that it won't compromise the log integrity (you know, race conditions with fwrite() in the AELogger::logWriterThread())
+	/// </summary>
+	/// <param name="logmessg">Message of the log</param>
+	/// <param name="logtype">the type/severity of the log</param>
+	/// <param name="logmodule">the module name that requested the log</param>
+	inline void writeToLogDirectly(const std::string_view logmessg, const cint logtype = AELOG_TYPE_INFO, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) noexcept {
+		AELogEntry lEntry{
+			"", // message will be written to later
+			"", // modulename will be written to later
+			std::time(nullptr), // m_tmLogTime
+			nullptr, // m_pNextNode
+			AELOG_TYPE_SUCCESS, // m_cLogType
+			//AELE_STATUS_INVALID, // m_cStatus; isn't needed since the function doesn't check it anyway
+		};
+
+		std::memcpy(lEntry.m_sLogMessage, logmessg.data(), logmessg.size());
+		std::memcpy(lEntry.m_sModuleName, this->getModuleName().data(), this->getModuleName().size());
+		char str[AELE_FORMAT_MAX_SIZE]{};
+		//AELogEntry::formatEntry(str, lEntry);
+		this->m_fwLogger.writeData_ptr(str, AELogEntry::formatEntry(str, lEntry), 1, false);
+		this->m_fwLogger.flushFile();
+
+	}
+
+	/// <summary>
 	/// The function of the log writing thread to...read the entries, format them, write them, and clear them.
 	/// </summary>
 	void logWriterThread(void);
@@ -343,7 +372,7 @@ private:
 	// And 2) we'll write to file only once, after formatting the strings
 	
 	//aaand we have to register it too
-	REGISTER_MODULE(AETimer);
+	REGISTER_MODULE(AELogger);
 };
 
 
