@@ -368,3 +368,4 @@ FodyWeavers.xsd
 .ccls-cache
 
 ACEngine-cppcheck-build-dir/
+/AELogParser/log.txt
