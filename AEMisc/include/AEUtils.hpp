@@ -151,7 +151,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="str1">The string to be lowered</param>
 		inline void toLowerRef(std::string& str1) {
-			std::transform(str1.begin(), str1.end(), str1.begin(), tolower);
+			std::transform(str1.begin(), str1.end(), str1.begin(), ::tolower); // because c++ decided to add the CharT version in <locale>, that conflicts
 		}
 
 		/// <summary>
@@ -160,7 +160,7 @@ namespace ace {
 		/// <param name="str1">The string to be lowered</param>
 		/// <returns>The lowered version of the string</returns>
 		inline std::string toLowerVal(std::string str1) { // we aren't passing by const reference....because we'll make a copy anyway
-			std::transform(str1.begin(), str1.end(), str1.begin(), tolower);
+			std::transform(str1.begin(), str1.end(), str1.begin(), ::tolower); // because c++ decided to add the CharT version in <locale>, that conflicts
 			return str1;
 		}
 
@@ -169,7 +169,7 @@ namespace ace {
 		/// </summary>
 		/// <param name="str1">The string to be uppered</param>
 		inline void toUpperRef(std::string& str1) {
-			std::transform(str1.begin(), str1.end(), str1.begin(), toupper);
+			std::transform(str1.begin(), str1.end(), str1.begin(), ::toupper); // because c++ decided to add the CharT version in <locale>, that conflicts
 		}
 
 		/// <summary>
@@ -178,27 +178,27 @@ namespace ace {
 		/// <param name="str1">The string to be uppered</param>
 		/// <returns>The uppered version of the string</returns>
 		inline std::string toUpperVal(std::string str1) { // we aren't passing by const reference....because we'll make a copy anyway
-			std::transform(str1.begin(), str1.end(), str1.begin(), toupper);
+			std::transform(str1.begin(), str1.end(), str1.begin(), ::toupper); // because c++ decided to add the CharT version in <locale>, that conflicts
 			return str1;
 		}
+		
 		
 		/// <summary>
 		/// Checks if the given string is a numerical value
 		/// </summary>
-		/// <param name="strnum">C-string of the "number" to check</param>
+		/// <typeparam name="checkFloat">Template flag whether to check for integer values (false) or any/float values (true)</typeparam>
+		/// <param name="strnum">String object (any, std::string, c-string, etc), "number" to check</param>
 		/// <returns>True if that string is indeed a number, false otherwise</returns>
-		constexpr bool isNum(const char* const strnum) noexcept {
-			//null pointer check
-			if (!strnum) {
-				return false;
-			}
+		template<const bool checkFloat = true>
+		constexpr bool isNum(const std::string_view strnum) noexcept {
 
-			const std::size_t len = std::strlen(strnum);
+			const std::size_t len = strnum.size();
 
-			//is it 0?
+			//is it empty?
 			if (len == 0) {
 				return false;
 			}
+
 			size_t i = 0;
 			if (strnum[0] == '-') {
 				//check if string has only the minus in it
@@ -208,13 +208,33 @@ namespace ace {
 
 				i = 1;
 			}
-			//quick check, if string has 0 as the first number...hey that's invalid!
-			if (strnum[i] == '0' && (i == 1 || len > 1)) {
-				return false;
+			//quick check, if string has 0 as the first number, minus before it
+			//and no dot after
+			if (strnum[i] == '0' && i == 1 &&
+				(len == 2 || 
+					(len > 2 && strnum[++i] != '.'))) {
+				return false; //hey that's invalid!
 			}
+
+			
+
+			bool metDecimal = false;
 			for (; i < len; i++) {
 				if (strnum[i] < '0' || strnum[i] > '9') {
-					return false;
+
+					if constexpr (checkFloat) {
+						if (strnum[i] == '.' && !metDecimal) {
+							metDecimal = true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+					else {
+						return false;
+					}
+					
 				}
 			}
 			//passed
