@@ -33,6 +33,9 @@
 #define AELE_FORMAT_MAX_SIZE (AELE_MESSAGE_SIZE + AELE_MODULENAME_SIZE + sizeof("[YYYY-MM-DD.HH:mm:SS] [] []: DEBUG->\n"))
 /// Macro for the minimum size of the formatted AELogEntry as a string
 #define AELE_FORMAT_MIN_SIZE (sizeof("[YYYY-MM-DD.HH:mm:SS] [INFO          ] [A]: B"))
+/// The size of the AELogEntry debug message in characters (with "DEBUG->" in front) (excluding null termination)
+#define AELE_MESSAGE_DEBUG_SIZE (AELE_MESSAGE_SIZE + sizeof("DEBUG->") - 1)
+
 /// Macro for the snprintf format of the AELogEntry, when converting it to a string
 #define AELE_FORMAT_STRING "[%s] [%-14s] [%s]: %s\n"
 /// Macro for the snprintf format of the AELogEntry (of type DEBUG), when converting it to a string
@@ -261,9 +264,11 @@ struct AELogEntry {
 			return AELE_ERR_INVALID_LENGTH;
 		}
 
-		char logmessage[AELE_MESSAGE_SIZE + sizeof("DEBUG->")]{}; //log message, exactly 518 characters, you know, in case it's a debug string
+		char logmessage[AELE_MESSAGE_DEBUG_SIZE+1]{}; //log message, exactly 518 characters, you know, in case it's a debug string
 		char mname[AELE_MODULENAME_SIZE + 2]{}; // +1 more character to see if it's not correct format
 		char logType[15]{}; //14 characters guaranteed
+
+		char scanfFormat[16]{}; //the format string for the sscanf. Since (sigh) macros dont evaluate while in preprocessor stage
 
 		//check the log entry's time
 		const std::time_t entryTime = ace::utils::stringToDate(entryString.data(), "[%Y-%m-%d.%X");
@@ -294,7 +299,8 @@ struct AELogEntry {
 		}
 
 		// read the possible module name
-		if (sscanf(entryString.data() + POS_MNAME, "[%32[^]] ", mname) != 1) {
+		std::snprintf(scanfFormat, sizeof(scanfFormat), "[%%%llu[^]]", std::size_t(AELE_MODULENAME_SIZE + 1));
+		if (sscanf(entryString.data() + POS_MNAME, scanfFormat, mname) != 1) {
 			return AELE_ERR_INVALID_MNAME;
 		}
 
@@ -328,7 +334,8 @@ struct AELogEntry {
 		if (flags & AELE_PARSE_STRING_MESSG) {
 			//cool, passed. now read untill the end
 			//the newline and or the size is guaranteed to exist
-			sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, "%518[^\n]", logmessage);
+			std::snprintf(scanfFormat, sizeof(scanfFormat), "%%%llu[^\n]", AELE_MESSAGE_DEBUG_SIZE);
+			sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, scanfFormat, logmessage);
 			// what if the entry is a debug one?
 			if (entryType == AELOG_TYPE_DEBUG && std::strstr(logmessage, "DEBUG->") != nullptr) {
 				std::memcpy(entry.m_sLogMessage, logmessage + sizeof("DEBUG->") - 1, AELE_MESSAGE_SIZE - sizeof("DEBUG->") + 1);
@@ -356,6 +363,15 @@ struct AELogEntry {
 
 		return AELE_ERR_NOERROR;
 	}
+
+
+	std::string toString() {
+		char temp[AELE_FORMAT_MAX_SIZE];
+		AELogEntry::formatEntry(temp, *this);
+
+		return temp;
+	}
+
 };
 
 #endif // !ENGINE_AELOGENTRY_HPP

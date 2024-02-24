@@ -58,7 +58,8 @@ public:
 	/// Basic constructor that increases module count
 	/// </summary>
 	__AEModuleBase(void) noexcept {
-		this->m_ullModulesAlive++;
+		++this->m_ullModulesAlive;
+		//std::snprintf(this->m_cstrInstanceName, AELE_MODULENAME_SIZE, "%s%d", )
 	}
 
 	/// <summary>
@@ -66,14 +67,14 @@ public:
 	/// </summary>
 	/// <param name="val">The value to be copied...useless since we have nothing to copy lol (but we need it)</param>
 	__AEModuleBase(const __AEModuleBase<T>& val) noexcept {
-		m_ullModulesAlive++;
+		++this->m_ullModulesAlive;
 	}
 
 	/// <summary>
 	/// Basic destructor that decreases module count
 	/// </summary>
 	virtual ~__AEModuleBase(void) noexcept {
-		m_ullModulesAlive--;
+		this->m_ullModulesAlive--;
 	}
 
 	__AEModuleBase& operator=(const __AEModuleBase<T>&) = delete;
@@ -92,12 +93,15 @@ public:
 	/// <returns></returns>
 	[[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept;
 
+
 protected:
+
+	char m_cstrInstanceName[AELE_MODULENAME_SIZE+1];
 
 	/// <summary>
 	/// Amount of alive module instances
 	/// </summary>
-	static inline std::atomic<ullint> m_ullModulesAlive = 0;
+	static inline std::atomic<std::size_t> m_ullModulesAlive = 0;
 };
 
 //REGISTER_MODULE(__AEModuleBase)

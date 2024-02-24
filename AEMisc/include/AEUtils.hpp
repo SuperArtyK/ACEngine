@@ -76,6 +76,18 @@
 /// <param name="x">The string literal to convert to wstring</param>
 #define WSTR(x) L ## x //converts the "string" to the L"string"
 
+/// Macro to convert the passed non-string literals to a string literal
+/// That can be another number macro, or random garbage (abcdef will work too, turns into "abcdef")
+/// @warning If a string literal was passed, then it will have the quotation marks as escape characters
+/// @warning Example STR("abc") will result into "\"abc\"" literal
+/// @warning Doesn't work on composed macros (macros that consist of other macros within themselves)
+/// <param name="x">The stuff to convert to a string literal</param>
+#define STR(x) _STR_HELPER(x)
+
+/// The macro helper to convert stuff into a string literal
+/// @see STR()
+#define _STR_HELPER(x) #x
+
 /// Offsetof alternative if the compiler doesn't support the offsetof natively
 /// <param name="type">The type/struct name</param>
 /// <param name="member">The member of struct/type to calculate the offset between</param>
