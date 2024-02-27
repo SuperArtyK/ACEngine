@@ -13,7 +13,7 @@
 AELogger::AELogger(const std::string logpath, const std::string fname, const bool clearLog, const ullint queuesize) :
 	m_fwLogger(logpath + fname, !clearLog * AEFW_FLAG_APPEND /* Funny magic with bool-int conversion */),
 	m_ullFilledCount(0), m_ullNodeNumber(0), m_ullQueueSize(queuesize),
-	m_lepQueue(AELogEntry::makeQueue(queuesize, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1),
+	m_lepQueue(AELogEntry::makeQueue(queuesize, true, nullptr)), m_lepLastNode(m_lepQueue + queuesize - 1),
 	m_bRunTrd(false), m_bQueueFilled(false) {
 
 
@@ -101,7 +101,7 @@ cint AELogger::writeToLog(const std::string_view logmessg, const cint logtype, c
 		const ullint qsize = this->m_ullQueueSize / 2;
 
 		//make new queue
-		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, this->m_lepQueue);
+		AELogEntry* newQueue = AELogEntry::makeQueue(qsize, true, this->m_lepQueue);
 		//add the new queue to the vector
 		this->m_ullQueueSize += qsize;
 		this->m_lepLastNode->m_pNextNode = newQueue;

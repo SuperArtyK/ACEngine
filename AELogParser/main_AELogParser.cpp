@@ -18,12 +18,27 @@ int main() {
 		cout << "Parsed entries of type \"" << AELogEntry::typeToString(i) << "\": " << mylp.amountEntriesType(i)<<NLC;
 	}
 	
-	char estr[AELE_FORMAT_MAX_SIZE]{};
-	while (mylp.nextEntry(testing, AELP_SEVERITY_ALL, "AELogger") == AEFR_ERR_NOERROR) {
-		std::memset(estr, AENULL, AELE_FORMAT_MAX_SIZE);
-		AELogEntry::formatEntry(estr, testing);
-		cout << estr;
+	AELogEntry* myqueue;
+	mylp.logToQueueType(myqueue, AELP_SEVERITY_ALL);
+
+	mylp.filterQueueType(myqueue, AELOG_TYPE_ERROR);
+
+	AELogEntry* iter = myqueue;
+
+	int amt = 0;
+
+	
+
+	while (iter)
+	{
+		//cout << iter->toString();
+		amt++;
+		iter = iter->m_pNextNode;
 	}
+
+	cout << amt << " is the size of the queue";
+
+	delete[] myqueue;
 
 	// 39 + 1('[') + mname size + 3("]: ") + 1(message)
 	return 0;

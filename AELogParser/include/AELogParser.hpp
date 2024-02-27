@@ -28,6 +28,8 @@
 #define AELP_ERR_INVALID_MODULE_NAME -20
 /// Macro for the error when the passed severity (log type) is outside of defined severities
 #define AELP_ERR_INVALID_SEVERITY -21
+/// Macro for the error when the null queue pointer was passed into the functions
+#define AELP_ERR_INVALID_QUEUE -22
 /// Macro for the severity value that includes all entries/severities in parsing
 /// @see AELogParser::nextEntry()
 #define AELP_SEVERITY_ALL AELOG_TYPE_DEBUG
@@ -165,7 +167,7 @@ public:
 	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG, const std::string_view mname = AELP_NO_MODULENAME, const bool strictSeverity = false) {
 
 		const AELogEntryInfo leInfo = this->findNextEntry(severity, AELP_NO_MODULENAME, strictSeverity);
-		const cint ret = this->errorFromAELEI(leInfo);
+		const cint ret = AELogParser::errorFromAELEI(leInfo);
 		if (ret != AELP_ERR_NOERROR) {
 			return ret; // return the error code from the AELEI
 		}
@@ -273,6 +275,8 @@ public:
 	/// <param name="mname">The lowest severity of the log to find</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_ERR_INVALID_MODULE_NAME if non-existent module name was passed</returns>
 	cint logToQueueName(AELogEntry*& begin, const std::string_view mname);
+
+	cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false);
 
 	/// <summary>
 	/// Get the amount of valid entries in the log (with optional lowest severity setting).
@@ -400,7 +404,7 @@ private:
 	/// </summary>
 	/// <param name="leInfo">The passed AELogEntryInfo instance to check</param>
 	/// <returns>AELP_ERR_NOERROR if everything is okay; AEFR_ERR_FILE_NOT_OPEN if it's fully invalid; AEFR_ERR_READ_EOF on invalid cursor; AELP_ERR_INVALID_MODULE_NAME on invalid module name; AELP_ERR_INVALID_SEVERITY on invalid type</returns>
-	constexpr bool errorFromAELEI(const AELogEntryInfo& leInfo) const noexcept {
+	static constexpr bool errorFromAELEI(const AELogEntryInfo& leInfo) noexcept {
 		if (leInfo.isInvalid()) {
 			return AEFR_ERR_FILE_NOT_OPEN;
 		}
@@ -417,6 +421,37 @@ private:
 		}
 		// everything is okay
 		return AELP_ERR_NOERROR;
+	}
+
+	/// <summary>
+	/// Checks if the passed severity is valid compared to the filtering severity.
+	/// Moved from a lambda, so it's easier to use with other parts of the log parser.
+	/// @note If strictSeverity is true, performs exact check. Otherwise if the passed entrySeverity is more or equal to the filtering filterSeverity.
+	/// </summary>
+	/// <typeparam name="strictSeverity">Whether to check if both severity levels *match exactly*. Default: false</typeparam>
+	/// <param name="entrySeverity">The severity to check/filter</param>
+	/// <param name="filterSeverity">The filtering severity</param>
+	/// <returns>True if the filtering conditions are satisfied; false otherwise</returns>
+	static constexpr bool checkSeverity(const cint entrySeverity, const cint filterSeverity, const bool strictSeverity = false) noexcept {
+		if (strictSeverity) {
+			return entrySeverity == strictSeverity;
+		}
+		return entrySeverity >= filterSeverity;
+	}
+
+	/// <summary>
+	/// Checks if the passed entry's and filter's module name indices match
+	/// Moved from a lambda, so it's easier to use with other parts of the log parser.
+	/// @note If filterNameIndex is 0, then it will always return true (we aren't checking for it)
+	/// </summary>
+	/// <param name="entryNameIndex">The module name index of the entry</param>
+	/// <param name="filterNameIndex">The module name index filter</param>
+	/// <returns></returns>
+	static constexpr bool checkMName(const short entryNameIndex, const short filterNameIndex) noexcept {
+		if (!filterNameIndex) {
+			return true; // if the module name is empty -- return true always (we aren't checking for it)
+		}
+		return entryNameIndex == filterNameIndex;
 	}
 
 	/// The file reader of the opened log file.

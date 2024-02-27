@@ -46,7 +46,7 @@ cint AELogParser::openLog(const std::string_view fname) {
 					this->m_vecEntryIndices.emplace_back(cursor, this->m_mapModuleNames[dummyentry.m_sModuleName].second, dummyentry.m_cLogType);
 				}
 				else {
-					this->m_mapModuleNames[dummyentry.m_sModuleName].second = mnameIndex++;
+					this->m_mapModuleNames[dummyentry.m_sModuleName].second = ++mnameIndex;
 					this->m_vecEntryIndices.emplace_back(cursor, mnameIndex, dummyentry.m_cLogType); // a bit of optimisation
 				}
 				
@@ -65,6 +65,9 @@ cint AELogParser::openLog(const std::string_view fname) {
 
 	}
 
+	m_vecEntryIndices.shrink_to_fit();
+	m_vecInvalidEntryIndices.shrink_to_fit();
+
 	return ret;
 }
 
@@ -73,7 +76,7 @@ cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::s
 
 	const AELogEntryInfo leInfo = this->findNextEntry(severity, mname, strictSeverity);
 	
-	cint readret = this->errorFromAELEI(leInfo);
+	cint readret = AELogParser::errorFromAELEI(leInfo);
 	if (readret != AELP_ERR_NOERROR) {
 		return readret; // return the error code from the AELEI
 	}
@@ -94,11 +97,12 @@ cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::s
 cint AELogParser::logToQueueType(AELogEntry*& begin, const cint severity, const bool strictSeverity) {
 	_AELP_CHECK_IF_FILE_OPEN;
 	
-	AELogEntry* ptr = begin = AELogEntry::makeQueue((strictSeverity) ? this->amountEntriesType(severity) : this->amountEntriesValid(severity), nullptr, false);
+	AELogEntry* ptr = begin = AELogEntry::makeQueue((strictSeverity) ? this->amountEntriesType(severity) : this->amountEntriesValid(severity), false, nullptr);
 	cint retval = 0;
 	// Yes, this is..weird, But in nextEntry it will pre-increment it before checking
 	// whether it's EOF or not. So...set it to 1 less from the start, instead of subtracting 1 every time
 	// Just an optimisation, uint over/underflow is well-defined anyway
+	const std::size_t entrynum = this->m_ullCurrentEntry;
 	this->m_ullCurrentEntry = -1; 
 	
 	int test = 0;
@@ -108,8 +112,11 @@ cint AELogParser::logToQueueType(AELogEntry*& begin, const cint severity, const 
 		test++;
 	}
 
+	this->m_ullCurrentEntry = entrynum;
+
 	return retval;
 }
+
 
 
 cint AELogParser::logToQueueName(AELogEntry*& begin, const std::string_view mname) {
@@ -122,11 +129,12 @@ cint AELogParser::logToQueueName(AELogEntry*& begin, const std::string_view mnam
 		return AELP_ERR_INVALID_MODULE_NAME;
 	}
 
-	AELogEntry* ptr = begin = AELogEntry::makeQueue(mnameAmount, nullptr, false);
+	AELogEntry* ptr = begin = AELogEntry::makeQueue(mnameAmount, false, nullptr);
 	cint retval = 0;
 	// Yes, this is..weird, But in nextEntry it will pre-increment it before checking
 	// whether it's EOF or not. So...set it to 1 less from the start, instead of subtracting 1 every time
 	// Just an optimisation, uint over/underflow is well-defined anyway
+	const std::size_t entrynum = this->m_ullCurrentEntry;
 	this->m_ullCurrentEntry = -1;
 
 	int test = 0;
@@ -136,12 +144,71 @@ cint AELogParser::logToQueueName(AELogEntry*& begin, const std::string_view mnam
 		test++;
 	}
 
+	this->m_ullCurrentEntry = entrynum;
 
 
 	return retval;
 }
 
+cint AELogParser::filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity) {
 
+	AELogEntry* cur = ptr;
+	AELogEntry kludge{ .m_pNextNode = ptr }; // a kludge variable for the pastEntry to work
+	AELogEntry* past = &kludge;
+	std::size_t newQueueSize = 0;
+
+	if (ptr == nullptr) {
+		return AELP_ERR_INVALID_QUEUE;
+	}
+
+
+	//check if it even has the severity
+	while (cur) {
+		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity)) {
+			goto foundSeverity; // we found the severity, break the loop
+			break;
+		}
+
+		cur = cur->m_pNextNode;
+	}
+
+	// there is no log entry with the given severity
+	return AELP_ERR_INVALID_SEVERITY;
+
+
+foundSeverity: //welp, we found it
+
+	while (cur) {
+		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity)) {
+			past = past->m_pNextNode;
+			past->copyEntry(*cur);
+			newQueueSize++;
+		}
+		cur = cur->m_pNextNode;
+
+	}
+
+
+	past->m_pNextNode = nullptr;
+
+	//clean up the queue
+	//or...make a new queue instead!
+
+	cur = ptr;
+
+	AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
+	AELogEntry* iter = newQueue;
+	while (cur) {
+		iter->copyEntry(*cur);
+		iter = iter->m_pNextNode;
+		cur = cur->m_pNextNode;
+	}
+
+	delete[] ptr;
+
+	ptr = newQueue;
+
+}
 
 AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string_view mname, const bool strictSeverity) {
 
@@ -159,31 +226,20 @@ AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string
 		return AELogEntryInfo{ .logType = AELEI_INVALID_TYPE };
 	}
 
-	// ternary with lambda.
-	// F to code readability
-	// basically a lambda to check severity of passed severity values
-	// strictSeverity requires the severities to be the *same*
-	// otherwise check if the passed severity is equal or higher than the "filter"
-	const auto checkSeverity = (strictSeverity) ?
-		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity == curSeverity; } : // the strict, *exact* severity check
-		[](const cint curEntrySeverity, const cint curSeverity) noexcept { return curEntrySeverity >= curSeverity; }; // the normal severity check
-
-	const short mnameIndex = (!mnameStr.empty()) ? this->m_mapModuleNames[mnameStr].second : -1;
+	
+	const short filterMnameIndex = (!mnameStr.empty()) ? this->m_mapModuleNames[mnameStr].second : 0;
 
 	mnameStr.clear();
-	mnameStr.shrink_to_fit();
+	mnameStr.shrink_to_fit(); //not necessary anymore
 
-	const auto checkMName = (mname.empty()) ?
-		[](const short& controlIndex, const short& mIndex) noexcept { return true; } : // if the module name is empty -- return true always (we aren't checking for it)
-		[](const short& controlIndex, const short& mIndex) noexcept { return (controlIndex == mIndex); };
 
 	while (1) {
 
 		if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
 			return AELogEntryInfo { .cursorIndex = AELEI_INVALID_CURSOR};
 		}
-		if (checkSeverity(this->m_vecEntryIndices[this->m_ullCurrentEntry].logType, severity) && //check the severity with lambdas
-			checkMName(mnameIndex, this->m_vecEntryIndices[this->m_ullCurrentEntry].mnameIndex)) {
+		if (AELogParser::checkSeverity(this->m_vecEntryIndices[this->m_ullCurrentEntry].logType, severity, strictSeverity) && //check the severity with lambdas
+			AELogParser::checkMName(this->m_vecEntryIndices[this->m_ullCurrentEntry].mnameIndex, filterMnameIndex)) {
 
 			break;
 		}

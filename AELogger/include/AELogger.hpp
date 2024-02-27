@@ -89,7 +89,7 @@ public:
 	/// Default class constructor -- doesn't open the file, but setups the instance for one.
 	/// </summary>
 	explicit AELogger(void) : m_fwLogger(), m_ullFilledCount(0), m_ullNodeNumber(0),
-		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, nullptr)),
+		m_ullQueueSize(AELOG_DEFAULT_QUEUE_SIZE), m_lepQueue(AELogEntry::makeQueue(AELOG_DEFAULT_QUEUE_SIZE, true, nullptr)),
 		m_lepLastNode(m_lepQueue + AELOG_DEFAULT_QUEUE_SIZE - 1), m_bRunTrd(false), m_bQueueFilled(false) {
 
 		this->m_vAllocTable.reserve(AELOG_DEFAULT_ALLOC_VECTOR_RESERVE);

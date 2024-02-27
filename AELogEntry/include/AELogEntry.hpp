@@ -112,6 +112,10 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="entry">The entry to copy data from</param>
 	inline void copyEntryFull(const AELogEntry& entry) noexcept {
+		if (this == &entry) {
+			return; // we're copying ourselves!
+		}
+
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_cStatus));
 		this->m_cStatus.store(entry.m_cStatus);
 	}
@@ -121,6 +125,10 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="entry">The entry to copy data from</param>
 	inline void copyEntry(const AELogEntry& entry) noexcept {
+		if (this == &entry) {
+			return; // we're copying ourselves!
+		}
+
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
 		this->m_cStatus.store(entry.m_cStatus);
@@ -131,6 +139,10 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="entry">The entry to copy data from</param>
 	inline void copyEntryReduced(const AELogEntry& entry) noexcept {
+		if (this == &entry) {
+			return; // we're copying ourselves!
+		}
+
 		std::memcpy(this, &entry, aeoffsetof(AELogEntry, m_pNextNode));
 		this->m_cLogType = entry.m_cLogType;
 	}
@@ -145,6 +157,10 @@ struct AELogEntry {
 		entry.m_cStatus = AELE_STATUS_INVALID;
 	}
 
+	static inline void clearEntryFull(AELogEntry& entry) noexcept {
+		entry.copyEntryFull(AELogEntry::emptyEntry());
+	}
+
 	/// <summary>
 	/// Allocates the queue of the given size on the heap and returns the pointer to it's first node.
 	/// Optionally may loop the newly-allocated queue to the old queue.
@@ -152,10 +168,10 @@ struct AELogEntry {
 	/// @note If the amt is 0, throws the std::runtime exception
 	/// </summary>
 	/// <param name="amt">The amount of entries in the queue(size)</param>
-	/// <param name="oldqueue">The pointer to the old queue to loop the new queue to.</param>
 	/// <param name="loopQueue">The flag to indicate whether to loop the generated queue at all</param>
+	/// <param name="oldqueue">The pointer to the old queue to loop the new queue to.</param>
 	/// <returns>Pointer to the first node of the allocated queue</returns>
-	static inline AELogEntry* makeQueue(const std::size_t amt, AELogEntry* oldqueue = nullptr, const bool loopQueue = true) {
+	static inline AELogEntry* makeQueue(const std::size_t amt, const bool loopQueue = true, AELogEntry * oldqueue = nullptr) {
 
 		//assert that amt is not 0. This is never supposed to trigger
 		//Otherwise, we're in for a hell of a ride
@@ -370,6 +386,10 @@ struct AELogEntry {
 		AELogEntry::formatEntry(temp, *this);
 
 		return temp;
+	}
+
+	static constexpr const AELogEntry& emptyEntry() noexcept {
+		return AELogEntry();
 	}
 
 };
