@@ -14,6 +14,7 @@
 #include "include/AEFileReader.hpp"
 #include "include/AELogEntry.hpp"
 #include "include/AELogEntryInfo.hpp"
+#include "include/AEMath.hpp"
 #include <array>
 #include <string_view>
 #include <unordered_map>
@@ -29,13 +30,17 @@
 /// Macro for the error when the passed severity is invalid in the current context
 /// Ex. non-existent severity, or the severity wasn't found in the log file
 #define AELP_ERR_INVALID_SEVERITY -21
-/// Macro for the error when the invalid severity or module name was passed (indeterminate)
+/// Macro for the error when the passed severity and modulename filter didn't produce a result when applied
 /// Ex. both the severity and the module name exist in the parsed log file, but never together in the same entry
 /// @see AELogParser::findNextEntry()
-#define AELP_ERR_INVALID_FILTER -22
+#define AELP_ERR_FILTER_NO_MATCHES -22
+/// Macro for the error when the passed severity and module name filter is invalid (e.g. empty)
+#define AELP_ERR_INVALID_FILTER -23
 /// Macro for the error when the null queue pointer was passed into the functions
-#define AELP_ERR_INVALID_QUEUE -23
+#define AELP_ERR_INVALID_QUEUE -24
 /// Macro for the severity value that includes all entries/severities in parsing
+/// Essentially disables severity filtering
+/// @note It disables (makes useless) the "strict severity" in the functions that set it
 /// @see AELogParser::findNextEntry()
 #define AELP_SEVERITY_ALL AELOG_TYPE_INVALID
 /// Macro for the "no"/empty modulename to pass for parsing
@@ -281,9 +286,15 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_ERR_INVALID_MODULE_NAME if non-existent module name was passed</returns>
 	cint logToQueueName(AELogEntry*& begin, const std::string_view mname);
 
-	static cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false);
+	static cint filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname);
 
-	static cint filterQueueName(AELogEntry*& ptr, const std::string_view mname);
+	static inline cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false) {
+		return AELogParser::filterQueue(ptr, severity, strictSeverity, AELP_NO_MODULENAME);
+	}
+
+	static inline cint filterQueueName(AELogEntry*& ptr, const std::string_view mname) {
+		return AELogParser::filterQueue(ptr, AELP_SEVERITY_ALL, false, mname);
+	}
 
 
 	/// <summary>
@@ -438,7 +449,7 @@ private:
 				return AEFR_ERR_READ_EOF;
 			}
 			if (leInfo.isInvalidMName() && leInfo.isInvalidType()) {
-				return AELP_ERR_INVALID_FILTER;
+				return AELP_ERR_FILTER_NO_MATCHES;
 			}
 			if (leInfo.isInvalidMName()) {
 				return AELP_ERR_INVALID_MODULE_NAME;

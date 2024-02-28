@@ -359,7 +359,7 @@ namespace ace::math {
 	/// <param name="num2">The second number to compare</param>
 	/// <returns>True if the two numbers are equal, false otherwise</returns>
 	template<typename T, typename Y = T>
-	constexpr bool equals(const T num, const Y num2) noexcept {
+	constexpr bool equals(const T& num, const Y& num2) noexcept {
 
 	
 		if constexpr (std::is_floating_point<T>::value && !std::is_floating_point<Y>::value) { // 1st type is float, 2nd one isn't
@@ -489,7 +489,7 @@ namespace ace::math {
 	/// <param name="b">The second value to compare</param>
 	/// <returns>Value of a if it is bigger than b; value of b otherwise</returns>
 	template<typename T, typename Y = T>
-	constexpr T max(const T& a, const T& b) noexcept {
+	constexpr T max(const T& a, const Y& b) noexcept {
 		return (a > b) ? a : b;
 	}
 
@@ -502,7 +502,7 @@ namespace ace::math {
 	/// <param name="b">The second value to compare</param>
 	/// <returns>Value of a if it is smaller than b; value of b otherwise</returns>
 	template<typename T, typename Y>
-	constexpr T min(const T& a, const T& b) noexcept {
+	constexpr T min(const T& a, const Y& b) noexcept {
 		return (a < b) ? a : b;
 	}
 

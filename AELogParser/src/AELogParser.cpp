@@ -150,31 +150,52 @@ cint AELogParser::logToQueueName(AELogEntry*& begin, const std::string_view mnam
 	return retval;
 }
 
-cint AELogParser::filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity) {
+
+cint AELogParser::filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname) {
+	// error handling
+	if (ptr == nullptr) { // nullptr was passed, lol
+		return AELP_ERR_INVALID_QUEUE;
+	}
+	// its all the sameeeee
+	if (strictSeverity == AELP_SEVERITY_ALL && mname.empty()) {
+		return AELP_ERR_INVALID_FILTER; // invalid filter option
+	}
 
 	AELogEntry* cur = ptr;
 	AELogEntry kludge{ .m_pNextNode = ptr }; // a kludge variable for the pastEntry to work
 	AELogEntry* past = &kludge;
 	std::size_t newQueueSize = 0;
 
-	if (ptr == nullptr) {
-		return AELP_ERR_INVALID_QUEUE;
-	}
-	//check if it even has the severity
+	const std::size_t szCheck = ace::math::min(mname.size(), AELE_MODULENAME_SIZE);
+	const auto cmpMName = (mname.empty()) ?
+		([](const char* const entryName, const std::size_t szCheck, const std::string_view& filterMname) noexcept { return true; }) : // if the module name is empty -- return true always (we aren't checking for it)
+		([](const char* const entryName, const std::size_t szCheck, const std::string_view& filterMname) noexcept { return !std::memcmp(entryName, filterMname.data(), szCheck); });
+
+
+	//check if it even has the stuff matching the filter
 	while (cur) {
-		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity)) {
+		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity) && cmpMName(cur->m_sModuleName, szCheck, mname)) {
 			goto foundSeverity; // we found the severity, break the loop
 			break;
 		}
 
 		cur = cur->m_pNextNode;
 	}
-	// there is no log entry with the given severity
-	return AELP_ERR_INVALID_SEVERITY;
 
-	foundSeverity: //welp, we found it
+	//didn't quite catch it: error reporting
+	// there is no log entry with the given severity
+	if (mname.empty()) {
+		return AELP_ERR_INVALID_SEVERITY; // no module name filter
+	}
+	if (severity == AELP_SEVERITY_ALL) {
+		return AELP_ERR_INVALID_MODULE_NAME; // no severity filter
+	}
+	return AELP_ERR_FILTER_NO_MATCHES; //both exist, but none were captured -- no matches!
+
+	//welp, we found it
+foundSeverity:
 	while (cur) {
-		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity)) {
+		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity) && cmpMName(cur->m_sModuleName, szCheck, mname)) {
 			past = past->m_pNextNode;
 			past->copyEntry(*cur);
 			newQueueSize++;
@@ -185,7 +206,7 @@ cint AELogParser::filterQueueType(AELogEntry*& ptr, const cint severity, const b
 	past->m_pNextNode = nullptr;
 
 	//clean up the queue
-	//or...make a new queue instead!
+	//or...make a new, smaller queue instead!
 	cur = ptr;
 	AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
 	AELogEntry* iter = newQueue;
@@ -196,55 +217,10 @@ cint AELogParser::filterQueueType(AELogEntry*& ptr, const cint severity, const b
 	}
 	delete[] ptr;
 	ptr = newQueue;
+
+	return AELP_ERR_NOERROR;
 }
 
-cint AELogParser::filterQueueName(AELogEntry*& ptr, const std::string_view mname) {
-
-	AELogEntry* cur = ptr;
-	AELogEntry kludge{ .m_pNextNode = ptr }; // a kludge variable for the pastEntry to work
-	AELogEntry* past = &kludge;
-	std::size_t newQueueSize = 0;
-
-	if (ptr == nullptr) {
-		return AELP_ERR_INVALID_QUEUE;
-	}
-	//check if it even has the severity
-	while (cur) {
-		if (!std::strncmp(cur->m_sModuleName, mname.data(), mname.size())) {
-			goto foundSeverity; // we found the severity, break the loop
-			break;
-		}
-
-		cur = cur->m_pNextNode;
-	}
-	// there is no log entry with the given severity
-	return AELP_ERR_INVALID_SEVERITY;
-
-foundSeverity: //welp, we found it
-	while (cur) {
-		if (!std::strncmp(cur->m_sModuleName, mname.data(), mname.size())) {
-			past = past->m_pNextNode;
-			past->copyEntry(*cur);
-			newQueueSize++;
-		}
-		cur = cur->m_pNextNode;
-
-	}
-	past->m_pNextNode = nullptr;
-
-	//clean up the queue
-	//or...make a new queue instead!
-	cur = ptr;
-	AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
-	AELogEntry* iter = newQueue;
-	while (cur) {
-		iter->copyEntry(*cur);
-		iter = iter->m_pNextNode;
-		cur = cur->m_pNextNode;
-	}
-	delete[] ptr;
-	ptr = newQueue;
-}
 AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string_view mname, const bool strictSeverity) {
 
 	if (this->isClosed()) {
