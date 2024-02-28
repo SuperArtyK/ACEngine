@@ -281,7 +281,10 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_ERR_INVALID_MODULE_NAME if non-existent module name was passed</returns>
 	cint logToQueueName(AELogEntry*& begin, const std::string_view mname);
 
-	cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false);
+	static cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false);
+
+	static cint filterQueueName(AELogEntry*& ptr, const std::string_view mname);
+
 
 	/// <summary>
 	/// Get the amount of valid entries in the log (with optional lowest severity setting).
@@ -330,13 +333,16 @@ public:
 	}
 
 	inline bool containsSeverity(const cint severity, const bool strictSeverity = false) const noexcept {
-		if (!ace::utils::isInRange(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
+
+		
+
+		if (!ace::utils::isInRange(AELP_SEVERITY_ALL, AELOG_TYPE_FATAL_ERROR, severity)) {
 			return false;
 		}
 		if (strictSeverity) {
 			return this->m_arrEntryAmount[severity + 1];
 		}
-		for (int i = severity; i <= AELOG_TYPE_FATAL_ERROR; i++) {
+		for (int i = ((severity == AELP_SEVERITY_ALL) ? AELOG_TYPE_DEBUG : severity); i <= AELOG_TYPE_FATAL_ERROR; i++) {
 			if (this->m_arrEntryAmount[i + 1]) {
 				return true;
 			}

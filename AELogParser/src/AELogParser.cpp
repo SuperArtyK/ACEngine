@@ -160,8 +160,6 @@ cint AELogParser::filterQueueType(AELogEntry*& ptr, const cint severity, const b
 	if (ptr == nullptr) {
 		return AELP_ERR_INVALID_QUEUE;
 	}
-
-
 	//check if it even has the severity
 	while (cur) {
 		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity)) {
@@ -171,13 +169,10 @@ cint AELogParser::filterQueueType(AELogEntry*& ptr, const cint severity, const b
 
 		cur = cur->m_pNextNode;
 	}
-
 	// there is no log entry with the given severity
 	return AELP_ERR_INVALID_SEVERITY;
 
-
-foundSeverity: //welp, we found it
-
+	foundSeverity: //welp, we found it
 	while (cur) {
 		if (AELogParser::checkSeverity(cur->m_cLogType, severity, strictSeverity)) {
 			past = past->m_pNextNode;
@@ -187,15 +182,11 @@ foundSeverity: //welp, we found it
 		cur = cur->m_pNextNode;
 
 	}
-
-
 	past->m_pNextNode = nullptr;
 
 	//clean up the queue
 	//or...make a new queue instead!
-
 	cur = ptr;
-
 	AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
 	AELogEntry* iter = newQueue;
 	while (cur) {
@@ -203,13 +194,57 @@ foundSeverity: //welp, we found it
 		iter = iter->m_pNextNode;
 		cur = cur->m_pNextNode;
 	}
-
 	delete[] ptr;
-
 	ptr = newQueue;
-
 }
 
+cint AELogParser::filterQueueName(AELogEntry*& ptr, const std::string_view mname) {
+
+	AELogEntry* cur = ptr;
+	AELogEntry kludge{ .m_pNextNode = ptr }; // a kludge variable for the pastEntry to work
+	AELogEntry* past = &kludge;
+	std::size_t newQueueSize = 0;
+
+	if (ptr == nullptr) {
+		return AELP_ERR_INVALID_QUEUE;
+	}
+	//check if it even has the severity
+	while (cur) {
+		if (!std::strncmp(cur->m_sModuleName, mname.data(), mname.size())) {
+			goto foundSeverity; // we found the severity, break the loop
+			break;
+		}
+
+		cur = cur->m_pNextNode;
+	}
+	// there is no log entry with the given severity
+	return AELP_ERR_INVALID_SEVERITY;
+
+foundSeverity: //welp, we found it
+	while (cur) {
+		if (!std::strncmp(cur->m_sModuleName, mname.data(), mname.size())) {
+			past = past->m_pNextNode;
+			past->copyEntry(*cur);
+			newQueueSize++;
+		}
+		cur = cur->m_pNextNode;
+
+	}
+	past->m_pNextNode = nullptr;
+
+	//clean up the queue
+	//or...make a new queue instead!
+	cur = ptr;
+	AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
+	AELogEntry* iter = newQueue;
+	while (cur) {
+		iter->copyEntry(*cur);
+		iter = iter->m_pNextNode;
+		cur = cur->m_pNextNode;
+	}
+	delete[] ptr;
+	ptr = newQueue;
+}
 AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string_view mname, const bool strictSeverity) {
 
 	if (this->isClosed()) {
@@ -223,7 +258,7 @@ AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string
 	}
 
 	if (!ace::utils::isInRange(AELP_SEVERITY_ALL, AELOG_TYPE_FATAL_ERROR, severity) || //is in range at all?
-		this->containsSeverity(severity, strictSeverity)) { // does this exist in the log (accounting for strict severity filter)
+		!this->containsSeverity(severity, strictSeverity)) { // does this exist in the log (accounting for strict severity filter)
 		return AELogEntryInfo{ .logType = AELEI_INVALID_TYPE };
 	}
 

@@ -21,7 +21,8 @@ int main() {
 	AELogEntry* myqueue;
 	mylp.logToQueueType(myqueue, AELP_SEVERITY_ALL);
 
-	mylp.filterQueueType(myqueue, AELOG_TYPE_ERROR);
+	//mylp.filterQueueType(myqueue, AELOG_TYPE_ERROR);
+	mylp.filterQueueName(myqueue, "AELogger");
 
 	AELogEntry* iter = myqueue;
 
