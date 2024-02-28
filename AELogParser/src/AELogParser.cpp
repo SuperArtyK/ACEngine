@@ -218,25 +218,41 @@ AELogEntryInfo AELogParser::findNextEntry(const cint severity, const std::string
 
 	std::string mnameStr = mname.data();
 
-	if (!mnameStr.empty() && !this->m_mapModuleNames.contains(mnameStr)) {
-		return AELogEntryInfo{.mnameIndex = AELEI_INVLAID_MNAME};
+	if (!mname.empty() && !this->m_mapModuleNames.contains(mnameStr)) {
+		return AELogEntryInfo{ .mnameIndex = AELEI_INVLAID_MNAME };
 	}
 
-	if (!ace::utils::isInRange(AELOG_TYPE_DEBUG, AELOG_TYPE_FATAL_ERROR, severity)) {
+	if (!ace::utils::isInRange(AELP_SEVERITY_ALL, AELOG_TYPE_FATAL_ERROR, severity) || //is in range at all?
+		this->containsSeverity(severity, strictSeverity)) { // does this exist in the log (accounting for strict severity filter)
 		return AELogEntryInfo{ .logType = AELEI_INVALID_TYPE };
 	}
 
 	
-	const short filterMnameIndex = (!mnameStr.empty()) ? this->m_mapModuleNames[mnameStr].second : 0;
+	const short filterMnameIndex = (!mname.empty()) ? this->m_mapModuleNames[mnameStr].second : 0;
 
 	mnameStr.clear();
 	mnameStr.shrink_to_fit(); //not necessary anymore
 
+	const std::size_t entryNum = m_ullCurrentEntry; //write down the cursor value
 
+	//searching time
 	while (1) {
 
 		if (++this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
-			return AELogEntryInfo { .cursorIndex = AELEI_INVALID_CURSOR};
+			// check if cursor was already out of bounds
+			if ((entryNum + 1) >= this->m_vecEntryIndices.size()) {
+				return AELogEntryInfo{ .cursorIndex = AELEI_INVALID_CURSOR };
+			}
+			//nope, we got out of bounds ourselves
+			//because of invalid filter!
+			
+			this->m_ullCurrentEntry = entryNum; // return the cursor to the previous position
+			return AELogEntryInfo { 
+				//god damn it msvc. Why is it an error to do it *that* way, while initialising it with a number outside of ternary is okay
+				.mnameIndex = (short) ((filterMnameIndex) ? AELEI_INVLAID_MNAME : 0), 
+				.logType = (cint) ((severity != AELP_SEVERITY_ALL) ? AELEI_INVALID_TYPE : 0)
+			};
+
 		}
 		if (AELogParser::checkSeverity(this->m_vecEntryIndices[this->m_ullCurrentEntry].logType, severity, strictSeverity) && //check the severity with lambdas
 			AELogParser::checkMName(this->m_vecEntryIndices[this->m_ullCurrentEntry].mnameIndex, filterMnameIndex)) {

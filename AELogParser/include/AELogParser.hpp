@@ -24,15 +24,20 @@
 /// Macro for the indicator that everything is good/no error was encountered in the process
 #define AELP_ERR_NOERROR ENGINE_MODULE_ERR_NOERROR
 /// Macro for the error when the passed module name doesn't match the parsed modulenames in the log
-/// @see AELogParser::nextEntry()
+/// @see AELogParser::findNextEntry()
 #define AELP_ERR_INVALID_MODULE_NAME -20
-/// Macro for the error when the passed severity (log type) is outside of defined severities
+/// Macro for the error when the passed severity is invalid in the current context
+/// Ex. non-existent severity, or the severity wasn't found in the log file
 #define AELP_ERR_INVALID_SEVERITY -21
+/// Macro for the error when the invalid severity or module name was passed (indeterminate)
+/// Ex. both the severity and the module name exist in the parsed log file, but never together in the same entry
+/// @see AELogParser::findNextEntry()
+#define AELP_ERR_INVALID_FILTER -22
 /// Macro for the error when the null queue pointer was passed into the functions
-#define AELP_ERR_INVALID_QUEUE -22
+#define AELP_ERR_INVALID_QUEUE -23
 /// Macro for the severity value that includes all entries/severities in parsing
-/// @see AELogParser::nextEntry()
-#define AELP_SEVERITY_ALL AELOG_TYPE_DEBUG
+/// @see AELogParser::findNextEntry()
+#define AELP_SEVERITY_ALL AELOG_TYPE_INVALID
 /// Macro for the "no"/empty modulename to pass for parsing
 #define AELP_NO_MODULENAME ""
 
@@ -289,7 +294,7 @@ public:
 			return ULLINT_MAX;
 		}
 		ullint tempres = 0;
-		for (int i = severity; i < 8; i++) {
+		for (int i = severity; i <= AELOG_TYPE_FATAL_ERROR; i++) {
 			tempres += this->m_arrEntryAmount[i + 1];
 		}
 		return tempres;
@@ -322,6 +327,20 @@ public:
 		}
 
 		return iter->second.second; 
+	}
+
+	inline bool containsSeverity(const cint severity, const bool strictSeverity = false) const noexcept {
+		if (!ace::utils::isInRange(AELOG_TYPE_INVALID, AELOG_TYPE_FATAL_ERROR, severity)) {
+			return false;
+		}
+		if (strictSeverity) {
+			return this->m_arrEntryAmount[severity + 1];
+		}
+		for (int i = severity; i <= AELOG_TYPE_FATAL_ERROR; i++) {
+			if (this->m_arrEntryAmount[i + 1]) {
+				return true;
+			}
+		}
 	}
 
 	/// <summary>
@@ -412,6 +431,9 @@ private:
 			if (leInfo.isInvalidCursor()) {
 				return AEFR_ERR_READ_EOF;
 			}
+			if (leInfo.isInvalidMName() && leInfo.isInvalidType()) {
+				return AELP_ERR_INVALID_FILTER;
+			}
 			if (leInfo.isInvalidMName()) {
 				return AELP_ERR_INVALID_MODULE_NAME;
 			}
@@ -427,12 +449,16 @@ private:
 	/// Checks if the passed severity is valid compared to the filtering severity.
 	/// Moved from a lambda, so it's easier to use with other parts of the log parser.
 	/// @note If strictSeverity is true, performs exact check. Otherwise if the passed entrySeverity is more or equal to the filtering filterSeverity.
+	/// @note If filterSeverity is AELP_SEVERITY_ALL, the function always returns true
 	/// </summary>
 	/// <typeparam name="strictSeverity">Whether to check if both severity levels *match exactly*. Default: false</typeparam>
 	/// <param name="entrySeverity">The severity to check/filter</param>
 	/// <param name="filterSeverity">The filtering severity</param>
 	/// <returns>True if the filtering conditions are satisfied; false otherwise</returns>
 	static constexpr bool checkSeverity(const cint entrySeverity, const cint filterSeverity, const bool strictSeverity = false) noexcept {
+		if (filterSeverity == AELP_SEVERITY_ALL) {
+			return true;
+		}
 		if (strictSeverity) {
 			return entrySeverity == strictSeverity;
 		}
