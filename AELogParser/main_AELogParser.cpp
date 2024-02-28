@@ -19,13 +19,13 @@ int main() {
 	}
 	
 	AELogEntry* myqueue;
-	mylp.logToQueueType(myqueue, AELP_SEVERITY_ALL);
+	mylp.logToQueue(myqueue, AELOG_TYPE_DEBUG, true, "log1");
 
 	//mylp.filterQueueType(myqueue, AELOG_TYPE_ERROR);
 	//cout<<"Filtering the queue by the severity, strict severity and modulename was successfull: " << ace::utils::boolToString(!mylp.filterQueue(myqueue, AELOG_TYPE_DEBUG, true, "log1"))<<NLC;
 
-	cout << "Filtering the queue by the severity, strict severity: " << ace::utils::boolToString(!mylp.filterQueueType(myqueue, AELOG_TYPE_DEBUG, true)) << NLC;
-	cout << "Filtering the queue by the module name: " << ace::utils::boolToString(!mylp.filterQueueName(myqueue, "log1")) << NLC;
+	//cout << "Filtering the queue by the severity, strict severity: " << ace::utils::boolToString(!mylp.filterQueueType(myqueue, AELOG_TYPE_DEBUG, true)) << NLC;
+	//cout << "Filtering the queue by the module name: " << ace::utils::boolToString(!mylp.filterQueueName(myqueue, "log1")) << NLC;
 
 
 	AELogEntry* iter = myqueue;

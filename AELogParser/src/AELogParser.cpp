@@ -94,7 +94,7 @@ cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::s
 }
 
 
-cint AELogParser::logToQueueType(AELogEntry*& begin, const cint severity, const bool strictSeverity) {
+cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity, const bool strictSeverity, const std::string_view mname) {
 	_AELP_CHECK_IF_FILE_OPEN;
 	
 	AELogEntry* ptr = begin = AELogEntry::makeQueue((strictSeverity) ? this->amountEntriesType(severity) : this->amountEntriesValid(severity), false, nullptr);
@@ -114,42 +114,12 @@ cint AELogParser::logToQueueType(AELogEntry*& begin, const cint severity, const 
 
 	this->m_ullCurrentEntry = entrynum;
 
-	return retval;
-}
-
-
-
-cint AELogParser::logToQueueName(AELogEntry*& begin, const std::string_view mname) {
-
-	_AELP_CHECK_IF_FILE_OPEN;
-
-	const ullint mnameAmount = this->amountEntriesName(mname);
-
-	if (mnameAmount == ULLINT_MAX) {
-		return AELP_ERR_INVALID_MODULE_NAME;
+	if (mname.size()) { // we have module name passed
+		retval = AELogParser::filterQueueName(begin, mname);
 	}
-
-	AELogEntry* ptr = begin = AELogEntry::makeQueue(mnameAmount, false, nullptr);
-	cint retval = 0;
-	// Yes, this is..weird, But in nextEntry it will pre-increment it before checking
-	// whether it's EOF or not. So...set it to 1 less from the start, instead of subtracting 1 every time
-	// Just an optimisation, uint over/underflow is well-defined anyway
-	const std::size_t entrynum = this->m_ullCurrentEntry;
-	this->m_ullCurrentEntry = -1;
-
-	int test = 0;
-
-	while (ptr && (retval = this->nextEntry(*ptr, AELP_SEVERITY_ALL, mname, false)) == AELP_ERR_NOERROR) {
-		ptr = ptr->m_pNextNode;
-		test++;
-	}
-
-	this->m_ullCurrentEntry = entrynum;
-
 
 	return retval;
 }
-
 
 cint AELogParser::filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname) {
 	// error handling

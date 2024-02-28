@@ -273,18 +273,16 @@ public:
 	/// <param name="begin">The pointer to which the queue will be allocated</param>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
-	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error</returns>
-	cint logToQueueType(AELogEntry*& begin, const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false);
+	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) read process errors or AELE_ERR_* (-11 to -15) flags on error</returns>
+	cint logToQueue(AELogEntry*& begin, const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false, const std::string_view mname = AELP_NO_MODULENAME);
 
-	/// <summary>
-	/// Same as the AELogParser::nextEntry() but on massive scale -- scans the whole log file and parses it to the freshly-allocated queue.
-	/// The parsed queue is filtered with the given module name
-	/// @warning If this queue isn't deallocated (deleted) before dropping the queue pointer, this **WILL** lead to memory leaks!
-	/// </summary>
-	/// <param name="begin">The pointer to which the queue will be allocated</param>
-	/// <param name="mname">The lowest severity of the log to find</param>
-	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; AELP_ERR_INVALID_MODULE_NAME if non-existent module name was passed</returns>
-	cint logToQueueName(AELogEntry*& begin, const std::string_view mname);
+	inline cint logToQueueType(AELogEntry*& begin, const cint severity, const bool strictSeverity = false) {
+		return this->logToQueue(begin, severity, strictSeverity, AELP_NO_MODULENAME);
+	}
+
+	inline cint logToQueueName(AELogEntry*& begin, const std::string_view mname) {
+		return this->logToQueue(begin, AELP_SEVERITY_ALL, false, mname);
+	}
 
 	static cint filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname);
 
