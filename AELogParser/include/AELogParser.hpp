@@ -126,7 +126,7 @@ public:
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG, const std::string_view mname = AELP_NO_MODULENAME, const bool strictSeverity = false);
+	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false, const std::string_view mname = AELP_NO_MODULENAME);
 
 	/// <summary>
 	/// Read the next *valid* entry in the log file of the given module name, and parse it into the given AELogEntry object
@@ -136,7 +136,7 @@ public:
 	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	inline cint nextEntryName(AELogEntry& entry, const std::string_view mname) { return this->nextEntry(entry, AELP_SEVERITY_ALL, mname, false); }
+	inline cint nextEntryName(AELogEntry& entry, const std::string_view mname) { return this->nextEntry(entry, AELP_SEVERITY_ALL, false, mname); }
 
 	/// <summary>
 	/// Read the next *valid* entry in the log file of the given severity, and parse it to the given AELogEntry object
@@ -148,7 +148,7 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
 	inline cint nextEntryType(AELogEntry& entry, const cint severity, const bool strictSeverity = false) {
-		return this->nextEntry(entry, severity, AELP_NO_MODULENAME, false);
+		return this->nextEntry(entry, severity, false, AELP_NO_MODULENAME);
 	}
 
 	/// <summary>
@@ -161,7 +161,7 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
 	inline cint nextEntryTypeStrict(AELogEntry& entry, const cint severity) {
-		return this->nextEntry(entry, severity, AELP_NO_MODULENAME, true);
+		return this->nextEntry(entry, severity, true, AELP_NO_MODULENAME);
 	}
 
 	/// <summary>
@@ -174,7 +174,7 @@ public:
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
 	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG, const std::string_view mname = AELP_NO_MODULENAME, const bool strictSeverity = false) {
+	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false, const std::string_view mname = AELP_NO_MODULENAME) {
 
 		const AELogEntryInfo leInfo = this->findNextEntry(severity, AELP_NO_MODULENAME, strictSeverity);
 		const cint ret = AELogParser::errorFromAELEI(leInfo);
@@ -192,7 +192,7 @@ public:
 	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	inline llint nextEntryCursorName(const std::string_view mname) { return this->nextEntryCursor(AELP_SEVERITY_ALL, mname, false); }
+	inline llint nextEntryCursorName(const std::string_view mname) { return this->nextEntryCursor(AELP_SEVERITY_ALL, false, mname); }
 
 	/// <summary>
 	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's file cursors in the file
@@ -203,7 +203,7 @@ public:
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
 	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	inline llint nextEntryCursorType(const cint severity, const bool strictSeverity = false) { return this->nextEntryCursor(severity, AELP_NO_MODULENAME, false); }
+	inline llint nextEntryCursorType(const cint severity, const bool strictSeverity = false) { return this->nextEntryCursor(severity, false, AELP_NO_MODULENAME); }
 
 	/// <summary>
 	/// Read the next indexed *valid* log entry in the file of the given severity filter and return it's file cursors in the file
@@ -214,7 +214,7 @@ public:
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	inline llint nextEntryCursorTypeStrict(const cint severity) { return this->nextEntryCursor(severity, AELP_NO_MODULENAME, true); }
+	inline llint nextEntryCursorTypeStrict(const cint severity) { return this->nextEntryCursor(severity, true, AELP_NO_MODULENAME); }
 
 	/// <summary>
 	/// Get the file cursors of the current valid entry

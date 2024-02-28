@@ -72,7 +72,7 @@ cint AELogParser::openLog(const std::string_view fname) {
 }
 
 
-cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const std::string_view mname, const bool strictSeverity) {
+cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const bool strictSeverity, const std::string_view mname) {
 
 	const AELogEntryInfo leInfo = this->findNextEntry(severity, mname, strictSeverity);
 	
@@ -107,7 +107,7 @@ cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity, const bool
 	
 	int test = 0;
 
-	while (ptr && (retval = this->nextEntry(*ptr, severity, AELP_NO_MODULENAME, strictSeverity)) == AELP_ERR_NOERROR) {
+	while (ptr && (retval = this->nextEntry(*ptr, severity, strictSeverity, AELP_NO_MODULENAME)) == AELP_ERR_NOERROR) {
 		ptr = ptr->m_pNextNode;
 		test++;
 	}
