@@ -196,14 +196,17 @@ public:
 	/// Get the file cursors of the current valid entry
 	/// This entry is the one that was read by a previous call to AELogParser::nextEntry() or AELogParser::getNextEntryIndex()
 	/// </summary>
-	/// <returns>The file cursors of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open</returns>
+	/// <returns>The file cursors of the current valid entry (in the currently-opened log file); AEFR_ERR_FILE_NOT_OPEN if the file isn't open; AEFR_ERR_READ_EOF if the entry number is invalid (past the end of the log file)</returns>
 	inline llint currentEntryCursor(void) const noexcept {
 		_AELP_CHECK_IF_FILE_OPEN;
+		if (this->m_ullCurrentEntry >= this->m_vecEntryIndices.size()) {
+			return AEFR_ERR_READ_EOF;
+		}
 		return this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex;
 	}
 
 	/// <summary>
-	/// Return the order number (index) of the current log entry (that was just read)
+	/// Return the order number (index) of the current log entry (that was attempted to be read)
 	/// </summary>
 	/// <returns>The index of the current entry as std::size_t</returns>
 	inline std::size_t getCurrentEntryIndex(void) const noexcept { return this->m_ullCurrentEntry.load(); }
@@ -243,13 +246,14 @@ public:
 
 	/// <summary>
 	/// Same as the AELogParser::nextEntry() but on massive scale -- scans the whole log file and parses it to the freshly-allocated queue.
+	/// @see AELogEntry::makeQueue()
 	/// The parsed queue is filtered with the given severity level and "strict severity search" flag
 	/// @warning If this queue isn't deallocated (deleted) before dropping the queue pointer, this **WILL** lead to memory leaks!
 	/// </summary>
 	/// <param name="begin">The pointer to which the queue will be allocated</param>
 	/// <param name="severity">The lowest severity of the log to find</param>
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
-	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) read process errors or AELE_ERR_* (-11 to -15) flags on error</returns>
+	/// <returns>AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error </returns>
 	cint logToQueue(AELogEntry*& begin, const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false, const std::string_view mname = AELP_NO_MODULENAME);
 
 	inline cint logToQueueType(AELogEntry*& begin, const cint severity, const bool strictSeverity = false) {
@@ -419,11 +423,11 @@ private:
 			return AEFR_ERR_FILE_NOT_OPEN;
 		}
 		if (leInfo.isBroken()) {
-			if (leInfo.isInvalidCursor()) {
-				return AEFR_ERR_READ_EOF;
-			}
 			if (leInfo.isInvalidMName() && leInfo.isInvalidType()) {
 				return AELP_ERR_FILTER_NO_MATCHES;
+			}
+			if (leInfo.isInvalidCursor()) {
+				return AEFR_ERR_READ_EOF;
 			}
 			if (leInfo.isInvalidMName()) {
 				return AELP_ERR_INVALID_MODULE_NAME;

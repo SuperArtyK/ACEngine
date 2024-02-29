@@ -59,7 +59,7 @@
 /// @note Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1
 #define dprintf(...) if constexpr (ENGINE_DEBUG) { printf("DEBUG::%s()-> ", __FUNCTION__); printf(__VA_ARGS__); printf("\n"); }
 #else
-#define dprintf(...) {}
+#define dprintf(...)
 #endif
 
 /// Macro to check if the given type T is about the same as Y
@@ -104,10 +104,10 @@
 
 
 //other stuff
-/// Macro for newline char
+/// Macro for newline char literal
 #define NLC '\n'
 
-/// Macro for newline string
+/// Macro for newline string literal
 #define NLS "\n"
 
 /// Size of the string of the formatted date-time by the ace::utils::formatDate()
