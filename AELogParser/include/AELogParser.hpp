@@ -169,7 +169,7 @@ public:
 			return ret; // return the error code from the AELEI
 		}
 
-		return this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex;
+		return leInfo.cursorIndex;
 	}
 
 	/// <summary>

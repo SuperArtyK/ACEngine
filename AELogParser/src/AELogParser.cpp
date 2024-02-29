@@ -74,23 +74,33 @@ cint AELogParser::openLog(const std::string_view fname) {
 
 cint AELogParser::nextEntry(AELogEntry& entry, const cint severity, const bool strictSeverity, const std::string_view mname) {
 
-	const AELogEntryInfo leInfo = this->findNextEntry(severity, mname, strictSeverity);
+// 	const AELogEntryInfo leInfo = this->findNextEntry(severity, mname, strictSeverity);
+// 	
+// 	cint readret = AELogParser::errorFromAELEI(leInfo);
+// 	if (readret != AELP_ERR_NOERROR) {
+// 		return readret; // return the error code from the AELEI
+// 	}
 	
-	cint readret = AELogParser::errorFromAELEI(leInfo);
+	//we implemented this already lol
+	llint readret = this->nextEntryCursor(severity, strictSeverity, mname);
 	if (readret != AELP_ERR_NOERROR) {
-		return readret; // return the error code from the AELEI
+		return readret; // return the error
 	}
+
 
 	char str[AELE_FORMAT_MAX_SIZE + 2]{}; // 1 character more than the log entry - to determine the validity with size
 
-	this->m_frLogReader.setCursorPos(this->m_vecEntryIndices[this->m_ullCurrentEntry].cursorIndex, SEEK_SET);
+	this->m_frLogReader.setCursorPos(readret, SEEK_SET);
 
 	readret = this->m_frLogReader.readStringNL(str, sizeof(str) - 1);
-	if (readret == AEFR_ERR_NOERROR || readret == AEFR_ERR_READ_EOF) { // check even if it's EOF. It's not an error, but a warning from file reader
+	// check even if it's EOF. It's not an error, but a warning from file reader
+	// that we have reached the end, and *may* have not read everything that we wanted
+	// The real result (if we actually didn't read what we wanted) will be given from the AELogEntry::parseStringEntry()
+	if (readret == AEFR_ERR_NOERROR || readret == AEFR_ERR_READ_EOF) { 
 		return AELogEntry::parseStringEntry(entry, str, AELE_PARSE_STRING_FULL);
 	}
 	
-	return readret;
+	return readret; // error I guess
 }
 
 
