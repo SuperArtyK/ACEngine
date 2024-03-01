@@ -169,9 +169,9 @@
     <ClCompile Include="src\AELogger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AECustomTypes\include\AELogEntry.hpp" />
     <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp" />
     <ClInclude Include="..\AEFileWriter\include\AEFileWriter.hpp" />
-    <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp" />
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />

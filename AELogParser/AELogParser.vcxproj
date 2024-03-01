@@ -170,9 +170,10 @@
     <ClCompile Include="src\AELogParser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AECustomTypes\include\AELogEntry.hpp" />
+    <ClInclude Include="..\AECustomTypes\include\AELogEntryInfo.hpp" />
     <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp" />
     <ClInclude Include="..\AEFileReader\include\AEFileReader.hpp" />
-    <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp" />
     <ClInclude Include="..\AEMisc\include\AEFlags.hpp" />
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp" />
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp" />

@@ -59,7 +59,7 @@
     <ClInclude Include="..\AEMisc\include\AEUtils.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AELogEntry\include\AELogEntry.hpp">
+    <ClInclude Include="..\AECustomTypes\include\AELogEntry.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AECustomTypes\include\AELogTypes.hpp">
