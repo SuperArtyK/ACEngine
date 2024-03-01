@@ -20,8 +20,8 @@
 #include <atomic>
 
 
- //log entry stuff
- /// Macro for the AELogEntry's status to be: invalid.
+//log entry stuff
+/// Macro for the AELogEntry's status to be: invalid.
 #define AELE_STATUS_INVALID 0
 /// Macro for the AELogEntry's status to be: currently being set up and written to.
 #define AELE_STATUS_SETTING 1
@@ -157,6 +157,10 @@ struct AELogEntry {
 		entry.m_cStatus = AELE_STATUS_INVALID;
 	}
 
+	/// <summary>
+	/// Fully clears the entry, resetting it to the default values
+	/// </summary>
+	/// <param name="entry"></param>
 	static inline void clearEntryFull(AELogEntry& entry) noexcept {
 		entry.copyEntryFull(AELogEntry::emptyEntry());
 	}
@@ -223,7 +227,7 @@ struct AELogEntry {
 	/// </summary>
 	/// <param name="logtype">The value of the log type</param>
 	/// <returns>c-string of the type</returns>
-	static constexpr const char* typeToString(const cint logtype) noexcept {
+	static constexpr const char* const typeToString(const cint logtype) noexcept {
 		switch (logtype) {
 			case AELOG_TYPE_INFO: return "INFO";
 			case AELOG_TYPE_WARN: return "WARNING"; case AELOG_TYPE_SEVERE_WARN: return "SEVERE_WARNING";
@@ -233,6 +237,12 @@ struct AELogEntry {
 		}
 	}
 
+	/// <summary>
+	/// Deduces the string representation of a type (as appears in the log file) to a corresponding type number
+	/// @note the size of the string needs to be 14 characters total, format: <TYPE IN CAPS><remaining space padding to make it 14 characters>
+	/// </summary>
+	/// <param name="str">The string to check</param>
+	/// <returns>The number corresponding to the deduced type; AELOG_TYPE_INVALID otherwise</returns>
 	static constexpr cint stringToType(const std::string_view str) noexcept {
 		if (str.size() != 14) { return AELOG_TYPE_INVALID; }
 
@@ -260,9 +270,8 @@ struct AELogEntry {
 		else if (str == "FATAL_ERROR   ") {
 			return AELOG_TYPE_FATAL_ERROR;
 		}
-		else {
-			return AELOG_TYPE_INVALID;
-		}
+		
+		return AELOG_TYPE_INVALID;
 	}
 
 	/// <summary>
@@ -380,7 +389,10 @@ struct AELogEntry {
 		return AELE_ERR_NOERROR;
 	}
 
-
+	/// <summary>
+	/// Format the entry and convert it into std::string
+	/// </summary>
+	/// <returns>std::string of the converted entry</returns>
 	std::string toString() {
 		char temp[AELE_FORMAT_MAX_SIZE];
 		AELogEntry::formatEntry(temp, *this);
@@ -388,8 +400,12 @@ struct AELogEntry {
 		return temp;
 	}
 
-	static constexpr const AELogEntry& emptyEntry() noexcept {
-		return AELogEntry();
+	/// <summary>
+	/// Returns the empty, invalid entry, with no data
+	/// </summary>
+	/// <returns>AELogEntry instance of an empty entry</returns>
+	static constexpr AELogEntry emptyEntry() noexcept {
+		return AELogEntry{};
 	}
 
 };

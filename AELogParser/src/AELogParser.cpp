@@ -137,7 +137,7 @@ cint AELogParser::filterQueue(AELogEntry*& ptr, const cint severity, const bool 
 		return AELP_ERR_INVALID_QUEUE;
 	}
 	// its all the sameeeee
-	if (strictSeverity == AELP_SEVERITY_ALL && mname.empty()) {
+	if (severity == AELP_SEVERITY_ALL && mname.empty()) {
 		return AELP_ERR_INVALID_FILTER; // invalid filter option
 	}
 

@@ -6,6 +6,7 @@ using std::cin;
 
 int main() {
 
+	constexpr AELogEntry myentry2{};
 	AELogEntry myentry{};
 
 

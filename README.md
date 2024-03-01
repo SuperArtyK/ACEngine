@@ -25,22 +25,22 @@ You can also track the progress of the engine here: [trello board](https://trell
 ### ACCOMPLISHED FEATURES
 
 * Be able to write data to files, faster than standard stream stuff
-* Be able to read datat from files, faster than standard stream stuff
-* Write logs to file with almost no performance impact
+* Be able to read data from files, faster than standard stream stuff
+* Write logs to file with small performance impact (on the log-invoking thread)
 * Have a module-based structure
-* Have a utility tool kit in engine for easier programming(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine"))
+* Have a utility toolkit in engine for easier programming(similar to [func_utils.hpp](https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp "func_utils.hpp") in [console_engine](https://github.com/SuperArtyK/console_engine_win32 "console_engine"))
 
 ### DESIRED FEATURES
 
 * Engine file format
-* Read and parse logs from file (partially implemented + testing)
+* Read and parse logs from file (currently is partially implemented + testing)
 * Get input from keyboard and mouse
 * Control console's window properties
 * Control characters on the screen: write them/change color individually and in bulk
 * Make it crossplatform and support multiple build systems (cmake babyyyy. Maybe I'll need to rework it from scratch :') )
 * Play and synthesize sound
 
-(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)
+(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the cmake to work soon too. You know, use as much of crossplatform things like curses, stl, etc)
 
 Yeah, I have yet to release any working version.
 
@@ -56,9 +56,10 @@ Yeah, I have yet to release any working version.
 #### Linux
 
 * Sadly...you can't, unless manually (or untill sacred cmake appears in this engine)
+* Cmake is in the works
 
 
-### Technical stuff for people that wish to use this
+### Technical stuff for people that wish to use this (outdated)
 
 When creating a new project in the engine, use the template "ACEngine project template.zip" so you don't have to setup all the include and source paths, etc.
 
