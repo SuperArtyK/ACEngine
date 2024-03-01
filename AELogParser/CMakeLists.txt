@@ -10,8 +10,8 @@ source_group("Header Files" FILES ${Header_Files})
 
 set(Header_Files__engine_modules
     "../AECustomTypes/include/AELogTypes.hpp"
+    "../AECustomTypes/include/AELogEntry.hpp"
     "../AEFileReader/include/AEFileReader.hpp"
-    "../AELogEntry/include/AELogEntry.hpp"
     "../AEMisc/include/AEFlags.hpp"
     "../AEMisc/include/AETypedefs.hpp"
     "../AEMisc/include/AEUtils.hpp"
@@ -77,25 +77,13 @@ endif()
 ################################################################################
 # Include directories
 ################################################################################
-if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
-    target_include_directories(${PROJECT_NAME} PUBLIC
+target_include_directories(${PROJECT_NAME} PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEModuleBase;"
         "${CMAKE_CURRENT_SOURCE_DIR}/include;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEFileReader;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AECustomTypes;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AELogEntry"
-    )
-elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
-    target_include_directories(${PROJECT_NAME} PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEModuleBase;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/include;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEFileReader;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AECustomTypes;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AELogEntry"
-    )
-endif()
+)
 
 ################################################################################
 # Compile definitions
@@ -194,7 +182,6 @@ endif()
 add_dependencies(${PROJECT_NAME}
     AECustomTypes
     AEFileReader
-    AELogEntry
     AEMisc
     AEModuleBase
 )

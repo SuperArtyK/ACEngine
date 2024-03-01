@@ -98,9 +98,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES MSVC_RUNTIME_LIBRARY ${MSVC_RUN
 ################################################################################
 # Include directories
 ################################################################################
-if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
-    target_include_directories(${PROJECT_NAME} PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
+target_include_directories(${PROJECT_NAME} PUBLIC
+"${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEModuleBase;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEFileWriter;"
         "${CMAKE_CURRENT_SOURCE_DIR}/include;"
@@ -111,25 +110,7 @@ if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEFileReader;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AELogParser;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AECustomTypes;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AELogEntry"
-    )
-elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
-    target_include_directories(${PROJECT_NAME} PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEModuleBase;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEFileWriter;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/include;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AELogger;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEFrame;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AETimer;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEVector;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEFileReader;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AELogParser;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AECustomTypes;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AELogEntry"
-    )
-endif()
-
+	)
 ################################################################################
 # Compile definitions
 ################################################################################
@@ -237,7 +218,6 @@ add_dependencies(${PROJECT_NAME}
     AEFileReader
     AEFileWriter
     AEFrame
-    AELogEntry
     AELogParser
     AELogger
     AEMisc

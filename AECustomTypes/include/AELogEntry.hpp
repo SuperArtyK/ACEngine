@@ -14,7 +14,7 @@
 #ifndef ENGINE_AELOGENTRY_HPP
 #define ENGINE_AELOGENTRY_HPP
 
-#include "include/AELogTypes.hpp"
+#include "AELogTypes.hpp"
 #include "include/AEModuleBase.hpp" // just for the ENGINE_MODULE_ERR_NOERROR flag; AELE isn't a full module
 #include "include/AEUtils.hpp"
 #include <atomic>

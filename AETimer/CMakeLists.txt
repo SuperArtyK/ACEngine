@@ -62,21 +62,12 @@ endif()
 ################################################################################
 # Include directories
 ################################################################################
-if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
-    target_include_directories(${PROJECT_NAME} PUBLIC
+target_include_directories(${PROJECT_NAME} PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEModuleBase;"
         "${CMAKE_CURRENT_SOURCE_DIR}/include;"
         "${CMAKE_CURRENT_SOURCE_DIR}/../AEFrame"
     )
-elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
-    target_include_directories(${PROJECT_NAME} PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEMisc;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEModuleBase;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/include;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../AEFrame"
-    )
-endif()
 
 ################################################################################
 # Compile definitions
