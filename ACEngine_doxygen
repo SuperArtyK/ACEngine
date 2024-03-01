@@ -1059,7 +1059,13 @@ EXCLUDE                = AEFileWriter/main_AEFileWriter.cpp \
                          AEFileReader/main_AEFileReader.cpp \
                          __cppcheck \
                          AECustomTypes/main_AECustomTypes.cpp \
-                         AELogEntry/main_AELogEntry.cpp
+                         AELogEntry/main_AELogEntry.cpp \
+                         build \
+                         CMake \
+                         packages \
+                         x64 \
+                         Release \
+                         Debug
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

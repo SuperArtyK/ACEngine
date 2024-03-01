@@ -98,7 +98,7 @@ public:
 	/// Stops the timer thread and stops tick counting
 	/// </summary>
 	inline void stopThread(void) {
-		if (!this->m_trdCounting.joinable() && !this->m_bRunTrd) {
+		if (!this->m_trdCounting.joinable() || !this->m_bRunTrd) {
 			return; //maybe it was closed already?
 		}
 

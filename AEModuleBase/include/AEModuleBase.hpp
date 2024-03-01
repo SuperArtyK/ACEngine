@@ -57,8 +57,8 @@ public:
 	/// <summary>
 	/// Basic constructor that increases module count
 	/// </summary>
-	__AEModuleBase(void) noexcept {
-		++this->m_ullModulesAlive;
+	__AEModuleBase<T>(void) noexcept {
+		this->m_ullModulesAlive++;
 		//std::snprintf(this->m_cstrInstanceName, AELE_MODULENAME_SIZE, "%s%d", )
 	}
 
@@ -66,24 +66,29 @@ public:
 	/// Basic copy constructor that increases module count
 	/// </summary>
 	/// <param name="val">The value to be copied...useless since we have nothing to copy lol (but we need it)</param>
-	__AEModuleBase(const __AEModuleBase<T>& val) noexcept {
-		++this->m_ullModulesAlive;
+	__AEModuleBase<T>(const __AEModuleBase<T>& val) noexcept {
+		this->m_ullModulesAlive++;
 	}
 
 	/// <summary>
 	/// Basic destructor that decreases module count
 	/// </summary>
-	virtual ~__AEModuleBase(void) noexcept {
+	virtual ~__AEModuleBase<T>(void) noexcept {
 		this->m_ullModulesAlive--;
 	}
 
-	__AEModuleBase& operator=(const __AEModuleBase<T>&) = delete;
+	/// <summary>
+	/// Basic assignment operator -- it does nothing, so it's deleted (make your own)
+	/// </summary>
+	/// <param name="val"></param>
+	/// <returns></returns>
+	virtual __AEModuleBase<T>& operator=(const __AEModuleBase<T>& val) = delete;
 
 	/// <summary>
 	/// Returns the amount of instances of the module currently existing
 	/// </summary>
 	/// <returns>Unsigned long long of the module amount</returns>
-	static inline ullint getModuleAmount(void) noexcept {
+	[[nodiscard]] static inline ullint getModuleAmount(void) noexcept {
 		return m_ullModulesAlive.load();
 	}
 	
@@ -96,7 +101,7 @@ public:
 
 protected:
 
-	char m_cstrInstanceName[AELE_MODULENAME_SIZE+1];
+	//char m_cstrInstanceName[AELE_MODULENAME_SIZE+1];
 
 	/// <summary>
 	/// Amount of alive module instances

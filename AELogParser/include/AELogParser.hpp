@@ -125,8 +125,8 @@ public:
 	/// </summary>
 	/// <param name="entry">The log entry object to parse things into</param>
 	/// <param name="severity">The severity of the log entry to look for</param>
-	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
+	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
 	cint nextEntry(AELogEntry& entry, const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false, const std::string_view mname = AELP_NO_MODULENAME);
@@ -151,7 +151,7 @@ public:
 	/// <returns>AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
 	inline cint nextEntryType(AELogEntry& entry, const cint severity, const bool strictSeverity = false) {
-		return this->nextEntry(entry, severity, false, AELP_NO_MODULENAME);
+		return this->nextEntry(entry, severity, strictSeverity, AELP_NO_MODULENAME);
 	}
 
 	/// <summary>
@@ -160,13 +160,13 @@ public:
 	/// @note AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG. This function parses only *valid* entries.
 	/// </summary>
 	/// <param name="severity">The lowest severity of the log to find</param>
-	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
+	/// <param name="mname">The module name of the log entry to search for</param>
 	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
 	inline llint nextEntryCursor(const cint severity = AELOG_TYPE_DEBUG, const bool strictSeverity = false, const std::string_view mname = AELP_NO_MODULENAME) {
 
-		const AELogEntryInfo leInfo = this->findNextEntry(severity, AELP_NO_MODULENAME, strictSeverity);
+		const AELogEntryInfo leInfo = this->findNextEntry(severity, mname, strictSeverity);
 		const cint ret = AELogParser::errorFromAELEI(leInfo);
 		if (ret != AELP_ERR_NOERROR) {
 			return ret; // return the error code from the AELEI
@@ -193,7 +193,7 @@ public:
 	/// <param name="strictSeverity">The flag to indicate whether the search for severity should be strict (exact)</param>
 	/// <returns>The file cursors of the next valid entry (in the currently-opened log file); error codes from AELogParser::errorFromAELEI()</returns>
 	/// @see AELogParser::errorFromAELEI()
-	inline llint nextEntryCursorType(const cint severity, const bool strictSeverity = false) { return this->nextEntryCursor(severity, false, AELP_NO_MODULENAME); }
+	inline llint nextEntryCursorType(const cint severity, const bool strictSeverity = false) { return this->nextEntryCursor(severity, strictSeverity, AELP_NO_MODULENAME); }
 
 	/// <summary>
 	/// Get the file cursors of the current valid entry
@@ -370,7 +370,6 @@ public:
 		if (iter == this->m_mapModuleNames.end()) {
 			return ULLINT_MAX;
 		}
-
 		return iter->second.second; 
 	}
 
@@ -392,6 +391,7 @@ public:
 				return true;
 			}
 		}
+		return false;
 	}
 
 	/// <summary>
@@ -474,7 +474,7 @@ private:
 	/// </summary>
 	/// <param name="leInfo">The passed AELogEntryInfo instance to check</param>
 	/// <returns>AELP_ERR_NOERROR if everything is okay; AEFR_ERR_FILE_NOT_OPEN if it's fully invalid; AEFR_ERR_READ_EOF on invalid cursor; AELP_ERR_INVALID_MODULE_NAME on invalid module name; AELP_ERR_INVALID_SEVERITY on invalid type</returns>
-	static constexpr bool errorFromAELEI(const AELogEntryInfo& leInfo) noexcept {
+	static constexpr cint errorFromAELEI(const AELogEntryInfo& leInfo) noexcept {
 		if (leInfo.isInvalid()) {
 			return AEFR_ERR_FILE_NOT_OPEN;
 		}
@@ -505,13 +505,14 @@ private:
 	/// <typeparam name="strictSeverity">Whether to check if both severity levels *match exactly*. Default: false</typeparam>
 	/// <param name="entrySeverity">The severity to check/filter</param>
 	/// <param name="filterSeverity">The filtering severity</param>
+	/// <param name="strictSeverity">The flag to indicate whether the severity check should be strict (exact)</param>
 	/// <returns>True if the filtering conditions are satisfied; false otherwise</returns>
 	static constexpr bool checkSeverity(const cint entrySeverity, const cint filterSeverity, const bool strictSeverity = false) noexcept {
 		if (filterSeverity == AELP_SEVERITY_ALL) {
 			return true;
 		}
 		if (strictSeverity) {
-			return entrySeverity == strictSeverity;
+			return entrySeverity == filterSeverity;
 		}
 		return entrySeverity >= filterSeverity;
 	}

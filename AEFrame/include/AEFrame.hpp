@@ -42,7 +42,7 @@ public:
 		m_tpTimepoint(getSteadyTime()), m_fFPS(fps), m_bNoDelay((fps <= 0))
 		{}
 
-	AEFrame(const AEFrame& two) :  
+	AEFrame(const AEFrame& two) noexcept :  
 		COPYCONSTRUCT_MODULE(AEFrame, two), m_tdChronoDelay(two.m_tdChronoDelay),
 		m_tpTimepoint(getSteadyTime()), m_fFPS(two.m_fFPS), m_bNoDelay(two.m_bNoDelay)
 		{}
@@ -76,7 +76,7 @@ public:
 	/// Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, 
 	/// then the thread will sleep the rest of 20ms to make the game loop run at 30fps.
 	/// </summary>
-	inline void sleep(void) noexcept{
+	inline void sleep(void) noexcept {
 		// add to time point
 		if (this->m_bNoDelay) {
 			return;

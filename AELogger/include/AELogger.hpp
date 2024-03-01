@@ -322,12 +322,12 @@ private:
 			"", // modulename will be written to later
 			std::time(nullptr), // m_tmLogTime
 			nullptr, // m_pNextNode
-			AELOG_TYPE_SUCCESS, // m_cLogType
+			logtype, // m_cLogType
 			//AELE_STATUS_INVALID, // m_cStatus; isn't needed since the function doesn't check it anyway
 		};
 
-		std::memcpy(lEntry.m_sLogMessage, logmessg.data(), logmessg.size());
-		std::memcpy(lEntry.m_sModuleName, this->getModuleName().data(), this->getModuleName().size());
+		std::memcpy(lEntry.m_sLogMessage, logmessg.data(), (logmessg.size() < AELE_MESSAGE_SIZE)? logmessg.size() : AELE_MESSAGE_SIZE);
+		std::memcpy(lEntry.m_sModuleName, logmodule.data(), (logmodule.size() < AELE_MODULENAME_SIZE) ? logmodule.size() : AELE_MODULENAME_SIZE);
 		char str[AELE_FORMAT_MAX_SIZE]{};
 		//AELogEntry::formatEntry(str, lEntry);
 		this->m_fwLogger.writeData_ptr(str, AELogEntry::formatEntry(str, lEntry), 1, false);

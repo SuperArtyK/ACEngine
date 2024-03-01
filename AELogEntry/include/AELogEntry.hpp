@@ -239,7 +239,7 @@ struct AELogEntry {
 
 	/// <summary>
 	/// Deduces the string representation of a type (as appears in the log file) to a corresponding type number
-	/// @note the size of the string needs to be 14 characters total, format: <TYPE IN CAPS><remaining space padding to make it 14 characters>
+	/// @note the size of the string needs to be 14 characters total, format: [TYPE IN CAPS][remaining space padding to make it 14 characters]
 	/// </summary>
 	/// <param name="str">The string to check</param>
 	/// <returns>The number corresponding to the deduced type; AELOG_TYPE_INVALID otherwise</returns>
@@ -307,7 +307,7 @@ struct AELogEntry {
 		}
 
 		// read the possible type
-		if (sscanf(entryString.data() + POS_TYPE, "[%14[^]] ", logType) != 1) {
+		if (std::sscanf(entryString.data() + POS_TYPE, "[%14[^]] ", logType) != 1) {
 			return AELE_ERR_INVALID_TYPE; //oops!
 		}
 
@@ -324,8 +324,8 @@ struct AELogEntry {
 		}
 
 		// read the possible module name
-		std::snprintf(scanfFormat, sizeof(scanfFormat), "[%%%llu[^]]", std::size_t(AELE_MODULENAME_SIZE + 1));
-		if (sscanf(entryString.data() + POS_MNAME, scanfFormat, mname) != 1) {
+		std::snprintf(scanfFormat, sizeof(scanfFormat), "[%%%llu[^]]", ullint(AELE_MODULENAME_SIZE + 1));
+		if (std::sscanf(entryString.data() + POS_MNAME, scanfFormat, mname) != 1) {
 			return AELE_ERR_INVALID_MNAME;
 		}
 
@@ -360,7 +360,7 @@ struct AELogEntry {
 			//cool, passed. now read untill the end
 			//the newline and or the size is guaranteed to exist
 			std::snprintf(scanfFormat, sizeof(scanfFormat), "%%%llu[^\n]", AELE_MESSAGE_DEBUG_SIZE);
-			sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, scanfFormat, logmessage);
+			std::sscanf(entryString.data() + POS_MNAME + strvMname.size() + 4, scanfFormat, logmessage);
 			// what if the entry is a debug one?
 			if (entryType == AELOG_TYPE_DEBUG && std::strstr(logmessage, "DEBUG->") != nullptr) {
 				std::memcpy(entry.m_sLogMessage, logmessage + sizeof("DEBUG->") - 1, AELE_MESSAGE_SIZE - sizeof("DEBUG->") + 1);
