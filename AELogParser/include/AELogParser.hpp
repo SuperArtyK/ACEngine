@@ -294,8 +294,10 @@ public:
 	/// <param name="severity">The lowest severity of the log to filter for</param>
 	/// <param name="strictSeverity">The flag to indicate whether the filtering for severity should be strict (exact)</param>
 	/// <param name="mname">The module name of the log entry to filter for</param>
+	/// <param name="reallocQueue">Flag to reallocate the filtered queue (reduces the final memory usage)</param>
+	/// @warning Use reallocQueue flag only if the queue was allocated on the heap (like with AELogParser::logToQueue(). Otherwise (if it's stack-allocated) it will try to delete[] the stack memory
 	/// <returns>AELP_ERR_NOERROR (0) on success; On invalid arguments: AELP_ERR_INVALID_QUEUE if ptr is nullptr, AELP_ERR_INVALID_FILTER if mname is empty and severity is AELP_SEVERITY_ALL; On filtering results: AELP_ERR_INVALID_SEVERITY if severity wasn't found in the queue (severity was the only filter), AELP_ERR_INVALID_MODULE_NAME if module name wasn't found in the queue(module name was the only filter), AELP_ERR_FILTER_NO_MATCHES if nothing was found with both passed and valid severity and module name filters</returns>
-	static cint filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname);
+	static cint filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname, const bool reallocQueue = true);
 
 	/// <summary>
 	/// Filters the passed queue according to the given severity
@@ -305,9 +307,11 @@ public:
 	/// <param name="ptr">The pointer to the existing queue</param>
 	/// <param name="severity">The lowest severity of the log to filter for</param>
 	/// <param name="strictSeverity">The flag to indicate whether the filtering for severity should be strict (exact)</param>
+	/// <param name="reallocQueue">Flag to reallocate the filtered queue (reduces the final memory usage)</param>
+	/// @warning Use reallocQueue flag only if the queue was allocated on the heap (like with AELogParser::logToQueue(). Otherwise (if it's stack-allocated) it will try to delete[] the stack memory
 	/// <returns>Same values as AELogParser::filterQueue() but only relating to the severity filter</returns>
-	static inline cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false) {
-		return AELogParser::filterQueue(ptr, severity, strictSeverity, AELP_NO_MODULENAME);
+	static inline cint filterQueueType(AELogEntry*& ptr, const cint severity, const bool strictSeverity = false, const bool reallocQueue = true) {
+		return AELogParser::filterQueue(ptr, severity, strictSeverity, AELP_NO_MODULENAME, reallocQueue);
 	}
 
 	/// <summary>
@@ -317,9 +321,11 @@ public:
 	/// </summary>
 	/// <param name="ptr">The pointer to the existing queue</param>
 	/// <param name="mname">The module name of the log entry to filter for</param>
+	/// <param name="reallocQueue">Flag to reallocate the filtered queue (reduces the final memory usage)</param>
+	/// @warning Use reallocQueue flag only if the queue was allocated on the heap (like with AELogParser::logToQueue(). Otherwise (if it's stack-allocated) it will try to delete[] the stack memory
 	/// <returns>Same values as AELogParser::filterQueue() but only relating to the module name filter</returns>
-	static inline cint filterQueueName(AELogEntry*& ptr, const std::string_view mname) {
-		return AELogParser::filterQueue(ptr, AELP_SEVERITY_ALL, false, mname);
+	static inline cint filterQueueName(AELogEntry*& ptr, const std::string_view mname, const bool reallocQueue = true) {
+		return AELogParser::filterQueue(ptr, AELP_SEVERITY_ALL, false, mname, reallocQueue);
 	}
 
 

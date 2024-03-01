@@ -131,7 +131,7 @@ cint AELogParser::logToQueue(AELogEntry*& begin, const cint severity, const bool
 	return retval;
 }
 
-cint AELogParser::filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname) {
+cint AELogParser::filterQueue(AELogEntry*& ptr, const cint severity, const bool strictSeverity, const std::string_view mname, const bool reallocQueue) {
 	// error handling
 	if (ptr == nullptr) { // nullptr was passed, lol
 		return AELP_ERR_INVALID_QUEUE;
@@ -185,18 +185,20 @@ foundSeverity:
 	}
 	past->m_pNextNode = nullptr;
 
-	//clean up the queue
-	//or...make a new, smaller queue instead!
-	cur = ptr;
-	AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
-	AELogEntry* iter = newQueue;
-	while (cur) {
-		iter->copyEntry(*cur);
-		iter = iter->m_pNextNode;
-		cur = cur->m_pNextNode;
+	if (reallocQueue) {
+		//clean up the queue
+		//or...make a new, smaller queue instead!
+		cur = ptr;
+		AELogEntry* const newQueue = AELogEntry::makeQueue(newQueueSize, false);
+		AELogEntry* iter = newQueue;
+		while (cur) {
+			iter->copyEntry(*cur);
+			iter = iter->m_pNextNode;
+			cur = cur->m_pNextNode;
+		}
+		delete[] ptr;
+		ptr = newQueue;
 	}
-	delete[] ptr;
-	ptr = newQueue;
 
 	return AELP_ERR_NOERROR;
 }
