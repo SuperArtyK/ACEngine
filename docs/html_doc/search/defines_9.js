@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['microsec_0',['microSec',['../dc/d89/_a_e_typedefs_8hpp.html#ac0e26bf3aaeae4fcabbff362eb4dd3a4',1,'AETypedefs.hpp']]],
-  ['millisec_1',['milliSec',['../dc/d89/_a_e_typedefs_8hpp.html#a559364c19c1c80c7a63a7ca43ec71874',1,'AETypedefs.hpp']]],
-  ['mod0_2',['mod0',['../de/de8/_a_e_utils_8hpp.html#a0b18554cc402bdf206516c506cc83ce6',1,'AEUtils.hpp']]]
+  ['nlc_0',['NLC',['../de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340',1,'AEUtils.hpp']]],
+  ['nls_1',['NLS',['../de/de8/_a_e_utils_8hpp.html#acc1931a50f4cdc27035829dbb830d22a',1,'AEUtils.hpp']]]
 ];

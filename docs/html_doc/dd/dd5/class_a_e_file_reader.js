@@ -48,6 +48,6 @@ var class_a_e_file_reader =
     [ "m_fpFilestr", "dd/dd5/class_a_e_file_reader.html#ae4c35d3e1af1bffbcc684dab2017f24d", null ],
     [ "m_sFilename", "dd/dd5/class_a_e_file_reader.html#aed38f6c7a1032a0d4a0db205ff4ebb15", null ],
     [ "m_szLastReadAmount", "dd/dd5/class_a_e_file_reader.html#a1bea127bba2ee9a6f13d71f8e17acd3d", null ],
-    [ "m_ullModulesAlive", "dd/dd5/class_a_e_file_reader.html#a743510be245f7b22abe7959c190497df", null ],
+    [ "m_ullModulesAlive", "dd/dd5/class_a_e_file_reader.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ],
     [ "m_ullTotalReads", "dd/dd5/class_a_e_file_reader.html#a95b7e3bd96a862b5be938162aeb9ae46", null ]
 ];

@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -41,7 +41,7 @@ AEMisc/include/AEUtils.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBarrsize\fP(\fBarr\fP)   (\fBsizeof\fP(\fBarr\fP) / \fBsizeof\fP(\fBarr\fP[0]) )"
+.RI "#define \fBarrsize\fP(arr)   (sizeof(arr) / sizeof(arr[0]) )"
 .br
 .RI "Macro for the calculation of static, compile-time array 
 .PP
@@ -52,7 +52,7 @@ AEMisc/include/AEUtils.hpp
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBmod0\fP(\fBdividend\fP,  \fBdivisor\fP)   !(\fBdividend\fP % \fBdivisor\fP)"
+.RI "#define \fBmod0\fP(dividend,  divisor)   !(dividend % divisor)"
 .br
 .RI "Macro for the check if modulo of x and y results in 0 
 .PP
@@ -65,7 +65,7 @@ AEMisc/include/AEUtils.hpp
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBgetBit\fP(\fBvalue\fP,  \fBbit\fP)   (\fBvalue\fP& (1 << \fBbit\fP))"
+.RI "#define \fBgetBit\fP(value,  bit)   (value& (1 << bit))"
 .br
 .RI "Macro to get the bit of the given value (bitwise operations) 
 .PP
@@ -78,19 +78,19 @@ AEMisc/include/AEUtils.hpp
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBaceAssert\fP(\fBexpression\fP,  \fBmessage\fP)   \fBif\fP ( !(\fBexpression\fP) ) { \fBstd::cerr\fP << '\\n\\nAssertion \fBfailed!\\nExpression:\fP ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << \fBstd::endl\fP; \fBabort\fP(); }"
+.RI "#define \fBaceAssert\fP(expression,  message)   if ( !(expression) ) { std::cerr << '\\n\\nAssertion failed!\\nExpression: ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << std::endl; abort(); }"
 .br
 .RI "Better-fomatted assertion for runtime checks\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBdprintf\fP(\&.\&.\&.)   \fBif\fP \fBconstexpr\fP (\fBENGINE_DEBUG\fP) { \fBprintf\fP('DEBUG::%\fBs\fP()\-> ', __FUNCTION__); \fBprintf\fP(\fB__VA_ARGS__\fP); \fBprintf\fP('\\n'); }"
+.RI "#define \fBdprintf\fP(\&.\&.\&.)   if constexpr (\fBENGINE_DEBUG\fP) { printf('DEBUG::%s()\-> ', __FUNCTION__); printf(__VA_ARGS__); printf('\\n'); }"
 .br
-.RI "Macro for the debug \fBprintf()\fP printing, use the same way as you have used printf before\&. "
+.RI "Macro for the debug printf() printing, use the same way as you have used printf before\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBIS_SAME_NOC\fP(T,  \fBY\fP)   (\fBstd::is_same\fP<\fBtypename\fP \fBstd::decay\fP<\fBconst\fP T>\fB::type\fP, \fBtypename\fP \fBstd::decay\fP<\fBconst\fP \fBY\fP>\fB::type\fP>\fB::value\fP)"
+.RI "#define \fBIS_SAME_NOC\fP(T,  Y)   (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)"
 .br
 .RI "Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBUTF8\fP(\fBx\fP)   \fBu8\fP ## \fBx\fP"
+.RI "#define \fBUTF8\fP(x)   u8 ## x"
 .br
 .RI "Macro to convert the normal string literal to utf-8/unicode string literal; u8'Hello World!' 
 .PP
@@ -101,7 +101,7 @@ AEMisc/include/AEUtils.hpp
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBWSTR\fP(\fBx\fP)   \fBL\fP ## \fBx\fP"
+.RI "#define \fBWSTR\fP(x)   L ## x"
 .br
 .RI "Macro to convert the 'string literal' to L'wide string literal' 
 .PP
@@ -112,7 +112,15 @@ AEMisc/include/AEUtils.hpp
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBaeoffsetof\fP(\fBtype\fP,  \fBmember\fP)   (\fBintptr_t\fP)&(((\fBtype\fP*)\fBNULL\fP)\->\fBmember\fP)"
+.RI "#define \fBSTR\fP(x)   \fB_STR_HELPER\fP(x)"
+.br
+.RI "Macro to convert the passed non-string literals to a string literal That can be another number macro, or random garbage (abcdef will work too, turns into 'abcdef') "
+.ti -1c
+.RI "#define \fB_STR_HELPER\fP(x)   #x"
+.br
+.RI "The macro helper to convert stuff into a string literal\&. "
+.ti -1c
+.RI "#define \fBaeoffsetof\fP(type,  member)   (intptr_t)&(((type*)NULL)\->member)"
 .br
 .RI "Offsetof alternative if the compiler doesn't support the offsetof natively 
 .PP
@@ -125,15 +133,15 @@ AEMisc/include/AEUtils.hpp
 .PP
 "
 .ti -1c
-.RI "#\fBdefine\fP \fBNLC\fP   '\\\fBn\fP'"
+.RI "#define \fBNLC\fP   '\\n'"
 .br
-.RI "Macro for newline char\&. "
+.RI "Macro for newline char literal\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBNLS\fP   '\\n'"
+.RI "#define \fBNLS\fP   '\\n'"
 .br
-.RI "Macro for newline string\&. "
+.RI "Macro for newline string literal\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBDATETIME_STRING_SIZE\fP   20"
+.RI "#define \fBDATETIME_STRING_SIZE\fP   20"
 .br
 .RI "Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP "
 .in -1c
@@ -141,78 +149,78 @@ AEMisc/include/AEUtils.hpp
 
 .in +1c
 .ti -1c
-.RI "\fBconstexpr\fP \fBconst\fP char * \fBace::utils::boolToString\fP (\fBconst\fP bool \fBb\fP) \fBnoexcept\fP"
+.RI "constexpr const char * \fBace::utils::boolToString\fP (const bool b) noexcept"
 .br
 .RI "Converts bool to the word version\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T, \fBtypename\fP \fBU\fP  = T> \fBconstexpr\fP bool \fBace::utils::isInRange\fP (\fBconst\fP T \fBminval\fP, \fBconst\fP \fBY\fP \fBmaxval\fP, \fBconst\fP \fBU\fP \fBi\fP) \fBnoexcept\fP"
+.RI "template<typename T , typename Y  = T, typename U  = T> constexpr bool \fBace::utils::isInRange\fP (const T minval, const Y maxval, const U i) noexcept"
 .br
 .RI "Checks if the value that you passed is within range\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBace::utils::toLowerRef\fP (std::string &\fBstr1\fP)"
+.RI "void \fBace::utils::toLowerRef\fP (std::string &str1)"
 .br
 .RI "Lowers the passed std::string by reference\&. "
 .ti -1c
-.RI "std::string \fBace::utils::toLowerVal\fP (std::string \fBstr1\fP)"
+.RI "std::string \fBace::utils::toLowerVal\fP (std::string str1)"
 .br
 .RI "Returns the lowered version of passed std::string\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBace::utils::toUpperRef\fP (std::string &\fBstr1\fP)"
+.RI "void \fBace::utils::toUpperRef\fP (std::string &str1)"
 .br
 .RI "Uppers the passed std::string by reference\&. "
 .ti -1c
-.RI "std::string \fBace::utils::toUpperVal\fP (std::string \fBstr1\fP)"
+.RI "std::string \fBace::utils::toUpperVal\fP (std::string str1)"
 .br
 .RI "Returns the uppered version of passed std::string\&. "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBace::utils::isNum\fP (\fBconst\fP char *\fBconst\fP \fBstrnum\fP) \fBnoexcept\fP"
+.RI "template<const bool checkFloat = true> constexpr bool \fBace::utils::isNum\fP (const std::string_view strnum) noexcept"
 .br
 .RI "Checks if the given string is a numerical value\&. "
 .ti -1c
-.RI "std::string \fBace::utils::formatDate\fP (\fBconst\fP time_t \fBtimept\fP)"
+.RI "std::string \fBace::utils::formatDate\fP (const time_t timept)"
 .br
 .RI "Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. "
 .ti -1c
-.RI "char * \fBace::utils::formatDate\fP (\fBconst\fP time_t \fBtimept\fP, char *\fBconst\fP \fBstr\fP) \fBnoexcept\fP"
+.RI "char * \fBace::utils::formatDate\fP (const time_t timept, char *const str) noexcept"
 .br
 .RI "Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. "
 .ti -1c
-.RI "std::string \fBace::utils::getCurrentDate\fP (\fBvoid\fP)"
+.RI "std::string \fBace::utils::getCurrentDate\fP (void)"
 .br
 .RI "Retrieves the current date and time and formats it in the YYYY-MM-DD\&.HH:mm:SS\&. "
 .ti -1c
-.RI "time_t \fBace::utils::stringToDate\fP (\fBconst\fP char *\fBconst\fP \fBtimestr\fP, \fBconst\fP char *\fBconst\fP \fBtimeformat\fP='%Y\-%\fBm\fP\-%d\&.%\fBX'\fP)"
+.RI "time_t \fBace::utils::stringToDate\fP (const char *const timestr, const char *const timeformat='%Y\-%m\-%d\&.%X')"
 .br
 .ti -1c
-.RI "std::string \fBace::utils::addrToStr\fP (\fBconst\fP \fBvoid\fP *\fBconst\fP \fBmyptr\fP) \fBnoexcept\fP"
+.RI "std::string \fBace::utils::addrToStr\fP (const void *const myptr) noexcept"
 .br
 .RI "Converts the hex address value to string\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBace::utils::sleepMS\fP (\fBconst\fP \fBint\fP \fBms\fP) \fBnoexcept\fP"
+.RI "void \fBace::utils::sleepMS\fP (const int ms) noexcept"
 .br
 .RI "Convenient sleep function to sleep the thread for ms milliseconds\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBace::utils::sleepUS\fP (\fBconst\fP \fBint\fP \fBus\fP) \fBnoexcept\fP"
+.RI "void \fBace::utils::sleepUS\fP (const int us) noexcept"
 .br
 .RI "Convenient sleep function to sleep the thread for ms microseconds\&. "
 .ti -1c
-.RI "std::FILE * \fBace::utils::fopenCC\fP (\fBconst\fP char *\fBconst\fP \fBfname\fP, \fBconst\fP char *\fBconst\fP \fBflags\fP) \fBnoexcept\fP"
+.RI "std::FILE * \fBace::utils::fopenCC\fP (const char *const fname, const char *const flags) noexcept"
 .br
 .RI "fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it properly\&. "
 .ti -1c
-.RI "\fBconstexpr\fP \fBint\fP \fBace::utils::charToInt\fP (\fBconst\fP char \fBc\fP) \fBnoexcept\fP"
+.RI "constexpr int \fBace::utils::charToInt\fP (const char c) noexcept"
 .br
 .RI "Converts the given character value to int ('0' to 0), if it is within the '0'->'9' range\&. "
 .ti -1c
-.RI "\fBconstexpr\fP char \fBace::utils::intToChar\fP (\fBconst\fP \fBint\fP \fBi\fP) \fBnoexcept\fP"
+.RI "constexpr char \fBace::utils::intToChar\fP (const int i) noexcept"
 .br
 .RI "Converts the given int value to char (0 to '0'), if it is within the 0->9 range\&. "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBace::utils::isAlNum\fP (\fBconst\fP std::string_view \fBstr\fP)"
+.RI "constexpr bool \fBace::utils::isAlNum\fP (const std::string_view str)"
 .br
 .RI "Checks if the passed string is alpha-numeric (contains only numbers and english letters) "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBace::utils::isAlNumUs\fP (\fBconst\fP std::string_view \fBstr\fP)"
+.RI "constexpr bool \fBace::utils::isAlNumUs\fP (const std::string_view str)"
 .br
 .RI "Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores) "
 .in -1c
@@ -225,7 +233,20 @@ Should not cause everything to break :)
 Definition in file \fBAEUtils\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP aceAssert(\fBexpression\fP, \fBmessage\fP)   \fBif\fP ( !(\fBexpression\fP) ) { \fBstd::cerr\fP << '\\n\\nAssertion \fBfailed!\\nExpression:\fP ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << \fBstd::endl\fP; \fBabort\fP(); }"
+.SS "#define _STR_HELPER(x)   #x"
+
+.PP
+The macro helper to convert stuff into a string literal\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBSTR()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB89\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define aceAssert(expression, message)   if ( !(expression) ) { std::cerr << '\\n\\nAssertion failed!\\nExpression: ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << std::endl; abort(); }"
 
 .PP
 Better-fomatted assertion for runtime checks\&. 
@@ -246,7 +267,7 @@ Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined
 
 .PP
 Definition at line \fB51\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP aeoffsetof(\fBtype\fP, \fBmember\fP)   (\fBintptr_t\fP)&(((\fBtype\fP*)\fBNULL\fP)\->\fBmember\fP)"
+.SS "#define aeoffsetof(type, member)   (intptr_t)&(((type*)NULL)\->member)"
 
 .PP
 Offsetof alternative if the compiler doesn't support the offsetof natively 
@@ -260,8 +281,8 @@ Offsetof alternative if the compiler doesn't support the offsetof natively
 .PP
 
 .PP
-Definition at line \fB85\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP arrsize(\fBarr\fP)   (\fBsizeof\fP(\fBarr\fP) / \fBsizeof\fP(\fBarr\fP[0]) )"
+Definition at line \fB97\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define arrsize(arr)   (sizeof(arr) / sizeof(arr[0]) )"
 
 .PP
 Macro for the calculation of static, compile-time array 
@@ -274,16 +295,16 @@ Macro for the calculation of static, compile-time array
 
 .PP
 Definition at line \fB34\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP DATETIME_STRING_SIZE   20"
+.SS "#define DATETIME_STRING_SIZE   20"
 
 .PP
 Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP 
 .PP
-Definition at line \fB102\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP dprintf( \&.\&.\&.)   \fBif\fP \fBconstexpr\fP (\fBENGINE_DEBUG\fP) { \fBprintf\fP('DEBUG::%\fBs\fP()\-> ', __FUNCTION__); \fBprintf\fP(\fB__VA_ARGS__\fP); \fBprintf\fP('\\n'); }"
+Definition at line \fB114\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define dprintf( \&.\&.\&.)   if constexpr (\fBENGINE_DEBUG\fP) { printf('DEBUG::%s()\-> ', __FUNCTION__); printf(__VA_ARGS__); printf('\\n'); }"
 
 .PP
-Macro for the debug \fBprintf()\fP printing, use the same way as you have used printf before\&. 
+Macro for the debug printf() printing, use the same way as you have used printf before\&. 
 .PP
 \fBNote\fP
 .RS 4
@@ -295,7 +316,7 @@ Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined
 
 .PP
 Definition at line \fB60\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP getBit(\fBvalue\fP, \fBbit\fP)   (\fBvalue\fP& (1 << \fBbit\fP))"
+.SS "#define getBit(value, bit)   (value& (1 << bit))"
 
 .PP
 Macro to get the bit of the given value (bitwise operations) 
@@ -310,7 +331,7 @@ Macro to get the bit of the given value (bitwise operations)
 
 .PP
 Definition at line \fB44\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP IS_SAME_NOC(T, \fBY\fP)   (\fBstd::is_same\fP<\fBtypename\fP \fBstd::decay\fP<\fBconst\fP T>\fB::type\fP, \fBtypename\fP \fBstd::decay\fP<\fBconst\fP \fBY\fP>\fB::type\fP>\fB::value\fP)"
+.SS "#define IS_SAME_NOC(T, Y)   (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)"
 
 .PP
 Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same\&. 
@@ -331,7 +352,7 @@ It decays both types and omits const-ness
 
 .PP
 Definition at line \fB70\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP mod0(\fBdividend\fP, \fBdivisor\fP)   !(\fBdividend\fP % \fBdivisor\fP)"
+.SS "#define mod0(dividend, divisor)   !(dividend % divisor)"
 
 .PP
 Macro for the check if modulo of x and y results in 0 
@@ -346,19 +367,42 @@ Macro for the check if modulo of x and y results in 0
 
 .PP
 Definition at line \fB39\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP NLC   '\\\fBn\fP'"
+.SS "#define NLC   '\\n'"
 
 .PP
-Macro for newline char\&. 
+Macro for newline char literal\&. 
 .PP
-Definition at line \fB96\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP NLS   '\\n'"
+Definition at line \fB108\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define NLS   '\\n'"
 
 .PP
-Macro for newline string\&. 
+Macro for newline string literal\&. 
 .PP
-Definition at line \fB99\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP UTF8(\fBx\fP)   \fBu8\fP ## \fBx\fP"
+Definition at line \fB111\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define STR(x)   \fB_STR_HELPER\fP(x)"
+
+.PP
+Macro to convert the passed non-string literals to a string literal That can be another number macro, or random garbage (abcdef will work too, turns into 'abcdef') 
+.PP
+\fBWarning\fP
+.RS 4
+If a string literal was passed, then it will have the quotation marks as escape characters 
+.PP
+Example STR('abc') will result into '\\'abc\\'' literal 
+.PP
+Doesn't work on composed macros (macros that consist of other macros within themselves) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP The stuff to convert to a string literal
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB85\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define UTF8(x)   u8 ## x"
 
 .PP
 Macro to convert the normal string literal to utf-8/unicode string literal; u8'Hello World!' 
@@ -371,7 +415,7 @@ Macro to convert the normal string literal to utf-8/unicode string literal; u8'H
 
 .PP
 Definition at line \fB74\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#\fBdefine\fP WSTR(\fBx\fP)   \fBL\fP ## \fBx\fP"
+.SS "#define WSTR(x)   L ## x"
 
 .PP
 Macro to convert the 'string literal' to L'wide string literal' 

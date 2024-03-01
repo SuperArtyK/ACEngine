@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AETypedefs.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AETypedefs.hpp" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,95 +17,87 @@ AEMisc/include/AETypedefs.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBUCINT_MAX\fP   \fBUCHAR_MAX\fP"
+.RI "#define \fBUCINT_MAX\fP   UCHAR_MAX"
 .br
 .RI "Macro for the maximum value of the ucint type (unsigned char/8bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBUCINT_MIN\fP   0"
+.RI "#define \fBUCINT_MIN\fP   0"
 .br
 .RI "Macro for the minimum value of the ucint type (unsigned char/8bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBCINT_MAX\fP   \fBSCHAR_MAX\fP"
+.RI "#define \fBCINT_MAX\fP   SCHAR_MAX"
 .br
 .RI "Macro for the maximum value of the cint type (signed char/8bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBCINT_MIN\fP   \fBSCHAR_MIN\fP"
+.RI "#define \fBCINT_MIN\fP   SCHAR_MIN"
 .br
 .RI "Macro for the minimum value of the cint type (signed char/8bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBULLINT_MAX\fP   \fBULLONG_MAX\fP"
+.RI "#define \fBULLINT_MAX\fP   ULLONG_MAX"
 .br
 .RI "Macro for the maximum value of the ullint type (unsigned long long/64bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBULLINT_MIN\fP   0"
+.RI "#define \fBULLINT_MIN\fP   0"
 .br
 .RI "Macro for the minimum value of the ullint type (unsigned long long/64bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBLLINT_MAX\fP   \fBLLONG_MAX\fP"
+.RI "#define \fBLLINT_MAX\fP   LLONG_MAX"
 .br
 .RI "Macro for the maximum value of the llint type (signed long long/64bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBLLINT_MIN\fP   \fBLLONG_MIN\fP"
+.RI "#define \fBLLINT_MIN\fP   LLONG_MIN"
 .br
 .RI "Macro for the minimum value of the llint type (signed long long/64bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBSINT_MAX\fP   \fBINT32_MAX\fP"
+.RI "#define \fBSINT_MAX\fP   INT32_MAX"
 .br
 .RI "Macro for the maximum value of the sint type (signed 32bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBSINT_MIN\fP   \fBINT32_MIN\fP"
+.RI "#define \fBSINT_MIN\fP   INT32_MIN"
 .br
 .RI "Macro for the minimum value of the sint type (signed 32bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBUINT_MIN\fP   0"
+.RI "#define \fBUINT_MIN\fP   0"
 .br
 .RI "Macro for the minimum value of the uint type (unsigned long long/64bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBUSHRT_MIN\fP   0"
+.RI "#define \fBUSHRT_MIN\fP   0"
 .br
 .RI "Macro for the minimum value of the ushrt type (unsigned short/16bit int) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAENULL\fP   0"
+.RI "#define \fBAENULL\fP   0"
 .br
 .RI "Macro for the NULL as a 0, not a pointer (we have nullptr for that) "
 .ti -1c
-.RI "#\fBdefine\fP \fBgetSysTime\fP()   \fBstd::chrono::system_clock::now\fP()"
+.RI "#define \fBgetSysTime\fP()   std::chrono::system_clock::now()"
 .br
-.RI "A macro to get the system time's \fBnow()\fP "
+.RI "A macro to get the system time's now() "
 .ti -1c
-.RI "#\fBdefine\fP \fBgetHighResTime\fP()   \fBstd::chrono::high_resolution_clock::now\fP()"
+.RI "#define \fBgetHighResTime\fP()   std::chrono::high_resolution_clock::now()"
 .br
-.RI "A macro to get the high resolution time's \fBnow()\fP "
+.RI "A macro to get the high resolution time's now() "
 .ti -1c
-.RI "#\fBdefine\fP \fBgetSteadyTime\fP()   \fBstd::chrono::steady_clock::now\fP()"
+.RI "#define \fBgetSteadyTime\fP()   std::chrono::steady_clock::now()"
 .br
-.RI "A macro to get the steady time's \fBnow()\fP "
+.RI "A macro to get the steady time's now() "
 .ti -1c
-.RI "#\fBdefine\fP \fBcalculateTime\fP(\fBtp1\fP,  \fBtp2\fP,  \fBtype\fP)   \fBstd::chrono::duration\fP<\fBtype\fP>(\fBtp2\fP \- \fBtp1\fP)\&.\fBcount\fP()"
+.RI "#define \fBcalculateTime\fP(tp1,  tp2,  type)   std::chrono::duration<type>(tp2 \- tp1)\&.count()"
 .br
 .RI "A macro to calculate time between 2 timepoints as some type\&. "
 .ti -1c
-.RI "#define \fBtimePoint\fP   std::chrono::time_point"
-.br
-.RI "A macro as the shortcut of chrono's time point\&. I couldn't shove it into a typedef so\&.\&.\&.a macro\&. "
-.ti -1c
-.RI "#\fBdefine\fP \fBtimeDur\fP   \fBstd::chrono::duration\fP"
-.br
-.RI "A macro as the shortcut of chrono's time duration\&. Same reason as timePoint\&. "
-.ti -1c
-.RI "#\fBdefine\fP \fBmilliSec\fP(\fBms\fP)   \fBstd::chrono::milliseconds\fP(\fBms\fP)"
+.RI "#define \fBmilliSec\fP(ms)   std::chrono::milliseconds(ms)"
 .br
 .RI "A macro as the shortcut of chrono's milliseconds\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBmicroSec\fP(\fBus\fP)   \fBstd::chrono::microseconds\fP(\fBus\fP)"
+.RI "#define \fBmicroSec\fP(us)   std::chrono::microseconds(us)"
 .br
 .RI "A macro as the shortcut of chrono's microseconds\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBsleepUntil\fP(\fBsec\fP)   \fBstd::this_thread::sleep_until\fP(\fBsec\fP)"
+.RI "#define \fBsleepUntil\fP(sec)   std::this_thread::sleep_until(sec)"
 .br
 .RI "A macro as the shortcut of thread's sleep_until\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBsleepFor\fP(\fBsec\fP)   \fBstd::this_thread::sleep_for\fP(\fBsec\fP)"
+.RI "#define \fBsleepFor\fP(sec)   std::this_thread::sleep_for(sec)"
 .br
 .RI "A macro as the shortcut of thread's sleep_for\&. "
 .in -1c
@@ -113,45 +105,53 @@ AEMisc/include/AETypedefs.hpp
 
 .in +1c
 .ti -1c
-.RI "\fBtypedef\fP \fBuint8_t\fP \fBucint\fP"
+.RI "typedef uint8_t \fBucint\fP"
 .br
 .RI "A shortcut for small unsigned (char) integer (8bit) "
 .ti -1c
-.RI "\fBtypedef\fP int8_t \fBcint\fP"
+.RI "typedef int8_t \fBcint\fP"
 .br
 .RI "A shortcut for small signed (char) integer (8bit) "
 .ti -1c
-.RI "\fBtypedef\fP \fBunsigned\fP \fBlong\fP \fBlong\fP \fBullint\fP"
+.RI "typedef unsigned long long \fBullint\fP"
 .br
 .RI "A shortcut for big unsigned (long long) integer (64bit) "
 .ti -1c
-.RI "\fBtypedef\fP \fBlong\fP \fBlong\fP \fBllint\fP"
+.RI "typedef long long \fBllint\fP"
 .br
 .RI "A shortcut for big signed (long long) integer (64bit) "
 .ti -1c
-.RI "\fBtypedef\fP \fBsigned\fP \fBint\fP \fBsint\fP"
+.RI "typedef signed int \fBsint\fP"
 .br
 .RI "A shortcut for a just signed int (32bit) "
 .ti -1c
-.RI "\fBtypedef\fP \fBunsigned\fP \fBint\fP \fBuint\fP"
+.RI "typedef unsigned int \fBuint\fP"
 .br
 .RI "A shortcut for a just unsigned int (32bit) "
 .ti -1c
-.RI "\fBtypedef\fP \fBunsigned\fP short \fBushort\fP"
+.RI "typedef unsigned short \fBushort\fP"
 .br
 .RI "A shortcut for a just unsigned short (at least 16 bit) "
 .ti -1c
-.RI "\fBtypedef\fP \fBstd::chrono::system_clock\fP \fBSysTime\fP"
+.RI "typedef std::chrono::system_clock \fBSysClock\fP"
 .br
 .RI "A shortcut for chrono's system time\&. "
 .ti -1c
-.RI "\fBtypedef\fP \fBstd::chrono::high_resolution_clock\fP \fBHighResTime\fP"
+.RI "typedef std::chrono::high_resolution_clock \fBHighResClock\fP"
 .br
 .RI "A shortcut for chrono's high resolution time\&. "
 .ti -1c
-.RI "\fBtypedef\fP \fBstd::chrono::steady_clock\fP \fBSteadyTime\fP"
+.RI "typedef std::chrono::steady_clock \fBSteadyClock\fP"
 .br
 .RI "A shortcut for chrono's steady time\&. "
+.ti -1c
+.RI "template<class Clock , class Duration  = typename Clock::duration> using \fBtimePoint\fP = std::chrono::time_point<Clock, Duration>"
+.br
+.RI "An alias for the std::chrono::time_point to not type\&.\&.\&.as much\&. "
+.ti -1c
+.RI "template<class Rep , class Period  = std::ratio<1>> using \fBtimeDur\fP = std::chrono::duration<Rep, Period>"
+.br
+.RI "A macro as the shortcut of chrono's time duration\&. Same reason as timePoint\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -162,13 +162,13 @@ Should not cause everything to break :)
 Definition in file \fBAETypedefs\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP AENULL   0"
+.SS "#define AENULL   0"
 
 .PP
 Macro for the NULL as a 0, not a pointer (we have nullptr for that) 
 .PP
 Definition at line \fB82\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP calculateTime(\fBtp1\fP, \fBtp2\fP, \fBtype\fP)   \fBstd::chrono::duration\fP<\fBtype\fP>(\fBtp2\fP \- \fBtp1\fP)\&.\fBcount\fP()"
+.SS "#define calculateTime(tp1, tp2, type)   std::chrono::duration<type>(tp2 \- tp1)\&.count()"
 
 .PP
 A macro to calculate time between 2 timepoints as some type\&. 
@@ -185,49 +185,49 @@ A macro to calculate time between 2 timepoints as some type\&.
 
 .PP
 Definition at line \fB110\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP CINT_MAX   \fBSCHAR_MAX\fP"
+.SS "#define CINT_MAX   SCHAR_MAX"
 
 .PP
 Macro for the maximum value of the cint type (signed char/8bit int) 
 .PP
 Definition at line \fB51\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP CINT_MIN   \fBSCHAR_MIN\fP"
+.SS "#define CINT_MIN   SCHAR_MIN"
 
 .PP
 Macro for the minimum value of the cint type (signed char/8bit int) 
 .PP
 Definition at line \fB54\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP getHighResTime()   \fBstd::chrono::high_resolution_clock::now\fP()"
+.SS "#define getHighResTime()   std::chrono::high_resolution_clock::now()"
 
 .PP
-A macro to get the high resolution time's \fBnow()\fP 
+A macro to get the high resolution time's now() 
 .PP
 Definition at line \fB100\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP getSteadyTime()   \fBstd::chrono::steady_clock::now\fP()"
+.SS "#define getSteadyTime()   std::chrono::steady_clock::now()"
 
 .PP
-A macro to get the steady time's \fBnow()\fP 
+A macro to get the steady time's now() 
 .PP
 Definition at line \fB103\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP getSysTime()   \fBstd::chrono::system_clock::now\fP()"
+.SS "#define getSysTime()   std::chrono::system_clock::now()"
 
 .PP
-A macro to get the system time's \fBnow()\fP 
+A macro to get the system time's now() 
 .PP
 Definition at line \fB97\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP LLINT_MAX   \fBLLONG_MAX\fP"
+.SS "#define LLINT_MAX   LLONG_MAX"
 
 .PP
 Macro for the maximum value of the llint type (signed long long/64bit int) 
 .PP
 Definition at line \fB63\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP LLINT_MIN   \fBLLONG_MIN\fP"
+.SS "#define LLINT_MIN   LLONG_MIN"
 
 .PP
 Macro for the minimum value of the llint type (signed long long/64bit int) 
 .PP
 Definition at line \fB66\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP microSec(\fBus\fP)   \fBstd::chrono::microseconds\fP(\fBus\fP)"
+.SS "#define microSec(us)   std::chrono::microseconds(us)"
 
 .PP
 A macro as the shortcut of chrono's microseconds\&. 
@@ -239,8 +239,8 @@ A macro as the shortcut of chrono's microseconds\&.
 .PP
 
 .PP
-Definition at line \fB124\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP milliSec(\fBms\fP)   \fBstd::chrono::milliseconds\fP(\fBms\fP)"
+Definition at line \fB140\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "#define milliSec(ms)   std::chrono::milliseconds(ms)"
 
 .PP
 A macro as the shortcut of chrono's milliseconds\&. 
@@ -252,20 +252,20 @@ A macro as the shortcut of chrono's milliseconds\&.
 .PP
 
 .PP
-Definition at line \fB120\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP SINT_MAX   \fBINT32_MAX\fP"
+Definition at line \fB136\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "#define SINT_MAX   INT32_MAX"
 
 .PP
 Macro for the maximum value of the sint type (signed 32bit int) 
 .PP
 Definition at line \fB69\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP SINT_MIN   \fBINT32_MIN\fP"
+.SS "#define SINT_MIN   INT32_MIN"
 
 .PP
 Macro for the minimum value of the sint type (signed 32bit int) 
 .PP
 Definition at line \fB72\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP sleepFor(\fBsec\fP)   \fBstd::this_thread::sleep_for\fP(\fBsec\fP)"
+.SS "#define sleepFor(sec)   std::this_thread::sleep_for(sec)"
 
 .PP
 A macro as the shortcut of thread's sleep_for\&. 
@@ -277,8 +277,8 @@ A macro as the shortcut of thread's sleep_for\&.
 .PP
 
 .PP
-Definition at line \fB134\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP sleepUntil(\fBsec\fP)   \fBstd::this_thread::sleep_until\fP(\fBsec\fP)"
+Definition at line \fB150\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "#define sleepUntil(sec)   std::this_thread::sleep_until(sec)"
 
 .PP
 A macro as the shortcut of thread's sleep_until\&. 
@@ -290,50 +290,38 @@ A macro as the shortcut of thread's sleep_until\&.
 .PP
 
 .PP
-Definition at line \fB130\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP timeDur   \fBstd::chrono::duration\fP"
-
-.PP
-A macro as the shortcut of chrono's time duration\&. Same reason as timePoint\&. 
-.PP
-Definition at line \fB116\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#define timePoint   std::chrono::time_point"
-
-.PP
-A macro as the shortcut of chrono's time point\&. I couldn't shove it into a typedef so\&.\&.\&.a macro\&. 
-.PP
-Definition at line \fB113\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP UCINT_MAX   \fBUCHAR_MAX\fP"
+Definition at line \fB146\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "#define UCINT_MAX   UCHAR_MAX"
 
 .PP
 Macro for the maximum value of the ucint type (unsigned char/8bit int) 
 .PP
 Definition at line \fB45\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP UCINT_MIN   0"
+.SS "#define UCINT_MIN   0"
 
 .PP
 Macro for the minimum value of the ucint type (unsigned char/8bit int) 
 .PP
 Definition at line \fB48\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP UINT_MIN   0"
+.SS "#define UINT_MIN   0"
 
 .PP
 Macro for the minimum value of the uint type (unsigned long long/64bit int) 
 .PP
 Definition at line \fB76\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP ULLINT_MAX   \fBULLONG_MAX\fP"
+.SS "#define ULLINT_MAX   ULLONG_MAX"
 
 .PP
 Macro for the maximum value of the ullint type (unsigned long long/64bit int) 
 .PP
 Definition at line \fB57\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP ULLINT_MIN   0"
+.SS "#define ULLINT_MIN   0"
 
 .PP
 Macro for the minimum value of the ullint type (unsigned long long/64bit int) 
 .PP
 Definition at line \fB60\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#\fBdefine\fP USHRT_MIN   0"
+.SS "#define USHRT_MIN   0"
 
 .PP
 Macro for the minimum value of the ushrt type (unsigned short/16bit int) 
@@ -341,61 +329,91 @@ Macro for the minimum value of the ushrt type (unsigned short/16bit int)
 Definition at line \fB79\fP of file \fBAETypedefs\&.hpp\fP\&.
 .SH "Typedef Documentation"
 .PP 
-.SS "\fBtypedef\fP int8_t \fBcint\fP"
+.SS "typedef int8_t \fBcint\fP"
 
 .PP
 A shortcut for small signed (char) integer (8bit) 
 .PP
 Definition at line \fB25\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBstd::chrono::high_resolution_clock\fP \fBHighResTime\fP"
+.SS "typedef std::chrono::high_resolution_clock \fBHighResClock\fP"
 
 .PP
 A shortcut for chrono's high resolution time\&. 
 .PP
 Definition at line \fB90\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBlong\fP \fBlong\fP \fBllint\fP"
+.SS "typedef long long \fBllint\fP"
 
 .PP
 A shortcut for big signed (long long) integer (64bit) 
 .PP
 Definition at line \fB31\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBsigned\fP \fBint\fP \fBsint\fP"
+.SS "typedef signed int \fBsint\fP"
 
 .PP
 A shortcut for a just signed int (32bit) 
 .PP
 Definition at line \fB34\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBstd::chrono::steady_clock\fP \fBSteadyTime\fP"
+.SS "typedef std::chrono::steady_clock \fBSteadyClock\fP"
 
 .PP
 A shortcut for chrono's steady time\&. 
 .PP
 Definition at line \fB93\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBstd::chrono::system_clock\fP \fBSysTime\fP"
+.SS "typedef std::chrono::system_clock \fBSysClock\fP"
 
 .PP
 A shortcut for chrono's system time\&. 
 .PP
 Definition at line \fB87\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBuint8_t\fP \fBucint\fP"
+.SS "template<class Rep , class Period  = std::ratio<1>> using \fBtimeDur\fP = std::chrono::duration<Rep, Period>"
+
+.PP
+A macro as the shortcut of chrono's time duration\&. Same reason as timePoint\&. An alias for the std::chrono::duration to not type as much
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIRep\fP An arithmetic type representing the number of ticks
+.br
+\fIPeriod\fP a std::ratio representing the tick period (i\&.e\&. the number of second's fractions per tick)
+.RE
+.PP
+
+.PP
+Definition at line \fB132\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "template<class Clock , class Duration  = typename Clock::duration> using \fBtimePoint\fP = std::chrono::time_point<Clock, Duration>"
+
+.PP
+An alias for the std::chrono::time_point to not type\&.\&.\&.as much\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIClock\fP The clock (system, hi-res, steady) on which this time point is measured
+.br
+\fIDuration\fP a std::chrono::duration type used to measure the time since epoch
+.RE
+.PP
+
+.PP
+Definition at line \fB121\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "typedef uint8_t \fBucint\fP"
 
 .PP
 A shortcut for small unsigned (char) integer (8bit) 
 .PP
 Definition at line \fB22\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBunsigned\fP \fBint\fP \fBuint\fP"
+.SS "typedef unsigned int \fBuint\fP"
 
 .PP
 A shortcut for a just unsigned int (32bit) 
 .PP
 Definition at line \fB37\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBunsigned\fP \fBlong\fP \fBlong\fP \fBullint\fP"
+.SS "typedef unsigned long long \fBullint\fP"
 
 .PP
 A shortcut for big unsigned (long long) integer (64bit) 
 .PP
 Definition at line \fB28\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "\fBtypedef\fP \fBunsigned\fP short \fBushort\fP"
+.SS "typedef unsigned short \fBushort\fP"
 
 .PP
 A shortcut for a just unsigned short (at least 16 bit) 

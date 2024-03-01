@@ -11,6 +11,7 @@ var _a_e_log_entry_8hpp =
     [ "AELE_FORMAT_MIN_SIZE", "dc/dc6/_a_e_log_entry_8hpp.html#aa9216535152f8fc490c250316be9a71f", null ],
     [ "AELE_FORMAT_STRING", "dc/dc6/_a_e_log_entry_8hpp.html#a3108e8a19d8760db5d2813b45b42a47e", null ],
     [ "AELE_FORMAT_STRING_DEBUG", "dc/dc6/_a_e_log_entry_8hpp.html#aeded7bbc8d1ebbf30876c1a5b408cc8a", null ],
+    [ "AELE_MESSAGE_DEBUG_SIZE", "dc/dc6/_a_e_log_entry_8hpp.html#a308c5243faf850513e2026ecbcf54638", null ],
     [ "AELE_PARSE_STRING_FULL", "dc/dc6/_a_e_log_entry_8hpp.html#a50af521311922fa79c281f986d3f3599", null ],
     [ "AELE_PARSE_STRING_JUST_VALIDATE", "dc/dc6/_a_e_log_entry_8hpp.html#acf3f616f26374373ed97a0b15b44b228", null ],
     [ "AELE_PARSE_STRING_MESSG", "dc/dc6/_a_e_log_entry_8hpp.html#a1e8e400196c71a10e3bfb7b7aa4f2a67", null ],

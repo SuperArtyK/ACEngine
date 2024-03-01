@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['nlc_0',['NLC',['../de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340',1,'AEUtils.hpp']]],
-  ['nls_1',['NLS',['../de/de8/_a_e_utils_8hpp.html#acc1931a50f4cdc27035829dbb830d22a',1,'AEUtils.hpp']]]
+  ['register_5fmodule_0',['REGISTER_MODULE',['../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf',1,'AEModuleBase.hpp']]]
 ];

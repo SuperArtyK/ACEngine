@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -61,19 +61,19 @@ AEMisc/include/AEMath.hpp
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::log2e\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBlog2(e)\fP value\&. "
+.RI "Engine's log2(e) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::log10e\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBlog10(e)\fP value\&. "
+.RI "Engine's log10(e) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::ln2\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBln(2)\fP value\&. "
+.RI "Engine's ln(2) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::ln10\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBln(10)\fP value\&. "
+.RI "Engine's ln(10) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBace::math::sqrtOf2\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
@@ -123,7 +123,7 @@ AEMisc/include/AEMath.hpp
 .br
 .RI "Calculates the sine of the given degrees\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> T \fBace::math::cosDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.RI "template<typename T  = long double> T \fBace::math::cosDeg\fP (const T degrees) noexcept"
 .br
 .RI "Calculates the cosine of the given degrees\&. "
 .ti -1c
@@ -159,7 +159,7 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP b
 .br
 .RI "Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBY\fP \fBnum2\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBace::math::equals\fP (\fBconst\fP T &\fBnum\fP, \fBconst\fP \fBY\fP &\fBnum2\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
 .ti -1c
@@ -175,11 +175,11 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP b
 .br
 .RI "Calculate the n'th root of a number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T \fBace::math::max\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T \fBace::math::max\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP \fBY\fP &\fBb\fP) \fBnoexcept\fP"
 .br
 .RI "Gets the biggest value between given two values\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T \fBace::math::min\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T \fBace::math::min\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP \fBY\fP &\fBb\fP) \fBnoexcept\fP"
 .br
 .RI "Gets the smallest value between given two values\&. "
 .ti -1c

@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['platform_5fid_0',['PLATFORM_ID',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'CMakeCXXCompilerId.cpp']]]
+  ['sint_5fmax_0',['SINT_MAX',['../dc/d89/_a_e_typedefs_8hpp.html#aba0afd3e5d286bcf0e7f2341c441c582',1,'AETypedefs.hpp']]],
+  ['sint_5fmin_1',['SINT_MIN',['../dc/d89/_a_e_typedefs_8hpp.html#aa936407e170ea9cac428d91070d8e717',1,'AETypedefs.hpp']]],
+  ['sleepfor_2',['sleepFor',['../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901',1,'AETypedefs.hpp']]],
+  ['sleepuntil_3',['sleepUntil',['../dc/d89/_a_e_typedefs_8hpp.html#a713bf3c1565c4abe7b2e41cd1c795957',1,'AETypedefs.hpp']]],
+  ['str_4',['STR',['../de/de8/_a_e_utils_8hpp.html#a18d295a837ac71add5578860b55e5502',1,'AEUtils.hpp']]]
 ];

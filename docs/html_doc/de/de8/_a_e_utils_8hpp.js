@@ -1,5 +1,6 @@
 var _a_e_utils_8hpp =
 [
+    [ "_STR_HELPER", "de/de8/_a_e_utils_8hpp.html#a935ab8eba47cbe4b0bf865931bfd4901", null ],
     [ "aceAssert", "de/de8/_a_e_utils_8hpp.html#a2223c0fea4b1e7a9eb8e0f20086a7e26", null ],
     [ "aeoffsetof", "de/de8/_a_e_utils_8hpp.html#a6a0a8fe6f06d23e4a7415db5a90d038d", null ],
     [ "arrsize", "de/de8/_a_e_utils_8hpp.html#ab9d7a2dfdef90a2f8526373fb708e76c", null ],
@@ -10,6 +11,7 @@ var _a_e_utils_8hpp =
     [ "mod0", "de/de8/_a_e_utils_8hpp.html#a0b18554cc402bdf206516c506cc83ce6", null ],
     [ "NLC", "de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340", null ],
     [ "NLS", "de/de8/_a_e_utils_8hpp.html#acc1931a50f4cdc27035829dbb830d22a", null ],
+    [ "STR", "de/de8/_a_e_utils_8hpp.html#a18d295a837ac71add5578860b55e5502", null ],
     [ "UTF8", "de/de8/_a_e_utils_8hpp.html#a84e0a3e6c7c2b7be64ecc2591eb613d8", null ],
     [ "WSTR", "de/de8/_a_e_utils_8hpp.html#aa5ef465b3cfb7b096648181199e8029c", null ],
     [ "addrToStr", "de/de8/_a_e_utils_8hpp.html#a3c244549a8a91ca1b88c9a8afddb55bf", null ],
@@ -23,7 +25,7 @@ var _a_e_utils_8hpp =
     [ "isAlNum", "de/de8/_a_e_utils_8hpp.html#ab7b0c29ad928aac8db8dde13860e8252", null ],
     [ "isAlNumUs", "de/de8/_a_e_utils_8hpp.html#ac3eadc5f289b54059322023f3c5eed96", null ],
     [ "isInRange", "de/de8/_a_e_utils_8hpp.html#a878c53ede8589dbc6a50734c9c4ad4d7", null ],
-    [ "isNum", "de/de8/_a_e_utils_8hpp.html#a2642828e30bfea319361b48b40e6c6c5", null ],
+    [ "isNum", "de/de8/_a_e_utils_8hpp.html#a4aae0b12ad0a6702a293e8cf8a5db385", null ],
     [ "sleepMS", "de/de8/_a_e_utils_8hpp.html#a1ae11f5aa96eafaa6765351bf3f9f974", null ],
     [ "sleepUS", "de/de8/_a_e_utils_8hpp.html#ae3cab8babc7164fe97d71c65b247e848", null ],
     [ "stringToDate", "de/de8/_a_e_utils_8hpp.html#aa4eb2977c40497242a679e5364f92c62", null ],

@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,63 +10,63 @@ AEMisc/include/AEFlags.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_DEBUG\fP   1"
+.RI "#define \fBENGINE_DEBUG\fP   1"
 .br
 .RI "Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_FPS\fP   60\&.0"
+.RI "#define \fBENGINE_FPS\fP   60\&.0"
 .br
 .RI "Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_ENABLE_GLOBAL_MODULES\fP   1"
+.RI "#define \fBENGINE_ENABLE_GLOBAL_MODULES\fP   1"
 .br
 .RI "Macro to enable the engine's global modules (like timer, logger, etc) "
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_ENABLE_ASSERT\fP   1"
+.RI "#define \fBENGINE_ENABLE_ASSERT\fP   1"
 .br
 .RI "Macro to enable the engine's assert code\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBENGINE_ENABLE_MATH_LOOKUP\fP   1"
+.RI "#define \fBENGINE_ENABLE_MATH_LOOKUP\fP   1"
 .br
 .RI "Macro to enable the engine's trigonometry lookup code\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAEFW_AUTOFLUSH_ENABLE\fP"
+.RI "#define \fBAEFW_AUTOFLUSH_ENABLE\fP"
 .br
 .RI "Macro to enable the auto-flushing mechanism\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAEFW_DEFAULT_AUTOFLUSH\fP   \fBtrue\fP"
+.RI "#define \fBAEFW_DEFAULT_AUTOFLUSH\fP   true"
 .br
 .RI "Macro for the default 'use auto-flush' argument value\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP   (\fBullint\fP)\-1"
+.RI "#define \fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP   (\fBullint\fP)\-1"
 .br
 .RI "Macro for the default auto-flush trigger value\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_DEFAULT_QUEUE_SIZE\fP   2048"
+.RI "#define \fBAELOG_DEFAULT_QUEUE_SIZE\fP   2048"
 .br
 .RI "Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_DEFAULT_MODULE_NAME\fP   'ACEngine'"
+.RI "#define \fBAELOG_DEFAULT_MODULE_NAME\fP   'ACEngine'"
 .br
 .RI "Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_DEFAULT_ALLOC_VECTOR_RESERVE\fP   32"
+.RI "#define \fBAELOG_DEFAULT_ALLOC_VECTOR_RESERVE\fP   32"
 .br
 .RI "Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELOG_DEFAULT_LOG_PATH\fP   '\&./logs/'"
+.RI "#define \fBAELOG_DEFAULT_LOG_PATH\fP   '\&./logs/'"
 .br
 .RI "Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_MESSAGE_SIZE\fP   511"
+.RI "#define \fBAELE_MESSAGE_SIZE\fP   511"
 .br
 .RI "The size of the \fBAELogEntry\fP message in characters (excluding null termination) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_MODULENAME_SIZE\fP   31"
+.RI "#define \fBAELE_MODULENAME_SIZE\fP   31"
 .br
 .RI "The size of the \fBAELogEntry\fP module name in characters (excluding null termination) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAEVEC_WRAP_DIMENSIONS\fP   1"
+.RI "#define \fBAEVEC_WRAP_DIMENSIONS\fP   1"
 .br
 .RI "A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. "
 .in -1c
@@ -79,7 +79,7 @@ Should not cause everything to break :)
 Definition in file \fBAEFlags\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP AEFW_AUTOFLUSH_ENABLE"
+.SS "#define AEFW_AUTOFLUSH_ENABLE"
 
 .PP
 Macro to enable the auto-flushing mechanism\&. 
@@ -92,31 +92,31 @@ Undefine or comment out to disable the feature\&.
 
 .PP
 Definition at line \fB35\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH   \fBtrue\fP"
+.SS "#define AEFW_DEFAULT_AUTOFLUSH   true"
 
 .PP
 Macro for the default 'use auto-flush' argument value\&. 
 .PP
 Definition at line \fB37\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
+.SS "#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
 
 .PP
 Macro for the default auto-flush trigger value\&. 
 .PP
 Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_MESSAGE_SIZE   511"
+.SS "#define AELE_MESSAGE_SIZE   511"
 
 .PP
 The size of the \fBAELogEntry\fP message in characters (excluding null termination) 
 .PP
 Definition at line \fB56\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_MODULENAME_SIZE   31"
+.SS "#define AELE_MODULENAME_SIZE   31"
 
 .PP
 The size of the \fBAELogEntry\fP module name in characters (excluding null termination) 
 .PP
 Definition at line \fB58\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
+.SS "#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
 
 .PP
 Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. 
@@ -129,7 +129,7 @@ I personally wouldn't advise to play with it\&.
 
 .PP
 Definition at line \fB48\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
+.SS "#define AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
 
 .PP
 Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. Like global modules\&. 
@@ -142,31 +142,31 @@ Currently used only in the globbal logger
 
 .PP
 Definition at line \fB52\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
+.SS "#define AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
 
 .PP
 Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. 
 .PP
 Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELOG_DEFAULT_QUEUE_SIZE   2048"
+.SS "#define AELOG_DEFAULT_QUEUE_SIZE   2048"
 
 .PP
 Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. 
 .PP
 Definition at line \fB43\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP AEVEC_WRAP_DIMENSIONS   1"
+.SS "#define AEVEC_WRAP_DIMENSIONS   1"
 
 .PP
 A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. 
 .PP
 Definition at line \fB63\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_DEBUG   1"
+.SS "#define ENGINE_DEBUG   1"
 
 .PP
 Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. 
 .PP
 Definition at line \fB18\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_ENABLE_ASSERT   1"
+.SS "#define ENGINE_ENABLE_ASSERT   1"
 
 .PP
 Macro to enable the engine's assert code\&. 
@@ -179,7 +179,7 @@ Macro to enable the engine's assert code\&.
 
 .PP
 Definition at line \fB26\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_ENABLE_GLOBAL_MODULES   1"
+.SS "#define ENGINE_ENABLE_GLOBAL_MODULES   1"
 
 .PP
 Macro to enable the engine's global modules (like timer, logger, etc) 
@@ -192,7 +192,7 @@ Undefine or comment-out to disable this feature
 
 .PP
 Definition at line \fB23\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_ENABLE_MATH_LOOKUP   1"
+.SS "#define ENGINE_ENABLE_MATH_LOOKUP   1"
 
 .PP
 Macro to enable the engine's trigonometry lookup code\&. 
@@ -205,7 +205,7 @@ Macro to enable the engine's trigonometry lookup code\&.
 
 .PP
 Definition at line \fB29\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#\fBdefine\fP ENGINE_FPS   60\&.0"
+.SS "#define ENGINE_FPS   60\&.0"
 
 .PP
 Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)\&. 

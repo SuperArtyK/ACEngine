@@ -1,4 +1,4 @@
-.TH "ace::math" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::math" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -41,19 +41,19 @@ ace::math \- Mathematical functions and other things usefull in math\&.
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBlog2e\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBlog2(e)\fP value\&. "
+.RI "Engine's log2(e) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBlog10e\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBlog10(e)\fP value\&. "
+.RI "Engine's log10(e) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBln2\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBln(2)\fP value\&. "
+.RI "Engine's ln(2) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBln10\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Engine's \fBln(10)\fP value\&. "
+.RI "Engine's ln(10) value\&. "
 .ti -1c
 .RI "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T \fBsqrtOf2\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
@@ -103,7 +103,7 @@ ace::math \- Mathematical functions and other things usefull in math\&.
 .br
 .RI "Calculates the sine of the given degrees\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T  = long double> T \fBcosDeg\fP (\fBconst\fP T \fBdegrees\fP) \fBnoexcept\fP"
+.RI "template<typename T  = long double> T \fBcosDeg\fP (const T degrees) noexcept"
 .br
 .RI "Calculates the cosine of the given degrees\&. "
 .ti -1c
@@ -139,7 +139,7 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP b
 .br
 .RI "Checks if given 2 floats of type T are equal, using default epsilon (scaled to current values) "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBequals\fP (\fBconst\fP T \fBnum\fP, \fBconst\fP \fBY\fP \fBnum2\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool \fBequals\fP (\fBconst\fP T &\fBnum\fP, \fBconst\fP \fBY\fP &\fBnum2\fP) \fBnoexcept\fP"
 .br
 .RI "Checks if given 2 numbers are equal, a generic function for all types\&. "
 .ti -1c
@@ -155,11 +155,11 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBconstexpr\fP b
 .br
 .RI "Calculate the n'th root of a number\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T \fBmax\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T \fBmax\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP \fBY\fP &\fBb\fP) \fBnoexcept\fP"
 .br
 .RI "Gets the biggest value between given two values\&. "
 .ti -1c
-.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T \fBmin\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP T &\fBb\fP) \fBnoexcept\fP"
+.RI "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T \fBmin\fP (\fBconst\fP T &\fBa\fP, \fBconst\fP \fBY\fP &\fBb\fP) \fBnoexcept\fP"
 .br
 .RI "Gets the smallest value between given two values\&. "
 .ti -1c
@@ -385,7 +385,7 @@ The ceiled integer of type T, from the given float number
 
 .PP
 Definition at line \fB650\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T  = long double> T ace::math::cosDeg (\fBconst\fP T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "template<typename T  = long double> T ace::math::cosDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Calculates the cosine of the given degrees\&. 
@@ -603,7 +603,7 @@ The constant converted/rounded to a given type
 
 .PP
 Definition at line \fB215\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool ace::math::equals (\fBconst\fP T num, \fBconst\fP \fBY\fP num2)\fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP bool ace::math::equals (\fBconst\fP T & num, \fBconst\fP \fBY\fP & num2)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Checks if given 2 numbers are equal, a generic function for all types\&. 
@@ -952,7 +952,7 @@ Definition at line \fB548\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::ln10 (\fBvoid\fP)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Engine's \fBln(10)\fP value\&. 
+Engine's ln(10) value\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -970,7 +970,7 @@ Definition at line \fB134\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::ln2 (\fBvoid\fP)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Engine's \fBln(2)\fP value\&. 
+Engine's ln(2) value\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -988,7 +988,7 @@ Definition at line \fB124\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::log10e (\fBvoid\fP)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Engine's \fBlog10(e)\fP value\&. 
+Engine's log10(e) value\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -1006,7 +1006,7 @@ Definition at line \fB114\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<\fBtypename\fP T  = long double> \fBconstexpr\fP T ace::math::log2e (\fBvoid\fP)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Engine's \fBlog2(e)\fP value\&. 
+Engine's log2(e) value\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -1021,7 +1021,7 @@ The constant converted/rounded to a given type
 
 .PP
 Definition at line \fB104\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T ace::math::max (\fBconst\fP T & a, \fBconst\fP T & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP  = T> \fBconstexpr\fP T ace::math::max (\fBconst\fP T & a, \fBconst\fP \fBY\fP & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Gets the biggest value between given two values\&. 
@@ -1048,7 +1048,7 @@ Value of a if it is bigger than b; value of b otherwise
 
 .PP
 Definition at line \fB492\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T ace::math::min (\fBconst\fP T & a, \fBconst\fP T & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "template<\fBtypename\fP T , \fBtypename\fP \fBY\fP > \fBconstexpr\fP T ace::math::min (\fBconst\fP T & a, \fBconst\fP \fBY\fP & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Gets the smallest value between given two values\&. 

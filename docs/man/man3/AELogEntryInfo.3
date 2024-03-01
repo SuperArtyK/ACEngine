@@ -1,4 +1,4 @@
-.TH "AELogEntryInfo" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntryInfo" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,23 +13,23 @@ AELogEntryInfo \- The struct that holds the information about the log entry, use
 
 .in +1c
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBisInvalid\fP () \fBconst\fP \fBnoexcept\fP"
+.RI "constexpr bool \fBisInvalid\fP () const noexcept"
 .br
 .RI "Checks if the current instance is invalid\&. "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBisBroken\fP () \fBconst\fP \fBnoexcept\fP"
+.RI "constexpr bool \fBisBroken\fP () const noexcept"
 .br
 .RI "Checks if the current instance is broken (partially invalid) "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBisInvalidCursor\fP () \fBconst\fP \fBnoexcept\fP"
+.RI "constexpr bool \fBisInvalidCursor\fP () const noexcept"
 .br
 .RI "Checks if the cursor index of the current instance is invalid\&. "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBisInvalidMName\fP () \fBconst\fP \fBnoexcept\fP"
+.RI "constexpr bool \fBisInvalidMName\fP () const noexcept"
 .br
 .RI "Checks if the cursor index of the current instance is invalid\&. "
 .ti -1c
-.RI "\fBconstexpr\fP bool \fBisInvalidType\fP () \fBconst\fP \fBnoexcept\fP"
+.RI "constexpr bool \fBisInvalidType\fP () const noexcept"
 .br
 .RI "Checks if the cursor index of the current instance is invalid\&. "
 .in -1c
@@ -37,7 +37,7 @@ AELogEntryInfo \- The struct that holds the information about the log entry, use
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP \fBconstexpr\fP \fBAELogEntryInfo\fP \fBinvalidEntry\fP () \fBnoexcept\fP"
+.RI "static constexpr \fBAELogEntryInfo\fP \fBinvalidEntry\fP () noexcept"
 .br
 .RI "Returns the invalid instance of the \fBAELogEntryInfo\fP\&. "
 .in -1c
@@ -73,7 +73,7 @@ The struct that holds the information about the log entry, used by \fBAELogParse
 Definition at line \fB28\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "\fBstatic\fP \fBconstexpr\fP \fBAELogEntryInfo\fP AELogEntryInfo::invalidEntry ()\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "static constexpr \fBAELogEntryInfo\fP AELogEntryInfo::invalidEntry ()\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the invalid instance of the \fBAELogEntryInfo\fP\&. 
@@ -86,7 +86,7 @@ Invalid instance of the \fBAELogEntryInfo\fP
 
 .PP
 Definition at line \fB43\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "\fBconstexpr\fP bool AELogEntryInfo::isBroken () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "constexpr bool AELogEntryInfo::isBroken () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Checks if the current instance is broken (partially invalid) 
@@ -108,7 +108,7 @@ True if the instance is broken, false otherwise
 
 .PP
 Definition at line \fB63\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "\fBconstexpr\fP bool AELogEntryInfo::isInvalid () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "constexpr bool AELogEntryInfo::isInvalid () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Checks if the current instance is invalid\&. 
@@ -130,7 +130,7 @@ True if the instance is invalid, false otherwise
 
 .PP
 Definition at line \fB52\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "\fBconstexpr\fP bool AELogEntryInfo::isInvalidCursor () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "constexpr bool AELogEntryInfo::isInvalidCursor () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Checks if the cursor index of the current instance is invalid\&. 
@@ -143,7 +143,7 @@ True if it's invalid, false otherwise
 
 .PP
 Definition at line \fB71\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "\fBconstexpr\fP bool AELogEntryInfo::isInvalidMName () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "constexpr bool AELogEntryInfo::isInvalidMName () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Checks if the cursor index of the current instance is invalid\&. 
@@ -156,7 +156,7 @@ True if it's invalid, false otherwise
 
 .PP
 Definition at line \fB79\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "\fBconstexpr\fP bool AELogEntryInfo::isInvalidType () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "constexpr bool AELogEntryInfo::isInvalidType () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Checks if the cursor index of the current instance is invalid\&. 

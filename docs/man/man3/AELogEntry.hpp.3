@@ -1,4 +1,4 @@
-.TH "AELogEntry/include/AELogEntry.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntry/include/AELogEntry.hpp" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,83 +27,87 @@ AELogEntry/include/AELogEntry.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_STATUS_INVALID\fP   0"
+.RI "#define \fBAELE_STATUS_INVALID\fP   0"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: invalid\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_STATUS_SETTING\fP   1"
+.RI "#define \fBAELE_STATUS_SETTING\fP   1"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_STATUS_READY\fP   2"
+.RI "#define \fBAELE_STATUS_READY\fP   2"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: currently ready to be parsed and written to file\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_STATUS_READING\fP   3"
+.RI "#define \fBAELE_STATUS_READING\fP   3"
 .br
 .RI "Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_FORMAT_MAX_SIZE\fP   (\fBAELE_MESSAGE_SIZE\fP + \fBAELE_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \fBDEBUG\fP\->\\\fBn'\fP))"
+.RI "#define \fBAELE_FORMAT_MAX_SIZE\fP   (\fBAELE_MESSAGE_SIZE\fP + \fBAELE_MODULENAME_SIZE\fP + sizeof('[YYYY\-MM\-DD\&.HH:mm:SS] [] []: DEBUG\->\\n'))"
 .br
 .RI "Macro for the maximum size of the formatted \fBAELogEntry\fP as a string\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_FORMAT_MIN_SIZE\fP   (\fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [\fBINFO\fP          ] [\fBA\fP]: \fBB'\fP))"
+.RI "#define \fBAELE_FORMAT_MIN_SIZE\fP   (sizeof('[YYYY\-MM\-DD\&.HH:mm:SS] [INFO          ] [A]: B'))"
 .br
 .RI "Macro for the minimum size of the formatted \fBAELogEntry\fP as a string\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_FORMAT_STRING\fP   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: %\fBs\\n'\fP"
+.RI "#define \fBAELE_MESSAGE_DEBUG_SIZE\fP   (\fBAELE_MESSAGE_SIZE\fP + sizeof('DEBUG\->') \- 1)"
+.br
+.RI "The size of the \fBAELogEntry\fP debug message in characters (with 'DEBUG->' in front) (excluding null termination) "
+.ti -1c
+.RI "#define \fBAELE_FORMAT_STRING\fP   '[%s] [%\-14s] [%s]: %s\\n'"
 .br
 .RI "Macro for the snprintf format of the \fBAELogEntry\fP, when converting it to a string\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_FORMAT_STRING_DEBUG\fP   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: \fBDEBUG\fP\->%\fBs\\n'\fP"
+.RI "#define \fBAELE_FORMAT_STRING_DEBUG\fP   '[%s] [%\-14s] [%s]: DEBUG\->%s\\n'"
 .br
 .RI "Macro for the snprintf format of the \fBAELogEntry\fP (of type DEBUG), when converting it to a string\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
+.RI "#define \fBAELE_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
 .RI "Macro for the indicator that everything is good/no error was encountered in the process\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_LENGTH\fP   \-11"
+.RI "#define \fBAELE_ERR_INVALID_LENGTH\fP   \-11"
 .br
 .RI "Macro for the error that occurs if the passed log string has an invalid length (bigger than maximum, smaller than minimum) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_TIME\fP   \-12"
+.RI "#define \fBAELE_ERR_INVALID_TIME\fP   \-12"
 .br
 .RI "Macro for the error that occurs if the passed log string has an invalid text time format\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_TYPE\fP   \-13"
+.RI "#define \fBAELE_ERR_INVALID_TYPE\fP   \-13"
 .br
 .RI "Macro for the error that occurs if the passed log string has an invalid type/severity\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_MNAME\fP   \-14"
+.RI "#define \fBAELE_ERR_INVALID_MNAME\fP   \-14"
 .br
 .RI "Macro for the error that occurs if the passed log string has an invalid module name Invalid module name is more than 31 characters long, and/or isn't alpha-numeric with underscores (has special symbols) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_ERR_INVALID_FORMAT\fP   \-15"
+.RI "#define \fBAELE_ERR_INVALID_FORMAT\fP   \-15"
 .br
 .RI "Macro for the error that occurs if the passed log string has an invalid format overall Invalid format is not having '][' between parts, and not corresponding to position values\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_JUST_VALIDATE\fP   0b0000000"
+.RI "#define \fBAELE_PARSE_STRING_JUST_VALIDATE\fP   0b0000000"
 .br
 .RI "Macro-flag for the parseStringEntry() to not write the data to the given entry object (essentially, just validate it) "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_MESSG\fP   0b0000001"
+.RI "#define \fBAELE_PARSE_STRING_MESSG\fP   0b0000001"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's message to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_MNAME\fP   0b0000010"
+.RI "#define \fBAELE_PARSE_STRING_MNAME\fP   0b0000010"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's module name to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_TIME\fP   0b0000100"
+.RI "#define \fBAELE_PARSE_STRING_TIME\fP   0b0000100"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's timestamp to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_TYPE\fP   0b0001000"
+.RI "#define \fBAELE_PARSE_STRING_TYPE\fP   0b0001000"
 .br
 .RI "Macro-flag for the parseStringEntry() to write just the entry's type to the given entry object\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELE_PARSE_STRING_FULL\fP   0b0001111"
+.RI "#define \fBAELE_PARSE_STRING_FULL\fP   0b0001111"
 .br
 .RI "Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour) "
 .in -1c
@@ -116,121 +120,127 @@ Should not cause everything to break :)
 Definition in file \fBAELogEntry\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP AELE_ERR_INVALID_FORMAT   \-15"
+.SS "#define AELE_ERR_INVALID_FORMAT   \-15"
 
 .PP
 Macro for the error that occurs if the passed log string has an invalid format overall Invalid format is not having '][' between parts, and not corresponding to position values\&. 
 .PP
-Definition at line \fB56\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_ERR_INVALID_LENGTH   \-11"
+Definition at line \fB59\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_ERR_INVALID_LENGTH   \-11"
 
 .PP
 Macro for the error that occurs if the passed log string has an invalid length (bigger than maximum, smaller than minimum) 
 .PP
-Definition at line \fB46\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_ERR_INVALID_MNAME   \-14"
+Definition at line \fB49\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_ERR_INVALID_MNAME   \-14"
 
 .PP
 Macro for the error that occurs if the passed log string has an invalid module name Invalid module name is more than 31 characters long, and/or isn't alpha-numeric with underscores (has special symbols) 
 .PP
-Definition at line \fB53\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_ERR_INVALID_TIME   \-12"
+Definition at line \fB56\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_ERR_INVALID_TIME   \-12"
 
 .PP
 Macro for the error that occurs if the passed log string has an invalid text time format\&. 
 .PP
-Definition at line \fB48\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_ERR_INVALID_TYPE   \-13"
+Definition at line \fB51\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_ERR_INVALID_TYPE   \-13"
 
 .PP
 Macro for the error that occurs if the passed log string has an invalid type/severity\&. 
 .PP
-Definition at line \fB50\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
+Definition at line \fB53\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good/no error was encountered in the process\&. 
 .PP
-Definition at line \fB44\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_FORMAT_MAX_SIZE   (\fBAELE_MESSAGE_SIZE\fP + \fBAELE_MODULENAME_SIZE\fP + \fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [] []: \fBDEBUG\fP\->\\\fBn'\fP))"
+Definition at line \fB47\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_FORMAT_MAX_SIZE   (\fBAELE_MESSAGE_SIZE\fP + \fBAELE_MODULENAME_SIZE\fP + sizeof('[YYYY\-MM\-DD\&.HH:mm:SS] [] []: DEBUG\->\\n'))"
 
 .PP
 Macro for the maximum size of the formatted \fBAELogEntry\fP as a string\&. 
 .PP
 Definition at line \fB33\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_FORMAT_MIN_SIZE   (\fBsizeof\fP('[YYYY\-\fBMM\fP\-\fBDD\&.HH:mm:SS\fP] [\fBINFO\fP          ] [\fBA\fP]: \fBB'\fP))"
+.SS "#define AELE_FORMAT_MIN_SIZE   (sizeof('[YYYY\-MM\-DD\&.HH:mm:SS] [INFO          ] [A]: B'))"
 
 .PP
 Macro for the minimum size of the formatted \fBAELogEntry\fP as a string\&. 
 .PP
 Definition at line \fB35\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_FORMAT_STRING   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: %\fBs\\n'\fP"
+.SS "#define AELE_FORMAT_STRING   '[%s] [%\-14s] [%s]: %s\\n'"
 
 .PP
 Macro for the snprintf format of the \fBAELogEntry\fP, when converting it to a string\&. 
 .PP
-Definition at line \fB37\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_FORMAT_STRING_DEBUG   '[%s] [%\-14\fBs\fP] [%\fBs\fP]: \fBDEBUG\fP\->%\fBs\\n'\fP"
+Definition at line \fB40\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_FORMAT_STRING_DEBUG   '[%s] [%\-14s] [%s]: DEBUG\->%s\\n'"
 
 .PP
 Macro for the snprintf format of the \fBAELogEntry\fP (of type DEBUG), when converting it to a string\&. 
 .PP
-Definition at line \fB39\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_FULL   0b0001111"
+Definition at line \fB42\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_MESSAGE_DEBUG_SIZE   (\fBAELE_MESSAGE_SIZE\fP + sizeof('DEBUG\->') \- 1)"
+
+.PP
+The size of the \fBAELogEntry\fP debug message in characters (with 'DEBUG->' in front) (excluding null termination) 
+.PP
+Definition at line \fB37\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_PARSE_STRING_FULL   0b0001111"
 
 .PP
 Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour) 
 .PP
-Definition at line \fB70\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_JUST_VALIDATE   0b0000000"
+Definition at line \fB73\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_PARSE_STRING_JUST_VALIDATE   0b0000000"
 
 .PP
 Macro-flag for the parseStringEntry() to not write the data to the given entry object (essentially, just validate it) 
 .PP
-Definition at line \fB60\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_MESSG   0b0000001"
+Definition at line \fB63\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_PARSE_STRING_MESSG   0b0000001"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's message to the given entry object\&. 
 .PP
-Definition at line \fB62\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_MNAME   0b0000010"
+Definition at line \fB65\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_PARSE_STRING_MNAME   0b0000010"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's module name to the given entry object\&. 
 .PP
-Definition at line \fB64\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_TIME   0b0000100"
+Definition at line \fB67\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_PARSE_STRING_TIME   0b0000100"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's timestamp to the given entry object\&. 
 .PP
-Definition at line \fB66\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_PARSE_STRING_TYPE   0b0001000"
+Definition at line \fB69\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_PARSE_STRING_TYPE   0b0001000"
 
 .PP
 Macro-flag for the parseStringEntry() to write just the entry's type to the given entry object\&. 
 .PP
-Definition at line \fB68\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_STATUS_INVALID   0"
+Definition at line \fB71\fP of file \fBAELogEntry\&.hpp\fP\&.
+.SS "#define AELE_STATUS_INVALID   0"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: invalid\&. 
 .PP
 Definition at line \fB25\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_STATUS_READING   3"
+.SS "#define AELE_STATUS_READING   3"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently being read by the log-writing thread\&. 
 .PP
 Definition at line \fB31\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_STATUS_READY   2"
+.SS "#define AELE_STATUS_READY   2"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently ready to be parsed and written to file\&. 
 .PP
 Definition at line \fB29\fP of file \fBAELogEntry\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELE_STATUS_SETTING   1"
+.SS "#define AELE_STATUS_SETTING   1"
 
 .PP
 Macro for the \fBAELogEntry\fP's status to be: currently being set up and written to\&. 

@@ -119,23 +119,23 @@ Current project list:</h4>
 ACCOMPLISHED FEATURES</h2>
 <ul>
 <li>Be able to write data to files, faster than standard stream stuff</li>
-<li>Be able to read datat from files, faster than standard stream stuff</li>
-<li>Write logs to file with almost no performance impact</li>
+<li>Be able to read data from files, faster than standard stream stuff</li>
+<li>Write logs to file with small performance impact (on the log-invoking thread)</li>
 <li>Have a module-based structure</li>
-<li>Have a utility tool kit in engine for easier programming(similar to <a href="https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp" title="func_utils.hpp" target="_blank">func_utils.hpp</a> in <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine" target="_blank">console_engine</a>)</li>
+<li>Have a utility toolkit in engine for easier programming(similar to <a href="https://github.com/SuperArtyK/console_engine_win32/blob/dev/include/engine/func_utils.hpp" title="func_utils.hpp" target="_blank">func_utils.hpp</a> in <a href="https://github.com/SuperArtyK/console_engine_win32" title="console_engine" target="_blank">console_engine</a>)</li>
 </ul>
 <h2><a class="anchor" id="desired-features"></a>
 DESIRED FEATURES</h2>
 <ul>
 <li>Engine file format</li>
-<li>Read and parse logs from file (partially implemented + testing)</li>
+<li>Read and parse logs from file (currently is partially implemented + testing)</li>
 <li>Get input from keyboard and mouse</li>
 <li>Control console's window properties</li>
 <li>Control characters on the screen: write them/change color individually and in bulk</li>
 <li>Make it crossplatform and support multiple build systems (cmake babyyyy. Maybe I'll need to rework it from scratch :') )</li>
 <li>Play and synthesize sound</li>
 </ul>
-<p>(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the make/nix to work soon too. You know, use as much of crossplatform things like curses, stl, etc)</p>
+<p>(For now I'm developing the engine on and for visual studio, to get it up to speed with the previous engine, but I'll make the cmake to work soon too. You know, use as much of crossplatform things like curses, stl, etc)</p>
 <p>Yeah, I have yet to release any working version.</p>
 <h2><a class="anchor" id="how-to-build"></a>
 How to build</h2>
@@ -150,9 +150,10 @@ Windows</h3>
 Linux</h3>
 <ul>
 <li>Sadly...you can't, unless manually (or untill sacred cmake appears in this engine)</li>
+<li>Cmake is in the works</li>
 </ul>
-<h2><a class="anchor" id="technical-stuff-for-people-that-wish-to-use-this"></a>
-Technical stuff for people that wish to use this</h2>
+<h2><a class="anchor" id="technical-stuff-for-people-that-wish-to-use-this-outdated"></a>
+Technical stuff for people that wish to use this (outdated)</h2>
 <p>When creating a new project in the engine, use the template "ACEngine project template.zip" so you don't have to setup all the include and source paths, etc.</p>
 <p>In future there will be another template for advanced modules, that rely on much more functionalty and...other modules to work.</p>
 <p>Also, to be consistent with the engine's include system (if developing engine stuff), add all headers in the "include" folder, and source files to the "src" folder (except the main.cpp of course)</p>
@@ -166,7 +167,7 @@ Technical stuff for people that wish to use this</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 15 2024 11:57:32 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Feb 29 2024 20:45:23 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

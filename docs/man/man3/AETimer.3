@@ -1,4 +1,4 @@
-.TH "AETimer" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AETimer" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,59 +15,59 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBAETimer\fP (\fBconst\fP double \fBtps\fP=\fBENGINE_FPS\fP)"
+.RI "\fBAETimer\fP (const double tps=\fBENGINE_FPS\fP)"
 .br
 .RI "Class constructor -- starts the timer automatically\&. "
 .ti -1c
-.RI "\fBAETimer\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "\fBAETimer\fP (void) noexcept"
 .br
 .RI "Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread\&. "
 .ti -1c
-.RI "\fBAETimer\fP (\fBconst\fP \fBAETimer\fP &\fBtm\fP)"
+.RI "\fBAETimer\fP (const \fBAETimer\fP &tm)"
 .br
 .RI "Copy constructor -- Just copies the data and then starts the timer if original timer was started\&. "
 .ti -1c
-.RI "\fBAETimer\fP & \fBoperator=\fP (\fBconst\fP \fBAETimer\fP &\fBtm\fP)"
+.RI "\fBAETimer\fP & \fBoperator=\fP (const \fBAETimer\fP &tm)"
 .br
 .RI "The copy assignment operator\&. "
 .ti -1c
-.RI "\fB~AETimer\fP (\fBvoid\fP)"
+.RI "\fB~AETimer\fP (void)"
 .br
 .RI "Class destructor\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBstartThread\fP (\fBvoid\fP)"
+.RI "void \fBstartThread\fP (void)"
 .br
 .RI "Starts the timer thread and starts tick counting\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBstopThread\fP (\fBvoid\fP)"
+.RI "void \fBstopThread\fP (void)"
 .br
 .RI "Stops the timer thread and stops tick counting\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBresetTick\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "void \fBresetTick\fP (void) noexcept"
 .br
 .RI "Resets the timer's tick to 0\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBsetTick\fP (\fBconst\fP \fBullint\fP \fBtick\fP) \fBnoexcept\fP"
+.RI "void \fBsetTick\fP (const \fBullint\fP tick) noexcept"
 .br
 .RI "Sets the new tick value instead of the current\&. "
 .ti -1c
-.RI "\fBvoid\fP \fBsetDelay\fP (\fBconst\fP double \fBtps\fP)"
+.RI "void \fBsetDelay\fP (const double tps)"
 .br
 .RI "Sets the new delay instead of the current\&. "
 .ti -1c
-.RI "\fBullint\fP \fBgetTick\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.RI "\fBullint\fP \fBgetTick\fP (void) const noexcept"
 .br
 .RI "Returns the current tick of the timer\&. "
 .ti -1c
-.RI "\fBlong\fP double \fBgetWorldTime\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.RI "long double \fBgetWorldTime\fP (void) const noexcept"
 .br
 .RI "Calculates the approximate world time of the timer in seconds (from the ticks) "
 .ti -1c
-.RI "double \fBgetFrameRate\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.RI "double \fBgetFrameRate\fP (void) const noexcept"
 .br
 .RI "Returns the fps goal of \fBAEFrame\fP instance in the \fBAETimer\fP\&. "
 .ti -1c
-.RI "double \fBgetDelay\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
+.RI "double \fBgetDelay\fP (void) const noexcept"
 .br
 .RI "Returns the maximum \fBAEFrame\fP's instance in the \fBAETimer\fP delay from the set fps, in seconds\&. "
 .in -1c
@@ -75,19 +75,19 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP \fBvoid\fP \fBwaitForTick\fP (\fBconst\fP \fBAETimer\fP &\fBtimer\fP, \fBconst\fP \fBullint\fP \fBtick\fP) \fBnoexcept\fP"
+.RI "static void \fBwaitForTick\fP (const \fBAETimer\fP &timer, const \fBullint\fP tick) noexcept"
 .br
 .RI "Stops and sleeps the thread untill the given timer hits the certain tick number\&. "
 .ti -1c
-.RI "\fBstatic\fP \fBvoid\fP \fBwaitTicks\fP (\fBconst\fP \fBAETimer\fP &\fBtimer\fP, \fBconst\fP \fBullint\fP \fBtick\fP) \fBnoexcept\fP"
+.RI "static void \fBwaitTicks\fP (const \fBAETimer\fP &timer, const \fBullint\fP tick) noexcept"
 .br
 .RI "Stops and sleeps the thread untill the given timer goes through certain tick amount\&. "
 .ti -1c
-.RI "\fBstatic\fP \fBullint\fP \fBgetModuleAmount\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
 .RI "Returns the amount of instances of the module currently existing\&. "
 .ti -1c
-.RI "\fBstatic\fP \fBconstexpr\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "static constexpr std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
 .RI "Returns the name of the registered module\&. "
 .in -1c
@@ -95,7 +95,7 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP"
+.RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP"
 .br
 .RI "Amount of alive module instances\&. "
 .in -1c
@@ -103,7 +103,7 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBvoid\fP \fBtickTimer\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "void \fBtickTimer\fP (void) noexcept"
 .br
 .RI "The function that does the tick counting for the timer\&. "
 .ti -1c
@@ -141,7 +141,7 @@ Just create it and look at the ticks of the timer from anywhere in the program\&
 Definition at line \fB26\fP of file \fBAETimer\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "AETimer::AETimer (\fBconst\fP double tps = \fR\fBENGINE_FPS\fP\fP)\fR [inline]\fP, \fR [explicit]\fP"
+.SS "AETimer::AETimer (const double tps = \fR\fBENGINE_FPS\fP\fP)\fR [inline]\fP, \fR [explicit]\fP"
 
 .PP
 Class constructor -- starts the timer automatically\&. 
@@ -154,13 +154,13 @@ Class constructor -- starts the timer automatically\&.
 
 .PP
 Definition at line \fB35\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "AETimer::AETimer (\fBvoid\fP)\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "AETimer::AETimer (void)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread\&. 
 .PP
 Definition at line \fB43\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "AETimer::AETimer (\fBconst\fP \fBAETimer\fP & tm)\fR [inline]\fP"
+.SS "AETimer::AETimer (const \fBAETimer\fP & tm)\fR [inline]\fP"
 
 .PP
 Copy constructor -- Just copies the data and then starts the timer if original timer was started\&. 
@@ -173,7 +173,7 @@ Copy constructor -- Just copies the data and then starts the timer if original t
 
 .PP
 Definition at line \fB51\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "AETimer::~AETimer (\fBvoid\fP)\fR [inline]\fP"
+.SS "AETimer::~AETimer (void)\fR [inline]\fP"
 
 .PP
 Class destructor\&. 
@@ -181,7 +181,7 @@ Class destructor\&.
 Definition at line \fB77\fP of file \fBAETimer\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double AETimer::getDelay (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "double AETimer::getDelay (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the maximum \fBAEFrame\fP's instance in the \fBAETimer\fP delay from the set fps, in seconds\&. 
@@ -199,7 +199,7 @@ double of the maximum \fBAEFrame\fP's instance in the \fBAETimer\fP delay in rea
 
 .PP
 Definition at line \fB167\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "double AETimer::getFrameRate (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "double AETimer::getFrameRate (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the fps goal of \fBAEFrame\fP instance in the \fBAETimer\fP\&. 
@@ -217,7 +217,7 @@ Rounded int of the approximated fps goal
 
 .PP
 Definition at line \fB158\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleAmount (\fBvoid\fP)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+.SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
 Returns the amount of instances of the module currently existing\&. 
@@ -229,8 +229,8 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "\fBstatic\fP \fBconstexpr\fP std::string_view \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleName (\fBvoid\fP)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "static constexpr std::string_view \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
 Returns the name of the registered module\&. 
@@ -241,7 +241,7 @@ Returns the name of the registered module\&.
 .RE
 .PP
 
-.SS "\fBullint\fP AETimer::getTick (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "\fBullint\fP AETimer::getTick (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the current tick of the timer\&. 
@@ -259,7 +259,7 @@ ullint of the current timer tick
 
 .PP
 Definition at line \fB140\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBlong\fP double AETimer::getWorldTime (\fBvoid\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "long double AETimer::getWorldTime (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Calculates the approximate world time of the timer in seconds (from the ticks) 
@@ -277,7 +277,7 @@ double of the approximate world time the timer has counted (using it's ticks)
 
 .PP
 Definition at line \fB149\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBAETimer\fP & AETimer::operator= (\fBconst\fP \fBAETimer\fP & tm)\fR [inline]\fP"
+.SS "\fBAETimer\fP & AETimer::operator= (const \fBAETimer\fP & tm)\fR [inline]\fP"
 
 .PP
 The copy assignment operator\&. Just copies the data and then starts the timer if original timer was started\&.
@@ -297,13 +297,13 @@ Reference to the resulting \fBAETimer\fP copy
 Definition at line \fB64\fP of file \fBAETimer\&.hpp\fP\&.
 .SS "AETimer::REGISTER_MODULE (\fBAETimer\fP)\fR [private]\fP"
 
-.SS "\fBvoid\fP AETimer::resetTick (\fBvoid\fP)\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "void AETimer::resetTick (void)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Resets the timer's tick to 0\&. 
 .PP
 Definition at line \fB112\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBvoid\fP AETimer::setDelay (\fBconst\fP double tps)\fR [inline]\fP"
+.SS "void AETimer::setDelay (const double tps)\fR [inline]\fP"
 
 .PP
 Sets the new delay instead of the current\&. 
@@ -321,7 +321,7 @@ It stops the thread and starts it again -- don't expect the counting to start im
 
 .PP
 Definition at line \fB129\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBvoid\fP AETimer::setTick (\fBconst\fP \fBullint\fP tick)\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "void AETimer::setTick (const \fBullint\fP tick)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Sets the new tick value instead of the current\&. 
@@ -334,7 +334,7 @@ Sets the new tick value instead of the current\&.
 
 .PP
 Definition at line \fB120\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBvoid\fP AETimer::startThread (\fBvoid\fP)\fR [inline]\fP"
+.SS "void AETimer::startThread (void)\fR [inline]\fP"
 
 .PP
 Starts the timer thread and starts tick counting\&. 
@@ -347,19 +347,19 @@ Does nothing if thread is already started
 
 .PP
 Definition at line \fB85\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBvoid\fP AETimer::stopThread (\fBvoid\fP)\fR [inline]\fP"
+.SS "void AETimer::stopThread (void)\fR [inline]\fP"
 
 .PP
 Stops the timer thread and stops tick counting\&. 
 .PP
 Definition at line \fB100\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBvoid\fP AETimer::tickTimer (\fBvoid\fP)\fR [inline]\fP, \fR [private]\fP, \fR [noexcept]\fP"
+.SS "void AETimer::tickTimer (void)\fR [inline]\fP, \fR [private]\fP, \fR [noexcept]\fP"
 
 .PP
 The function that does the tick counting for the timer\&. 
 .PP
 Definition at line \fB198\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBstatic\fP \fBvoid\fP AETimer::waitForTick (\fBconst\fP \fBAETimer\fP & timer, \fBconst\fP \fBullint\fP tick)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
+.SS "static void AETimer::waitForTick (const \fBAETimer\fP & timer, const \fBullint\fP tick)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
 Stops and sleeps the thread untill the given timer hits the certain tick number\&. 
@@ -374,7 +374,7 @@ Stops and sleeps the thread untill the given timer hits the certain tick number\
 
 .PP
 Definition at line \fB176\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "\fBstatic\fP \fBvoid\fP AETimer::waitTicks (\fBconst\fP \fBAETimer\fP & timer, \fBconst\fP \fBullint\fP tick)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
+.SS "static void AETimer::waitTicks (const \fBAETimer\fP & timer, const \fBullint\fP tick)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
 Stops and sleeps the thread untill the given timer goes through certain tick amount\&. 
@@ -409,12 +409,12 @@ Definition at line \fB210\fP of file \fBAETimer\&.hpp\fP\&.
 The thread that does the tick counting\&. 
 .PP
 Definition at line \fB212\fP of file \fBAETimer\&.hpp\fP\&.
-.SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAETimer\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
+.SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAETimer\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
 
 .PP
 Amount of alive module instances\&. 
 .PP
-Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AETimer::m_ullTicks\fR [private]\fP"
 
 .PP

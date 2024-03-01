@@ -1,4 +1,4 @@
-.TH "AELogParser/include/AELogParser.hpp" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser/include/AELogParser.hpp" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,6 +11,8 @@ AELogParser/include/AELogParser.hpp
 \fR#include 'include/AELogEntry\&.hpp'\fP
 .br
 \fR#include 'include/AELogEntryInfo\&.hpp'\fP
+.br
+\fR#include 'include/AEMath\&.hpp'\fP
 .br
 \fR#include <array>\fP
 .br
@@ -33,28 +35,41 @@ AELogParser/include/AELogParser.hpp
 
 .in +1c
 .ti -1c
-.RI "#\fBdefine\fP \fBAELP_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
+.RI "#define \fBAELP_ERR_NOERROR\fP   \fBENGINE_MODULE_ERR_NOERROR\fP"
 .br
 .RI "Macro for the indicator that everything is good/no error was encountered in the process\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELP_ERR_INVALID_MODULE_NAME\fP   \-20"
+.RI "#define \fBAELP_ERR_INVALID_MODULE_NAME\fP   \-20"
 .br
 .RI "Macro for the error when the passed module name doesn't match the parsed modulenames in the log\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELP_ERR_INVALID_SEVERITY\fP   \-21"
+.RI "#define \fBAELP_ERR_INVALID_SEVERITY\fP   \-21"
 .br
-.RI "Macro for the error when the passed severity (log type) is outside of defined severities\&. "
+.RI "Macro for the error when the passed severity is invalid in the current context Ex\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELP_SEVERITY_ALL\fP   \fBAELOG_TYPE_DEBUG\fP"
+.RI "#define \fBAELP_ERR_FILTER_NO_MATCHES\fP   \-22"
 .br
-.RI "Macro for the severity value that includes all entries/severities in parsing\&. "
+.RI "Macro for the error when the passed severity and modulename filter didn't produce a result when applied Ex\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fBAELP_NO_MODULENAME\fP   ''"
+.RI "#define \fBAELP_ERR_INVALID_FILTER\fP   \-23"
+.br
+.RI "Macro for the error when the passed severity and module name filter is invalid (e\&.g\&. empty) "
+.ti -1c
+.RI "#define \fBAELP_ERR_INVALID_QUEUE\fP   \-24"
+.br
+.RI "Macro for the error when the null queue pointer was passed into the functions\&. "
+.ti -1c
+.RI "#define \fBAELP_SEVERITY_ALL\fP   \fBAELOG_TYPE_INVALID\fP"
+.br
+.RI "Macro for the severity value that includes all entries/severities in parsing Essentially disables severity filtering\&. "
+.ti -1c
+.RI "#define \fBAELP_NO_MODULENAME\fP   ''"
 .br
 .RI "Macro for the 'no'/empty modulename to pass for parsing\&. "
 .ti -1c
-.RI "#\fBdefine\fP \fB_AELP_CHECK_IF_FILE_OPEN\fP   { \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; } }"
+.RI "#define \fB_AELP_CHECK_IF_FILE_OPEN\fP   { if (this\->isClosed()) { return \fBAEFR_ERR_FILE_NOT_OPEN\fP; } }"
 .br
+.RI "Helper macro to check if the file is closed, and if so return AEFR_ERR_FILE_NOT_OPEN\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -69,54 +84,93 @@ Should not cause everything to break :)
 Definition in file \fBAELogParser\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#\fBdefine\fP _AELP_CHECK_IF_FILE_OPEN   { \fBif\fP (\fBthis\fP\->isClosed()) { \fBreturn\fP \fBAEFR_ERR_FILE_NOT_OPEN\fP; } }"
+.SS "#define _AELP_CHECK_IF_FILE_OPEN   { if (this\->isClosed()) { return \fBAEFR_ERR_FILE_NOT_OPEN\fP; } }"
 
 .PP
-Definition at line \fB37\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELP_ERR_INVALID_MODULE_NAME   \-20"
+Helper macro to check if the file is closed, and if so return AEFR_ERR_FILE_NOT_OPEN\&. 
+.PP
+\fBNote\fP
+.RS 4
+Wouldn't advise to use -- it just helped shorten the code 
+.RE
+.PP
+
+.PP
+Definition at line \fB51\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_ERR_FILTER_NO_MATCHES   \-22"
+
+.PP
+Macro for the error when the passed severity and modulename filter didn't produce a result when applied Ex\&. both the severity and the module name exist in the parsed log file, but never together in the same entry 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::findNextEntry()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB36\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_ERR_INVALID_FILTER   \-23"
+
+.PP
+Macro for the error when the passed severity and module name filter is invalid (e\&.g\&. empty) 
+.PP
+Definition at line \fB38\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_ERR_INVALID_MODULE_NAME   \-20"
 
 .PP
 Macro for the error when the passed module name doesn't match the parsed modulenames in the log\&. 
 .PP
 \fBSee also\fP
 .RS 4
-\fBAELogParser::nextEntry()\fP 
+\fBAELogParser::findNextEntry()\fP 
 .RE
 .PP
 
 .PP
-Definition at line \fB28\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELP_ERR_INVALID_SEVERITY   \-21"
+Definition at line \fB29\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_ERR_INVALID_QUEUE   \-24"
 
 .PP
-Macro for the error when the passed severity (log type) is outside of defined severities\&. 
+Macro for the error when the null queue pointer was passed into the functions\&. 
 .PP
-Definition at line \fB30\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELP_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
+Definition at line \fB40\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_ERR_INVALID_SEVERITY   \-21"
+
+.PP
+Macro for the error when the passed severity is invalid in the current context Ex\&. non-existent severity, or the severity wasn't found in the log file 
+.PP
+Definition at line \fB32\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good/no error was encountered in the process\&. 
 .PP
-Definition at line \fB25\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELP_NO_MODULENAME   ''"
+Definition at line \fB26\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_NO_MODULENAME   ''"
 
 .PP
 Macro for the 'no'/empty modulename to pass for parsing\&. 
 .PP
-Definition at line \fB35\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "#\fBdefine\fP AELP_SEVERITY_ALL   \fBAELOG_TYPE_DEBUG\fP"
+Definition at line \fB47\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "#define AELP_SEVERITY_ALL   \fBAELOG_TYPE_INVALID\fP"
 
 .PP
-Macro for the severity value that includes all entries/severities in parsing\&. 
+Macro for the severity value that includes all entries/severities in parsing Essentially disables severity filtering\&. 
+.PP
+\fBNote\fP
+.RS 4
+It disables (makes useless) the 'strict severity' in the functions that set it 
+.RE
 .PP
 \fBSee also\fP
 .RS 4
-\fBAELogParser::nextEntry()\fP 
+\fBAELogParser::findNextEntry()\fP 
 .RE
 .PP
 
 .PP
-Definition at line \fB33\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB45\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

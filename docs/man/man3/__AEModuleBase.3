@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,30 +13,31 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 
 .in +1c
 .ti -1c
-.RI "\fB__AEModuleBase\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "\fB__AEModuleBase\fP (void) noexcept"
 .br
 .RI "Basic constructor that increases module count\&. "
 .ti -1c
-.RI "\fB__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > &\fBval\fP) \fBnoexcept\fP"
+.RI "\fB__AEModuleBase\fP (const \fB__AEModuleBase\fP< T > &val) noexcept"
 .br
 .RI "Basic copy constructor that increases module count\&. "
 .ti -1c
-.RI "\fBvirtual\fP \fB~__AEModuleBase\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "virtual \fB~__AEModuleBase\fP (void) noexcept"
 .br
 .RI "Basic destructor that decreases module count\&. "
 .ti -1c
-.RI "\fB__AEModuleBase\fP & \fBoperator=\fP (\fBconst\fP \fB__AEModuleBase\fP< T > &)=\fBdelete\fP"
+.RI "virtual \fB__AEModuleBase\fP< T > & \fBoperator=\fP (const \fB__AEModuleBase\fP< T > &val)=delete"
 .br
+.RI "Basic assignment operator -- it does nothing, so it's deleted (make your own) "
 .in -1c
 .SS "Static Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP \fBullint\fP \fBgetModuleAmount\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
 .RI "Returns the amount of instances of the module currently existing\&. "
 .ti -1c
-.RI "\fBstatic\fP \fBconstexpr\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
+.RI "static constexpr std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
 .RI "Returns the name of the registered module\&. "
 .in -1c
@@ -44,14 +45,14 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 
 .in +1c
 .ti -1c
-.RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullModulesAlive\fP = 0"
+.RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP = 0"
 .br
 .RI "Amount of alive module instances\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 
-.SS "template<\fBtypename\fP T>
+.SS "template<typename T>
 .br
 class __AEModuleBase< T >"This is a base class for all basic modules, meaning that the module is not using other modules to work\&. 
 
@@ -79,13 +80,13 @@ If you do not include \fBCOPYCONSTRUCT_MODULE(T, val)\fP in the copy-constructor
 Definition at line \fB53\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBvoid\fP)\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "template<typename T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (void)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Basic constructor that increases module count\&. 
 .PP
-Definition at line \fB60\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (\fBconst\fP \fB__AEModuleBase\fP< T > & val)\fR [inline]\fP, \fR [noexcept]\fP"
+Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "template<typename T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (const \fB__AEModuleBase\fP< T > & val)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
 Basic copy constructor that increases module count\&. 
@@ -97,16 +98,16 @@ Basic copy constructor that increases module count\&.
 .PP
 
 .PP
-Definition at line \fB68\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fBvirtual\fP \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (\fBvoid\fP)\fR [inline]\fP, \fR [virtual]\fP, \fR [noexcept]\fP"
+Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "template<typename T > virtual \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (void)\fR [inline]\fP, \fR [virtual]\fP, \fR [noexcept]\fP"
 
 .PP
 Basic destructor that decreases module count\&. 
 .PP
-Definition at line \fB75\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > \fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (\fBvoid\fP)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
+.SS "template<typename T > static \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the amount of instances of the module currently existing\&. 
@@ -118,8 +119,8 @@ Unsigned long long of the module amount
 .PP
 
 .PP
-Definition at line \fB85\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "template<\fBtypename\fP T > \fBstatic\fP \fBconstexpr\fP std::string_view \fB__AEModuleBase\fP< T >::getModuleName (\fBvoid\fP)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "template<typename T > static constexpr std::string_view \fB__AEModuleBase\fP< T >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 Returns the name of the registered module\&. 
@@ -130,16 +131,29 @@ Returns the name of the registered module\&.
 .RE
 .PP
 
-.SS "template<\fBtypename\fP T > \fB__AEModuleBase\fP & \fB__AEModuleBase\fP< T >\fB::operator\fP= (\fBconst\fP \fB__AEModuleBase\fP< T > &)\fR [delete]\fP"
+.SS "template<typename T > virtual \fB__AEModuleBase\fP< T > & \fB__AEModuleBase\fP< T >::operator= (const \fB__AEModuleBase\fP< T > & val)\fR [virtual]\fP, \fR [delete]\fP"
+
+.PP
+Basic assignment operator -- it does nothing, so it's deleted (make your own) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIval\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
 
 .SH "Member Data Documentation"
 .PP 
-.SS "template<\fBtypename\fP T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP"
+.SS "template<typename T > std::atomic<std::size_t> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP"
 
 .PP
 Amount of alive module instances\&. 
 .PP
-Definition at line \fB100\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

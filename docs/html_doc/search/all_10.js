@@ -30,13 +30,12 @@ var searchData=
   ['sqrtofpiinv_27',['sqrtOfPiInv',['../d5/d0f/namespaceace_1_1math.html#a45e5289c2553584d77826e44a79e9995',1,'ace::math']]],
   ['startthread_28',['startThread',['../da/d62/class_a_e_timer.html#a022b44a8e9b9e2a314e0ac3ecc759062',1,'AETimer']]],
   ['startwriter_29',['startWriter',['../d8/dfc/class_a_e_logger.html#a284034896688215f7e87242764c5985d',1,'AELogger']]],
-  ['steadytime_30',['SteadyTime',['../dc/d89/_a_e_typedefs_8hpp.html#a9617f7f0337791e090da1a53ce2f2300',1,'AETypedefs.hpp']]],
+  ['steadyclock_30',['SteadyClock',['../dc/d89/_a_e_typedefs_8hpp.html#af0e8014f772795c246d043c5e9fb7495',1,'AETypedefs.hpp']]],
   ['stopthread_31',['stopThread',['../da/d62/class_a_e_timer.html#a29f3aaf12a9832c55dff8875d94c4548',1,'AETimer']]],
   ['stopwriter_32',['stopWriter',['../d8/dfc/class_a_e_logger.html#a53b212c259c40bda694476f09d1f171b',1,'AELogger']]],
-  ['stringify_33',['STRINGIFY',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'CMakeCXXCompilerId.cpp']]],
-  ['stringify_5fhelper_34',['STRINGIFY_HELPER',['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'CMakeCXXCompilerId.cpp']]],
-  ['stringtodate_35',['stringToDate',['../de/dde/namespaceace_1_1utils.html#aa4eb2977c40497242a679e5364f92c62',1,'ace::utils']]],
-  ['stringtotype_36',['stringToType',['../da/dea/struct_a_e_log_entry.html#acacb2f1cbf3218922db05169ef55d8cb',1,'AELogEntry']]],
-  ['stuff_20for_20people_20that_20wish_20to_20use_20this_37',['Technical stuff for people that wish to use this',['../index.html#technical-stuff-for-people-that-wish-to-use-this',1,'']]],
-  ['systime_38',['SysTime',['../dc/d89/_a_e_typedefs_8hpp.html#a95aaa4d93eab3da4479f9b95d5c20a02',1,'AETypedefs.hpp']]]
+  ['str_33',['STR',['../de/de8/_a_e_utils_8hpp.html#a18d295a837ac71add5578860b55e5502',1,'AEUtils.hpp']]],
+  ['stringtodate_34',['stringToDate',['../de/dde/namespaceace_1_1utils.html#aa4eb2977c40497242a679e5364f92c62',1,'ace::utils']]],
+  ['stringtotype_35',['stringToType',['../da/dea/struct_a_e_log_entry.html#acacb2f1cbf3218922db05169ef55d8cb',1,'AELogEntry']]],
+  ['stuff_20for_20people_20that_20wish_20to_20use_20this_20outdated_36',['Technical stuff for people that wish to use this (outdated)',['../index.html#technical-stuff-for-people-that-wish-to-use-this-outdated',1,'']]],
+  ['sysclock_37',['SysClock',['../dc/d89/_a_e_typedefs_8hpp.html#a05bbdee750e8a97dc3d923843c35715b',1,'AETypedefs.hpp']]]
 ];

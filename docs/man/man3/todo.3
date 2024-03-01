@@ -1,4 +1,4 @@
-.TH "todo" 3 "Thu Feb 15 2024 11:57:32" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "todo" 3 "Thu Feb 29 2024 20:45:23" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,8 +23,14 @@ Implement copy constructors and copy assignment
 .PP
 Add the ability to open the same log file/redirect the instance requests to the one that has it open first\&. 
 .PP
-.IP "\fBMember \fBAELogger::writeToLog\fP (const std::string_view logmessg, const cint logtype=AELOG_TYPE_INFO, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME)\fP" 1c
+.IP "\fBMember \fBAELogger::writeToLog\fP (const std::string_view logmessg, const cint logtype=AELOG_TYPE_INFO, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME, const std::time_t logTime=0)\fP" 1c
 Implement decrease in log queue size\&.\&.\&.somehow  
+.IP "\fBMember \fBAELogParser::filterQueue\fP (\fBAELogEntry\fP *&ptr, const cint severity, const bool strictSeverity, const std::string_view mname)\fP" 1c
+Implement a container for the queue to prevent this from happening  
+.IP "\fBMember \fBAELogParser::filterQueueName\fP (\fBAELogEntry\fP *&ptr, const std::string_view mname)\fP" 1c
+Implement a container for the queue to prevent this from happening  
+.IP "\fBMember \fBAELogParser::filterQueueType\fP (\fBAELogEntry\fP *&ptr, const cint severity, const bool strictSeverity=false)\fP" 1c
+Implement a container for the queue to prevent this from happening  
 .IP "\fBFile \fBAETrigLookup\&.hpp\fP \fP" 1c
 Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing 
 .IP "\fBMember \fBAEVector< T, dimAmount, >::angleBetweenDeg\fP (const AEVector< Y, dimAmount > &two) const noexcept\fP" 1c
