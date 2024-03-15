@@ -42,14 +42,14 @@ int main() {
 	
 
 	for (int i = 0; i < 360; i++) {
-		cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";
-		cout << ace::math::cosDeg_table(i) << "; " << ace::math::secDeg_table(i) << "| ";
-		cout << ace::math::tanDeg_table(i) << "; " << ace::math::cotDeg_table(i) << NLC;
+		cout << ace::math::lookup::sinDeg_table(i) << "; " << ace::math::lookup::cscDeg_table(i)<<"| ";
+		cout << ace::math::lookup::cosDeg_table(i) << "; " << ace::math::lookup::secDeg_table(i) << "| ";
+		cout << ace::math::lookup::tanDeg_table(i) << "; " << ace::math::lookup::cotDeg_table(i) << NLC;
 	}
 	cout << NLC<<NLC;
 	cout << "---------------"<<NLC;
-	cout << ace::math::sinDeg_table(1)<<"; "<<ace::math::cosDeg_table(1)<<NLC;
-	cout << sizeof(ace::math::sinTable) << NLC;
+	cout << ace::math::lookup::sinDeg_table(1)<<"; "<<ace::math::lookup::cosDeg_table(1)<<NLC;
+	cout << sizeof(ace::math::lookup::_tables::sinTable) << NLC;
 
 
 	cout << std::numeric_limits<long double>::digits10 << endl;
@@ -72,7 +72,7 @@ int main() {
 	cout << LLINT_MAX << "; " << LLINT_MIN << endl;
 
 
-	cout << ace::math::sinDeg_tableInterp(30) << " " << ace::math::sinDeg_tableInterp(30.25) << " " << ace::math::sinDeg_tableInterp(30.5) << " " << ace::math::sinDeg_tableInterp(30.75) << " " << ace::math::sinDeg_tableInterp(31)<<endl;
+	cout << ace::math::lookup::sinDeg_tableInterp(30) << " " << ace::math::lookup::sinDeg_tableInterp(30.25) << " " << ace::math::lookup::sinDeg_tableInterp(30.5) << " " << ace::math::lookup::sinDeg_tableInterp(30.75) << " " << ace::math::lookup::sinDeg_tableInterp(31)<<endl;
 	cout << ace::math::sinDeg(30.0) << " " << ace::math::sinDeg(30.25) << " " << ace::math::sinDeg(30.5) << " " << ace::math::sinDeg(30.75) << " " << ace::math::sinDeg(31.0)<<endl;
 	
 

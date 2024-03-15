@@ -212,7 +212,6 @@
     <ClInclude Include="..\resources\resource1.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>

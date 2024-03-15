@@ -66,7 +66,7 @@ int main() {
 		tempstr += "Hello ACEngine! ";
 		myfw.writeString("Hello AEFileWriter!\n");
 		myfw.flushFile();
-		tempstr += std::to_string(ace::math::cosDeg<float>(a)) + std::string(" ") + std::to_string(ace::math::cosDeg_table(a))+NLC;
+		tempstr += std::to_string(ace::math::cosDeg<float>(a)) + std::string(" ") + std::to_string(ace::math::lookup::cosDeg_table(a))+NLC;
 		tempstr += std::string("The timer tick is: ") + std::to_string(mytm.getTick()) + NLC;
 		tempstr += std::string("The timer's world time is: ");
 		tempstr += std::to_string(mytm.getWorldTime()) + std::string(" seconds") + NLC;
