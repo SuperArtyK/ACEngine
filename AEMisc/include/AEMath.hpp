@@ -10,6 +10,12 @@
  *  Since it would be possible to use the constexpr implementations in compile time, <br>
  *  and fast (and proper) runtime versions of them at...runtime.
  *  
+ *  @date 2023-2024
+ *
+ *	@author	Artemii Kozhemiak (SuperArtyK)
+ *
+ *	@copyright MIT License
+ *	
  *  *Should not cause everything to break :)*
  */
 
@@ -461,7 +467,7 @@ namespace ace::math {
 	/// <summary>
 	/// **Compares two floating** point values **for equality**, within a default (scaled) epsilon.
 	/// The epsilon is std::numeric_limits<T>::epsilon() * the smallest number of the 2
-	/// @note This is a helper/shortcut function of ace::math::fequals(const T num, const T num2, const T _epsilon)
+	/// @remark This is a helper/shortcut function of ace::math::fequals(const T num, const T num2, const T _epsilon)
 	/// </summary>
 	/// <typeparam name="T">The type of the floats</typeparam>
 	/// <param name="num">The first float to compare</param>
@@ -511,9 +517,10 @@ namespace ace::math {
 		}
 	}
 
+
 	/// <summary>
 	/// Newton's method **sqrt implementation, compatible with constexpr** evaluation.
-	/// @note Exists here for the only reason that std::sqrt isn't constexpr untill c++26 (https://en.cppreference.com/w/cpp/numeric/math/sqrt)
+	/// @remark Exists here for the only reason that std::sqrt isn't constexpr untill c++26 (https://en.cppreference.com/w/cpp/numeric/math/sqrt)
 	/// @todo When C++23 support appears, add if-consteval to use the newton's method in constexpr context, and use classic std::sqrt otherwise
 	/// </summary>
 	/// <typeparam name="T">The type of the passed value and type to calculate it with</typeparam>
@@ -546,7 +553,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Calculate the **integer exponent** of a given number
-	/// @warning If the type T cannot hold the result, it will overflow!
+	/// @attention If the type T cannot hold the result, it will overflow!
 	/// </summary>
 	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
 	/// <param name="num">The value to raise to power</param>
@@ -605,7 +612,7 @@ namespace ace::math {
 	/// <summary>
 	/// Calculate the **n'th root** of a number.
 	/// Thanks, Newton!
-	/// @note If **rtNum** is 2, calls ace::math::sqrt() instead
+	/// @remark If **rtNum** is 2, calls ace::math::sqrt() instead
 	/// </summary>
 	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
 	/// <param name="num">The number to take a root of</param>
@@ -753,8 +760,8 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Rounds the given float** of type Y **to integer** of type T.
-	/// @warning If value overflows -- return value depends on the overflow behaviour of your platform/compiler
-	/// @note **num** should be finite (check with ace::math::isFinite())
+	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
+	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to round to</typeparam>
 	/// <typeparam name="Y">The type of the float to round</typeparam>
@@ -777,8 +784,8 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Floor's the given float** of type Y and converts **to integer** of type T.
-	/// @warning If value overflows -- return value depends on the overflow behaviour of your platform/compiler
-	/// @note **num** should be finite (check with ace::math::isFinite())
+	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
+	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// @note If num is positive, it truncates the decimal digits (towards zero); if negative, it ceil's the decimals (away from zero)
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to floor to</typeparam>
@@ -801,8 +808,8 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Ceil's the given float** of type Y and converts **to integer** of type T.
-	/// @warning If value overflows -- return value depends on the overflow behaviour of your platform/compiler
-	/// @note **num** should be finite (check with ace::math::isFinite())
+	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
+	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to ceil to</typeparam>
 	/// <typeparam name="Y">The type of the float to ceil</typeparam>
@@ -824,8 +831,8 @@ namespace ace::math {
 	
 	/// <summary>
 	/// **Truncates the given float** of type Y and converts **to integer** of type T.
-	/// @warning If value overflows -- return value depends on the overflow behaviour of your platform/compiler
-	/// @note **num** should be finite (check with ace::math::isFinite())
+	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
+	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to truncate to</typeparam>
 	/// <typeparam name="Y">The type of the float to truncate</typeparam>

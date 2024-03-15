@@ -101,27 +101,27 @@ $(function(){initNavTree('dd/da0/todo.html','../../'); initResizable(); });
 <dt>Member <a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a934ea1d09debbfd89edc14bd99c2f665">ace::math::sqrt</a>  (const T num) noexcept</dt>
 <dd><a class="anchor" id="_todo000010"></a>When C++23 support appears, add if-consteval to use the newton's method in constexpr context, and use classic std::sqrt otherwise  </dd>
 <dt>Class <a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>  </dt>
-<dd><a class="anchor" id="_todo000001"></a>add generic read function  </dd>
+<dd><a class="anchor" id="_todo000003"></a>add generic read function  </dd>
 <dt>Member <a class="el" href="../../db/d15/class_a_e_file_writer.html#a1a274c8e6e57e73c236305d941cb4478">AEFileWriter::write</a>  (const T &amp;var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept</dt>
 <dd><a class="anchor" id="_todo000004"></a>Add a way to add custom types to this generic write function.  </dd>
 <dt>Member <a class="el" href="../../db/d15/class_a_e_file_writer.html#ab3b606269046fec9763e6edd7732326b">AEFileWriter::writeFloat</a>  (const T num, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept</dt>
 <dd><a class="anchor" id="_todo000005"></a>Add custom way to format the float number  </dd>
 <dt>Class <a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>Implement copy constructors and copy assignment </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000001"></a>Implement copy constructors and copy assignment </p>
 <p class="interdd"></p>
 <p class="interdd">Add the ability to open the same log file/redirect the instance requests to the one that has it open first. </p>
 <p class="enddd"></p>
 </dd>
 <dt>Member <a class="el" href="../../d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754">AELogger::writeToLog</a>  (const std::string_view logmessg, const cint logtype=AELOG_TYPE_INFO, const std::string_view logmodule=AELOG_DEFAULT_MODULE_NAME, const std::time_t logTime=0)</dt>
-<dd><a class="anchor" id="_todo000003"></a>Implement decrease in log queue size...somehow  </dd>
+<dd><a class="anchor" id="_todo000002"></a>Implement decrease in log queue size...somehow  </dd>
 <dt>Member <a class="el" href="../../d8/d52/class_a_e_log_parser.html#a7c3e2c0736eb6a3ccd84a528d72835ad">AELogParser::filterQueue</a>  (<a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> *&amp;ptr, const cint severity, const bool strictSeverity, const std::string_view mname, const bool reallocQueue=true)</dt>
-<dd><a class="anchor" id="_todo000006"></a>Implement a container for the queue to prevent this from happening  </dd>
-<dt>Member <a class="el" href="../../d8/d52/class_a_e_log_parser.html#a89fbdf373de904d275768e4eb15432c7">AELogParser::filterQueueName</a>  (<a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> *&amp;ptr, const std::string_view mname, const bool reallocQueue=true)</dt>
-<dd><a class="anchor" id="_todo000008"></a>Implement a container for the queue to prevent this from happening  </dd>
-<dt>Member <a class="el" href="../../d8/d52/class_a_e_log_parser.html#ae8545d9e179171cd0ea6cf462c755715">AELogParser::filterQueueType</a>  (<a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> *&amp;ptr, const cint severity, const bool strictSeverity=false, const bool reallocQueue=true)</dt>
 <dd><a class="anchor" id="_todo000007"></a>Implement a container for the queue to prevent this from happening  </dd>
+<dt>Member <a class="el" href="../../d8/d52/class_a_e_log_parser.html#a89fbdf373de904d275768e4eb15432c7">AELogParser::filterQueueName</a>  (<a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> *&amp;ptr, const std::string_view mname, const bool reallocQueue=true)</dt>
+<dd><a class="anchor" id="_todo000009"></a>Implement a container for the queue to prevent this from happening  </dd>
+<dt>Member <a class="el" href="../../d8/d52/class_a_e_log_parser.html#ae8545d9e179171cd0ea6cf462c755715">AELogParser::filterQueueType</a>  (<a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> *&amp;ptr, const cint severity, const bool strictSeverity=false, const bool reallocQueue=true)</dt>
+<dd><a class="anchor" id="_todo000008"></a>Implement a container for the queue to prevent this from happening  </dd>
 <dt>File <a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp.html">AETrigLookup.hpp</a>  </dt>
-<dd><a class="anchor" id="_todo000009"></a>Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing </dd>
+<dd><a class="anchor" id="_todo000006"></a>Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing </dd>
 <dt>Member <a class="el" href="../../dc/df6/struct_a_e_vector.html#a91924bfd79e8f848e29f92fd3662be78">AEVector&lt; T, dimAmount, &gt;::angleBetweenDeg</a>  (const AEVector&lt; Y, dimAmount &gt; &amp;two) const noexcept</dt>
 <dd><a class="anchor" id="_todo000012"></a>Change this function to constexpr once the constexpr solution appears  </dd>
 <dt>Member <a class="el" href="../../dc/df6/struct_a_e_vector.html#aa0eb84c0fcddd3799dd14cd7d89923dc">AEVector&lt; T, dimAmount, &gt;::angleBetweenRad</a>  (const AEVector&lt; Y, dimAmount &gt; &amp;two) const noexcept</dt>
@@ -133,7 +133,7 @@ $(function(){initNavTree('dd/da0/todo.html','../../'); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 20:55:55 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

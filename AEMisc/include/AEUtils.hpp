@@ -8,6 +8,12 @@
  *  
  *  Less copy-pasted code, yayyy.
  *  
+ *  @date 2023-2024
+ *
+ *	@author	Artemii Kozhemiak (SuperArtyK)
+ *
+ *	@copyright MIT License
+ *	
  *  *Should not cause everything to break :)*
  */
 
@@ -189,7 +195,6 @@ namespace ace {
 
 		/// <summary>
 		/// Checks if the **value is within some range**.
-		/// @note The type of the values you pass to this function shall be the same
 		/// </summary>
 		/// <typeparam name="T">The 1st type of values to compare</typeparam>
 		/// <typeparam name="Y">The 2nd type of values to compare (defaults to **T**)</typeparam>

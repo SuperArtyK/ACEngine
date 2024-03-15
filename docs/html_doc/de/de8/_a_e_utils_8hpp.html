@@ -257,6 +257,9 @@ requires (std::is_integral&lt;T&gt;::value)</td></tr>
 <p>Stuff that I found that I needed to implement to perform some task (like bool to "true"/"false" string), <br  />
  thought the engine would benefit from by making it a global utility.</p>
 <p>Less copy-pasted code, yayyy.</p>
+<dl class="section date"><dt>Date</dt><dd>2023-2024</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
 <p><em>Should not cause everything to break :)</em> </p>
 
 <p class="definition">Definition in file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
@@ -285,7 +288,7 @@ requires (std::is_integral&lt;T&gt;::value)</td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>If used on dynamic array, it yields the [size of the pointer on the platform] divided by [size of the array's type] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -317,7 +320,7 @@ requires (std::is_integral&lt;T&gt;::value)</td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00052">52</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -349,7 +352,7 @@ requires (std::is_integral&lt;T&gt;::value)</td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -394,7 +397,7 @@ Only works with engine's assertions enabled. Does nothing if <a class="el" href=
 <dd>
 <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a8749da27990f03045abeda28135e36f4" title="Macro to enable the engine&#39;s assert code">ENGINE_ENABLE_ASSERT</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00061">61</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00067">67</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -419,8 +422,8 @@ Only works with engine's assertions enabled. Does nothing if <a class="el" href=
 <div class="line">        (<a class="code hl_typedef" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>)__LINE__); \</div>
 <div class="line">        printf(__VA_ARGS__); printf(<span class="stringliteral">&quot;\n&quot;</span>); }</div>
 <div class="ttc" id="a_a_e_flags_8hpp_html_a1a4015effd65ce85fe7463f88aa6833c"><div class="ttname"><a href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a></div><div class="ttdeci">#define ENGINE_DEBUG</div><div class="ttdoc">Macro to enable the debug-marked features of the engine.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00032">AEFlags.hpp:32</a></div></div>
-<div class="ttc" id="a_a_e_typedefs_8hpp_html_a689c96cb00098d457d55842c96cc71eb"><div class="ttname"><a href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a></div><div class="ttdeci">unsigned long long ullint</div><div class="ttdoc">A shortcut for an integer of the unsigned long long int type (64 bits).</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00032">AETypedefs.hpp:32</a></div></div>
-<div class="ttc" id="anamespaceace_1_1utils_html_a5ef830bd659e4848847aa793e2f60852"><div class="ttname"><a href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a></div><div class="ttdeci">std::string getCurrentDate(void)</div><div class="ttdoc">Formats the current date and time as YYYY-MM-DD.HH:mm:SS.</div><div class="ttdef"><b>Definition</b> <a href="../../de/de8/_a_e_utils_8hpp_source.html#l00379">AEUtils.hpp:379</a></div></div>
+<div class="ttc" id="a_a_e_typedefs_8hpp_html_a689c96cb00098d457d55842c96cc71eb"><div class="ttname"><a href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a></div><div class="ttdeci">unsigned long long ullint</div><div class="ttdoc">A shortcut for an integer of the unsigned long long int type (64 bits).</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00038">AETypedefs.hpp:38</a></div></div>
+<div class="ttc" id="anamespaceace_1_1utils_html_a5ef830bd659e4848847aa793e2f60852"><div class="ttname"><a href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a></div><div class="ttdeci">std::string getCurrentDate(void)</div><div class="ttdoc">Formats the current date and time as YYYY-MM-DD.HH:mm:SS.</div><div class="ttdef"><b>Definition</b> <a href="../../de/de8/_a_e_utils_8hpp_source.html#l00384">AEUtils.hpp:384</a></div></div>
 </div><!-- fragment -->
 <p>Macro for the <b>debug printf()</b> printing, use the same way as you have used printf before. </p>
 <p>Prints "[current time] [DEBUG] [function name that called it] [invoked line] -&gt; [stuff that you wanted the printf to print]" </p><dl class="section note"><dt>Note</dt><dd>Prints additional newline with each print </dd>
@@ -428,7 +431,7 @@ Only works with engine's assertions enabled. Does nothing if <a class="el" href=
 Only works in engine's debug mode. Does nothing if <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c" title="Macro to enable the debug-marked features of the engine.">ENGINE_DEBUG</a> is not set to 1 </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c" title="Macro to enable the debug-marked features of the engine.">ENGINE_DEBUG</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +464,7 @@ Only works in engine's debug mode. Does nothing if <a class="el" href="../../dd/
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This discards the cv-qualifiers from the types in the comparison </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -496,7 +499,7 @@ Only works in engine's debug mode. Does nothing if <a class="el" href="../../dd/
 <dd>
 This discards the cv-qualifiers from the types in the comparison </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -523,7 +526,7 @@ This discards the cv-qualifiers from the types in the comparison </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00112">112</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -550,7 +553,7 @@ This discards the cv-qualifiers from the types in the comparison </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00117">117</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -581,7 +584,7 @@ This discards the cv-qualifiers from the types in the comparison </dd></dl>
 Example STR("abc") will result into "\"abc\"" literal </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Doesn't work on composed macros (macros that consist of other macros within themselves) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -603,7 +606,7 @@ Example STR("abc") will result into "\"abc\"" literal </dd></dl>
 <p>The macro helper to convert stuff into a string literal. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a18d295a837ac71add5578860b55e5502" title="Macro to convert the passed non-string literals to a string literal.">STR()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00129">129</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +638,7 @@ Example STR("abc") will result into "\"abc\"" literal </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00139">139</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +656,7 @@ Example STR("abc") will result into "\"abc\"" literal </dd></dl>
 
 <p>Macro for <b>newline char literal</b>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -671,7 +674,7 @@ Example STR("abc") will result into "\"abc\"" literal </dd></dl>
 
 <p>Macro for <b>newline string literal</b>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00147">147</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -689,7 +692,7 @@ Example STR("abc") will result into "\"abc\"" literal </dd></dl>
 
 <p>Macro for the size of the <b>formatted date-time string</b>, produced by by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**.">ace::utils::formatDate()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00156">156</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -699,7 +702,7 @@ Example STR("abc") will result into "\"abc\"" literal </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html">AEUtils.hpp</a></li>
-    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 20:55:55 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

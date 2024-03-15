@@ -7,6 +7,12 @@
  *  
  *  So -- shorter names for easier coding.
  *  
+ *  @date 2023-2024
+ *
+ *	@author	Artemii Kozhemiak (SuperArtyK)
+ *
+ *	@copyright MIT License
+ *	
  *  *Should not cause everything to break :)*
  */
 
@@ -35,7 +41,7 @@ typedef unsigned long long ullint;
 typedef long long llint;
 
 /// A shortcut for a just **signed int** (32 bits)
-/// @note I don't know if you'd ever use this, but it's there, for completion.
+/// @remark I don't know if you'd ever use this, but it's there, for completion.
 typedef signed int sint;
 
 /// A shortcut for an integer of the **unsigned int** (32 bits)

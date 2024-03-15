@@ -14,7 +14,13 @@
  *  Set #ENGINE_ENABLE_MATH_LOOKUP to completely disable this and effectively not include this file.
  *  
  *  @todo Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
+ *	
+ *	@date 2023-2024
  *
+ *	@author	Artemii Kozhemiak (SuperArtyK)
+ *
+ *	@copyright MIT License
+
  *  *Should not cause everything to break :)*
  */
 
@@ -99,8 +105,8 @@ namespace ace::math{
 
 	/// <summary>
 	/// Returns the **index to the trig table** from the given (int) degree number.
-	/// @note If the number is negative, it wraps it from the end (-1 is the last item of the table)
-	/// @note Not recommended to use. It's a helper function for the trig lookup table functions
+	/// @remark If the number is negative, it wraps it from the end (-1 is the last item of the table)
+	/// @note Not recommended to use directly. It's a helper function for the trig lookup table functions
 	/// </summary>
 	/// <param name="a">The integer degree number</param>
 	/// <returns>

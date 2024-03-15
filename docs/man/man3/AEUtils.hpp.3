@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Mar 14 2024 20:55:55" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -194,6 +194,21 @@ Stuff that I found that I needed to implement to perform some task (like bool to
 .PP
 Less copy-pasted code, yayyy\&.
 .PP
+\fBDate\fP
+.RS 4
+2023-2024
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Artemii Kozhemiak (SuperArtyK)
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MIT License
+.RE
+.PP
 \fIShould not cause everything to break :)\fP 
 .PP
 Definition in file \fBAEUtils\&.hpp\fP\&.
@@ -216,7 +231,7 @@ If used on dynamic array, it yields the [size of the pointer on the platform] di
 .PP
 
 .PP
-Definition at line \fB41\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB47\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define mod0(dividend, divisor)   ()"
 
 .PP
@@ -231,7 +246,7 @@ Macro for the check \fBif modulo of x and y results in 0\fP\&.
 .PP
 
 .PP
-Definition at line \fB46\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB52\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define getBit(value, bit)   (value& (1 << bit))"
 
 .PP
@@ -246,7 +261,7 @@ Macro to get the \fBcertain bit of the given value\fP (bitshift operation)\&.
 .PP
 
 .PP
-Definition at line \fB51\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB57\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define aceAssert(expression, message)"
 \fBValue:\fP.PP
 .nf
@@ -285,7 +300,7 @@ Only works with engine's assertions enabled\&. Does nothing if \fBENGINE_ENABLE_
 .PP
 
 .PP
-Definition at line \fB61\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB67\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define dprintf( \&.\&.\&.)"
 \fBValue:\fP.PP
 .nf
@@ -314,7 +329,7 @@ Only works in engine's debug mode\&. Does nothing if \fBENGINE_DEBUG\fP is not s
 .PP
 
 .PP
-Definition at line \fB78\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB84\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define IS_SAME_NOCV(T, Y)   (std::is_same<std::remove_cv<T>::type, std::remove_cv<Y>::type>::value)"
 
 .PP
@@ -334,7 +349,7 @@ This discards the cv-qualifiers from the types in the comparison
 .PP
 
 .PP
-Definition at line \fB92\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB98\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define IS_SAME_NOCV_DECAY(T, Y)   (std::is_same<std::remove_cv<std::decay<T>::type>::type, std::remove_cv<std::decay<Y>::type>::type>::value)"
 
 .PP
@@ -356,7 +371,7 @@ This discards the cv-qualifiers from the types in the comparison
 .PP
 
 .PP
-Definition at line \fB100\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB106\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define UTF8(x)   u8 ## x"
 
 .PP
@@ -369,7 +384,7 @@ Macro to convert the normal \fBstring literal to utf-8 string literal\fP\&. Exam
 .PP
 
 .PP
-Definition at line \fB106\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB112\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define WSTR(x)   L ## x"
 
 .PP
@@ -382,7 +397,7 @@ Macro to convert the normal \fBstring literal to a wide string literal\fP\&. Exa
 .PP
 
 .PP
-Definition at line \fB111\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB117\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define STR(x)   \fB_STR_HELPER\fP(x)"
 
 .PP
@@ -407,7 +422,7 @@ Doesn't work on composed macros (macros that consist of other macros within them
 .PP
 
 .PP
-Definition at line \fB119\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB125\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define _STR_HELPER(x)   #x"
 
 .PP
@@ -420,7 +435,7 @@ The macro helper to convert stuff into a string literal\&.
 .PP
 
 .PP
-Definition at line \fB123\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB129\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define aeoffsetof(type, member)   (intptr_t)&(((type*)NULL)\->member)"
 
 .PP
@@ -435,25 +450,25 @@ Macro for the engine's \fBoffsetoff macro\fP\&. It's usefull if the compiler doe
 .PP
 
 .PP
-Definition at line \fB133\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB139\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define NLC   '\\n'"
 
 .PP
 Macro for \fBnewline char literal\fP\&. 
 .PP
-Definition at line \fB144\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB150\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define NLS   '\\n'"
 
 .PP
 Macro for \fBnewline string literal\fP\&. 
 .PP
-Definition at line \fB147\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB153\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define DATETIME_STRING_SIZE   sizeof('YYYY\-MM\-DD\&.HH:mm:SS')"
 
 .PP
 Macro for the size of the \fBformatted date-time string\fP, produced by by the \fBace::utils::formatDate()\fP\&. 
 .PP
-Definition at line \fB150\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB156\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

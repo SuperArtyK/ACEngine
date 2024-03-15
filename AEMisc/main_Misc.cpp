@@ -22,6 +22,12 @@ struct mystruct {
 
 int main() {
 	
+	constexpr int mya = 1;
+	constexpr int myb = 1;
+
+
+	constexpr int myc = ace::math::max(mya, myb);
+
 	mystruct::myfunc();
 
 	cout << (IS_SAME_NOCV(const int, int)) << " " << (std::is_same < std::remove_cv<const char[]>::type, const char*>::value) << NLC;
