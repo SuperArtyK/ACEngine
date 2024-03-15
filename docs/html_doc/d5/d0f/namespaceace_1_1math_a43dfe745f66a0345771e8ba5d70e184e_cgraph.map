@@ -1,0 +1,8 @@
+<map id="ace::math::root" name="ace::math::root">
+<area shape="rect" id="Node000001" title="Calculate the n&#39;th root of a number." alt="" coords="5,5,115,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#abbf6692848afd0e5861c84feae9d4a1a" title="Checks if given 2 numbers are equal, a generic function for all types." alt="" coords="320,5,445,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,16,304,16,304,21,115,21"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a934ea1d09debbfd89edc14bd99c2f665" title="Newton&#39;s method sqrt implementation, compatible with constexpr evaluation." alt="" coords="163,31,272,57"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,25,148,30,147,35,115,30"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="272,33,305,28,305,33,273,38"/>
+</map>

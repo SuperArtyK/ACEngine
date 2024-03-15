@@ -327,7 +327,7 @@ public:
 	/// <param name="useAutoFlush">Flag to use automatic file flushing each n writes, specified by m_ullFlushInterval</param>
 	/// <returns>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</returns>
 	inline cint writeBool(const bool num, const bool useAutoFlush = AEFW_DEFAULT_AUTOFLUSH) noexcept {
-		return this->writeString(ace::utils::boolToString(num), false, useAutoFlush);
+		return this->writeString(ace::utils::boolToString(num).data(), false, useAutoFlush);
 	}
 
 	/// <summary>
@@ -564,7 +564,7 @@ private:
 	/// @note Does nothing if AEFW_AUTOFLUSH_ENABLE is not defined
 	/// </summary>
 	inline void autoFlush(void) noexcept {
-#ifdef AEFW_AUTOFLUSH_ENABLE
+#if AEFW_AUTOFLUSH_ENABLE
 		if (!(this->m_ullTotalWrites.load(std::memory_order::relaxed) % this->m_ullFlushInterval)) {
 			this->flushFile();
 		}
@@ -601,12 +601,12 @@ inline cint AEFileWriter::writeFloat(const T num, const bool useAutoFlush) noexc
 	//check for the opened file here, before potentially setting 300+ digits for nothing
 	_AEFW_EXIT_ON_WRITE_CLOSED_FILE;
 
-	if constexpr (IS_SAME_NOC(T, float)) { // float
+	if constexpr (IS_SAME_NOCV(T, float)) { // float
 		char buf[FLT_MAX_10_EXP + FLT_DIG + 4]{}; // juuust 1 more than max of float value, so with -FLT_MAX it will have a trailing null
 		snprintf(buf, sizeof(buf), "%.*f", FLT_DIG, num);
 		return this->writeString(buf, false, useAutoFlush);
 	}
-	else if constexpr (IS_SAME_NOC(T, double)) { // double
+	else if constexpr (IS_SAME_NOCV(T, double)) { // double
 		char buf[DBL_MAX_10_EXP + DBL_DIG + 4]{};
 		snprintf(buf, sizeof(buf), "%.*lf", DBL_DIG, num);
 		return this->writeString(buf, false, useAutoFlush);
@@ -628,11 +628,11 @@ inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool us
 	// because they trip the std::is_integral<T>
 	// and we dont want that  
 
-	if constexpr (IS_SAME_NOC(T, bool)) { //bool type
+	if constexpr (IS_SAME_NOCV(T, bool)) { //bool type
 		return this->writeBool(var);
 	}
 	// check also for unsigned char - since they call the same function anyway
-	else if constexpr (IS_SAME_NOC(T, char) || IS_SAME_NOC(T, unsigned char)) { //char type
+	else if constexpr (IS_SAME_NOCV(T, char) || IS_SAME_NOCV(T, unsigned char)) { //char type
 		return this->writeByte(var, useAutoFlush);
 	}
 
@@ -648,10 +648,10 @@ inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool us
 	else if constexpr (std::is_floating_point<T>::value) { // float types
 		return this->writeFloat(var, useAutoFlush);
 	}
-	else if constexpr (IS_SAME_NOC(T, char*) || IS_SAME_NOC(T, std::string)) { // strings
+	else if constexpr (IS_SAME_NOCV(T, char*) || IS_SAME_NOCV(T, std::string)) { // strings
 		return this->writeString(var, false, useAutoFlush);
 	}
-	else if constexpr (IS_SAME_NOC(T, std::vector<char>)) { // strings in form of a std::vector<char>
+	else if constexpr (IS_SAME_NOCV(T, std::vector<char>)) { // strings in form of a std::vector<char>
 		return this->writeString(var, useAutoFlush);
 	}
 
@@ -662,7 +662,7 @@ inline cint AEFileWriter::write(const T& var, const size_t datasz, const bool us
 	else if constexpr (std::is_pointer<T>::value && datasz > 0) { //and check if data stream size is not 0
 		return this->writeBytes(var, datasz, useAutoFlush);
 	}
-	else if constexpr (IS_SAME_NOC(T, std::vector<unsigned char>)) {
+	else if constexpr (IS_SAME_NOCV(T, std::vector<unsigned char>)) {
 		return this->writeBytes(var, useAutoFlush);
 	}
 	//or...direct object -> pass it as reference

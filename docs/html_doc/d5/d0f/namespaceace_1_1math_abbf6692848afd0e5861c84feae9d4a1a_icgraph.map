@@ -1,0 +1,12 @@
+<map id="ace::math::equals" name="ace::math::equals">
+<area shape="rect" id="Node000001" title="Checks if given 2 numbers are equal, a generic function for all types." alt="" coords="442,56,567,83"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a0447feb296aec26be391db73b3b66292" title="Calculate the integer exponent of a given number." alt="" coords="268,5,394,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="441,54,378,35,380,30,442,48"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a43dfe745f66a0345771e8ba5d70e184e" title="Calculate the n&#39;th root of a number." alt="" coords="58,56,167,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="426,72,168,72,168,67,426,67"/>
+<area shape="rect" id="Node000004" href="$d5/d0f/namespaceace_1_1math.html#a934ea1d09debbfd89edc14bd99c2f665" title="Newton&#39;s method sqrt implementation, compatible with constexpr evaluation." alt="" coords="276,107,386,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="442,90,380,109,378,104,441,85"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="260,106,167,85,168,79,261,101"/>
+<area shape="rect" id="Node000005" href="$dc/df6/struct_a_e_vector.html#a4fbe00c7ab3e00bc2cd62b9c3414679c" title="Calculates the vector that is perpendicular to &quot;this&quot;, with the length of projection of the given vec..." alt="" coords="5,107,220,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="260,123,220,123,220,117,260,117"/>
+</map>

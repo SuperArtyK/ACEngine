@@ -1,0 +1,7 @@
+<map id="AEFileReader::setCursorPos" name="AEFileReader::setCursorPos">
+<area shape="rect" id="Node000001" title="Sets read cursor position to pos from origin." alt="" coords="5,5,194,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="242,5,423,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,16,226,16,226,21,194,21"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="471,5,654,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,16,455,16,455,21,424,21"/>
+</map>

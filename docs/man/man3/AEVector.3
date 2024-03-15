@@ -1,4 +1,4 @@
-.TH "AEVector< T, dimAmount, >" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEVector< T, dimAmount, >" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -214,26 +214,317 @@ Yeah, the mathematical vectors, that are in CS\&.\&.just labeled arrays of numbe
 Definition at line \fB31\fP of file \fBAEVector\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> 
-.br
-requires (std::is_floating_point<F>::value == true)F \fBAEVector\fP< T, dimAmount, >::angleBetweenDeg (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> static constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::zero (void)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Calculate the angle between the vectors as degrees\&. 
+Returns the zeroed vector (of given dimensions and type) 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of values of the vector in brackets
+.RE
+.PP
+
+.PP
+Definition at line \fB41\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr T & \fBAEVector\fP< T, dimAmount, >::operator[] (const std::size_t index)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The [] operator for ease of use and wrap functionality\&. 
 .PP
 \fBNote\fP
 .RS 4
-This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!) 
+If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount\&. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
 .RE
 .PP
-\fBTodo\fP
+\fBParameters\fP
 .RS 4
-Change this function to constexpr once the constexpr solution appears 
+\fIindex\fP The index of the dimension
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Reference to the dimension pointed by index
+.RE
+.PP
+
+.PP
+Definition at line \fB53\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr const T & \fBAEVector\fP< T, dimAmount, >::operator[] (const std::size_t index) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The [] operator for ease of use and wrap functionality\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount\&. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP The index of the dimension
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Constant reference to the dimension pointed by index
+.RE
+.PP
+
+.PP
+Definition at line \fB70\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::operator== (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The equality comparison operator -- compare 'this' and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile)
 .RE
 .PP
 \fBTemplate Parameters\fP
 .RS 4
-\fIF\fP The float type to calculate this as
+\fIY\fP The dimension type in the second vector, normally same as T
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the vectors are equal, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB88\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::operator!= (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The inequality comparison operator -- compare 'this' and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile)
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the vectors are not equal, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB107\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator+= (const \fBAEVector\fP< Y, dimAmount > & two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The addition-assignment operator -- add another vector to 'this'\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile) 
+.PP
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB120\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator+ (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The addition operator -- add 'this' and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The second vector must have the same amount of dimensions (to even compile) 
+.PP
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB136\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
+.br
+requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator+= (const Y two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The addition-assignment operator -- add the scalar number to 'this'\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB149\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
+.br
+requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator+ (const Y two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The addition operator -- add the scalar number and 'this' together\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB165\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator\-= (const \fBAEVector\fP< Y, dimAmount > & two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The subtraction-assignment operator -- subtract another vector from 'this'\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB179\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator\- (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The subtraction operator -- subtract 'this' and another vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB194\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::operator* (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The multiplication operator -- calculate the dot product of 'this' and another vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The type of the resulting scalar
 .br
 \fIY\fP The dimension type in the second vector
 .RE
@@ -245,12 +536,394 @@ Change this function to constexpr once the constexpr solution appears
 .PP
 \fBReturns\fP
 .RS 4
-Angle between the current and given vector in degrees, as float type F
+The value of the dot product of the type F
 .RE
 .PP
 
 .PP
-Definition at line \fB464\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB207\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
+.br
+requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator*= (const Y two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The multiplication-assignment operator -- multiply 'this' by a scalar\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB219\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
+.br
+requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator* (const Y two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The multiplication operator -- multiply 'this' and a scalar\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB235\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
+.br
+requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator/= (const Y two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The division-assignment operator -- divide 'this' by a scalar\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference to the resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB249\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
+.br
+requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator/ (const Y two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+The division operator -- divide 'this' and a scalar"\&. 
+.PP
+\fBNote\fP
+.RS 4
+The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIY\fP The arithmetic type of the scalar number
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The scalar number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting vector after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB265\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator\- (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Unary negation operator -- returns a copy 'this' but negative\&. 
+.PP
+\fBNote\fP
+.RS 4
+The if the value is of unsigned type -- underflow will happen
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Negated copy of 'this' vector
+.RE
+.PP
+
+.PP
+Definition at line \fB276\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> const std::string \fBAEVector\fP< T, dimAmount, >::toString (void) const\fR [inline]\fP"
+
+.PP
+Converts the vector to std::string, of format [a, b, c, \&.\&.\&.]\&. 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of values of the vector in brackets
+.RE
+.PP
+
+.PP
+Definition at line \fB288\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> constexpr F \fBAEVector\fP< T, dimAmount, >::magnitudeSquared (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the squared magnitude/length of the vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The type to calculate the magnitude with
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The magnitude of the vector as the type F
+.RE
+.PP
+
+.PP
+Definition at line \fB328\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> constexpr F \fBAEVector\fP< T, dimAmount, >::magnitude (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the magnitude/length of the vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The type to calculate the magnitude with
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The magnitude of the vector as the type F
+.RE
+.PP
+
+.PP
+Definition at line \fB338\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> 
+.br
+requires (std::is_floating_point<F>::value == true)constexpr F \fBAEVector\fP< T, dimAmount, >::normDim (const std::size_t index) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the normalised value of the given dimension\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type to calculate it all with
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP The index of the dimension
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The normalised value of the dimension as the type float F
+.RE
+.PP
+
+.PP
+Definition at line \fB349\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::operator[]()\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> 
+.br
+requires (std::is_floating_point<F>::value == true)constexpr \fBAEVector\fP< F, dimAmount > \fBAEVector\fP< T, dimAmount, >::normalise (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the normalised vector from the current vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type of the resulting normalised vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The normalised vector of float type F
+.RE
+.PP
+
+.PP
+Definition at line \fB359\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::dotProduct (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculate the dot product of 'this' and another vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The type of the resulting scalar
+.br
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the dot product of the type F
+.RE
+.PP
+
+.PP
+Definition at line \fB378\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::distanceBetweenSquared (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculate the squared distance between 'this' and another vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The type of the resulting scalar
+.br
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the resulting operation as type F
+.RE
+.PP
+
+.PP
+Definition at line \fB394\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::distanceBetween (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculate the distance between 'this' and another vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The type of the resulting scalar
+.br
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the resulting operation as type F
+.RE
+.PP
+
+.PP
+Definition at line \fB406\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = T, typename Y  = T> 
+.br
+requires (dimAmount == 3)constexpr \fBAEVector\fP< F, dimAmount > \fBAEVector\fP< T, dimAmount, >::crossProduct (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculate the cross product of 'this' and the given vector\&. 
+.PP
+\fBNote\fP
+.RS 4
+Only works for 3d vectors!
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The dimension type of the resulting vector
+.br
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting vector of the type F after the cross product operation
+.RE
+.PP
+
+.PP
+Definition at line \fB419\fP of file \fBAEVector\&.hpp\fP\&.
+.PP
+References \fBAEVector< T, dimAmount, >::dims\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> 
+.br
+requires (std::is_floating_point<F>::value == true)constexpr F \fBAEVector\fP< T, dimAmount, >::cosAngleBetween (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the cosine value of the angle between 'this' and given vector\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIF\fP The float type of the resulting scalar
+.br
+\fIY\fP The dimension type in the second vector
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second vector
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting angle of float type F after the operation
+.RE
+.PP
+
+.PP
+Definition at line \fB435\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> 
 .br
 requires (std::is_floating_point<F>::value == true)F \fBAEVector\fP< T, dimAmount, >::angleBetweenRad (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -290,46 +963,24 @@ Angle between the current and given vector in radians, as float type F
 Definition at line \fB450\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> 
 .br
-requires (std::is_floating_point<F>::value == true)constexpr F \fBAEVector\fP< T, dimAmount, >::cosAngleBetween (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+requires (std::is_floating_point<F>::value == true)F \fBAEVector\fP< T, dimAmount, >::angleBetweenDeg (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Calculates the cosine value of the angle between 'this' and given vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The float type of the resulting scalar
-.br
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The resulting angle of float type F after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB435\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = T, typename Y  = T> 
-.br
-requires (dimAmount == 3)constexpr \fBAEVector\fP< F, dimAmount > \fBAEVector\fP< T, dimAmount, >::crossProduct (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculate the cross product of 'this' and the given vector\&. 
+Calculate the angle between the vectors as degrees\&. 
 .PP
 \fBNote\fP
 .RS 4
-Only works for 3d vectors!
+This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!) 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Change this function to constexpr once the constexpr solution appears 
 .RE
 .PP
 \fBTemplate Parameters\fP
 .RS 4
-\fIF\fP The dimension type of the resulting vector
+\fIF\fP The float type to calculate this as
 .br
 \fIY\fP The dimension type in the second vector
 .RE
@@ -341,112 +992,14 @@ Only works for 3d vectors!
 .PP
 \fBReturns\fP
 .RS 4
-The resulting vector of the type F after the cross product operation
+Angle between the current and given vector in degrees, as float type F
 .RE
 .PP
 
 .PP
-Definition at line \fB419\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::distanceBetween (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
+Definition at line \fB464\fP of file \fBAEVector\&.hpp\fP\&.
 .PP
-Calculate the distance between 'this' and another vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The type of the resulting scalar
-.br
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The value of the resulting operation as type F
-.RE
-.PP
-
-.PP
-Definition at line \fB406\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::distanceBetweenSquared (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculate the squared distance between 'this' and another vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The type of the resulting scalar
-.br
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The value of the resulting operation as type F
-.RE
-.PP
-
-.PP
-Definition at line \fB394\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::dotProduct (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculate the dot product of 'this' and another vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The type of the resulting scalar
-.br
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The value of the dot product of the type F
-.RE
-.PP
-
-.PP
-Definition at line \fB378\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::isCollinear (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if 'this' and given vector are collinear (parallel), by comparing their dot product to product of their magnitudes\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The type to use in comparison
-.br
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-True if they are collinear to each other, false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB489\fP of file \fBAEVector\&.hpp\fP\&.
+References \fBace::math::toDeg()\fP\&.
 .SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::isOrthogonal (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -472,99 +1025,15 @@ True if they are orthogonal to each other, false otherwise
 
 .PP
 Definition at line \fB477\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> constexpr F \fBAEVector\fP< T, dimAmount, >::magnitude (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::isCollinear (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Calculates the magnitude/length of the vector\&. 
+Checks if 'this' and given vector are collinear (parallel), by comparing their dot product to product of their magnitudes\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
-\fIF\fP The type to calculate the magnitude with
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The magnitude of the vector as the type F
-.RE
-.PP
-
-.PP
-Definition at line \fB338\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> constexpr F \fBAEVector\fP< T, dimAmount, >::magnitudeSquared (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the squared magnitude/length of the vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The type to calculate the magnitude with
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The magnitude of the vector as the type F
-.RE
-.PP
-
-.PP
-Definition at line \fB328\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> 
+\fIF\fP The type to use in comparison
 .br
-requires (std::is_floating_point<F>::value == true)constexpr \fBAEVector\fP< F, dimAmount > \fBAEVector\fP< T, dimAmount, >::normalise (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the normalised vector from the current vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The float type of the resulting normalised vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The normalised vector of float type F
-.RE
-.PP
-
-.PP
-Definition at line \fB359\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double> 
-.br
-requires (std::is_floating_point<F>::value == true)constexpr F \fBAEVector\fP< T, dimAmount, >::normDim (const std::size_t index) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the normalised value of the given dimension\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The float type to calculate it all with
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIindex\fP The index of the dimension
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The normalised value of the dimension as the type float F
-.RE
-.PP
-
-.PP
-Definition at line \fB349\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::operator!= (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The inequality comparison operator -- compare 'this' and another vector\&. 
-.PP
-\fBNote\fP
-.RS 4
-The second vector must have the same amount of dimensions (to even compile)
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
 \fIY\fP The dimension type in the second vector
 .RE
 .PP
@@ -575,16 +1044,16 @@ The second vector must have the same amount of dimensions (to even compile)
 .PP
 \fBReturns\fP
 .RS 4
-True if the vectors are not equal, false otherwise
+True if they are collinear to each other, false otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB107\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::operator* (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+Definition at line \fB489\fP of file \fBAEVector\&.hpp\fP\&.
+.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::projectOnVector (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-The multiplication operator -- calculate the dot product of 'this' and another vector\&. 
+Calculates the projection of the given vector onto 'this' vector\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -600,400 +1069,12 @@ The multiplication operator -- calculate the dot product of 'this' and another v
 .PP
 \fBReturns\fP
 .RS 4
-The value of the dot product of the type F
+The length of the projection as type F
 .RE
 .PP
 
 .PP
-Definition at line \fB207\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
-.br
-requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator* (const Y two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The multiplication operator -- multiply 'this' and a scalar\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB235\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
-.br
-requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator*= (const Y two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The multiplication-assignment operator -- multiply 'this' by a scalar\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The reference to the resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB219\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator+ (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The addition operator -- add 'this' and another vector\&. 
-.PP
-\fBNote\fP
-.RS 4
-The second vector must have the same amount of dimensions (to even compile) 
-.PP
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The value of the resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB136\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
-.br
-requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator+ (const Y two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The addition operator -- add the scalar number and 'this' together\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB165\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator+= (const \fBAEVector\fP< Y, dimAmount > & two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The addition-assignment operator -- add another vector to 'this'\&. 
-.PP
-\fBNote\fP
-.RS 4
-The second vector must have the same amount of dimensions (to even compile) 
-.PP
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The reference to the resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB120\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
-.br
-requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator+= (const Y two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The addition-assignment operator -- add the scalar number to 'this'\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The reference to the resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB149\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator\- (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The subtraction operator -- subtract 'this' and another vector\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB194\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator\- (void) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Unary negation operator -- returns a copy 'this' but negative\&. 
-.PP
-\fBNote\fP
-.RS 4
-The if the value is of unsigned type -- underflow will happen
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Negated copy of 'this' vector
-.RE
-.PP
-
-.PP
-Definition at line \fB276\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator\-= (const \fBAEVector\fP< Y, dimAmount > & two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The subtraction-assignment operator -- subtract another vector from 'this'\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The reference to the resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB179\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
-.br
-requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::operator/ (const Y two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The division operator -- divide 'this' and a scalar"\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB265\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y > 
-.br
-requires (std::is_arithmetic<T>::value == true)constexpr \fBAEVector\fP< T, dimAmount > & \fBAEVector\fP< T, dimAmount, >::operator/= (const Y two)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The division-assignment operator -- divide 'this' by a scalar\&. 
-.PP
-\fBNote\fP
-.RS 4
-The final value will be of 'this' vector's type! So all the rounding and overflow issues -- your problem now
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The arithmetic type of the scalar number
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The scalar number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The reference to the resulting vector after the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB249\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename Y  = T> constexpr bool \fBAEVector\fP< T, dimAmount, >::operator== (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The equality comparison operator -- compare 'this' and another vector\&. 
-.PP
-\fBNote\fP
-.RS 4
-The second vector must have the same amount of dimensions (to even compile)
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIY\fP The dimension type in the second vector, normally same as T
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-True if the vectors are equal, false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB88\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr const T & \fBAEVector\fP< T, dimAmount, >::operator[] (const std::size_t index) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The [] operator for ease of use and wrap functionality\&. 
-.PP
-\fBNote\fP
-.RS 4
-If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount\&. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIindex\fP The index of the dimension
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Constant reference to the dimension pointed by index
-.RE
-.PP
-
-.PP
-Definition at line \fB70\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr T & \fBAEVector\fP< T, dimAmount, >::operator[] (const std::size_t index)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-The [] operator for ease of use and wrap functionality\&. 
-.PP
-\fBNote\fP
-.RS 4
-If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount\&. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIindex\fP The index of the dimension
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Reference to the dimension pointed by index
-.RE
-.PP
-
-.PP
-Definition at line \fB53\fP of file \fBAEVector\&.hpp\fP\&.
+Definition at line \fB501\fP of file \fBAEVector\&.hpp\fP\&.
 .SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::perpendicularToItself () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -1056,57 +1137,8 @@ The perpendicular vector of the type F and length of the calculated projection o
 
 .PP
 Definition at line \fB527\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> template<typename F  = long double, typename Y  = T> constexpr F \fBAEVector\fP< T, dimAmount, >::projectOnVector (const \fBAEVector\fP< Y, dimAmount > & two) const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
 .PP
-Calculates the projection of the given vector onto 'this' vector\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIF\fP The type of the resulting scalar
-.br
-\fIY\fP The dimension type in the second vector
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fItwo\fP The second vector
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The length of the projection as type F
-.RE
-.PP
-
-.PP
-Definition at line \fB501\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> const std::string \fBAEVector\fP< T, dimAmount, >::toString (void) const\fR [inline]\fP"
-
-.PP
-Converts the vector to std::string, of format [a, b, c, \&.\&.\&.]\&. 
-.PP
-\fBReturns\fP
-.RS 4
-std::string of values of the vector in brackets
-.RE
-.PP
-
-.PP
-Definition at line \fB288\fP of file \fBAEVector\&.hpp\fP\&.
-.SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> static constexpr \fBAEVector\fP< T, dimAmount > \fBAEVector\fP< T, dimAmount, >::zero (void)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Returns the zeroed vector (of given dimensions and type) 
-.PP
-\fBReturns\fP
-.RS 4
-std::string of values of the vector in brackets
-.RE
-.PP
-
-.PP
-Definition at line \fB41\fP of file \fBAEVector\&.hpp\fP\&.
+References \fBAEVector< T, dimAmount, >::dims\fP, and \fBace::math::sqrt()\fP\&.
 .SH "Friends And Related Symbol Documentation"
 .PP 
 .SS "template<typename T , const std::size_t dimAmount, std::enable_if_t< std::is_arithmetic< T >::value, bool >  = true> std::ostream & operator<< (std::ostream & out, const \fBAEVector\fP< T, dimAmount > & two)\fR [friend]\fP"

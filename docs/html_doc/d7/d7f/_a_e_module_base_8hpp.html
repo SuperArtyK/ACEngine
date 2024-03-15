@@ -105,6 +105,20 @@ $(function(){initNavTree('d7/d7f/_a_e_module_base_8hpp.html','../../'); initResi
 <code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AEModuleBase.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d65/_a_e_module_base_8hpp__incl.svg" width="643" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/d7e/_a_e_module_base_8hpp__dep__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 </div>
 <p><a href="../../d7/d7f/_a_e_module_base_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -132,6 +146,38 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a3b64810cd4803a6d80ccd70d17533edf" name="a3b64810cd4803a6d80ccd70d17533edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b64810cd4803a6d80ccd70d17533edf">&#9670;&#160;</a></span>REGISTER_MODULE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REGISTER_MODULE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">T</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">public</span>: [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> std::string_view getModuleName(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span> { \</div>
+<div class="line">    static_assert(<span class="keyword">sizeof</span>(#T) &lt;= <a class="code hl_define" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a>, <span class="stringliteral">&quot;The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp&quot;</span>); \</div>
+<div class="line">    <span class="keywordflow">return</span> #T; }</div>
+<div class="ttc" id="a_a_e_flags_8hpp_html_adef52ac377b8ee82d7beba7c58799bfe"><div class="ttname"><a href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a></div><div class="ttdeci">#define AELE_MODULENAME_SIZE</div><div class="ttdoc">The size of the AELogEntry's module name in characters (excluding null termination)</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00103">AEFlags.hpp:103</a></div></div>
+</div><!-- fragment -->
+<p>A process to register the module (that inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) (under the hood: finish specialising <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module.">__AEModuleBase::getModuleName()</a> specially for the inheriting class) Usage: Always put it as the <b>last</b> entry to the class, before the closing brace }. </p>
+<dl class="section warning"><dt>Warning</dt><dd>If you won't do it, the project won't compile with the "unresolved external" error <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Inheriting module's class name</td></tr>
+  </table>
+  </dd>
+</dl>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a1351a24d5f0cb79d18a6fd369a82dd72" name="a1351a24d5f0cb79d18a6fd369a82dd72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1351a24d5f0cb79d18a6fd369a82dd72">&#9670;&#160;</a></span>COPYCONSTRUCT_MODULE</h2>
 
@@ -183,45 +229,13 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a3b64810cd4803a6d80ccd70d17533edf" name="a3b64810cd4803a6d80ccd70d17533edf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b64810cd4803a6d80ccd70d17533edf">&#9670;&#160;</a></span>REGISTER_MODULE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define REGISTER_MODULE</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">T</span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">public</span>: [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> std::string_view getModuleName(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span> { \</div>
-<div class="line">    static_assert(<span class="keyword">sizeof</span>(#T) &lt;= <a class="code hl_define" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a>, <span class="stringliteral">&quot;The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp&quot;</span>); \</div>
-<div class="line">    <span class="keywordflow">return</span> #T; }</div>
-<div class="ttc" id="a_a_e_flags_8hpp_html_adef52ac377b8ee82d7beba7c58799bfe"><div class="ttname"><a href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a></div><div class="ttdeci">#define AELE_MODULENAME_SIZE</div><div class="ttdoc">The size of the AELogEntry module name in characters (excluding null termination)</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00058">AEFlags.hpp:58</a></div></div>
-</div><!-- fragment -->
-<p>A process to register the module (that inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) (under the hood: finish specialising <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module.">__AEModuleBase::getModuleName()</a> specially for the inheriting class) Usage: Always put it as the <b>last</b> entry to the class, before the closing brace }. </p>
-<dl class="section warning"><dt>Warning</dt><dd>If you won't do it, the project won't compile with the "unresolved external" error <dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Inheriting module's class name</td></tr>
-  </table>
-  </dd>
-</dl>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_45777126148804f015c4da13b6453d69.html">AEModuleBase</a></li><li class="navelem"><a class="el" href="../../dir_47464e78d58c188133fdafef465ba07d.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html">AEModuleBase.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

@@ -1,0 +1,7 @@
+<map id="AEFileReader::openFile" name="AEFileReader::openFile">
+<area shape="rect" id="Node000001" title="Opens the file for reading." alt="" coords="243,31,401,57"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a7d0c498896f1c10c36330ef4efaee81e" title="Class constructor – constructs the instance and opens the file of given name." alt="" coords="5,5,195,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,36,195,32,195,27,228,31"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#a8e90913ac25c938e2e84a9887c5bae66" title="Opens the log file, reading and parsing every single entry, classifying it by type." alt="" coords="22,56,178,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,57,179,63,178,58,227,52"/>
+</map>

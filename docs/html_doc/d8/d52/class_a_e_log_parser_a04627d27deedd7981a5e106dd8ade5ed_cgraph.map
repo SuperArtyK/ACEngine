@@ -1,0 +1,11 @@
+<map id="AELogParser::containsSeverity" name="AELogParser::containsSeverity">
+<area shape="rect" id="Node000001" title="Checks if the current log file contains the given severity (or higher, depending on the &quot;strict&#45;sever..." alt="" coords="5,31,207,57"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#af349b880be4cdd8c6d27960a038680ab" title="Checks if the file is closed by the AELogParser." alt="" coords="255,5,411,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,30,239,26,239,32,207,35"/>
+<area shape="rect" id="Node000005" href="$de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7" title="Checks if the value is within some range." alt="" coords="263,56,403,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="207,53,248,57,248,63,207,58"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="459,5,618,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,16,443,16,443,21,412,21"/>
+<area shape="rect" id="Node000004" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="666,5,817,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="619,16,651,16,651,21,619,21"/>
+</map>

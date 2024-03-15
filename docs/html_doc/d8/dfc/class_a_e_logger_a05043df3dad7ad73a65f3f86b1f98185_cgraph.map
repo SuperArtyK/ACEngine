@@ -1,0 +1,5 @@
+<map id="AELogger::isOpen" name="AELogger::isOpen">
+<area shape="rect" id="Node000001" title="Checks if the current log file is open." alt="" coords="5,5,133,32"/>
+<area shape="rect" id="Node000002" href="$db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d" title="Checks if a file is open by this file&#45;writer." alt="" coords="181,5,325,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,165,16,165,21,133,21"/>
+</map>

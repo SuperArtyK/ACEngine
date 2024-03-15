@@ -25,7 +25,7 @@
 
 function initResizable() {
   let sidenav,navtree,content,header,footer,barWidth=6;
-  const RESIZE_COOKIE_NAME = ''+'width';
+  const RESIZE_COOKIE_NAME = '7df1323a8c3a851926b6fc9a5418613b_'+'width';
 
   function resizeWidth() {
     const sidenavWidth = $(sidenav).outerWidth();

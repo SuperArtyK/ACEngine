@@ -1,8 +1,9 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEMisc/include/AEUtils.hpp
+AEMisc/include/AEUtils.hpp \- This file contains the engine's \fBusefull utilities for trivial tasks\fP\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -31,11 +32,11 @@ AEMisc/include/AEUtils.hpp
 .ti -1c
 .RI "namespace \fBace\fP"
 .br
-.RI "This namespace contains all of things that any of the part of program can use, and is useful\&. "
+.RI "This namespace contains \fBeverything that belongs to the engine\fP\&. "
 .ti -1c
 .RI "namespace \fBace::utils\fP"
 .br
-.RI "Global usefull utilities\&. "
+.RI "This namespace contains the engine's \fButility functions and code\fP\&. "
 .in -1c
 .SS "Macros"
 
@@ -43,18 +44,183 @@ AEMisc/include/AEUtils.hpp
 .ti -1c
 .RI "#define \fBarrsize\fP(arr)   (sizeof(arr) / sizeof(arr[0]) )"
 .br
-.RI "Macro for the calculation of static, compile-time array 
+.RI "Macro for the calculation of the \fBsize of the static array\fP (that is determined compile-time)\&. "
+.ti -1c
+.RI "#define \fBmod0\fP(dividend,  divisor)   ()"
+.br
+.RI "Macro for the check \fBif modulo of x and y results in 0\fP\&. "
+.ti -1c
+.RI "#define \fBgetBit\fP(value,  bit)   (value& (1 << bit))"
+.br
+.RI "Macro to get the \fBcertain bit of the given value\fP (bitshift operation)\&. "
+.ti -1c
+.RI "#define \fBaceAssert\fP(expression,  message)"
+.br
+.RI "Macro for the better-fomatted \fBassertion for runtime checks\fP\&. "
+.ti -1c
+.RI "#define \fBdprintf\fP(\&.\&.\&.)"
+.br
+.RI "Macro for the \fBdebug printf()\fP printing, use the same way as you have used printf before\&. "
+.ti -1c
+.RI "#define \fBIS_SAME_NOCV\fP(T,  Y)   (std::is_same<std::remove_cv<T>::type, std::remove_cv<Y>::type>::value)"
+.br
+.RI "Macro to check \fBif the given type T is the same as Y\fP\&. "
+.ti -1c
+.RI "#define \fBIS_SAME_NOCV_DECAY\fP(T,  Y)   (std::is_same<std::remove_cv<std::decay<T>::type>::type, std::remove_cv<std::decay<Y>::type>::type>::value)"
+.br
+.RI "Macro to check \fBif the given type T is the same as Y\fP\&. "
+.ti -1c
+.RI "#define \fBUTF8\fP(x)   u8 ## x"
+.br
+.RI "Macro to convert the normal \fBstring literal to utf-8 string literal\fP\&. "
+.ti -1c
+.RI "#define \fBWSTR\fP(x)   L ## x"
+.br
+.RI "Macro to convert the normal \fBstring literal to a wide string literal\fP\&. "
+.ti -1c
+.RI "#define \fBSTR\fP(x)   \fB_STR_HELPER\fP(x)"
+.br
+.RI "Macro to convert the passed \fBnon-string literals to a string literal\fP\&. "
+.ti -1c
+.RI "#define \fB_STR_HELPER\fP(x)   #x"
+.br
+.RI "The macro helper to convert stuff into a string literal\&. "
+.ti -1c
+.RI "#define \fBaeoffsetof\fP(type,  member)   (intptr_t)&(((type*)NULL)\->member)"
+.br
+.RI "Macro for the engine's \fBoffsetoff macro\fP\&. "
+.ti -1c
+.RI "#define \fBNLC\fP   '\\n'"
+.br
+.RI "Macro for \fBnewline char literal\fP\&. "
+.ti -1c
+.RI "#define \fBNLS\fP   '\\n'"
+.br
+.RI "Macro for \fBnewline string literal\fP\&. "
+.ti -1c
+.RI "#define \fBDATETIME_STRING_SIZE\fP   sizeof('YYYY\-MM\-DD\&.HH:mm:SS')"
+.br
+.RI "Macro for the size of the \fBformatted date-time string\fP, produced by by the \fBace::utils::formatDate()\fP\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "constexpr const std::string_view \fBace::utils::boolToString\fP (const bool b) noexcept"
+.br
+.RI "Converts \fBbool to string\fP (word versions)\&. "
+.ti -1c
+.RI "template<typename T , typename Y  = T, typename U  = T> constexpr bool \fBace::utils::isInRange\fP (const T minval, const Y maxval, const U i) noexcept"
+.br
+.RI "Checks if the \fBvalue is within some range\fP\&. "
+.ti -1c
+.RI "void \fBace::utils::toLowerRef\fP (std::string &str1)"
+.br
+.RI "\fBLowers the passed std::string\fP by reference -- transformation is applied directly to the passed string\&. "
+.ti -1c
+.RI "std::string \fBace::utils::toLowerVal\fP (std::string str1)"
+.br
+.RI "Returns the \fBlowered version of passed std::string\fP\&. "
+.ti -1c
+.RI "void \fBace::utils::toUpperRef\fP (std::string &str1)"
+.br
+.RI "\fBUppers the passed std::string\fP by reference\&. "
+.ti -1c
+.RI "std::string \fBace::utils::toUpperVal\fP (std::string str1)"
+.br
+.RI "Returns the \fBuppered version of passed std::string\fP\&. "
+.ti -1c
+.RI "template<const bool checkFloat = true> constexpr bool \fBace::utils::isNum\fP (const std::string_view strnum) noexcept"
+.br
+.RI "Checks if the given \fBstring is a numerical value\fP\&. "
+.ti -1c
+.RI "std::string \fBace::utils::formatDate\fP (const std::time_t timept)"
+.br
+.RI "Formats the current **(c)time point as YYYY-MM-DD\&.HH:mm:SS string**\&. "
+.ti -1c
+.RI "char * \fBace::utils::formatDate\fP (const std::time_t timept, char *const str) noexcept"
+.br
+.RI "Formats the current **(c)time point as YYYY-MM-DD\&.HH:mm:SS c-string**\&. "
+.ti -1c
+.RI "std::string \fBace::utils::getCurrentDate\fP (void)"
+.br
+.RI "Formats the \fBcurrent date and time as YYYY-MM-DD\&.HH:mm:SS\fP\&. "
+.ti -1c
+.RI "std::time_t \fBace::utils::stringToDate\fP (const char *const timestr, const char *const timeformat='%Y\-%m\-%d\&.%X')"
+.br
+.RI "Converts the given c-string to a (c)time point (std::time_t), using a set format\&. "
+.ti -1c
+.RI "std::string \fBace::utils::addrToStr\fP (const void *const myptr, const bool add0x=true) noexcept"
+.br
+.RI "Converts the \fBhex address value to std::string\fP\&. "
+.ti -1c
+.RI "void \fBace::utils::sleepMS\fP (const int ms) noexcept"
+.br
+.RI "Convenient sleep function to \fBsleep the thread for milliseconds\fP\&. "
+.ti -1c
+.RI "void \fBace::utils::sleepUS\fP (const int us) noexcept"
+.br
+.RI "Convenient sleep function to \fBsleep the thread for microseconds\fP\&. "
+.ti -1c
+.RI "std::FILE * \fBace::utils::fopenCC\fP (const char *const fname, const char *const flags) noexcept"
+.br
+.RI "A wrapper to make the proper \fBcross-compiler version of fopen()\fP Opens the file with given name and flags\&. "
+.ti -1c
+.RI "template<typename T  = int> 
+.br
+requires (std::is_integral<T>::value)constexpr T \fBace::utils::numCharToInt\fP (const char c) noexcept"
+.br
+.RI "Converts the given \fBnumeric char to int of type T\fP "
+.ti -1c
+.RI "template<typename T  = int> constexpr char \fBace::utils::intToNumChar\fP (const T i) noexcept"
+.br
+.RI "Converts the given \fBint of type T to numeric char\fP "
+.ti -1c
+.RI "constexpr bool \fBace::utils::isAlNum\fP (const std::string_view str)"
+.br
+.RI "Checks \fBif the passed string is alpha-numeric\fP (contains only numbers and english letters) "
+.ti -1c
+.RI "constexpr bool \fBace::utils::isAlNumUs\fP (const std::string_view str)"
+.br
+.RI "Checks \fBif the passed string is alpha-numeric with underscores\fP (contains only numbers, english letters, and underscores) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains the engine's \fBusefull utilities for trivial tasks\fP\&. 
+
+Stuff that I found that I needed to implement to perform some task (like bool to 'true'/'false' string), 
+.br
+ thought the engine would benefit from by making it a global utility\&.
+.PP
+Less copy-pasted code, yayyy\&.
+.PP
+\fIShould not cause everything to break :)\fP 
+.PP
+Definition in file \fBAEUtils\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define arrsize(arr)   (sizeof(arr) / sizeof(arr[0]) )"
+
+.PP
+Macro for the calculation of the \fBsize of the static array\fP (that is determined compile-time)\&. 
 .PP
 \fBParameters\fP
 .RS 4
 \fIarr\fP The array to calculate the size of
 .RE
 .PP
-"
-.ti -1c
-.RI "#define \fBmod0\fP(dividend,  divisor)   !(dividend % divisor)"
-.br
-.RI "Macro for the check if modulo of x and y results in 0 
+\fBWarning\fP
+.RS 4
+If used on dynamic array, it yields the [size of the pointer on the platform] divided by [size of the array's type] 
+.RE
+.PP
+
+.PP
+Definition at line \fB41\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define mod0(dividend, divisor)   ()"
+
+.PP
+Macro for the check \fBif modulo of x and y results in 0\fP\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -63,11 +229,13 @@ AEMisc/include/AEUtils.hpp
 \fIdivisor\fP The divisor of the operation
 .RE
 .PP
-"
-.ti -1c
-.RI "#define \fBgetBit\fP(value,  bit)   (value& (1 << bit))"
-.br
-.RI "Macro to get the bit of the given value (bitwise operations) 
+
+.PP
+Definition at line \fB46\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define getBit(value, bit)   (value& (1 << bit))"
+
+.PP
+Macro to get the \fBcertain bit of the given value\fP (bitshift operation)\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -76,163 +244,170 @@ AEMisc/include/AEUtils.hpp
 \fIbit\fP The bit number to get
 .RE
 .PP
-"
-.ti -1c
-.RI "#define \fBaceAssert\fP(expression,  message)   if ( !(expression) ) { std::cerr << '\\n\\nAssertion failed!\\nExpression: ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << std::endl; abort(); }"
+
+.PP
+Definition at line \fB51\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define aceAssert(expression, message)"
+\fBValue:\fP.PP
+.nf
+    if ( !(expression) ) { \\
+    std::cerr << "\\n\\nASSERTION FAILED! \\nExpression: " << #expression << \\
+        "\\nFile: " << __FILE__ << \\
+        "\\nFunction: " << __FUNCTION__ << "()" << \\
+        "\\nLine: " << __LINE__ << \\
+        "\\nMessage: " << message << std::endl; \\
+    std::terminate(); }
+.fi
+
+.PP
+Macro for the better-fomatted \fBassertion for runtime checks\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIexpression\fP The logical expression to assert
 .br
-.RI "Better-fomatted assertion for runtime checks\&. "
-.ti -1c
-.RI "#define \fBdprintf\fP(\&.\&.\&.)   if constexpr (\fBENGINE_DEBUG\fP) { printf('DEBUG::%s()\-> ', __FUNCTION__); printf(__VA_ARGS__); printf('\\n'); }"
+\fImessage\fP The message to display if the assertion fails
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Only works in engine's debug mode\&. Does nothing if \fBENGINE_DEBUG\fP is not set to 1 
+.PP
+Only works with engine's assertions enabled\&. Does nothing if \fBENGINE_ENABLE_ASSERT\fP is not set to 1 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBENGINE_DEBUG\fP 
+.PP
+\fBENGINE_ENABLE_ASSERT\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB61\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define dprintf( \&.\&.\&.)"
+\fBValue:\fP.PP
+.nf
+    if constexpr (ENGINE_DEBUG) { \\
+    printf("[%s] [DEBUG] [%s()] [line:%llu] \-> ", \\
+        ace::utils::getCurrentDate()\&.c_str(), \\
+        __FUNCTION__, \\
+        (ullint)__LINE__); \\
+        printf(__VA_ARGS__); printf("\\n"); }
+.fi
+
+.PP
+Macro for the \fBdebug printf()\fP printing, use the same way as you have used printf before\&. Prints '[current time] [DEBUG] [function name that called it] [invoked line] -> [stuff that you wanted the printf to print]' 
+.PP
+\fBNote\fP
+.RS 4
+Prints additional newline with each print 
+.PP
+Only works in engine's debug mode\&. Does nothing if \fBENGINE_DEBUG\fP is not set to 1 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBENGINE_DEBUG\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB78\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define IS_SAME_NOCV(T, Y)   (std::is_same<std::remove_cv<T>::type, std::remove_cv<Y>::type>::value)"
+
+.PP
+Macro to check \fBif the given type T is the same as Y\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIT\fP The first type to compare
 .br
-.RI "Macro for the debug printf() printing, use the same way as you have used printf before\&. "
-.ti -1c
-.RI "#define \fBIS_SAME_NOC\fP(T,  Y)   (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)"
+\fIY\fP The second type to compare
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This discards the cv-qualifiers from the types in the comparison 
+.RE
+.PP
+
+.PP
+Definition at line \fB92\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define IS_SAME_NOCV_DECAY(T, Y)   (std::is_same<std::remove_cv<std::decay<T>::type>::type, std::remove_cv<std::decay<Y>::type>::type>::value)"
+
+.PP
+Macro to check \fBif the given type T is the same as Y\fP\&. The decay happens before the removal of cv-qualifiers 
+.PP
+\fBParameters\fP
+.RS 4
+\fIT\fP The first type to compare
 .br
-.RI "Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same\&. "
-.ti -1c
-.RI "#define \fBUTF8\fP(x)   u8 ## x"
-.br
-.RI "Macro to convert the normal string literal to utf-8/unicode string literal; u8'Hello World!' 
+\fIY\fP The second type to compare
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This decays the types used in the comparison 
+.PP
+This discards the cv-qualifiers from the types in the comparison 
+.RE
+.PP
+
+.PP
+Definition at line \fB100\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define UTF8(x)   u8 ## x"
+
+.PP
+Macro to convert the normal \fBstring literal to utf-8 string literal\fP\&. Example: 'Hello World!' to u8'Hello World!' 
 .PP
 \fBParameters\fP
 .RS 4
 \fIx\fP The string literal to convert to utf8
 .RE
 .PP
-"
-.ti -1c
-.RI "#define \fBWSTR\fP(x)   L ## x"
-.br
-.RI "Macro to convert the 'string literal' to L'wide string literal' 
+
+.PP
+Definition at line \fB106\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define WSTR(x)   L ## x"
+
+.PP
+Macro to convert the normal \fBstring literal to a wide string literal\fP\&. Example: 'Hello World!' to L'Hello Worldl!' 
 .PP
 \fBParameters\fP
 .RS 4
 \fIx\fP The string literal to convert to wstring
 .RE
 .PP
-"
-.ti -1c
-.RI "#define \fBSTR\fP(x)   \fB_STR_HELPER\fP(x)"
-.br
-.RI "Macro to convert the passed non-string literals to a string literal That can be another number macro, or random garbage (abcdef will work too, turns into 'abcdef') "
-.ti -1c
-.RI "#define \fB_STR_HELPER\fP(x)   #x"
-.br
-.RI "The macro helper to convert stuff into a string literal\&. "
-.ti -1c
-.RI "#define \fBaeoffsetof\fP(type,  member)   (intptr_t)&(((type*)NULL)\->member)"
-.br
-.RI "Offsetof alternative if the compiler doesn't support the offsetof natively 
+
+.PP
+Definition at line \fB111\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define STR(x)   \fB_STR_HELPER\fP(x)"
+
+.PP
+Macro to convert the passed \fBnon-string literals to a string literal\fP\&. That can be another number macro, or random garbage (abcdef will work too, turns into 'abcdef') 
 .PP
 \fBParameters\fP
 .RS 4
-\fItype\fP The type/struct name
-.br
-\fImember\fP The member of struct/type to calculate the offset between
+\fIx\fP The stuff to convert to a string literal
 .RE
 .PP
-"
-.ti -1c
-.RI "#define \fBNLC\fP   '\\n'"
-.br
-.RI "Macro for newline char literal\&. "
-.ti -1c
-.RI "#define \fBNLS\fP   '\\n'"
-.br
-.RI "Macro for newline string literal\&. "
-.ti -1c
-.RI "#define \fBDATETIME_STRING_SIZE\fP   20"
-.br
-.RI "Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP "
-.in -1c
-.SS "Functions"
+\fBNote\fP
+.RS 4
+If a string literal was passed, then it will have the quotation marks as escape characters 
+.PP
+Example STR('abc') will result into '\\'abc\\'' literal 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+Doesn't work on composed macros (macros that consist of other macros within themselves) 
+.RE
+.PP
 
-.in +1c
-.ti -1c
-.RI "constexpr const char * \fBace::utils::boolToString\fP (const bool b) noexcept"
-.br
-.RI "Converts bool to the word version\&. "
-.ti -1c
-.RI "template<typename T , typename Y  = T, typename U  = T> constexpr bool \fBace::utils::isInRange\fP (const T minval, const Y maxval, const U i) noexcept"
-.br
-.RI "Checks if the value that you passed is within range\&. "
-.ti -1c
-.RI "void \fBace::utils::toLowerRef\fP (std::string &str1)"
-.br
-.RI "Lowers the passed std::string by reference\&. "
-.ti -1c
-.RI "std::string \fBace::utils::toLowerVal\fP (std::string str1)"
-.br
-.RI "Returns the lowered version of passed std::string\&. "
-.ti -1c
-.RI "void \fBace::utils::toUpperRef\fP (std::string &str1)"
-.br
-.RI "Uppers the passed std::string by reference\&. "
-.ti -1c
-.RI "std::string \fBace::utils::toUpperVal\fP (std::string str1)"
-.br
-.RI "Returns the uppered version of passed std::string\&. "
-.ti -1c
-.RI "template<const bool checkFloat = true> constexpr bool \fBace::utils::isNum\fP (const std::string_view strnum) noexcept"
-.br
-.RI "Checks if the given string is a numerical value\&. "
-.ti -1c
-.RI "std::string \fBace::utils::formatDate\fP (const time_t timept)"
-.br
-.RI "Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. "
-.ti -1c
-.RI "char * \fBace::utils::formatDate\fP (const time_t timept, char *const str) noexcept"
-.br
-.RI "Formats the current (c)time point as YYYY-MM-DD\&.HH:mm:SS\&. "
-.ti -1c
-.RI "std::string \fBace::utils::getCurrentDate\fP (void)"
-.br
-.RI "Retrieves the current date and time and formats it in the YYYY-MM-DD\&.HH:mm:SS\&. "
-.ti -1c
-.RI "time_t \fBace::utils::stringToDate\fP (const char *const timestr, const char *const timeformat='%Y\-%m\-%d\&.%X')"
-.br
-.ti -1c
-.RI "std::string \fBace::utils::addrToStr\fP (const void *const myptr) noexcept"
-.br
-.RI "Converts the hex address value to string\&. "
-.ti -1c
-.RI "void \fBace::utils::sleepMS\fP (const int ms) noexcept"
-.br
-.RI "Convenient sleep function to sleep the thread for ms milliseconds\&. "
-.ti -1c
-.RI "void \fBace::utils::sleepUS\fP (const int us) noexcept"
-.br
-.RI "Convenient sleep function to sleep the thread for ms microseconds\&. "
-.ti -1c
-.RI "std::FILE * \fBace::utils::fopenCC\fP (const char *const fname, const char *const flags) noexcept"
-.br
-.RI "fopen-cross-compiler --just a cross-compiler wrapper of FILE's fopen to do it properly\&. "
-.ti -1c
-.RI "constexpr int \fBace::utils::charToInt\fP (const char c) noexcept"
-.br
-.RI "Converts the given character value to int ('0' to 0), if it is within the '0'->'9' range\&. "
-.ti -1c
-.RI "constexpr char \fBace::utils::intToChar\fP (const int i) noexcept"
-.br
-.RI "Converts the given int value to char (0 to '0'), if it is within the 0->9 range\&. "
-.ti -1c
-.RI "constexpr bool \fBace::utils::isAlNum\fP (const std::string_view str)"
-.br
-.RI "Checks if the passed string is alpha-numeric (contains only numbers and english letters) "
-.ti -1c
-.RI "constexpr bool \fBace::utils::isAlNumUs\fP (const std::string_view str)"
-.br
-.RI "Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores) "
-.in -1c
-.SH "Detailed Description"
-.PP 
-This file contains engine function (hopefully useful) utilities\&.
 .PP
-Should not cause everything to break :) 
-.PP
-Definition in file \fBAEUtils\&.hpp\fP\&.
-.SH "Macro Definition Documentation"
-.PP 
+Definition at line \fB119\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define _STR_HELPER(x)   #x"
 
 .PP
@@ -245,32 +420,11 @@ The macro helper to convert stuff into a string literal\&.
 .PP
 
 .PP
-Definition at line \fB89\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define aceAssert(expression, message)   if ( !(expression) ) { std::cerr << '\\n\\nAssertion failed!\\nExpression: ' << #expression << '\\nFile: ' << __FILE__ << '\\nLine: ' << __LINE__ << '\\nMessage: ' << message << std::endl; abort(); }"
-
-.PP
-Better-fomatted assertion for runtime checks\&. 
-.PP
-\fBNote\fP
-.RS 4
-Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 
-.PP
-\fBParameters\fP
-.RS 4
-\fIexpression\fP The logical expression to assert
-.br
-\fImessage\fP The message to display if the assertion fails
-.RE
-.PP
-.RE
-.PP
-
-.PP
-Definition at line \fB51\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB123\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define aeoffsetof(type, member)   (intptr_t)&(((type*)NULL)\->member)"
 
 .PP
-Offsetof alternative if the compiler doesn't support the offsetof natively 
+Macro for the engine's \fBoffsetoff macro\fP\&. It's usefull if the compiler doesn't support the offsetof natively, and make the code more cross-compileable\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -281,153 +435,25 @@ Offsetof alternative if the compiler doesn't support the offsetof natively
 .PP
 
 .PP
-Definition at line \fB97\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define arrsize(arr)   (sizeof(arr) / sizeof(arr[0]) )"
-
-.PP
-Macro for the calculation of static, compile-time array 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarr\fP The array to calculate the size of
-.RE
-.PP
-
-.PP
-Definition at line \fB34\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define DATETIME_STRING_SIZE   20"
-
-.PP
-Size of the string of the formatted date-time by the \fBace::utils::formatDate()\fP 
-.PP
-Definition at line \fB114\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define dprintf( \&.\&.\&.)   if constexpr (\fBENGINE_DEBUG\fP) { printf('DEBUG::%s()\-> ', __FUNCTION__); printf(__VA_ARGS__); printf('\\n'); }"
-
-.PP
-Macro for the debug printf() printing, use the same way as you have used printf before\&. 
-.PP
-\fBNote\fP
-.RS 4
-Prints additional newline with each print 
-.PP
-Only works in engine's debug mode\&. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 
-.RE
-.PP
-
-.PP
-Definition at line \fB60\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define getBit(value, bit)   (value& (1 << bit))"
-
-.PP
-Macro to get the bit of the given value (bitwise operations) 
-.PP
-\fBParameters\fP
-.RS 4
-\fIvalue\fP The value to get the bit of
-.br
-\fIbit\fP The bit number to get
-.RE
-.PP
-
-.PP
-Definition at line \fB44\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define IS_SAME_NOC(T, Y)   (std::is_same<typename std::decay<const T>::type, typename std::decay<const Y>::type>::value)"
-
-.PP
-Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same\&. 
-.PP
-\fBNote\fP
-.RS 4
-It decays both types and omits const-ness 
-.PP
-\fBParameters\fP
-.RS 4
-\fIT\fP The first type to compare
-.br
-\fIY\fP The second type to compare
-.RE
-.PP
-.RE
-.PP
-
-.PP
-Definition at line \fB70\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define mod0(dividend, divisor)   !(dividend % divisor)"
-
-.PP
-Macro for the check if modulo of x and y results in 0 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdividend\fP The dividend of the operation
-.br
-\fIdivisor\fP The divisor of the operation
-.RE
-.PP
-
-.PP
-Definition at line \fB39\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB133\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define NLC   '\\n'"
 
 .PP
-Macro for newline char literal\&. 
+Macro for \fBnewline char literal\fP\&. 
 .PP
-Definition at line \fB108\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB144\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "#define NLS   '\\n'"
 
 .PP
-Macro for newline string literal\&. 
+Macro for \fBnewline string literal\fP\&. 
 .PP
-Definition at line \fB111\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define STR(x)   \fB_STR_HELPER\fP(x)"
+Definition at line \fB147\fP of file \fBAEUtils\&.hpp\fP\&.
+.SS "#define DATETIME_STRING_SIZE   sizeof('YYYY\-MM\-DD\&.HH:mm:SS')"
 
 .PP
-Macro to convert the passed non-string literals to a string literal That can be another number macro, or random garbage (abcdef will work too, turns into 'abcdef') 
+Macro for the size of the \fBformatted date-time string\fP, produced by by the \fBace::utils::formatDate()\fP\&. 
 .PP
-\fBWarning\fP
-.RS 4
-If a string literal was passed, then it will have the quotation marks as escape characters 
-.PP
-Example STR('abc') will result into '\\'abc\\'' literal 
-.PP
-Doesn't work on composed macros (macros that consist of other macros within themselves) 
-.PP
-\fBParameters\fP
-.RS 4
-\fIx\fP The stuff to convert to a string literal
-.RE
-.PP
-.RE
-.PP
-
-.PP
-Definition at line \fB85\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define UTF8(x)   u8 ## x"
-
-.PP
-Macro to convert the normal string literal to utf-8/unicode string literal; u8'Hello World!' 
-.PP
-\fBParameters\fP
-.RS 4
-\fIx\fP The string literal to convert to utf8
-.RE
-.PP
-
-.PP
-Definition at line \fB74\fP of file \fBAEUtils\&.hpp\fP\&.
-.SS "#define WSTR(x)   L ## x"
-
-.PP
-Macro to convert the 'string literal' to L'wide string literal' 
-.PP
-\fBParameters\fP
-.RS 4
-\fIx\fP The string literal to convert to wstring
-.RE
-.PP
-
-.PP
-Definition at line \fB77\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB150\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

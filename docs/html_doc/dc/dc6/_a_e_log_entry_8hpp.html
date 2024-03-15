@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ArtyK&#39;s Console Engine: AELogEntry/include/AELogEntry.hpp File Reference</title>
+<title>ArtyK&#39;s Console Engine: AECustomTypes/include/AELogEntry.hpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -100,10 +100,24 @@ $(function(){initNavTree('dc/dc6/_a_e_log_entry_8hpp.html','../../'); initResiza
   <div class="headertitle"><div class="title">AELogEntry.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp_source.html">include/AELogTypes.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/dd8/_a_e_log_types_8hpp_source.html">AELogTypes.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">include/AEModuleBase.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">include/AEUtils.hpp</a>&quot;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AELogEntry.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/df3/_a_e_log_entry_8hpp__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d37/_a_e_log_entry_8hpp__dep__incl.svg" width="494" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <p><a href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -179,117 +193,76 @@ Macros</h2></td></tr>
 <tr class="memdesc:a50af521311922fa79c281f986d3f3599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour)  <br /></td></tr>
 <tr class="separator:a50af521311922fa79c281f986d3f3599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains the code for the log entry &ndash; struct containing data from the entry of the log file. And the code for it's basic functions, like copying, clearing, formatting to string and back, deducing its type to string and making the queue</p>
-<p>Should not cause everything to break :) </p>
-
-<p class="definition">Definition in file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a1ca0b534b88ed03e501b725bef848091" name="a1ca0b534b88ed03e501b725bef848091"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ca0b534b88ed03e501b725bef848091">&#9670;&#160;</a></span>AELE_ERR_INVALID_FORMAT</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="af57a988925005a9b71e0e95defb351ca" name="af57a988925005a9b71e0e95defb351ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57a988925005a9b71e0e95defb351ca">&#9670;&#160;</a></span>AELE_STATUS_INVALID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_ERR_INVALID_FORMAT&#160;&#160;&#160;-15</td>
+          <td class="memname">#define AELE_STATUS_INVALID&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that occurs if the passed log string has an invalid format overall Invalid format is not having "][" between parts, and not corresponding to position values. </p>
+<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: invalid. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a98a696f316ab9f910a1f645959398e6c" name="a98a696f316ab9f910a1f645959398e6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98a696f316ab9f910a1f645959398e6c">&#9670;&#160;</a></span>AELE_ERR_INVALID_LENGTH</h2>
+<a id="a20321a1d16f982b7d190250232bc83ef" name="a20321a1d16f982b7d190250232bc83ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20321a1d16f982b7d190250232bc83ef">&#9670;&#160;</a></span>AELE_STATUS_SETTING</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_ERR_INVALID_LENGTH&#160;&#160;&#160;-11</td>
+          <td class="memname">#define AELE_STATUS_SETTING&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that occurs if the passed log string has an invalid length (bigger than maximum, smaller than minimum) </p>
+<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: currently being set up and written to. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aca850cfcba07845271554d8384279149" name="aca850cfcba07845271554d8384279149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca850cfcba07845271554d8384279149">&#9670;&#160;</a></span>AELE_ERR_INVALID_MNAME</h2>
+<a id="a0fe2574dd97fe6d3dcb8cfc9a9b8f909" name="a0fe2574dd97fe6d3dcb8cfc9a9b8f909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fe2574dd97fe6d3dcb8cfc9a9b8f909">&#9670;&#160;</a></span>AELE_STATUS_READY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_ERR_INVALID_MNAME&#160;&#160;&#160;-14</td>
+          <td class="memname">#define AELE_STATUS_READY&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that occurs if the passed log string has an invalid module name Invalid module name is more than 31 characters long, and/or isn't alpha-numeric with underscores (has special symbols) </p>
+<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: currently ready to be parsed and written to file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00056">56</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ae695b3b3a2d9f33d3b24cc778a93c165" name="ae695b3b3a2d9f33d3b24cc778a93c165"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae695b3b3a2d9f33d3b24cc778a93c165">&#9670;&#160;</a></span>AELE_ERR_INVALID_TIME</h2>
+<a id="a2a1da00568f81fde96f1b641eb254e6b" name="a2a1da00568f81fde96f1b641eb254e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a1da00568f81fde96f1b641eb254e6b">&#9670;&#160;</a></span>AELE_STATUS_READING</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_ERR_INVALID_TIME&#160;&#160;&#160;-12</td>
+          <td class="memname">#define AELE_STATUS_READING&#160;&#160;&#160;3</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that occurs if the passed log string has an invalid text time format. </p>
+<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: currently being read by the log-writing thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0602b4a6b3d8ea04b8db5988e333f113" name="a0602b4a6b3d8ea04b8db5988e333f113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0602b4a6b3d8ea04b8db5988e333f113">&#9670;&#160;</a></span>AELE_ERR_INVALID_TYPE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELE_ERR_INVALID_TYPE&#160;&#160;&#160;-13</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the error that occurs if the passed log string has an invalid type/severity. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a60dd7729643e9e1c2b6a0c81970e7e77" name="a60dd7729643e9e1c2b6a0c81970e7e77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60dd7729643e9e1c2b6a0c81970e7e77">&#9670;&#160;</a></span>AELE_ERR_NOERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELE_ERR_NOERROR&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the indicator that everything is good/no error was encountered in the process. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -329,6 +302,24 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a308c5243faf850513e2026ecbcf54638" name="a308c5243faf850513e2026ecbcf54638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a308c5243faf850513e2026ecbcf54638">&#9670;&#160;</a></span>AELE_MESSAGE_DEBUG_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELE_MESSAGE_DEBUG_SIZE&#160;&#160;&#160;(<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">AELE_MESSAGE_SIZE</a> + sizeof(&quot;DEBUG-&gt;&quot;) - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The size of the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> debug message in characters (with "DEBUG-&gt;" in front) (excluding null termination) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a3108e8a19d8760db5d2813b45b42a47e" name="a3108e8a19d8760db5d2813b45b42a47e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3108e8a19d8760db5d2813b45b42a47e">&#9670;&#160;</a></span>AELE_FORMAT_STRING</h2>
 
@@ -365,39 +356,111 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a308c5243faf850513e2026ecbcf54638" name="a308c5243faf850513e2026ecbcf54638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a308c5243faf850513e2026ecbcf54638">&#9670;&#160;</a></span>AELE_MESSAGE_DEBUG_SIZE</h2>
+<a id="a60dd7729643e9e1c2b6a0c81970e7e77" name="a60dd7729643e9e1c2b6a0c81970e7e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60dd7729643e9e1c2b6a0c81970e7e77">&#9670;&#160;</a></span>AELE_ERR_NOERROR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_MESSAGE_DEBUG_SIZE&#160;&#160;&#160;(<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">AELE_MESSAGE_SIZE</a> + sizeof(&quot;DEBUG-&gt;&quot;) - 1)</td>
+          <td class="memname">#define AELE_ERR_NOERROR&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The size of the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> debug message in characters (with "DEBUG-&gt;" in front) (excluding null termination) </p>
+<p>Macro for the indicator that everything is good/no error was encountered in the process. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a50af521311922fa79c281f986d3f3599" name="a50af521311922fa79c281f986d3f3599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50af521311922fa79c281f986d3f3599">&#9670;&#160;</a></span>AELE_PARSE_STRING_FULL</h2>
+<a id="a98a696f316ab9f910a1f645959398e6c" name="a98a696f316ab9f910a1f645959398e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98a696f316ab9f910a1f645959398e6c">&#9670;&#160;</a></span>AELE_ERR_INVALID_LENGTH</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_PARSE_STRING_FULL&#160;&#160;&#160;0b0001111</td>
+          <td class="memname">#define AELE_ERR_INVALID_LENGTH&#160;&#160;&#160;-11</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour) </p>
+<p>Macro for the error that occurs if the passed log string has an invalid length (bigger than maximum, smaller than minimum) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae695b3b3a2d9f33d3b24cc778a93c165" name="ae695b3b3a2d9f33d3b24cc778a93c165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae695b3b3a2d9f33d3b24cc778a93c165">&#9670;&#160;</a></span>AELE_ERR_INVALID_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELE_ERR_INVALID_TIME&#160;&#160;&#160;-12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that occurs if the passed log string has an invalid text time format. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0602b4a6b3d8ea04b8db5988e333f113" name="a0602b4a6b3d8ea04b8db5988e333f113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0602b4a6b3d8ea04b8db5988e333f113">&#9670;&#160;</a></span>AELE_ERR_INVALID_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELE_ERR_INVALID_TYPE&#160;&#160;&#160;-13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that occurs if the passed log string has an invalid type/severity. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aca850cfcba07845271554d8384279149" name="aca850cfcba07845271554d8384279149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca850cfcba07845271554d8384279149">&#9670;&#160;</a></span>AELE_ERR_INVALID_MNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELE_ERR_INVALID_MNAME&#160;&#160;&#160;-14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that occurs if the passed log string has an invalid module name Invalid module name is more than 31 characters long, and/or isn't alpha-numeric with underscores (has special symbols) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00056">56</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1ca0b534b88ed03e501b725bef848091" name="a1ca0b534b88ed03e501b725bef848091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca0b534b88ed03e501b725bef848091">&#9670;&#160;</a></span>AELE_ERR_INVALID_FORMAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELE_ERR_INVALID_FORMAT&#160;&#160;&#160;-15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that occurs if the passed log string has an invalid format overall Invalid format is not having "][" between parts, and not corresponding to position values. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -491,75 +554,21 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="af57a988925005a9b71e0e95defb351ca" name="af57a988925005a9b71e0e95defb351ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af57a988925005a9b71e0e95defb351ca">&#9670;&#160;</a></span>AELE_STATUS_INVALID</h2>
+<a id="a50af521311922fa79c281f986d3f3599" name="a50af521311922fa79c281f986d3f3599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50af521311922fa79c281f986d3f3599">&#9670;&#160;</a></span>AELE_PARSE_STRING_FULL</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELE_STATUS_INVALID&#160;&#160;&#160;0</td>
+          <td class="memname">#define AELE_PARSE_STRING_FULL&#160;&#160;&#160;0b0001111</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: invalid. </p>
+<p>Macro-flag for the parseStringEntry() to parse the log entry and write all the data to the given entry object (default behaviour) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2a1da00568f81fde96f1b641eb254e6b" name="a2a1da00568f81fde96f1b641eb254e6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a1da00568f81fde96f1b641eb254e6b">&#9670;&#160;</a></span>AELE_STATUS_READING</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELE_STATUS_READING&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: currently being read by the log-writing thread. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0fe2574dd97fe6d3dcb8cfc9a9b8f909" name="a0fe2574dd97fe6d3dcb8cfc9a9b8f909"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe2574dd97fe6d3dcb8cfc9a9b8f909">&#9670;&#160;</a></span>AELE_STATUS_READY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELE_STATUS_READY&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: currently ready to be parsed and written to file. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a20321a1d16f982b7d190250232bc83ef" name="a20321a1d16f982b7d190250232bc83ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20321a1d16f982b7d190250232bc83ef">&#9670;&#160;</a></span>AELE_STATUS_SETTING</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELE_STATUS_SETTING&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a>'s status to be: currently being set up and written to. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp_source.html">AELogEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -568,8 +577,8 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_b450b085a2d5f73d1e9a79d402837006.html">AELogEntry</a></li><li class="navelem"><a class="el" href="../../dir_0bdee72a35da4bf2fc480d0b60f6735e.html">include</a></li><li class="navelem"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html">AELogEntry.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_c7fd627511514fa4f3972160e00d4a6c.html">AECustomTypes</a></li><li class="navelem"><a class="el" href="../../dir_c2e9e0e2b65c0688dd0dbae3ac760500.html">include</a></li><li class="navelem"><a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html">AELogEntry.hpp</a></li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

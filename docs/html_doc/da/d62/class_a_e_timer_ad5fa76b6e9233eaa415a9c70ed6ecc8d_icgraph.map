@@ -1,0 +1,13 @@
+<map id="AETimer::tickTimer" name="AETimer::tickTimer">
+<area shape="rect" id="Node000001" title="The function that does the tick counting for the timer." alt="" coords="380,81,512,108"/>
+<area shape="rect" id="Node000002" href="$da/d62/class_a_e_timer.html#a022b44a8e9b9e2a314e0ac3ecc759062" title="Starts the timer thread and starts tick counting." alt="" coords="188,81,332,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,97,332,97,332,92,364,92"/>
+<area shape="rect" id="Node000003" href="$da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b" title="Copy constructor – Just copies the data and then starts the timer if original timer was started." alt="" coords="8,5,137,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,77,139,46,110,35,112,30,141,42,214,72"/>
+<area shape="rect" id="Node000004" href="$da/d62/class_a_e_timer.html#a0ae04d9de43161195777f7ee26a55dd5" title="Class constructor – starts the timer automatically." alt="" coords="8,56,137,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="172,85,137,81,138,75,172,80"/>
+<area shape="rect" id="Node000005" href="$da/d62/class_a_e_timer.html#a7bdf64ddc743a1223164764b9cb15091" title="The copy assignment operator." alt="" coords="5,107,140,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="172,109,141,114,140,108,172,104"/>
+<area shape="rect" id="Node000006" href="$da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c" title="Sets the new delay instead of the current." alt="" coords="7,157,138,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="214,117,141,148,112,159,110,154,139,143,212,112"/>
+</map>

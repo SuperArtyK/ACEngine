@@ -1,0 +1,7 @@
+<map id="ace::math::cotDeg_tableInterp" name="ace::math::cotDeg_tableInterp">
+<area shape="rect" id="Node000001" title="Calculates the interpolated cotangent value from the cotangent lookup table." alt="" coords="5,31,201,57"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="249,5,444,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,31,233,28,234,33,201,36"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="274,56,419,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,52,259,58,258,63,201,57"/>
+</map>

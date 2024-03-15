@@ -1,0 +1,7 @@
+<map id="AELogger::isClosed" name="AELogger::isClosed">
+<area shape="rect" id="Node000001" title="Checks if a log file isn&#39;t open by this logger." alt="" coords="5,5,142,32"/>
+<area shape="rect" id="Node000002" href="$db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090" title="Checks if a file isn&#39;t open by this file&#45;writer." alt="" coords="190,5,343,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,16,174,16,174,21,142,21"/>
+<area shape="rect" id="Node000003" href="$db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d" title="Checks if a file is open by this file&#45;writer." alt="" coords="391,5,535,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="343,16,376,16,376,21,343,21"/>
+</map>

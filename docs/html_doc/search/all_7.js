@@ -30,5 +30,7 @@ var searchData=
   ['gettick_27',['getTick',['../da/d62/class_a_e_timer.html#aa6c9d51957b618a3da21e2b8082fc471',1,'AETimer']]],
   ['gettotalreads_28',['getTotalReads',['../dd/dd5/class_a_e_file_reader.html#aa2c6d668f2412967b90981e1f87db87a',1,'AEFileReader']]],
   ['gettotalwrites_29',['getTotalWrites',['../db/d15/class_a_e_file_writer.html#a91b40186ef167a8f3b0e3fcc9fe3c9a6',1,'AEFileWriter']]],
-  ['getworldtime_30',['getWorldTime',['../da/d62/class_a_e_timer.html#a2a6447a8cfe20c387d27182a7fecb70e',1,'AETimer']]]
+  ['getworldtime_30',['getWorldTime',['../da/d62/class_a_e_timer.html#a2a6447a8cfe20c387d27182a7fecb70e',1,'AETimer']]],
+  ['globallogger_31',['globalLogger',['../d4/d9f/_a_e_logger_8hpp.html#a9d35df81a2dbdef3a24b562ee018f1d0',1,'AELogger.hpp']]],
+  ['globaltimer_32',['globalTimer',['../dc/dc6/_a_e_timer_8hpp.html#afc5631cca0d9c9a54f6ca4888b67a009',1,'AETimer.hpp']]]
 ];

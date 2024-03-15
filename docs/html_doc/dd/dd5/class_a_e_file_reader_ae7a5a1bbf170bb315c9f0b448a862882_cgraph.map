@@ -1,0 +1,8 @@
+<map id="AEFileReader::readBytes" name="AEFileReader::readBytes">
+<area shape="rect" id="Node000001" title="Reads the bytes from the file and dumps them into the std::vector&lt;unsigned char&gt;." alt="" coords="5,5,174,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="451,5,634,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,16,435,16,435,21,174,21"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="222,31,403,57"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,26,206,29,206,35,174,31"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="403,31,435,28,436,33,404,37"/>
+</map>

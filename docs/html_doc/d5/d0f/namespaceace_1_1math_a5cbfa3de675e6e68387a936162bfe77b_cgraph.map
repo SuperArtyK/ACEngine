@@ -1,0 +1,7 @@
+<map id="ace::math::secDeg" name="ace::math::secDeg">
+<area shape="rect" id="Node000001" title="Calculates the secant of degrees" alt="" coords="5,5,137,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a6d6fc7afd09d4c910a45218da9ae2bc6" title="Calculates the cosine of degrees" alt="" coords="185,5,316,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,16,169,16,169,21,137,21"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a34df987782d57f3ccb8d1cf75deb2fd2" title="Convert given degrees to radians" alt="" coords="364,5,485,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,16,348,16,348,21,317,21"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="AELogEntry::copyEntry" name="AELogEntry::copyEntry">
+<area shape="rect" id="Node000001" title="Makes a normal copy of the log entry, copying everything but the pointer to the next node." alt="" coords="953,81,1111,108"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#a7c3e2c0736eb6a3ccd84a528d72835ad" title="Filters the passed queue according to the given severity and modulename filters." alt="" coords="736,56,905,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="937,86,905,82,905,77,938,81"/>
+<area shape="rect" id="Node000008" href="$da/dea/struct_a_e_log_entry.html#a3efc3c9dfa634124436c0c1fd51c4771" title="Copy assignment operator – copies data from the passed node." alt="" coords="743,107,898,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="937,109,898,113,898,108,937,103"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#a89fbdf373de904d275768e4eb15432c7" title="Filters the passed queue according to the given modulename." alt="" coords="486,31,688,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="720,61,689,58,689,52,721,56"/>
+<area shape="rect" id="Node000007" href="$d8/d52/class_a_e_log_parser.html#ae8545d9e179171cd0ea6cf462c755715" title="Filters the passed queue according to the given severity." alt="" coords="489,81,685,108"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="721,83,686,87,685,81,721,77"/>
+<area shape="rect" id="Node000004" href="$d8/d52/class_a_e_log_parser.html#a182d51b4aa5771e2e6f6919300e571ca" title="Same as the AELogParser::nextEntry() but on massive scale – scans the whole log file and parses it to..." alt="" coords="263,31,438,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="470,47,439,47,439,41,470,41"/>
+<area shape="rect" id="Node000005" href="$d8/d52/class_a_e_log_parser.html#ae5044cf01623156d91ddc74492b0aeda" title="A shortcut to AELogParser::logToQueue() to filter only by the module name of the log entries." alt="" coords="5,5,215,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="247,36,215,32,216,27,247,30"/>
+<area shape="rect" id="Node000006" href="$d8/d52/class_a_e_log_parser.html#ab84bb93f08ed48082f74b00290deb308" title="A shortcut to AELogParser::logToQueue() to filter only by type/severity of the log entries." alt="" coords="8,56,212,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="247,58,212,61,212,56,247,52"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="__AEModuleBase&lt; T &gt;" name="__AEModuleBase&lt; T &gt;">
+<area shape="rect" id="Node000001" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor..." alt="" coords="5,133,162,160"/>
+<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="318,5,547,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,121,142,92,185,66,250,42,316,28,318,33,251,47,187,70,145,96,110,125"/>
+<area shape="rect" id="Node000004" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="321,56,544,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="132,125,185,108,254,93,323,81,324,86,255,98,186,113,134,130"/>
+<area shape="rect" id="Node000006" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="330,107,535,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="177,137,329,125,330,130,177,142"/>
+<area shape="rect" id="Node000008" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="319,157,546,184"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="161,161,186,164,319,170,319,176,185,169,160,166"/>
+<area shape="rect" id="Node000010" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="329,208,536,235"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="122,165,153,180,186,192,258,207,329,215,328,221,257,213,185,197,151,185,120,170"/>
+<area shape="rect" id="Node000012" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="333,259,532,285"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="107,170,142,204,187,234,222,247,259,257,333,268,332,273,258,262,220,252,184,238,139,208,104,174"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html" title="ArtyK&#39;s Engine File Reader; umm, it reads data from the given file." alt="" coords="596,5,698,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="562,16,596,16,596,21,562,21"/>
+<area shape="rect" id="Node000005" href="$db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file." alt="" coords="599,56,695,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="560,67,599,67,599,72,560,72"/>
+<area shape="rect" id="Node000007" href="$df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops." alt="" coords="609,107,685,133"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="549,117,608,117,608,123,549,123"/>
+<area shape="rect" id="Node000009" href="$d8/d52/class_a_e_log_parser.html" title="ArtyK&#39;s Engine&#39;s Log Parser; it parses the log files that AELogger writes." alt="" coords="598,157,696,184"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="561,168,597,168,597,173,561,173"/>
+<area shape="rect" id="Node000011" href="$d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files." alt="" coords="608,208,686,235"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="551,219,607,219,607,224,551,224"/>
+<area shape="rect" id="Node000013" href="$da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,..." alt="" coords="611,259,683,285"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="547,269,611,269,611,275,547,275"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="ace::math::sqrt" name="ace::math::sqrt">
+<area shape="rect" id="Node000001" title="Newton&#39;s method sqrt implementation, compatible with constexpr evaluation." alt="" coords="268,31,377,57"/>
+<area shape="rect" id="Node000002" href="$dc/df6/struct_a_e_vector.html#a4fbe00c7ab3e00bc2cd62b9c3414679c" title="Calculates the vector that is perpendicular to &quot;this&quot;, with the length of projection of the given vec..." alt="" coords="5,5,220,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,38,220,34,220,29,252,33"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a43dfe745f66a0345771e8ba5d70e184e" title="Calculate the n&#39;th root of a number." alt="" coords="58,56,167,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="252,55,168,65,167,60,252,50"/>
+</map>

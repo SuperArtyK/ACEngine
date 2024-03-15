@@ -100,75 +100,80 @@ $(function(){initNavTree('de/dde/namespaceace_1_1utils.html','../../'); initResi
 </div><!--header-->
 <div class="contents">
 
-<p>Global usefull utilities.  
+<p>This namespace contains the engine's <b>utility functions and code</b>.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7585917f8a4d737f6bebaa18043cba9b" id="r_a7585917f8a4d737f6bebaa18043cba9b"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7585917f8a4d737f6bebaa18043cba9b">boolToString</a> (const bool b) noexcept</td></tr>
-<tr class="memdesc:a7585917f8a4d737f6bebaa18043cba9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts bool to the word version.  <br /></td></tr>
-<tr class="separator:a7585917f8a4d737f6bebaa18043cba9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c0e612fd746483b4a54325c11526ad" id="r_a92c0e612fd746483b4a54325c11526ad"><td class="memItemLeft" align="right" valign="top">constexpr const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92c0e612fd746483b4a54325c11526ad">boolToString</a> (const bool b) noexcept</td></tr>
+<tr class="memdesc:a92c0e612fd746483b4a54325c11526ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <b>bool to string</b> (word versions).  <br /></td></tr>
+<tr class="separator:a92c0e612fd746483b4a54325c11526ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a878c53ede8589dbc6a50734c9c4ad4d7" id="r_a878c53ede8589dbc6a50734c9c4ad4d7"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Y  = T, typename U  = T&gt; </td></tr>
 <tr class="memitem:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a878c53ede8589dbc6a50734c9c4ad4d7">isInRange</a> (const T minval, const Y maxval, const U i) noexcept</td></tr>
-<tr class="memdesc:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the value that you passed is within range.  <br /></td></tr>
+<tr class="memdesc:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <b>value is within some range</b>.  <br /></td></tr>
 <tr class="separator:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1fe69eba9650c6affc6344e67a2d998" id="r_ad1fe69eba9650c6affc6344e67a2d998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1fe69eba9650c6affc6344e67a2d998">toLowerRef</a> (std::string &amp;str1)</td></tr>
-<tr class="memdesc:ad1fe69eba9650c6affc6344e67a2d998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowers the passed std::string by reference.  <br /></td></tr>
+<tr class="memdesc:ad1fe69eba9650c6affc6344e67a2d998"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Lowers the passed std::string</b> by reference &ndash; transformation is applied directly to the passed string.  <br /></td></tr>
 <tr class="separator:ad1fe69eba9650c6affc6344e67a2d998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55b9d990eb19ee170c9c69f7c0a3cea" id="r_ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad55b9d990eb19ee170c9c69f7c0a3cea">toLowerVal</a> (std::string str1)</td></tr>
-<tr class="memdesc:ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the lowered version of passed std::string.  <br /></td></tr>
+<tr class="memdesc:ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <b>lowered version of passed std::string</b>.  <br /></td></tr>
 <tr class="separator:ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcd86509ef063a237d87e65a23255d99" id="r_adcd86509ef063a237d87e65a23255d99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcd86509ef063a237d87e65a23255d99">toUpperRef</a> (std::string &amp;str1)</td></tr>
-<tr class="memdesc:adcd86509ef063a237d87e65a23255d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uppers the passed std::string by reference.  <br /></td></tr>
+<tr class="memdesc:adcd86509ef063a237d87e65a23255d99"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Uppers the passed std::string</b> by reference.  <br /></td></tr>
 <tr class="separator:adcd86509ef063a237d87e65a23255d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e5593ccf0f98b5f42a32d10d34c2a65" id="r_a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e5593ccf0f98b5f42a32d10d34c2a65">toUpperVal</a> (std::string str1)</td></tr>
-<tr class="memdesc:a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the uppered version of passed std::string.  <br /></td></tr>
+<tr class="memdesc:a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <b>uppered version of passed std::string</b>.  <br /></td></tr>
 <tr class="separator:a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4aae0b12ad0a6702a293e8cf8a5db385" id="r_a4aae0b12ad0a6702a293e8cf8a5db385"><td class="memTemplParams" colspan="2">template&lt;const bool checkFloat = true&gt; </td></tr>
 <tr class="memitem:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4aae0b12ad0a6702a293e8cf8a5db385">isNum</a> (const std::string_view strnum) noexcept</td></tr>
-<tr class="memdesc:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given string is a numerical value.  <br /></td></tr>
+<tr class="memdesc:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given <b>string is a numerical value</b>.  <br /></td></tr>
 <tr class="separator:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de6011d3165d37fec20bde6541c2dcb" id="r_a2de6011d3165d37fec20bde6541c2dcb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de6011d3165d37fec20bde6541c2dcb">formatDate</a> (const time_t timept)</td></tr>
-<tr class="memdesc:a2de6011d3165d37fec20bde6541c2dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
-<tr class="separator:a2de6011d3165d37fec20bde6541c2dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a117883709789e1958161052eafbf83ab" id="r_a117883709789e1958161052eafbf83ab"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a117883709789e1958161052eafbf83ab">formatDate</a> (const time_t timept, char *const str) noexcept</td></tr>
-<tr class="memdesc:a117883709789e1958161052eafbf83ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
-<tr class="separator:a117883709789e1958161052eafbf83ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2458b79e1a70255b471414a4bb5680ce" id="r_a2458b79e1a70255b471414a4bb5680ce"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2458b79e1a70255b471414a4bb5680ce">formatDate</a> (const std::time_t timept)</td></tr>
+<tr class="memdesc:a2458b79e1a70255b471414a4bb5680ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**.  <br /></td></tr>
+<tr class="separator:a2458b79e1a70255b471414a4bb5680ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad444f0238f25149b013777e6391c3260" id="r_ad444f0238f25149b013777e6391c3260"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad444f0238f25149b013777e6391c3260">formatDate</a> (const std::time_t timept, char *const str) noexcept</td></tr>
+<tr class="memdesc:ad444f0238f25149b013777e6391c3260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS c-string**.  <br /></td></tr>
+<tr class="separator:ad444f0238f25149b013777e6391c3260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ef830bd659e4848847aa793e2f60852" id="r_a5ef830bd659e4848847aa793e2f60852"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ef830bd659e4848847aa793e2f60852">getCurrentDate</a> (void)</td></tr>
-<tr class="memdesc:a5ef830bd659e4848847aa793e2f60852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
+<tr class="memdesc:a5ef830bd659e4848847aa793e2f60852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the <b>current date and time as YYYY-MM-DD.HH:mm:SS</b>.  <br /></td></tr>
 <tr class="separator:a5ef830bd659e4848847aa793e2f60852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4eb2977c40497242a679e5364f92c62" id="r_aa4eb2977c40497242a679e5364f92c62"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4eb2977c40497242a679e5364f92c62">stringToDate</a> (const char *const timestr, const char *const timeformat=&quot;%Y-%m-%d.%X&quot;)</td></tr>
-<tr class="separator:aa4eb2977c40497242a679e5364f92c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c244549a8a91ca1b88c9a8afddb55bf" id="r_a3c244549a8a91ca1b88c9a8afddb55bf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c244549a8a91ca1b88c9a8afddb55bf">addrToStr</a> (const void *const myptr) noexcept</td></tr>
-<tr class="memdesc:a3c244549a8a91ca1b88c9a8afddb55bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the hex address value to string.  <br /></td></tr>
-<tr class="separator:a3c244549a8a91ca1b88c9a8afddb55bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0379815bc24cc369071e0b48787e9b" id="r_a2c0379815bc24cc369071e0b48787e9b"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c0379815bc24cc369071e0b48787e9b">stringToDate</a> (const char *const timestr, const char *const timeformat=&quot;%Y-%m-%d.%X&quot;)</td></tr>
+<tr class="memdesc:a2c0379815bc24cc369071e0b48787e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given c-string to a (c)time point (std::time_t), using a set format.  <br /></td></tr>
+<tr class="separator:a2c0379815bc24cc369071e0b48787e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dfa3531738f13f5294dbf7d3384ef54" id="r_a2dfa3531738f13f5294dbf7d3384ef54"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dfa3531738f13f5294dbf7d3384ef54">addrToStr</a> (const void *const myptr, const bool add0x=true) noexcept</td></tr>
+<tr class="memdesc:a2dfa3531738f13f5294dbf7d3384ef54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <b>hex address value to std::string</b>.  <br /></td></tr>
+<tr class="separator:a2dfa3531738f13f5294dbf7d3384ef54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae11f5aa96eafaa6765351bf3f9f974" id="r_a1ae11f5aa96eafaa6765351bf3f9f974"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ae11f5aa96eafaa6765351bf3f9f974">sleepMS</a> (const int ms) noexcept</td></tr>
-<tr class="memdesc:a1ae11f5aa96eafaa6765351bf3f9f974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to sleep the thread for ms milliseconds.  <br /></td></tr>
+<tr class="memdesc:a1ae11f5aa96eafaa6765351bf3f9f974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to <b>sleep the thread for milliseconds</b>.  <br /></td></tr>
 <tr class="separator:a1ae11f5aa96eafaa6765351bf3f9f974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3cab8babc7164fe97d71c65b247e848" id="r_ae3cab8babc7164fe97d71c65b247e848"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3cab8babc7164fe97d71c65b247e848">sleepUS</a> (const int us) noexcept</td></tr>
-<tr class="memdesc:ae3cab8babc7164fe97d71c65b247e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to sleep the thread for ms microseconds.  <br /></td></tr>
+<tr class="memdesc:ae3cab8babc7164fe97d71c65b247e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to <b>sleep the thread for microseconds</b>.  <br /></td></tr>
 <tr class="separator:ae3cab8babc7164fe97d71c65b247e848"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eb2322353edc04f78dbc3589e60d98c" id="r_a6eb2322353edc04f78dbc3589e60d98c"><td class="memItemLeft" align="right" valign="top">std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eb2322353edc04f78dbc3589e60d98c">fopenCC</a> (const char *const fname, const char *const flags) noexcept</td></tr>
-<tr class="memdesc:a6eb2322353edc04f78dbc3589e60d98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">fopen-cross-compiler &ndash;just a cross-compiler wrapper of FILE's fopen to do it properly.  <br /></td></tr>
+<tr class="memdesc:a6eb2322353edc04f78dbc3589e60d98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper to make the proper <b>cross-compiler version of fopen()</b> Opens the file with given name and flags.  <br /></td></tr>
 <tr class="separator:a6eb2322353edc04f78dbc3589e60d98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac203feb6c6323da0d38130bd7f6ede3" id="r_aac203feb6c6323da0d38130bd7f6ede3"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac203feb6c6323da0d38130bd7f6ede3">charToInt</a> (const char c) noexcept</td></tr>
-<tr class="memdesc:aac203feb6c6323da0d38130bd7f6ede3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given character value to int ('0' to 0), if it is within the '0'-&gt;'9' range.  <br /></td></tr>
-<tr class="separator:aac203feb6c6323da0d38130bd7f6ede3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71cf91f54be4b0c560726acb5bccae1" id="r_ae71cf91f54be4b0c560726acb5bccae1"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae71cf91f54be4b0c560726acb5bccae1">intToChar</a> (const int i) noexcept</td></tr>
-<tr class="memdesc:ae71cf91f54be4b0c560726acb5bccae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given int value to char (0 to '0'), if it is within the 0-&gt;9 range.  <br /></td></tr>
-<tr class="separator:ae71cf91f54be4b0c560726acb5bccae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d1b73c196336a2e6c5a9d8c2f7d139" id="r_a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="memTemplParams" colspan="2">template&lt;typename T  = int&gt; <br />
+requires (std::is_integral&lt;T&gt;::value)</td></tr>
+<tr class="memitem:a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a48d1b73c196336a2e6c5a9d8c2f7d139">numCharToInt</a> (const char c) noexcept</td></tr>
+<tr class="memdesc:a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given <b>numeric char to int of type T</b>  <br /></td></tr>
+<tr class="separator:a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa47216cb328daa6383e051926527813a" id="r_aa47216cb328daa6383e051926527813a"><td class="memTemplParams" colspan="2">template&lt;typename T  = int&gt; </td></tr>
+<tr class="memitem:aa47216cb328daa6383e051926527813a"><td class="memTemplItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa47216cb328daa6383e051926527813a">intToNumChar</a> (const T i) noexcept</td></tr>
+<tr class="memdesc:aa47216cb328daa6383e051926527813a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given <b>int of type T to numeric char</b>  <br /></td></tr>
+<tr class="separator:aa47216cb328daa6383e051926527813a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7b0c29ad928aac8db8dde13860e8252" id="r_ab7b0c29ad928aac8db8dde13860e8252"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7b0c29ad928aac8db8dde13860e8252">isAlNum</a> (const std::string_view str)</td></tr>
-<tr class="memdesc:ab7b0c29ad928aac8db8dde13860e8252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the passed string is alpha-numeric (contains only numbers and english letters)  <br /></td></tr>
+<tr class="memdesc:ab7b0c29ad928aac8db8dde13860e8252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <b>if the passed string is alpha-numeric</b> (contains only numbers and english letters)  <br /></td></tr>
 <tr class="separator:ab7b0c29ad928aac8db8dde13860e8252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3eadc5f289b54059322023f3c5eed96" id="r_ac3eadc5f289b54059322023f3c5eed96"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3eadc5f289b54059322023f3c5eed96">isAlNumUs</a> (const std::string_view str)</td></tr>
-<tr class="memdesc:ac3eadc5f289b54059322023f3c5eed96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores)  <br /></td></tr>
+<tr class="memdesc:ac3eadc5f289b54059322023f3c5eed96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <b>if the passed string is alpha-numeric with underscores</b> (contains only numbers, english letters, and underscores)  <br /></td></tr>
 <tr class="separator:ac3eadc5f289b54059322023f3c5eed96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Global usefull utilities. </p>
+<div class="textblock"><p>This namespace contains the engine's <b>utility functions and code</b>. </p>
+<p>The functions that do the code-cluttering stuff for you. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a3c244549a8a91ca1b88c9a8afddb55bf" name="a3c244549a8a91ca1b88c9a8afddb55bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c244549a8a91ca1b88c9a8afddb55bf">&#9670;&#160;</a></span>addrToStr()</h2>
+<a id="a92c0e612fd746483b4a54325c11526ad" name="a92c0e612fd746483b4a54325c11526ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c0e612fd746483b4a54325c11526ad">&#9670;&#160;</a></span>boolToString()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,43 +182,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string ace::utils::addrToStr </td>
-          <td>(</td>
-          <td class="paramtype">const void *const</td>          <td class="paramname"><span class="paramname"><em>myptr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the hex address value to string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">myptr</td><td>Pointer to whatever memory adress</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string with the hexadecimal version of the adress</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00333">333</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7585917f8a4d737f6bebaa18043cba9b" name="a7585917f8a4d737f6bebaa18043cba9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7585917f8a4d737f6bebaa18043cba9b">&#9670;&#160;</a></span>boolToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char * ace::utils::boolToString </td>
+          <td class="memname">constexpr const std::string_view ace::utils::boolToString </td>
           <td>(</td>
           <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
           <td></td>
@@ -226,312 +195,29 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Converts bool to the word version. </p>
+<p>Converts <b>bool to string</b> (word versions). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">b</td><td>The boolean to convert</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>const char* of "true" or "false"</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If <b>b</b> is true:</p><ul>
+<li>The <b>const std::string_view</b> of "true"</li>
+</ul>
+<p class="enddd">If <b>b</b> is false:</p><ul>
+<li>The <b>const std::string_view</b> of "false" </li>
+</ul>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00141">141</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00186">186</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a92c0e612fd746483b4a54325c11526ad_icgraph.svg" width="370" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="aac203feb6c6323da0d38130bd7f6ede3" name="aac203feb6c6323da0d38130bd7f6ede3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac203feb6c6323da0d38130bd7f6ede3">&#9670;&#160;</a></span>charToInt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int ace::utils::charToInt </td>
-          <td>(</td>
-          <td class="paramtype">const char</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the given character value to int ('0' to 0), if it is within the '0'-&gt;'9' range. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">c</td><td>The character value to convert</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int's 0-9 values if the given char value is within range, -1 otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00384">384</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6eb2322353edc04f78dbc3589e60d98c" name="a6eb2322353edc04f78dbc3589e60d98c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6eb2322353edc04f78dbc3589e60d98c">&#9670;&#160;</a></span>fopenCC()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::FILE * ace::utils::fopenCC </td>
-          <td>(</td>
-          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>fopen-cross-compiler &ndash;just a cross-compiler wrapper of FILE's fopen to do it properly. </p>
-<p>Opens the file with given name and flags. Needed so i dont need to retype ifdef for each of file openings Makes code cleaner...relatively</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fname</td><td>File name, as you'd pass to fopen</td></tr>
-    <tr><td class="paramname">flags</td><td>File flags, as you'd pass to fopen</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00365">365</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2de6011d3165d37fec20bde6541c2dcb" name="a2de6011d3165d37fec20bde6541c2dcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2de6011d3165d37fec20bde6541c2dcb">&#9670;&#160;</a></span>formatDate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string ace::utils::formatDate </td>
-          <td>(</td>
-          <td class="paramtype">const time_t</td>          <td class="paramname"><span class="paramname"><em>timept</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS. </p>
-<dl class="section warning"><dt>Warning</dt><dd>If -1 was passed, fails and returns empty string;</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timept</td><td>C time point</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the formatted string</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00262">262</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a117883709789e1958161052eafbf83ab" name="a117883709789e1958161052eafbf83ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a117883709789e1958161052eafbf83ab">&#9670;&#160;</a></span>formatDate() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char * ace::utils::formatDate </td>
-          <td>(</td>
-          <td class="paramtype">const time_t</td>          <td class="paramname"><span class="paramname"><em>timept</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *const</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS. </p>
-<dl class="section warning"><dt>Warning</dt><dd>If -1 was passed, fails and doesn't modify the string contents </dd>
-<dd>
-On fail, returns the passed string.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timept</td><td>C time point</td></tr>
-    <tr><td class="paramname">str</td><td>The c-string to write the value to. Must be at least 20 bytes long (19 characters with 1 null terminator)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00289">289</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5ef830bd659e4848847aa793e2f60852" name="a5ef830bd659e4848847aa793e2f60852"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ef830bd659e4848847aa793e2f60852">&#9670;&#160;</a></span>getCurrentDate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string ace::utils::getCurrentDate </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::stringof the current date in YYYY-MM-DD.HH:mm:SS format</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00312">312</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae71cf91f54be4b0c560726acb5bccae1" name="ae71cf91f54be4b0c560726acb5bccae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae71cf91f54be4b0c560726acb5bccae1">&#9670;&#160;</a></span>intToChar()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr char ace::utils::intToChar </td>
-          <td>(</td>
-          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the given int value to char (0 to '0'), if it is within the 0-&gt;9 range. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>The integer value to convert</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>char's '0'-&gt;'9' values if the given char value is within range, -1 otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00393">393</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab7b0c29ad928aac8db8dde13860e8252" name="ab7b0c29ad928aac8db8dde13860e8252"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7b0c29ad928aac8db8dde13860e8252">&#9670;&#160;</a></span>isAlNum()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool ace::utils::isAlNum </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the passed string is alpha-numeric (contains only numbers and english letters) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The passed string to check</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if it is alpha-numeric, false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00402">402</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac3eadc5f289b54059322023f3c5eed96" name="ac3eadc5f289b54059322023f3c5eed96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3eadc5f289b54059322023f3c5eed96">&#9670;&#160;</a></span>isAlNumUs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool ace::utils::isAlNumUs </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The passed string to check</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if it is alpha-numeric with underscores, false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00411">411</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -569,13 +255,13 @@ template&lt;typename T , typename Y  = T, typename U  = T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the value that you passed is within range. </p>
+<p>Checks if the <b>value is within some range</b>. </p>
 <dl class="section note"><dt>Note</dt><dd>The type of the values you pass to this function shall be the same</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The 1st type of values to compare</td></tr>
-    <tr><td class="paramname">Y</td><td>The 2nd type of values to compare (defaults to T)</td></tr>
-    <tr><td class="paramname">U</td><td>The 3rd type of values to compare (defaults to T)</td></tr>
+    <tr><td class="paramname">Y</td><td>The 2nd type of values to compare (defaults to <b>T</b>)</td></tr>
+    <tr><td class="paramname">U</td><td>The 3rd type of values to compare (defaults to <b>T</b>)</td></tr>
   </table>
   </dd>
 </dl>
@@ -587,9 +273,164 @@ template&lt;typename T , typename Y  = T, typename U  = T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the value is in the range, false otherwise</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the value <b>i</b> is within the range:</p><ul>
+<li><b>True</b></li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li><b>False</b> </li>
+</ul>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00157">157</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00208">208</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a878c53ede8589dbc6a50734c9c4ad4d7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad1fe69eba9650c6affc6344e67a2d998" name="ad1fe69eba9650c6affc6344e67a2d998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1fe69eba9650c6affc6344e67a2d998">&#9670;&#160;</a></span>toLowerRef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ace::utils::toLowerRef </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><b>Lowers the passed std::string</b> by reference &ndash; transformation is applied directly to the passed string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str1</td><td>The (reference to) string to be lowered</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00216">216</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad55b9d990eb19ee170c9c69f7c0a3cea" name="ad55b9d990eb19ee170c9c69f7c0a3cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad55b9d990eb19ee170c9c69f7c0a3cea">&#9670;&#160;</a></span>toLowerVal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ace::utils::toLowerVal </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the <b>lowered version of passed std::string</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str1</td><td>The string to be lowered</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The lowered version of the <b>str1</b> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00227">227</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="adcd86509ef063a237d87e65a23255d99" name="adcd86509ef063a237d87e65a23255d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcd86509ef063a237d87e65a23255d99">&#9670;&#160;</a></span>toUpperRef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ace::utils::toUpperRef </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><b>Uppers the passed std::string</b> by reference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str1</td><td>The (reference to) string to be uppered</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00236">236</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1e5593ccf0f98b5f42a32d10d34c2a65" name="a1e5593ccf0f98b5f42a32d10d34c2a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5593ccf0f98b5f42a32d10d34c2a65">&#9670;&#160;</a></span>toUpperVal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ace::utils::toUpperVal </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the <b>uppered version of passed std::string</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str1</td><td>The string to be uppered</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The uppered version of the <b>str1</b> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00247">247</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -618,7 +459,7 @@ template&lt;const bool checkFloat = true&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the given string is a numerical value. </p>
+<p>Checks if the given <b>string is a numerical value</b>. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">checkFloat</td><td>Template flag whether to check for integer values (false) or any/float values (true)</td></tr>
@@ -631,9 +472,261 @@ template&lt;const bool checkFloat = true&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if that string is indeed a number, false otherwise</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If <b>strnum</b> is a numeric string:</p><ul>
+<li><b>True</b></li>
+</ul>
+<p class="enddd">Otherwise, or if the size of <b>strnum</b> is 0:</p><ul>
+<li><b>False</b> </li>
+</ul>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00205">205</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00266">266</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2458b79e1a70255b471414a4bb5680ce" name="a2458b79e1a70255b471414a4bb5680ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2458b79e1a70255b471414a4bb5680ce">&#9670;&#160;</a></span>formatDate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ace::utils::formatDate </td>
+          <td>(</td>
+          <td class="paramtype">const std::time_t</td>          <td class="paramname"><span class="paramname"><em>timept</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timept</td><td>C time point</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the <b>timept</b> is positive:</p><ul>
+<li><b>std::string</b> containing the formatted <b>timept</b> with the set format, of size <a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2afa1079625f51a032ea458fdc22f729" title="Macro for the size of the formatted date-time string, produced by by the ace::utils::formatDate().">DATETIME_STRING_SIZE</a>.</li>
+</ul>
+<p class="enddd">Otherwise (<b>timept</b> is negative):</p><ul>
+<li>Emtpy <b>std::string</b> </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00320">320</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2afa1079625f51a032ea458fdc22f729">DATETIME_STRING_SIZE</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a2458b79e1a70255b471414a4bb5680ce_icgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad444f0238f25149b013777e6391c3260" name="ad444f0238f25149b013777e6391c3260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad444f0238f25149b013777e6391c3260">&#9670;&#160;</a></span>formatDate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * ace::utils::formatDate </td>
+          <td>(</td>
+          <td class="paramtype">const std::time_t</td>          <td class="paramname"><span class="paramname"><em>timept</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *const</td>          <td class="paramname"><span class="paramname"><em>str</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS c-string**. </p>
+<dl class="section warning"><dt>Warning</dt><dd><b>str</b> must be at least <a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2afa1079625f51a032ea458fdc22f729" title="Macro for the size of the formatted date-time string, produced by by the ace::utils::formatDate().">DATETIME_STRING_SIZE</a> bytes long. Otherwise you'll get a sigsev in your face. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2afa1079625f51a032ea458fdc22f729" title="Macro for the size of the formatted date-time string, produced by by the ace::utils::formatDate().">DATETIME_STRING_SIZE</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timept</td><td>C time point</td></tr>
+    <tr><td class="paramname">str</td><td>The c-string to write the value to</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the <b>timept</b> is positive and <b>str</b> is not nullptr:</p><ul>
+<li>The pointer to the formatted string (same as passed <b>str</b>)</li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li>Unmodified <b>str</b> </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00353">353</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../de/de8/_a_e_utils_8hpp.html#a2afa1079625f51a032ea458fdc22f729">DATETIME_STRING_SIZE</a>.</p>
+
+</div>
+</div>
+<a id="a5ef830bd659e4848847aa793e2f60852" name="a5ef830bd659e4848847aa793e2f60852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef830bd659e4848847aa793e2f60852">&#9670;&#160;</a></span>getCurrentDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ace::utils::getCurrentDate </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Formats the <b>current date and time as YYYY-MM-DD.HH:mm:SS</b>. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**.">ace::utils::formatDate(const std::time_t)</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>std::string</b> of the current date in <b>YYYY-MM-DD.HH:mm:SS</b> format </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00379">379</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#a2458b79e1a70255b471414a4bb5680ce">formatDate()</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a5ef830bd659e4848847aa793e2f60852_cgraph.svg" width="374" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a5ef830bd659e4848847aa793e2f60852_icgraph.svg" width="391" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2c0379815bc24cc369071e0b48787e9b" name="a2c0379815bc24cc369071e0b48787e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0379815bc24cc369071e0b48787e9b">&#9670;&#160;</a></span>stringToDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::time_t ace::utils::stringToDate </td>
+          <td>(</td>
+          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>timestr</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>timeformat</em><span class="paramdefsep"> = </span><span class="paramdefval">&quot;%Y-%m-%d.%X&quot;</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the given c-string to a (c)time point (std::time_t), using a set format. </p>
+<dl class="section note"><dt>Note</dt><dd>Format specifiers <a href="https://en.cppreference.com/w/cpp/io/manip/get_time">https://en.cppreference.com/w/cpp/io/manip/get_time</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timestr</td><td>The c-string to a formatted time</td></tr>
+    <tr><td class="paramname">timeformat</td><td>A c-string of the format that it uses</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the <b>timestr</b> and <b>timeformat</b> isn't nullptr, and <b>timestr</b> follows the set format:</p><ul>
+<li>Time since epoch as a <b>std::time_t</b> object</li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li><b>-1</b> as the <b>std::time_t</b> object </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00396">396</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a2c0379815bc24cc369071e0b48787e9b_icgraph.svg" width="100%" height="423"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2dfa3531738f13f5294dbf7d3384ef54" name="a2dfa3531738f13f5294dbf7d3384ef54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dfa3531738f13f5294dbf7d3384ef54">&#9670;&#160;</a></span>addrToStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ace::utils::addrToStr </td>
+          <td>(</td>
+          <td class="paramtype">const void *const</td>          <td class="paramname"><span class="paramname"><em>myptr</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>add0x</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the <b>hex address value to std::string</b>. </p>
+<p>This keeps the leading zeros of the address. So passing the nullptr, which is 0, will result in something like 0x00000000 </p><dl class="section note"><dt>Note</dt><dd>The pointer value is not evaluated (passing nullptr is fine :) )</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">myptr</td><td>Pointer to whatever memory adress</td></tr>
+    <tr><td class="paramname">add0x</td><td>Flag to whether include the "0x" before the address value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>std::string</b> with the hexadecimal version of the passed address </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00421">421</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -660,8 +753,11 @@ template&lt;const bool checkFloat = true&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Convenient sleep function to sleep the thread for ms milliseconds. </p>
-<dl class="section note"><dt>Note</dt><dd>May be inaccurate in delay (as...all sleep functions are)</dd></dl>
+<p>Convenient sleep function to <b>sleep the thread for milliseconds</b>. </p>
+<dl class="section note"><dt>Note</dt><dd>May be inaccurate in delay (as...all sleep functions are) Uses <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901" title="A macro as the shortcut of thread&#39;s sleep_for">sleepFor()</a> inside </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901" title="A macro as the shortcut of thread&#39;s sleep_for">sleepFor()</a> </dd>
+<dd>
+<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a559364c19c1c80c7a63a7ca43ec71874" title="A macro as the shortcut of chrono&#39;s milliseconds.">milliSec()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ms</td><td>The amount of milliseconds to sleep</td></tr>
@@ -669,7 +765,9 @@ template&lt;const bool checkFloat = true&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00344">344</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00441">441</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a559364c19c1c80c7a63a7ca43ec71874">milliSec</a>, and <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901">sleepFor</a>.</p>
 
 </div>
 </div>
@@ -696,8 +794,11 @@ template&lt;const bool checkFloat = true&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Convenient sleep function to sleep the thread for ms microseconds. </p>
-<dl class="section note"><dt>Note</dt><dd>May be inaccurate in delay (as...all sleep functions are)</dd></dl>
+<p>Convenient sleep function to <b>sleep the thread for microseconds</b>. </p>
+<dl class="section note"><dt>Note</dt><dd>May be inaccurate in delay (as...all sleep functions are) Uses <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901" title="A macro as the shortcut of thread&#39;s sleep_for">sleepFor()</a> inside </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901" title="A macro as the shortcut of thread&#39;s sleep_for">sleepFor()</a> </dd>
+<dd>
+<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0e26bf3aaeae4fcabbff362eb4dd3a4" title="A macro as the shortcut of chrono&#39;s microseconds.">microSec()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">us</td><td>The amount of microseconds to sleep</td></tr>
@@ -705,12 +806,21 @@ template&lt;const bool checkFloat = true&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00353">353</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00453">453</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0e26bf3aaeae4fcabbff362eb4dd3a4">microSec</a>, and <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901">sleepFor</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_ae3cab8babc7164fe97d71c65b247e848_icgraph.svg" width="100%" height="385"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="aa4eb2977c40497242a679e5364f92c62" name="aa4eb2977c40497242a679e5364f92c62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4eb2977c40497242a679e5364f92c62">&#9670;&#160;</a></span>stringToDate()</h2>
+<a id="a6eb2322353edc04f78dbc3589e60d98c" name="a6eb2322353edc04f78dbc3589e60d98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eb2322353edc04f78dbc3589e60d98c">&#9670;&#160;</a></span>fopenCC()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -719,29 +829,148 @@ template&lt;const bool checkFloat = true&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">time_t ace::utils::stringToDate </td>
+          <td class="memname">std::FILE * ace::utils::fopenCC </td>
           <td>(</td>
-          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>timestr</em>, </span></td>
+          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>timeformat</em><span class="paramdefsep"> = </span><span class="paramdefval">&quot;%Y-%m-%d.%X&quot;</span></span>&#160;)</td>
+          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00316">316</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p>A wrapper to make the proper <b>cross-compiler version of fopen()</b> Opens the file with given name and flags. </p>
+<p>Needed so i don't need to retype ifdef for each of file openings Or pragma-disable warnings Makes code cleaner...relatively</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>File name, as you'd pass to fopen</td></tr>
+    <tr><td class="paramname">flags</td><td>File flags, as you'd pass to fopen</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the <b>std::FILE</b> as the result of the fopen call </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00469">469</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_a6eb2322353edc04f78dbc3589e60d98c_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="ad1fe69eba9650c6affc6344e67a2d998" name="ad1fe69eba9650c6affc6344e67a2d998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1fe69eba9650c6affc6344e67a2d998">&#9670;&#160;</a></span>toLowerRef()</h2>
+<a id="a48d1b73c196336a2e6c5a9d8c2f7d139" name="a48d1b73c196336a2e6c5a9d8c2f7d139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d1b73c196336a2e6c5a9d8c2f7d139">&#9670;&#160;</a></span>numCharToInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = int&gt; <br />
+requires (std::is_integral&lt;T&gt;::value)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T ace::utils::numCharToInt </td>
+          <td>(</td>
+          <td class="paramtype">const char</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the given <b>numeric char to int of type T</b> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the int to convert the char to</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The numeric char to convert</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the given char is within the '0'-&gt;'9' range:</p><ul>
+<li>The value of type <b>T</b> that corresponds to the given value of char</li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li><b>-1</b> as the type <b>T</b> </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00498">498</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa47216cb328daa6383e051926527813a" name="aa47216cb328daa6383e051926527813a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa47216cb328daa6383e051926527813a">&#9670;&#160;</a></span>intToNumChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char ace::utils::intToNumChar </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the given <b>int of type T to numeric char</b> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the int to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The integer value to convert</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the given int is within the 0 -&gt; 9 range:</p><ul>
+<li>The value of type char that corresponds to the given int value of type <b>T</b></li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li><b>-1</b> as the char type </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00515">515</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab7b0c29ad928aac8db8dde13860e8252" name="ab7b0c29ad928aac8db8dde13860e8252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b0c29ad928aac8db8dde13860e8252">&#9670;&#160;</a></span>isAlNum()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -750,33 +979,40 @@ template&lt;const bool checkFloat = true&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ace::utils::toLowerRef </td>
+          <td class="memname">constexpr bool ace::utils::isAlNum </td>
           <td>(</td>
-          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Lowers the passed std::string by reference. </p>
+<p>Checks <b>if the passed string is alpha-numeric</b> (contains only numbers and english letters) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str1</td><td>The string to be lowered</td></tr>
+    <tr><td class="paramname">str</td><td>The passed string to check</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the string contains <em>only</em> numbers(0-9) or alphabetic characters(A-Z, a-z):</p><ul>
+<li><b>True</b></li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li><b>False</b> </li>
+</ul>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00165">165</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00530">530</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ad55b9d990eb19ee170c9c69f7c0a3cea" name="ad55b9d990eb19ee170c9c69f7c0a3cea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad55b9d990eb19ee170c9c69f7c0a3cea">&#9670;&#160;</a></span>toLowerVal()</h2>
+<a id="ac3eadc5f289b54059322023f3c5eed96" name="ac3eadc5f289b54059322023f3c5eed96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3eadc5f289b54059322023f3c5eed96">&#9670;&#160;</a></span>isAlNumUs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -785,100 +1021,42 @@ template&lt;const bool checkFloat = true&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string ace::utils::toLowerVal </td>
+          <td class="memname">constexpr bool ace::utils::isAlNumUs </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the lowered version of passed std::string. </p>
+<p>Checks <b>if the passed string is alpha-numeric with underscores</b> (contains only numbers, english letters, and underscores) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str1</td><td>The string to be lowered</td></tr>
+    <tr><td class="paramname">str</td><td>The passed string to check</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The lowered version of the string</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><p class="startdd">If the string contains <em>only</em> numbers(0-9), alphabetic characters(A-Z, a-z), or an underscore (_):</p><ul>
+<li><b>True</b></li>
+</ul>
+<p class="enddd">Otherwise:</p><ul>
+<li><b>False</b> </li>
+</ul>
+</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00174">174</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00545">545</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/dde/namespaceace_1_1utils_ac3eadc5f289b54059322023f3c5eed96_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<a id="adcd86509ef063a237d87e65a23255d99" name="adcd86509ef063a237d87e65a23255d99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcd86509ef063a237d87e65a23255d99">&#9670;&#160;</a></span>toUpperRef()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ace::utils::toUpperRef </td>
-          <td>(</td>
-          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Uppers the passed std::string by reference. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str1</td><td>The string to be uppered</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00183">183</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1e5593ccf0f98b5f42a32d10d34c2a65" name="a1e5593ccf0f98b5f42a32d10d34c2a65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e5593ccf0f98b5f42a32d10d34c2a65">&#9670;&#160;</a></span>toUpperVal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string ace::utils::toUpperVal </td>
-          <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>str1</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the uppered version of passed std::string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str1</td><td>The string to be uppered</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The uppered version of the string</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -888,7 +1066,7 @@ template&lt;const bool checkFloat = true&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d23/namespaceace.html">ace</a></li><li class="navelem"><a class="el" href="../../de/dde/namespaceace_1_1utils.html">utils</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

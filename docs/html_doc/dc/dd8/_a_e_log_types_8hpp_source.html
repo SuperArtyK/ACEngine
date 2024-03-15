@@ -102,30 +102,46 @@ $(function(){initNavTree('dc/dd8/_a_e_log_types_8hpp_source.html','../../'); ini
   <div class="headertitle"><div class="title">AELogTypes.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dc/dd8/_a_e_log_types_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="../../dc/dd8/_a_e_log_types_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment"></span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*! @file AECustomTypes/include/AELogTypes.hpp</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *  This file contains the macros for the AELogEntry (and consequently AELogger&#39;s) log types.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *  Please do not touch! (Unless really-really sure) Thank you.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *  Should not cause everything to break :)</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef ENGINE_LOG_TYPES_HPP</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define ENGINE_LOG_TYPES_HPP</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//log types</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a97e9d275dff03d60cedc685911aafc8d">   16</a></span><span class="preprocessor">#define AELOG_TYPE_INVALID cint{-1}</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">   19</a></span><span class="preprocessor">#define AELOG_TYPE_DEBUG cint{0}</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">   22</a></span><span class="preprocessor">#define AELOG_TYPE_INFO cint{1}</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#ae1372b4514a65cdaa0930d4ff352c49c">   25</a></span><span class="preprocessor">#define AELOG_TYPE_WARN cint{2}</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a05cf0e904135ebda00fb74fef64c384b">   28</a></span><span class="preprocessor">#define AELOG_TYPE_SEVERE_WARN cint{3}</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#acc6733729c4691b85a0846b7fc3faba0">   31</a></span><span class="preprocessor">#define AELOG_TYPE_OK cint{4}</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#af702d5705c59c5e431df0b6cd2bbb9b3">   34</a></span><span class="preprocessor">#define AELOG_TYPE_SUCCESS cint{5}</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a8fd8d05528157dc249c29657f0c83029">   37</a></span><span class="preprocessor">#define AELOG_TYPE_ERROR cint{6}</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a1db0fdaed06e091f280123296ba14b75">   40</a></span><span class="preprocessor">#define AELOG_TYPE_FATAL_ERROR cint{7}</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//log types</span><span class="comment"></span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/// Macro for the AELogger&#39;s entry of invalid type.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a97e9d275dff03d60cedc685911aafc8d">   16</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_INVALID cint{-1}</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"></span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/// Macro for the AELogger&#39;s debug entry.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">   19</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_DEBUG cint{0}</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/// Macro for the AELogger&#39;s informational entry.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">   22</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_INFO cint{1}</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/// Macro for the AELogger&#39;s warning entry (something isn&#39;t right).</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#ae1372b4514a65cdaa0930d4ff352c49c">   25</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_WARN cint{2}</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/// Macro for the AELogger&#39;s severe warning entry (something is wrong but it&#39;s not an error).</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a05cf0e904135ebda00fb74fef64c384b">   28</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_SEVERE_WARN cint{3}</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/// Macro for the AELogger&#39;s OK entry (something is good, like a check).</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#acc6733729c4691b85a0846b7fc3faba0">   31</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_OK cint{4}</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"></span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/// Macro for the AELogger&#39;s successful entry (something done is successfull..like a module start).</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#af702d5705c59c5e431df0b6cd2bbb9b3">   34</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_SUCCESS cint{5}</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/// Macro for the AELogger&#39;s errorneus entry (something is bad..it&#39;s an error).</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a8fd8d05528157dc249c29657f0c83029">   37</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_ERROR cint{6}</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/// Macro for the AELogger&#39;s fatally-errorenous entry (something critical is fatally-bad).</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../dc/dd8/_a_e_log_types_8hpp.html#a1db0fdaed06e091f280123296ba14b75">   40</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_TYPE_FATAL_ERROR cint{7}</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif </span><span class="comment">// !ENGINE_LOG_TYPES_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -134,7 +150,7 @@ $(function(){initNavTree('dc/dd8/_a_e_log_types_8hpp_source.html','../../'); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c7fd627511514fa4f3972160e00d4a6c.html">AECustomTypes</a></li><li class="navelem"><a class="el" href="../../dir_c2e9e0e2b65c0688dd0dbae3ac760500.html">include</a></li><li class="navelem"><a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html">AELogTypes.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

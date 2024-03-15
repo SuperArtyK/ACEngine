@@ -10,12 +10,31 @@
 using std::cout;
 using std::endl;
 
+struct mystruct {
+
+	static void myfunc() {
+		dprintf("This is a test debug line");
+	}
+
+};
+
+
+
 int main() {
 	
+	mystruct::myfunc();
 
+	cout << (IS_SAME_NOCV(const int, int)) << " " << (std::is_same < std::remove_cv<const char[]>::type, const char*>::value) << NLC;
+
+
+
+	cout << (std::is_same< std::remove_cv<std::decay<const char[]>::type>::type, std::remove_cv<std::decay<const char*>::type>::type>::value)<<" "<< IS_SAME_NOCV_DECAY(const char[], const char*) << NLC;
+
+	cout << ace::utils::stringToDate << NLC;
 
 	cout << std::fixed<<std::setprecision(16)<<ace::math::root<float>(236, 2)<<NLC;
 	
+
 	for (int i = 0; i < 360; i++) {
 		cout << ace::math::sinDeg_table(i) << "; " << ace::math::cscDeg_table(i)<<"| ";
 		cout << ace::math::cosDeg_table(i) << "; " << ace::math::secDeg_table(i) << "| ";
@@ -51,7 +70,9 @@ int main() {
 	cout << ace::math::sinDeg(30.0) << " " << ace::math::sinDeg(30.25) << " " << ace::math::sinDeg(30.5) << " " << ace::math::sinDeg(30.75) << " " << ace::math::sinDeg(31.0)<<endl;
 	
 
-	
+	cout << NLC << NLC;
+	cout << ace::math::lerp<long double>(0,10,1.5);
+
 
 
 	std::cin.get();

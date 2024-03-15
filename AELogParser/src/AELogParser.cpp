@@ -146,7 +146,7 @@ cint AELogParser::filterQueue(AELogEntry*& ptr, const cint severity, const bool 
 	AELogEntry* past = &kludge;
 	std::size_t newQueueSize = 0;
 
-	const std::size_t szCheck = ace::math::min(mname.size(), AELE_MODULENAME_SIZE);
+	const std::size_t szCheck = ace::math::min<std::size_t>(mname.size(), AELE_MODULENAME_SIZE);
 	const auto cmpMName = (mname.empty()) ?
 		([](const char* const entryName, const std::size_t szCheck, const std::string_view& filterMname) noexcept { return true; }) : // if the module name is empty -- return true always (we aren't checking for it)
 		([](const char* const entryName, const std::size_t szCheck, const std::string_view& filterMname) noexcept { return !std::memcmp(entryName, filterMname.data(), szCheck); });

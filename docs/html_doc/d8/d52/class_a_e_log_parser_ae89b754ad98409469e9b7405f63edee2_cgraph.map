@@ -1,0 +1,25 @@
+<map id="AELogParser::nextEntryCursor" name="AELogParser::nextEntryCursor">
+<area shape="rect" id="Node000001" title="Read the next indexed valid log entry in the file of the given severity and module name filter,..." alt="" coords="5,107,206,133"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#a77b12a5ddd2933a8319e523986788292" title="Determines the error codes from the invalid values in the passed AELogEntryInfo instance." alt="" coords="254,81,453,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,107,238,104,239,109,206,112"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#afcff7caee18bdcafa1dc0edb75a75590" title="Finds the AELogEntryInfo corresponding to the next log entry with the specified severity and module n..." alt="" coords="261,132,446,159"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,128,246,132,245,137,206,133"/>
+<area shape="rect" id="Node000004" href="$d8/d52/class_a_e_log_parser.html#a8e16a086fe0cb5cc6828b53b0a97a1bf" title="Checks if the passed entry&#39;s and filter&#39;s module name indices match Moved from a lambda,..." alt="" coords="509,5,695,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="431,129,451,118,467,100,474,81,482,61,499,42,507,37,510,41,503,46,487,64,479,83,472,103,455,122,434,134"/>
+<area shape="rect" id="Node000005" href="$d8/d52/class_a_e_log_parser.html#a21f7748ae4be67f2221a114cbe9bca7c" title="Checks if the passed severity is valid compared to the filtering severity." alt="" coords="508,56,695,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="412,129,452,117,500,99,540,85,542,90,502,104,454,123,414,134"/>
+<area shape="rect" id="Node000006" href="$d8/d52/class_a_e_log_parser.html#a04627d27deedd7981a5e106dd8ade5ed" title="Checks if the current log file contains the given severity (or higher, depending on the &quot;strict&#45;sever..." alt="" coords="501,157,702,184"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="446,152,486,156,485,161,446,157"/>
+<area shape="rect" id="Node000007" href="$d8/d52/class_a_e_log_parser.html#af349b880be4cdd8c6d27960a038680ab" title="Checks if the file is closed by the AELogParser." alt="" coords="750,132,907,159"/>
+<area shape="poly" id="edge11_Node000003_Node000007" title=" " alt="" coords="446,143,735,143,735,148,446,148"/>
+<area shape="rect" id="Node000010" href="$de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7" title="Checks if the value is within some range." alt="" coords="759,183,898,209"/>
+<area shape="poly" id="edge12_Node000003_Node000010" title=" " alt="" coords="386,157,439,177,501,193,564,201,628,204,744,201,744,206,628,209,564,206,501,199,438,182,384,162"/>
+<area shape="rect" id="Node000011" href="$db/d7b/struct_a_e_log_entry_info.html#af5f2718c2846e38977e660dd8fb59333" title="Returns the invalid instance of the AELogEntryInfo." alt="" coords="509,259,694,285"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="374,157,430,196,502,238,535,251,533,256,500,242,427,201,371,161"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="702,157,734,153,735,158,703,162"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="703,179,744,184,744,189,702,185"/>
+<area shape="rect" id="Node000008" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="955,132,1114,159"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="907,143,939,143,939,148,907,148"/>
+<area shape="rect" id="Node000009" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="1162,132,1312,159"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1114,143,1146,143,1146,148,1114,148"/>
+</map>

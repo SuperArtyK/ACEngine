@@ -1,0 +1,19 @@
+<map id="AELogParser::nextEntryCursor" name="AELogParser::nextEntryCursor">
+<area shape="rect" id="Node000001" title="Read the next indexed valid log entry in the file of the given severity and module name filter,..." alt="" coords="789,132,990,159"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#af3c28f50c5f52840be97e631d67b244c" title="Read the next valid entry in the log file of the given severity and module name filter,..." alt="" coords="543,81,705,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="800,131,697,111,698,106,801,126"/>
+<area shape="rect" id="Node000008" href="$d8/d52/class_a_e_log_parser.html#a6e74863a220efa6ca9c3b3067d953469" title="Read the next indexed valid log entry in the file of the given module name filter,..." alt="" coords="507,132,741,159"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="774,148,742,148,742,143,774,143"/>
+<area shape="rect" id="Node000009" href="$d8/d52/class_a_e_log_parser.html#aff3bcd025e52cd530cbb576d47915c53" title="Read the next indexed valid log entry in the file of the given severity filter and return it&#39;s file c..." alt="" coords="510,183,738,209"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="801,165,698,185,697,179,800,160"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#a182d51b4aa5771e2e6f6919300e571ca" title="Same as the AELogParser::nextEntry() but on massive scale – scans the whole log file and parses it to..." alt="" coords="273,31,449,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="536,80,433,61,434,55,537,75"/>
+<area shape="rect" id="Node000006" href="$d8/d52/class_a_e_log_parser.html#a768d4b94cbf1504d72f93ec5d131e915" title="Read the next valid entry in the log file of the given module name, and parse it into the given AELog..." alt="" coords="263,81,459,108"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="527,97,459,97,459,92,527,92"/>
+<area shape="rect" id="Node000007" href="$d8/d52/class_a_e_log_parser.html#a0e03f67c2a0eaa0317904a2bd9f70cc0" title="Read the next valid entry in the log file of the given severity, and parse it to the given AELogEntry..." alt="" coords="266,132,456,159"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="537,114,434,134,433,129,536,109"/>
+<area shape="rect" id="Node000004" href="$d8/d52/class_a_e_log_parser.html#ae5044cf01623156d91ddc74492b0aeda" title="A shortcut to AELogParser::logToQueue() to filter only by the module name of the log entries." alt="" coords="5,5,215,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="257,36,215,32,215,27,258,31"/>
+<area shape="rect" id="Node000005" href="$d8/d52/class_a_e_log_parser.html#ab84bb93f08ed48082f74b00290deb308" title="A shortcut to AELogParser::logToQueue() to filter only by type/severity of the log entries." alt="" coords="8,56,212,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="258,57,212,62,212,56,258,52"/>
+</map>

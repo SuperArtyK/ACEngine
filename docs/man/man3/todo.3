@@ -1,16 +1,12 @@
-.TH "todo" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "todo" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 todo \- Todo List 
 .PP
 
-.IP "\fBMember \fBace::math::ceilToInt\fP (const Y num) noexcept\fP" 1c
-Change the body of the function to use std::ceil() instead, when it gets constexpr (after c++23)  
-.IP "\fBMember \fBace::math::floorToInt\fP (const Y num) noexcept\fP" 1c
-Change the body of the function to use std::floor() instead, when it gets constexpr (after c++23)  
-.IP "\fBMember \fBace::math::truncToInt\fP (const Y num) noexcept\fP" 1c
-Change the body of the function to use std::trunc() instead, when it gets constexpr (after c++23)  
+.IP "\fBMember \fBace::math::sqrt\fP (const T num) noexcept\fP" 1c
+When C++23 support appears, add if-consteval to use the newton's method in constexpr context, and use classic std::sqrt otherwise  
 .IP "\fBClass \fBAEFileReader\fP \fP" 1c
 add generic read function  
 .IP "\fBMember \fBAEFileWriter::write\fP (const T &var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept\fP" 1c
@@ -36,20 +32,6 @@ Add the ability to calculate the tables at compile time + control the size (36 e
 .IP "\fBMember \fBAEVector< T, dimAmount, >::angleBetweenDeg\fP (const AEVector< Y, dimAmount > &two) const noexcept\fP" 1c
 Change this function to constexpr once the constexpr solution appears  
 .IP "\fBMember \fBAEVector< T, dimAmount, >::angleBetweenRad\fP (const AEVector< Y, dimAmount > &two) const noexcept\fP" 1c
-Change this function to constexpr once the constexpr solution appears  
-.IP "\fBFile \fBmain_ACEngine\&.cpp\fP \fP" 1c
-Add the global variable list from my older engine 
-.PP
-.PP
-Add \fBAELogParser\fP to parse the engine's (\fBAELogger\fP) log files 
-.PP
-.PP
-Add engine's file format, AEFile 
-.PP
-.PP
-Transfer and adapt code from my previous engine attempt 
-.PP
-.PP
-Add project documentation (explanation, and examples for example) to the readme\&.md files
+Change this function to constexpr once the constexpr solution appears 
 .PP
 

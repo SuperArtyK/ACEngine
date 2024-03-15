@@ -1,0 +1,7 @@
+<map id="AEFileReader::getFileName" name="AEFileReader::getFileName">
+<area shape="rect" id="Node000001" title="Returns the name of the opened file, devoid of the path." alt="" coords="5,5,188,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="236,5,417,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,16,220,16,220,21,188,21"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="465,5,648,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="418,16,449,16,449,21,418,21"/>
+</map>

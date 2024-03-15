@@ -1,0 +1,5 @@
+<map id="AELogParser::closeLog" name="AELogParser::closeLog">
+<area shape="rect" id="Node000001" title="Closes the log file and clears the memory." alt="" coords="245,5,403,32"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#a2c35902cdfa4f883d1d8f10dd546f4ed" title="Class destructor – closes the log file." alt="" coords="5,5,197,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,21,197,21,197,16,229,16"/>
+</map>

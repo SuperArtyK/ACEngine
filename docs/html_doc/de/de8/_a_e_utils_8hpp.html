@@ -101,6 +101,9 @@ $(function(){initNavTree('de/de8/_a_e_utils_8hpp.html','../../'); initResizable(
   <div class="headertitle"><div class="title">AEUtils.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file contains the engine's <b>usefull utilities for trivial tasks</b>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">AEFlags.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
@@ -110,256 +113,154 @@ $(function(){initNavTree('de/de8/_a_e_utils_8hpp.html','../../'); initResizable(
 <code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AEUtils.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/d69/_a_e_utils_8hpp__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d86/_a_e_utils_8hpp__dep__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 </div>
 <p><a href="../../de/de8/_a_e_utils_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d8/d23/namespaceace" id="r_d8/d23/namespaceace"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d23/namespaceace.html">ace</a></td></tr>
-<tr class="memdesc:d8/d23/namespaceace"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains all of things that any of the part of program can use, and is useful. <br /></td></tr>
+<tr class="memdesc:d8/d23/namespaceace"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains <b>everything that belongs to the engine</b>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:de/dde/namespaceace_1_1utils" id="r_de/dde/namespaceace_1_1utils"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html">ace::utils</a></td></tr>
-<tr class="memdesc:de/dde/namespaceace_1_1utils"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global usefull utilities. <br /></td></tr>
+<tr class="memdesc:de/dde/namespaceace_1_1utils"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the engine's <b>utility functions and code</b>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ab9d7a2dfdef90a2f8526373fb708e76c" id="r_ab9d7a2dfdef90a2f8526373fb708e76c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9d7a2dfdef90a2f8526373fb708e76c">arrsize</a>(arr)&#160;&#160;&#160;(sizeof(arr) / sizeof(arr[0]) )</td></tr>
-<tr class="memdesc:ab9d7a2dfdef90a2f8526373fb708e76c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the calculation of static, compile-time array </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arr</td><td>The array to calculate the size of</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memdesc:ab9d7a2dfdef90a2f8526373fb708e76c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the calculation of the <b>size of the static array</b> (that is determined compile-time).  <br /></td></tr>
 <tr class="separator:ab9d7a2dfdef90a2f8526373fb708e76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b18554cc402bdf206516c506cc83ce6" id="r_a0b18554cc402bdf206516c506cc83ce6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b18554cc402bdf206516c506cc83ce6">mod0</a>(dividend,  divisor)&#160;&#160;&#160;!(dividend % divisor)</td></tr>
-<tr class="memdesc:a0b18554cc402bdf206516c506cc83ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the check if modulo of x and y results in 0 </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dividend</td><td>The dividend of the operation</td></tr>
-    <tr><td class="paramname">divisor</td><td>The divisor of the operation</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memitem:a0b18554cc402bdf206516c506cc83ce6" id="r_a0b18554cc402bdf206516c506cc83ce6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b18554cc402bdf206516c506cc83ce6">mod0</a>(dividend,  divisor)&#160;&#160;&#160;()</td></tr>
+<tr class="memdesc:a0b18554cc402bdf206516c506cc83ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the check <b>if modulo of x and y results in 0</b>.  <br /></td></tr>
 <tr class="separator:a0b18554cc402bdf206516c506cc83ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79dd34fd474eec49ab69b41e1bd1a95" id="r_ad79dd34fd474eec49ab69b41e1bd1a95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad79dd34fd474eec49ab69b41e1bd1a95">getBit</a>(value,  bit)&#160;&#160;&#160;(value&amp; (1 &lt;&lt; bit))</td></tr>
-<tr class="memdesc:ad79dd34fd474eec49ab69b41e1bd1a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to get the bit of the given value (bitwise operations) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>The value to get the bit of</td></tr>
-    <tr><td class="paramname">bit</td><td>The bit number to get</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memdesc:ad79dd34fd474eec49ab69b41e1bd1a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to get the <b>certain bit of the given value</b> (bitshift operation).  <br /></td></tr>
 <tr class="separator:ad79dd34fd474eec49ab69b41e1bd1a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2223c0fea4b1e7a9eb8e0f20086a7e26" id="r_a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2223c0fea4b1e7a9eb8e0f20086a7e26">aceAssert</a>(expression,  message)&#160;&#160;&#160;if ( !(expression) ) { std::cerr &lt;&lt; &quot;\n\nAssertion failed!\nExpression: &quot; &lt;&lt; #expression &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; message &lt;&lt; std::endl; abort(); }</td></tr>
-<tr class="memdesc:a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Better-fomatted assertion for runtime checks.  <br /></td></tr>
+<tr class="memitem:a2223c0fea4b1e7a9eb8e0f20086a7e26" id="r_a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2223c0fea4b1e7a9eb8e0f20086a7e26">aceAssert</a>(expression,  message)</td></tr>
+<tr class="memdesc:a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the better-fomatted <b>assertion for runtime checks</b>.  <br /></td></tr>
 <tr class="separator:a2223c0fea4b1e7a9eb8e0f20086a7e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fb7bf82c787085c8b1ef0ad7d028424" id="r_a0fb7bf82c787085c8b1ef0ad7d028424"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fb7bf82c787085c8b1ef0ad7d028424">dprintf</a>(...)&#160;&#160;&#160;if constexpr (<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a>) { printf(&quot;DEBUG::%s()-&gt; &quot;, __FUNCTION__); printf(__VA_ARGS__); printf(&quot;\n&quot;); }</td></tr>
-<tr class="memdesc:a0fb7bf82c787085c8b1ef0ad7d028424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the debug printf() printing, use the same way as you have used printf before.  <br /></td></tr>
+<tr class="memitem:a0fb7bf82c787085c8b1ef0ad7d028424" id="r_a0fb7bf82c787085c8b1ef0ad7d028424"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fb7bf82c787085c8b1ef0ad7d028424">dprintf</a>(...)</td></tr>
+<tr class="memdesc:a0fb7bf82c787085c8b1ef0ad7d028424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>debug printf()</b> printing, use the same way as you have used printf before.  <br /></td></tr>
 <tr class="separator:a0fb7bf82c787085c8b1ef0ad7d028424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a913272c684270c11c1a96a982e9f9b44" id="r_a913272c684270c11c1a96a982e9f9b44"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a913272c684270c11c1a96a982e9f9b44">IS_SAME_NOC</a>(T,  Y)&#160;&#160;&#160;(std::is_same&lt;typename std::decay&lt;const T&gt;::type, typename std::decay&lt;const Y&gt;::type&gt;::value)</td></tr>
-<tr class="memdesc:a913272c684270c11c1a96a982e9f9b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same.  <br /></td></tr>
-<tr class="separator:a913272c684270c11c1a96a982e9f9b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a474e6b58876ffba91efe51ef4a505e87" id="r_a474e6b58876ffba91efe51ef4a505e87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a474e6b58876ffba91efe51ef4a505e87">IS_SAME_NOCV</a>(T,  Y)&#160;&#160;&#160;(std::is_same&lt;std::remove_cv&lt;T&gt;::type, std::remove_cv&lt;Y&gt;::type&gt;::value)</td></tr>
+<tr class="memdesc:a474e6b58876ffba91efe51ef4a505e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check <b>if the given type T is the same as Y</b>.  <br /></td></tr>
+<tr class="separator:a474e6b58876ffba91efe51ef4a505e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f1e3927fab11f7727ef50ca769bfa1f" id="r_a0f1e3927fab11f7727ef50ca769bfa1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f1e3927fab11f7727ef50ca769bfa1f">IS_SAME_NOCV_DECAY</a>(T,  Y)&#160;&#160;&#160;(std::is_same&lt;std::remove_cv&lt;std::decay&lt;T&gt;::type&gt;::type, std::remove_cv&lt;std::decay&lt;Y&gt;::type&gt;::type&gt;::value)</td></tr>
+<tr class="memdesc:a0f1e3927fab11f7727ef50ca769bfa1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to check <b>if the given type T is the same as Y</b>.  <br /></td></tr>
+<tr class="separator:a0f1e3927fab11f7727ef50ca769bfa1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84e0a3e6c7c2b7be64ecc2591eb613d8" id="r_a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84e0a3e6c7c2b7be64ecc2591eb613d8">UTF8</a>(x)&#160;&#160;&#160;u8 ## x</td></tr>
-<tr class="memdesc:a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!" </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>The string literal to convert to utf8</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memdesc:a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the normal <b>string literal to utf-8 string literal</b>.  <br /></td></tr>
 <tr class="separator:a84e0a3e6c7c2b7be64ecc2591eb613d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5ef465b3cfb7b096648181199e8029c" id="r_aa5ef465b3cfb7b096648181199e8029c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5ef465b3cfb7b096648181199e8029c">WSTR</a>(x)&#160;&#160;&#160;L ## x</td></tr>
-<tr class="memdesc:aa5ef465b3cfb7b096648181199e8029c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the "string literal" to L"wide string literal" </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>The string literal to convert to wstring</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memdesc:aa5ef465b3cfb7b096648181199e8029c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the normal <b>string literal to a wide string literal</b>.  <br /></td></tr>
 <tr class="separator:aa5ef465b3cfb7b096648181199e8029c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18d295a837ac71add5578860b55e5502" id="r_a18d295a837ac71add5578860b55e5502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18d295a837ac71add5578860b55e5502">STR</a>(x)&#160;&#160;&#160;<a class="el" href="#a935ab8eba47cbe4b0bf865931bfd4901">_STR_HELPER</a>(x)</td></tr>
-<tr class="memdesc:a18d295a837ac71add5578860b55e5502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the passed non-string literals to a string literal That can be another number macro, or random garbage (abcdef will work too, turns into "abcdef")  <br /></td></tr>
+<tr class="memdesc:a18d295a837ac71add5578860b55e5502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert the passed <b>non-string literals to a string literal</b>.  <br /></td></tr>
 <tr class="separator:a18d295a837ac71add5578860b55e5502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a935ab8eba47cbe4b0bf865931bfd4901" id="r_a935ab8eba47cbe4b0bf865931bfd4901"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a935ab8eba47cbe4b0bf865931bfd4901">_STR_HELPER</a>(x)&#160;&#160;&#160;#x</td></tr>
 <tr class="memdesc:a935ab8eba47cbe4b0bf865931bfd4901"><td class="mdescLeft">&#160;</td><td class="mdescRight">The macro helper to convert stuff into a string literal.  <br /></td></tr>
 <tr class="separator:a935ab8eba47cbe4b0bf865931bfd4901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a0a8fe6f06d23e4a7415db5a90d038d" id="r_a6a0a8fe6f06d23e4a7415db5a90d038d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a0a8fe6f06d23e4a7415db5a90d038d">aeoffsetof</a>(type,  member)&#160;&#160;&#160;(intptr_t)&amp;(((type*)NULL)-&gt;member)</td></tr>
-<tr class="memdesc:a6a0a8fe6f06d23e4a7415db5a90d038d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offsetof alternative if the compiler doesn't support the offsetof natively </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type</td><td>The type/struct name</td></tr>
-    <tr><td class="paramname">member</td><td>The member of struct/type to calculate the offset between</td></tr>
-  </table>
-  </dd>
-</dl>
- <br /></td></tr>
+<tr class="memdesc:a6a0a8fe6f06d23e4a7415db5a90d038d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the engine's <b>offsetoff macro</b>.  <br /></td></tr>
 <tr class="separator:a6a0a8fe6f06d23e4a7415db5a90d038d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9732970f9ca82af5d3e94cf069402340" id="r_a9732970f9ca82af5d3e94cf069402340"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9732970f9ca82af5d3e94cf069402340">NLC</a>&#160;&#160;&#160;'\n'</td></tr>
-<tr class="memdesc:a9732970f9ca82af5d3e94cf069402340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for newline char literal.  <br /></td></tr>
+<tr class="memdesc:a9732970f9ca82af5d3e94cf069402340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for <b>newline char literal</b>.  <br /></td></tr>
 <tr class="separator:a9732970f9ca82af5d3e94cf069402340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc1931a50f4cdc27035829dbb830d22a" id="r_acc1931a50f4cdc27035829dbb830d22a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc1931a50f4cdc27035829dbb830d22a">NLS</a>&#160;&#160;&#160;&quot;\n&quot;</td></tr>
-<tr class="memdesc:acc1931a50f4cdc27035829dbb830d22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for newline string literal.  <br /></td></tr>
+<tr class="memdesc:acc1931a50f4cdc27035829dbb830d22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for <b>newline string literal</b>.  <br /></td></tr>
 <tr class="separator:acc1931a50f4cdc27035829dbb830d22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2afa1079625f51a032ea458fdc22f729" id="r_a2afa1079625f51a032ea458fdc22f729"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2afa1079625f51a032ea458fdc22f729">DATETIME_STRING_SIZE</a>&#160;&#160;&#160;20</td></tr>
-<tr class="memdesc:a2afa1079625f51a032ea458fdc22f729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the string of the formatted date-time by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb" title="Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.">ace::utils::formatDate()</a>  <br /></td></tr>
+<tr class="memitem:a2afa1079625f51a032ea458fdc22f729" id="r_a2afa1079625f51a032ea458fdc22f729"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2afa1079625f51a032ea458fdc22f729">DATETIME_STRING_SIZE</a>&#160;&#160;&#160;sizeof(&quot;YYYY-MM-DD.HH:mm:SS&quot;)</td></tr>
+<tr class="memdesc:a2afa1079625f51a032ea458fdc22f729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the size of the <b>formatted date-time string</b>, produced by by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**.">ace::utils::formatDate()</a>.  <br /></td></tr>
 <tr class="separator:a2afa1079625f51a032ea458fdc22f729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7585917f8a4d737f6bebaa18043cba9b" id="r_a7585917f8a4d737f6bebaa18043cba9b"><td class="memItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a7585917f8a4d737f6bebaa18043cba9b">ace::utils::boolToString</a> (const bool b) noexcept</td></tr>
-<tr class="memdesc:a7585917f8a4d737f6bebaa18043cba9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts bool to the word version.  <br /></td></tr>
-<tr class="separator:a7585917f8a4d737f6bebaa18043cba9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c0e612fd746483b4a54325c11526ad" id="r_a92c0e612fd746483b4a54325c11526ad"><td class="memItemLeft" align="right" valign="top">constexpr const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a92c0e612fd746483b4a54325c11526ad">ace::utils::boolToString</a> (const bool b) noexcept</td></tr>
+<tr class="memdesc:a92c0e612fd746483b4a54325c11526ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <b>bool to string</b> (word versions).  <br /></td></tr>
+<tr class="separator:a92c0e612fd746483b4a54325c11526ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a878c53ede8589dbc6a50734c9c4ad4d7" id="r_a878c53ede8589dbc6a50734c9c4ad4d7"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Y  = T, typename U  = T&gt; </td></tr>
 <tr class="memitem:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7">ace::utils::isInRange</a> (const T minval, const Y maxval, const U i) noexcept</td></tr>
-<tr class="memdesc:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the value that you passed is within range.  <br /></td></tr>
+<tr class="memdesc:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <b>value is within some range</b>.  <br /></td></tr>
 <tr class="separator:a878c53ede8589dbc6a50734c9c4ad4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1fe69eba9650c6affc6344e67a2d998" id="r_ad1fe69eba9650c6affc6344e67a2d998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ad1fe69eba9650c6affc6344e67a2d998">ace::utils::toLowerRef</a> (std::string &amp;str1)</td></tr>
-<tr class="memdesc:ad1fe69eba9650c6affc6344e67a2d998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowers the passed std::string by reference.  <br /></td></tr>
+<tr class="memdesc:ad1fe69eba9650c6affc6344e67a2d998"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Lowers the passed std::string</b> by reference &ndash; transformation is applied directly to the passed string.  <br /></td></tr>
 <tr class="separator:ad1fe69eba9650c6affc6344e67a2d998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55b9d990eb19ee170c9c69f7c0a3cea" id="r_ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ad55b9d990eb19ee170c9c69f7c0a3cea">ace::utils::toLowerVal</a> (std::string str1)</td></tr>
-<tr class="memdesc:ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the lowered version of passed std::string.  <br /></td></tr>
+<tr class="memdesc:ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <b>lowered version of passed std::string</b>.  <br /></td></tr>
 <tr class="separator:ad55b9d990eb19ee170c9c69f7c0a3cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcd86509ef063a237d87e65a23255d99" id="r_adcd86509ef063a237d87e65a23255d99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#adcd86509ef063a237d87e65a23255d99">ace::utils::toUpperRef</a> (std::string &amp;str1)</td></tr>
-<tr class="memdesc:adcd86509ef063a237d87e65a23255d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uppers the passed std::string by reference.  <br /></td></tr>
+<tr class="memdesc:adcd86509ef063a237d87e65a23255d99"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Uppers the passed std::string</b> by reference.  <br /></td></tr>
 <tr class="separator:adcd86509ef063a237d87e65a23255d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e5593ccf0f98b5f42a32d10d34c2a65" id="r_a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a1e5593ccf0f98b5f42a32d10d34c2a65">ace::utils::toUpperVal</a> (std::string str1)</td></tr>
-<tr class="memdesc:a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the uppered version of passed std::string.  <br /></td></tr>
+<tr class="memdesc:a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <b>uppered version of passed std::string</b>.  <br /></td></tr>
 <tr class="separator:a1e5593ccf0f98b5f42a32d10d34c2a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4aae0b12ad0a6702a293e8cf8a5db385" id="r_a4aae0b12ad0a6702a293e8cf8a5db385"><td class="memTemplParams" colspan="2">template&lt;const bool checkFloat = true&gt; </td></tr>
 <tr class="memitem:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a4aae0b12ad0a6702a293e8cf8a5db385">ace::utils::isNum</a> (const std::string_view strnum) noexcept</td></tr>
-<tr class="memdesc:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given string is a numerical value.  <br /></td></tr>
+<tr class="memdesc:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given <b>string is a numerical value</b>.  <br /></td></tr>
 <tr class="separator:a4aae0b12ad0a6702a293e8cf8a5db385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de6011d3165d37fec20bde6541c2dcb" id="r_a2de6011d3165d37fec20bde6541c2dcb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb">ace::utils::formatDate</a> (const time_t timept)</td></tr>
-<tr class="memdesc:a2de6011d3165d37fec20bde6541c2dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
-<tr class="separator:a2de6011d3165d37fec20bde6541c2dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a117883709789e1958161052eafbf83ab" id="r_a117883709789e1958161052eafbf83ab"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a117883709789e1958161052eafbf83ab">ace::utils::formatDate</a> (const time_t timept, char *const str) noexcept</td></tr>
-<tr class="memdesc:a117883709789e1958161052eafbf83ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
-<tr class="separator:a117883709789e1958161052eafbf83ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2458b79e1a70255b471414a4bb5680ce" id="r_a2458b79e1a70255b471414a4bb5680ce"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce">ace::utils::formatDate</a> (const std::time_t timept)</td></tr>
+<tr class="memdesc:a2458b79e1a70255b471414a4bb5680ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**.  <br /></td></tr>
+<tr class="separator:a2458b79e1a70255b471414a4bb5680ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad444f0238f25149b013777e6391c3260" id="r_ad444f0238f25149b013777e6391c3260"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ad444f0238f25149b013777e6391c3260">ace::utils::formatDate</a> (const std::time_t timept, char *const str) noexcept</td></tr>
+<tr class="memdesc:ad444f0238f25149b013777e6391c3260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS c-string**.  <br /></td></tr>
+<tr class="separator:ad444f0238f25149b013777e6391c3260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ef830bd659e4848847aa793e2f60852" id="r_a5ef830bd659e4848847aa793e2f60852"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a> (void)</td></tr>
-<tr class="memdesc:a5ef830bd659e4848847aa793e2f60852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current date and time and formats it in the YYYY-MM-DD.HH:mm:SS.  <br /></td></tr>
+<tr class="memdesc:a5ef830bd659e4848847aa793e2f60852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the <b>current date and time as YYYY-MM-DD.HH:mm:SS</b>.  <br /></td></tr>
 <tr class="separator:a5ef830bd659e4848847aa793e2f60852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4eb2977c40497242a679e5364f92c62" id="r_aa4eb2977c40497242a679e5364f92c62"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#aa4eb2977c40497242a679e5364f92c62">ace::utils::stringToDate</a> (const char *const timestr, const char *const timeformat=&quot;%Y-%m-%d.%X&quot;)</td></tr>
-<tr class="separator:aa4eb2977c40497242a679e5364f92c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c244549a8a91ca1b88c9a8afddb55bf" id="r_a3c244549a8a91ca1b88c9a8afddb55bf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a3c244549a8a91ca1b88c9a8afddb55bf">ace::utils::addrToStr</a> (const void *const myptr) noexcept</td></tr>
-<tr class="memdesc:a3c244549a8a91ca1b88c9a8afddb55bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the hex address value to string.  <br /></td></tr>
-<tr class="separator:a3c244549a8a91ca1b88c9a8afddb55bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0379815bc24cc369071e0b48787e9b" id="r_a2c0379815bc24cc369071e0b48787e9b"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2c0379815bc24cc369071e0b48787e9b">ace::utils::stringToDate</a> (const char *const timestr, const char *const timeformat=&quot;%Y-%m-%d.%X&quot;)</td></tr>
+<tr class="memdesc:a2c0379815bc24cc369071e0b48787e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given c-string to a (c)time point (std::time_t), using a set format.  <br /></td></tr>
+<tr class="separator:a2c0379815bc24cc369071e0b48787e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dfa3531738f13f5294dbf7d3384ef54" id="r_a2dfa3531738f13f5294dbf7d3384ef54"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2dfa3531738f13f5294dbf7d3384ef54">ace::utils::addrToStr</a> (const void *const myptr, const bool add0x=true) noexcept</td></tr>
+<tr class="memdesc:a2dfa3531738f13f5294dbf7d3384ef54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <b>hex address value to std::string</b>.  <br /></td></tr>
+<tr class="separator:a2dfa3531738f13f5294dbf7d3384ef54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae11f5aa96eafaa6765351bf3f9f974" id="r_a1ae11f5aa96eafaa6765351bf3f9f974"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a1ae11f5aa96eafaa6765351bf3f9f974">ace::utils::sleepMS</a> (const int ms) noexcept</td></tr>
-<tr class="memdesc:a1ae11f5aa96eafaa6765351bf3f9f974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to sleep the thread for ms milliseconds.  <br /></td></tr>
+<tr class="memdesc:a1ae11f5aa96eafaa6765351bf3f9f974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to <b>sleep the thread for milliseconds</b>.  <br /></td></tr>
 <tr class="separator:a1ae11f5aa96eafaa6765351bf3f9f974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3cab8babc7164fe97d71c65b247e848" id="r_ae3cab8babc7164fe97d71c65b247e848"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ae3cab8babc7164fe97d71c65b247e848">ace::utils::sleepUS</a> (const int us) noexcept</td></tr>
-<tr class="memdesc:ae3cab8babc7164fe97d71c65b247e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to sleep the thread for ms microseconds.  <br /></td></tr>
+<tr class="memdesc:ae3cab8babc7164fe97d71c65b247e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient sleep function to <b>sleep the thread for microseconds</b>.  <br /></td></tr>
 <tr class="separator:ae3cab8babc7164fe97d71c65b247e848"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eb2322353edc04f78dbc3589e60d98c" id="r_a6eb2322353edc04f78dbc3589e60d98c"><td class="memItemLeft" align="right" valign="top">std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c">ace::utils::fopenCC</a> (const char *const fname, const char *const flags) noexcept</td></tr>
-<tr class="memdesc:a6eb2322353edc04f78dbc3589e60d98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">fopen-cross-compiler &ndash;just a cross-compiler wrapper of FILE's fopen to do it properly.  <br /></td></tr>
+<tr class="memdesc:a6eb2322353edc04f78dbc3589e60d98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper to make the proper <b>cross-compiler version of fopen()</b> Opens the file with given name and flags.  <br /></td></tr>
 <tr class="separator:a6eb2322353edc04f78dbc3589e60d98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac203feb6c6323da0d38130bd7f6ede3" id="r_aac203feb6c6323da0d38130bd7f6ede3"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#aac203feb6c6323da0d38130bd7f6ede3">ace::utils::charToInt</a> (const char c) noexcept</td></tr>
-<tr class="memdesc:aac203feb6c6323da0d38130bd7f6ede3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given character value to int ('0' to 0), if it is within the '0'-&gt;'9' range.  <br /></td></tr>
-<tr class="separator:aac203feb6c6323da0d38130bd7f6ede3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71cf91f54be4b0c560726acb5bccae1" id="r_ae71cf91f54be4b0c560726acb5bccae1"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ae71cf91f54be4b0c560726acb5bccae1">ace::utils::intToChar</a> (const int i) noexcept</td></tr>
-<tr class="memdesc:ae71cf91f54be4b0c560726acb5bccae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given int value to char (0 to '0'), if it is within the 0-&gt;9 range.  <br /></td></tr>
-<tr class="separator:ae71cf91f54be4b0c560726acb5bccae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d1b73c196336a2e6c5a9d8c2f7d139" id="r_a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="memTemplParams" colspan="2">template&lt;typename T  = int&gt; <br />
+requires (std::is_integral&lt;T&gt;::value)</td></tr>
+<tr class="memitem:a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#a48d1b73c196336a2e6c5a9d8c2f7d139">ace::utils::numCharToInt</a> (const char c) noexcept</td></tr>
+<tr class="memdesc:a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given <b>numeric char to int of type T</b>  <br /></td></tr>
+<tr class="separator:a48d1b73c196336a2e6c5a9d8c2f7d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa47216cb328daa6383e051926527813a" id="r_aa47216cb328daa6383e051926527813a"><td class="memTemplParams" colspan="2">template&lt;typename T  = int&gt; </td></tr>
+<tr class="memitem:aa47216cb328daa6383e051926527813a"><td class="memTemplItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#aa47216cb328daa6383e051926527813a">ace::utils::intToNumChar</a> (const T i) noexcept</td></tr>
+<tr class="memdesc:aa47216cb328daa6383e051926527813a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given <b>int of type T to numeric char</b>  <br /></td></tr>
+<tr class="separator:aa47216cb328daa6383e051926527813a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7b0c29ad928aac8db8dde13860e8252" id="r_ab7b0c29ad928aac8db8dde13860e8252"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ab7b0c29ad928aac8db8dde13860e8252">ace::utils::isAlNum</a> (const std::string_view str)</td></tr>
-<tr class="memdesc:ab7b0c29ad928aac8db8dde13860e8252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the passed string is alpha-numeric (contains only numbers and english letters)  <br /></td></tr>
+<tr class="memdesc:ab7b0c29ad928aac8db8dde13860e8252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <b>if the passed string is alpha-numeric</b> (contains only numbers and english letters)  <br /></td></tr>
 <tr class="separator:ab7b0c29ad928aac8db8dde13860e8252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3eadc5f289b54059322023f3c5eed96" id="r_ac3eadc5f289b54059322023f3c5eed96"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dde/namespaceace_1_1utils.html#ac3eadc5f289b54059322023f3c5eed96">ace::utils::isAlNumUs</a> (const std::string_view str)</td></tr>
-<tr class="memdesc:ac3eadc5f289b54059322023f3c5eed96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the passed string is alpha-numeric with underscores (contains only numbers, english letters, and underscores)  <br /></td></tr>
+<tr class="memdesc:ac3eadc5f289b54059322023f3c5eed96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <b>if the passed string is alpha-numeric with underscores</b> (contains only numbers, english letters, and underscores)  <br /></td></tr>
 <tr class="separator:ac3eadc5f289b54059322023f3c5eed96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains engine function (hopefully useful) utilities.</p>
-<p>Should not cause everything to break :) </p>
+<div class="textblock"><p>This file contains the engine's <b>usefull utilities for trivial tasks</b>. </p>
+<p>Stuff that I found that I needed to implement to perform some task (like bool to "true"/"false" string), <br  />
+ thought the engine would benefit from by making it a global utility.</p>
+<p>Less copy-pasted code, yayyy.</p>
+<p><em>Should not cause everything to break :)</em> </p>
 
 <p class="definition">Definition in file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a935ab8eba47cbe4b0bf865931bfd4901" name="a935ab8eba47cbe4b0bf865931bfd4901"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a935ab8eba47cbe4b0bf865931bfd4901">&#9670;&#160;</a></span>_STR_HELPER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _STR_HELPER</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
-          <td>&#160;&#160;&#160;#x</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The macro helper to convert stuff into a string literal. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a18d295a837ac71add5578860b55e5502" title="Macro to convert the passed non-string literals to a string literal That can be another number macro,...">STR()</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00089">89</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2223c0fea4b1e7a9eb8e0f20086a7e26" name="a2223c0fea4b1e7a9eb8e0f20086a7e26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2223c0fea4b1e7a9eb8e0f20086a7e26">&#9670;&#160;</a></span>aceAssert</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define aceAssert</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">expression, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">message</span>&#160;)&#160;&#160;&#160;if ( !(expression) ) { std::cerr &lt;&lt; &quot;\n\nAssertion failed!\nExpression: &quot; &lt;&lt; #expression &lt;&lt; &quot;\nFile: &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;\nLine: &quot; &lt;&lt; __LINE__ &lt;&lt; &quot;\nMessage: &quot; &lt;&lt; message &lt;&lt; std::endl; abort(); }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Better-fomatted assertion for runtime checks. </p>
-<dl class="section note"><dt>Note</dt><dd>Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">expression</td><td>The logical expression to assert</td></tr>
-    <tr><td class="paramname">message</td><td>The message to display if the assertion fails</td></tr>
-  </table>
-  </dd>
-</dl>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6a0a8fe6f06d23e4a7415db5a90d038d" name="a6a0a8fe6f06d23e4a7415db5a90d038d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a0a8fe6f06d23e4a7415db5a90d038d">&#9670;&#160;</a></span>aeoffsetof</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define aeoffsetof</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">type, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">member</span>&#160;)&#160;&#160;&#160;(intptr_t)&amp;(((type*)NULL)-&gt;member)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Offsetof alternative if the compiler doesn't support the offsetof natively </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type</td><td>The type/struct name</td></tr>
-    <tr><td class="paramname">member</td><td>The member of struct/type to calculate the offset between</td></tr>
-  </table>
-  </dd>
-</dl>
-</p>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ab9d7a2dfdef90a2f8526373fb708e76c" name="ab9d7a2dfdef90a2f8526373fb708e76c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9d7a2dfdef90a2f8526373fb708e76c">&#9670;&#160;</a></span>arrsize</h2>
 
@@ -375,57 +276,48 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the calculation of static, compile-time array </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Macro for the calculation of the <b>size of the static array</b> (that is determined compile-time). </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>The array to calculate the size of</td></tr>
   </table>
   </dd>
 </dl>
-</p>
+<dl class="section warning"><dt>Warning</dt><dd>If used on dynamic array, it yields the [size of the pointer on the platform] divided by [size of the array's type] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a2afa1079625f51a032ea458fdc22f729" name="a2afa1079625f51a032ea458fdc22f729"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2afa1079625f51a032ea458fdc22f729">&#9670;&#160;</a></span>DATETIME_STRING_SIZE</h2>
+<a id="a0b18554cc402bdf206516c506cc83ce6" name="a0b18554cc402bdf206516c506cc83ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b18554cc402bdf206516c506cc83ce6">&#9670;&#160;</a></span>mod0</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DATETIME_STRING_SIZE&#160;&#160;&#160;20</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Size of the string of the formatted date-time by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2de6011d3165d37fec20bde6541c2dcb" title="Formats the current (c)time point as YYYY-MM-DD.HH:mm:SS.">ace::utils::formatDate()</a> </p>
-
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0fb7bf82c787085c8b1ef0ad7d028424" name="a0fb7bf82c787085c8b1ef0ad7d028424"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fb7bf82c787085c8b1ef0ad7d028424">&#9670;&#160;</a></span>dprintf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define dprintf</td>
+          <td class="memname">#define mod0</td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;if constexpr (<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a>) { printf(&quot;DEBUG::%s()-&gt; &quot;, __FUNCTION__); printf(__VA_ARGS__); printf(&quot;\n&quot;); }</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">dividend, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">divisor</span>&#160;)&#160;&#160;&#160;()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the debug printf() printing, use the same way as you have used printf before. </p>
-<dl class="section note"><dt>Note</dt><dd>Prints additional newline with each print </dd>
-<dd>
-Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined and/or set to 1 </dd></dl>
+<p>Macro for the check <b>if modulo of x and y results in 0</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dividend</td><td>The dividend of the operation</td></tr>
+    <tr><td class="paramname">divisor</td><td>The divisor of the operation</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00060">60</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00046">46</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -448,115 +340,215 @@ Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined a
       </table>
 </div><div class="memdoc">
 
-<p>Macro to get the bit of the given value (bitwise operations) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Macro to get the <b>certain bit of the given value</b> (bitshift operation). </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td>The value to get the bit of</td></tr>
     <tr><td class="paramname">bit</td><td>The bit number to get</td></tr>
   </table>
   </dd>
 </dl>
-</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a913272c684270c11c1a96a982e9f9b44" name="a913272c684270c11c1a96a982e9f9b44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a913272c684270c11c1a96a982e9f9b44">&#9670;&#160;</a></span>IS_SAME_NOC</h2>
+<a id="a2223c0fea4b1e7a9eb8e0f20086a7e26" name="a2223c0fea4b1e7a9eb8e0f20086a7e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2223c0fea4b1e7a9eb8e0f20086a7e26">&#9670;&#160;</a></span>aceAssert</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IS_SAME_NOC</td>
+          <td class="memname">#define aceAssert</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">expression, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">message</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> ( !(expression) ) { \</div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;\n\nASSERTION FAILED! \nExpression: &quot;</span> &lt;&lt; #expression &lt;&lt; \</div>
+<div class="line">        <span class="stringliteral">&quot;\nFile: &quot;</span> &lt;&lt; __FILE__ &lt;&lt; \</div>
+<div class="line">        <span class="stringliteral">&quot;\nFunction: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;()&quot;</span> &lt;&lt; \</div>
+<div class="line">        <span class="stringliteral">&quot;\nLine: &quot;</span> &lt;&lt; __LINE__ &lt;&lt; \</div>
+<div class="line">        <span class="stringliteral">&quot;\nMessage: &quot;</span> &lt;&lt; message &lt;&lt; std::endl; \</div>
+<div class="line">    std::terminate(); }</div>
+</div><!-- fragment -->
+<p>Macro for the better-fomatted <b>assertion for runtime checks</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expression</td><td>The logical expression to assert</td></tr>
+    <tr><td class="paramname">message</td><td>The message to display if the assertion fails</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Only works in engine's debug mode. Does nothing if <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c" title="Macro to enable the debug-marked features of the engine.">ENGINE_DEBUG</a> is not set to 1 </dd>
+<dd>
+Only works with engine's assertions enabled. Does nothing if <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a8749da27990f03045abeda28135e36f4" title="Macro to enable the engine&#39;s assert code">ENGINE_ENABLE_ASSERT</a> is not set to 1 </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c" title="Macro to enable the debug-marked features of the engine.">ENGINE_DEBUG</a> </dd>
+<dd>
+<a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a8749da27990f03045abeda28135e36f4" title="Macro to enable the engine&#39;s assert code">ENGINE_ENABLE_ASSERT</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00061">61</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0fb7bf82c787085c8b1ef0ad7d028424" name="a0fb7bf82c787085c8b1ef0ad7d028424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb7bf82c787085c8b1ef0ad7d028424">&#9670;&#160;</a></span>dprintf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define dprintf</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code hl_define" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a>) { \</div>
+<div class="line">    printf(<span class="stringliteral">&quot;[%s] [DEBUG] [%s()] [line:%llu] -&gt; &quot;</span>, \</div>
+<div class="line">        <a class="code hl_function" href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a>().c_str(), \</div>
+<div class="line">        __FUNCTION__, \</div>
+<div class="line">        (<a class="code hl_typedef" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>)__LINE__); \</div>
+<div class="line">        printf(__VA_ARGS__); printf(<span class="stringliteral">&quot;\n&quot;</span>); }</div>
+<div class="ttc" id="a_a_e_flags_8hpp_html_a1a4015effd65ce85fe7463f88aa6833c"><div class="ttname"><a href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">ENGINE_DEBUG</a></div><div class="ttdeci">#define ENGINE_DEBUG</div><div class="ttdoc">Macro to enable the debug-marked features of the engine.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00032">AEFlags.hpp:32</a></div></div>
+<div class="ttc" id="a_a_e_typedefs_8hpp_html_a689c96cb00098d457d55842c96cc71eb"><div class="ttname"><a href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a></div><div class="ttdeci">unsigned long long ullint</div><div class="ttdoc">A shortcut for an integer of the unsigned long long int type (64 bits).</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00032">AETypedefs.hpp:32</a></div></div>
+<div class="ttc" id="anamespaceace_1_1utils_html_a5ef830bd659e4848847aa793e2f60852"><div class="ttname"><a href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate</a></div><div class="ttdeci">std::string getCurrentDate(void)</div><div class="ttdoc">Formats the current date and time as YYYY-MM-DD.HH:mm:SS.</div><div class="ttdef"><b>Definition</b> <a href="../../de/de8/_a_e_utils_8hpp_source.html#l00379">AEUtils.hpp:379</a></div></div>
+</div><!-- fragment -->
+<p>Macro for the <b>debug printf()</b> printing, use the same way as you have used printf before. </p>
+<p>Prints "[current time] [DEBUG] [function name that called it] [invoked line] -&gt; [stuff that you wanted the printf to print]" </p><dl class="section note"><dt>Note</dt><dd>Prints additional newline with each print </dd>
+<dd>
+Only works in engine's debug mode. Does nothing if <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c" title="Macro to enable the debug-marked features of the engine.">ENGINE_DEBUG</a> is not set to 1 </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c" title="Macro to enable the debug-marked features of the engine.">ENGINE_DEBUG</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a474e6b58876ffba91efe51ef4a505e87" name="a474e6b58876ffba91efe51ef4a505e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474e6b58876ffba91efe51ef4a505e87">&#9670;&#160;</a></span>IS_SAME_NOCV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_SAME_NOCV</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname">T, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">Y</span>&#160;)&#160;&#160;&#160;(std::is_same&lt;typename std::decay&lt;const T&gt;::type, typename std::decay&lt;const Y&gt;::type&gt;::value)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">Y</span>&#160;)&#160;&#160;&#160;(std::is_same&lt;std::remove_cv&lt;T&gt;::type, std::remove_cv&lt;Y&gt;::type&gt;::value)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to check if the given type T is about the same as Y Evaluates to true if both types (not caring about const-ness) are same. </p>
-<dl class="section note"><dt>Note</dt><dd>It decays both types and omits const-ness <dl class="params"><dt>Parameters</dt><dd>
+<p>Macro to check <b>if the given type T is the same as Y</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">T</td><td>The first type to compare</td></tr>
     <tr><td class="paramname">Y</td><td>The second type to compare</td></tr>
   </table>
   </dd>
 </dl>
-</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This discards the cv-qualifiers from the types in the comparison </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0b18554cc402bdf206516c506cc83ce6" name="a0b18554cc402bdf206516c506cc83ce6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b18554cc402bdf206516c506cc83ce6">&#9670;&#160;</a></span>mod0</h2>
+<a id="a0f1e3927fab11f7727ef50ca769bfa1f" name="a0f1e3927fab11f7727ef50ca769bfa1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f1e3927fab11f7727ef50ca769bfa1f">&#9670;&#160;</a></span>IS_SAME_NOCV_DECAY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define mod0</td>
+          <td class="memname">#define IS_SAME_NOCV_DECAY</td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">dividend, </span></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">T, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">divisor</span>&#160;)&#160;&#160;&#160;!(dividend % divisor)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">Y</span>&#160;)&#160;&#160;&#160;(std::is_same&lt;std::remove_cv&lt;std::decay&lt;T&gt;::type&gt;::type, std::remove_cv&lt;std::decay&lt;Y&gt;::type&gt;::type&gt;::value)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the check if modulo of x and y results in 0 </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Macro to check <b>if the given type T is the same as Y</b>. </p>
+<p>The decay happens before the removal of cv-qualifiers </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dividend</td><td>The dividend of the operation</td></tr>
-    <tr><td class="paramname">divisor</td><td>The divisor of the operation</td></tr>
+    <tr><td class="paramname">T</td><td>The first type to compare</td></tr>
+    <tr><td class="paramname">Y</td><td>The second type to compare</td></tr>
   </table>
   </dd>
 </dl>
-</p>
+<dl class="section note"><dt>Note</dt><dd>This decays the types used in the comparison </dd>
+<dd>
+This discards the cv-qualifiers from the types in the comparison </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a9732970f9ca82af5d3e94cf069402340" name="a9732970f9ca82af5d3e94cf069402340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9732970f9ca82af5d3e94cf069402340">&#9670;&#160;</a></span>NLC</h2>
+<a id="a84e0a3e6c7c2b7be64ecc2591eb613d8" name="a84e0a3e6c7c2b7be64ecc2591eb613d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e0a3e6c7c2b7be64ecc2591eb613d8">&#9670;&#160;</a></span>UTF8</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NLC&#160;&#160;&#160;'\n'</td>
+          <td class="memname">#define UTF8</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
+          <td>&#160;&#160;&#160;u8 ## x</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for newline char literal. </p>
+<p>Macro to convert the normal <b>string literal to utf-8 string literal</b>. </p>
+<p>Example: "Hello World!" to u8"Hello World!" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The string literal to convert to utf8</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="acc1931a50f4cdc27035829dbb830d22a" name="acc1931a50f4cdc27035829dbb830d22a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc1931a50f4cdc27035829dbb830d22a">&#9670;&#160;</a></span>NLS</h2>
+<a id="aa5ef465b3cfb7b096648181199e8029c" name="aa5ef465b3cfb7b096648181199e8029c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ef465b3cfb7b096648181199e8029c">&#9670;&#160;</a></span>WSTR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NLS&#160;&#160;&#160;&quot;\n&quot;</td>
+          <td class="memname">#define WSTR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
+          <td>&#160;&#160;&#160;L ## x</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for newline string literal. </p>
+<p>Macro to convert the normal <b>string literal to a wide string literal</b>. </p>
+<p>Example: "Hello World!" to L"Hello Worldl!" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The string literal to convert to wstring</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
@@ -577,74 +569,127 @@ Only works in engine's debug mode. Does nothing if ENGINE_DEBUG is not defined a
       </table>
 </div><div class="memdoc">
 
-<p>Macro to convert the passed non-string literals to a string literal That can be another number macro, or random garbage (abcdef will work too, turns into "abcdef") </p>
-<dl class="section warning"><dt>Warning</dt><dd>If a string literal was passed, then it will have the quotation marks as escape characters </dd>
-<dd>
-Example STR("abc") will result into "\"abc\"" literal </dd>
-<dd>
-Doesn't work on composed macros (macros that consist of other macros within themselves) <dl class="params"><dt>Parameters</dt><dd>
+<p>Macro to convert the passed <b>non-string literals to a string literal</b>. </p>
+<p>That can be another number macro, or random garbage (abcdef will work too, turns into "abcdef") </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The stuff to convert to a string literal</td></tr>
   </table>
   </dd>
 </dl>
-</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If a string literal was passed, then it will have the quotation marks as escape characters </dd>
+<dd>
+Example STR("abc") will result into "\"abc\"" literal </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Doesn't work on composed macros (macros that consist of other macros within themselves) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00085">85</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a84e0a3e6c7c2b7be64ecc2591eb613d8" name="a84e0a3e6c7c2b7be64ecc2591eb613d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84e0a3e6c7c2b7be64ecc2591eb613d8">&#9670;&#160;</a></span>UTF8</h2>
+<a id="a935ab8eba47cbe4b0bf865931bfd4901" name="a935ab8eba47cbe4b0bf865931bfd4901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935ab8eba47cbe4b0bf865931bfd4901">&#9670;&#160;</a></span>_STR_HELPER</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UTF8</td>
+          <td class="memname">#define _STR_HELPER</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
-          <td>&#160;&#160;&#160;u8 ## x</td>
+          <td>&#160;&#160;&#160;#x</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to convert the normal string literal to utf-8/unicode string literal; u8"Hello World!" </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>The string literal to convert to utf8</td></tr>
-  </table>
-  </dd>
-</dl>
-</p>
+<p>The macro helper to convert stuff into a string literal. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a18d295a837ac71add5578860b55e5502" title="Macro to convert the passed non-string literals to a string literal.">STR()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00074">74</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa5ef465b3cfb7b096648181199e8029c" name="aa5ef465b3cfb7b096648181199e8029c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5ef465b3cfb7b096648181199e8029c">&#9670;&#160;</a></span>WSTR</h2>
+<a id="a6a0a8fe6f06d23e4a7415db5a90d038d" name="a6a0a8fe6f06d23e4a7415db5a90d038d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0a8fe6f06d23e4a7415db5a90d038d">&#9670;&#160;</a></span>aeoffsetof</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define WSTR</td>
+          <td class="memname">#define aeoffsetof</td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
-          <td>&#160;&#160;&#160;L ## x</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">type, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">member</span>&#160;)&#160;&#160;&#160;(intptr_t)&amp;(((type*)NULL)-&gt;member)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to convert the "string literal" to L"wide string literal" </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Macro for the engine's <b>offsetoff macro</b>. </p>
+<p>It's usefull if the compiler doesn't support the offsetof natively, and make the code more cross-compileable. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>The string literal to convert to wstring</td></tr>
+    <tr><td class="paramname">type</td><td>The type/struct name</td></tr>
+    <tr><td class="paramname">member</td><td>The member of struct/type to calculate the offset between</td></tr>
   </table>
   </dd>
 </dl>
-</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00077">77</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00133">133</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9732970f9ca82af5d3e94cf069402340" name="a9732970f9ca82af5d3e94cf069402340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9732970f9ca82af5d3e94cf069402340">&#9670;&#160;</a></span>NLC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NLC&#160;&#160;&#160;'\n'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for <b>newline char literal</b>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acc1931a50f4cdc27035829dbb830d22a" name="acc1931a50f4cdc27035829dbb830d22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc1931a50f4cdc27035829dbb830d22a">&#9670;&#160;</a></span>NLS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NLS&#160;&#160;&#160;&quot;\n&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for <b>newline string literal</b>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00147">147</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2afa1079625f51a032ea458fdc22f729" name="a2afa1079625f51a032ea458fdc22f729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2afa1079625f51a032ea458fdc22f729">&#9670;&#160;</a></span>DATETIME_STRING_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATETIME_STRING_SIZE&#160;&#160;&#160;sizeof(&quot;YYYY-MM-DD.HH:mm:SS&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the size of the <b>formatted date-time string</b>, produced by by the <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS string**.">ace::utils::formatDate()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../de/de8/_a_e_utils_8hpp_source.html">AEUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +699,7 @@ Doesn't work on composed macros (macros that consist of other macros within them
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../de/de8/_a_e_utils_8hpp.html">AEUtils.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

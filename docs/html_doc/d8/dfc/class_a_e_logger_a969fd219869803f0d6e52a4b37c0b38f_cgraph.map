@@ -1,0 +1,5 @@
+<map id="AELogger::getLogName" name="AELogger::getLogName">
+<area shape="rect" id="Node000001" title="Get the name of the log file." alt="" coords="5,5,165,32"/>
+<area shape="rect" id="Node000002" href="$db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895" title="Returns the full name of currently open file, including the relative path, if such was provided." alt="" coords="213,5,410,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,16,197,16,197,21,165,21"/>
+</map>

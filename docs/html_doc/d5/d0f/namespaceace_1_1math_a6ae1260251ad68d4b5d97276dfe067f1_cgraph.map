@@ -1,0 +1,7 @@
+<map id="ace::math::cotDeg" name="ace::math::cotDeg">
+<area shape="rect" id="Node000001" title="Calculates the cotangent of degrees" alt="" coords="5,5,134,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a15512ebb416126f59cdb7669b5c39b48" title="Calculates the tangent of degrees" alt="" coords="182,5,310,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,16,166,16,166,21,134,21"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a34df987782d57f3ccb8d1cf75deb2fd2" title="Convert given degrees to radians" alt="" coords="358,5,479,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,16,343,16,343,21,311,21"/>
+</map>

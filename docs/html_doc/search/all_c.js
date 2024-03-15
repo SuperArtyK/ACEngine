@@ -9,5 +9,6 @@ var searchData=
   ['nlc_6',['NLC',['../de/de8/_a_e_utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340',1,'AEUtils.hpp']]],
   ['nls_7',['NLS',['../de/de8/_a_e_utils_8hpp.html#acc1931a50f4cdc27035829dbb830d22a',1,'AEUtils.hpp']]],
   ['normalise_8',['normalise',['../dc/df6/struct_a_e_vector.html#a9163110c090c8df233dd552db6adcb03',1,'AEVector']]],
-  ['normdim_9',['normDim',['../dc/df6/struct_a_e_vector.html#aa20f0d897b1c222e20275277b728086d',1,'AEVector']]]
+  ['normdim_9',['normDim',['../dc/df6/struct_a_e_vector.html#aa20f0d897b1c222e20275277b728086d',1,'AEVector']]],
+  ['numchartoint_10',['numCharToInt',['../de/dde/namespaceace_1_1utils.html#a48d1b73c196336a2e6c5a9d8c2f7d139',1,'ace::utils']]]
 ];

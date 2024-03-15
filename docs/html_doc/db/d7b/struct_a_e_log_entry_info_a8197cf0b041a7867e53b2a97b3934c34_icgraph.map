@@ -1,0 +1,7 @@
+<map id="AELogEntryInfo::isInvalidMName" name="AELogEntryInfo::isInvalidMName">
+<area shape="rect" id="Node000001" title="Checks if the cursor index of the current instance is invalid." alt="" coords="224,31,433,57"/>
+<area shape="rect" id="Node000002" href="$db/d7b/struct_a_e_log_entry_info.html#a9bd978e840beb7d707370b062f278239" title="Checks if the current instance is broken (partially invalid)" alt="" coords="5,5,176,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,34,176,30,176,25,208,29"/>
+<area shape="rect" id="Node000003" href="$db/d7b/struct_a_e_log_entry_info.html#a1b0a5882ba721a9ebdb638199fafa92d" title="Checks if the current instance is invalid." alt="" coords="8,56,173,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,59,174,63,173,58,208,54"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="ace::math::truncToInt" name="ace::math::truncToInt">
+<area shape="rect" id="Node000001" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="252,132,396,159"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a18ebf5127edf0556e8f1e25dffd8c1a1" title="Calculates the interpolated cosine value from the cosine lookup table." alt="" coords="5,5,204,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,123,256,83,202,46,175,35,177,30,205,42,259,79,302,119"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a9251fed86320f2ebdb6ab999631d538c" title="Calculates the interpolated cotangent value from the cotangent lookup table." alt="" coords="7,56,202,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,128,203,97,165,86,167,81,205,92,280,123"/>
+<area shape="rect" id="Node000004" href="$d5/d0f/namespaceace_1_1math.html#a6707069eefabdb087b2fd2d38da37435" title="Approximates the interpolated cosecant value from the cosecant lookup table." alt="" coords="5,107,204,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="236,138,204,134,204,129,237,133"/>
+<area shape="rect" id="Node000005" href="$d5/d0f/namespaceace_1_1math.html#ae64a12ecfbee0650dd5137ea7e592316" title="Calculates the interpolated secant value from the secant lookup table." alt="" coords="5,157,204,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="237,158,204,162,204,157,236,153"/>
+<area shape="rect" id="Node000006" href="$d5/d0f/namespaceace_1_1math.html#a8b735b9dcfe704b66ea207694f61a44a" title="Calculates the interpolated sine value from the sine lookup table." alt="" coords="7,208,202,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="280,168,205,199,167,210,165,205,203,193,278,163"/>
+<area shape="rect" id="Node000007" href="$d5/d0f/namespaceace_1_1math.html#a6e57c9ac7e4386cbbdd36c5f61498685" title="Calculates the interpolated tangent value from the tangent lookup table." alt="" coords="7,259,202,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="302,172,259,212,205,249,177,261,175,256,202,244,256,208,298,168"/>
+</map>

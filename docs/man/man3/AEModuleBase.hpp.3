@@ -1,4 +1,4 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -50,6 +50,31 @@ Should not cause everything to break :)
 Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
+.SS "#define REGISTER_MODULE(T)"
+\fBValue:\fP.PP
+.nf
+    public: [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \\
+    static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
+    return #T; }
+.fi
+
+.PP
+A process to register the module (that inherited from \fB__AEModuleBase\fP) (under the hood: finish specialising \fB__AEModuleBase::getModuleName()\fP specially for the inheriting class) Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace }\&. 
+.PP
+\fBWarning\fP
+.RS 4
+If you won't do it, the project won't compile with the 'unresolved external' error 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Inheriting module's class name
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB24\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "#define COPYCONSTRUCT_MODULE(T, val)   \fB__AEModuleBase\fP<T>(val)"
 
 .PP
@@ -77,31 +102,6 @@ Definition at line \fB35\fP of file \fBAEModuleBase\&.hpp\fP\&.
 Global 'no error' return flag for all engine modules\&. 
 .PP
 Definition at line \fB38\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "#define REGISTER_MODULE(T)"
-\fBValue:\fP.PP
-.nf
-    public: [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \\
-    static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
-    return #T; }
-.fi
-
-.PP
-A process to register the module (that inherited from \fB__AEModuleBase\fP) (under the hood: finish specialising \fB__AEModuleBase::getModuleName()\fP specially for the inheriting class) Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace }\&. 
-.PP
-\fBWarning\fP
-.RS 4
-If you won't do it, the project won't compile with the 'unresolved external' error 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Inheriting module's class name
-.RE
-.PP
-.RE
-.PP
-
-.PP
-Definition at line \fB24\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

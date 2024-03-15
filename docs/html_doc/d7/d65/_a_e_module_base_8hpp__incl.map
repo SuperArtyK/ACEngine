@@ -1,0 +1,19 @@
+<map id="AEModuleBase/include/AEModuleBase.hpp" name="AEModuleBase/include/AEModuleBase.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="283,5,558,32"/>
+<area shape="rect" id="Node000002" href="$dc/d89/_a_e_typedefs_8hpp.html" title="This file contains the engine&#39;s typedefs and variable type aliases." alt="" coords="38,80,200,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="368,35,187,78,186,73,367,30"/>
+<area shape="rect" id="Node000006" href="$dd/dd8/_a_e_flags_8hpp.html" title="This file contains the flags to manipulate engine&#39;s funcitonality." alt="" coords="224,80,366,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="400,35,331,74,328,70,397,30"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="390,80,451,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="423,33,423,64,418,64,418,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="475,80,528,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="436,31,478,68,475,72,433,35"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="553,80,637,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="452,30,551,71,549,76,450,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,65,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,109,63,146,59,142,103,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="89,155,149,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="122,107,122,139,116,139,116,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="173,155,230,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="135,105,178,142,174,146,132,109"/>
+</map>

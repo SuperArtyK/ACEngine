@@ -107,6 +107,20 @@ $(function(){initNavTree('d0/d8a/class_____a_e_module_base.html','../../'); init
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for __AEModuleBase&lt; T &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/db0/class_____a_e_module_base__inherit__graph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for __AEModuleBase&lt; T &gt;:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d86/class_____a_e_module_base__coll__graph.svg" width="227" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -141,7 +155,7 @@ Static Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 class __AEModuleBase&lt; T &gt;</div><p>This is a base class for all basic modules, meaning that the module is not using other modules to work. </p>
-<dl class="section note"><dt>Note</dt><dd>Intended to be inherited from in class declaration, not direct usage. Usage: class [classname] : public __AEModuleBase&lt;[classname]&gt; </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Intended to be inherited from in class declaration, not direct usage. Usage: <code>class [classname] : public <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>&lt;[classname]&gt;</code> </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>If you do not include <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A process to register the module (that inherited from __AEModuleBase) (under the hood: finish special...">REGISTER_MODULE(T)</a> after the whole class definition (before closing '}'), the program won't compile </dd>
 <dd>
 If you do not include <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a1351a24d5f0cb79d18a6fd369a82dd72" title="A process to correctly copy-construct the module (that inherited from __AEModuleBase) (under the hood...">COPYCONSTRUCT_MODULE(T, val)</a> in the copy-constructor, the module increment (every constructing action) won't work!</dd></dl>
@@ -254,68 +268,6 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab3257ef44350e547976d6199ffdb743f" name="ab3257ef44350e547976d6199ffdb743f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3257ef44350e547976d6199ffdb743f">&#9670;&#160;</a></span>getModuleAmount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; T &gt;::getModuleAmount </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the amount of instances of the module currently existing. </p>
-<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2f3461ab9cf4aa231ba93ce28f7f856c" name="a2f3461ab9cf4aa231ba93ce28f7f856c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3461ab9cf4aa231ba93ce28f7f856c">&#9670;&#160;</a></span>getModuleName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; T &gt;::getModuleName </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the name of the registered module. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
 <a id="a75e898765beb01de5265264cc9c9ddce" name="a75e898765beb01de5265264cc9c9ddce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75e898765beb01de5265264cc9c9ddce">&#9670;&#160;</a></span>operator=()</h2>
 
@@ -348,6 +300,70 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab3257ef44350e547976d6199ffdb743f" name="ab3257ef44350e547976d6199ffdb743f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3257ef44350e547976d6199ffdb743f">&#9670;&#160;</a></span>getModuleAmount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; T &gt;::getModuleAmount </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the amount of instances of the module currently existing. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#aa6b53ab9e5c623900a03d4ea16eb5a99">__AEModuleBase&lt; T &gt;::m_ullModulesAlive</a>.</p>
+
+</div>
+</div>
+<a id="a2f3461ab9cf4aa231ba93ce28f7f856c" name="a2f3461ab9cf4aa231ba93ce28f7f856c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f3461ab9cf4aa231ba93ce28f7f856c">&#9670;&#160;</a></span>getModuleName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; T &gt;::getModuleName </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the name of the registered module. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
@@ -390,7 +406,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

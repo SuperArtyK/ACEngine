@@ -108,6 +108,20 @@ $(function(){initNavTree('d0/dab/_a_e_log_parser_8hpp.html','../../'); initResiz
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AELogParser.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/d4c/_a_e_log_parser_8hpp__incl.svg" width="100%" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/d60/_a_e_log_parser_8hpp__dep__incl.svg" width="260" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <p><a href="../../d0/dab/_a_e_log_parser_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -155,22 +169,59 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a38b3381dd8a29aa28fc59d89a25bb51d" name="a38b3381dd8a29aa28fc59d89a25bb51d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38b3381dd8a29aa28fc59d89a25bb51d">&#9670;&#160;</a></span>_AELP_CHECK_IF_FILE_OPEN</h2>
+<a id="a8119c8ffa60bb345802738252ea0d497" name="a8119c8ffa60bb345802738252ea0d497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8119c8ffa60bb345802738252ea0d497">&#9670;&#160;</a></span>AELP_ERR_NOERROR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AELP_CHECK_IF_FILE_OPEN&#160;&#160;&#160;{ if (this-&gt;isClosed()) { return <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#af0bab608a9ea8466e721f882c69495e6">AEFR_ERR_FILE_NOT_OPEN</a>; } }</td>
+          <td class="memname">#define AELP_ERR_NOERROR&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Helper macro to check if the file is closed, and if so return AEFR_ERR_FILE_NOT_OPEN. </p>
-<dl class="section note"><dt>Note</dt><dd>Wouldn't advise to use &ndash; it just helped shorten the code </dd></dl>
+<p>Macro for the indicator that everything is good/no error was encountered in the process. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af2fa23434d3007de8a042f1f154f58b6" name="af2fa23434d3007de8a042f1f154f58b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2fa23434d3007de8a042f1f154f58b6">&#9670;&#160;</a></span>AELP_ERR_INVALID_MODULE_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELP_ERR_INVALID_MODULE_NAME&#160;&#160;&#160;-20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error when the passed module name doesn't match the parsed modulenames in the log. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d8/d52/class_a_e_log_parser.html#afcff7caee18bdcafa1dc0edb75a75590" title="Finds the AELogEntryInfo corresponding to the next log entry with the specified severity and module n...">AELogParser::findNextEntry()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4e9777d33bf881e392f56d714d2f529e" name="a4e9777d33bf881e392f56d714d2f529e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9777d33bf881e392f56d714d2f529e">&#9670;&#160;</a></span>AELP_ERR_INVALID_SEVERITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELP_ERR_INVALID_SEVERITY&#160;&#160;&#160;-21</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error when the passed severity is invalid in the current context Ex. </p>
+<p>non-existent severity, or the severity wasn't found in the log file </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -211,25 +262,6 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="af2fa23434d3007de8a042f1f154f58b6" name="af2fa23434d3007de8a042f1f154f58b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2fa23434d3007de8a042f1f154f58b6">&#9670;&#160;</a></span>AELP_ERR_INVALID_MODULE_NAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELP_ERR_INVALID_MODULE_NAME&#160;&#160;&#160;-20</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the error when the passed module name doesn't match the parsed modulenames in the log. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d8/d52/class_a_e_log_parser.html#afcff7caee18bdcafa1dc0edb75a75590" title="Finds the AELogEntryInfo corresponding to the next log entry with the specified severity and module n...">AELogParser::findNextEntry()</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
-
-</div>
-</div>
 <a id="aa814b9b29e688b6d04318eb4d7138a4e" name="aa814b9b29e688b6d04318eb4d7138a4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa814b9b29e688b6d04318eb4d7138a4e">&#9670;&#160;</a></span>AELP_ERR_INVALID_QUEUE</h2>
 
@@ -245,61 +277,6 @@ Macros</h2></td></tr>
 <p>Macro for the error when the null queue pointer was passed into the functions. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4e9777d33bf881e392f56d714d2f529e" name="a4e9777d33bf881e392f56d714d2f529e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e9777d33bf881e392f56d714d2f529e">&#9670;&#160;</a></span>AELP_ERR_INVALID_SEVERITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELP_ERR_INVALID_SEVERITY&#160;&#160;&#160;-21</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the error when the passed severity is invalid in the current context Ex. </p>
-<p>non-existent severity, or the severity wasn't found in the log file </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8119c8ffa60bb345802738252ea0d497" name="a8119c8ffa60bb345802738252ea0d497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8119c8ffa60bb345802738252ea0d497">&#9670;&#160;</a></span>AELP_ERR_NOERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELP_ERR_NOERROR&#160;&#160;&#160;<a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the indicator that everything is good/no error was encountered in the process. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae6fe3723fa2d4bc8b782adcd46e6ce92" name="ae6fe3723fa2d4bc8b782adcd46e6ce92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6fe3723fa2d4bc8b782adcd46e6ce92">&#9670;&#160;</a></span>AELP_NO_MODULENAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELP_NO_MODULENAME&#160;&#160;&#160;&quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the "no"/empty modulename to pass for parsing. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -323,13 +300,50 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="ae6fe3723fa2d4bc8b782adcd46e6ce92" name="ae6fe3723fa2d4bc8b782adcd46e6ce92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6fe3723fa2d4bc8b782adcd46e6ce92">&#9670;&#160;</a></span>AELP_NO_MODULENAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELP_NO_MODULENAME&#160;&#160;&#160;&quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the "no"/empty modulename to pass for parsing. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a38b3381dd8a29aa28fc59d89a25bb51d" name="a38b3381dd8a29aa28fc59d89a25bb51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b3381dd8a29aa28fc59d89a25bb51d">&#9670;&#160;</a></span>_AELP_CHECK_IF_FILE_OPEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _AELP_CHECK_IF_FILE_OPEN&#160;&#160;&#160;{ if (this-&gt;isClosed()) { return <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#af0bab608a9ea8466e721f882c69495e6">AEFR_ERR_FILE_NOT_OPEN</a>; } }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper macro to check if the file is closed, and if so return AEFR_ERR_FILE_NOT_OPEN. </p>
+<dl class="section note"><dt>Note</dt><dd>Wouldn't advise to use &ndash; it just helped shorten the code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../d0/dab/_a_e_log_parser_8hpp_source.html">AELogParser.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_ce698e052457f46db79ad7fbdd9ee713.html">AELogParser</a></li><li class="navelem"><a class="el" href="../../dir_ef260faa586f0ee39b097c8f75f7bc89.html">include</a></li><li class="navelem"><a class="el" href="../../d0/dab/_a_e_log_parser_8hpp.html">AELogParser.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

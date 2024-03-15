@@ -1,0 +1,7 @@
+<map id="AELogger::openLog" name="AELogger::openLog">
+<area shape="rect" id="Node000001" title="Open the file to start logging." alt="" coords="189,31,324,57"/>
+<area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#ac8f55a9e3c92557ea3d92974093ff6fb" title="Open the file to start logging." alt="" coords="5,5,141,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,35,140,31,141,25,173,30"/>
+<area shape="rect" id="Node000003" href="$d8/dfc/class_a_e_logger.html#acbfddb2d8f459f32ce58d7c06cc2ddaa" title="Open the file to start logging." alt="" coords="5,56,141,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,58,141,63,140,57,173,53"/>
+</map>

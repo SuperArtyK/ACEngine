@@ -114,12 +114,15 @@ $(function(){initNavTree('d8/dfc/class_a_e_logger.html','../../'); initResizable
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
- <div class="center">
-  <img src="../../d8/dfc/class_a_e_logger.png" usemap="#AELogger_map" alt=""/>
-  <map id="AELogger_map" name="AELogger_map">
-<area href="../../d0/d8a/class_____a_e_module_base.html" alt="__AEModuleBase&lt; AELogger &gt;" shape="rect" coords="0,0,194,24"/>
-  </map>
-</div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d2d/class_a_e_logger__inherit__graph.svg" width="218" height="204"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for AELogger:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d68/class_a_e_logger__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -266,7 +269,7 @@ Private Attributes</h2></td></tr>
 <p>A wrapper around AEFW functionality for writing, and <a class="el" href="../../da/dea/struct_a_e_log_entry.html" title="The structure for the data of the log entry to be manipulated with the log files.">AELogEntry</a> for mass-formatting of entries to text</p>
 <p>The log is written by requesting and filling the entry in the queue. The <a class="el" href="../../d8/dfc/class_a_e_logger.html" title="The ArtyK&#39;s Engine&#39;s Logger module – it manages the writing to the log files.">AELogger</a> instance launches the separate thread that looks at the entries in the queue, retrieves and formats the data in them, and writes it to the file. Afterwards that entry in the queue is cleared.</p>
 <p>Hungarian notation is lg. (m_lgMyLogger)</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd><p class="startdd">Implement copy constructors and copy assignment </p>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo</a></b></dt><dd><p class="startdd">Implement copy constructors and copy assignment </p>
 <p class="enddd">Add the ability to open the same log file/redirect the instance requests to the one that has it open first. </p>
 </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="../../de/da5/bug.html#_bug000001">Bug</a></b></dt><dd>The queue can expand if it's too little. But....I don't know how to shrink it. (working on it) </dd></dl>
@@ -370,6 +373,15 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
 
+<p class="reference">References <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a82c2d932be8a6352e3639dbe2189d6f8">AELOG_DEFAULT_ALLOC_VECTOR_RESERVE</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#acc6733729c4691b85a0846b7fc3faba0">AELOG_TYPE_OK</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d">AEFileWriter::isOpen()</a>, <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>, <a class="el" href="#a26d4cea0c8e731068915f96b25a431c6">m_lepQueue</a>, <a class="el" href="#a92b4e7278fc54d861edeef1850e27510">m_vAllocTable</a>, <a class="el" href="#a284034896688215f7e87242764c5985d">startWriter()</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a134f36542cb09532588436c53df9653d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
 </div>
 </div>
 <a id="a9c09ce6d88e3257f4880730e1fa9945a" name="a9c09ce6d88e3257f4880730e1fa9945a"></a>
@@ -399,6 +411,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
+<p class="reference">References <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a82c2d932be8a6352e3639dbe2189d6f8">AELOG_DEFAULT_ALLOC_VECTOR_RESERVE</a>, <a class="el" href="#a26d4cea0c8e731068915f96b25a431c6">m_lepQueue</a>, <a class="el" href="#a51b2cf8fe7285ae2f83816a26dafacde">m_ullQueueSize</a>, and <a class="el" href="#a92b4e7278fc54d861edeef1850e27510">m_vAllocTable</a>.</p>
+
 </div>
 </div>
 <a id="a4b6c6a8134c8f7f24db7d3f35d62624d" name="a4b6c6a8134c8f7f24db7d3f35d62624d"></a>
@@ -419,6 +433,15 @@ Private Attributes</h2></td></tr>
 <p>Class destructor. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a>, <a class="el" href="#a2f64d8f5de2f249f7cb973a82ec1e48a">closeLog()</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="#a92b4e7278fc54d861edeef1850e27510">m_vAllocTable</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a4b6c6a8134c8f7f24db7d3f35d62624d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -450,6 +473,279 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5df2872fb232f5e126d55efbc4184597" name="a5df2872fb232f5e126d55efbc4184597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df2872fb232f5e126d55efbc4184597">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a> &amp; AELogger::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a> &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted (for now) copy-assignment. </p>
+
+</div>
+</div>
+<a id="a284034896688215f7e87242764c5985d" name="a284034896688215f7e87242764c5985d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a284034896688215f7e87242764c5985d">&#9670;&#160;</a></span>startWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::startWriter </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the log-writing thread. </p>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_RUNNING if thread already was running, AELOG_ERR_UNABLE_START_THREAD if error happened (+ std::runtime_error() exception)</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00044">44</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#aceacce64dc83c2b3a4f466a404ab4d57">AELOG_ERR_NOERROR</a>, <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#a7eab3c15909d4f15c115b00db6520723">AELOG_ERR_THREAD_ALREADY_RUNNING</a>, <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#a8823bf433bd5fb72c666c779bc1c30d0">AELOG_ERR_UNABLE_START_THREAD</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a1db0fdaed06e091f280123296ba14b75">AELOG_TYPE_FATAL_ERROR</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#ae1372b4514a65cdaa0930d4ff352c49c">AELOG_TYPE_WARN</a>, <a class="el" href="#a2f64d8f5de2f249f7cb973a82ec1e48a">closeLog()</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="#a5938787b6933f4b96ebff10643bd2497">logWriterThread()</a>, <a class="el" href="#a23f088382dd66962d0d0fbf1ea3b430d">m_bRunTrd</a>, <a class="el" href="#a8868797aca61e097a389924537959394">m_trdWriter</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a284034896688215f7e87242764c5985d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a284034896688215f7e87242764c5985d_icgraph.svg" width="534" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a53b212c259c40bda694476f09d1f171b" name="a53b212c259c40bda694476f09d1f171b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b212c259c40bda694476f09d1f171b">&#9670;&#160;</a></span>stopWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::stopWriter </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stops the log-writing thread (after flushing the log queue). </p>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_STOPPED if thread already was stopped</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#aceacce64dc83c2b3a4f466a404ab4d57">AELOG_ERR_NOERROR</a>, <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#a752e731125438e23a846ec85e5821a62">AELOG_ERR_THREAD_ALREADY_STOPPED</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a8fd8d05528157dc249c29657f0c83029">AELOG_TYPE_ERROR</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#acc6733729c4691b85a0846b7fc3faba0">AELOG_TYPE_OK</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="#a23f088382dd66962d0d0fbf1ea3b430d">m_bRunTrd</a>, <a class="el" href="#a8868797aca61e097a389924537959394">m_trdWriter</a>, <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>, and <a class="el" href="#a54bad71bcfea05c3d17d7ba1bacfec8c">writeToLogDirectly()</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a53b212c259c40bda694476f09d1f171b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a53b212c259c40bda694476f09d1f171b_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a53b588f9874535299d612a4c71de9950" name="a53b588f9874535299d612a4c71de9950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b588f9874535299d612a4c71de9950">&#9670;&#160;</a></span>openLog() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::openLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string</td>          <td class="paramname"><span class="paramname"><em>fpath</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>clearLog</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open the file to start logging. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fpath</td><td>Path to put the log file in</td></tr>
+    <tr><td class="paramname">fname</td><td>Name of the log file</td></tr>
+    <tr><td class="paramname">clearLog</td><td>Flag to clear the log file if it exists instead of appending it</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise return values of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag.">AEFileWriter::openFile()</a> or <a class="el" href="#a284034896688215f7e87242764c5985d" title="Starts the log-writing thread.">AELogger::startWriter()</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#ab7ad841e058854b9c00ed00db5980880">AEFW_ERR_NOERROR</a>, <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a012e155bd84945bb9ebd1840526c6740">AEFW_FLAG_APPEND</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#af702d5705c59c5e431df0b6cd2bbb9b3">AELOG_TYPE_SUCCESS</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0">AEFileWriter::openFile()</a>, <a class="el" href="#a284034896688215f7e87242764c5985d">startWriter()</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a53b588f9874535299d612a4c71de9950_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a53b588f9874535299d612a4c71de9950_icgraph.svg" width="330" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac8f55a9e3c92557ea3d92974093ff6fb" name="ac8f55a9e3c92557ea3d92974093ff6fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f55a9e3c92557ea3d92974093ff6fb">&#9670;&#160;</a></span>openLog() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::openLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>clearLog</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open the file to start logging. </p>
+<dl class="section note"><dt>Note</dt><dd>Puts the file into the default log path location (AELOG_DEFAULT_LOG_PATH)</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>Name of the log file</td></tr>
+    <tr><td class="paramname">clearLog</td><td>Flag to clear the log file if it exists instead of appending it</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise return values of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag.">AEFileWriter::openFile()</a> or <a class="el" href="#a284034896688215f7e87242764c5985d" title="Starts the log-writing thread.">AELogger::startWriter()</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00152">152</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a677404c9fb1978178daad33fc55a3ccd">AELOG_DEFAULT_LOG_PATH</a>, and <a class="el" href="#a53b588f9874535299d612a4c71de9950">openLog()</a>.</p>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_ac8f55a9e3c92557ea3d92974093ff6fb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="acbfddb2d8f459f32ce58d7c06cc2ddaa" name="acbfddb2d8f459f32ce58d7c06cc2ddaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbfddb2d8f459f32ce58d7c06cc2ddaa">&#9670;&#160;</a></span>openLog() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::openLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>fpath</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>clearLog</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open the file to start logging. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fpath</td><td>Path of directory to put the log file in (include trailing '/' character)</td></tr>
+    <tr><td class="paramname">fname</td><td>Name of the log file</td></tr>
+    <tr><td class="paramname">clearLog</td><td>Flag to clear the log file if it exists instead of appending it</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise return values of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag.">AEFileWriter::openFile()</a> or <a class="el" href="#a284034896688215f7e87242764c5985d" title="Starts the log-writing thread.">AELogger::startWriter()</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00163">163</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#a53b588f9874535299d612a4c71de9950">openLog()</a>.</p>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_acbfddb2d8f459f32ce58d7c06cc2ddaa_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a2f64d8f5de2f249f7cb973a82ec1e48a" name="a2f64d8f5de2f249f7cb973a82ec1e48a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f64d8f5de2f249f7cb973a82ec1e48a">&#9670;&#160;</a></span>closeLog()</h2>
 
@@ -478,6 +774,510 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00171">171</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>, <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#aceacce64dc83c2b3a4f466a404ab4d57">AELOG_ERR_NOERROR</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#af702d5705c59c5e431df0b6cd2bbb9b3">AELOG_TYPE_SUCCESS</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a05ceb471801ae111d68859f9d3b9eb78">AEFileWriter::closeFile()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895">AEFileWriter::getFullFileName()</a>, <a class="el" href="#a4d512bf9f4d0a6a1b6a332b9c99e22ac">isClosed()</a>, <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>, <a class="el" href="#a53b212c259c40bda694476f09d1f171b">stopWriter()</a>, <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>, and <a class="el" href="#a54bad71bcfea05c3d17d7ba1bacfec8c">writeToLogDirectly()</a>.</p>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a2f64d8f5de2f249f7cb973a82ec1e48a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a2f64d8f5de2f249f7cb973a82ec1e48a_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac533941173224cb21fe09326726ce754" name="ac533941173224cb21fe09326726ce754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac533941173224cb21fe09326726ce754">&#9670;&#160;</a></span>writeToLog() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeToLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmessg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a></td>          <td class="paramname"><span class="paramname"><em>logtype</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a></span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmodule</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a></span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::time_t</td>          <td class="paramname"><span class="paramname"><em>logTime</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request a log entry to be written to the opened log file. </p>
+<dl class="section note"><dt>Note</dt><dd>See AELOG_TYPE_* flags </dd>
+<dd>
+The module name should contain only alphanumeric characters or underscores (no spaces), otherwise it fails</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logmessg</td><td>The message of the requested log entry</td></tr>
+    <tr><td class="paramname">logtype</td><td>The type of the log entry</td></tr>
+    <tr><td class="paramname">logmodule</td><td>The name of the module that invoked this request</td></tr>
+    <tr><td class="paramname">logTime</td><td>The custom time of the log entry to insert, <em>if you really need that</em>!</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd>Implement decrease in log queue size...somehow </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>, <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">AELE_MESSAGE_SIZE</a>, <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a>, <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#af57a988925005a9b71e0e95defb351ca">AELE_STATUS_INVALID</a>, <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a0fe2574dd97fe6d3dcb8cfc9a9b8f909">AELE_STATUS_READY</a>, <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a20321a1d16f982b7d190250232bc83ef">AELE_STATUS_SETTING</a>, <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#a34b6a95bb690b3b938290ed35fb3c40f">AELOG_ERR_INVALID_ENTRY_DATA</a>, <a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html#aceacce64dc83c2b3a4f466a404ab4d57">AELOG_ERR_NOERROR</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">AELOG_TYPE_DEBUG</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a1db0fdaed06e091f280123296ba14b75">AELOG_TYPE_FATAL_ERROR</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="../../de/dde/namespaceace_1_1utils.html#ac3eadc5f289b54059322023f3c5eed96">ace::utils::isAlNumUs()</a>, <a class="el" href="#a4d512bf9f4d0a6a1b6a332b9c99e22ac">isClosed()</a>, <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7">ace::utils::isInRange()</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180">AELogEntry::m_cLogType</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac59b70ca8c0f5ce4fc3605009b433b59">AELogEntry::m_cStatus</a>, <a class="el" href="#a5fb2a77428439b46c140f2d84132f2d0">m_lepLastNode</a>, <a class="el" href="#a26d4cea0c8e731068915f96b25a431c6">m_lepQueue</a>, <a class="el" href="#ae91d805ef8866461e0735c9f41f54c24">m_mtxAllocLock</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#a6df47dbc166ac44e08fb9f7d393acb42">AELogEntry::m_pNextNode</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac63357a7507b916c49a33215e54f66b3">AELogEntry::m_sLogMessage</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#acbd2ed1f9e622f79d960012fb0a9393f">AELogEntry::m_sModuleName</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#af8328cce79f245ad06bd5c5f90f23b3f">AELogEntry::m_tmLogTime</a>, <a class="el" href="#a466ab25bd221bc29ae4675fb96c3146b">m_ullFilledCount</a>, <a class="el" href="#ae0bf86d6191641b067d1a25324544871">m_ullNodeNumber</a>, <a class="el" href="#a51b2cf8fe7285ae2f83816a26dafacde">m_ullQueueSize</a>, <a class="el" href="#a92b4e7278fc54d861edeef1850e27510">m_vAllocTable</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#a42447b345f72f22ec655556af2db7c28">AELogEntry::makeQueue()</a>, <a class="el" href="#af4bff840ffdcfcb5ecb1251fddbf9690">ptrFromIndex()</a>, and <a class="el" href="#a50dfd96a74d13471faebd4de499db5bf">writeToLogDebug()</a>.</p>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_ac533941173224cb21fe09326726ce754_cgraph.svg" width="100%" height="568"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_ac533941173224cb21fe09326726ce754_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa38725e74a352cd316126b32c614c12f" name="aa38725e74a352cd316126b32c614c12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa38725e74a352cd316126b32c614c12f">&#9670;&#160;</a></span>writeToLog() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeToLog </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>entry</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>useCurrentTime</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Request a log entry to be written to the opened log file, using data from a log entry type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry</td><td>The log entry to write to the file</td></tr>
+    <tr><td class="paramname">useCurrentTime</td><td>Flag to use current time for the log entry, or use timestamp in the provided entry</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../da/dea/struct_a_e_log_entry.html#a9cebabba73b9f2159b55911d7d24d180">AELogEntry::m_cLogType</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac63357a7507b916c49a33215e54f66b3">AELogEntry::m_sLogMessage</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#acbd2ed1f9e622f79d960012fb0a9393f">AELogEntry::m_sModuleName</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#af8328cce79f245ad06bd5c5f90f23b3f">AELogEntry::m_tmLogTime</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_aa38725e74a352cd316126b32c614c12f_cgraph.svg" width="100%" height="568"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a50dfd96a74d13471faebd4de499db5bf" name="a50dfd96a74d13471faebd4de499db5bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50dfd96a74d13471faebd4de499db5bf">&#9670;&#160;</a></span>writeToLogDebug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeToLogDebug </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmessg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmodule</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Request a debug log entry to be written to the opened log file. </p>
+<dl class="section note"><dt>Note</dt><dd>See AELOG_TYPE_* flags </dd>
+<dd>
+If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file.">AELogger::writeToLog()</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logmessg</td><td>The message of the requested log entry</td></tr>
+    <tr><td class="paramname">logmodule</td><td>The name of the module that invoked this request</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00216">216</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a5a4597f7fb7f605706194f7b98d683e6">AELOG_TYPE_DEBUG</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a50dfd96a74d13471faebd4de499db5bf_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a50dfd96a74d13471faebd4de499db5bf_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a42debdcd6da993064afc1f4d2357ecfb" name="a42debdcd6da993064afc1f4d2357ecfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42debdcd6da993064afc1f4d2357ecfb">&#9670;&#160;</a></span>writeStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeStatus </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes the current status of the file logger instance (file name, and entries written). </p>
+<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00227">227</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895">AEFileWriter::getFullFileName()</a>, <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>, and <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>.</p>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a42debdcd6da993064afc1f4d2357ecfb_cgraph.svg" width="100%" height="568"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a969fd219869803f0d6e52a4b37c0b38f" name="a969fd219869803f0d6e52a4b37c0b38f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a969fd219869803f0d6e52a4b37c0b38f">&#9670;&#160;</a></span>getLogName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AELogger::getLogName </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the name of the log file. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the name of opened log file; otherwise values from <a class="el" href="../../db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895" title="Returns the full name of currently open file, including the relative path, if such was provided.">AEFileWriter::getFullFileName()</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00237">237</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895">AEFileWriter::getFullFileName()</a>, and <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>.</p>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a969fd219869803f0d6e52a4b37c0b38f_cgraph.svg" width="416" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae73f71a42c0b77d0cd15818483c6471d" name="ae73f71a42c0b77d0cd15818483c6471d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73f71a42c0b77d0cd15818483c6471d">&#9670;&#160;</a></span>getLogPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AELogger::getLogPath </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the path of the log file. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the path of the opened log file; otherwise values from <a class="el" href="../../db/d15/class_a_e_file_writer.html#aa7ea0428e5c94d54d9fd1386105db507" title="Returns the relative path of the opened file.">AEFileWriter::getRelativePath()</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00245">245</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d15/class_a_e_file_writer.html#aa7ea0428e5c94d54d9fd1386105db507">AEFileWriter::getRelativePath()</a>, and <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>.</p>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_ae73f71a42c0b77d0cd15818483c6471d_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad84fba530467f2918c2598987d5d2899" name="ad84fba530467f2918c2598987d5d2899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84fba530467f2918c2598987d5d2899">&#9670;&#160;</a></span>getLogAbsolutePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AELogger::getLogAbsolutePath </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the full/absolute path of the log file. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of the absolute path of the opened log file; otherwise values from <a class="el" href="../../db/d15/class_a_e_file_writer.html#a5980b915ad3a59393e2818d374c3dc85" title="Returns the full, absolute path of the opened file.">AEFileWriter::getFullPath()</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00253">253</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d15/class_a_e_file_writer.html#a5980b915ad3a59393e2818d374c3dc85">AEFileWriter::getFullPath()</a>, and <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>.</p>
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_ad84fba530467f2918c2598987d5d2899_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad411262926f09b610be793e6ea15e9d4" name="ad411262926f09b610be793e6ea15e9d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad411262926f09b610be793e6ea15e9d4">&#9670;&#160;</a></span>getEntryCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> AELogger::getEntryCount </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the amount of log entries done to an opened log file. </p>
+<dl class="section return"><dt>Returns</dt><dd>ullint of the amount of times logger written to a file</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00261">261</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d15/class_a_e_file_writer.html#a91b40186ef167a8f3b0e3fcc9fe3c9a6">AEFileWriter::getTotalWrites()</a>, and <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>.</p>
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_ad411262926f09b610be793e6ea15e9d4_cgraph.svg" width="416" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a05043df3dad7ad73a65f3f86b1f98185" name="a05043df3dad7ad73a65f3f86b1f98185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05043df3dad7ad73a65f3f86b1f98185">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AELogger::isOpen </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the current log file is open. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the file is open for writing, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00269">269</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d">AEFileWriter::isOpen()</a>, and <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>.</p>
+<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a05043df3dad7ad73a65f3f86b1f98185_cgraph.svg" width="331" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4d512bf9f4d0a6a1b6a332b9c99e22ac" name="a4d512bf9f4d0a6a1b6a332b9c99e22ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d512bf9f4d0a6a1b6a332b9c99e22ac">&#9670;&#160;</a></span>isClosed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AELogger::isClosed </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a log file isn't open by this logger. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if log file is closed/not open, false if otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00277">277</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090">AEFileWriter::isClosed()</a>, and <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>.</p>
+<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a4d512bf9f4d0a6a1b6a332b9c99e22ac_cgraph.svg" width="542" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a4d512bf9f4d0a6a1b6a332b9c99e22ac_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8d87f0c0004f00bb31e948547623a47a" name="a8d87f0c0004f00bb31e948547623a47a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d87f0c0004f00bb31e948547623a47a">&#9670;&#160;</a></span>isWriting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AELogger::isWriting </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the log-writing thread is running. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if it is working(was launched), false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00285">285</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#a23f088382dd66962d0d0fbf1ea3b430d">m_bRunTrd</a>.</p>
 
 </div>
 </div>
@@ -520,10 +1320,19 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00295">295</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
+<p class="reference">References <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852">ace::utils::getCurrentDate()</a>.</p>
+<div id="dynsection-27" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a87dc705d692056229db74fc4bc3c93e9_cgraph.svg" width="584" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
-<a id="ad411262926f09b610be793e6ea15e9d4" name="ad411262926f09b610be793e6ea15e9d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad411262926f09b610be793e6ea15e9d4">&#9670;&#160;</a></span>getEntryCount()</h2>
+<a id="af4bff840ffdcfcb5ecb1251fddbf9690" name="af4bff840ffdcfcb5ecb1251fddbf9690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4bff840ffdcfcb5ecb1251fddbf9690">&#9670;&#160;</a></span>ptrFromIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -532,28 +1341,42 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> AELogger::getEntryCount </td>
+          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> * AELogger::ptrFromIndex </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a></td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the amount of log entries done to an opened log file. </p>
-<dl class="section return"><dt>Returns</dt><dd>ullint of the amount of times logger written to a file</dd></dl>
+<p>Checks for the given index number and returns the pointer in the queue of log entries. </p>
+<dl class="section note"><dt>Note</dt><dd>The index is wrapped around the max queue size.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The index number of the log entry</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the node of that index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00261">261</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00203">203</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
+<div id="dynsection-28" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_af4bff840ffdcfcb5ecb1251fddbf9690_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="ad84fba530467f2918c2598987d5d2899" name="ad84fba530467f2918c2598987d5d2899"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad84fba530467f2918c2598987d5d2899">&#9670;&#160;</a></span>getLogAbsolutePath()</h2>
+<a id="a54bad71bcfea05c3d17d7ba1bacfec8c" name="a54bad71bcfea05c3d17d7ba1bacfec8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54bad71bcfea05c3d17d7ba1bacfec8c">&#9670;&#160;</a></span>writeToLogDirectly()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -562,28 +1385,61 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string AELogger::getLogAbsolutePath </td>
+          <td class="memname">void AELogger::writeToLogDirectly </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmessg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a></td>          <td class="paramname"><span class="paramname"><em>logtype</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a></span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmodule</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a></span></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the full/absolute path of the log file. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the absolute path of the opened log file; otherwise values from <a class="el" href="../../db/d15/class_a_e_file_writer.html#a5980b915ad3a59393e2818d374c3dc85" title="Returns the full, absolute path of the opened file.">AEFileWriter::getFullPath()</a></dd></dl>
+<p>Writes to log directly, without thinking of the queue. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Use it with caution, when you sure that it won't compromise the log integrity (you know, race conditions with fwrite() in the <a class="el" href="#a5938787b6933f4b96ebff10643bd2497" title="The function of the log writing thread to...read the entries, format them, write them,...">AELogger::logWriterThread()</a>)</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logmessg</td><td>Message of the log</td></tr>
+    <tr><td class="paramname">logtype</td><td>the type/severity of the log</td></tr>
+    <tr><td class="paramname">logmodule</td><td>the module name that requested the log</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00253">253</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00319">319</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ad485b760c5feec63dfe84599069c58a6">AELE_FORMAT_MAX_SIZE</a>, <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">AELE_MESSAGE_SIZE</a>, <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a0c238267ee45ca15672d4e9246cdca2c">AEFileWriter::flushFile()</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab803ea47d06098feab470f265498f617">AELogEntry::formatEntry()</a>, <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>, and <a class="el" href="../../db/d15/class_a_e_file_writer.html#a01d537821c5760615e126f1c159b67da">AEFileWriter::writeData_ptr()</a>.</p>
+<div id="dynsection-29" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a54bad71bcfea05c3d17d7ba1bacfec8c_cgraph.svg" width="651" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-30" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a54bad71bcfea05c3d17d7ba1bacfec8c_icgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="a969fd219869803f0d6e52a4b37c0b38f" name="a969fd219869803f0d6e52a4b37c0b38f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a969fd219869803f0d6e52a4b37c0b38f">&#9670;&#160;</a></span>getLogName()</h2>
+<a id="a5938787b6933f4b96ebff10643bd2497" name="a5938787b6933f4b96ebff10643bd2497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5938787b6933f4b96ebff10643bd2497">&#9670;&#160;</a></span>logWriterThread()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -592,28 +1448,43 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string AELogger::getLogName </td>
+          <td class="memname">void AELogger::logWriterThread </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the name of the log file. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the name of opened log file; otherwise values from <a class="el" href="../../db/d15/class_a_e_file_writer.html#a26ea7c97bfdbed142df1863d8d47d895" title="Returns the full name of currently open file, including the relative path, if such was provided.">AEFileWriter::getFullFileName()</a></dd></dl>
+<p>The function of the log writing thread to...read the entries, format them, write them, and clear them. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00237">237</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#ad485b760c5feec63dfe84599069c58a6">AELE_FORMAT_MAX_SIZE</a>, <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a2a1da00568f81fde96f1b641eb254e6b">AELE_STATUS_READING</a>, <a class="el" href="../../dc/dc6/_a_e_log_entry_8hpp.html#a0fe2574dd97fe6d3dcb8cfc9a9b8f909">AELE_STATUS_READY</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#acc6733729c4691b85a0846b7fc3faba0">AELOG_TYPE_OK</a>, <a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#af702d5705c59c5e431df0b6cd2bbb9b3">AELOG_TYPE_SUCCESS</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#a58aeadbca0c2c0863b534a52d40d22a8">AELogEntry::clearEntry()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a0c238267ee45ca15672d4e9246cdca2c">AEFileWriter::flushFile()</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#ab803ea47d06098feab470f265498f617">AELogEntry::formatEntry()</a>, <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">__AEModuleBase&lt; AELogger &gt;::getModuleName()</a>, <a class="el" href="#a23f088382dd66962d0d0fbf1ea3b430d">m_bRunTrd</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#ac59b70ca8c0f5ce4fc3605009b433b59">AELogEntry::m_cStatus</a>, <a class="el" href="#ae9895e282c5bdf81312106acd988e1d8">m_fwLogger</a>, <a class="el" href="#a26d4cea0c8e731068915f96b25a431c6">m_lepQueue</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html#a6df47dbc166ac44e08fb9f7d393acb42">AELogEntry::m_pNextNode</a>, <a class="el" href="#a466ab25bd221bc29ae4675fb96c3146b">m_ullFilledCount</a>, <a class="el" href="../../de/dde/namespaceace_1_1utils.html#ae3cab8babc7164fe97d71c65b247e848">ace::utils::sleepUS()</a>, <a class="el" href="../../db/d15/class_a_e_file_writer.html#a01d537821c5760615e126f1c159b67da">AEFileWriter::writeData_ptr()</a>, <a class="el" href="#ac533941173224cb21fe09326726ce754">writeToLog()</a>, and <a class="el" href="#a54bad71bcfea05c3d17d7ba1bacfec8c">writeToLogDirectly()</a>.</p>
+<div id="dynsection-31" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a5938787b6933f4b96ebff10643bd2497_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-32" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/dfc/class_a_e_logger_a5938787b6933f4b96ebff10643bd2497_icgraph.svg" width="100%" height="385"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="ae73f71a42c0b77d0cd15818483c6471d" name="ae73f71a42c0b77d0cd15818483c6471d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae73f71a42c0b77d0cd15818483c6471d">&#9670;&#160;</a></span>getLogPath()</h2>
+<a id="a72310de43ba6405a5f24aa8f027f8541" name="a72310de43ba6405a5f24aa8f027f8541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72310de43ba6405a5f24aa8f027f8541">&#9670;&#160;</a></span>REGISTER_MODULE()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -622,23 +1493,18 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string AELogger::getLogPath </td>
+          <td class="memname">AELogger::REGISTER_MODULE </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a></td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Get the path of the log file. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of the path of the opened log file; otherwise values from <a class="el" href="../../db/d15/class_a_e_file_writer.html#aa7ea0428e5c94d54d9fd1386105db507" title="Returns the relative path of the opened file.">AEFileWriter::getRelativePath()</a></dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00245">245</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -700,659 +1566,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4d512bf9f4d0a6a1b6a332b9c99e22ac" name="a4d512bf9f4d0a6a1b6a332b9c99e22ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d512bf9f4d0a6a1b6a332b9c99e22ac">&#9670;&#160;</a></span>isClosed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AELogger::isClosed </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if a log file isn't open by this logger. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if log file is closed/not open, false if otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00277">277</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a05043df3dad7ad73a65f3f86b1f98185" name="a05043df3dad7ad73a65f3f86b1f98185"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05043df3dad7ad73a65f3f86b1f98185">&#9670;&#160;</a></span>isOpen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AELogger::isOpen </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the current log file is open. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the file is open for writing, false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00269">269</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8d87f0c0004f00bb31e948547623a47a" name="a8d87f0c0004f00bb31e948547623a47a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d87f0c0004f00bb31e948547623a47a">&#9670;&#160;</a></span>isWriting()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AELogger::isWriting </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the log-writing thread is running. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if it is working(was launched), false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00285">285</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5938787b6933f4b96ebff10643bd2497" name="a5938787b6933f4b96ebff10643bd2497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5938787b6933f4b96ebff10643bd2497">&#9670;&#160;</a></span>logWriterThread()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AELogger::logWriterThread </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The function of the log writing thread to...read the entries, format them, write them, and clear them. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ac8f55a9e3c92557ea3d92974093ff6fb" name="ac8f55a9e3c92557ea3d92974093ff6fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8f55a9e3c92557ea3d92974093ff6fb">&#9670;&#160;</a></span>openLog() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::openLog </td>
-          <td>(</td>
-          <td class="paramtype">const std::string</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>clearLog</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Open the file to start logging. </p>
-<dl class="section note"><dt>Note</dt><dd>Puts the file into the default log path location (AELOG_DEFAULT_LOG_PATH)</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fname</td><td>Name of the log file</td></tr>
-    <tr><td class="paramname">clearLog</td><td>Flag to clear the log file if it exists instead of appending it</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise return values of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag.">AEFileWriter::openFile()</a> or <a class="el" href="#a284034896688215f7e87242764c5985d" title="Starts the log-writing thread.">AELogger::startWriter()</a></dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00152">152</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a53b588f9874535299d612a4c71de9950" name="a53b588f9874535299d612a4c71de9950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53b588f9874535299d612a4c71de9950">&#9670;&#160;</a></span>openLog() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::openLog </td>
-          <td>(</td>
-          <td class="paramtype">const std::string</td>          <td class="paramname"><span class="paramname"><em>fpath</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>clearLog</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Open the file to start logging. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fpath</td><td>Path to put the log file in</td></tr>
-    <tr><td class="paramname">fname</td><td>Name of the log file</td></tr>
-    <tr><td class="paramname">clearLog</td><td>Flag to clear the log file if it exists instead of appending it</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise return values of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag.">AEFileWriter::openFile()</a> or <a class="el" href="#a284034896688215f7e87242764c5985d" title="Starts the log-writing thread.">AELogger::startWriter()</a></dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="acbfddb2d8f459f32ce58d7c06cc2ddaa" name="acbfddb2d8f459f32ce58d7c06cc2ddaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbfddb2d8f459f32ce58d7c06cc2ddaa">&#9670;&#160;</a></span>openLog() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::openLog </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>fpath</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>fname</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>clearLog</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Open the file to start logging. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fpath</td><td>Path of directory to put the log file in (include trailing '/' character)</td></tr>
-    <tr><td class="paramname">fname</td><td>Name of the log file</td></tr>
-    <tr><td class="paramname">clearLog</td><td>Flag to clear the log file if it exists instead of appending it</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise return values of <a class="el" href="../../db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag.">AEFileWriter::openFile()</a> or <a class="el" href="#a284034896688215f7e87242764c5985d" title="Starts the log-writing thread.">AELogger::startWriter()</a></dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00163">163</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5df2872fb232f5e126d55efbc4184597" name="a5df2872fb232f5e126d55efbc4184597"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5df2872fb232f5e126d55efbc4184597">&#9670;&#160;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a> &amp; AELogger::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a> &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deleted (for now) copy-assignment. </p>
-
-</div>
-</div>
-<a id="af4bff840ffdcfcb5ecb1251fddbf9690" name="af4bff840ffdcfcb5ecb1251fddbf9690"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4bff840ffdcfcb5ecb1251fddbf9690">&#9670;&#160;</a></span>ptrFromIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> * AELogger::ptrFromIndex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a></td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks for the given index number and returns the pointer in the queue of log entries. </p>
-<dl class="section note"><dt>Note</dt><dd>The index is wrapped around the max queue size.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>The index number of the log entry</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the node of that index</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00203">203</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a72310de43ba6405a5f24aa8f027f8541" name="a72310de43ba6405a5f24aa8f027f8541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72310de43ba6405a5f24aa8f027f8541">&#9670;&#160;</a></span>REGISTER_MODULE()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">AELogger::REGISTER_MODULE </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a></td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a284034896688215f7e87242764c5985d" name="a284034896688215f7e87242764c5985d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a284034896688215f7e87242764c5985d">&#9670;&#160;</a></span>startWriter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::startWriter </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Starts the log-writing thread. </p>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_RUNNING if thread already was running, AELOG_ERR_UNABLE_START_THREAD if error happened (+ std::runtime_error() exception)</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00044">44</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a53b212c259c40bda694476f09d1f171b" name="a53b212c259c40bda694476f09d1f171b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53b212c259c40bda694476f09d1f171b">&#9670;&#160;</a></span>stopWriter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::stopWriter </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Stops the log-writing thread (after flushing the log queue). </p>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_STOPPED if thread already was stopped</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a42debdcd6da993064afc1f4d2357ecfb" name="a42debdcd6da993064afc1f4d2357ecfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42debdcd6da993064afc1f4d2357ecfb">&#9670;&#160;</a></span>writeStatus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeStatus </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes the current status of the file logger instance (file name, and entries written). </p>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00227">227</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa38725e74a352cd316126b32c614c12f" name="aa38725e74a352cd316126b32c614c12f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa38725e74a352cd316126b32c614c12f">&#9670;&#160;</a></span>writeToLog() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeToLog </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>entry</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>useCurrentTime</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Request a log entry to be written to the opened log file, using data from a log entry type. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">entry</td><td>The log entry to write to the file</td></tr>
-    <tr><td class="paramname">useCurrentTime</td><td>Flag to use current time for the log entry, or use timestamp in the provided entry</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac533941173224cb21fe09326726ce754" name="ac533941173224cb21fe09326726ce754"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac533941173224cb21fe09326726ce754">&#9670;&#160;</a></span>writeToLog() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeToLog </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmessg</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a></td>          <td class="paramname"><span class="paramname"><em>logtype</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a></span>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmodule</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a></span>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::time_t</td>          <td class="paramname"><span class="paramname"><em>logTime</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Request a log entry to be written to the opened log file. </p>
-<dl class="section note"><dt>Note</dt><dd>See AELOG_TYPE_* flags </dd>
-<dd>
-The module name should contain only alphanumeric characters or underscores (no spaces), otherwise it fails</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logmessg</td><td>The message of the requested log entry</td></tr>
-    <tr><td class="paramname">logtype</td><td>The type of the log entry</td></tr>
-    <tr><td class="paramname">logmodule</td><td>The name of the module that invoked this request</td></tr>
-    <tr><td class="paramname">logTime</td><td>The custom time of the log entry to insert, <em>if you really need that</em>!</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>Implement decrease in log queue size...somehow </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../db/da0/_a_e_logger_8cpp_source.html">AELogger.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a50dfd96a74d13471faebd4de499db5bf" name="a50dfd96a74d13471faebd4de499db5bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50dfd96a74d13471faebd4de499db5bf">&#9670;&#160;</a></span>writeToLogDebug()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a> AELogger::writeToLogDebug </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmessg</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmodule</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a></span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Request a debug log entry to be written to the opened log file. </p>
-<dl class="section note"><dt>Note</dt><dd>See AELOG_TYPE_* flags </dd>
-<dd>
-If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file.">AELogger::writeToLog()</a></dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logmessg</td><td>The message of the requested log entry</td></tr>
-    <tr><td class="paramname">logmodule</td><td>The name of the module that invoked this request</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00216">216</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a54bad71bcfea05c3d17d7ba1bacfec8c" name="a54bad71bcfea05c3d17d7ba1bacfec8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54bad71bcfea05c3d17d7ba1bacfec8c">&#9670;&#160;</a></span>writeToLogDirectly()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AELogger::writeToLogDirectly </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmessg</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#adabb025f32e720b44bdd40d4e0784710">cint</a></td>          <td class="paramname"><span class="paramname"><em>logtype</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/dd8/_a_e_log_types_8hpp.html#a7aaf0d9d3ca3ea90ccd8e9c790af3f88">AELOG_TYPE_INFO</a></span>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>logmodule</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">AELOG_DEFAULT_MODULE_NAME</a></span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes to log directly, without thinking of the queue. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Use it with caution, when you sure that it won't compromise the log integrity (you know, race conditions with fwrite() in the <a class="el" href="#a5938787b6933f4b96ebff10643bd2497" title="The function of the log writing thread to...read the entries, format them, write them,...">AELogger::logWriterThread()</a>)</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logmessg</td><td>Message of the log</td></tr>
-    <tr><td class="paramname">logtype</td><td>the type/severity of the log</td></tr>
-    <tr><td class="paramname">logmodule</td><td>the module name that requested the log</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00319">319</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a61134ade640af22d54575b62a50c03ca" name="a61134ade640af22d54575b62a50c03ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61134ade640af22d54575b62a50c03ca">&#9670;&#160;</a></span>m_bQueueFilled</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::atomic&lt;bool&gt; AELogger::m_bQueueFilled</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The flag to show that the queue is populated. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00367">367</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a23f088382dd66962d0d0fbf1ea3b430d" name="a23f088382dd66962d0d0fbf1ea3b430d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23f088382dd66962d0d0fbf1ea3b430d">&#9670;&#160;</a></span>m_bRunTrd</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::atomic&lt;bool&gt; AELogger::m_bRunTrd</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The flag to run the log-writing thread. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00365">365</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ae9895e282c5bdf81312106acd988e1d8" name="ae9895e282c5bdf81312106acd988e1d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9895e282c5bdf81312106acd988e1d8">&#9670;&#160;</a></span>m_fwLogger</h2>
 
@@ -1379,58 +1593,6 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 </div>
 </div>
-<a id="a5fb2a77428439b46c140f2d84132f2d0" name="a5fb2a77428439b46c140f2d84132f2d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fb2a77428439b46c140f2d84132f2d0">&#9670;&#160;</a></span>m_lepLastNode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>* AELogger::m_lepLastNode</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The pointer to the last item in the queue. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00362">362</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a26d4cea0c8e731068915f96b25a431c6" name="a26d4cea0c8e731068915f96b25a431c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26d4cea0c8e731068915f96b25a431c6">&#9670;&#160;</a></span>m_lepQueue</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>* AELogger::m_lepQueue</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The pointer to the first item in the queue. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00360">360</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ae91d805ef8866461e0735c9f41f54c24" name="ae91d805ef8866461e0735c9f41f54c24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae91d805ef8866461e0735c9f41f54c24">&#9670;&#160;</a></span>m_mtxAllocLock</h2>
 
@@ -1454,6 +1616,32 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 <p>The mutex to lock when allocating new queue chunks. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00348">348</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a92b4e7278fc54d861edeef1850e27510" name="a92b4e7278fc54d861edeef1850e27510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b4e7278fc54d861edeef1850e27510">&#9670;&#160;</a></span>m_vAllocTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>*&gt; &gt; AELogger::m_vAllocTable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The vector to all the allocated queue pieces and total amounts allocated. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00350">350</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1509,32 +1697,6 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 </div>
 </div>
-<a id="aa6b53ab9e5c623900a03d4ea16eb5a99" name="aa6b53ab9e5c623900a03d4ea16eb5a99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6b53ab9e5c623900a03d4ea16eb5a99">&#9670;&#160;</a></span>m_ullModulesAlive</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::atomic&lt;std::size_t&gt; <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a>  &gt;::m_ullModulesAlive</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Amount of alive module instances. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ae0bf86d6191641b067d1a25324544871" name="ae0bf86d6191641b067d1a25324544871"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae0bf86d6191641b067d1a25324544871">&#9670;&#160;</a></span>m_ullNodeNumber</h2>
 
@@ -1587,8 +1749,8 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 
 </div>
 </div>
-<a id="a92b4e7278fc54d861edeef1850e27510" name="a92b4e7278fc54d861edeef1850e27510"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92b4e7278fc54d861edeef1850e27510">&#9670;&#160;</a></span>m_vAllocTable</h2>
+<a id="a26d4cea0c8e731068915f96b25a431c6" name="a26d4cea0c8e731068915f96b25a431c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26d4cea0c8e731068915f96b25a431c6">&#9670;&#160;</a></span>m_lepQueue</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1597,7 +1759,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::pair&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>, <a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>*&gt; &gt; AELogger::m_vAllocTable</td>
+          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>* AELogger::m_lepQueue</td>
         </tr>
       </table>
   </td>
@@ -1607,9 +1769,113 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>The vector to all the allocated queue pieces and total amounts allocated. </p>
+<p>The pointer to the first item in the queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00350">350</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00360">360</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5fb2a77428439b46c140f2d84132f2d0" name="a5fb2a77428439b46c140f2d84132f2d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb2a77428439b46c140f2d84132f2d0">&#9670;&#160;</a></span>m_lepLastNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/dea/struct_a_e_log_entry.html">AELogEntry</a>* AELogger::m_lepLastNode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The pointer to the last item in the queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00362">362</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a23f088382dd66962d0d0fbf1ea3b430d" name="a23f088382dd66962d0d0fbf1ea3b430d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f088382dd66962d0d0fbf1ea3b430d">&#9670;&#160;</a></span>m_bRunTrd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; AELogger::m_bRunTrd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The flag to run the log-writing thread. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00365">365</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a61134ade640af22d54575b62a50c03ca" name="a61134ade640af22d54575b62a50c03ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61134ade640af22d54575b62a50c03ca">&#9670;&#160;</a></span>m_bQueueFilled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; AELogger::m_bQueueFilled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The flag to show that the queue is populated. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00367">367</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa6b53ab9e5c623900a03d4ea16eb5a99" name="aa6b53ab9e5c623900a03d4ea16eb5a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6b53ab9e5c623900a03d4ea16eb5a99">&#9670;&#160;</a></span>m_ullModulesAlive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;std::size_t&gt; <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a>  &gt;::m_ullModulesAlive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of alive module instances. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -1623,7 +1889,7 @@ If ENGINE_DEBUG flag is not set, doesn't do anything </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

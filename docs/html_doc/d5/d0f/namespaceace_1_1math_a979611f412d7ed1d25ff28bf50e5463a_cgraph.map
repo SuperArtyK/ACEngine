@@ -1,0 +1,5 @@
+<map id="ace::math::_getTrigTableIndex" name="ace::math::_getTrigTableIndex">
+<area shape="rect" id="Node000001" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="5,5,201,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="249,5,354,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,16,233,16,233,21,201,21"/>
+</map>

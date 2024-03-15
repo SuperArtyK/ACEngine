@@ -1,0 +1,5 @@
+<map id="AEVector::isOrthogonal" name="AEVector::isOrthogonal">
+<area shape="rect" id="Node000001" title="Checks if &quot;this&quot; and given vector are orthogonal (perpendicular), by comparing their dot product to 0..." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="212,5,317,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,16,196,16,196,21,164,21"/>
+</map>

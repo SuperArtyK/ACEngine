@@ -1,4 +1,4 @@
-.TH "AECustomTypes/include/AELogTypes.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AECustomTypes/include/AELogTypes.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -55,12 +55,48 @@ Should not cause everything to break :)
 Definition in file \fBAELogTypes\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
+.SS "#define AELOG_TYPE_INVALID   \fBcint\fP{\-1}"
+
+.PP
+Macro for the \fBAELogger\fP's entry of invalid type\&. 
+.PP
+Definition at line \fB16\fP of file \fBAELogTypes\&.hpp\fP\&.
 .SS "#define AELOG_TYPE_DEBUG   \fBcint\fP{0}"
 
 .PP
 Macro for the \fBAELogger\fP's debug entry\&. 
 .PP
 Definition at line \fB19\fP of file \fBAELogTypes\&.hpp\fP\&.
+.SS "#define AELOG_TYPE_INFO   \fBcint\fP{1}"
+
+.PP
+Macro for the \fBAELogger\fP's informational entry\&. 
+.PP
+Definition at line \fB22\fP of file \fBAELogTypes\&.hpp\fP\&.
+.SS "#define AELOG_TYPE_WARN   \fBcint\fP{2}"
+
+.PP
+Macro for the \fBAELogger\fP's warning entry (something isn't right)\&. 
+.PP
+Definition at line \fB25\fP of file \fBAELogTypes\&.hpp\fP\&.
+.SS "#define AELOG_TYPE_SEVERE_WARN   \fBcint\fP{3}"
+
+.PP
+Macro for the \fBAELogger\fP's severe warning entry (something is wrong but it's not an error)\&. 
+.PP
+Definition at line \fB28\fP of file \fBAELogTypes\&.hpp\fP\&.
+.SS "#define AELOG_TYPE_OK   \fBcint\fP{4}"
+
+.PP
+Macro for the \fBAELogger\fP's OK entry (something is good, like a check)\&. 
+.PP
+Definition at line \fB31\fP of file \fBAELogTypes\&.hpp\fP\&.
+.SS "#define AELOG_TYPE_SUCCESS   \fBcint\fP{5}"
+
+.PP
+Macro for the \fBAELogger\fP's successful entry (something done is successfull\&.\&.like a module start)\&. 
+.PP
+Definition at line \fB34\fP of file \fBAELogTypes\&.hpp\fP\&.
 .SS "#define AELOG_TYPE_ERROR   \fBcint\fP{6}"
 
 .PP
@@ -73,42 +109,6 @@ Definition at line \fB37\fP of file \fBAELogTypes\&.hpp\fP\&.
 Macro for the \fBAELogger\fP's fatally-errorenous entry (something critical is fatally-bad)\&. 
 .PP
 Definition at line \fB40\fP of file \fBAELogTypes\&.hpp\fP\&.
-.SS "#define AELOG_TYPE_INFO   \fBcint\fP{1}"
-
-.PP
-Macro for the \fBAELogger\fP's informational entry\&. 
-.PP
-Definition at line \fB22\fP of file \fBAELogTypes\&.hpp\fP\&.
-.SS "#define AELOG_TYPE_INVALID   \fBcint\fP{\-1}"
-
-.PP
-Macro for the \fBAELogger\fP's entry of invalid type\&. 
-.PP
-Definition at line \fB16\fP of file \fBAELogTypes\&.hpp\fP\&.
-.SS "#define AELOG_TYPE_OK   \fBcint\fP{4}"
-
-.PP
-Macro for the \fBAELogger\fP's OK entry (something is good, like a check)\&. 
-.PP
-Definition at line \fB31\fP of file \fBAELogTypes\&.hpp\fP\&.
-.SS "#define AELOG_TYPE_SEVERE_WARN   \fBcint\fP{3}"
-
-.PP
-Macro for the \fBAELogger\fP's severe warning entry (something is wrong but it's not an error)\&. 
-.PP
-Definition at line \fB28\fP of file \fBAELogTypes\&.hpp\fP\&.
-.SS "#define AELOG_TYPE_SUCCESS   \fBcint\fP{5}"
-
-.PP
-Macro for the \fBAELogger\fP's successful entry (something done is successfull\&.\&.like a module start)\&. 
-.PP
-Definition at line \fB34\fP of file \fBAELogTypes\&.hpp\fP\&.
-.SS "#define AELOG_TYPE_WARN   \fBcint\fP{2}"
-
-.PP
-Macro for the \fBAELogger\fP's warning entry (something isn't right)\&. 
-.PP
-Definition at line \fB25\fP of file \fBAELogTypes\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

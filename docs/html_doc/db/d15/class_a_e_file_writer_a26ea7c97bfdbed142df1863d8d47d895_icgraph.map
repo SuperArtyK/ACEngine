@@ -1,0 +1,21 @@
+<map id="AEFileWriter::getFullFileName" name="AEFileWriter::getFullFileName">
+<area shape="rect" id="Node000001" title="Returns the full name of currently open file, including the relative path, if such was provided." alt="" coords="787,81,984,108"/>
+<area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a2f64d8f5de2f249f7cb973a82ec1e48a" title="Close the file, if it was opened." alt="" coords="590,31,728,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="807,80,721,61,722,55,808,75"/>
+<area shape="rect" id="Node000009" href="$d8/dfc/class_a_e_logger.html#a969fd219869803f0d6e52a4b37c0b38f" title="Get the name of the log file." alt="" coords="579,81,739,108"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="771,97,739,97,739,92,771,92"/>
+<area shape="rect" id="Node000010" href="$d8/dfc/class_a_e_logger.html#a42debdcd6da993064afc1f4d2357ecfb" title="Writes the current status of the file logger instance (file name, and entries written)." alt="" coords="583,132,735,159"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="808,115,722,134,721,129,807,109"/>
+<area shape="rect" id="Node000003" href="$d8/dfc/class_a_e_logger.html#a4b6c6a8134c8f7f24db7d3f35d62624d" title="Class destructor." alt="" coords="380,5,531,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="574,36,531,31,532,25,574,31"/>
+<area shape="rect" id="Node000004" href="$d8/dfc/class_a_e_logger.html#a284034896688215f7e87242764c5985d" title="Starts the log&#45;writing thread." alt="" coords="382,56,529,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="574,57,530,63,530,57,574,52"/>
+<area shape="rect" id="Node000005" href="$d8/dfc/class_a_e_logger.html#a134f36542cb09532588436c53df9653d" title="Class constructor – it opens the file with the given path and name and start logging to it." alt="" coords="189,31,332,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="366,60,332,56,332,51,367,55"/>
+<area shape="rect" id="Node000006" href="$d8/dfc/class_a_e_logger.html#a53b588f9874535299d612a4c71de9950" title="Open the file to start logging." alt="" coords="193,81,328,108"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="367,84,329,89,328,83,366,78"/>
+<area shape="rect" id="Node000007" href="$d8/dfc/class_a_e_logger.html#ac8f55a9e3c92557ea3d92974093ff6fb" title="Open the file to start logging." alt="" coords="5,56,141,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="177,86,141,81,141,76,178,81"/>
+<area shape="rect" id="Node000008" href="$d8/dfc/class_a_e_logger.html#acbfddb2d8f459f32ce58d7c06cc2ddaa" title="Open the file to start logging." alt="" coords="5,107,141,133"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="178,109,141,114,141,108,177,103"/>
+</map>

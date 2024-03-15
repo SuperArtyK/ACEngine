@@ -1,0 +1,9 @@
+<map id="AELogEntryInfo::isInvalid" name="AELogEntryInfo::isInvalid">
+<area shape="rect" id="Node000001" title="Checks if the current instance is invalid." alt="" coords="5,56,170,83"/>
+<area shape="rect" id="Node000002" href="$db/d7b/struct_a_e_log_entry_info.html#a86fc432839ea719ea63bf15137181854" title="Checks if the cursor index of the current instance is invalid." alt="" coords="221,5,424,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,53,242,33,243,38,153,58"/>
+<area shape="rect" id="Node000003" href="$db/d7b/struct_a_e_log_entry_info.html#a8197cf0b041a7867e53b2a97b3934c34" title="Checks if the cursor index of the current instance is invalid." alt="" coords="218,56,427,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,67,202,67,202,72,170,72"/>
+<area shape="rect" id="Node000004" href="$db/d7b/struct_a_e_log_entry_info.html#a921f66211b862bc4b88423eea97aee57" title="Checks if the cursor index of the current instance is invalid." alt="" coords="226,107,419,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,81,243,100,242,105,152,86"/>
+</map>

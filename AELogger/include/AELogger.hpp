@@ -214,7 +214,7 @@ public:
 	/// <param name="logmodule">The name of the module that invoked this request</param>
 	/// <returns>AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format</returns>
 	inline cint writeToLogDebug(const std::string_view logmessg, const std::string_view logmodule = AELOG_DEFAULT_MODULE_NAME) {
-#ifdef ENGINE_DEBUG
+#if ENGINE_DEBUG
 		// the code for formatting the log entry (adding that DEBUG-> thing) will be executed in the logWriterThread()
 		return this->writeToLog(logmessg, AELOG_TYPE_DEBUG, logmodule);
 #endif // ENGINE_DEBUG
@@ -376,7 +376,7 @@ private:
 };
 
 
-#ifdef ENGINE_ENABLE_GLOBAL_MODULES
+#if ENGINE_ENABLE_GLOBAL_MODULES
 
 /// The global logger of the engine to log engine-wide events.
 /// It starts the writing thread and logging as soon as the program starts.

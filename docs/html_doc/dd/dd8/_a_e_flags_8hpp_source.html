@@ -102,50 +102,126 @@ $(function(){initNavTree('dd/dd8/_a_e_flags_8hpp_source.html','../../'); initRes
   <div class="headertitle"><div class="title">AEFlags.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/dd8/_a_e_flags_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef ENGINE_FLAGS_HPP</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define ENGINE_FLAGS_HPP</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//Conveniently-placed flags of the modules for you to interact with</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//Engine flags</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">   18</a></span><span class="preprocessor">#define ENGINE_DEBUG 1</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a13fc7d33c0c580b1560eee3cc5cc43fc">   20</a></span><span class="preprocessor">#define ENGINE_FPS 60.0</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a69559aac28032faae69b2ebbbc43b399">   23</a></span><span class="preprocessor">#define ENGINE_ENABLE_GLOBAL_MODULES 1</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a8749da27990f03045abeda28135e36f4">   26</a></span><span class="preprocessor">#define ENGINE_ENABLE_ASSERT 1</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a98c70397d2bc966f6444683fc44f645a">   29</a></span><span class="preprocessor">#define ENGINE_ENABLE_MATH_LOOKUP 1</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">//AEFileWriter flags</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a1967daf69859ccd877ff84333e53b27f">   35</a></span><span class="preprocessor">#define AEFW_AUTOFLUSH_ENABLE </span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">   37</a></span><span class="preprocessor">#define AEFW_DEFAULT_AUTOFLUSH true</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a31fc18b4cb4e49a255bc64c99361cdf9">   39</a></span><span class="preprocessor">#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL (ullint)-1</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">//AELogger flags</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#af3ef91f05d4e609b5595bc0f56a848c5">   43</a></span><span class="preprocessor">#define AELOG_DEFAULT_QUEUE_SIZE 2048</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">   45</a></span><span class="preprocessor">#define AELOG_DEFAULT_MODULE_NAME &quot;ACEngine&quot;</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a82c2d932be8a6352e3639dbe2189d6f8">   48</a></span><span class="preprocessor">#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a677404c9fb1978178daad33fc55a3ccd">   52</a></span><span class="preprocessor">#define AELOG_DEFAULT_LOG_PATH &quot;./logs/&quot;</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//AELogEntry flags</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">   56</a></span><span class="preprocessor">#define AELE_MESSAGE_SIZE 511</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">   58</a></span><span class="preprocessor">#define AELE_MODULENAME_SIZE 31</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">//AEVector</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9">   63</a></span><span class="preprocessor">#define AEVEC_WRAP_DIMENSIONS 1</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// !ENGINE_FLAGS_HPP</span></div>
+<a href="../../dd/dd8/_a_e_flags_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment"></span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*! @file AEMisc/include/AEFlags.hpp</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *  @brief This file contains the **flags to manipulate engine&#39;s funcitonality**.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *  This is the only file, where you, the programmer, are welcome to modify stuff to your needs,</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *  unless you know your way around the engine and stuff.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *  But if you do, **you&#39;re welcome to help me in its development too ;)**</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *  @date 2023-2024</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *  @author Artemii Kozhemiak (SuperArtyK)</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *  @copyright MIT License</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *  </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *  *Should not cause everything to break :)*</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef ENGINE_FLAGS_HPP</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define ENGINE_FLAGS_HPP</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">//Conveniently-placed flags of the modules for you to interact with</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//Engine flags</span><span class="comment"></span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/// Macro to enable the **debug-marked features** of the engine. </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/// It&#39;s an engine thing, ***separate*** from debug/release compiler builds.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/// @note Set to 1 to enable, and 0 to disable this feature</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c">   32</a></span><span class="comment"></span><span class="preprocessor">#define ENGINE_DEBUG 1</span><span class="comment"></span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/// Macro for the engine&#39;s **default delay** in frames/ticks per second (used in AEFrame and AETimer).</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/// @note Set to any positive value to enable, and any negative value or 0 to disable this feature</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/// @attention Disabling this disables the sleep functionality in instances of AEFrame and AETimer that use the default delay.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/// @see AEFrame</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/// @see AETimer</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a13fc7d33c0c580b1560eee3cc5cc43fc">   38</a></span><span class="comment"></span><span class="preprocessor">#define ENGINE_FPS 60.0</span><span class="comment"></span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/// Macro to enable the engine&#39;s **global modules** (like AETimer, AELogger, etc).</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/// @note Set to 1 to enable, and 0 to disable this feature</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/// @remark Disabling this code *may* break your code (from compiling), as it removes the global module declarations completely</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a69559aac28032faae69b2ebbbc43b399">   42</a></span><span class="comment"></span><span class="preprocessor">#define ENGINE_ENABLE_GLOBAL_MODULES 1</span><span class="comment"></span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/// Macro to enable the engine&#39;s **assert code**</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">/// @note This only works if the debug features are enabled (#ENGINE_DEBUG).</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/// @note Set to 1 to enable, and 0 to disable this feature</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/// @see #aceAssert()</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a8749da27990f03045abeda28135e36f4">   47</a></span><span class="comment"></span><span class="preprocessor">#define ENGINE_ENABLE_ASSERT 1</span><span class="comment"></span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/// Macro to enable the engine&#39;s **trigonometry lookup tables and code**.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/// @note Set to 1 to enable, and 0 to disable this feature</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/// @see AETrigLookup.hpp</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a98c70397d2bc966f6444683fc44f645a">   51</a></span><span class="comment"></span><span class="preprocessor">#define ENGINE_ENABLE_MATH_LOOKUP 1</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//AEFileWriter flags</span><span class="comment"></span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/// Macro to enable the AEFileWriter&#39;s **auto-flushing mechanism**.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/// @note Set to 1 to enable, and 0 to disable this feature</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/// @see AEFileWriter::autoFlush()</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a1967daf69859ccd877ff84333e53b27f">   57</a></span><span class="comment"></span><span class="preprocessor">#define AEFW_AUTOFLUSH_ENABLE 1</span><span class="comment"></span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/// Macro for the AEFileWriter&#39;s **default auto-flushing action** (default argument in file-writing functions). </span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/// @note This only works/matters if the auto-flushing feature is enabled (#AEFW_AUTOFLUSH_ENABLE)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/// @see AEFileWriter::autoFlush()</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a05c2c23983722dbe1c57e7ff7b3979e3">   61</a></span><span class="comment"></span><span class="preprocessor">#define AEFW_DEFAULT_AUTOFLUSH true</span><span class="comment"></span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/// Macro for the AEFileWriter&#39;s **default value to trigger auto-flushing**.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/// @remark Default value (ullint)-1 means **never**. Or almost never, once about every 2^64 write operations.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">/// @note This only works/matters if the auto-flushing feature is enabled (#AEFW_AUTOFLUSH_ENABLE)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/// @see AEFileWriter::autoFlush()</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a31fc18b4cb4e49a255bc64c99361cdf9">   66</a></span><span class="comment"></span><span class="preprocessor">#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL (ullint)-1</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">//AELogger flags</span><span class="comment"></span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/// Macro for the AELogger&#39;s **default queue size**</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/// @warning Setting this to a very large or a negative number can crash the engine on AELogger&#39;s creation.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/// @warning All because the queue too is large to be allocated.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#af3ef91f05d4e609b5595bc0f56a848c5">   72</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_DEFAULT_QUEUE_SIZE (ullint)2048</span><span class="comment"></span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/// Macro for the AELogger&#39;s **default module/log invoker name**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/// @warning This must follow the rules for the module name: Be alphanumeric+underscore and be no more than #AELE_MODULENAME_SIZE.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/// @warning Otherwise any logs invoked with a default module name will fail.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/// @see AELogger::writeToLog()</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/// @see AELogger::writeToLogDebug()</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/// @see AELogger::writeToLogDirectly()</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#aa7d9db3db33b7bf591c157fedaa2e0e1">   79</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_DEFAULT_MODULE_NAME &quot;ACEngine&quot;</span><span class="comment"></span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">/// Macro for the AELogger&#39;s **default reserve amount of the allocation vector** (which stores all queue pointers).</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">/// @attention I personally *wouldn&#39;t* advise to play with it (but you can).</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/// @remark 32 allocations, 1.5 queue size factor -- 884 million entries. If each node is 568 bytes -- it all will eat up 468 gb of ram.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/// @remark I think that&#39;s enough :)</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a82c2d932be8a6352e3639dbe2189d6f8">   84</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE 32</span><span class="comment"></span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">/// Macro for the AELogger&#39;s **default log file path**</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">/// @see AELogger::openLog()</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#a677404c9fb1978178daad33fc55a3ccd">   87</a></span><span class="comment"></span><span class="preprocessor">#define AELOG_DEFAULT_LOG_PATH &quot;./logs/&quot;</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">//AELogEntry flags</span><span class="comment"></span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/// The size of the AELogEntry&#39;s **message in characters** (excluding null termination)</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/// @note Changing this -- changes the size of the AELogEntry structure</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">/// @attention Mind the size here:</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">///     * Too little will make the messages cut off</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">///     * Too large will increase the memory usage by a lot</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">/// @see AELogEntry::m_sLogMessage[]</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c">   96</a></span><span class="comment"></span><span class="preprocessor">#define AELE_MESSAGE_SIZE 511</span><span class="comment"></span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">/// The size of the AELogEntry&#39;s **module name in characters** (excluding null termination)</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/// @note Changing this -- changes the size of the AELogEntry structure</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">/// @attention Mind the size here:</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">///     * Too little will make the messages cut off</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">///     * Too large will increase the memory usage by a lot</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">/// @see AELogEntry::m_sModuleName[]</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">  103</a></span><span class="comment"></span><span class="preprocessor">#define AELE_MODULENAME_SIZE 31</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">//AEVector</span><span class="comment"></span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">/// A macro for the AEVector::operator[] to **wrap dimension index around** if the index is bigger than the dimension amount.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">/// Example: 2d vector a, possible values to the [] is 0 and 1. If you input 2, this will be equivalent of [0]; 3 -&gt; [1], and so on.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">/// @note Set to 1 to enable, and 0 to disable this feature</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">/// @attention If this is disabled, and you try exceeding the dimension amount -- **sigsegv** will smack you in the face.</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">/// @see AEVector::operator[]()</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9">  111</a></span><span class="comment"></span><span class="preprocessor">#define AEVEC_WRAP_DIMENSIONS 1</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span><span class="comment">// !ENGINE_FLAGS_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html">AEFlags.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,4 @@
-.TH "AELogger/include/AELogger.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogger/include/AELogger.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -53,6 +53,14 @@ AELogger/include/AELogger.hpp
 .br
 .RI "Macro for the error that's raised when invalid data is passed to \fBAELogger::writeToLog()\fP (like empty message, empty/non-alphanumeric module name, type outside of range) "
 .in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBAELogger\fP \fBglobalLogger\fP (\fBAELogger::genLogName\fP('LOG', '\&.log'))"
+.br
+.RI "The global logger of the engine to log engine-wide events\&. "
+.in -1c
 .SH "Detailed Description"
 .PP 
 This file contains the code for the engine's logger module, err\&.\&.\&.for logging data to file\&.
@@ -62,18 +70,18 @@ Should not cause everything to break :)
 Definition in file \fBAELogger\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define AELOG_ERR_INVALID_ENTRY_DATA   \-14"
-
-.PP
-Macro for the error that's raised when invalid data is passed to \fBAELogger::writeToLog()\fP (like empty message, empty/non-alphanumeric module name, type outside of range) 
-.PP
-Definition at line \fB47\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "#define AELOG_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good/no error was encountered in the process\&. 
 .PP
 Definition at line \fB35\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "#define AELOG_ERR_UNABLE_START_THREAD   \-11"
+
+.PP
+Macro for the error that's raised when the log-writing-thread cannot be started\&. 
+.PP
+Definition at line \fB38\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "#define AELOG_ERR_THREAD_ALREADY_RUNNING   \-12"
 
 .PP
@@ -86,12 +94,18 @@ Definition at line \fB41\fP of file \fBAELogger\&.hpp\fP\&.
 Macro for the error that's raised when the log-writing-thread is attempted to be stopped again, while it was already stopped\&. 
 .PP
 Definition at line \fB44\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "#define AELOG_ERR_UNABLE_START_THREAD   \-11"
+.SS "#define AELOG_ERR_INVALID_ENTRY_DATA   \-14"
 
 .PP
-Macro for the error that's raised when the log-writing-thread cannot be started\&. 
+Macro for the error that's raised when invalid data is passed to \fBAELogger::writeToLog()\fP (like empty message, empty/non-alphanumeric module name, type outside of range) 
 .PP
-Definition at line \fB38\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB47\fP of file \fBAELogger\&.hpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBAELogger\fP globalLogger(\fBAELogger::genLogName\fP('LOG', '\&.log')) (\fBAELogger::genLogName\fP('LOG', '\&.log'))\fR [inline]\fP"
+
+.PP
+The global logger of the engine to log engine-wide events\&. It starts the writing thread and logging as soon as the program starts\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

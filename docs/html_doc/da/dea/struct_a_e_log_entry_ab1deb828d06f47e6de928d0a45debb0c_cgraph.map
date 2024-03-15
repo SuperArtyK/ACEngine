@@ -1,0 +1,9 @@
+<map id="AELogEntry::toString" name="AELogEntry::toString">
+<area shape="rect" id="Node000001" title="Format the entry and convert it into std::string." alt="" coords="5,31,150,57"/>
+<area shape="rect" id="Node000002" href="$da/dea/struct_a_e_log_entry.html#ab803ea47d06098feab470f265498f617" title="Formats the passed entry to the given c&#45;string." alt="" coords="198,31,364,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,41,182,41,182,47,150,47"/>
+<area shape="rect" id="Node000003" href="$de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY&#45;MM&#45;DD.HH:mm:SS string**." alt="" coords="426,5,571,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,32,410,26,411,32,365,37"/>
+<area shape="rect" id="Node000004" href="$da/dea/struct_a_e_log_entry.html#a958d25c57a94cfae8e7f31843e6c63ef" title="Deduces the entry&#39;s log type and returns a c&#45;string of it." alt="" coords="412,56,584,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="365,51,397,55,396,60,364,56"/>
+</map>

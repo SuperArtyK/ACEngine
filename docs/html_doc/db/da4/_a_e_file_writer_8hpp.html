@@ -109,6 +109,20 @@ $(function(){initNavTree('db/da4/_a_e_file_writer_8hpp.html','../../'); initResi
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;cfloat&gt;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AEFileWriter.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d32/_a_e_file_writer_8hpp__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d2f/_a_e_file_writer_8hpp__dep__incl.svg" width="464" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <p><a href="../../db/da4/_a_e_file_writer_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -181,93 +195,78 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ad018394c7f674570329dffee1a572c17" name="ad018394c7f674570329dffee1a572c17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad018394c7f674570329dffee1a572c17">&#9670;&#160;</a></span>_AEFW_EXIT_ON_CLOSED_FILE</h2>
+<a id="a012e155bd84945bb9ebd1840526c6740" name="a012e155bd84945bb9ebd1840526c6740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012e155bd84945bb9ebd1840526c6740">&#9670;&#160;</a></span>AEFW_FLAG_APPEND</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AEFW_EXIT_ON_CLOSED_FILE&#160;&#160;&#160;if (this-&gt;isClosed()) { return <a class="el" href="#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
+          <td class="memname">#define AEFW_FLAG_APPEND&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH! </p>
+<p>Macro to put the write cursor at the end of the file, appending to the file. </p>
+<dl class="section note"><dt>Note</dt><dd>Cursor change allowed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a56e561b3c7182bea9946ea98acc2aaa2" name="a56e561b3c7182bea9946ea98acc2aaa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56e561b3c7182bea9946ea98acc2aaa2">&#9670;&#160;</a></span>_AEFW_EXIT_ON_NO_CURSOR_MOVE</h2>
+<a id="a4ddf3085d2d3dbf8764ae17d531fbf30" name="a4ddf3085d2d3dbf8764ae17d531fbf30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ddf3085d2d3dbf8764ae17d531fbf30">&#9670;&#160;</a></span>AEFW_FLAG_APPEND_NO_CURSOR_MOVE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AEFW_EXIT_ON_NO_CURSOR_MOVE&#160;&#160;&#160;if (this-&gt;m_cFlags == <a class="el" href="#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>) { return <a class="el" href="#a69c9f4d745427387c55a6c6b091808fd">AEFW_ERR_OPEN_FILE_WRONG_FLAG</a>; }</td>
+          <td class="memname">#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the shortened "check for the 'append no cursor move' flag to open file, set and return error flag ifo so", DO NOT TOUCH! </p>
+<p>Macro to put the write cursor at the end of the file, appending to the file. </p>
+<dl class="section note"><dt>Note</dt><dd>Changing the cursor position/writing anywhere else (than eof) is not allowed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ada79b127cc72e03786a33b74a8009e31" name="ada79b127cc72e03786a33b74a8009e31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada79b127cc72e03786a33b74a8009e31">&#9670;&#160;</a></span>_AEFW_EXIT_ON_WRITE_CLOSED_FILE</h2>
+<a id="a05c8d382fec7c226dcbcbd7026f1a6bf" name="a05c8d382fec7c226dcbcbd7026f1a6bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c8d382fec7c226dcbcbd7026f1a6bf">&#9670;&#160;</a></span>AEFW_FLAG_TRUNCATE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE&#160;&#160;&#160;if (this-&gt;isClosed()) { this-&gt;m_szLastWrittenAmount = 0; return <a class="el" href="#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
+          <td class="memname">#define AEFW_FLAG_TRUNCATE&#160;&#160;&#160;3</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the shortened "check for opened file during writing, set error flag and return error flag if closed", DO NOT TOUCH! </p>
+<p>Macro to put the write cursor at the start of the file, truncating the contents if existed. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a16aea8cf0a6d6f8fd97333cbb8044857" name="a16aea8cf0a6d6f8fd97333cbb8044857"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16aea8cf0a6d6f8fd97333cbb8044857">&#9670;&#160;</a></span>AEFW_ERR_FILE_NOT_OPEN</h2>
+<a id="a8d58469b1f4d2c20ebbff0b201de5594" name="a8d58469b1f4d2c20ebbff0b201de5594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d58469b1f4d2c20ebbff0b201de5594">&#9670;&#160;</a></span>AEFW_FLAG_NOFLAGS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_FILE_NOT_OPEN&#160;&#160;&#160;-1</td>
+          <td class="memname">#define AEFW_FLAG_NOFLAGS&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error if file isn't open and file operation functions of the file writer are used. </p>
+<p>Macro for no write flags. </p>
+<dl class="section note"><dt>Note</dt><dd>Same as AEFW_FLAG_TRUNCATE </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00056">56</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac6c06962591573a270764c7e6add9e76" name="ac6c06962591573a270764c7e6add9e76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6c06962591573a270764c7e6add9e76">&#9670;&#160;</a></span>AEFW_ERR_FLUSH_ERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AEFW_ERR_FLUSH_ERROR&#160;&#160;&#160;-8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the error that has occurred in flushing (if fflush returned a non-zero value). </p>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,39 +288,39 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a16cb2b55cfe9c9199b0a0e6f3cd4ebcc" name="a16cb2b55cfe9c9199b0a0e6f3cd4ebcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16cb2b55cfe9c9199b0a0e6f3cd4ebcc">&#9670;&#160;</a></span>AEFW_ERR_OPEN_FILE_ALREADY_OPENED</h2>
+<a id="ace81f5b6405a9a7cc9f5e7354efd8710" name="ace81f5b6405a9a7cc9f5e7354efd8710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace81f5b6405a9a7cc9f5e7354efd8710">&#9670;&#160;</a></span>AEFW_ERR_WRITE_SUCCESS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_OPEN_FILE_ALREADY_OPENED&#160;&#160;&#160;-5</td>
+          <td class="memname">#define AEFW_ERR_WRITE_SUCCESS&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that occurs when trying to open the file, while the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance already has an opened file. </p>
+<p>Same as AEFW_ERR_NOERROR - value of a successfull write. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a33f4bd3c0cd97e0884fdd3ef76a5c525" name="a33f4bd3c0cd97e0884fdd3ef76a5c525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33f4bd3c0cd97e0884fdd3ef76a5c525">&#9670;&#160;</a></span>AEFW_ERR_OPEN_FILE_ELSE</h2>
+<a id="a16aea8cf0a6d6f8fd97333cbb8044857" name="a16aea8cf0a6d6f8fd97333cbb8044857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16aea8cf0a6d6f8fd97333cbb8044857">&#9670;&#160;</a></span>AEFW_ERR_FILE_NOT_OPEN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_ERR_OPEN_FILE_ELSE&#160;&#160;&#160;-4</td>
+          <td class="memname">#define AEFW_ERR_FILE_NOT_OPEN&#160;&#160;&#160;-1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files. </p>
+<p>Macro for the error if file isn't open and file operation functions of the file writer are used. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00067">67</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00056">56</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,6 +360,42 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a33f4bd3c0cd97e0884fdd3ef76a5c525" name="a33f4bd3c0cd97e0884fdd3ef76a5c525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f4bd3c0cd97e0884fdd3ef76a5c525">&#9670;&#160;</a></span>AEFW_ERR_OPEN_FILE_ELSE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AEFW_ERR_OPEN_FILE_ELSE&#160;&#160;&#160;-4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00067">67</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a16cb2b55cfe9c9199b0a0e6f3cd4ebcc" name="a16cb2b55cfe9c9199b0a0e6f3cd4ebcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cb2b55cfe9c9199b0a0e6f3cd4ebcc">&#9670;&#160;</a></span>AEFW_ERR_OPEN_FILE_ALREADY_OPENED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AEFW_ERR_OPEN_FILE_ALREADY_OPENED&#160;&#160;&#160;-5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that occurs when trying to open the file, while the <a class="el" href="../../db/d15/class_a_e_file_writer.html" title="ArtyK&#39;s Engine File Writer; umm, it writes data to given file.">AEFileWriter</a> instance already has an opened file. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a78eb5fbe5f484af1fbeededfb30283be" name="a78eb5fbe5f484af1fbeededfb30283be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78eb5fbe5f484af1fbeededfb30283be">&#9670;&#160;</a></span>AEFW_ERR_WRITE_ERROR</h2>
 
@@ -376,24 +411,6 @@ Macros</h2></td></tr>
 <p>Macro for the error that has occurred in writing (if fwrite returned a non-zero value). </p>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ace81f5b6405a9a7cc9f5e7354efd8710" name="ace81f5b6405a9a7cc9f5e7354efd8710"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace81f5b6405a9a7cc9f5e7354efd8710">&#9670;&#160;</a></span>AEFW_ERR_WRITE_SUCCESS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AEFW_ERR_WRITE_SUCCESS&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Same as AEFW_ERR_NOERROR - value of a successfull write. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -415,6 +432,24 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="ac6c06962591573a270764c7e6add9e76" name="ac6c06962591573a270764c7e6add9e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c06962591573a270764c7e6add9e76">&#9670;&#160;</a></span>AEFW_ERR_FLUSH_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AEFW_ERR_FLUSH_ERROR&#160;&#160;&#160;-8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that has occurred in flushing (if fflush returned a non-zero value). </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a878315742e318b19c59d1edf9ab423cd" name="a878315742e318b19c59d1edf9ab423cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a878315742e318b19c59d1edf9ab423cd">&#9670;&#160;</a></span>AEFW_ERR_WRONG_CURSOR_ORIGIN</h2>
 
@@ -433,78 +468,57 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a012e155bd84945bb9ebd1840526c6740" name="a012e155bd84945bb9ebd1840526c6740"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a012e155bd84945bb9ebd1840526c6740">&#9670;&#160;</a></span>AEFW_FLAG_APPEND</h2>
+<a id="ad018394c7f674570329dffee1a572c17" name="ad018394c7f674570329dffee1a572c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad018394c7f674570329dffee1a572c17">&#9670;&#160;</a></span>_AEFW_EXIT_ON_CLOSED_FILE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_APPEND&#160;&#160;&#160;1</td>
+          <td class="memname">#define _AEFW_EXIT_ON_CLOSED_FILE&#160;&#160;&#160;if (this-&gt;isClosed()) { return <a class="el" href="#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to put the write cursor at the end of the file, appending to the file. </p>
-<dl class="section note"><dt>Note</dt><dd>Cursor change allowed </dd></dl>
+<p>Macro for the shortened "check for opened file, set error flag and return error flag if closed", DO NOT TOUCH! </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a4ddf3085d2d3dbf8764ae17d531fbf30" name="a4ddf3085d2d3dbf8764ae17d531fbf30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ddf3085d2d3dbf8764ae17d531fbf30">&#9670;&#160;</a></span>AEFW_FLAG_APPEND_NO_CURSOR_MOVE</h2>
+<a id="ada79b127cc72e03786a33b74a8009e31" name="ada79b127cc72e03786a33b74a8009e31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada79b127cc72e03786a33b74a8009e31">&#9670;&#160;</a></span>_AEFW_EXIT_ON_WRITE_CLOSED_FILE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_APPEND_NO_CURSOR_MOVE&#160;&#160;&#160;2</td>
+          <td class="memname">#define _AEFW_EXIT_ON_WRITE_CLOSED_FILE&#160;&#160;&#160;if (this-&gt;isClosed()) { this-&gt;m_szLastWrittenAmount = 0; return <a class="el" href="#a16aea8cf0a6d6f8fd97333cbb8044857">AEFW_ERR_FILE_NOT_OPEN</a>; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro to put the write cursor at the end of the file, appending to the file. </p>
-<dl class="section note"><dt>Note</dt><dd>Changing the cursor position/writing anywhere else (than eof) is not allowed </dd></dl>
+<p>Macro for the shortened "check for opened file during writing, set error flag and return error flag if closed", DO NOT TOUCH! </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a8d58469b1f4d2c20ebbff0b201de5594" name="a8d58469b1f4d2c20ebbff0b201de5594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d58469b1f4d2c20ebbff0b201de5594">&#9670;&#160;</a></span>AEFW_FLAG_NOFLAGS</h2>
+<a id="a56e561b3c7182bea9946ea98acc2aaa2" name="a56e561b3c7182bea9946ea98acc2aaa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e561b3c7182bea9946ea98acc2aaa2">&#9670;&#160;</a></span>_AEFW_EXIT_ON_NO_CURSOR_MOVE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AEFW_FLAG_NOFLAGS&#160;&#160;&#160;0</td>
+          <td class="memname">#define _AEFW_EXIT_ON_NO_CURSOR_MOVE&#160;&#160;&#160;if (this-&gt;m_cFlags == <a class="el" href="#a4ddf3085d2d3dbf8764ae17d531fbf30">AEFW_FLAG_APPEND_NO_CURSOR_MOVE</a>) { return <a class="el" href="#a69c9f4d745427387c55a6c6b091808fd">AEFW_ERR_OPEN_FILE_WRONG_FLAG</a>; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for no write flags. </p>
-<dl class="section note"><dt>Note</dt><dd>Same as AEFW_FLAG_TRUNCATE </dd></dl>
+<p>Macro for the shortened "check for the 'append no cursor move' flag to open file, set and return error flag ifo so", DO NOT TOUCH! </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a05c8d382fec7c226dcbcbd7026f1a6bf" name="a05c8d382fec7c226dcbcbd7026f1a6bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c8d382fec7c226dcbcbd7026f1a6bf">&#9670;&#160;</a></span>AEFW_FLAG_TRUNCATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AEFW_FLAG_TRUNCATE&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro to put the write cursor at the start of the file, truncating the contents if existed. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
 </div>
 </div>
@@ -514,7 +528,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_a2de6fd86e9b2cb1ade2dbd217a79f99.html">AEFileWriter</a></li><li class="navelem"><a class="el" href="../../dir_04e7790711d91bc45bd0ed22f15f2ec5.html">include</a></li><li class="navelem"><a class="el" href="../../db/da4/_a_e_file_writer_8hpp.html">AEFileWriter.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

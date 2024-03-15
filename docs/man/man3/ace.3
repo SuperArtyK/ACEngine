@@ -1,8 +1,8 @@
-.TH "ace" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-ace \- This namespace contains all of things that any of the part of program can use, and is useful\&.  
+ace \- This namespace contains \fBeverything that belongs to the engine\fP\&.  
 
 .SH SYNOPSIS
 .br
@@ -17,13 +17,17 @@ ace \- This namespace contains all of things that any of the part of program can
 .ti -1c
 .RI "namespace \fButils\fP"
 .br
-.RI "Global usefull utilities\&. "
+.RI "This namespace contains the engine's \fButility functions and code\fP\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-This namespace contains all of things that any of the part of program can use, and is useful\&. 
+This namespace contains \fBeverything that belongs to the engine\fP\&. 
 
-Such things as flags, utilities, handles to windows, status(we're starting or closing), etc\&. Basically everything for everyone and public access 
+Everything but the typedefs and macros\&. 
+.br
+ That includes modules, custom types (structs), version and current status values, handles to windows, etc\&.
+.PP
+Think of it as ACEngine's version of std namespace 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

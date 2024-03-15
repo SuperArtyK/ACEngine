@@ -1,0 +1,46 @@
+<map id="AELogParser::nextEntry" name="AELogParser::nextEntry">
+<area shape="rect" id="Node000001" title="Read the next valid entry in the log file of the given severity and module name filter,..." alt="" coords="5,284,168,311"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#ae89b754ad98409469e9b7405f63edee2" title="Read the next indexed valid log entry in the file of the given severity and module name filter,..." alt="" coords="216,132,416,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,281,280,165,283,169,110,286"/>
+<area shape="rect" id="Node000013" href="$da/dea/struct_a_e_log_entry.html#a7e8aa04faf251d62a79baab9e2cc531a" title="Parses a given string as a log entry, and write it into passed entry object." alt="" coords="218,247,414,273"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="167,282,214,274,215,279,168,287"/>
+<area shape="rect" id="Node000018" href="$dd/dd5/class_a_e_file_reader.html#a391b5815b099e3d347a4d758a92e3295" title="Reads the characters to a std::string untill a newline (included), or untill the maximum character am..." alt="" coords="224,321,408,348"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="168,308,215,316,214,321,167,313"/>
+<area shape="rect" id="Node000019" href="$dd/dd5/class_a_e_file_reader.html#a477effa6d568ec7993c4d506d0d0420c" title="Sets read cursor position to pos from origin." alt="" coords="222,379,410,405"/>
+<area shape="poly" id="edge21_Node000001_Node000019" title=" " alt="" coords="114,309,217,358,253,371,251,376,215,362,112,314"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#a77b12a5ddd2933a8319e523986788292" title="Determines the error codes from the invalid values in the passed AELogEntryInfo instance." alt="" coords="464,81,663,108"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,129,480,109,481,114,385,134"/>
+<area shape="rect" id="Node000004" href="$d8/d52/class_a_e_log_parser.html#afcff7caee18bdcafa1dc0edb75a75590" title="Finds the AELogEntryInfo corresponding to the next log entry with the specified severity and module n..." alt="" coords="472,132,656,159"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="417,143,456,143,456,148,417,148"/>
+<area shape="rect" id="Node000005" href="$d8/d52/class_a_e_log_parser.html#a8e16a086fe0cb5cc6828b53b0a97a1bf" title="Checks if the passed entry&#39;s and filter&#39;s module name indices match Moved from a lambda,..." alt="" coords="719,5,905,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="641,129,662,118,678,100,685,81,692,61,710,42,717,37,720,41,713,46,697,64,690,83,682,103,665,122,644,134"/>
+<area shape="rect" id="Node000006" href="$d8/d52/class_a_e_log_parser.html#a21f7748ae4be67f2221a114cbe9bca7c" title="Checks if the passed severity is valid compared to the filtering severity." alt="" coords="718,56,906,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="623,129,662,117,710,99,750,85,752,90,712,104,664,123,624,134"/>
+<area shape="rect" id="Node000007" href="$d8/d52/class_a_e_log_parser.html#a04627d27deedd7981a5e106dd8ade5ed" title="Checks if the current log file contains the given severity (or higher, depending on the &quot;strict&#45;sever..." alt="" coords="711,157,913,184"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="657,152,696,156,696,161,656,157"/>
+<area shape="rect" id="Node000008" href="$d8/d52/class_a_e_log_parser.html#af349b880be4cdd8c6d27960a038680ab" title="Checks if the file is closed by the AELogParser." alt="" coords="961,132,1117,159"/>
+<area shape="poly" id="edge12_Node000004_Node000008" title=" " alt="" coords="656,143,945,143,945,148,656,148"/>
+<area shape="rect" id="Node000011" href="$de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7" title="Checks if the value is within some range." alt="" coords="969,183,1109,209"/>
+<area shape="poly" id="edge13_Node000004_Node000011" title=" " alt="" coords="629,157,664,168,688,182,712,193,774,204,838,209,954,204,954,210,838,214,774,210,711,199,686,187,662,173,627,162"/>
+<area shape="rect" id="Node000012" href="$db/d7b/struct_a_e_log_entry_info.html#af5f2718c2846e38977e660dd8fb59333" title="Returns the invalid instance of the AELogEntryInfo." alt="" coords="719,259,905,285"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="643,157,665,169,682,186,690,204,698,221,713,238,734,250,731,255,710,242,693,224,685,206,677,189,662,173,640,162"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="913,157,945,153,945,158,913,162"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="913,179,954,184,954,189,913,185"/>
+<area shape="rect" id="Node000009" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="1165,132,1324,159"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1118,143,1149,143,1149,148,1118,148"/>
+<area shape="rect" id="Node000010" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="1372,132,1523,159"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1325,143,1357,143,1357,148,1325,148"/>
+<area shape="rect" id="Node000014" href="$da/dea/struct_a_e_log_entry.html#a58aeadbca0c2c0863b534a52d40d22a8" title="Clears the current entry and sets its values to zero/invalid." alt="" coords="485,183,643,209"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="369,243,463,219,493,211,494,216,465,224,370,249"/>
+<area shape="rect" id="Node000015" href="$de/dde/namespaceace_1_1utils.html#ac3eadc5f289b54059322023f3c5eed96" title="Checks if the passed string is alpha&#45;numeric with underscores (contains only numbers,..." alt="" coords="490,233,637,260"/>
+<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="414,252,474,249,474,254,415,257"/>
+<area shape="rect" id="Node000016" href="$de/dde/namespaceace_1_1utils.html#a2c0379815bc24cc369071e0b48787e9b" title="Converts the given c&#45;string to a (c)time point (std::time_t), using a set format." alt="" coords="486,284,641,311"/>
+<area shape="poly" id="edge17_Node000013_Node000016" title=" " alt="" coords="409,271,471,281,470,286,408,277"/>
+<area shape="rect" id="Node000017" href="$da/dea/struct_a_e_log_entry.html#acacb2f1cbf3218922db05169ef55d8cb" title="Deduces the string representation of a type (as appears in the log file) to a corresponding type numb..." alt="" coords="477,335,650,361"/>
+<area shape="poly" id="edge18_Node000013_Node000017" title=" " alt="" coords="387,271,417,283,432,292,442,302,451,311,465,320,480,327,478,332,463,325,448,316,438,306,429,297,415,288,386,276"/>
+<area shape="poly" id="edge20_Node000018_Node000018" title=" " alt="" coords="277,322,270,313,275,303,291,297,316,295,344,297,358,304,356,309,342,302,316,300,292,302,279,307,276,312,282,319"/>
+<area shape="rect" id="Node000020" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="473,385,654,412"/>
+<area shape="poly" id="edge22_Node000019_Node000020" title=" " alt="" coords="411,392,457,393,457,398,410,397"/>
+<area shape="rect" id="Node000021" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="720,385,904,412"/>
+<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="655,396,705,396,705,401,655,401"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="ace::utils::sleepUS" name="ace::utils::sleepUS">
+<area shape="rect" id="Node000001" title="Convenient sleep function to sleep the thread for microseconds." alt="" coords="801,31,932,57"/>
+<area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a5938787b6933f4b96ebff10643bd2497" title="The function of the log writing thread to...read the entries, format them, write them,..." alt="" coords="575,31,753,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="785,47,753,47,753,41,785,41"/>
+<area shape="rect" id="Node000003" href="$d8/dfc/class_a_e_logger.html#a284034896688215f7e87242764c5985d" title="Starts the log&#45;writing thread." alt="" coords="380,31,527,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="560,47,528,47,528,41,560,41"/>
+<area shape="rect" id="Node000004" href="$d8/dfc/class_a_e_logger.html#a134f36542cb09532588436c53df9653d" title="Class constructor – it opens the file with the given path and name and start logging to it." alt="" coords="189,5,332,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="364,35,332,31,333,25,365,30"/>
+<area shape="rect" id="Node000005" href="$d8/dfc/class_a_e_logger.html#a53b588f9874535299d612a4c71de9950" title="Open the file to start logging." alt="" coords="193,56,328,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="365,58,329,63,328,58,364,53"/>
+<area shape="rect" id="Node000006" href="$d8/dfc/class_a_e_logger.html#ac8f55a9e3c92557ea3d92974093ff6fb" title="Open the file to start logging." alt="" coords="5,31,141,57"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="177,61,141,56,141,50,178,55"/>
+<area shape="rect" id="Node000007" href="$d8/dfc/class_a_e_logger.html#acbfddb2d8f459f32ce58d7c06cc2ddaa" title="Open the file to start logging." alt="" coords="5,81,141,108"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="178,83,141,88,141,83,177,78"/>
+</map>

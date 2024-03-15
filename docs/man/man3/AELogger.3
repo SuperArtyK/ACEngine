@@ -1,4 +1,4 @@
-.TH "AELogger" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogger" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -266,178 +266,88 @@ Class constructor -- it opens the file with the given path and name and start lo
 
 .PP
 Definition at line \fB13\fP of file \fBAELogger\&.cpp\fP\&.
+.PP
+References \fBAELOG_DEFAULT_ALLOC_VECTOR_RESERVE\fP, \fBAELOG_TYPE_OK\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBAEFileWriter::isOpen()\fP, \fBm_fwLogger\fP, \fBm_lepQueue\fP, \fBm_vAllocTable\fP, \fBstartWriter()\fP, and \fBwriteToLog()\fP\&.
 .SS "AELogger::AELogger (void)\fR [inline]\fP, \fR [explicit]\fP"
 
 .PP
 Default class constructor -- doesn't open the file, but setups the instance for one\&. 
 .PP
 Definition at line \fB91\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAELOG_DEFAULT_ALLOC_VECTOR_RESERVE\fP, \fBm_lepQueue\fP, \fBm_ullQueueSize\fP, and \fBm_vAllocTable\fP\&.
 .SS "AELogger::~AELogger (void)"
 
 .PP
 Class destructor\&. 
 .PP
 Definition at line \fB33\fP of file \fBAELogger\&.cpp\fP\&.
+.PP
+References \fBAELOG_TYPE_INFO\fP, \fBcloseLog()\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBm_vAllocTable\fP, and \fBwriteToLog()\fP\&.
 .SS "AELogger::AELogger (const \fBAELogger\fP &)\fR [delete]\fP"
 
 .PP
 Deleted (for now) copy-constructor\&. 
 .SH "Member Function Documentation"
 .PP 
-.SS "\fBcint\fP AELogger::closeLog (void)\fR [inline]\fP"
+.SS "\fBAELogger\fP & AELogger::operator= (const \fBAELogger\fP &)\fR [delete]\fP"
 
 .PP
-Close the file, if it was opened\&. That's it\&.
+Deleted (for now) copy-assignment\&. 
+.SS "\fBcint\fP AELogger::startWriter (void)"
+
+.PP
+Starts the log-writing thread\&. 
 .PP
 \fBReturns\fP
 .RS 4
-AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, 
+AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_RUNNING if thread already was running, AELOG_ERR_UNABLE_START_THREAD if error happened (+ std::runtime_error() exception)
 .RE
 .PP
 
 .PP
-Definition at line \fB171\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "static std::string AELogger::genLogName (const std::string_view logpref, const std::string_view logext = \fR'\&.log'\fP)\fR [inline]\fP, \fR [static]\fP"
+Definition at line \fB44\fP of file \fBAELogger\&.cpp\fP\&.
+.PP
+References \fBAELOG_ERR_NOERROR\fP, \fBAELOG_ERR_THREAD_ALREADY_RUNNING\fP, \fBAELOG_ERR_UNABLE_START_THREAD\fP, \fBAELOG_TYPE_FATAL_ERROR\fP, \fBAELOG_TYPE_INFO\fP, \fBAELOG_TYPE_WARN\fP, \fBcloseLog()\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBlogWriterThread()\fP, \fBm_bRunTrd\fP, \fBm_trdWriter\fP, and \fBwriteToLog()\fP\&.
+.SS "\fBcint\fP AELogger::stopWriter (void)"
 
 .PP
-Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current date][\&.extension] in a given directory\&. 
+Stops the log-writing thread (after flushing the log queue)\&. 
+.PP
+\fBReturns\fP
+.RS 4
+AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_STOPPED if thread already was stopped
+.RE
+.PP
+
+.PP
+Definition at line \fB63\fP of file \fBAELogger\&.cpp\fP\&.
+.PP
+References \fBAELOG_ERR_NOERROR\fP, \fBAELOG_ERR_THREAD_ALREADY_STOPPED\fP, \fBAELOG_TYPE_ERROR\fP, \fBAELOG_TYPE_INFO\fP, \fBAELOG_TYPE_OK\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBm_bRunTrd\fP, \fBm_trdWriter\fP, \fBwriteToLog()\fP, and \fBwriteToLogDirectly()\fP\&.
+.SS "\fBcint\fP AELogger::openLog (const std::string fpath, const std::string fname, const bool clearLog = \fRfalse\fP)\fR [inline]\fP"
+
+.PP
+Open the file to start logging\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIlogpref\fP The prefix of log file
+\fIfpath\fP Path to put the log file in
 .br
-\fIlogext\fP The extension of the log file\&. Include the period before the extension\&.
+\fIfname\fP Name of the log file
+.br
+\fIclearLog\fP Flag to clear the log file if it exists instead of appending it
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-std::string of the file name to feed to the logger for opening
+AELOG_ERR_NOERROR on success; otherwise return values of \fBAEFileWriter::openFile()\fP or \fBAELogger::startWriter()\fP
 .RE
 .PP
 
 .PP
-Definition at line \fB295\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBullint\fP AELogger::getEntryCount (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
+Definition at line \fB136\fP of file \fBAELogger\&.hpp\fP\&.
 .PP
-Get the amount of log entries done to an opened log file\&. 
-.PP
-\fBReturns\fP
-.RS 4
-ullint of the amount of times logger written to a file
-.RE
-.PP
-
-.PP
-Definition at line \fB261\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "std::string AELogger::getLogAbsolutePath (void) const\fR [inline]\fP"
-
-.PP
-Get the full/absolute path of the log file\&. 
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the absolute path of the opened log file; otherwise values from \fBAEFileWriter::getFullPath()\fP
-.RE
-.PP
-
-.PP
-Definition at line \fB253\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "std::string AELogger::getLogName (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Get the name of the log file\&. 
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the name of opened log file; otherwise values from \fBAEFileWriter::getFullFileName()\fP
-.RE
-.PP
-
-.PP
-Definition at line \fB237\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "std::string AELogger::getLogPath (void) const\fR [inline]\fP"
-
-.PP
-Get the path of the log file\&. 
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the path of the opened log file; otherwise values from \fBAEFileWriter::getRelativePath()\fP
-.RE
-.PP
-
-.PP
-Definition at line \fB245\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAELogger\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
-
-.PP
-Returns the amount of instances of the module currently existing\&. 
-.PP
-\fBReturns\fP
-.RS 4
-Unsigned long long of the module amount
-.RE
-.PP
-
-.PP
-Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "static constexpr std::string_view \fB__AEModuleBase\fP< \fBAELogger\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
-
-.PP
-Returns the name of the registered module\&. 
-.PP
-\fBReturns\fP
-.RS 4
-
-.RE
-.PP
-
-.SS "bool AELogger::isClosed (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if a log file isn't open by this logger\&. 
-.PP
-\fBReturns\fP
-.RS 4
-True if log file is closed/not open, false if otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB277\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "bool AELogger::isOpen (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if the current log file is open\&. 
-.PP
-\fBReturns\fP
-.RS 4
-True if the file is open for writing, false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB269\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "bool AELogger::isWriting (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if the log-writing thread is running\&. 
-.PP
-\fBReturns\fP
-.RS 4
-True if it is working(was launched), false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB285\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "void AELogger::logWriterThread (void)\fR [private]\fP"
-
-.PP
-The function of the log writing thread to\&.\&.\&.read the entries, format them, write them, and clear them\&. 
-.PP
-Definition at line \fB143\fP of file \fBAELogger\&.cpp\fP\&.
+References \fBAEFW_ERR_NOERROR\fP, \fBAEFW_FLAG_APPEND\fP, \fBAELOG_TYPE_SUCCESS\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBm_fwLogger\fP, \fBAEFileWriter::openFile()\fP, \fBstartWriter()\fP, and \fBwriteToLog()\fP\&.
 .SS "\fBcint\fP AELogger::openLog (const std::string fname, const bool clearLog = \fRfalse\fP)\fR [inline]\fP"
 
 .PP
@@ -463,28 +373,8 @@ AELOG_ERR_NOERROR on success; otherwise return values of \fBAEFileWriter::openFi
 
 .PP
 Definition at line \fB152\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBcint\fP AELogger::openLog (const std::string fpath, const std::string fname, const bool clearLog = \fRfalse\fP)\fR [inline]\fP"
-
 .PP
-Open the file to start logging\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfpath\fP Path to put the log file in
-.br
-\fIfname\fP Name of the log file
-.br
-\fIclearLog\fP Flag to clear the log file if it exists instead of appending it
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELOG_ERR_NOERROR on success; otherwise return values of \fBAEFileWriter::openFile()\fP or \fBAELogger::startWriter()\fP
-.RE
-.PP
-
-.PP
-Definition at line \fB136\fP of file \fBAELogger\&.hpp\fP\&.
+References \fBAELOG_DEFAULT_LOG_PATH\fP, and \fBopenLog()\fP\&.
 .SS "\fBcint\fP AELogger::openLog (const std::string_view fpath, const std::string_view fname, const bool clearLog = \fRfalse\fP)\fR [inline]\fP"
 
 .PP
@@ -507,94 +397,23 @@ AELOG_ERR_NOERROR on success; otherwise return values of \fBAEFileWriter::openFi
 
 .PP
 Definition at line \fB163\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBAELogger\fP & AELogger::operator= (const \fBAELogger\fP &)\fR [delete]\fP"
+.PP
+References \fBopenLog()\fP\&.
+.SS "\fBcint\fP AELogger::closeLog (void)\fR [inline]\fP"
 
 .PP
-Deleted (for now) copy-assignment\&. 
-.SS "\fBAELogEntry\fP * AELogger::ptrFromIndex (\fBullint\fP num)\fR [private]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks for the given index number and returns the pointer in the queue of log entries\&. 
-.PP
-\fBNote\fP
-.RS 4
-The index is wrapped around the max queue size\&.
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fInum\fP The index number of the log entry
-.RE
+Close the file, if it was opened\&. That's it\&.
 .PP
 \fBReturns\fP
 .RS 4
-Pointer to the node of that index
+AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, 
 .RE
 .PP
 
 .PP
-Definition at line \fB203\fP of file \fBAELogger\&.cpp\fP\&.
-.SS "AELogger::REGISTER_MODULE (\fBAELogger\fP)\fR [private]\fP"
-
-.SS "\fBcint\fP AELogger::startWriter (void)"
-
+Definition at line \fB171\fP of file \fBAELogger\&.hpp\fP\&.
 .PP
-Starts the log-writing thread\&. 
-.PP
-\fBReturns\fP
-.RS 4
-AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_RUNNING if thread already was running, AELOG_ERR_UNABLE_START_THREAD if error happened (+ std::runtime_error() exception)
-.RE
-.PP
-
-.PP
-Definition at line \fB44\fP of file \fBAELogger\&.cpp\fP\&.
-.SS "\fBcint\fP AELogger::stopWriter (void)"
-
-.PP
-Stops the log-writing thread (after flushing the log queue)\&. 
-.PP
-\fBReturns\fP
-.RS 4
-AELOG_ERR_NOERROR on success; otherwise AELOG_ERR_THREAD_ALREADY_STOPPED if thread already was stopped
-.RE
-.PP
-
-.PP
-Definition at line \fB63\fP of file \fBAELogger\&.cpp\fP\&.
-.SS "\fBcint\fP AELogger::writeStatus (void)\fR [inline]\fP"
-
-.PP
-Writes the current status of the file logger instance (file name, and entries written)\&. 
-.PP
-\fBReturns\fP
-.RS 4
-AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format
-.RE
-.PP
-
-.PP
-Definition at line \fB227\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBcint\fP AELogger::writeToLog (const \fBAELogEntry\fP & entry, const bool useCurrentTime = \fRtrue\fP)\fR [inline]\fP"
-
-.PP
-Request a log entry to be written to the opened log file, using data from a log entry type\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIentry\fP The log entry to write to the file
-.br
-\fIuseCurrentTime\fP Flag to use current time for the log entry, or use timestamp in the provided entry
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open
-.RE
-.PP
-
-.PP
-Definition at line \fB203\fP of file \fBAELogger\&.hpp\fP\&.
+References \fBAEFW_ERR_FILE_NOT_OPEN\fP, \fBAELOG_ERR_NOERROR\fP, \fBAELOG_TYPE_INFO\fP, \fBAELOG_TYPE_SUCCESS\fP, \fBAEFileWriter::closeFile()\fP, \fBAEFileWriter::getFullFileName()\fP, \fBisClosed()\fP, \fBm_fwLogger\fP, \fBstopWriter()\fP, \fBwriteToLog()\fP, and \fBwriteToLogDirectly()\fP\&.
 .SS "\fBcint\fP AELogger::writeToLog (const std::string_view logmessg, const \fBcint\fP logtype = \fR\fBAELOG_TYPE_INFO\fP\fP, const std::string_view logmodule = \fR\fBAELOG_DEFAULT_MODULE_NAME\fP\fP, const std::time_t logTime = \fR0\fP)"
 
 .PP
@@ -633,6 +452,30 @@ Implement decrease in log queue size\&.\&.\&.somehow
 
 .PP
 Definition at line \fB78\fP of file \fBAELogger\&.cpp\fP\&.
+.PP
+References \fBAEFW_ERR_FILE_NOT_OPEN\fP, \fBAELE_MESSAGE_SIZE\fP, \fBAELE_MODULENAME_SIZE\fP, \fBAELE_STATUS_INVALID\fP, \fBAELE_STATUS_READY\fP, \fBAELE_STATUS_SETTING\fP, \fBAELOG_ERR_INVALID_ENTRY_DATA\fP, \fBAELOG_ERR_NOERROR\fP, \fBAELOG_TYPE_DEBUG\fP, \fBAELOG_TYPE_FATAL_ERROR\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBace::utils::isAlNumUs()\fP, \fBisClosed()\fP, \fBace::utils::isInRange()\fP, \fBAELogEntry::m_cLogType\fP, \fBAELogEntry::m_cStatus\fP, \fBm_lepLastNode\fP, \fBm_lepQueue\fP, \fBm_mtxAllocLock\fP, \fBAELogEntry::m_pNextNode\fP, \fBAELogEntry::m_sLogMessage\fP, \fBAELogEntry::m_sModuleName\fP, \fBAELogEntry::m_tmLogTime\fP, \fBm_ullFilledCount\fP, \fBm_ullNodeNumber\fP, \fBm_ullQueueSize\fP, \fBm_vAllocTable\fP, \fBAELogEntry::makeQueue()\fP, \fBptrFromIndex()\fP, and \fBwriteToLogDebug()\fP\&.
+.SS "\fBcint\fP AELogger::writeToLog (const \fBAELogEntry\fP & entry, const bool useCurrentTime = \fRtrue\fP)\fR [inline]\fP"
+
+.PP
+Request a log entry to be written to the opened log file, using data from a log entry type\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The log entry to write to the file
+.br
+\fIuseCurrentTime\fP Flag to use current time for the log entry, or use timestamp in the provided entry
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open
+.RE
+.PP
+
+.PP
+Definition at line \fB203\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAELogEntry::m_cLogType\fP, \fBAELogEntry::m_sLogMessage\fP, \fBAELogEntry::m_sModuleName\fP, \fBAELogEntry::m_tmLogTime\fP, and \fBwriteToLog()\fP\&.
 .SS "\fBcint\fP AELogger::writeToLogDebug (const std::string_view logmessg, const std::string_view logmodule = \fR\fBAELOG_DEFAULT_MODULE_NAME\fP\fP)\fR [inline]\fP"
 
 .PP
@@ -665,6 +508,173 @@ AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't
 
 .PP
 Definition at line \fB216\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAELOG_TYPE_DEBUG\fP, and \fBwriteToLog()\fP\&.
+.SS "\fBcint\fP AELogger::writeStatus (void)\fR [inline]\fP"
+
+.PP
+Writes the current status of the file logger instance (file name, and entries written)\&. 
+.PP
+\fBReturns\fP
+.RS 4
+AELOG_ERR_NOERROR on success; otherwise AEFW_ERR_FILE_NOT_OPEN if log file isn't open, AELOG_ERR_INVALID_ENTRY_DATA if passed data isn't of proper format
+.RE
+.PP
+
+.PP
+Definition at line \fB227\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAELOG_TYPE_INFO\fP, \fBAEFileWriter::getFullFileName()\fP, \fBm_fwLogger\fP, and \fBwriteToLog()\fP\&.
+.SS "std::string AELogger::getLogName (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the name of the log file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the name of opened log file; otherwise values from \fBAEFileWriter::getFullFileName()\fP
+.RE
+.PP
+
+.PP
+Definition at line \fB237\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAEFileWriter::getFullFileName()\fP, and \fBm_fwLogger\fP\&.
+.SS "std::string AELogger::getLogPath (void) const\fR [inline]\fP"
+
+.PP
+Get the path of the log file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the path of the opened log file; otherwise values from \fBAEFileWriter::getRelativePath()\fP
+.RE
+.PP
+
+.PP
+Definition at line \fB245\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAEFileWriter::getRelativePath()\fP, and \fBm_fwLogger\fP\&.
+.SS "std::string AELogger::getLogAbsolutePath (void) const\fR [inline]\fP"
+
+.PP
+Get the full/absolute path of the log file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the absolute path of the opened log file; otherwise values from \fBAEFileWriter::getFullPath()\fP
+.RE
+.PP
+
+.PP
+Definition at line \fB253\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAEFileWriter::getFullPath()\fP, and \fBm_fwLogger\fP\&.
+.SS "\fBullint\fP AELogger::getEntryCount (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the amount of log entries done to an opened log file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+ullint of the amount of times logger written to a file
+.RE
+.PP
+
+.PP
+Definition at line \fB261\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAEFileWriter::getTotalWrites()\fP, and \fBm_fwLogger\fP\&.
+.SS "bool AELogger::isOpen (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if the current log file is open\&. 
+.PP
+\fBReturns\fP
+.RS 4
+True if the file is open for writing, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB269\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAEFileWriter::isOpen()\fP, and \fBm_fwLogger\fP\&.
+.SS "bool AELogger::isClosed (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if a log file isn't open by this logger\&. 
+.PP
+\fBReturns\fP
+.RS 4
+True if log file is closed/not open, false if otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB277\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAEFileWriter::isClosed()\fP, and \fBm_fwLogger\fP\&.
+.SS "bool AELogger::isWriting (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if the log-writing thread is running\&. 
+.PP
+\fBReturns\fP
+.RS 4
+True if it is working(was launched), false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB285\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBm_bRunTrd\fP\&.
+.SS "static std::string AELogger::genLogName (const std::string_view logpref, const std::string_view logext = \fR'\&.log'\fP)\fR [inline]\fP, \fR [static]\fP"
+
+.PP
+Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current date][\&.extension] in a given directory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlogpref\fP The prefix of log file
+.br
+\fIlogext\fP The extension of the log file\&. Include the period before the extension\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the file name to feed to the logger for opening
+.RE
+.PP
+
+.PP
+Definition at line \fB295\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBace::utils::getCurrentDate()\fP\&.
+.SS "\fBAELogEntry\fP * AELogger::ptrFromIndex (\fBullint\fP num)\fR [private]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks for the given index number and returns the pointer in the queue of log entries\&. 
+.PP
+\fBNote\fP
+.RS 4
+The index is wrapped around the max queue size\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The index number of the log entry
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the node of that index
+.RE
+.PP
+
+.PP
+Definition at line \fB203\fP of file \fBAELogger\&.cpp\fP\&.
 .SS "void AELogger::writeToLogDirectly (const std::string_view logmessg, const \fBcint\fP logtype = \fR\fBAELOG_TYPE_INFO\fP\fP, const std::string_view logmodule = \fR\fBAELOG_DEFAULT_MODULE_NAME\fP\fP)\fR [inline]\fP, \fR [private]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -687,44 +697,62 @@ Use it with caution, when you sure that it won't compromise the log integrity (y
 
 .PP
 Definition at line \fB319\fP of file \fBAELogger\&.hpp\fP\&.
+.PP
+References \fBAELE_FORMAT_MAX_SIZE\fP, \fBAELE_MESSAGE_SIZE\fP, \fBAELE_MODULENAME_SIZE\fP, \fBAEFileWriter::flushFile()\fP, \fBAELogEntry::formatEntry()\fP, \fBm_fwLogger\fP, and \fBAEFileWriter::writeData_ptr()\fP\&.
+.SS "void AELogger::logWriterThread (void)\fR [private]\fP"
+
+.PP
+The function of the log writing thread to\&.\&.\&.read the entries, format them, write them, and clear them\&. 
+.PP
+Definition at line \fB143\fP of file \fBAELogger\&.cpp\fP\&.
+.PP
+References \fBAELE_FORMAT_MAX_SIZE\fP, \fBAELE_STATUS_READING\fP, \fBAELE_STATUS_READY\fP, \fBAELOG_TYPE_OK\fP, \fBAELOG_TYPE_SUCCESS\fP, \fBAELogEntry::clearEntry()\fP, \fBAEFileWriter::flushFile()\fP, \fBAELogEntry::formatEntry()\fP, \fB__AEModuleBase< AELogger >::getModuleName()\fP, \fBm_bRunTrd\fP, \fBAELogEntry::m_cStatus\fP, \fBm_fwLogger\fP, \fBm_lepQueue\fP, \fBAELogEntry::m_pNextNode\fP, \fBm_ullFilledCount\fP, \fBace::utils::sleepUS()\fP, \fBAEFileWriter::writeData_ptr()\fP, \fBwriteToLog()\fP, and \fBwriteToLogDirectly()\fP\&.
+.SS "AELogger::REGISTER_MODULE (\fBAELogger\fP)\fR [private]\fP"
+
+.SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAELogger\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Returns the amount of instances of the module currently existing\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Unsigned long long of the module amount
+.RE
+.PP
+
+.PP
+Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "static constexpr std::string_view \fB__AEModuleBase\fP< \fBAELogger\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Returns the name of the registered module\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
 .SH "Member Data Documentation"
 .PP 
-.SS "std::atomic<bool> AELogger::m_bQueueFilled\fR [private]\fP"
-
-.PP
-The flag to show that the queue is populated\&. 
-.PP
-Definition at line \fB367\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "std::atomic<bool> AELogger::m_bRunTrd\fR [private]\fP"
-
-.PP
-The flag to run the log-writing thread\&. 
-.PP
-Definition at line \fB365\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "\fBAEFileWriter\fP AELogger::m_fwLogger\fR [private]\fP"
 
 .PP
 The file writer to actually write text to opened log file\&. 
 .PP
 Definition at line \fB346\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBAELogEntry\fP* AELogger::m_lepLastNode\fR [private]\fP"
-
-.PP
-The pointer to the last item in the queue\&. 
-.PP
-Definition at line \fB362\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "\fBAELogEntry\fP* AELogger::m_lepQueue\fR [private]\fP"
-
-.PP
-The pointer to the first item in the queue\&. 
-.PP
-Definition at line \fB360\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "std::mutex AELogger::m_mtxAllocLock\fR [private]\fP"
 
 .PP
 The mutex to lock when allocating new queue chunks\&. 
 .PP
 Definition at line \fB348\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "std::vector<std::pair<\fBullint\fP, \fBAELogEntry\fP*> > AELogger::m_vAllocTable\fR [private]\fP"
+
+.PP
+The vector to all the allocated queue pieces and total amounts allocated\&. 
+.PP
+Definition at line \fB350\fP of file \fBAELogger\&.hpp\fP\&.
 .SS "std::thread AELogger::m_trdWriter\fR [private]\fP"
 
 .PP
@@ -737,12 +765,6 @@ Definition at line \fB352\fP of file \fBAELogger\&.hpp\fP\&.
 The amount of nodes filled (should we allocate more?) 
 .PP
 Definition at line \fB354\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAELogger\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
-
-.PP
-Amount of alive module instances\&. 
-.PP
-Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AELogger::m_ullNodeNumber\fR [private]\fP"
 
 .PP
@@ -755,12 +777,36 @@ Definition at line \fB356\fP of file \fBAELogger\&.hpp\fP\&.
 The amount of entry spaces/size of the queue\&. 
 .PP
 Definition at line \fB358\fP of file \fBAELogger\&.hpp\fP\&.
-.SS "std::vector<std::pair<\fBullint\fP, \fBAELogEntry\fP*> > AELogger::m_vAllocTable\fR [private]\fP"
+.SS "\fBAELogEntry\fP* AELogger::m_lepQueue\fR [private]\fP"
 
 .PP
-The vector to all the allocated queue pieces and total amounts allocated\&. 
+The pointer to the first item in the queue\&. 
 .PP
-Definition at line \fB350\fP of file \fBAELogger\&.hpp\fP\&.
+Definition at line \fB360\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "\fBAELogEntry\fP* AELogger::m_lepLastNode\fR [private]\fP"
+
+.PP
+The pointer to the last item in the queue\&. 
+.PP
+Definition at line \fB362\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "std::atomic<bool> AELogger::m_bRunTrd\fR [private]\fP"
+
+.PP
+The flag to run the log-writing thread\&. 
+.PP
+Definition at line \fB365\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "std::atomic<bool> AELogger::m_bQueueFilled\fR [private]\fP"
+
+.PP
+The flag to show that the queue is populated\&. 
+.PP
+Definition at line \fB367\fP of file \fBAELogger\&.hpp\fP\&.
+.SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAELogger\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+Amount of alive module instances\&. 
+.PP
+Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

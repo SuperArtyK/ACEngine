@@ -1,0 +1,9 @@
+<map id="AEFileReader::closeFile" name="AEFileReader::closeFile">
+<area shape="rect" id="Node000001" title="Closes the currently opened file." alt="" coords="490,31,651,57"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a474cd877396fb45421a6973762e83d7c" title="Default Destructor." alt="" coords="245,5,442,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="474,36,442,32,443,27,475,31"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#ad79df0ff0313d4414ce55c13c7078ece" title="Closes the log file and clears the memory." alt="" coords="264,56,423,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="475,57,423,63,423,58,474,52"/>
+<area shape="rect" id="Node000004" href="$d8/d52/class_a_e_log_parser.html#a2c35902cdfa4f883d1d8f10dd546f4ed" title="Class destructor – closes the log file." alt="" coords="5,56,197,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="248,72,197,72,197,67,248,67"/>
+</map>

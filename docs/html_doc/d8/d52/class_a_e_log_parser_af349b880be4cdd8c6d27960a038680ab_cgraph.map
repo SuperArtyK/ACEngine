@@ -1,0 +1,7 @@
+<map id="AELogParser::isClosed" name="AELogParser::isClosed">
+<area shape="rect" id="Node000001" title="Checks if the file is closed by the AELogParser." alt="" coords="5,5,162,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="210,5,369,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,16,194,16,194,21,162,21"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="417,5,567,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="369,16,401,16,401,21,369,21"/>
+</map>

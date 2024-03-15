@@ -1,0 +1,5 @@
+<map id="AELogger::getEntryCount" name="AELogger::getEntryCount">
+<area shape="rect" id="Node000001" title="Get the amount of log entries done to an opened log file." alt="" coords="5,5,175,32"/>
+<area shape="rect" id="Node000002" href="$db/d15/class_a_e_file_writer.html#a91b40186ef167a8f3b0e3fcc9fe3c9a6" title="Returns total write requests made to file." alt="" coords="223,5,410,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,16,207,16,207,21,175,21"/>
+</map>

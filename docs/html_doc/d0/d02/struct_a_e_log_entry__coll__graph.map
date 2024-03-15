@@ -1,0 +1,17 @@
+<map id="AELogEntry" name="AELogEntry">
+<area shape="rect" id="Node000001" title="The structure for the data of the log entry to be manipulated with the log files." alt="" coords="170,293,261,320"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="278,297,287,307,279,316,262,319,261,314,277,311,282,307,275,301"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,187,52,213"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,228,39,249,51,267,70,278,100,286,169,298,168,303,99,291,68,283,48,271,34,252,28,230"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="133,187,191,213"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,229,160,249,166,268,176,281,190,291,186,295,173,285,161,271,155,250,155,229"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="271,96,325,123"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="294,138,274,211,252,271,232,295,228,291,248,268,269,209,289,137"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="371,187,502,213"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="332,129,418,184,415,188,329,134"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="397,223,243,295,241,290,395,218"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="378,96,495,123"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="439,138,439,186,434,186,434,138"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="417,5,456,32"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="439,48,439,95,434,95,434,48"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="AELogParser::getFileName" name="AELogParser::getFileName">
+<area shape="rect" id="Node000001" title="Returns the name of the opened file, devoid of the path." alt="" coords="5,5,185,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a753c6f40c4a15739ed88aa0937f72969" title="Returns the name of the opened file, devoid of the path." alt="" coords="233,5,415,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,16,217,16,217,21,185,21"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="463,5,644,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,16,448,16,448,21,416,21"/>
+<area shape="rect" id="Node000004" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="692,5,876,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="645,16,677,16,677,21,645,21"/>
+</map>

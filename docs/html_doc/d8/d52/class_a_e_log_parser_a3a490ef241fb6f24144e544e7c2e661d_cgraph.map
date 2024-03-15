@@ -1,0 +1,5 @@
+<map id="AELogParser::amountEntriesValid" name="AELogParser::amountEntriesValid">
+<area shape="rect" id="Node000001" title="Get the amount of valid entries in the log (with optional lowest severity setting)." alt="" coords="5,5,225,32"/>
+<area shape="rect" id="Node000002" href="$de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7" title="Checks if the value is within some range." alt="" coords="273,5,412,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,16,257,16,257,21,225,21"/>
+</map>

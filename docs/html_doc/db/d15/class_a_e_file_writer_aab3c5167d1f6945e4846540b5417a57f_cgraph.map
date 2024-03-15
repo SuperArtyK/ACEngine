@@ -1,0 +1,12 @@
+<map id="AEFileWriter::AEFileWriter" name="AEFileWriter::AEFileWriter">
+<area shape="rect" id="Node000001" title="Class constructor – creates the AEFileWriter instance and opens the file." alt="" coords="5,56,183,83"/>
+<area shape="rect" id="Node000002" href="$db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag." alt="" coords="231,56,383,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,67,215,67,215,72,183,72"/>
+<area shape="rect" id="Node000003" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="442,5,573,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="362,53,436,34,438,39,364,58"/>
+<area shape="rect" id="Node000004" href="$db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090" title="Checks if a file isn&#39;t open by this file&#45;writer." alt="" coords="431,56,584,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="384,67,415,67,415,72,384,72"/>
+<area shape="rect" id="Node000005" href="$db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d" title="Checks if a file is open by this file&#45;writer." alt="" coords="632,81,777,108"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="364,81,431,92,527,97,617,96,617,102,527,103,431,97,363,86"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="585,77,617,81,617,86,584,82"/>
+</map>

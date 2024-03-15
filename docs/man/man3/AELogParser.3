@@ -1,4 +1,4 @@
-.TH "AELogParser" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -264,133 +264,30 @@ Definition at line \fB81\fP of file \fBAELogParser\&.hpp\fP\&.
 Class destructor -- closes the log file\&. 
 .PP
 Definition at line \fB90\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBcloseLog()\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "\fBullint\fP AELogParser::amountEntriesInvalid (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+.SS "\fBcint\fP AELogParser::openLog (const std::string_view fname)"
 
 .PP
-Get the amount of invalid entries in the log\&. Invalid entries are of type AELOG_TYPE_INVALID
-.PP
-\fBReturns\fP
-.RS 4
-ullint amount of invalid entries
-.RE
-.PP
-
-.PP
-Definition at line \fB353\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBullint\fP AELogParser::amountEntriesName (const std::string_view mname) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Get the amount of entries of a certain module name\&. 
+Opens the log file, reading and parsing every single entry, classifying it by type\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fImname\fP The module name of the log entries to search for<
+\fIfname\fP The name of the file to open
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-Amount of entries with a certain module name; ULLINT_MAX if the modulename wasn't found
+AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error
 .RE
 .PP
 
 .PP
-Definition at line \fB374\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBullint\fP AELogParser::amountEntriesType (const \fBcint\fP severity) const\fR [inline]\fP, \fR [noexcept]\fP"
-
+Definition at line \fB11\fP of file \fBAELogParser\&.cpp\fP\&.
 .PP
-Get the amount of entries of a certain type/severity\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIseverity\fP The severity/type of the log to find
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ullint amount of entries on success; ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range
-.RE
-.PP
-
-.PP
-Definition at line \fB362\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBullint\fP AELogParser::amountEntriesValid (const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Get the amount of valid entries in the log (with optional lowest severity setting)\&. Valid entries are entries that are not AELOG_TYPE_INVALID
-.PP
-\fBParameters\fP
-.RS 4
-\fIseverity\fP The lowest severity of the log to find
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries
-.RE
-.PP
-
-.PP
-Definition at line \fB338\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "static constexpr bool AELogParser::checkMName (const short entryNameIndex, const short filterNameIndex)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if the passed entry's and filter's module name indices match Moved from a lambda, so it's easier to use with other parts of the log parser\&. 
-.PP
-\fBNote\fP
-.RS 4
-If filterNameIndex is 0, then it will always return true (we aren't checking for it)
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIentryNameIndex\fP The module name index of the entry
-.br
-\fIfilterNameIndex\fP The module name index filter
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-.RE
-.PP
-
-.PP
-Definition at line \fB534\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "static constexpr bool AELogParser::checkSeverity (const \fBcint\fP entrySeverity, const \fBcint\fP filterSeverity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if the passed severity is valid compared to the filtering severity\&. Moved from a lambda, so it's easier to use with other parts of the log parser\&. 
-.PP
-\fBNote\fP
-.RS 4
-If strictSeverity is true, performs exact check\&. Otherwise if the passed entrySeverity is more or equal to the filtering filterSeverity\&. 
-.PP
-If filterSeverity is AELP_SEVERITY_ALL, the function always returns true
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIstrictSeverity\fP Whether to check if both severity levels \fImatch exactly\fP\&. Default: false
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIentrySeverity\fP The severity to check/filter
-.br
-\fIfilterSeverity\fP The filtering severity
-.br
-\fIstrictSeverity\fP The flag to indicate whether the severity check should be strict (exact)
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-True if the filtering conditions are satisfied; false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB516\fP of file \fBAELogParser\&.hpp\fP\&.
+References \fBAEFR_ERR_NOERROR\fP, \fBAEFR_ERR_OPEN_FILE_ALREADY_OPENED\fP, \fBAELE_FORMAT_MAX_SIZE\fP, \fBAELE_PARSE_STRING_MNAME\fP, \fBAELE_PARSE_STRING_TYPE\fP, \fBAELOG_DEFAULT_QUEUE_SIZE\fP, \fBAELP_ERR_NOERROR\fP, \fBAEFileReader::getCursorPos()\fP, \fBisOpen()\fP, \fBm_arrEntryAmount\fP, \fBm_frLogReader\fP, \fBm_mapModuleNames\fP, \fBm_vecEntryIndices\fP, \fBm_vecInvalidEntryIndices\fP, \fBAEFileReader::openFile()\fP, \fBAELogEntry::parseStringEntry()\fP, and \fBAEFileReader::readStringNL()\fP\&.
 .SS "\fBcint\fP AELogParser::closeLog (void)\fR [inline]\fP"
 
 .PP
@@ -398,32 +295,223 @@ Closes the log file and clears the memory\&.
 .PP
 \fBReturns\fP
 .RS 4
-return value of the AEFileReader::closefile() (AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open)
+return value of the \fBAEFileReader::closefile()\fP (AEFR_ERR_NOERROR if file was closed successfully; AEFR_ERR_FILE_NOT_OPEN if file isn't open)
 .RE
 .PP
 
 .PP
 Definition at line \fB105\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "bool AELogParser::containsSeverity (const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+.PP
+References \fBAENULL\fP, \fBAEFileReader::closeFile()\fP, \fBm_arrEntryAmount\fP, \fBm_frLogReader\fP, \fBm_mapModuleNames\fP, \fBm_ullCurrentEntry\fP, \fBm_vecEntryIndices\fP, and \fBm_vecInvalidEntryIndices\fP\&.
+.SS "\fBcint\fP AELogParser::nextEntry (\fBAELogEntry\fP & entry, const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP, const bool strictSeverity = \fRfalse\fP, const std::string_view mname = \fR''\fP)"
 
 .PP
-Checks if the current log file contains the given severity (or higher, depending on the 'strict-severity' flag) 
+Read the next \fIvalid\fP entry in the log file of the given severity and module name filter, and parse it to the given \fBAELogEntry\fP object\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the strictSeverity is false, then the severity value just changes the lowest limit of the log severity\&. Otherwise it sets the exact severity to look for 
+.PP
+The module name filter is applied after the severity filter\&. 
+.PP
+AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&.
+.RE
 .PP
 \fBParameters\fP
 .RS 4
-\fIseverity\fP The severity to search for
+\fIentry\fP The log entry object to parse things into
+.br
+\fIseverity\fP The severity of the log entry to look for
+.br
+\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
+.br
+\fImname\fP The module name of the log entry to search for
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from \fBAELogParser::errorFromAELEI()\fP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::errorFromAELEI()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB75\fP of file \fBAELogParser\&.cpp\fP\&.
+.PP
+References \fBAEFR_ERR_NOERROR\fP, \fBAEFR_ERR_READ_EOF\fP, \fBAELE_FORMAT_MAX_SIZE\fP, \fBAELE_PARSE_STRING_FULL\fP, \fBAELP_ERR_NOERROR\fP, \fBm_frLogReader\fP, \fBnextEntryCursor()\fP, \fBAELogEntry::parseStringEntry()\fP, \fBAEFileReader::readStringNL()\fP, and \fBAEFileReader::setCursorPos()\fP\&.
+.SS "\fBcint\fP AELogParser::nextEntryName (\fBAELogEntry\fP & entry, const std::string_view mname)\fR [inline]\fP"
+
+.PP
+Read the next \fIvalid\fP entry in the log file of the given module name, and parse it into the given \fBAELogEntry\fP object\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntry()\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The log entry object to parse things into
+.br
+\fImname\fP The module name of the log entry to search for
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from \fBAELogParser::errorFromAELEI()\fP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::errorFromAELEI()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB142\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_SEVERITY_ALL\fP, and \fBnextEntry()\fP\&.
+.SS "\fBcint\fP AELogParser::nextEntryType (\fBAELogEntry\fP & entry, const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP"
+
+.PP
+Read the next \fIvalid\fP entry in the log file of the given severity, and parse it to the given \fBAELogEntry\fP object\&. 
+.PP
+\fBSee also\fP
+.RS 4
+AELogEntry::nextEntry()
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIentry\fP The log entry object to parse things into
+.br
+\fIseverity\fP The lowest limit of severity of the log entry to look for
 .br
 \fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-True if the log contains the severity, false otherwise; false if the invalid severity was passed or file is closed
+AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from \fBAELogParser::errorFromAELEI()\fP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::errorFromAELEI()\fP 
 .RE
 .PP
 
 .PP
-Definition at line \fB388\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB153\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_NO_MODULENAME\fP, and \fBnextEntry()\fP\&.
+.SS "\fBllint\fP AELogParser::nextEntryCursor (const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP, const bool strictSeverity = \fRfalse\fP, const std::string_view mname = \fR''\fP)\fR [inline]\fP"
+
+.PP
+Read the next indexed \fIvalid\fP log entry in the file of the given severity and module name filter, and return it's file cursors in the file\&. 
+.PP
+\fBNote\fP
+.RS 4
+The severity value just changes the lowest limit of the log severity (lowest by default is debug)\&. If a higher severity is encountered, it's read as well\&. 
+.PP
+AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIseverity\fP The lowest severity of the log to find
+.br
+\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
+.br
+\fImname\fP The module name of the log entry to search for
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid entry (in the currently-opened log file); error codes from \fBAELogParser::errorFromAELEI()\fP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::errorFromAELEI()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB167\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_ERR_NOERROR\fP, \fBAELogEntryInfo::cursorIndex\fP, \fBerrorFromAELEI()\fP, and \fBfindNextEntry()\fP\&.
+.SS "\fBllint\fP AELogParser::nextEntryCursorName (const std::string_view mname)\fR [inline]\fP"
+
+.PP
+Read the next indexed \fIvalid\fP log entry in the file of the given module name filter, and return it's file cursors in the file\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fImname\fP The module name of the log entry to search for
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid entry (in the currently-opened log file); error codes from \fBAELogParser::errorFromAELEI()\fP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::errorFromAELEI()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB185\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_SEVERITY_ALL\fP, and \fBnextEntryCursor()\fP\&.
+.SS "\fBllint\fP AELogParser::nextEntryCursorType (const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP"
+
+.PP
+Read the next indexed \fIvalid\fP log entry in the file of the given severity filter and return it's file cursors in the file\&. 
+.PP
+\fBNote\fP
+.RS 4
+AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::nextEntryCursor()\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIseverity\fP The lowest severity of the log to find
+.br
+\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The file cursors of the next valid entry (in the currently-opened log file); error codes from \fBAELogParser::errorFromAELEI()\fP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::errorFromAELEI()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB196\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_NO_MODULENAME\fP, and \fBnextEntryCursor()\fP\&.
 .SS "\fBllint\fP AELogParser::currentEntryCursor (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -437,24 +525,185 @@ The file cursors of the current valid entry (in the currently-opened log file); 
 
 .PP
 Definition at line \fB203\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "static constexpr \fBcint\fP AELogParser::errorFromAELEI (const \fBAELogEntryInfo\fP & leInfo)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP, \fR [noexcept]\fP"
+.PP
+References \fB_AELP_CHECK_IF_FILE_OPEN\fP, \fBAEFR_ERR_READ_EOF\fP, \fBm_ullCurrentEntry\fP, and \fBm_vecEntryIndices\fP\&.
+.SS "std::size_t AELogParser::getCurrentEntryIndex (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Determines the error codes from the invalid values in the passed \fBAELogEntryInfo\fP instance\&. 
+Return the order number (index) of the current log entry (that was attempted to be read) 
+.PP
+\fBReturns\fP
+.RS 4
+The index of the current entry as std::size_t
+.RE
+.PP
+
+.PP
+Definition at line \fB215\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBm_ullCurrentEntry\fP\&.
+.SS "\fBcint\fP AELogParser::setNextEntryIndex (const std::size_t entryIndex)\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Set the order number (index) of the next log entry to be parsed\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIleInfo\fP The passed \fBAELogEntryInfo\fP instance to check
+\fIentryIndex\fP The order number of the next entry
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-AELP_ERR_NOERROR if everything is okay; AEFR_ERR_FILE_NOT_OPEN if it's fully invalid; AEFR_ERR_READ_EOF on invalid cursor; AELP_ERR_INVALID_MODULE_NAME on invalid module name; AELP_ERR_INVALID_SEVERITY on invalid type
+AELP_ERR_NOERROR on success; AEFR_ERR_READ_EOF if the value was larger than the (amount of valid parsed entries - 1); AEFR_ERR_FILE_NOT_OPEN if file wasn't open
 .RE
 .PP
 
 .PP
-Definition at line \fB483\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB222\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fB_AELP_CHECK_IF_FILE_OPEN\fP, \fBAEFR_ERR_READ_EOF\fP, \fBAELP_ERR_NOERROR\fP, \fBm_ullCurrentEntry\fP, and \fBm_vecEntryIndices\fP\&.
+.SS "std::vector< \fBAELogEntryInfo\fP > AELogParser::getEntryCursorAll (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the list of file cursors of the valid entries, separated by type\&. 
+.PP
+\fBNote\fP
+.RS 4
+If the file is not open, the returned vector is empty
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+(by value) The vector of \fBAELogEntryInfo\fP, each having the (cursor) index, index of the module name, and type of each valid entry
+.RE
+.PP
+
+.PP
+Definition at line \fB236\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBm_vecEntryIndices\fP\&.
+.SS "std::vector< \fBllint\fP > AELogParser::getInvalidEntryCursorAll (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the list of file cursors of the invalid entries\&. In the return vector, llint is the index of the cursor in the file 
+.PP
+\fBNote\fP
+.RS 4
+If the file is not open, the returned vector is empty
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+(by value) The vector of llint's, having the cursor indices for each invalid entry
+.RE
+.PP
+
+.PP
+Definition at line \fB246\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBm_vecInvalidEntryIndices\fP\&.
+.SS "\fBcint\fP AELogParser::logToQueue (\fBAELogEntry\fP *& begin, const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP, const bool strictSeverity = \fRfalse\fP, const std::string_view mname = \fR''\fP)"
+
+.PP
+Same as the \fBAELogParser::nextEntry()\fP but on massive scale -- scans the whole log file and parses it to the freshly-allocated queue\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogEntry::makeQueue()\fP The parsed queue is filtered with the given severity level and 'strict severity search' flag 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If this queue isn't deallocated (deleted) before dropping the queue pointer, this \fBWILL\fP lead to memory leaks!
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIbegin\fP The pointer to which the queue will be allocated
+.br
+\fIseverity\fP The lowest severity of the log to find
+.br
+\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
+.br
+\fImname\fP The module name of the log entry to search for
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error 
+.RE
+.PP
+
+.PP
+Definition at line \fB107\fP of file \fBAELogParser\&.cpp\fP\&.
+.PP
+References \fB_AELP_CHECK_IF_FILE_OPEN\fP, \fBAELP_ERR_NOERROR\fP, \fBAELP_NO_MODULENAME\fP, \fBamountEntriesType()\fP, \fBamountEntriesValid()\fP, \fBfilterQueueName()\fP, \fBAELogEntry::m_pNextNode\fP, \fBm_ullCurrentEntry\fP, \fBAELogEntry::makeQueue()\fP, and \fBnextEntry()\fP\&.
+.SS "\fBcint\fP AELogParser::logToQueueType (\fBAELogEntry\fP *& begin, const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP"
+
+.PP
+A shortcut to \fBAELogParser::logToQueue()\fP to filter only by type/severity of the log entries\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::logToQueue()\fP 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If this queue isn't deallocated (deleted) before dropping the queue pointer, this \fBWILL\fP lead to memory leaks!
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIbegin\fP The pointer to which the queue will be allocated
+.br
+\fIseverity\fP The lowest severity of the log to find
+.br
+\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error 
+.RE
+.PP
+
+.PP
+Definition at line \fB272\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_NO_MODULENAME\fP, and \fBlogToQueue()\fP\&.
+.SS "\fBcint\fP AELogParser::logToQueueName (\fBAELogEntry\fP *& begin, const std::string_view mname)\fR [inline]\fP"
+
+.PP
+A shortcut to \fBAELogParser::logToQueue()\fP to filter only by the module name of the log entries\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogParser::logToQueue()\fP 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If this queue isn't deallocated (deleted) before dropping the queue pointer, this \fBWILL\fP lead to memory leaks!
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIbegin\fP The pointer to which the queue will be allocated
+.br
+\fImname\fP The module name of the log entry to search for
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error 
+.RE
+.PP
+
+.PP
+Definition at line \fB284\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_SEVERITY_ALL\fP, and \fBlogToQueue()\fP\&.
 .SS "\fBcint\fP AELogParser::filterQueue (\fBAELogEntry\fP *& ptr, const \fBcint\fP severity, const bool strictSeverity, const std::string_view mname, const bool reallocQueue = \fRtrue\fP)\fR [static]\fP"
 
 .PP
@@ -497,44 +746,8 @@ AELP_ERR_NOERROR (0) on success; On invalid arguments: AELP_ERR_INVALID_QUEUE if
 
 .PP
 Definition at line \fB134\fP of file \fBAELogParser\&.cpp\fP\&.
-.SS "static \fBcint\fP AELogParser::filterQueueName (\fBAELogEntry\fP *& ptr, const std::string_view mname, const bool reallocQueue = \fRtrue\fP)\fR [inline]\fP, \fR [static]\fP"
-
 .PP
-Filters the passed queue according to the given modulename\&. 
-.PP
-\fBWarning\fP
-.RS 4
-Make sure the queue is not circled (the 'next node' pointer of the last entry in the queue is nullptr)\&. Otherwise this will result in an infinite loop in the function 
-.RE
-.PP
-\fBTodo\fP
-.RS 4
-Implement a container for the queue to prevent this from happening 
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIptr\fP The pointer to the existing queue
-.br
-\fImname\fP The module name of the log entry to filter for
-.br
-\fIreallocQueue\fP Flag to reallocate the filtered queue (reduces the final memory usage)
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-Use reallocQueue flag only if the queue was allocated on the heap (like with \fBAELogParser::logToQueue()\fP\&. Otherwise (if it's stack-allocated) it will try to delete[] the stack memory 
-.PP
-\fBReturns\fP
-.RS 4
-Same values as \fBAELogParser::filterQueue()\fP but only relating to the module name filter
-.RE
-.PP
-.RE
-.PP
-
-.PP
-Definition at line \fB327\fP of file \fBAELogParser\&.hpp\fP\&.
+References \fBAELE_MODULENAME_SIZE\fP, \fBAELP_ERR_FILTER_NO_MATCHES\fP, \fBAELP_ERR_INVALID_FILTER\fP, \fBAELP_ERR_INVALID_MODULE_NAME\fP, \fBAELP_ERR_INVALID_QUEUE\fP, \fBAELP_ERR_INVALID_SEVERITY\fP, \fBAELP_ERR_NOERROR\fP, \fBAELP_SEVERITY_ALL\fP, \fBcheckSeverity()\fP, \fBAELogEntry::copyEntry()\fP, \fBAELogEntry::m_cLogType\fP, \fBAELogEntry::m_pNextNode\fP, \fBAELogEntry::m_sModuleName\fP, and \fBAELogEntry::makeQueue()\fP\&.
 .SS "static \fBcint\fP AELogParser::filterQueueType (\fBAELogEntry\fP *& ptr, const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP, const bool reallocQueue = \fRtrue\fP)\fR [inline]\fP, \fR [static]\fP"
 
 .PP
@@ -575,6 +788,285 @@ Same values as \fBAELogParser::filterQueue()\fP but only relating to the severit
 
 .PP
 Definition at line \fB313\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_NO_MODULENAME\fP, and \fBfilterQueue()\fP\&.
+.SS "static \fBcint\fP AELogParser::filterQueueName (\fBAELogEntry\fP *& ptr, const std::string_view mname, const bool reallocQueue = \fRtrue\fP)\fR [inline]\fP, \fR [static]\fP"
+
+.PP
+Filters the passed queue according to the given modulename\&. 
+.PP
+\fBWarning\fP
+.RS 4
+Make sure the queue is not circled (the 'next node' pointer of the last entry in the queue is nullptr)\&. Otherwise this will result in an infinite loop in the function 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Implement a container for the queue to prevent this from happening 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIptr\fP The pointer to the existing queue
+.br
+\fImname\fP The module name of the log entry to filter for
+.br
+\fIreallocQueue\fP Flag to reallocate the filtered queue (reduces the final memory usage)
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+Use reallocQueue flag only if the queue was allocated on the heap (like with \fBAELogParser::logToQueue()\fP\&. Otherwise (if it's stack-allocated) it will try to delete[] the stack memory 
+.PP
+\fBReturns\fP
+.RS 4
+Same values as \fBAELogParser::filterQueue()\fP but only relating to the module name filter
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB327\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_SEVERITY_ALL\fP, and \fBfilterQueue()\fP\&.
+.SS "\fBullint\fP AELogParser::amountEntriesValid (const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the amount of valid entries in the log (with optional lowest severity setting)\&. Valid entries are entries that are not AELOG_TYPE_INVALID
+.PP
+\fBParameters\fP
+.RS 4
+\fIseverity\fP The lowest severity of the log to find
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range; ullint amount of entries
+.RE
+.PP
+
+.PP
+Definition at line \fB338\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELOG_TYPE_FATAL_ERROR\fP, \fBAELOG_TYPE_INVALID\fP, \fBace::utils::isInRange()\fP, \fBm_arrEntryAmount\fP, and \fBULLINT_MAX\fP\&.
+.SS "\fBullint\fP AELogParser::amountEntriesInvalid (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the amount of invalid entries in the log\&. Invalid entries are of type AELOG_TYPE_INVALID
+.PP
+\fBReturns\fP
+.RS 4
+ullint amount of invalid entries
+.RE
+.PP
+
+.PP
+Definition at line \fB353\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBm_arrEntryAmount\fP\&.
+.SS "\fBullint\fP AELogParser::amountEntriesType (const \fBcint\fP severity) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the amount of entries of a certain type/severity\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIseverity\fP The severity/type of the log to find
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ullint amount of entries on success; ULLINT_MAX if the severity is outside of the AELOG_TYPE_* range
+.RE
+.PP
+
+.PP
+Definition at line \fB362\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELOG_TYPE_FATAL_ERROR\fP, \fBAELOG_TYPE_INVALID\fP, \fBace::utils::isInRange()\fP, \fBm_arrEntryAmount\fP, and \fBULLINT_MAX\fP\&.
+.SS "\fBullint\fP AELogParser::amountEntriesName (const std::string_view mname) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the amount of entries of a certain module name\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImname\fP The module name of the log entries to search for<
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Amount of entries with a certain module name; ULLINT_MAX if the modulename wasn't found
+.RE
+.PP
+
+.PP
+Definition at line \fB374\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBm_mapModuleNames\fP, and \fBULLINT_MAX\fP\&.
+.SS "bool AELogParser::containsSeverity (const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if the current log file contains the given severity (or higher, depending on the 'strict-severity' flag) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIseverity\fP The severity to search for
+.br
+\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the log contains the severity, false otherwise; false if the invalid severity was passed or file is closed
+.RE
+.PP
+
+.PP
+Definition at line \fB388\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELOG_TYPE_DEBUG\fP, \fBAELOG_TYPE_FATAL_ERROR\fP, \fBAELP_SEVERITY_ALL\fP, \fBisClosed()\fP, \fBace::utils::isInRange()\fP, and \fBm_arrEntryAmount\fP\&.
+.SS "bool AELogParser::isOpen (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if the file is opened by the \fBAELogParser\fP\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileReader::isOpen()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if file is opened, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB408\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFileReader::isOpen()\fP, and \fBm_frLogReader\fP\&.
+.SS "bool AELogParser::isClosed (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if the file is closed by the \fBAELogParser\fP\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileReader::isClosed()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true is file is closed (no file opened), false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB417\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFileReader::isClosed()\fP, and \fBm_frLogReader\fP\&.
+.SS "std::string AELogParser::getFullFileName (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Returns the full name of currently open file, including the relative path, if such was provided\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileReader::getFullFileName()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the opened file (including relative path if was given); empty string otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB426\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFileReader::getFullFileName()\fP, and \fBm_frLogReader\fP\&.
+.SS "std::string AELogParser::getRelativePath (void) const\fR [inline]\fP"
+
+.PP
+Returns the relative path of the opened file\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileReader::getRelativePath()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the relative file path of opened file; empty string otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB435\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFileReader::getRelativePath()\fP, and \fBm_frLogReader\fP\&.
+.SS "std::string AELogParser::getFileName (void) const\fR [inline]\fP"
+
+.PP
+Returns the name of the opened file, devoid of the path\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileReader::getFileName()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the opened file name; emtpy string otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB444\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFileReader::getFileName()\fP, and \fBm_frLogReader\fP\&.
+.SS "std::string AELogParser::getFullPath (void) const\fR [inline]\fP"
+
+.PP
+Returns the full, absolute path of the opened file\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileReader::getFullPath()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+std::string of the absolute path of the opened file; empty string otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB453\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFileReader::getFullPath()\fP, and \fBm_frLogReader\fP\&.
+.SS "\fBAEFileReader\fP & AELogParser::getFileReader (void)\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Return the reference to the \fBAEFileReader\fP object of this instance of \fBAELogParser\fP\&. 
+.PP
+\fBWarning\fP
+.RS 4
+Be carefull with it
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the reference to the \fBAEFileReader\fP object
+.RE
+.PP
+
+.PP
+Definition at line \fB462\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBm_frLogReader\fP\&.
 .SS "\fBAELogEntryInfo\fP AELogParser::findNextEntry (const \fBcint\fP severity, const std::string_view mname, const bool strictSeverity)\fR [private]\fP"
 
 .PP
@@ -597,127 +1089,90 @@ The \fBAELogEntryInfo\fP instance that corresponds to that log entry
 
 .PP
 Definition at line \fB206\fP of file \fBAELogParser\&.cpp\fP\&.
-.SS "std::size_t AELogParser::getCurrentEntryIndex (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+.PP
+References \fBAELEI_INVALID_CURSOR\fP, \fBAELEI_INVALID_TYPE\fP, \fBAELEI_INVLAID_MNAME\fP, \fBAELOG_TYPE_FATAL_ERROR\fP, \fBAELP_SEVERITY_ALL\fP, \fBcheckMName()\fP, \fBcheckSeverity()\fP, \fBcontainsSeverity()\fP, \fBAELogEntryInfo::cursorIndex\fP, \fBAELogEntryInfo::invalidEntry()\fP, \fBisClosed()\fP, \fBace::utils::isInRange()\fP, \fBAELogEntryInfo::logType\fP, \fBm_mapModuleNames\fP, \fBm_ullCurrentEntry\fP, \fBm_vecEntryIndices\fP, and \fBAELogEntryInfo::mnameIndex\fP\&.
+.SS "static constexpr \fBcint\fP AELogParser::errorFromAELEI (const \fBAELogEntryInfo\fP & leInfo)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP, \fR [noexcept]\fP"
 
 .PP
-Return the order number (index) of the current log entry (that was attempted to be read) 
+Determines the error codes from the invalid values in the passed \fBAELogEntryInfo\fP instance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIleInfo\fP The passed \fBAELogEntryInfo\fP instance to check
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-The index of the current entry as std::size_t
+AELP_ERR_NOERROR if everything is okay; AEFR_ERR_FILE_NOT_OPEN if it's fully invalid; AEFR_ERR_READ_EOF on invalid cursor; AELP_ERR_INVALID_MODULE_NAME on invalid module name; AELP_ERR_INVALID_SEVERITY on invalid type
 .RE
 .PP
 
 .PP
-Definition at line \fB215\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::vector< \fBAELogEntryInfo\fP > AELogParser::getEntryCursorAll (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+Definition at line \fB483\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAEFR_ERR_FILE_NOT_OPEN\fP, \fBAEFR_ERR_READ_EOF\fP, \fBAELP_ERR_FILTER_NO_MATCHES\fP, \fBAELP_ERR_INVALID_MODULE_NAME\fP, \fBAELP_ERR_INVALID_SEVERITY\fP, and \fBAELP_ERR_NOERROR\fP\&.
+.SS "static constexpr bool AELogParser::checkSeverity (const \fBcint\fP entrySeverity, const \fBcint\fP filterSeverity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP, \fR [noexcept]\fP"
 
 .PP
-Get the list of file cursors of the valid entries, separated by type\&. 
+Checks if the passed severity is valid compared to the filtering severity\&. Moved from a lambda, so it's easier to use with other parts of the log parser\&. 
 .PP
 \fBNote\fP
 .RS 4
-If the file is not open, the returned vector is empty
+If strictSeverity is true, performs exact check\&. Otherwise if the passed entrySeverity is more or equal to the filtering filterSeverity\&. 
+.PP
+If filterSeverity is AELP_SEVERITY_ALL, the function always returns true
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIstrictSeverity\fP Whether to check if both severity levels \fImatch exactly\fP\&. Default: false
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIentrySeverity\fP The severity to check/filter
+.br
+\fIfilterSeverity\fP The filtering severity
+.br
+\fIstrictSeverity\fP The flag to indicate whether the severity check should be strict (exact)
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-(by value) The vector of \fBAELogEntryInfo\fP, each having the (cursor) index, index of the module name, and type of each valid entry
+True if the filtering conditions are satisfied; false otherwise
 .RE
 .PP
 
 .PP
-Definition at line \fB236\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::string AELogParser::getFileName (void) const\fR [inline]\fP"
+Definition at line \fB516\fP of file \fBAELogParser\&.hpp\fP\&.
+.PP
+References \fBAELP_SEVERITY_ALL\fP\&.
+.SS "static constexpr bool AELogParser::checkMName (const short entryNameIndex, const short filterNameIndex)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP, \fR [noexcept]\fP"
 
 .PP
-Returns the name of the opened file, devoid of the path\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAEFileReader::getFileName()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the opened file name; emtpy string otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB444\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBAEFileReader\fP & AELogParser::getFileReader (void)\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Return the reference to the \fBAEFileReader\fP object of this instance of \fBAELogParser\fP\&. 
-.PP
-\fBWarning\fP
-.RS 4
-Be carefull with it
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-the reference to the \fBAEFileReader\fP object
-.RE
-.PP
-
-.PP
-Definition at line \fB462\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::string AELogParser::getFullFileName (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Returns the full name of currently open file, including the relative path, if such was provided\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAEFileReader::getFullFileName()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the opened file (including relative path if was given); empty string otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB426\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::string AELogParser::getFullPath (void) const\fR [inline]\fP"
-
-.PP
-Returns the full, absolute path of the opened file\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAEFileReader::getFullPath()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the absolute path of the opened file; empty string otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB453\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::vector< \fBllint\fP > AELogParser::getInvalidEntryCursorAll (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Get the list of file cursors of the invalid entries\&. In the return vector, llint is the index of the cursor in the file 
+Checks if the passed entry's and filter's module name indices match Moved from a lambda, so it's easier to use with other parts of the log parser\&. 
 .PP
 \fBNote\fP
 .RS 4
-If the file is not open, the returned vector is empty
+If filterNameIndex is 0, then it will always return true (we aren't checking for it)
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIentryNameIndex\fP The module name index of the entry
+.br
+\fIfilterNameIndex\fP The module name index filter
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-(by value) The vector of llint's, having the cursor indices for each invalid entry
 .RE
 .PP
 
 .PP
-Definition at line \fB246\fP of file \fBAELogParser\&.hpp\fP\&.
+Definition at line \fB534\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "AELogParser::REGISTER_MODULE (\fBAELogParser\fP)\fR [private]\fP"
+
 .SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
@@ -742,423 +1197,14 @@ Returns the name of the registered module\&.
 .RE
 .PP
 
-.SS "std::string AELogParser::getRelativePath (void) const\fR [inline]\fP"
-
-.PP
-Returns the relative path of the opened file\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAEFileReader::getRelativePath()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-std::string of the relative file path of opened file; empty string otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB435\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "bool AELogParser::isClosed (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if the file is closed by the \fBAELogParser\fP\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAEFileReader::isClosed()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-true is file is closed (no file opened), false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB417\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "bool AELogParser::isOpen (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Checks if the file is opened by the \fBAELogParser\fP\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAEFileReader::isOpen()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-true if file is opened, false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB408\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::logToQueue (\fBAELogEntry\fP *& begin, const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP, const bool strictSeverity = \fRfalse\fP, const std::string_view mname = \fR''\fP)"
-
-.PP
-Same as the \fBAELogParser::nextEntry()\fP but on massive scale -- scans the whole log file and parses it to the freshly-allocated queue\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogEntry::makeQueue()\fP The parsed queue is filtered with the given severity level and 'strict severity search' flag 
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-If this queue isn't deallocated (deleted) before dropping the queue pointer, this \fBWILL\fP lead to memory leaks!
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIbegin\fP The pointer to which the queue will be allocated
-.br
-\fIseverity\fP The lowest severity of the log to find
-.br
-\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
-.br
-\fImname\fP The module name of the log entry to search for
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error 
-.RE
-.PP
-
-.PP
-Definition at line \fB107\fP of file \fBAELogParser\&.cpp\fP\&.
-.SS "\fBcint\fP AELogParser::logToQueueName (\fBAELogEntry\fP *& begin, const std::string_view mname)\fR [inline]\fP"
-
-.PP
-A shortcut to \fBAELogParser::logToQueue()\fP to filter only by the module name of the log entries\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::logToQueue()\fP 
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-If this queue isn't deallocated (deleted) before dropping the queue pointer, this \fBWILL\fP lead to memory leaks!
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIbegin\fP The pointer to which the queue will be allocated
-.br
-\fImname\fP The module name of the log entry to search for
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error 
-.RE
-.PP
-
-.PP
-Definition at line \fB284\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::logToQueueType (\fBAELogEntry\fP *& begin, const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP"
-
-.PP
-A shortcut to \fBAELogParser::logToQueue()\fP to filter only by type/severity of the log entries\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::logToQueue()\fP 
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-If this queue isn't deallocated (deleted) before dropping the queue pointer, this \fBWILL\fP lead to memory leaks!
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIbegin\fP The pointer to which the queue will be allocated
-.br
-\fIseverity\fP The lowest severity of the log to find
-.br
-\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success; or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15), AELP_ERR_*(-20 to -24) flags on error 
-.RE
-.PP
-
-.PP
-Definition at line \fB272\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::nextEntry (\fBAELogEntry\fP & entry, const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP, const bool strictSeverity = \fRfalse\fP, const std::string_view mname = \fR''\fP)"
-
-.PP
-Read the next \fIvalid\fP entry in the log file of the given severity and module name filter, and parse it to the given \fBAELogEntry\fP object\&. 
-.PP
-\fBNote\fP
-.RS 4
-If the strictSeverity is false, then the severity value just changes the lowest limit of the log severity\&. Otherwise it sets the exact severity to look for 
-.PP
-The module name filter is applied after the severity filter\&. 
-.PP
-AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&.
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIentry\fP The log entry object to parse things into
-.br
-\fIseverity\fP The severity of the log entry to look for
-.br
-\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
-.br
-\fImname\fP The module name of the log entry to search for
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from \fBAELogParser::errorFromAELEI()\fP
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::errorFromAELEI()\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB75\fP of file \fBAELogParser\&.cpp\fP\&.
-.SS "\fBllint\fP AELogParser::nextEntryCursor (const \fBcint\fP severity = \fR\fBAELOG_TYPE_DEBUG\fP\fP, const bool strictSeverity = \fRfalse\fP, const std::string_view mname = \fR''\fP)\fR [inline]\fP"
-
-.PP
-Read the next indexed \fIvalid\fP log entry in the file of the given severity and module name filter, and return it's file cursors in the file\&. 
-.PP
-\fBNote\fP
-.RS 4
-The severity value just changes the lowest limit of the log severity (lowest by default is debug)\&. If a higher severity is encountered, it's read as well\&. 
-.PP
-AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&.
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIseverity\fP The lowest severity of the log to find
-.br
-\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
-.br
-\fImname\fP The module name of the log entry to search for
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The file cursors of the next valid entry (in the currently-opened log file); error codes from \fBAELogParser::errorFromAELEI()\fP
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::errorFromAELEI()\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB167\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBllint\fP AELogParser::nextEntryCursorName (const std::string_view mname)\fR [inline]\fP"
-
-.PP
-Read the next indexed \fIvalid\fP log entry in the file of the given module name filter, and return it's file cursors in the file\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::nextEntryCursor()\fP
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fImname\fP The module name of the log entry to search for
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The file cursors of the next valid entry (in the currently-opened log file); error codes from \fBAELogParser::errorFromAELEI()\fP
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::errorFromAELEI()\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB185\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBllint\fP AELogParser::nextEntryCursorType (const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP"
-
-.PP
-Read the next indexed \fIvalid\fP log entry in the file of the given severity filter and return it's file cursors in the file\&. 
-.PP
-\fBNote\fP
-.RS 4
-AELOG_TYPE_INVALID works the same as AELOG_TYPE_DEBUG\&. This function parses only \fIvalid\fP entries\&. 
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::nextEntryCursor()\fP
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIseverity\fP The lowest severity of the log to find
-.br
-\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The file cursors of the next valid entry (in the currently-opened log file); error codes from \fBAELogParser::errorFromAELEI()\fP
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::errorFromAELEI()\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB196\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::nextEntryName (\fBAELogEntry\fP & entry, const std::string_view mname)\fR [inline]\fP"
-
-.PP
-Read the next \fIvalid\fP entry in the log file of the given module name, and parse it into the given \fBAELogEntry\fP object\&. 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::nextEntry()\fP
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIentry\fP The log entry object to parse things into
-.br
-\fImname\fP The module name of the log entry to search for
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from \fBAELogParser::errorFromAELEI()\fP
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::errorFromAELEI()\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB142\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::nextEntryType (\fBAELogEntry\fP & entry, const \fBcint\fP severity, const bool strictSeverity = \fRfalse\fP)\fR [inline]\fP"
-
-.PP
-Read the next \fIvalid\fP entry in the log file of the given severity, and parse it to the given \fBAELogEntry\fP object\&. 
-.PP
-\fBSee also\fP
-.RS 4
-AELogEntry::nextEntry()
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIentry\fP The log entry object to parse things into
-.br
-\fIseverity\fP The lowest limit of severity of the log entry to look for
-.br
-\fIstrictSeverity\fP The flag to indicate whether the search for severity should be strict (exact)
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error; error codes from \fBAELogParser::errorFromAELEI()\fP
-.RE
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogParser::errorFromAELEI()\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB153\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "\fBcint\fP AELogParser::openLog (const std::string_view fname)"
-
-.PP
-Opens the log file, reading and parsing every single entry, classifying it by type\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfname\fP The name of the file to open
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR (0) on success, or AEFR_ERR_* (-1 to -8) or AELE_ERR_* (-11 to -15) flags on error
-.RE
-.PP
-
-.PP
-Definition at line \fB11\fP of file \fBAELogParser\&.cpp\fP\&.
-.SS "AELogParser::REGISTER_MODULE (\fBAELogParser\fP)\fR [private]\fP"
-
-.SS "\fBcint\fP AELogParser::setNextEntryIndex (const std::size_t entryIndex)\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Set the order number (index) of the next log entry to be parsed\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIentryIndex\fP The order number of the next entry
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-AELP_ERR_NOERROR on success; AEFR_ERR_READ_EOF if the value was larger than the (amount of valid parsed entries - 1); AEFR_ERR_FILE_NOT_OPEN if file wasn't open
-.RE
-.PP
-
-.PP
-Definition at line \fB222\fP of file \fBAELogParser\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "std::array<\fBullint\fP, 9> AELogParser::m_arrEntryAmount\fR [private]\fP"
-
-.PP
-The amount of log entries read in the file, separated by type/severity\&. 
-.PP
-Definition at line \fB552\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "\fBAEFileReader\fP AELogParser::m_frLogReader\fR [private]\fP"
 
 .PP
 The file reader of the opened log file\&. 
 .PP
 Definition at line \fB542\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::unordered_map< std::string, std::pair <\fBullint\fP, short> > AELogParser::m_mapModuleNames\fR [private]\fP"
-
-.PP
-The map of the all module names parsed in the log file\&. 
-.PP
-Definition at line \fB550\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::atomic<std::size_t> AELogParser::m_ullCurrentEntry\fR [private]\fP"
-
-.PP
-The number corresponding to the currently-read \fIvalid\fP entry in the log file\&. The maximum value corresponds to the size of m_vecEntryIndices 
-.PP
-Definition at line \fB555\fP of file \fBAELogParser\&.hpp\fP\&.
-.SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
-
-.PP
-Amount of alive module instances\&. 
-.PP
-Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "std::vector<\fBAELogEntryInfo\fP> AELogParser::m_vecEntryIndices\fR [private]\fP"
 
 .PP
@@ -1171,6 +1217,30 @@ Definition at line \fB545\fP of file \fBAELogParser\&.hpp\fP\&.
 The list of all indexed \fIinvalid\fP entries in the log file Each item contains their corresponding cursor position in the file\&. 
 .PP
 Definition at line \fB548\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::unordered_map< std::string, std::pair <\fBullint\fP, short> > AELogParser::m_mapModuleNames\fR [private]\fP"
+
+.PP
+The map of the all module names parsed in the log file\&. 
+.PP
+Definition at line \fB550\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::array<\fBullint\fP, 9> AELogParser::m_arrEntryAmount\fR [private]\fP"
+
+.PP
+The amount of log entries read in the file, separated by type/severity\&. 
+.PP
+Definition at line \fB552\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::atomic<std::size_t> AELogParser::m_ullCurrentEntry\fR [private]\fP"
+
+.PP
+The number corresponding to the currently-read \fIvalid\fP entry in the log file\&. The maximum value corresponds to the size of m_vecEntryIndices 
+.PP
+Definition at line \fB555\fP of file \fBAELogParser\&.hpp\fP\&.
+.SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+Amount of alive module instances\&. 
+.PP
+Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

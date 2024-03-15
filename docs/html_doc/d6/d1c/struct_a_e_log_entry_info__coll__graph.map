@@ -1,0 +1,9 @@
+<map id="AELogEntryInfo" name="AELogEntryInfo">
+<area shape="rect" id="Node000001" title="The struct that holds the information about the log entry, used by AELogParser." alt="" coords="88,96,199,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,79,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,45,69,70,86,83,105,93,102,98,83,88,65,74,48,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="118,5,169,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,48,146,95,141,95,141,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="226,5,279,32"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="244,48,225,74,206,88,185,98,183,93,203,83,221,70,240,44"/>
+</map>

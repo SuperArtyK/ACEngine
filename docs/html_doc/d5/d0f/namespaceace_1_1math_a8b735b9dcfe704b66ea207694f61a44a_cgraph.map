@@ -1,0 +1,7 @@
+<map id="ace::math::sinDeg_tableInterp" name="ace::math::sinDeg_tableInterp">
+<area shape="rect" id="Node000001" title="Calculates the interpolated sine value from the sine lookup table." alt="" coords="5,31,200,57"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="248,5,443,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,31,232,28,233,33,200,36"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="273,56,418,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,52,258,58,258,63,200,57"/>
+</map>

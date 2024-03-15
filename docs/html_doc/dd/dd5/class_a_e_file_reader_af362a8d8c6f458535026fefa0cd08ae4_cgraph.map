@@ -1,0 +1,6 @@
+<map id="AEFileReader::readStringNL" name="AEFileReader::readStringNL">
+<area shape="rect" id="Node000001" title="Reads the characters to a std::vector&lt;char&gt; untill a newline (included), or untill the maximum charac..." alt="" coords="5,29,190,56"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a391b5815b099e3d347a4d758a92e3295" title="Reads the characters to a std::string untill a newline (included), or untill the maximum character am..." alt="" coords="238,29,422,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,40,222,40,222,45,190,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="291,31,284,21,289,11,304,5,330,3,358,5,372,12,370,17,357,10,330,8,305,10,292,15,289,20,295,27"/>
+</map>

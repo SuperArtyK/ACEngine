@@ -1,0 +1,31 @@
+<map id="AELogEntry::clearEntry" name="AELogEntry::clearEntry">
+<area shape="rect" id="Node000001" title="Clears the current entry and sets its values to zero/invalid." alt="" coords="962,119,1120,145"/>
+<area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a5938787b6933f4b96ebff10643bd2497" title="The function of the log writing thread to...read the entries, format them, write them,..." alt="" coords="727,81,904,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="946,119,900,111,900,106,947,114"/>
+<area shape="rect" id="Node000008" href="$da/dea/struct_a_e_log_entry.html#a7e8aa04faf251d62a79baab9e2cc531a" title="Parses a given string as a log entry, and write it into passed entry object." alt="" coords="717,144,914,171"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="947,145,915,149,914,144,946,140"/>
+<area shape="rect" id="Node000003" href="$d8/dfc/class_a_e_logger.html#a284034896688215f7e87242764c5985d" title="Starts the log&#45;writing thread." alt="" coords="515,56,662,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="711,86,662,80,663,75,712,80"/>
+<area shape="rect" id="Node000004" href="$d8/dfc/class_a_e_logger.html#a134f36542cb09532588436c53df9653d" title="Class constructor – it opens the file with the given path and name and start logging to it." alt="" coords="289,5,433,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="509,55,423,35,425,30,511,49"/>
+<area shape="rect" id="Node000005" href="$d8/dfc/class_a_e_logger.html#a53b588f9874535299d612a4c71de9950" title="Open the file to start logging." alt="" coords="293,56,429,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="499,72,429,72,429,67,499,67"/>
+<area shape="rect" id="Node000006" href="$d8/dfc/class_a_e_logger.html#ac8f55a9e3c92557ea3d92974093ff6fb" title="Open the file to start logging." alt="" coords="42,5,178,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="277,55,177,35,179,30,279,50"/>
+<area shape="rect" id="Node000007" href="$d8/dfc/class_a_e_logger.html#acbfddb2d8f459f32ce58d7c06cc2ddaa" title="Open the file to start logging." alt="" coords="42,56,178,83"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="278,72,178,72,178,67,278,67"/>
+<area shape="rect" id="Node000009" href="$d8/d52/class_a_e_log_parser.html#af3c28f50c5f52840be97e631d67b244c" title="Read the next valid entry in the log file of the given severity and module name filter,..." alt="" coords="507,144,669,171"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="702,160,670,160,670,155,702,155"/>
+<area shape="rect" id="Node000015" href="$d8/d52/class_a_e_log_parser.html#a8e90913ac25c938e2e84a9887c5bae66" title="Opens the log file, reading and parsing every single entry, classifying it by type." alt="" coords="511,195,666,221"/>
+<area shape="poly" id="edge14_Node000008_Node000015" title=" " alt="" coords="738,177,652,197,651,191,737,172"/>
+<area shape="rect" id="Node000010" href="$d8/d52/class_a_e_log_parser.html#a182d51b4aa5771e2e6f6919300e571ca" title="Same as the AELogParser::nextEntry() but on massive scale – scans the whole log file and parses it to..." alt="" coords="273,107,449,133"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="491,144,446,137,447,131,492,139"/>
+<area shape="rect" id="Node000013" href="$d8/d52/class_a_e_log_parser.html#a768d4b94cbf1504d72f93ec5d131e915" title="Read the next valid entry in the log file of the given module name, and parse it into the given AELog..." alt="" coords="263,157,459,184"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="491,166,460,168,459,162,491,160"/>
+<area shape="rect" id="Node000014" href="$d8/d52/class_a_e_log_parser.html#a0e03f67c2a0eaa0317904a2bd9f70cc0" title="Read the next valid entry in the log file of the given severity, and parse it to the given AELogEntry..." alt="" coords="266,208,456,235"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="529,178,460,199,418,210,416,205,458,193,527,173"/>
+<area shape="rect" id="Node000011" href="$d8/d52/class_a_e_log_parser.html#ae5044cf01623156d91ddc74492b0aeda" title="A shortcut to AELogParser::logToQueue() to filter only by the module name of the log entries." alt="" coords="5,107,215,133"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="258,123,215,123,215,117,258,117"/>
+<area shape="rect" id="Node000012" href="$d8/d52/class_a_e_log_parser.html#ab84bb93f08ed48082f74b00290deb308" title="A shortcut to AELogParser::logToQueue() to filter only by type/severity of the log entries." alt="" coords="8,157,212,184"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="277,140,180,159,179,154,275,134"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="AEFileWriter::writeBool" name="AEFileWriter::writeBool">
+<area shape="rect" id="Node000001" title="Writes the boolean to file as text (true/false)." alt="" coords="5,31,162,57"/>
+<area shape="rect" id="Node000002" href="$de/dde/namespaceace_1_1utils.html#a92c0e612fd746483b4a54325c11526ad" title="Converts bool to string (word versions)." alt="" coords="215,5,369,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,32,199,27,200,33,162,37"/>
+<area shape="rect" id="Node000003" href="$db/d15/class_a_e_file_writer.html#a82c2ff80c34bc34745d1b49311384dc7" title="Write std::string, as is, to file, and flush if necessary." alt="" coords="210,56,374,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,51,194,55,194,60,162,56"/>
+<area shape="rect" id="Node000004" href="$db/d15/class_a_e_file_writer.html#a01d537821c5760615e126f1c159b67da" title="Write binary data, as is, to file, and flush if necessary." alt="" coords="422,56,601,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,67,406,67,406,72,375,72"/>
+</map>

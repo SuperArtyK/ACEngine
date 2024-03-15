@@ -108,6 +108,13 @@ $(function(){initNavTree('dc/df6/struct_a_e_vector.html','../../'); initResizabl
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for AEVector&lt; T, dimAmount, &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d4f/struct_a_e_vector__coll__graph.svg" width="198" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -283,8 +290,1204 @@ struct AEVector&lt; T, dimAmount, &gt;</div><p>The ArtyK's Engine's mathematical
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a91924bfd79e8f848e29f92fd3662be78" name="a91924bfd79e8f848e29f92fd3662be78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91924bfd79e8f848e29f92fd3662be78">&#9670;&#160;</a></span>angleBetweenDeg()</h2>
+<a id="a00624a59ca3027f8e4a0f48d6ea9cf91" name="a00624a59ca3027f8e4a0f48d6ea9cf91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00624a59ca3027f8e4a0f48d6ea9cf91">&#9670;&#160;</a></span>zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::zero </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the zeroed vector (of given dimensions and type) </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of values of the vector in brackets</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a09e77adec6ccd1a72b52e36cf5d44c7f" name="a09e77adec6ccd1a72b52e36cf5d44c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e77adec6ccd1a72b52e36cf5d44c7f">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The [] operator for ease of use and wrap functionality. </p>
+<dl class="section note"><dt>Note</dt><dd>If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the dimension</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the dimension pointed by index</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/df6/struct_a_e_vector_a09e77adec6ccd1a72b52e36cf5d44c7f_icgraph.svg" width="336" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abe204d173c707942fa5915ace1760e17" name="abe204d173c707942fa5915ace1760e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe204d173c707942fa5915ace1760e17">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const T &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The [] operator for ease of use and wrap functionality. </p>
+<dl class="section note"><dt>Note</dt><dd>If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the dimension</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Constant reference to the dimension pointed by index</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a364eed764cbc01c97a7afc39478069e9" name="a364eed764cbc01c97a7afc39478069e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364eed764cbc01c97a7afc39478069e9">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The equality comparison operator &ndash; compare "this" and another vector. </p>
+<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile)</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector, normally same as T</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the vectors are equal, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a8a17f3c6a500716c743a33d43411a593" name="a8a17f3c6a500716c743a33d43411a593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a17f3c6a500716c743a33d43411a593">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The inequality comparison operator &ndash; compare "this" and another vector. </p>
+<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile)</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the vectors are not equal, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3c1c48aded55443ea18a1be2add90176" name="a3c1c48aded55443ea18a1be2add90176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1c48aded55443ea18a1be2add90176">&#9670;&#160;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The addition-assignment operator &ndash; add another vector to "this". </p>
+<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile) </dd>
+<dd>
+The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00120">120</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a3dd280e7eeda51e6ed990b21726bde79" name="a3dd280e7eeda51e6ed990b21726bde79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd280e7eeda51e6ed990b21726bde79">&#9670;&#160;</a></span>operator+() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The addition operator &ndash; add "this" and another vector. </p>
+<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile) </dd>
+<dd>
+The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a22a7187f191de1a243b92cca9d037b0f" name="a22a7187f191de1a243b92cca9d037b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a7187f191de1a243b92cca9d037b0f">&#9670;&#160;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y &gt; <br />
+requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The addition-assignment operator &ndash; add the scalar number to "this". </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a8029e81237ac6ecbbd4a5e360ef0e2da" name="a8029e81237ac6ecbbd4a5e360ef0e2da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8029e81237ac6ecbbd4a5e360ef0e2da">&#9670;&#160;</a></span>operator+() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y &gt; <br />
+requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The addition operator &ndash; add the scalar number and "this" together. </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00165">165</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6043e1cf22a02737cd2ea5334695cadd" name="a6043e1cf22a02737cd2ea5334695cadd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6043e1cf22a02737cd2ea5334695cadd">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The subtraction-assignment operator &ndash; subtract another vector from "this". </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00179">179</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="ae02b785dc3d5841909c4ec2a830324cc" name="ae02b785dc3d5841909c4ec2a830324cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02b785dc3d5841909c4ec2a830324cc">&#9670;&#160;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The subtraction operator &ndash; subtract "this" and another vector. </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00194">194</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a31792eab7db99c28d103710cf89d0139" name="a31792eab7db99c28d103710cf89d0139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31792eab7db99c28d103710cf89d0139">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double, typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The multiplication operator &ndash; calculate the dot product of "this" and another vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the dot product of the type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00207">207</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aca2823afa8886f4a6e08a6129353cb88" name="aca2823afa8886f4a6e08a6129353cb88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2823afa8886f4a6e08a6129353cb88">&#9670;&#160;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y &gt; <br />
+requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The multiplication-assignment operator &ndash; multiply "this" by a scalar. </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00219">219</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="ac628e8b8d8e05fba3a83154eba6d3552" name="ac628e8b8d8e05fba3a83154eba6d3552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac628e8b8d8e05fba3a83154eba6d3552">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y &gt; <br />
+requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The multiplication operator &ndash; multiply "this" and a scalar. </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00235">235</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a67878978ec7f82d6df4eba5ecca79f65" name="a67878978ec7f82d6df4eba5ecca79f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67878978ec7f82d6df4eba5ecca79f65">&#9670;&#160;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y &gt; <br />
+requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The division-assignment operator &ndash; divide "this" by a scalar. </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00249">249</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a8ca6f420c817aafe2c90a60f76d3cd72" name="a8ca6f420c817aafe2c90a60f76d3cd72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ca6f420c817aafe2c90a60f76d3cd72">&#9670;&#160;</a></span>operator/()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename Y &gt; <br />
+requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The division operator &ndash; divide "this" and a scalar". </p>
+<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00265">265</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2e8a05e8e13e783e37090debdb7f20a8" name="a2e8a05e8e13e783e37090debdb7f20a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e8a05e8e13e783e37090debdb7f20a8">&#9670;&#160;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unary negation operator &ndash; returns a copy "this" but negative. </p>
+<dl class="section note"><dt>Note</dt><dd>The if the value is of unsigned type &ndash; underflow will happen</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Negated copy of "this" vector</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a379e9eeefca5af346bb1f69c473386fa" name="a379e9eeefca5af346bb1f69c473386fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a379e9eeefca5af346bb1f69c473386fa">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::toString </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the vector to std::string, of format [a, b, c, ...]. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string of values of the vector in brackets</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a5212eb2105f3b8e3e47c5ee0af26bbb5" name="a5212eb2105f3b8e3e47c5ee0af26bbb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5212eb2105f3b8e3e47c5ee0af26bbb5">&#9670;&#160;</a></span>magnitudeSquared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::magnitudeSquared </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the squared magnitude/length of the vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type to calculate the magnitude with</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The magnitude of the vector as the type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00328">328</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af2d0e49c52717326d47d4a0f0e012ccd" name="af2d0e49c52717326d47d4a0f0e012ccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d0e49c52717326d47d4a0f0e012ccd">&#9670;&#160;</a></span>magnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::magnitude </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the magnitude/length of the vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type to calculate the magnitude with</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The magnitude of the vector as the type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00338">338</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa20f0d897b1c222e20275277b728086d" name="aa20f0d897b1c222e20275277b728086d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa20f0d897b1c222e20275277b728086d">&#9670;&#160;</a></span>normDim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double&gt; <br />
+requires (std::is_floating_point&lt;F&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::normDim </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the normalised value of the given dimension. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The float type to calculate it all with</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the dimension</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalised value of the dimension as the type float F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00349">349</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#a09e77adec6ccd1a72b52e36cf5d44c7f">AEVector&lt; T, dimAmount, &gt;::operator[]()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/df6/struct_a_e_vector_aa20f0d897b1c222e20275277b728086d_cgraph.svg" width="336" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9163110c090c8df233dd552db6adcb03" name="a9163110c090c8df233dd552db6adcb03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9163110c090c8df233dd552db6adcb03">&#9670;&#160;</a></span>normalise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double&gt; <br />
+requires (std::is_floating_point&lt;F&gt;::value == true)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; F, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::normalise </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the normalised vector from the current vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The float type of the resulting normalised vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalised vector of float type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00359">359</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a89e70919f4b1394a11e89b4bf18e31e9" name="a89e70919f4b1394a11e89b4bf18e31e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89e70919f4b1394a11e89b4bf18e31e9">&#9670;&#160;</a></span>dotProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double, typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::dotProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate the dot product of "this" and another vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the dot product of the type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00378">378</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a2d174157454907f0bf50ed49652055db" name="a2d174157454907f0bf50ed49652055db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d174157454907f0bf50ed49652055db">&#9670;&#160;</a></span>distanceBetweenSquared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double, typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::distanceBetweenSquared </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate the squared distance between "this" and another vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the resulting operation as type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00394">394</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="adcb3702eaebe686418347557a190cb88" name="adcb3702eaebe686418347557a190cb88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcb3702eaebe686418347557a190cb88">&#9670;&#160;</a></span>distanceBetween()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double, typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::distanceBetween </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate the distance between "this" and another vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the resulting operation as type F</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00406">406</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7b5b6905cb99a63c04f7ff2829c3303a" name="a7b5b6905cb99a63c04f7ff2829c3303a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5b6905cb99a63c04f7ff2829c3303a">&#9670;&#160;</a></span>crossProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = T, typename Y  = T&gt; <br />
+requires (dimAmount == 3)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; F, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::crossProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate the cross product of "this" and the given vector. </p>
+<dl class="section note"><dt>Note</dt><dd>Only works for 3d vectors!</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The dimension type of the resulting vector</td></tr>
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector of the type F after the cross product operation</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00419">419</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>.</p>
+
+</div>
+</div>
+<a id="a9b97edffb9406911d8f7a09e9ba205e7" name="a9b97edffb9406911d8f7a09e9ba205e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b97edffb9406911d8f7a09e9ba205e7">&#9670;&#160;</a></span>cosAngleBetween()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,7 +1501,7 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::angleBetweenDeg </td>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::cosAngleBetween </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
           <td> const</td>
@@ -306,17 +1509,15 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculate the angle between the vectors as degrees. </p>
-<dl class="section note"><dt>Note</dt><dd>This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!) </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000012">Todo</a></b></dt><dd>Change this function to constexpr once the constexpr solution appears </dd></dl>
+<p>Calculates the cosine value of the angle between "this" and given vector. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">F</td><td>The float type to calculate this as</td></tr>
+    <tr><td class="paramname">F</td><td>The float type of the resulting scalar</td></tr>
     <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
   </table>
   </dd>
@@ -327,9 +1528,9 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Angle between the current and given vector in degrees, as float type F</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting angle of float type F after the operation</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00464">464</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00435">435</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -383,8 +1584,8 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
 
 </div>
 </div>
-<a id="a9b97edffb9406911d8f7a09e9ba205e7" name="a9b97edffb9406911d8f7a09e9ba205e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b97edffb9406911d8f7a09e9ba205e7">&#9670;&#160;</a></span>cosAngleBetween()</h2>
+<a id="a91924bfd79e8f848e29f92fd3662be78" name="a91924bfd79e8f848e29f92fd3662be78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91924bfd79e8f848e29f92fd3662be78">&#9670;&#160;</a></span>angleBetweenDeg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +1599,7 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::cosAngleBetween </td>
+          <td class="memname">F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::angleBetweenDeg </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
           <td> const</td>
@@ -406,15 +1607,17 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the cosine value of the angle between "this" and given vector. </p>
+<p>Calculate the angle between the vectors as degrees. </p>
+<dl class="section note"><dt>Note</dt><dd>This function isn't constexpr, since trigonometric calculations are not constexpr untill C++26 (god damn it committee!) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000012">Todo</a></b></dt><dd>Change this function to constexpr once the constexpr solution appears </dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">F</td><td>The float type of the resulting scalar</td></tr>
+    <tr><td class="paramname">F</td><td>The float type to calculate this as</td></tr>
     <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
   </table>
   </dd>
@@ -425,246 +1628,18 @@ requires (std::is_floating_point&lt;F&gt;::value == true)</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting angle of float type F after the operation</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Angle between the current and given vector in degrees, as float type F</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00435">435</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00464">464</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
+<p class="reference">References <a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a368a7c4b20718dbf45bd3b0b144ec216">ace::math::toDeg()</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/df6/struct_a_e_vector_a91924bfd79e8f848e29f92fd3662be78_cgraph.svg" width="370" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="a7b5b6905cb99a63c04f7ff2829c3303a" name="a7b5b6905cb99a63c04f7ff2829c3303a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b5b6905cb99a63c04f7ff2829c3303a">&#9670;&#160;</a></span>crossProduct()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = T, typename Y  = T&gt; <br />
-requires (dimAmount == 3)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; F, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::crossProduct </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculate the cross product of "this" and the given vector. </p>
-<dl class="section note"><dt>Note</dt><dd>Only works for 3d vectors!</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The dimension type of the resulting vector</td></tr>
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting vector of the type F after the cross product operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00419">419</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="adcb3702eaebe686418347557a190cb88" name="adcb3702eaebe686418347557a190cb88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcb3702eaebe686418347557a190cb88">&#9670;&#160;</a></span>distanceBetween()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double, typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::distanceBetween </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculate the distance between "this" and another vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the resulting operation as type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00406">406</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2d174157454907f0bf50ed49652055db" name="a2d174157454907f0bf50ed49652055db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d174157454907f0bf50ed49652055db">&#9670;&#160;</a></span>distanceBetweenSquared()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double, typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::distanceBetweenSquared </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculate the squared distance between "this" and another vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the resulting operation as type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00394">394</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a89e70919f4b1394a11e89b4bf18e31e9" name="a89e70919f4b1394a11e89b4bf18e31e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89e70919f4b1394a11e89b4bf18e31e9">&#9670;&#160;</a></span>dotProduct()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double, typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::dotProduct </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculate the dot product of "this" and another vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the dot product of the type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00378">378</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abcd64b066b52155a3c2ee9548176ca10" name="abcd64b066b52155a3c2ee9548176ca10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcd64b066b52155a3c2ee9548176ca10">&#9670;&#160;</a></span>isCollinear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double, typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::isCollinear </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if "this" and given vector are collinear (parallel), by comparing their dot product to product of their magnitudes. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type to use in comparison</td></tr>
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if they are collinear to each other, false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00489">489</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -715,223 +1690,8 @@ template&lt;typename F  = long double, typename Y  = T&gt; </div>
 
 </div>
 </div>
-<a id="af2d0e49c52717326d47d4a0f0e012ccd" name="af2d0e49c52717326d47d4a0f0e012ccd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2d0e49c52717326d47d4a0f0e012ccd">&#9670;&#160;</a></span>magnitude()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::magnitude </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the magnitude/length of the vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type to calculate the magnitude with</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The magnitude of the vector as the type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00338">338</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5212eb2105f3b8e3e47c5ee0af26bbb5" name="a5212eb2105f3b8e3e47c5ee0af26bbb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5212eb2105f3b8e3e47c5ee0af26bbb5">&#9670;&#160;</a></span>magnitudeSquared()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::magnitudeSquared </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the squared magnitude/length of the vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type to calculate the magnitude with</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The magnitude of the vector as the type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00328">328</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9163110c090c8df233dd552db6adcb03" name="a9163110c090c8df233dd552db6adcb03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9163110c090c8df233dd552db6adcb03">&#9670;&#160;</a></span>normalise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double&gt; <br />
-requires (std::is_floating_point&lt;F&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; F, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::normalise </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the normalised vector from the current vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The float type of the resulting normalised vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The normalised vector of float type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00359">359</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa20f0d897b1c222e20275277b728086d" name="aa20f0d897b1c222e20275277b728086d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa20f0d897b1c222e20275277b728086d">&#9670;&#160;</a></span>normDim()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double&gt; <br />
-requires (std::is_floating_point&lt;F&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::normDim </td>
-          <td>(</td>
-          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the normalised value of the given dimension. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The float type to calculate it all with</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>The index of the dimension</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The normalised value of the dimension as the type float F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00349">349</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8a17f3c6a500716c743a33d43411a593" name="a8a17f3c6a500716c743a33d43411a593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a17f3c6a500716c743a33d43411a593">&#9670;&#160;</a></span>operator!=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The inequality comparison operator &ndash; compare "this" and another vector. </p>
-<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile)</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the vectors are not equal, false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a31792eab7db99c28d103710cf89d0139" name="a31792eab7db99c28d103710cf89d0139"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31792eab7db99c28d103710cf89d0139">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+<a id="abcd64b066b52155a3c2ee9548176ca10" name="abcd64b066b52155a3c2ee9548176ca10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd64b066b52155a3c2ee9548176ca10">&#9670;&#160;</a></span>isCollinear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -944,7 +1704,7 @@ template&lt;typename F  = long double, typename Y  = T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator* </td>
+          <td class="memname">constexpr bool <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::isCollinear </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
           <td> const</td>
@@ -957,7 +1717,54 @@ template&lt;typename F  = long double, typename Y  = T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>The multiplication operator &ndash; calculate the dot product of "this" and another vector. </p>
+<p>Checks if "this" and given vector are collinear (parallel), by comparing their dot product to product of their magnitudes. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">F</td><td>The type to use in comparison</td></tr>
+    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">two</td><td>The second vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if they are collinear to each other, false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00489">489</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab82c46f01f75dc8b556e8cb13c12a85e" name="ab82c46f01f75dc8b556e8cb13c12a85e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab82c46f01f75dc8b556e8cb13c12a85e">&#9670;&#160;</a></span>projectOnVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
+<div class="memtemplate">
+template&lt;typename F  = long double, typename Y  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::projectOnVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the projection of the given vector onto "this" vector. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
@@ -971,647 +1778,9 @@ template&lt;typename F  = long double, typename Y  = T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the dot product of the type F</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the projection as type F</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00207">207</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac628e8b8d8e05fba3a83154eba6d3552" name="ac628e8b8d8e05fba3a83154eba6d3552"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac628e8b8d8e05fba3a83154eba6d3552">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y &gt; <br />
-requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator* </td>
-          <td>(</td>
-          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The multiplication operator &ndash; multiply "this" and a scalar. </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00235">235</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aca2823afa8886f4a6e08a6129353cb88" name="aca2823afa8886f4a6e08a6129353cb88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca2823afa8886f4a6e08a6129353cb88">&#9670;&#160;</a></span>operator*=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y &gt; <br />
-requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator*= </td>
-          <td>(</td>
-          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The multiplication-assignment operator &ndash; multiply "this" by a scalar. </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00219">219</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3dd280e7eeda51e6ed990b21726bde79" name="a3dd280e7eeda51e6ed990b21726bde79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dd280e7eeda51e6ed990b21726bde79">&#9670;&#160;</a></span>operator+() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The addition operator &ndash; add "this" and another vector. </p>
-<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile) </dd>
-<dd>
-The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8029e81237ac6ecbbd4a5e360ef0e2da" name="a8029e81237ac6ecbbd4a5e360ef0e2da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8029e81237ac6ecbbd4a5e360ef0e2da">&#9670;&#160;</a></span>operator+() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y &gt; <br />
-requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The addition operator &ndash; add the scalar number and "this" together. </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00165">165</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3c1c48aded55443ea18a1be2add90176" name="a3c1c48aded55443ea18a1be2add90176"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c1c48aded55443ea18a1be2add90176">&#9670;&#160;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The addition-assignment operator &ndash; add another vector to "this". </p>
-<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile) </dd>
-<dd>
-The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00120">120</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a22a7187f191de1a243b92cca9d037b0f" name="a22a7187f191de1a243b92cca9d037b0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22a7187f191de1a243b92cca9d037b0f">&#9670;&#160;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y &gt; <br />
-requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator+= </td>
-          <td>(</td>
-          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The addition-assignment operator &ndash; add the scalar number to "this". </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae02b785dc3d5841909c4ec2a830324cc" name="ae02b785dc3d5841909c4ec2a830324cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae02b785dc3d5841909c4ec2a830324cc">&#9670;&#160;</a></span>operator-() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The subtraction operator &ndash; subtract "this" and another vector. </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00194">194</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2e8a05e8e13e783e37090debdb7f20a8" name="a2e8a05e8e13e783e37090debdb7f20a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e8a05e8e13e783e37090debdb7f20a8">&#9670;&#160;</a></span>operator-() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator- </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Unary negation operator &ndash; returns a copy "this" but negative. </p>
-<dl class="section note"><dt>Note</dt><dd>The if the value is of unsigned type &ndash; underflow will happen</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Negated copy of "this" vector</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6043e1cf22a02737cd2ea5334695cadd" name="a6043e1cf22a02737cd2ea5334695cadd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6043e1cf22a02737cd2ea5334695cadd">&#9670;&#160;</a></span>operator-=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator-= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The subtraction-assignment operator &ndash; subtract another vector from "this". </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00179">179</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8ca6f420c817aafe2c90a60f76d3cd72" name="a8ca6f420c817aafe2c90a60f76d3cd72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ca6f420c817aafe2c90a60f76d3cd72">&#9670;&#160;</a></span>operator/()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y &gt; <br />
-requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator/ </td>
-          <td>(</td>
-          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The division operator &ndash; divide "this" and a scalar". </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00265">265</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a67878978ec7f82d6df4eba5ecca79f65" name="a67878978ec7f82d6df4eba5ecca79f65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67878978ec7f82d6df4eba5ecca79f65">&#9670;&#160;</a></span>operator/=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y &gt; <br />
-requires (std::is_arithmetic&lt;T&gt;::value == true)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator/= </td>
-          <td>(</td>
-          <td class="paramtype">const Y</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The division-assignment operator &ndash; divide "this" by a scalar. </p>
-<dl class="section note"><dt>Note</dt><dd>The final value will be of "this" vector's type! So all the rounding and overflow issues &ndash; your problem now</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The arithmetic type of the scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The scalar number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reference to the resulting vector after the operation</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00249">249</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a364eed764cbc01c97a7afc39478069e9" name="a364eed764cbc01c97a7afc39478069e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a364eed764cbc01c97a7afc39478069e9">&#9670;&#160;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The equality comparison operator &ndash; compare "this" and another vector. </p>
-<dl class="section note"><dt>Note</dt><dd>The second vector must have the same amount of dimensions (to even compile)</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector, normally same as T</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the vectors are equal, false otherwise</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abe204d173c707942fa5915ace1760e17" name="abe204d173c707942fa5915ace1760e17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe204d173c707942fa5915ace1760e17">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const T &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The [] operator for ease of use and wrap functionality. </p>
-<dl class="section note"><dt>Note</dt><dd>If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>The index of the dimension</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Constant reference to the dimension pointed by index</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a09e77adec6ccd1a72b52e36cf5d44c7f" name="a09e77adec6ccd1a72b52e36cf5d44c7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09e77adec6ccd1a72b52e36cf5d44c7f">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr T &amp; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The [] operator for ease of use and wrap functionality. </p>
-<dl class="section note"><dt>Note</dt><dd>If the AEVEC_WRAP_DIMENSIONS is defined, then the index is wrapped around the dimension amount. Example: index 12 in 5-dimensional vector will be wrapped to get the item at index 2</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>The index of the dimension</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the dimension pointed by index</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00501">501</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -1700,116 +1869,14 @@ If the vector type is an integer type, then the calls to <a class="el" href="#a8
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00527">527</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
+<p class="reference">References <a class="el" href="#abbe1eb45f7006c94edf39a186899145f">AEVector&lt; T, dimAmount, &gt;::dims</a>, and <a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a934ea1d09debbfd89edc14bd99c2f665">ace::math::sqrt()</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/df6/struct_a_e_vector_a4fbe00c7ab3e00bc2cd62b9c3414679c_cgraph.svg" width="556" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="ab82c46f01f75dc8b556e8cb13c12a85e" name="ab82c46f01f75dc8b556e8cb13c12a85e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab82c46f01f75dc8b556e8cb13c12a85e">&#9670;&#160;</a></span>projectOnVector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<div class="memtemplate">
-template&lt;typename F  = long double, typename Y  = T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr F <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::projectOnVector </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; Y, dimAmount &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>two</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the projection of the given vector onto "this" vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>The type of the resulting scalar</td></tr>
-    <tr><td class="paramname">Y</td><td>The dimension type in the second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">two</td><td>The second vector</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The length of the projection as type F</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00501">501</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a379e9eeefca5af346bb1f69c473386fa" name="a379e9eeefca5af346bb1f69c473386fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a379e9eeefca5af346bb1f69c473386fa">&#9670;&#160;</a></span>toString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::toString </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the vector to std::string, of format [a, b, c, ...]. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of values of the vector in brackets</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a00624a59ca3027f8e4a0f48d6ea9cf91" name="a00624a59ca3027f8e4a0f48d6ea9cf91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00624a59ca3027f8e4a0f48d6ea9cf91">&#9670;&#160;</a></span>zero()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, bool &gt;  = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount &gt; <a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a>&lt; T, dimAmount, &gt;::zero </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the zeroed vector (of given dimensions and type) </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string of values of the vector in brackets</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html#l00041">41</a> of file <a class="el" href="../../d7/d09/_a_e_vector_8hpp_source.html">AEVector.hpp</a>.</p>
 
 </div>
 </div>
@@ -1894,7 +1961,7 @@ template&lt;typename T , const std::size_t dimAmount, std::enable_if_t&lt; std::
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/df6/struct_a_e_vector.html">AEVector</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

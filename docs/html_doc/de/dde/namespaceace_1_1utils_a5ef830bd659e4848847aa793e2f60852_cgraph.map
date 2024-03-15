@@ -1,0 +1,5 @@
+<map id="ace::utils::getCurrentDate" name="ace::utils::getCurrentDate">
+<area shape="rect" id="Node000001" title="Formats the current date and time as YYYY&#45;MM&#45;DD.HH:mm:SS." alt="" coords="5,5,175,32"/>
+<area shape="rect" id="Node000002" href="$de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY&#45;MM&#45;DD.HH:mm:SS string**." alt="" coords="223,5,368,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,16,207,16,207,21,175,21"/>
+</map>

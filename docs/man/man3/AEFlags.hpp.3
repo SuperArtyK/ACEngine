@@ -1,8 +1,9 @@
-.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEFlags.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEMisc/include/AEFlags.hpp
+AEMisc/include/AEFlags.hpp \- This file contains the \fBflags to manipulate engine's funcitonality\fP\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,164 +13,159 @@ AEMisc/include/AEFlags.hpp
 .ti -1c
 .RI "#define \fBENGINE_DEBUG\fP   1"
 .br
-.RI "Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. "
+.RI "Macro to enable the \fBdebug-marked features\fP of the engine\&. "
 .ti -1c
 .RI "#define \fBENGINE_FPS\fP   60\&.0"
 .br
-.RI "Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)\&. "
+.RI "Macro for the engine's \fBdefault delay\fP in frames/ticks per second (used in \fBAEFrame\fP and \fBAETimer\fP)\&. "
 .ti -1c
 .RI "#define \fBENGINE_ENABLE_GLOBAL_MODULES\fP   1"
 .br
-.RI "Macro to enable the engine's global modules (like timer, logger, etc) "
+.RI "Macro to enable the engine's \fBglobal modules\fP (like \fBAETimer\fP, \fBAELogger\fP, etc)\&. "
 .ti -1c
 .RI "#define \fBENGINE_ENABLE_ASSERT\fP   1"
 .br
-.RI "Macro to enable the engine's assert code\&. "
+.RI "Macro to enable the engine's \fBassert code\fP "
 .ti -1c
 .RI "#define \fBENGINE_ENABLE_MATH_LOOKUP\fP   1"
 .br
-.RI "Macro to enable the engine's trigonometry lookup code\&. "
+.RI "Macro to enable the engine's \fBtrigonometry lookup tables and code\fP\&. "
 .ti -1c
-.RI "#define \fBAEFW_AUTOFLUSH_ENABLE\fP"
+.RI "#define \fBAEFW_AUTOFLUSH_ENABLE\fP   1"
 .br
-.RI "Macro to enable the auto-flushing mechanism\&. "
+.RI "Macro to enable the \fBAEFileWriter\fP's \fBauto-flushing mechanism\fP\&. "
 .ti -1c
 .RI "#define \fBAEFW_DEFAULT_AUTOFLUSH\fP   true"
 .br
-.RI "Macro for the default 'use auto-flush' argument value\&. "
+.RI "Macro for the \fBAEFileWriter\fP's \fBdefault auto-flushing action\fP (default argument in file-writing functions)\&. "
 .ti -1c
 .RI "#define \fBAEFW_DEFAULT_AUTOFLUSH_INTERVAL\fP   (\fBullint\fP)\-1"
 .br
-.RI "Macro for the default auto-flush trigger value\&. "
+.RI "Macro for the \fBAEFileWriter\fP's \fBdefault value to trigger auto-flushing\fP\&. "
 .ti -1c
-.RI "#define \fBAELOG_DEFAULT_QUEUE_SIZE\fP   2048"
+.RI "#define \fBAELOG_DEFAULT_QUEUE_SIZE\fP   (\fBullint\fP)2048"
 .br
-.RI "Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. "
+.RI "Macro for the \fBAELogger\fP's \fBdefault queue size\fP "
 .ti -1c
 .RI "#define \fBAELOG_DEFAULT_MODULE_NAME\fP   'ACEngine'"
 .br
-.RI "Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. "
+.RI "Macro for the \fBAELogger\fP's \fBdefault module/log invoker name\fP "
 .ti -1c
 .RI "#define \fBAELOG_DEFAULT_ALLOC_VECTOR_RESERVE\fP   32"
 .br
-.RI "Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. "
+.RI "Macro for the \fBAELogger\fP's \fBdefault reserve amount of the allocation vector\fP (which stores all queue pointers)\&. "
 .ti -1c
 .RI "#define \fBAELOG_DEFAULT_LOG_PATH\fP   '\&./logs/'"
 .br
-.RI "Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. "
+.RI "Macro for the \fBAELogger\fP's \fBdefault log file path\fP "
 .ti -1c
 .RI "#define \fBAELE_MESSAGE_SIZE\fP   511"
 .br
-.RI "The size of the \fBAELogEntry\fP message in characters (excluding null termination) "
+.RI "The size of the \fBAELogEntry\fP's \fBmessage in characters\fP (excluding null termination) "
 .ti -1c
 .RI "#define \fBAELE_MODULENAME_SIZE\fP   31"
 .br
-.RI "The size of the \fBAELogEntry\fP module name in characters (excluding null termination) "
+.RI "The size of the \fBAELogEntry\fP's \fBmodule name in characters\fP (excluding null termination) "
 .ti -1c
 .RI "#define \fBAEVEC_WRAP_DIMENSIONS\fP   1"
 .br
-.RI "A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. "
+.RI "A macro for the \fBAEVector::operator[]\fP to \fBwrap dimension index around\fP if the index is bigger than the dimension amount\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains engine flags that are used to alter it's code and behaviour\&.
+This file contains the \fBflags to manipulate engine's funcitonality\fP\&. 
+
+This is the only file, where you, the programmer, are welcome to modify stuff to your needs, unless you know your way around the engine and stuff\&.
 .PP
-Should not cause everything to break :) 
+But if you do, \fByou're welcome to help me in its development too ;)\fP
+.PP
+\fBDate\fP
+.RS 4
+2023-2024
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Artemii Kozhemiak (SuperArtyK)
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MIT License
+.RE
+.PP
+\fIShould not cause everything to break :)\fP 
 .PP
 Definition in file \fBAEFlags\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define AEFW_AUTOFLUSH_ENABLE"
-
-.PP
-Macro to enable the auto-flushing mechanism\&. 
-.PP
-\fBNote\fP
-.RS 4
-Undefine or comment out to disable the feature\&. 
-.RE
-.PP
-
-.PP
-Definition at line \fB35\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AEFW_DEFAULT_AUTOFLUSH   true"
-
-.PP
-Macro for the default 'use auto-flush' argument value\&. 
-.PP
-Definition at line \fB37\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
-
-.PP
-Macro for the default auto-flush trigger value\&. 
-.PP
-Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AELE_MESSAGE_SIZE   511"
-
-.PP
-The size of the \fBAELogEntry\fP message in characters (excluding null termination) 
-.PP
-Definition at line \fB56\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AELE_MODULENAME_SIZE   31"
-
-.PP
-The size of the \fBAELogEntry\fP module name in characters (excluding null termination) 
-.PP
-Definition at line \fB58\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
-
-.PP
-Macro for the default reserve amount of the \fBAELogger\fP's allocation vector (stores all queue ptrs)\&. 
-.PP
-\fBWarning\fP
-.RS 4
-I personally wouldn't advise to play with it\&. 
-.RE
-.PP
-
-.PP
-Definition at line \fB48\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
-
-.PP
-Macro for the default path for the logs that explicitly use separate directory (other than the same directory with executable)\&. Like global modules\&. 
-.PP
-\fBNote\fP
-.RS 4
-Currently used only in the globbal logger 
-.RE
-.PP
-
-.PP
-Definition at line \fB52\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
-
-.PP
-Macro for the \fBAELogger\fP's default module name (if none was provided when calling the write-to-log request)\&. 
-.PP
-Definition at line \fB45\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AELOG_DEFAULT_QUEUE_SIZE   2048"
-
-.PP
-Macro for the \fBAELogger\fP's default queue size (if none was provided)\&. 
-.PP
-Definition at line \fB43\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define AEVEC_WRAP_DIMENSIONS   1"
-
-.PP
-A macro for the AEVectors operator[] to wrap dimension index around if the index is bigger than the dimension amount\&. 
-.PP
-Definition at line \fB63\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define ENGINE_DEBUG   1"
 
 .PP
-Macro to enable the debug-marked features of the engine\&. Independent from debug/release compiler builds\&. 
+Macro to enable the \fBdebug-marked features\fP of the engine\&. It's an engine thing, \fI\fBseparate\fP\fP from debug/release compiler builds\&. 
 .PP
-Definition at line \fB18\fP of file \fBAEFlags\&.hpp\fP\&.
+\fBNote\fP
+.RS 4
+Set to 1 to enable, and 0 to disable this feature 
+.RE
+.PP
+
+.PP
+Definition at line \fB32\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define ENGINE_FPS   60\&.0"
+
+.PP
+Macro for the engine's \fBdefault delay\fP in frames/ticks per second (used in \fBAEFrame\fP and \fBAETimer\fP)\&. 
+.PP
+\fBNote\fP
+.RS 4
+Set to any positive value to enable, and any negative value or 0 to disable this feature 
+.RE
+.PP
+\fBAttention\fP
+.RS 4
+Disabling this disables the sleep functionality in instances of \fBAEFrame\fP and \fBAETimer\fP that use the default delay\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFrame\fP 
+.PP
+\fBAETimer\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB38\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define ENGINE_ENABLE_GLOBAL_MODULES   1"
+
+.PP
+Macro to enable the engine's \fBglobal modules\fP (like \fBAETimer\fP, \fBAELogger\fP, etc)\&. 
+.PP
+\fBNote\fP
+.RS 4
+Set to 1 to enable, and 0 to disable this feature 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Disabling this code \fImay\fP break your code (from compiling), as it removes the global module declarations completely 
+.RE
+.PP
+
+.PP
+Definition at line \fB42\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define ENGINE_ENABLE_ASSERT   1"
 
 .PP
-Macro to enable the engine's assert code\&. 
+Macro to enable the engine's \fBassert code\fP 
+.PP
+\fBNote\fP
+.RS 4
+This only works if the debug features are enabled (\fBENGINE_DEBUG\fP)\&. 
+.PP
+Set to 1 to enable, and 0 to disable this feature 
+.RE
 .PP
 \fBSee also\fP
 .RS 4
@@ -178,24 +174,16 @@ Macro to enable the engine's assert code\&.
 .PP
 
 .PP
-Definition at line \fB26\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define ENGINE_ENABLE_GLOBAL_MODULES   1"
-
-.PP
-Macro to enable the engine's global modules (like timer, logger, etc) 
-.PP
-\fBNote\fP
-.RS 4
-Undefine or comment-out to disable this feature 
-.RE
-.PP
-
-.PP
-Definition at line \fB23\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB47\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define ENGINE_ENABLE_MATH_LOOKUP   1"
 
 .PP
-Macro to enable the engine's trigonometry lookup code\&. 
+Macro to enable the engine's \fBtrigonometry lookup tables and code\fP\&. 
+.PP
+\fBNote\fP
+.RS 4
+Set to 1 to enable, and 0 to disable this feature 
+.RE
 .PP
 \fBSee also\fP
 .RS 4
@@ -204,13 +192,217 @@ Macro to enable the engine's trigonometry lookup code\&.
 .PP
 
 .PP
-Definition at line \fB29\fP of file \fBAEFlags\&.hpp\fP\&.
-.SS "#define ENGINE_FPS   60\&.0"
+Definition at line \fB51\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AEFW_AUTOFLUSH_ENABLE   1"
 
 .PP
-Macro for the engine's default delay in frames/ticks per second (used in AEFrame/AETimer)\&. 
+Macro to enable the \fBAEFileWriter\fP's \fBauto-flushing mechanism\fP\&. 
 .PP
-Definition at line \fB20\fP of file \fBAEFlags\&.hpp\fP\&.
+\fBNote\fP
+.RS 4
+Set to 1 to enable, and 0 to disable this feature 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileWriter::autoFlush()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB57\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AEFW_DEFAULT_AUTOFLUSH   true"
+
+.PP
+Macro for the \fBAEFileWriter\fP's \fBdefault auto-flushing action\fP (default argument in file-writing functions)\&. 
+.PP
+\fBNote\fP
+.RS 4
+This only works/matters if the auto-flushing feature is enabled (\fBAEFW_AUTOFLUSH_ENABLE\fP) 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileWriter::autoFlush()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB61\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
+
+.PP
+Macro for the \fBAEFileWriter\fP's \fBdefault value to trigger auto-flushing\fP\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Default value (ullint)-1 means \fBnever\fP\&. Or almost never, once about every 2^64 write operations\&. 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This only works/matters if the auto-flushing feature is enabled (\fBAEFW_AUTOFLUSH_ENABLE\fP) 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFileWriter::autoFlush()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB66\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AELOG_DEFAULT_QUEUE_SIZE   (\fBullint\fP)2048"
+
+.PP
+Macro for the \fBAELogger\fP's \fBdefault queue size\fP 
+.PP
+\fBWarning\fP
+.RS 4
+Setting this to a very large or a negative number can crash the engine on \fBAELogger\fP's creation\&. 
+.PP
+All because the queue too is large to be allocated\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB72\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
+
+.PP
+Macro for the \fBAELogger\fP's \fBdefault module/log invoker name\fP 
+.PP
+\fBWarning\fP
+.RS 4
+This must follow the rules for the module name: Be alphanumeric+underscore and be no more than \fBAELE_MODULENAME_SIZE\fP\&. 
+.PP
+Otherwise any logs invoked with a default module name will fail\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogger::writeToLog()\fP 
+.PP
+\fBAELogger::writeToLogDebug()\fP 
+.PP
+\fBAELogger::writeToLogDirectly()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB79\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
+
+.PP
+Macro for the \fBAELogger\fP's \fBdefault reserve amount of the allocation vector\fP (which stores all queue pointers)\&. 
+.PP
+\fBAttention\fP
+.RS 4
+I personally \fIwouldn't\fP advise to play with it (but you can)\&. 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+32 allocations, 1\&.5 queue size factor -- 884 million entries\&. If each node is 568 bytes -- it all will eat up 468 gb of ram\&. 
+.PP
+I think that's enough :) 
+.RE
+.PP
+
+.PP
+Definition at line \fB84\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
+
+.PP
+Macro for the \fBAELogger\fP's \fBdefault log file path\fP 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogger::openLog()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB87\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AELE_MESSAGE_SIZE   511"
+
+.PP
+The size of the \fBAELogEntry\fP's \fBmessage in characters\fP (excluding null termination) 
+.PP
+\fBNote\fP
+.RS 4
+Changing this -- changes the size of the \fBAELogEntry\fP structure 
+.RE
+.PP
+\fBAttention\fP
+.RS 4
+Mind the size here:
+.IP "\(bu" 2
+Too little will make the messages cut off
+.IP "\(bu" 2
+Too large will increase the memory usage by a lot 
+.PP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogEntry::m_sLogMessage\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line \fB96\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AELE_MODULENAME_SIZE   31"
+
+.PP
+The size of the \fBAELogEntry\fP's \fBmodule name in characters\fP (excluding null termination) 
+.PP
+\fBNote\fP
+.RS 4
+Changing this -- changes the size of the \fBAELogEntry\fP structure 
+.RE
+.PP
+\fBAttention\fP
+.RS 4
+Mind the size here:
+.IP "\(bu" 2
+Too little will make the messages cut off
+.IP "\(bu" 2
+Too large will increase the memory usage by a lot 
+.PP
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogEntry::m_sModuleName\fP[] 
+.RE
+.PP
+
+.PP
+Definition at line \fB103\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AEVEC_WRAP_DIMENSIONS   1"
+
+.PP
+A macro for the \fBAEVector::operator[]\fP to \fBwrap dimension index around\fP if the index is bigger than the dimension amount\&. Example: 2d vector a, possible values to the [] is 0 and 1\&. If you input 2, this will be equivalent of [0]; 3 -> [1], and so on\&. 
+.PP
+\fBNote\fP
+.RS 4
+Set to 1 to enable, and 0 to disable this feature 
+.RE
+.PP
+\fBAttention\fP
+.RS 4
+If this is disabled, and you try exceeding the dimension amount -- \fBsigsegv\fP will smack you in the face\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEVector::operator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB111\fP of file \fBAEFlags\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

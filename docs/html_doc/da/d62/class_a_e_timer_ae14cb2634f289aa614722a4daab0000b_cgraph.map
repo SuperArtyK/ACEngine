@@ -1,0 +1,5 @@
+<map id="AETimer::getDelay" name="AETimer::getDelay">
+<area shape="rect" id="Node000001" title="Returns the maximum AEFrame&#39;s instance in the AETimer delay from the set fps, in seconds." alt="" coords="5,5,136,32"/>
+<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5" title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds." alt="" coords="184,5,319,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,16,168,16,168,21,136,21"/>
+</map>

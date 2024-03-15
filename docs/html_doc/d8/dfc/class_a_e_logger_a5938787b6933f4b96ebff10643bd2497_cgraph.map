@@ -1,0 +1,44 @@
+<map id="AELogger::logWriterThread" name="AELogger::logWriterThread">
+<area shape="rect" id="Node000001" title="The function of the log writing thread to...read the entries, format them, write them,..." alt="" coords="5,183,183,209"/>
+<area shape="rect" id="Node000002" href="$da/dea/struct_a_e_log_entry.html#a58aeadbca0c2c0863b534a52d40d22a8" title="Clears the current entry and sets its values to zero/invalid." alt="" coords="248,5,406,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,181,152,118,188,81,229,48,254,36,256,40,232,53,191,85,156,121,107,184"/>
+<area shape="rect" id="Node000003" href="$db/d15/class_a_e_file_writer.html#a0c238267ee45ca15672d4e9246cdca2c" title="Flushes the opened file." alt="" coords="499,56,650,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,180,157,135,192,111,230,92,294,74,360,64,425,60,483,60,483,65,425,65,361,69,295,79,232,97,194,116,160,139,110,184"/>
+<area shape="rect" id="Node000004" href="$da/dea/struct_a_e_log_entry.html#ab803ea47d06098feab470f265498f617" title="Formats the passed entry to the given c&#45;string." alt="" coords="491,107,657,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,180,423,143,476,134,477,139,423,148,183,185"/>
+<area shape="rect" id="Node000007" href="$d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module." alt="" coords="471,208,677,251"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="183,199,456,218,455,224,183,205"/>
+<area shape="rect" id="Node000008" href="$de/dde/namespaceace_1_1utils.html#ae3cab8babc7164fe97d71c65b247e848" title="Convenient sleep function to sleep the thread for microseconds." alt="" coords="261,401,393,428"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="103,209,120,245,148,293,185,344,208,367,232,387,248,396,245,401,229,392,204,371,181,348,143,296,115,247,98,211"/>
+<area shape="rect" id="Node000009" href="$db/d15/class_a_e_file_writer.html#a01d537821c5760615e126f1c159b67da" title="Write binary data, as is, to file, and flush if necessary." alt="" coords="485,157,664,184"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="183,194,297,193,423,187,468,182,469,188,423,192,297,198,183,199"/>
+<area shape="rect" id="Node000010" href="$d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file." alt="" coords="253,351,401,377"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="116,208,296,339,293,344,113,212"/>
+<area shape="rect" id="Node000019" href="$d8/dfc/class_a_e_logger.html#a54bad71bcfea05c3d17d7ba1bacfec8c" title="Writes to log directly, without thinking of the queue." alt="" coords="231,107,423,133"/>
+<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="137,180,268,136,270,141,138,185"/>
+<area shape="rect" id="Node000005" href="$de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY&#45;MM&#45;DD.HH:mm:SS string**." alt="" coords="739,132,884,159"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="658,126,724,133,723,139,657,132"/>
+<area shape="rect" id="Node000006" href="$da/dea/struct_a_e_log_entry.html#a958d25c57a94cfae8e7f31843e6c63ef" title="Deduces the entry&#39;s log type and returns a c&#45;string of it." alt="" coords="725,81,898,108"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="657,108,710,103,710,108,658,114"/>
+<area shape="poly" id="edge10_Node000010_Node000007" title=" " alt="" coords="343,348,397,306,470,260,482,254,485,259,472,265,400,310,346,352"/>
+<area shape="rect" id="Node000011" href="$de/dde/namespaceace_1_1utils.html#ac3eadc5f289b54059322023f3c5eed96" title="Checks if the passed string is alpha&#45;numeric with underscores (contains only numbers,..." alt="" coords="501,275,648,301"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="363,348,470,311,498,303,499,308,472,316,365,353"/>
+<area shape="rect" id="Node000012" href="$d8/dfc/class_a_e_logger.html#a4d512bf9f4d0a6a1b6a332b9c99e22ac" title="Checks if a log file isn&#39;t open by this logger." alt="" coords="506,325,642,352"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="401,354,490,345,491,350,402,359"/>
+<area shape="rect" id="Node000015" href="$de/dde/namespaceace_1_1utils.html#a878c53ede8589dbc6a50734c9c4ad4d7" title="Checks if the value is within some range." alt="" coords="505,376,644,403"/>
+<area shape="poly" id="edge15_Node000010_Node000015" title=" " alt="" coords="402,369,489,378,489,383,401,374"/>
+<area shape="rect" id="Node000016" href="$da/dea/struct_a_e_log_entry.html#a42447b345f72f22ec655556af2db7c28" title="Allocates the queue of the given size on the heap and returns the pointer to it&#39;s first node." alt="" coords="490,427,659,453"/>
+<area shape="poly" id="edge16_Node000010_Node000016" title=" " alt="" coords="389,375,424,387,448,400,472,412,494,419,492,425,470,417,446,404,422,392,388,380"/>
+<area shape="rect" id="Node000017" href="$d8/dfc/class_a_e_logger.html#af4bff840ffdcfcb5ecb1251fddbf9690" title="Checks for the given index number and returns the pointer in the queue of log entries." alt="" coords="493,477,655,504"/>
+<area shape="poly" id="edge17_Node000010_Node000017" title=" " alt="" coords="402,375,425,387,442,407,449,426,457,446,473,463,480,468,477,472,469,467,452,448,444,428,437,409,421,391,400,380"/>
+<area shape="rect" id="Node000018" href="$d8/dfc/class_a_e_logger.html#a50dfd96a74d13471faebd4de499db5bf" title="Request a debug log entry to be written to the opened log file." alt="" coords="482,528,667,555"/>
+<area shape="poly" id="edge18_Node000010_Node000018" title=" " alt="" coords="372,375,400,384,425,399,438,414,445,429,450,460,455,492,461,507,473,523,468,526,457,510,450,493,445,461,440,431,433,417,421,403,398,389,371,381"/>
+<area shape="rect" id="Node000013" href="$db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090" title="Checks if a file isn&#39;t open by this file&#45;writer." alt="" coords="735,325,888,352"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="643,336,719,336,719,341,643,341"/>
+<area shape="rect" id="Node000014" href="$db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d" title="Checks if a file is open by this file&#45;writer." alt="" coords="946,325,1090,352"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="889,336,930,336,930,341,889,341"/>
+<area shape="poly" id="edge19_Node000018_Node000010" title=" " alt="" coords="522,530,495,521,469,506,456,490,448,474,444,441,440,409,434,394,421,379,413,373,416,369,425,375,438,391,446,408,450,440,453,472,460,487,473,502,497,516,524,525"/>
+<area shape="poly" id="edge21_Node000019_Node000003" title=" " alt="" coords="395,103,490,84,491,89,396,109"/>
+<area shape="poly" id="edge22_Node000019_Node000004" title=" " alt="" coords="423,117,476,117,476,123,423,123"/>
+<area shape="poly" id="edge23_Node000019_Node000009" title=" " alt="" coords="396,131,491,151,490,156,395,137"/>
+</map>

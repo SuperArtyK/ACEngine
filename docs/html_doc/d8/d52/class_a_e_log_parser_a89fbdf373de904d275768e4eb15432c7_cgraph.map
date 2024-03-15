@@ -1,0 +1,11 @@
+<map id="AELogParser::filterQueueName" name="AELogParser::filterQueueName">
+<area shape="rect" id="Node000001" title="Filters the passed queue according to the given modulename." alt="" coords="5,56,208,83"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#a7c3e2c0736eb6a3ccd84a528d72835ad" title="Filters the passed queue according to the given severity and modulename filters." alt="" coords="256,56,424,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,67,240,67,240,72,208,72"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#a21f7748ae4be67f2221a114cbe9bca7c" title="Checks if the passed severity is valid compared to the filtering severity." alt="" coords="472,5,659,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,53,488,33,489,39,403,58"/>
+<area shape="rect" id="Node000004" href="$da/dea/struct_a_e_log_entry.html#a0fc1a114dbbaf785643b6558509f8e0c" title="Makes a normal copy of the log entry, copying everything but the pointer to the next node." alt="" coords="487,56,645,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="424,67,471,67,471,72,424,72"/>
+<area shape="rect" id="Node000005" href="$da/dea/struct_a_e_log_entry.html#a42447b345f72f22ec655556af2db7c28" title="Allocates the queue of the given size on the heap and returns the pointer to it&#39;s first node." alt="" coords="481,107,650,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="403,81,489,100,488,105,402,86"/>
+</map>

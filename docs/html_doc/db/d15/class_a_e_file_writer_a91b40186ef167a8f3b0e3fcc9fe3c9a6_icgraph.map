@@ -1,0 +1,5 @@
+<map id="AEFileWriter::getTotalWrites" name="AEFileWriter::getTotalWrites">
+<area shape="rect" id="Node000001" title="Returns total write requests made to file." alt="" coords="223,5,410,32"/>
+<area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#ad411262926f09b610be793e6ea15e9d4" title="Get the amount of log entries done to an opened log file." alt="" coords="5,5,175,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,21,175,21,175,16,207,16"/>
+</map>

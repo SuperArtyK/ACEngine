@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -60,7 +60,7 @@ class __AEModuleBase< T >"This is a base class for all basic modules, meaning th
 .PP
 \fBNote\fP
 .RS 4
-Intended to be inherited from in class declaration, not direct usage\&. Usage: class [classname] : public __AEModuleBase<[classname]> 
+Intended to be inherited from in class declaration, not direct usage\&. Usage: \fRclass [classname] : public \fB__AEModuleBase\fP<[classname]>\fP 
 .RE
 .PP
 \fBWarning\fP
@@ -107,6 +107,21 @@ Basic destructor that decreases module count\&.
 Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
+.SS "template<typename T > virtual \fB__AEModuleBase\fP< T > & \fB__AEModuleBase\fP< T >::operator= (const \fB__AEModuleBase\fP< T > & val)\fR [virtual]\fP, \fR [delete]\fP"
+
+.PP
+Basic assignment operator -- it does nothing, so it's deleted (make your own) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIval\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
 .SS "template<typename T > static \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -120,6 +135,8 @@ Unsigned long long of the module amount
 
 .PP
 Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.PP
+References \fB__AEModuleBase< T >::m_ullModulesAlive\fP\&.
 .SS "template<typename T > static constexpr std::string_view \fB__AEModuleBase\fP< T >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -128,21 +145,6 @@ Returns the name of the registered module\&.
 \fBReturns\fP
 .RS 4
 
-.RE
-.PP
-
-.SS "template<typename T > virtual \fB__AEModuleBase\fP< T > & \fB__AEModuleBase\fP< T >::operator= (const \fB__AEModuleBase\fP< T > & val)\fR [virtual]\fP, \fR [delete]\fP"
-
-.PP
-Basic assignment operator -- it does nothing, so it's deleted (make your own) 
-.PP
-\fBParameters\fP
-.RS 4
-\fIval\fP 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
 .RE
 .PP
 

@@ -646,34 +646,34 @@ inline cint AEFileReader::readIntString(T& num) noexcept requires(std::is_integr
 
 	std::memset(&num, AENULL, sizeof(T));
 	cint temp = 0;
-	if constexpr (IS_SAME_NOC(T, signed char)) {
+	if constexpr (IS_SAME_NOCV(T, signed char)) {
 		temp = fscanf(m_fpFilestr, "%hhd", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, unsigned char)) {
+	else if constexpr (IS_SAME_NOCV(T, unsigned char)) {
 		temp = fscanf(m_fpFilestr, "%hhud", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, short)) {
+	else if constexpr (IS_SAME_NOCV(T, short)) {
 		temp = fscanf(m_fpFilestr, "%hd", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, unsigned short)) {
+	else if constexpr (IS_SAME_NOCV(T, unsigned short)) {
 		temp = fscanf(m_fpFilestr, "%hud", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, int)) {
+	else if constexpr (IS_SAME_NOCV(T, int)) {
 		temp = fscanf(m_fpFilestr, "%d", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, unsigned int)) {
+	else if constexpr (IS_SAME_NOCV(T, unsigned int)) {
 		temp = fscanf(m_fpFilestr, "%ud", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, long)) {
+	else if constexpr (IS_SAME_NOCV(T, long)) {
 		temp = fscanf(m_fpFilestr, "%ld", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, unsigned long)) {
+	else if constexpr (IS_SAME_NOCV(T, unsigned long)) {
 		temp = fscanf(m_fpFilestr, "%lud", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, long long)) {
+	else if constexpr (IS_SAME_NOCV(T, long long)) {
 		temp = fscanf(m_fpFilestr, "%lld", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, std::size_t)) {
+	else if constexpr (IS_SAME_NOCV(T, std::size_t)) {
 		temp = fscanf(m_fpFilestr, "%zd", &num);
 	}
 	else {
@@ -694,10 +694,10 @@ inline cint AEFileReader::readFloatString(T& num) noexcept requires(std::is_floa
 
 	std::memset(&num, AENULL, sizeof(T));
 	cint temp = 0;
-	if constexpr (IS_SAME_NOC(T, float)) {
+	if constexpr (IS_SAME_NOCV(T, float)) {
 		temp = fscanf(m_fpFilestr, "%f", &num);
 	}
-	else if constexpr (IS_SAME_NOC(T, double)) {
+	else if constexpr (IS_SAME_NOCV(T, double)) {
 		temp = fscanf(m_fpFilestr, "%lf", &num);
 	}
 	else { //long double

@@ -96,7 +96,8 @@ $(function(){initNavTree('d4/d9f/_a_e_logger_8hpp.html','../../'); initResizable
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">AELogger.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -107,6 +108,20 @@ $(function(){initNavTree('d4/d9f/_a_e_logger_8hpp.html','../../'); initResizable
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AELogger.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d00/_a_e_logger_8hpp__incl.svg" width="100%" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7b/_a_e_logger_8hpp__dep__incl.svg" width="220" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <p><a href="../../d4/d9f/_a_e_logger_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -133,6 +148,12 @@ Macros</h2></td></tr>
 <tr class="memitem:a34b6a95bb690b3b938290ed35fb3c40f" id="r_a34b6a95bb690b3b938290ed35fb3c40f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34b6a95bb690b3b938290ed35fb3c40f">AELOG_ERR_INVALID_ENTRY_DATA</a>&#160;&#160;&#160;-14</td></tr>
 <tr class="memdesc:a34b6a95bb690b3b938290ed35fb3c40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the error that's raised when invalid data is passed to <a class="el" href="../../d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file.">AELogger::writeToLog()</a> (like empty message, empty/non-alphanumeric module name, type outside of range)  <br /></td></tr>
 <tr class="separator:a34b6a95bb690b3b938290ed35fb3c40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9d35df81a2dbdef3a24b562ee018f1d0" id="r_a9d35df81a2dbdef3a24b562ee018f1d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d35df81a2dbdef3a24b562ee018f1d0">globalLogger</a> (<a class="el" href="../../d8/dfc/class_a_e_logger.html#a87dc705d692056229db74fc4bc3c93e9">AELogger::genLogName</a>(&quot;LOG&quot;, &quot;.log&quot;))</td></tr>
+<tr class="memdesc:a9d35df81a2dbdef3a24b562ee018f1d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global logger of the engine to log engine-wide events.  <br /></td></tr>
+<tr class="separator:a9d35df81a2dbdef3a24b562ee018f1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the code for the engine's logger module, err...for logging data to file.</p>
@@ -140,24 +161,6 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a34b6a95bb690b3b938290ed35fb3c40f" name="a34b6a95bb690b3b938290ed35fb3c40f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34b6a95bb690b3b938290ed35fb3c40f">&#9670;&#160;</a></span>AELOG_ERR_INVALID_ENTRY_DATA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AELOG_ERR_INVALID_ENTRY_DATA&#160;&#160;&#160;-14</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the error that's raised when invalid data is passed to <a class="el" href="../../d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file.">AELogger::writeToLog()</a> (like empty message, empty/non-alphanumeric module name, type outside of range) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
-
-</div>
-</div>
 <a id="aceacce64dc83c2b3a4f466a404ab4d57" name="aceacce64dc83c2b3a4f466a404ab4d57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aceacce64dc83c2b3a4f466a404ab4d57">&#9670;&#160;</a></span>AELOG_ERR_NOERROR</h2>
 
@@ -173,6 +176,24 @@ Macros</h2></td></tr>
 <p>Macro for the indicator that everything is good/no error was encountered in the process. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8823bf433bd5fb72c666c779bc1c30d0" name="a8823bf433bd5fb72c666c779bc1c30d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8823bf433bd5fb72c666c779bc1c30d0">&#9670;&#160;</a></span>AELOG_ERR_UNABLE_START_THREAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AELOG_ERR_UNABLE_START_THREAD&#160;&#160;&#160;-11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the error that's raised when the log-writing-thread cannot be started. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
 
 </div>
 </div>
@@ -212,21 +233,50 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a8823bf433bd5fb72c666c779bc1c30d0" name="a8823bf433bd5fb72c666c779bc1c30d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8823bf433bd5fb72c666c779bc1c30d0">&#9670;&#160;</a></span>AELOG_ERR_UNABLE_START_THREAD</h2>
+<a id="a34b6a95bb690b3b938290ed35fb3c40f" name="a34b6a95bb690b3b938290ed35fb3c40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34b6a95bb690b3b938290ed35fb3c40f">&#9670;&#160;</a></span>AELOG_ERR_INVALID_ENTRY_DATA</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AELOG_ERR_UNABLE_START_THREAD&#160;&#160;&#160;-11</td>
+          <td class="memname">#define AELOG_ERR_INVALID_ENTRY_DATA&#160;&#160;&#160;-14</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the error that's raised when the log-writing-thread cannot be started. </p>
+<p>Macro for the error that's raised when invalid data is passed to <a class="el" href="../../d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file.">AELogger::writeToLog()</a> (like empty message, empty/non-alphanumeric module name, type outside of range) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d4/d9f/_a_e_logger_8hpp_source.html">AELogger.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a9d35df81a2dbdef3a24b562ee018f1d0" name="a9d35df81a2dbdef3a24b562ee018f1d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d35df81a2dbdef3a24b562ee018f1d0">&#9670;&#160;</a></span>globalLogger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/dfc/class_a_e_logger.html">AELogger</a> globalLogger(<a class="el" href="../../d8/dfc/class_a_e_logger.html#a87dc705d692056229db74fc4bc3c93e9">AELogger::genLogName</a>(&quot;LOG&quot;, &quot;.log&quot;)) </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/dfc/class_a_e_logger.html#a87dc705d692056229db74fc4bc3c93e9">AELogger::genLogName</a>(&quot;LOG&quot;, &quot;.log&quot;)</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The global logger of the engine to log engine-wide events. </p>
+<p>It starts the writing thread and logging as soon as the program starts. </p>
 
 </div>
 </div>
@@ -236,7 +286,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_4bbf0042d69e6f9d7e74f7ec89cc0098.html">AELogger</a></li><li class="navelem"><a class="el" href="../../dir_425ca0511abb5a7e6fb1f1e5b9d23471.html">include</a></li><li class="navelem"><a class="el" href="../../d4/d9f/_a_e_logger_8hpp.html">AELogger.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

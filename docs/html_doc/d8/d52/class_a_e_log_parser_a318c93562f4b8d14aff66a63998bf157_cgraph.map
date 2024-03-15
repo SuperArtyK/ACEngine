@@ -1,0 +1,5 @@
+<map id="AELogParser::isOpen" name="AELogParser::isOpen">
+<area shape="rect" id="Node000001" title="Checks if the file is opened by the AELogParser." alt="" coords="5,5,153,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="201,5,351,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,16,185,16,185,21,153,21"/>
+</map>

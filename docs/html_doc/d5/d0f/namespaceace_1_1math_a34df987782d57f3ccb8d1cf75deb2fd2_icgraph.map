@@ -1,0 +1,15 @@
+<map id="ace::math::toRad" name="ace::math::toRad">
+<area shape="rect" id="Node000001" title="Convert given degrees to radians" alt="" coords="364,56,485,83"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a6d6fc7afd09d4c910a45218da9ae2bc6" title="Calculates the cosine of degrees" alt="" coords="185,5,316,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="361,54,298,35,300,30,362,48"/>
+<area shape="rect" id="Node000004" href="$d5/d0f/namespaceace_1_1math.html#a2d1b0ee0e065a1fb3350dad86d582d17" title="Calculates the sine of degrees" alt="" coords="187,56,314,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,72,315,72,315,67,349,67"/>
+<area shape="rect" id="Node000006" href="$d5/d0f/namespaceace_1_1math.html#a15512ebb416126f59cdb7669b5c39b48" title="Calculates the tangent of degrees" alt="" coords="186,107,315,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="362,90,300,109,298,104,361,85"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#a5cbfa3de675e6e68387a936162bfe77b" title="Calculates the secant of degrees" alt="" coords="5,5,137,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,21,137,21,137,16,169,16"/>
+<area shape="rect" id="Node000005" href="$d5/d0f/namespaceace_1_1math.html#aeb83e68b525d9da76ba43522371e1faf" title="Calculates the cosecant of degrees" alt="" coords="5,56,137,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="171,72,137,72,137,67,171,67"/>
+<area shape="rect" id="Node000007" href="$d5/d0f/namespaceace_1_1math.html#a6ae1260251ad68d4b5d97276dfe067f1" title="Calculates the cotangent of degrees" alt="" coords="7,107,135,133"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="171,123,136,123,136,117,171,117"/>
+</map>

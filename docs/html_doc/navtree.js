@@ -27,7 +27,7 @@ function initNavTree(toroot,relpath) {
   let navTreeSubIndices = [];
   const ARROW_DOWN = '&#9660;';
   const ARROW_RIGHT = '&#9658;';
-  const NAVPATH_COOKIE_NAME = ''+'navpath';
+  const NAVPATH_COOKIE_NAME = '7df1323a8c3a851926b6fc9a5418613b_'+'navpath';
 
   const getData = function(varName) {
     const i = varName.lastIndexOf('/');

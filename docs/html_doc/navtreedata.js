@@ -31,7 +31,6 @@ var NAVTREE =
     [ "AEFileReader project", "db/d2b/md__a_e_file_reader_2_r_e_a_d_m_e.html", null ],
     [ "AEFileWriter project", "da/d42/md__a_e_file_writer_2_r_e_a_d_m_e.html", null ],
     [ "AEFrame project", "d0/d03/md__a_e_frame_2_r_e_a_d_m_e.html", null ],
-    [ "AELogEntry project", "d4/dda/md__a_e_log_entry_2_r_e_a_d_m_e.html", null ],
     [ "AELogger project", "d9/dde/md__a_e_logger_2_r_e_a_d_m_e.html", null ],
     [ "AELogParser project", "dc/dda/md__a_e_log_parser_2_r_e_a_d_m_e.html", null ],
     [ "AEMisc project", "d3/dfd/md__a_e_misc_2_r_e_a_d_m_e.html", null ],
@@ -64,7 +63,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
@@ -75,9 +74,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d8/d52/class_a_e_log_parser.html#abfe665d273e635559e15339dd34bace5",
-"dc/dd8/_a_e_log_types_8hpp.html",
-"functions_m.html"
+"d8/d52/class_a_e_log_parser.html#af3c28f50c5f52840be97e631d67b244c",
+"dc/dd8/_a_e_log_types_8hpp.html#a05cf0e904135ebda00fb74fef64c384b",
+"functions_n.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

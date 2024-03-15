@@ -1,0 +1,7 @@
+<map id="AELogger::genLogName" name="AELogger::genLogName">
+<area shape="rect" id="Node000001" title="Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current da..." alt="" coords="5,5,168,32"/>
+<area shape="rect" id="Node000002" href="$de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852" title="Formats the current date and time as YYYY&#45;MM&#45;DD.HH:mm:SS." alt="" coords="216,5,385,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,16,200,16,200,21,168,21"/>
+<area shape="rect" id="Node000003" href="$de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY&#45;MM&#45;DD.HH:mm:SS string**." alt="" coords="433,5,578,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,16,417,16,417,21,385,21"/>
+</map>

@@ -1,4 +1,4 @@
-.TH "AEFileReader/include/AEFileReader.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFileReader/include/AEFileReader.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -92,48 +92,42 @@ Should not cause everything to break :)
 Definition in file \fBAEFileReader\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define _AEFR_EXIT_ON_CLOSED_FILE   if (this\->isClosed()) { return \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
-
-.PP
-Macro for the shortened 'check for opened file, set error flag and return error flag if closed', DO NOT TOUCH! 
-.PP
-Definition at line \fB70\fP of file \fBAEFileReader\&.hpp\fP\&.
-.SS "#define _AEFR_EXIT_ON_READ_CLOSED_FILE   if (this\->isClosed()) { this\->m_szLastReadAmount = 0; return \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
-
-.PP
-Macro for the shortened 'check for opened file during the read operation, set error flag and return error flag if closed', DO NOT TOUCH! 
-.PP
-Definition at line \fB72\fP of file \fBAEFileReader\&.hpp\fP\&.
-.SS "#define AEFR_ERR_FILE_NOT_OPEN   \-1"
-
-.PP
-Macro for the error if file isn't open and file operation functions of the file reader are used\&. 
-.PP
-Definition at line \fB43\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "#define AEFR_ERR_NOERROR   \fBENGINE_MODULE_ERR_NOERROR\fP"
 
 .PP
 Macro for the indicator that everything is good/no error was encountered in the process\&. 
 .PP
 Definition at line \fB37\fP of file \fBAEFileReader\&.hpp\fP\&.
-.SS "#define AEFR_ERR_OPEN_FILE_ALREADY_OPENED   \-4"
+.SS "#define AEFR_ERR_READ_SUCCESS   0"
 
 .PP
-Macro for the error that occurs when trying to open the file, while the \fBAEFileReader\fP instance already has an opened file\&. 
+same as AEFR_ERR_NOERROR - value of a successfull read\&. 
 .PP
-Definition at line \fB54\fP of file \fBAEFileReader\&.hpp\fP\&.
-.SS "#define AEFR_ERR_OPEN_FILE_DOESNT_EXIST   \-3"
+Definition at line \fB40\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#define AEFR_ERR_FILE_NOT_OPEN   \-1"
 
 .PP
-Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files\&. 
+Macro for the error if file isn't open and file operation functions of the file reader are used\&. 
 .PP
-Definition at line \fB51\fP of file \fBAEFileReader\&.hpp\fP\&.
+Definition at line \fB43\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "#define AEFR_ERR_OPEN_FILE_NAME_EMPTY   \-2"
 
 .PP
 Macro for the error if the file name is empty\&. 
 .PP
 Definition at line \fB48\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#define AEFR_ERR_OPEN_FILE_DOESNT_EXIST   \-3"
+
+.PP
+Macro for the error if the file couldn't be created for some other reason, like missing permissions to access files\&. 
+.PP
+Definition at line \fB51\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#define AEFR_ERR_OPEN_FILE_ALREADY_OPENED   \-4"
+
+.PP
+Macro for the error that occurs when trying to open the file, while the \fBAEFileReader\fP instance already has an opened file\&. 
+.PP
+Definition at line \fB54\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "#define AEFR_ERR_READ_EOF   \-5"
 
 .PP
@@ -146,12 +140,6 @@ Definition at line \fB57\fP of file \fBAEFileReader\&.hpp\fP\&.
 Macro for the reading error that occurred when reading the file (look up ferror() )\&. 
 .PP
 Definition at line \fB60\fP of file \fBAEFileReader\&.hpp\fP\&.
-.SS "#define AEFR_ERR_READ_SUCCESS   0"
-
-.PP
-same as AEFR_ERR_NOERROR - value of a successfull read\&. 
-.PP
-Definition at line \fB40\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SS "#define AEFR_ERR_READ_ZERO_SIZE   \-7"
 
 .PP
@@ -164,6 +152,18 @@ Definition at line \fB63\fP of file \fBAEFileReader\&.hpp\fP\&.
 Macro for the error that occurs if invalid cursor origin (not SEEK_SET, SEEK_CUR, or SEEK_END) was passed to \fBAEFileReader::setCursorPos()\fP 
 .PP
 Definition at line \fB66\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#define _AEFR_EXIT_ON_CLOSED_FILE   if (this\->isClosed()) { return \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Macro for the shortened 'check for opened file, set error flag and return error flag if closed', DO NOT TOUCH! 
+.PP
+Definition at line \fB70\fP of file \fBAEFileReader\&.hpp\fP\&.
+.SS "#define _AEFR_EXIT_ON_READ_CLOSED_FILE   if (this\->isClosed()) { this\->m_szLastReadAmount = 0; return \fBAEFR_ERR_FILE_NOT_OPEN\fP; }"
+
+.PP
+Macro for the shortened 'check for opened file during the read operation, set error flag and return error flag if closed', DO NOT TOUCH! 
+.PP
+Definition at line \fB72\fP of file \fBAEFileReader\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

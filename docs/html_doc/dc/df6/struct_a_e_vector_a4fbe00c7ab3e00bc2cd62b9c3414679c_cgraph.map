@@ -1,0 +1,7 @@
+<map id="AEVector::perpendicularToVector" name="AEVector::perpendicularToVector">
+<area shape="rect" id="Node000001" title="Calculates the vector that is perpendicular to &quot;this&quot;, with the length of projection of the given vec..." alt="" coords="5,5,220,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a934ea1d09debbfd89edc14bd99c2f665" title="Newton&#39;s method sqrt implementation, compatible with constexpr evaluation." alt="" coords="268,5,377,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,16,252,16,252,21,220,21"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#abbf6692848afd0e5861c84feae9d4a1a" title="Checks if given 2 numbers are equal, a generic function for all types." alt="" coords="425,5,550,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="377,16,410,16,410,21,377,21"/>
+</map>

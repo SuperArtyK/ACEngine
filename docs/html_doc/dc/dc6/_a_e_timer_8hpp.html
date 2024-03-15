@@ -95,13 +95,22 @@ $(function(){initNavTree('dc/dc6/_a_e_timer_8hpp.html','../../'); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">AETimer.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">include/AEFrame.hpp</a>&quot;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AETimer.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d27/_a_e_timer_8hpp__incl.svg" width="100%" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 </div>
 <p><a href="../../dc/dc6/_a_e_timer_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -110,19 +119,76 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ArtyK's Engine Timer &ndash; the engine's internal timer for, um, timing events or anything, with variable tick speed.  <a href="../../da/d62/class_a_e_timer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a13fc7d33c0c580b1560eee3cc5cc43fc" id="r_a13fc7d33c0c580b1560eee3cc5cc43fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13fc7d33c0c580b1560eee3cc5cc43fc">ENGINE_FPS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a13fc7d33c0c580b1560eee3cc5cc43fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afc5631cca0d9c9a54f6ca4888b67a009" id="r_afc5631cca0d9c9a54f6ca4888b67a009"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc5631cca0d9c9a54f6ca4888b67a009">globalTimer</a> (0)</td></tr>
+<tr class="memdesc:afc5631cca0d9c9a54f6ca4888b67a009"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global timer of the engine to time engine-wide events.  <br /></td></tr>
+<tr class="separator:afc5631cca0d9c9a54f6ca4888b67a009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the code for engine's timer. You can use it to time events. Or like...wait for the tick of the timer for a certain delay or even to happen.</p>
 <p>Should not cause everything to break :) </p>
 
 <p class="definition">Definition in file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a13fc7d33c0c580b1560eee3cc5cc43fc" name="a13fc7d33c0c580b1560eee3cc5cc43fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13fc7d33c0c580b1560eee3cc5cc43fc">&#9670;&#160;</a></span>ENGINE_FPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENGINE_FPS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="afc5631cca0d9c9a54f6ca4888b67a009" name="afc5631cca0d9c9a54f6ca4888b67a009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc5631cca0d9c9a54f6ca4888b67a009">&#9670;&#160;</a></span>globalTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a> globalTimer(0) </td>
+          <td>(</td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The global timer of the engine to time engine-wide events. </p>
+<p>It starts counting as soon as the program starts. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c574beecf3ff73349d3dca1b0a2b5ac9.html">AETimer</a></li><li class="navelem"><a class="el" href="../../dir_6af02dcbdbf0c7f8817c4fff8ff7eb88.html">include</a></li><li class="navelem"><a class="el" href="../../dc/dc6/_a_e_timer_8hpp.html">AETimer.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

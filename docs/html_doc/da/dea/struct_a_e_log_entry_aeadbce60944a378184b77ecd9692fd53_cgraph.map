@@ -1,0 +1,5 @@
+<map id="AELogEntry::clearEntryFull" name="AELogEntry::clearEntryFull">
+<area shape="rect" id="Node000001" title="Fully clears the entry, resetting it to the default values." alt="" coords="5,5,185,32"/>
+<area shape="rect" id="Node000002" href="$da/dea/struct_a_e_log_entry.html#a14c3ab073da8e87ef544799cfeeef9ee" title="Returns the empty, invalid entry, with no data." alt="" coords="233,5,399,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,16,217,16,217,21,185,21"/>
+</map>

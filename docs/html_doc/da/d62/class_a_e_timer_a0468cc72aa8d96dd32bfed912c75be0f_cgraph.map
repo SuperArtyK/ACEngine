@@ -1,0 +1,7 @@
+<map id="AETimer::waitTicks" name="AETimer::waitTicks">
+<area shape="rect" id="Node000001" title="Stops and sleeps the thread untill the given timer goes through certain tick amount." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="Node000002" href="$da/d62/class_a_e_timer.html#ab5e98fa75b71f6280ae8ae16367dd97c" title="Stops and sleeps the thread untill the given timer hits the certain tick number." alt="" coords="187,5,332,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,16,171,16,171,21,139,21"/>
+<area shape="rect" id="Node000003" href="$df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" title="Puts the current thread to sleep up to the set fps goal." alt="" coords="380,5,495,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,16,365,16,365,21,333,21"/>
+</map>

@@ -1,0 +1,45 @@
+<map id="AEFileReader::readVariable" name="AEFileReader::readVariable">
+<area shape="rect" id="Node000001" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="999,284,1180,311"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a4f23e9b7f6465dc50432ee4f20f6f73e" title="Returns current read cursor position." alt="" coords="757,5,945,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1078,270,1062,221,1036,160,999,98,976,70,949,46,930,35,933,30,952,42,979,67,1003,95,1041,158,1067,219,1083,269"/>
+<area shape="rect" id="Node000004" href="$dd/dd5/class_a_e_file_reader.html#a753c6f40c4a15739ed88aa0937f72969" title="Returns the name of the opened file, devoid of the path." alt="" coords="760,56,942,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1075,271,1056,231,1029,184,993,137,949,97,928,86,931,81,952,92,997,133,1033,181,1061,229,1079,269"/>
+<area shape="rect" id="Node000006" href="$dd/dd5/class_a_e_file_reader.html#ac66abca824fd32fb0c854d0391a64289" title="Returns size of the file in bytes." alt="" coords="764,107,938,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1069,273,1020,209,987,176,949,148,925,136,927,132,952,143,991,172,1024,206,1074,269"/>
+<area shape="rect" id="Node000007" href="$dd/dd5/class_a_e_file_reader.html#aa1f9d6a22bac28f3409558084eb03103" title="Returns the relative path of the opened file." alt="" coords="751,157,951,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1060,275,1011,236,949,198,920,187,922,182,952,194,1014,231,1064,271"/>
+<area shape="rect" id="Node000009" href="$dd/dd5/class_a_e_file_reader.html#a4e144d05ae74507bb7b04d68bb15289e" title="Reads the byte from the file and dumps/reinterprets it as the value in the passed bool (null is false..." alt="" coords="771,208,931,235"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1038,280,950,249,910,238,911,233,951,244,1040,275"/>
+<area shape="rect" id="Node000010" href="$dd/dd5/class_a_e_file_reader.html#a9bc4766a80101a9b3c2e3d9a66f807be" title="Reads the byte from the file and writes you to a given unsigned." alt="" coords="770,259,932,285"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="983,289,932,283,932,278,984,283"/>
+<area shape="rect" id="Node000011" href="$dd/dd5/class_a_e_file_reader.html#ae7a5a1bbf170bb315c9f0b448a862882" title="Reads the bytes from the file and dumps them into the std::vector&lt;unsigned char&gt;." alt="" coords="767,309,935,336"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="983,311,936,316,935,311,983,306"/>
+<area shape="rect" id="Node000012" href="$dd/dd5/class_a_e_file_reader.html#acc49d70dfb4385a28d70f06717a16426" title="Reads the bytes from the file and dumps them into the given pointer." alt="" coords="767,360,935,387"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1040,319,951,351,911,362,910,357,950,345,1038,314"/>
+<area shape="rect" id="Node000013" href="$dd/dd5/class_a_e_file_reader.html#a65c9f2addc13e720716cb30ee60f813c" title="Reads the character from the file and writes you to a given char." alt="" coords="770,411,932,437"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1064,323,1014,363,952,401,922,413,920,408,949,396,1011,359,1060,319"/>
+<area shape="rect" id="Node000014" href="$dd/dd5/class_a_e_file_reader.html#a5da1419ac8805b32f3ffd7b8a92828d6" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed floa..." alt="" coords="769,461,933,488"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1074,325,1024,389,991,423,952,452,927,463,925,458,949,447,987,419,1020,386,1069,322"/>
+<area shape="rect" id="Node000015" href="$dd/dd5/class_a_e_file_reader.html#a5900607899bc01d33f94a1e9138cd5a9" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed inte..." alt="" coords="777,512,925,539"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1079,326,1061,366,1033,413,997,462,952,502,927,515,924,511,949,498,993,458,1029,410,1056,363,1075,324"/>
+<area shape="rect" id="Node000016" href="$dd/dd5/class_a_e_file_reader.html#a477effa6d568ec7993c4d506d0d0420c" title="Sets read cursor position to pos from origin." alt="" coords="757,563,945,589"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1083,326,1067,375,1041,437,1003,499,979,528,952,553,933,564,930,560,949,549,976,524,999,496,1036,434,1062,373,1078,325"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#a8e90913ac25c938e2e84a9887c5bae66" title="Opens the log file, reading and parsing every single entry, classifying it by type." alt="" coords="528,5,683,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="741,21,683,21,683,16,741,16"/>
+<area shape="rect" id="Node000005" href="$d8/d52/class_a_e_log_parser.html#a63a04021dcd2c31540c50182f8912c9d" title="Returns the name of the opened file, devoid of the path." alt="" coords="516,56,695,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="745,72,695,72,695,67,745,67"/>
+<area shape="rect" id="Node000008" href="$d8/d52/class_a_e_log_parser.html#a0a1f374dbcebcbe44497d593247ac8c6" title="Returns the relative path of the opened file." alt="" coords="507,157,703,184"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="736,173,704,173,704,168,736,168"/>
+<area shape="rect" id="Node000017" href="$d8/d52/class_a_e_log_parser.html#af3c28f50c5f52840be97e631d67b244c" title="Read the next valid entry in the log file of the given severity and module name filter,..." alt="" coords="524,563,686,589"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="741,579,687,579,687,573,741,573"/>
+<area shape="rect" id="Node000018" href="$d8/d52/class_a_e_log_parser.html#a182d51b4aa5771e2e6f6919300e571ca" title="Same as the AELogParser::nextEntry() but on massive scale – scans the whole log file and parses it to..." alt="" coords="273,512,449,539"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="522,562,428,542,429,537,523,556"/>
+<area shape="rect" id="Node000021" href="$d8/d52/class_a_e_log_parser.html#a768d4b94cbf1504d72f93ec5d131e915" title="Read the next valid entry in the log file of the given module name, and parse it into the given AELog..." alt="" coords="263,563,459,589"/>
+<area shape="poly" id="edge20_Node000017_Node000021" title=" " alt="" coords="508,579,460,579,460,573,508,573"/>
+<area shape="rect" id="Node000022" href="$d8/d52/class_a_e_log_parser.html#a0e03f67c2a0eaa0317904a2bd9f70cc0" title="Read the next valid entry in the log file of the given severity, and parse it to the given AELogEntry..." alt="" coords="266,613,456,640"/>
+<area shape="poly" id="edge21_Node000017_Node000022" title=" " alt="" coords="523,596,429,615,428,610,522,590"/>
+<area shape="rect" id="Node000019" href="$d8/d52/class_a_e_log_parser.html#ae5044cf01623156d91ddc74492b0aeda" title="A shortcut to AELogParser::logToQueue() to filter only by the module name of the log entries." alt="" coords="5,487,215,513"/>
+<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="257,518,215,513,215,508,258,512"/>
+<area shape="rect" id="Node000020" href="$d8/d52/class_a_e_log_parser.html#ab84bb93f08ed48082f74b00290deb308" title="A shortcut to AELogParser::logToQueue() to filter only by type/severity of the log entries." alt="" coords="8,537,212,564"/>
+<area shape="poly" id="edge19_Node000018_Node000020" title=" " alt="" coords="258,538,212,543,212,538,258,533"/>
+</map>

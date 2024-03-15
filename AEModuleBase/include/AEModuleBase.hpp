@@ -44,7 +44,7 @@
 /// <summary>
 /// @brief This is a base class for all basic modules, meaning that the module is not using other modules to work. 
 /// @note Intended to be inherited from in class declaration, not direct usage.
-/// Usage: class [classname] : public __AEModuleBase<[classname]>
+/// Usage: `class [classname] : public __AEModuleBase<[classname]>`
 /// @warning If you do not include REGISTER_MODULE(T) after the whole class definition (before closing '}'), the program won't compile
 /// @warning If you do not include COPYCONSTRUCT_MODULE(T, val) in the copy-constructor, the module increment (every constructing action) won't work!
 /// </summary>

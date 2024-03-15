@@ -1,4 +1,4 @@
-.TH "AETimer/include/AETimer.hpp" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AETimer/include/AETimer.hpp" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,6 +21,21 @@ AETimer/include/AETimer.hpp
 .br
 .RI "ArtyK's Engine Timer -- the engine's internal timer for, um, timing events or anything, with variable tick speed\&. "
 .in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBENGINE_FPS\fP   0"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBAETimer\fP \fBglobalTimer\fP (0)"
+.br
+.RI "The global timer of the engine to time engine-wide events\&. "
+.in -1c
 .SH "Detailed Description"
 .PP 
 This file contains the code for engine's timer\&. You can use it to time events\&. Or like\&.\&.\&.wait for the tick of the timer for a certain delay or even to happen\&.
@@ -28,6 +43,18 @@ This file contains the code for engine's timer\&. You can use it to time events\
 Should not cause everything to break :) 
 .PP
 Definition in file \fBAETimer\&.hpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ENGINE_FPS   0"
+
+.PP
+Definition at line \fB21\fP of file \fBAETimer\&.hpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBAETimer\fP globalTimer(0) (0)\fR [inline]\fP"
+
+.PP
+The global timer of the engine to time engine-wide events\&. It starts counting as soon as the program starts\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

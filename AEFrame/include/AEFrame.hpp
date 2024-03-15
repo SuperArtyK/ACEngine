@@ -16,6 +16,14 @@
 #include "include/AEFlags.hpp"
 #include "include/AEModuleBase.hpp"
 
+// in case you, the programmer undefined it, define it here as 0
+// I don't want to fuck with a lot more if-def lines
+#ifndef ENGINE_FPS
+#define ENGINE_FPS 0 
+#endif // !ENGINE_FPS
+
+
+
 /// <summary>
 /// @brief This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops.
 /// It works by sleeping the difference between the time spent by code in the loop and the time per each frame.

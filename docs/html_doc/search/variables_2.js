@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['logtype_0',['logType',['../db/d7b/struct_a_e_log_entry_info.html#ad6df63b5aa789efe8450458307e65f42',1,'AELogEntryInfo']]]
+  ['globallogger_0',['globalLogger',['../d4/d9f/_a_e_logger_8hpp.html#a9d35df81a2dbdef3a24b562ee018f1d0',1,'AELogger.hpp']]],
+  ['globaltimer_1',['globalTimer',['../dc/dc6/_a_e_timer_8hpp.html#afc5631cca0d9c9a54f6ca4888b67a009',1,'AETimer.hpp']]]
 ];

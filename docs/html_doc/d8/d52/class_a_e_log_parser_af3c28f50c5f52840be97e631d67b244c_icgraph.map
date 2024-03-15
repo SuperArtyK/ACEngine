@@ -1,0 +1,13 @@
+<map id="AELogParser::nextEntry" name="AELogParser::nextEntry">
+<area shape="rect" id="Node000001" title="Read the next valid entry in the log file of the given severity and module name filter,..." alt="" coords="507,81,669,108"/>
+<area shape="rect" id="Node000002" href="$d8/d52/class_a_e_log_parser.html#a182d51b4aa5771e2e6f6919300e571ca" title="Same as the AELogParser::nextEntry() but on massive scale – scans the whole log file and parses it to..." alt="" coords="273,31,449,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,80,423,61,425,55,511,75"/>
+<area shape="rect" id="Node000005" href="$d8/d52/class_a_e_log_parser.html#a768d4b94cbf1504d72f93ec5d131e915" title="Read the next valid entry in the log file of the given module name, and parse it into the given AELog..." alt="" coords="263,81,459,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="491,97,459,97,459,92,491,92"/>
+<area shape="rect" id="Node000006" href="$d8/d52/class_a_e_log_parser.html#a0e03f67c2a0eaa0317904a2bd9f70cc0" title="Read the next valid entry in the log file of the given severity, and parse it to the given AELogEntry..." alt="" coords="266,132,456,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="511,115,425,134,423,129,509,109"/>
+<area shape="rect" id="Node000003" href="$d8/d52/class_a_e_log_parser.html#ae5044cf01623156d91ddc74492b0aeda" title="A shortcut to AELogParser::logToQueue() to filter only by the module name of the log entries." alt="" coords="5,5,215,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="257,36,215,32,215,27,258,31"/>
+<area shape="rect" id="Node000004" href="$d8/d52/class_a_e_log_parser.html#ab84bb93f08ed48082f74b00290deb308" title="A shortcut to AELogParser::logToQueue() to filter only by type/severity of the log entries." alt="" coords="8,56,212,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="258,57,212,62,212,56,258,52"/>
+</map>

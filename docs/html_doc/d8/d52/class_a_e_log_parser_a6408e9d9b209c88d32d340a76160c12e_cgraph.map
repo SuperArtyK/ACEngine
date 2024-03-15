@@ -1,0 +1,5 @@
+<map id="AELogParser::getFullFileName" name="AELogParser::getFullFileName">
+<area shape="rect" id="Node000001" title="Returns the full name of currently open file, including the relative path, if such was provided." alt="" coords="5,5,206,32"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#aacd2c57289ebfe1f9549a3ce13067d2c" title="Returns the full name of currently open file, including the relative path, if such was provided." alt="" coords="254,5,457,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,16,238,16,238,21,206,21"/>
+</map>

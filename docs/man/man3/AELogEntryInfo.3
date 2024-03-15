@@ -1,4 +1,4 @@
-.TH "AELogEntryInfo" 3 "Thu Feb 29 2024 21:13:54" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogEntryInfo" 3 "Thu Mar 14 2024 19:57:53" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -86,28 +86,8 @@ Invalid instance of the \fBAELogEntryInfo\fP
 
 .PP
 Definition at line \fB43\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "constexpr bool AELogEntryInfo::isBroken () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
-
 .PP
-Checks if the current instance is broken (partially invalid) 
-.PP
-\fBSee also\fP
-.RS 4
-\fBAELogEntryInfo::isInvalidCursor()\fP 
-.PP
-\fBAELogEntryInfo::isInvalidMName()\fP 
-.PP
-\fBAELogEntryInfo::isInvalidType()\fP
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-True if the instance is broken, false otherwise
-.RE
-.PP
-
-.PP
-Definition at line \fB63\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+References \fBAELEI_INVALID_CURSOR\fP, \fBAELEI_INVALID_TYPE\fP, and \fBAELEI_INVLAID_MNAME\fP\&.
 .SS "constexpr bool AELogEntryInfo::isInvalid () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -130,6 +110,32 @@ True if the instance is invalid, false otherwise
 
 .PP
 Definition at line \fB52\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+.PP
+References \fBisInvalidCursor()\fP, \fBisInvalidMName()\fP, and \fBisInvalidType()\fP\&.
+.SS "constexpr bool AELogEntryInfo::isBroken () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Checks if the current instance is broken (partially invalid) 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAELogEntryInfo::isInvalidCursor()\fP 
+.PP
+\fBAELogEntryInfo::isInvalidMName()\fP 
+.PP
+\fBAELogEntryInfo::isInvalidType()\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the instance is broken, false otherwise
+.RE
+.PP
+
+.PP
+Definition at line \fB63\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+.PP
+References \fBisInvalidCursor()\fP, \fBisInvalidMName()\fP, and \fBisInvalidType()\fP\&.
 .SS "constexpr bool AELogEntryInfo::isInvalidCursor () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -143,6 +149,8 @@ True if it's invalid, false otherwise
 
 .PP
 Definition at line \fB71\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+.PP
+References \fBAELEI_INVALID_CURSOR\fP\&.
 .SS "constexpr bool AELogEntryInfo::isInvalidMName () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -156,6 +164,8 @@ True if it's invalid, false otherwise
 
 .PP
 Definition at line \fB79\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+.PP
+References \fBAELEI_INVLAID_MNAME\fP\&.
 .SS "constexpr bool AELogEntryInfo::isInvalidType () const\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -169,6 +179,8 @@ True if it's invalid, false otherwise
 
 .PP
 Definition at line \fB87\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+.PP
+References \fBAELEI_INVALID_TYPE\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBllint\fP AELogEntryInfo::cursorIndex = 0"
@@ -177,12 +189,6 @@ Definition at line \fB87\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
 The cursor number of the log entry in the opened log file\&. 
 .PP
 Definition at line \fB31\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
-.SS "\fBcint\fP AELogEntryInfo::logType = 0"
-
-.PP
-The type of the log entry\&. 
-.PP
-Definition at line \fB37\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
 .SS "short AELogEntryInfo::mnameIndex = 0"
 
 .PP
@@ -196,6 +202,12 @@ The index of the module name of the log entry The module names are enumerated wh
 
 .PP
 Definition at line \fB35\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
+.SS "\fBcint\fP AELogEntryInfo::logType = 0"
+
+.PP
+The type of the log entry\&. 
+.PP
+Definition at line \fB37\fP of file \fBAELogEntryInfo\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

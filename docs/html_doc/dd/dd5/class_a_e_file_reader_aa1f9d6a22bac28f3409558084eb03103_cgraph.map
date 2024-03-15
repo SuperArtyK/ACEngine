@@ -1,0 +1,11 @@
+<map id="AEFileReader::getRelativePath" name="AEFileReader::getRelativePath">
+<area shape="rect" id="Node000001" title="Returns the relative path of the opened file." alt="" coords="5,31,205,57"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="264,5,423,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,31,248,26,248,31,206,36"/>
+<area shape="rect" id="Node000004" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="253,56,434,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="206,52,238,55,237,61,205,57"/>
+<area shape="rect" id="Node000003" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="499,5,649,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,16,483,16,483,21,424,21"/>
+<area shape="rect" id="Node000005" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="482,56,665,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="435,67,466,67,466,72,435,72"/>
+</map>

@@ -100,125 +100,417 @@ $(function(){initNavTree('dc/d89/_a_e_typedefs_8hpp.html','../../'); initResizab
   <div class="headertitle"><div class="title">AETypedefs.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file contains the engine's <b>typedefs and variable type aliases</b>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;climits&gt;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for AETypedefs.hpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d5f/_a_e_typedefs_8hpp__incl.svg" width="236" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/d19/_a_e_typedefs_8hpp__dep__incl.svg" width="100%" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 </div>
 <p><a href="../../dc/d89/_a_e_typedefs_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af88f6350ab97891347556435dae513ea" id="r_af88f6350ab97891347556435dae513ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af88f6350ab97891347556435dae513ea">UCINT_MAX</a>&#160;&#160;&#160;UCHAR_MAX</td></tr>
-<tr class="memdesc:af88f6350ab97891347556435dae513ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the maximum value of the ucint type (unsigned char/8bit int)  <br /></td></tr>
+<tr class="memdesc:af88f6350ab97891347556435dae513ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>maximum value of the <a class="el" href="#ac0a5104b175735b1d5e45290bec04706" title="A shortcut for an integer of the unsigned char type (8 bits).">ucint</a></b> type.  <br /></td></tr>
 <tr class="separator:af88f6350ab97891347556435dae513ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf3c79e0f07c608007071b380562d3" id="r_a0ddf3c79e0f07c608007071b380562d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddf3c79e0f07c608007071b380562d3">UCINT_MIN</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a0ddf3c79e0f07c608007071b380562d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the ucint type (unsigned char/8bit int)  <br /></td></tr>
+<tr class="memdesc:a0ddf3c79e0f07c608007071b380562d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#ac0a5104b175735b1d5e45290bec04706" title="A shortcut for an integer of the unsigned char type (8 bits).">ucint</a></b> type.  <br /></td></tr>
 <tr class="separator:a0ddf3c79e0f07c608007071b380562d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c55ef6d515bfd72f8da55f745f81f75" id="r_a9c55ef6d515bfd72f8da55f745f81f75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c55ef6d515bfd72f8da55f745f81f75">CINT_MAX</a>&#160;&#160;&#160;SCHAR_MAX</td></tr>
-<tr class="memdesc:a9c55ef6d515bfd72f8da55f745f81f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the maximum value of the cint type (signed char/8bit int)  <br /></td></tr>
+<tr class="memdesc:a9c55ef6d515bfd72f8da55f745f81f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>maximum value of the <a class="el" href="#adabb025f32e720b44bdd40d4e0784710" title="A shortcut for an integer of the signed char type (8 bits).">cint</a></b> type.  <br /></td></tr>
 <tr class="separator:a9c55ef6d515bfd72f8da55f745f81f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a43bedb281ed9a54b3ec860b3da04b5" id="r_a8a43bedb281ed9a54b3ec860b3da04b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a43bedb281ed9a54b3ec860b3da04b5">CINT_MIN</a>&#160;&#160;&#160;SCHAR_MIN</td></tr>
-<tr class="memdesc:a8a43bedb281ed9a54b3ec860b3da04b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the cint type (signed char/8bit int)  <br /></td></tr>
+<tr class="memdesc:a8a43bedb281ed9a54b3ec860b3da04b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#adabb025f32e720b44bdd40d4e0784710" title="A shortcut for an integer of the signed char type (8 bits).">cint</a></b> type.  <br /></td></tr>
 <tr class="separator:a8a43bedb281ed9a54b3ec860b3da04b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2e8f598ba094050a1c4e13e721cb670" id="r_ac2e8f598ba094050a1c4e13e721cb670"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2e8f598ba094050a1c4e13e721cb670">ULLINT_MAX</a>&#160;&#160;&#160;ULLONG_MAX</td></tr>
-<tr class="memdesc:ac2e8f598ba094050a1c4e13e721cb670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the maximum value of the ullint type (unsigned long long/64bit int)  <br /></td></tr>
+<tr class="memdesc:ac2e8f598ba094050a1c4e13e721cb670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>maximum value of the <a class="el" href="#a689c96cb00098d457d55842c96cc71eb" title="A shortcut for an integer of the unsigned long long int type (64 bits).">ullint</a></b> type.  <br /></td></tr>
 <tr class="separator:ac2e8f598ba094050a1c4e13e721cb670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a8699dac884eb81c036a9e9ddd64bd3" id="r_a2a8699dac884eb81c036a9e9ddd64bd3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a8699dac884eb81c036a9e9ddd64bd3">ULLINT_MIN</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a2a8699dac884eb81c036a9e9ddd64bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the ullint type (unsigned long long/64bit int)  <br /></td></tr>
+<tr class="memdesc:a2a8699dac884eb81c036a9e9ddd64bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#a689c96cb00098d457d55842c96cc71eb" title="A shortcut for an integer of the unsigned long long int type (64 bits).">ullint</a></b> type.  <br /></td></tr>
 <tr class="separator:a2a8699dac884eb81c036a9e9ddd64bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cce82dcca959539e53ba3a9d87b8fd9" id="r_a4cce82dcca959539e53ba3a9d87b8fd9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cce82dcca959539e53ba3a9d87b8fd9">LLINT_MAX</a>&#160;&#160;&#160;LLONG_MAX</td></tr>
-<tr class="memdesc:a4cce82dcca959539e53ba3a9d87b8fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the maximum value of the llint type (signed long long/64bit int)  <br /></td></tr>
+<tr class="memdesc:a4cce82dcca959539e53ba3a9d87b8fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>maximum value of the <a class="el" href="#a01c88e5c03ebee098af42984516b9aaf" title="A shortcut for an integer of the long long int type (64 bits).">llint</a></b> type.  <br /></td></tr>
 <tr class="separator:a4cce82dcca959539e53ba3a9d87b8fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda2ad0e59a3e5e0b7d8142f63b37432" id="r_abda2ad0e59a3e5e0b7d8142f63b37432"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abda2ad0e59a3e5e0b7d8142f63b37432">LLINT_MIN</a>&#160;&#160;&#160;LLONG_MIN</td></tr>
-<tr class="memdesc:abda2ad0e59a3e5e0b7d8142f63b37432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the llint type (signed long long/64bit int)  <br /></td></tr>
+<tr class="memdesc:abda2ad0e59a3e5e0b7d8142f63b37432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#a01c88e5c03ebee098af42984516b9aaf" title="A shortcut for an integer of the long long int type (64 bits).">llint</a></b> type.  <br /></td></tr>
 <tr class="separator:abda2ad0e59a3e5e0b7d8142f63b37432"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba0afd3e5d286bcf0e7f2341c441c582" id="r_aba0afd3e5d286bcf0e7f2341c441c582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba0afd3e5d286bcf0e7f2341c441c582">SINT_MAX</a>&#160;&#160;&#160;INT32_MAX</td></tr>
-<tr class="memdesc:aba0afd3e5d286bcf0e7f2341c441c582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the maximum value of the sint type (signed 32bit int)  <br /></td></tr>
+<tr class="memitem:aba0afd3e5d286bcf0e7f2341c441c582" id="r_aba0afd3e5d286bcf0e7f2341c441c582"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba0afd3e5d286bcf0e7f2341c441c582">SINT_MAX</a>&#160;&#160;&#160;INT_MAX</td></tr>
+<tr class="memdesc:aba0afd3e5d286bcf0e7f2341c441c582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>maximum value of the <a class="el" href="#ada7e83fdfe943aba4f1d5bf80cb66f40" title="A shortcut for a just signed int (32 bits)">sint</a></b> type.  <br /></td></tr>
 <tr class="separator:aba0afd3e5d286bcf0e7f2341c441c582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa936407e170ea9cac428d91070d8e717" id="r_aa936407e170ea9cac428d91070d8e717"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa936407e170ea9cac428d91070d8e717">SINT_MIN</a>&#160;&#160;&#160;INT32_MIN</td></tr>
-<tr class="memdesc:aa936407e170ea9cac428d91070d8e717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the sint type (signed 32bit int)  <br /></td></tr>
+<tr class="memitem:aa936407e170ea9cac428d91070d8e717" id="r_aa936407e170ea9cac428d91070d8e717"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa936407e170ea9cac428d91070d8e717">SINT_MIN</a>&#160;&#160;&#160;INT_MIN</td></tr>
+<tr class="memdesc:aa936407e170ea9cac428d91070d8e717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#ada7e83fdfe943aba4f1d5bf80cb66f40" title="A shortcut for a just signed int (32 bits)">sint</a></b> type.  <br /></td></tr>
 <tr class="separator:aa936407e170ea9cac428d91070d8e717"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c5cca78586f61bea3640a1563a43819" id="r_a4c5cca78586f61bea3640a1563a43819"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c5cca78586f61bea3640a1563a43819">UINT_MIN</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a4c5cca78586f61bea3640a1563a43819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the uint type (unsigned long long/64bit int)  <br /></td></tr>
+<tr class="memdesc:a4c5cca78586f61bea3640a1563a43819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#a91ad9478d81a7aaf2593e8d9c3d06a14" title="A shortcut for an integer of the unsigned int (32 bits)">uint</a></b> type.  <br /></td></tr>
 <tr class="separator:a4c5cca78586f61bea3640a1563a43819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57f617d9cf5cce12e8499f7512ebd948" id="r_a57f617d9cf5cce12e8499f7512ebd948"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57f617d9cf5cce12e8499f7512ebd948">USHRT_MIN</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a57f617d9cf5cce12e8499f7512ebd948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the minimum value of the ushrt type (unsigned short/16bit int)  <br /></td></tr>
+<tr class="memdesc:a57f617d9cf5cce12e8499f7512ebd948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#ab95f123a6c9bcfee6a343170ef8c5f69" title="A shortcut for an integer of the just unsigned short type (16 bits)">ushort</a></b> type.  <br /></td></tr>
 <tr class="separator:a57f617d9cf5cce12e8499f7512ebd948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7107f5eda31a957240228a7681a8df64" id="r_a7107f5eda31a957240228a7681a8df64"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7107f5eda31a957240228a7681a8df64">SSHRT_MAX</a>&#160;&#160;&#160;SHRT_MAX</td></tr>
+<tr class="memdesc:a7107f5eda31a957240228a7681a8df64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>maximum value of the <a class="el" href="#a7d14306b3dd8ed2968e138134117808e" title="A shortcut for a just signed short (16 bits)">sshort</a></b> type.  <br /></td></tr>
+<tr class="separator:a7107f5eda31a957240228a7681a8df64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc7bcd6e59565812e5cd183eadd4ed5" id="r_aadc7bcd6e59565812e5cd183eadd4ed5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadc7bcd6e59565812e5cd183eadd4ed5">SSHRT_MIN</a>&#160;&#160;&#160;SHRT_MIN</td></tr>
+<tr class="memdesc:aadc7bcd6e59565812e5cd183eadd4ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>minimum value of the <a class="el" href="#a7d14306b3dd8ed2968e138134117808e" title="A shortcut for a just signed short (16 bits)">sshort</a></b> type.  <br /></td></tr>
+<tr class="separator:aadc7bcd6e59565812e5cd183eadd4ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71255fd98ff05f38ca0d8d178b09954d" id="r_a71255fd98ff05f38ca0d8d178b09954d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71255fd98ff05f38ca0d8d178b09954d">AENULL</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a71255fd98ff05f38ca0d8d178b09954d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the NULL as a 0, not a pointer (we have nullptr for that)  <br /></td></tr>
+<tr class="memdesc:a71255fd98ff05f38ca0d8d178b09954d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>NULL value as a 0</b>, not a pointer.  <br /></td></tr>
 <tr class="separator:a71255fd98ff05f38ca0d8d178b09954d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e611e8409abcf7ddec11f1427452b4c" id="r_a8e611e8409abcf7ddec11f1427452b4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e611e8409abcf7ddec11f1427452b4c">getSysTime</a>()&#160;&#160;&#160;std::chrono::system_clock::now()</td></tr>
-<tr class="memdesc:a8e611e8409abcf7ddec11f1427452b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the system time's now()  <br /></td></tr>
+<tr class="memitem:a8e611e8409abcf7ddec11f1427452b4c" id="r_a8e611e8409abcf7ddec11f1427452b4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e611e8409abcf7ddec11f1427452b4c">getSysTime</a>()&#160;&#160;&#160;SysClock::now()</td></tr>
+<tr class="memdesc:a8e611e8409abcf7ddec11f1427452b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the <b>system clock's current time</b> (now())  <br /></td></tr>
 <tr class="separator:a8e611e8409abcf7ddec11f1427452b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ae2d20243e4338f9f7376085f28304" id="r_ad5ae2d20243e4338f9f7376085f28304"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5ae2d20243e4338f9f7376085f28304">getHighResTime</a>()&#160;&#160;&#160;std::chrono::high_resolution_clock::now()</td></tr>
-<tr class="memdesc:ad5ae2d20243e4338f9f7376085f28304"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the high resolution time's now()  <br /></td></tr>
+<tr class="memitem:ad5ae2d20243e4338f9f7376085f28304" id="r_ad5ae2d20243e4338f9f7376085f28304"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5ae2d20243e4338f9f7376085f28304">getHighResTime</a>()&#160;&#160;&#160;HighResClock::now()</td></tr>
+<tr class="memdesc:ad5ae2d20243e4338f9f7376085f28304"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the <b>high resolution clock's current time</b> (now())  <br /></td></tr>
 <tr class="separator:ad5ae2d20243e4338f9f7376085f28304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4901a9a64a28aca8564f930ac3053bfd" id="r_a4901a9a64a28aca8564f930ac3053bfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4901a9a64a28aca8564f930ac3053bfd">getSteadyTime</a>()&#160;&#160;&#160;std::chrono::steady_clock::now()</td></tr>
-<tr class="memdesc:a4901a9a64a28aca8564f930ac3053bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the steady time's now()  <br /></td></tr>
+<tr class="memitem:a4901a9a64a28aca8564f930ac3053bfd" id="r_a4901a9a64a28aca8564f930ac3053bfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4901a9a64a28aca8564f930ac3053bfd">getSteadyTime</a>()&#160;&#160;&#160;SteadyClock::now()</td></tr>
+<tr class="memdesc:a4901a9a64a28aca8564f930ac3053bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the <b>steady clock's current time</b> (now())  <br /></td></tr>
 <tr class="separator:a4901a9a64a28aca8564f930ac3053bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af72a119acd49a0eaaf8caf36930cbb07" id="r_af72a119acd49a0eaaf8caf36930cbb07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af72a119acd49a0eaaf8caf36930cbb07">calculateTime</a>(tp1,  tp2,  type)&#160;&#160;&#160;std::chrono::duration&lt;type&gt;(tp2 - tp1).count()</td></tr>
-<tr class="memdesc:af72a119acd49a0eaaf8caf36930cbb07"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to calculate time between 2 timepoints as some type.  <br /></td></tr>
-<tr class="separator:af72a119acd49a0eaaf8caf36930cbb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a559364c19c1c80c7a63a7ca43ec71874" id="r_a559364c19c1c80c7a63a7ca43ec71874"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a559364c19c1c80c7a63a7ca43ec71874">milliSec</a>(ms)&#160;&#160;&#160;std::chrono::milliseconds(ms)</td></tr>
-<tr class="memdesc:a559364c19c1c80c7a63a7ca43ec71874"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of chrono's milliseconds.  <br /></td></tr>
+<tr class="memdesc:a559364c19c1c80c7a63a7ca43ec71874"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>chrono's milliseconds</b>.  <br /></td></tr>
 <tr class="separator:a559364c19c1c80c7a63a7ca43ec71874"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e26bf3aaeae4fcabbff362eb4dd3a4" id="r_ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0e26bf3aaeae4fcabbff362eb4dd3a4">microSec</a>(us)&#160;&#160;&#160;std::chrono::microseconds(us)</td></tr>
-<tr class="memdesc:ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of chrono's microseconds.  <br /></td></tr>
+<tr class="memdesc:ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>chrono's microseconds</b>.  <br /></td></tr>
 <tr class="separator:ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af72a119acd49a0eaaf8caf36930cbb07" id="r_af72a119acd49a0eaaf8caf36930cbb07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af72a119acd49a0eaaf8caf36930cbb07">calculateTime</a>(tp1,  tp2,  type)&#160;&#160;&#160;std::chrono::duration&lt;type&gt;(tp2 - tp1).count()</td></tr>
+<tr class="memdesc:af72a119acd49a0eaaf8caf36930cbb07"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to <b>calculate time between 2 timepoints</b> as some type.  <br /></td></tr>
+<tr class="separator:af72a119acd49a0eaaf8caf36930cbb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a713bf3c1565c4abe7b2e41cd1c795957" id="r_a713bf3c1565c4abe7b2e41cd1c795957"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a713bf3c1565c4abe7b2e41cd1c795957">sleepUntil</a>(sec)&#160;&#160;&#160;std::this_thread::sleep_until(sec)</td></tr>
-<tr class="memdesc:a713bf3c1565c4abe7b2e41cd1c795957"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of thread's sleep_until.  <br /></td></tr>
+<tr class="memdesc:a713bf3c1565c4abe7b2e41cd1c795957"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>thread's sleep_until</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sec</td><td>The chronos's duration object (milliseconds, seconds, etc)</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:a713bf3c1565c4abe7b2e41cd1c795957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36ad4c113cc69c24386becf1a367a901" id="r_a36ad4c113cc69c24386becf1a367a901"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36ad4c113cc69c24386becf1a367a901">sleepFor</a>(sec)&#160;&#160;&#160;std::this_thread::sleep_for(sec)</td></tr>
-<tr class="memdesc:a36ad4c113cc69c24386becf1a367a901"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of thread's sleep_for.  <br /></td></tr>
+<tr class="memdesc:a36ad4c113cc69c24386becf1a367a901"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>thread's sleep_for</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sec</td><td>The chronos's duration object (milliseconds, seconds, etc)</td></tr>
+  </table>
+  </dd>
+</dl>
+ <br /></td></tr>
 <tr class="separator:a36ad4c113cc69c24386becf1a367a901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ac0a5104b175735b1d5e45290bec04706" id="r_ac0a5104b175735b1d5e45290bec04706"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0a5104b175735b1d5e45290bec04706">ucint</a></td></tr>
-<tr class="memdesc:ac0a5104b175735b1d5e45290bec04706"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for small unsigned (char) integer (8bit)  <br /></td></tr>
+<tr class="memdesc:ac0a5104b175735b1d5e45290bec04706"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for an integer of the <b>unsigned char</b> type (8 bits).  <br /></td></tr>
 <tr class="separator:ac0a5104b175735b1d5e45290bec04706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adabb025f32e720b44bdd40d4e0784710" id="r_adabb025f32e720b44bdd40d4e0784710"><td class="memItemLeft" align="right" valign="top">typedef int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adabb025f32e720b44bdd40d4e0784710">cint</a></td></tr>
-<tr class="memdesc:adabb025f32e720b44bdd40d4e0784710"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for small signed (char) integer (8bit)  <br /></td></tr>
+<tr class="memdesc:adabb025f32e720b44bdd40d4e0784710"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for an integer of the <b>signed char</b> type (8 bits).  <br /></td></tr>
 <tr class="separator:adabb025f32e720b44bdd40d4e0784710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a689c96cb00098d457d55842c96cc71eb" id="r_a689c96cb00098d457d55842c96cc71eb"><td class="memItemLeft" align="right" valign="top">typedef unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a689c96cb00098d457d55842c96cc71eb">ullint</a></td></tr>
-<tr class="memdesc:a689c96cb00098d457d55842c96cc71eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for big unsigned (long long) integer (64bit)  <br /></td></tr>
+<tr class="memdesc:a689c96cb00098d457d55842c96cc71eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for an integer of the <b>unsigned long long int</b> type (64 bits).  <br /></td></tr>
 <tr class="separator:a689c96cb00098d457d55842c96cc71eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01c88e5c03ebee098af42984516b9aaf" id="r_a01c88e5c03ebee098af42984516b9aaf"><td class="memItemLeft" align="right" valign="top">typedef long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01c88e5c03ebee098af42984516b9aaf">llint</a></td></tr>
-<tr class="memdesc:a01c88e5c03ebee098af42984516b9aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for big signed (long long) integer (64bit)  <br /></td></tr>
+<tr class="memdesc:a01c88e5c03ebee098af42984516b9aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for an integer of the <b>long long int</b> type (64 bits).  <br /></td></tr>
 <tr class="separator:a01c88e5c03ebee098af42984516b9aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7e83fdfe943aba4f1d5bf80cb66f40" id="r_ada7e83fdfe943aba4f1d5bf80cb66f40"><td class="memItemLeft" align="right" valign="top">typedef signed int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada7e83fdfe943aba4f1d5bf80cb66f40">sint</a></td></tr>
-<tr class="memdesc:ada7e83fdfe943aba4f1d5bf80cb66f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for a just signed int (32bit)  <br /></td></tr>
+<tr class="memdesc:ada7e83fdfe943aba4f1d5bf80cb66f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for a just <b>signed int</b> (32 bits)  <br /></td></tr>
 <tr class="separator:ada7e83fdfe943aba4f1d5bf80cb66f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ad9478d81a7aaf2593e8d9c3d06a14" id="r_a91ad9478d81a7aaf2593e8d9c3d06a14"><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></td></tr>
-<tr class="memdesc:a91ad9478d81a7aaf2593e8d9c3d06a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for a just unsigned int (32bit)  <br /></td></tr>
+<tr class="memdesc:a91ad9478d81a7aaf2593e8d9c3d06a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for an integer of the <b>unsigned int</b> (32 bits)  <br /></td></tr>
 <tr class="separator:a91ad9478d81a7aaf2593e8d9c3d06a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab95f123a6c9bcfee6a343170ef8c5f69" id="r_ab95f123a6c9bcfee6a343170ef8c5f69"><td class="memItemLeft" align="right" valign="top">typedef unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab95f123a6c9bcfee6a343170ef8c5f69">ushort</a></td></tr>
-<tr class="memdesc:ab95f123a6c9bcfee6a343170ef8c5f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for a just unsigned short (at least 16 bit)  <br /></td></tr>
+<tr class="memdesc:ab95f123a6c9bcfee6a343170ef8c5f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for an integer of the just <b>unsigned short</b> type (16 bits)  <br /></td></tr>
 <tr class="separator:ab95f123a6c9bcfee6a343170ef8c5f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d14306b3dd8ed2968e138134117808e" id="r_a7d14306b3dd8ed2968e138134117808e"><td class="memItemLeft" align="right" valign="top">typedef signed short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d14306b3dd8ed2968e138134117808e">sshort</a></td></tr>
+<tr class="memdesc:a7d14306b3dd8ed2968e138134117808e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for a just <b>signed short</b> (16 bits)  <br /></td></tr>
+<tr class="separator:a7d14306b3dd8ed2968e138134117808e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05bbdee750e8a97dc3d923843c35715b" id="r_a05bbdee750e8a97dc3d923843c35715b"><td class="memItemLeft" align="right" valign="top">typedef std::chrono::system_clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05bbdee750e8a97dc3d923843c35715b">SysClock</a></td></tr>
-<tr class="memdesc:a05bbdee750e8a97dc3d923843c35715b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for chrono's system time.  <br /></td></tr>
+<tr class="memdesc:a05bbdee750e8a97dc3d923843c35715b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for <b>chrono's system clock</b>  <br /></td></tr>
 <tr class="separator:a05bbdee750e8a97dc3d923843c35715b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84f79c1feb804b7c4e7620b7f8a44b3a" id="r_a84f79c1feb804b7c4e7620b7f8a44b3a"><td class="memItemLeft" align="right" valign="top">typedef std::chrono::high_resolution_clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84f79c1feb804b7c4e7620b7f8a44b3a">HighResClock</a></td></tr>
-<tr class="memdesc:a84f79c1feb804b7c4e7620b7f8a44b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for chrono's high resolution time.  <br /></td></tr>
+<tr class="memdesc:a84f79c1feb804b7c4e7620b7f8a44b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for <b>chrono's high resolution clock</b>  <br /></td></tr>
 <tr class="separator:a84f79c1feb804b7c4e7620b7f8a44b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0e8014f772795c246d043c5e9fb7495" id="r_af0e8014f772795c246d043c5e9fb7495"><td class="memItemLeft" align="right" valign="top">typedef std::chrono::steady_clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0e8014f772795c246d043c5e9fb7495">SteadyClock</a></td></tr>
-<tr class="memdesc:af0e8014f772795c246d043c5e9fb7495"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for chrono's steady time.  <br /></td></tr>
+<tr class="memdesc:af0e8014f772795c246d043c5e9fb7495"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for <b>chrono's steady clock</b>  <br /></td></tr>
 <tr class="separator:af0e8014f772795c246d043c5e9fb7495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5299101d3d66ef569007eb3d8012505e" id="r_a5299101d3d66ef569007eb3d8012505e"><td class="memTemplParams" colspan="2">template&lt;class Clock , class Duration  = typename Clock::duration&gt; </td></tr>
 <tr class="memitem:a5299101d3d66ef569007eb3d8012505e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5299101d3d66ef569007eb3d8012505e">timePoint</a> = std::chrono::time_point&lt;Clock, Duration&gt;</td></tr>
-<tr class="memdesc:a5299101d3d66ef569007eb3d8012505e"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias for the std::chrono::time_point to not type...as much.  <br /></td></tr>
+<tr class="memdesc:a5299101d3d66ef569007eb3d8012505e"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias for the <b>std::chrono::time_point</b> to not type...as much.  <br /></td></tr>
 <tr class="separator:a5299101d3d66ef569007eb3d8012505e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f32683c736bf47050425ab483d8f1b" id="r_a27f32683c736bf47050425ab483d8f1b"><td class="memTemplParams" colspan="2">template&lt;class Rep , class Period  = std::ratio&lt;1&gt;&gt; </td></tr>
-<tr class="memitem:a27f32683c736bf47050425ab483d8f1b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a27f32683c736bf47050425ab483d8f1b">timeDur</a> = std::chrono::duration&lt;Rep, Period&gt;</td></tr>
-<tr class="memdesc:a27f32683c736bf47050425ab483d8f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of chrono's time duration. Same reason as timePoint.  <br /></td></tr>
-<tr class="separator:a27f32683c736bf47050425ab483d8f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945fabbf0fc03b81ac4836fd4a97c998" id="r_a945fabbf0fc03b81ac4836fd4a97c998"><td class="memTemplParams" colspan="2">template&lt;class ticksType , class Period  = std::ratio&lt;1&gt;&gt; </td></tr>
+<tr class="memitem:a945fabbf0fc03b81ac4836fd4a97c998"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a945fabbf0fc03b81ac4836fd4a97c998">timeDur</a> = std::chrono::duration&lt;ticksType, Period&gt;</td></tr>
+<tr class="memdesc:a945fabbf0fc03b81ac4836fd4a97c998"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias for the <b>std::chrono::duration</b> to not type as much.  <br /></td></tr>
+<tr class="separator:a945fabbf0fc03b81ac4836fd4a97c998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains typedefs/aliases of the variable types that are long and are used often/inconvenient to use in their long original naming.</p>
-<p>Should not cause everything to break :) </p>
+<div class="textblock"><p>This file contains the engine's <b>typedefs and variable type aliases</b>. </p>
+<p>The reason for this is that they are long or inconvenient to type.</p>
+<p>So &ndash; shorter names for easier coding.</p>
+<p><em>Should not cause everything to break :)</em> </p>
 
 <p class="definition">Definition in file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="af88f6350ab97891347556435dae513ea" name="af88f6350ab97891347556435dae513ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88f6350ab97891347556435dae513ea">&#9670;&#160;</a></span>UCINT_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UCINT_MAX&#160;&#160;&#160;UCHAR_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>maximum value of the <a class="el" href="#ac0a5104b175735b1d5e45290bec04706" title="A shortcut for an integer of the unsigned char type (8 bits).">ucint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0ddf3c79e0f07c608007071b380562d3" name="a0ddf3c79e0f07c608007071b380562d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf3c79e0f07c608007071b380562d3">&#9670;&#160;</a></span>UCINT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UCINT_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#ac0a5104b175735b1d5e45290bec04706" title="A shortcut for an integer of the unsigned char type (8 bits).">ucint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00058">58</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c55ef6d515bfd72f8da55f745f81f75" name="a9c55ef6d515bfd72f8da55f745f81f75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c55ef6d515bfd72f8da55f745f81f75">&#9670;&#160;</a></span>CINT_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CINT_MAX&#160;&#160;&#160;SCHAR_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>maximum value of the <a class="el" href="#adabb025f32e720b44bdd40d4e0784710" title="A shortcut for an integer of the signed char type (8 bits).">cint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00061">61</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8a43bedb281ed9a54b3ec860b3da04b5" name="a8a43bedb281ed9a54b3ec860b3da04b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a43bedb281ed9a54b3ec860b3da04b5">&#9670;&#160;</a></span>CINT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CINT_MIN&#160;&#160;&#160;SCHAR_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#adabb025f32e720b44bdd40d4e0784710" title="A shortcut for an integer of the signed char type (8 bits).">cint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00064">64</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac2e8f598ba094050a1c4e13e721cb670" name="ac2e8f598ba094050a1c4e13e721cb670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e8f598ba094050a1c4e13e721cb670">&#9670;&#160;</a></span>ULLINT_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ULLINT_MAX&#160;&#160;&#160;ULLONG_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>maximum value of the <a class="el" href="#a689c96cb00098d457d55842c96cc71eb" title="A shortcut for an integer of the unsigned long long int type (64 bits).">ullint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00067">67</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2a8699dac884eb81c036a9e9ddd64bd3" name="a2a8699dac884eb81c036a9e9ddd64bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a8699dac884eb81c036a9e9ddd64bd3">&#9670;&#160;</a></span>ULLINT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ULLINT_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#a689c96cb00098d457d55842c96cc71eb" title="A shortcut for an integer of the unsigned long long int type (64 bits).">ullint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4cce82dcca959539e53ba3a9d87b8fd9" name="a4cce82dcca959539e53ba3a9d87b8fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cce82dcca959539e53ba3a9d87b8fd9">&#9670;&#160;</a></span>LLINT_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LLINT_MAX&#160;&#160;&#160;LLONG_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>maximum value of the <a class="el" href="#a01c88e5c03ebee098af42984516b9aaf" title="A shortcut for an integer of the long long int type (64 bits).">llint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="abda2ad0e59a3e5e0b7d8142f63b37432" name="abda2ad0e59a3e5e0b7d8142f63b37432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda2ad0e59a3e5e0b7d8142f63b37432">&#9670;&#160;</a></span>LLINT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LLINT_MIN&#160;&#160;&#160;LLONG_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#a01c88e5c03ebee098af42984516b9aaf" title="A shortcut for an integer of the long long int type (64 bits).">llint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aba0afd3e5d286bcf0e7f2341c441c582" name="aba0afd3e5d286bcf0e7f2341c441c582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba0afd3e5d286bcf0e7f2341c441c582">&#9670;&#160;</a></span>SINT_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINT_MAX&#160;&#160;&#160;INT_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>maximum value of the <a class="el" href="#ada7e83fdfe943aba4f1d5bf80cb66f40" title="A shortcut for a just signed int (32 bits)">sint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa936407e170ea9cac428d91070d8e717" name="aa936407e170ea9cac428d91070d8e717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa936407e170ea9cac428d91070d8e717">&#9670;&#160;</a></span>SINT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SINT_MIN&#160;&#160;&#160;INT_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#ada7e83fdfe943aba4f1d5bf80cb66f40" title="A shortcut for a just signed int (32 bits)">sint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00082">82</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4c5cca78586f61bea3640a1563a43819" name="a4c5cca78586f61bea3640a1563a43819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c5cca78586f61bea3640a1563a43819">&#9670;&#160;</a></span>UINT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UINT_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#a91ad9478d81a7aaf2593e8d9c3d06a14" title="A shortcut for an integer of the unsigned int (32 bits)">uint</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a57f617d9cf5cce12e8499f7512ebd948" name="a57f617d9cf5cce12e8499f7512ebd948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f617d9cf5cce12e8499f7512ebd948">&#9670;&#160;</a></span>USHRT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USHRT_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#ab95f123a6c9bcfee6a343170ef8c5f69" title="A shortcut for an integer of the just unsigned short type (16 bits)">ushort</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7107f5eda31a957240228a7681a8df64" name="a7107f5eda31a957240228a7681a8df64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7107f5eda31a957240228a7681a8df64">&#9670;&#160;</a></span>SSHRT_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SSHRT_MAX&#160;&#160;&#160;SHRT_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>maximum value of the <a class="el" href="#a7d14306b3dd8ed2968e138134117808e" title="A shortcut for a just signed short (16 bits)">sshort</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aadc7bcd6e59565812e5cd183eadd4ed5" name="aadc7bcd6e59565812e5cd183eadd4ed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc7bcd6e59565812e5cd183eadd4ed5">&#9670;&#160;</a></span>SSHRT_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SSHRT_MIN&#160;&#160;&#160;SHRT_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for the <b>minimum value of the <a class="el" href="#a7d14306b3dd8ed2968e138134117808e" title="A shortcut for a just signed short (16 bits)">sshort</a></b> type. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a71255fd98ff05f38ca0d8d178b09954d" name="a71255fd98ff05f38ca0d8d178b09954d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71255fd98ff05f38ca0d8d178b09954d">&#9670;&#160;</a></span>AENULL</h2>
 
@@ -231,9 +523,126 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the NULL as a 0, not a pointer (we have nullptr for that) </p>
+<p>Macro for the <b>NULL value as a 0</b>, not a pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00082">82</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8e611e8409abcf7ddec11f1427452b4c" name="a8e611e8409abcf7ddec11f1427452b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e611e8409abcf7ddec11f1427452b4c">&#9670;&#160;</a></span>getSysTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getSysTime</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td>&#160;&#160;&#160;SysClock::now()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro to get the <b>system clock's current time</b> (now()) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad5ae2d20243e4338f9f7376085f28304" name="ad5ae2d20243e4338f9f7376085f28304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ae2d20243e4338f9f7376085f28304">&#9670;&#160;</a></span>getHighResTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getHighResTime</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td>&#160;&#160;&#160;HighResClock::now()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro to get the <b>high resolution clock's current time</b> (now()) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4901a9a64a28aca8564f930ac3053bfd" name="a4901a9a64a28aca8564f930ac3053bfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4901a9a64a28aca8564f930ac3053bfd">&#9670;&#160;</a></span>getSteadyTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getSteadyTime</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td>&#160;&#160;&#160;SteadyClock::now()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro to get the <b>steady clock's current time</b> (now()) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a559364c19c1c80c7a63a7ca43ec71874" name="a559364c19c1c80c7a63a7ca43ec71874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a559364c19c1c80c7a63a7ca43ec71874">&#9670;&#160;</a></span>milliSec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define milliSec</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">ms</span></td><td>)</td>
+          <td>&#160;&#160;&#160;std::chrono::milliseconds(ms)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro as the shortcut of <b>chrono's milliseconds</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>The number of milliseconds to convert to</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00143">143</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac0e26bf3aaeae4fcabbff362eb4dd3a4" name="ac0e26bf3aaeae4fcabbff362eb4dd3a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e26bf3aaeae4fcabbff362eb4dd3a4">&#9670;&#160;</a></span>microSec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define microSec</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">us</span></td><td>)</td>
+          <td>&#160;&#160;&#160;std::chrono::microseconds(us)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A macro as the shortcut of <b>chrono's microseconds</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">us</td><td>The number of microseconds to convert to</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00147">147</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,7 +670,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A macro to calculate time between 2 timepoints as some type. </p>
+<p>A macro to <b>calculate time between 2 timepoints</b> as some type. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp1</td><td>The first, starting point of time (time point)</td></tr>
@@ -271,259 +680,7 @@ Typedefs</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00110">110</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9c55ef6d515bfd72f8da55f745f81f75" name="a9c55ef6d515bfd72f8da55f745f81f75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c55ef6d515bfd72f8da55f745f81f75">&#9670;&#160;</a></span>CINT_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CINT_MAX&#160;&#160;&#160;SCHAR_MAX</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the maximum value of the cint type (signed char/8bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00051">51</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8a43bedb281ed9a54b3ec860b3da04b5" name="a8a43bedb281ed9a54b3ec860b3da04b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a43bedb281ed9a54b3ec860b3da04b5">&#9670;&#160;</a></span>CINT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CINT_MIN&#160;&#160;&#160;SCHAR_MIN</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the cint type (signed char/8bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad5ae2d20243e4338f9f7376085f28304" name="ad5ae2d20243e4338f9f7376085f28304"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ae2d20243e4338f9f7376085f28304">&#9670;&#160;</a></span>getHighResTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define getHighResTime</td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::high_resolution_clock::now()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro to get the high resolution time's now() </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4901a9a64a28aca8564f930ac3053bfd" name="a4901a9a64a28aca8564f930ac3053bfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4901a9a64a28aca8564f930ac3053bfd">&#9670;&#160;</a></span>getSteadyTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define getSteadyTime</td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::steady_clock::now()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro to get the steady time's now() </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00103">103</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8e611e8409abcf7ddec11f1427452b4c" name="a8e611e8409abcf7ddec11f1427452b4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e611e8409abcf7ddec11f1427452b4c">&#9670;&#160;</a></span>getSysTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define getSysTime</td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::system_clock::now()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro to get the system time's now() </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4cce82dcca959539e53ba3a9d87b8fd9" name="a4cce82dcca959539e53ba3a9d87b8fd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cce82dcca959539e53ba3a9d87b8fd9">&#9670;&#160;</a></span>LLINT_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LLINT_MAX&#160;&#160;&#160;LLONG_MAX</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the maximum value of the llint type (signed long long/64bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00063">63</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abda2ad0e59a3e5e0b7d8142f63b37432" name="abda2ad0e59a3e5e0b7d8142f63b37432"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abda2ad0e59a3e5e0b7d8142f63b37432">&#9670;&#160;</a></span>LLINT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LLINT_MIN&#160;&#160;&#160;LLONG_MIN</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the llint type (signed long long/64bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00066">66</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac0e26bf3aaeae4fcabbff362eb4dd3a4" name="ac0e26bf3aaeae4fcabbff362eb4dd3a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0e26bf3aaeae4fcabbff362eb4dd3a4">&#9670;&#160;</a></span>microSec</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define microSec</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">us</span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::microseconds(us)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro as the shortcut of chrono's microseconds. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">us</td><td>The number of microseconds to convert to</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00140">140</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a559364c19c1c80c7a63a7ca43ec71874" name="a559364c19c1c80c7a63a7ca43ec71874"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a559364c19c1c80c7a63a7ca43ec71874">&#9670;&#160;</a></span>milliSec</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define milliSec</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">ms</span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::milliseconds(ms)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro as the shortcut of chrono's milliseconds. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ms</td><td>The number of milliseconds to convert to</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aba0afd3e5d286bcf0e7f2341c441c582" name="aba0afd3e5d286bcf0e7f2341c441c582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba0afd3e5d286bcf0e7f2341c441c582">&#9670;&#160;</a></span>SINT_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SINT_MAX&#160;&#160;&#160;INT32_MAX</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the maximum value of the sint type (signed 32bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa936407e170ea9cac428d91070d8e717" name="aa936407e170ea9cac428d91070d8e717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa936407e170ea9cac428d91070d8e717">&#9670;&#160;</a></span>SINT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SINT_MIN&#160;&#160;&#160;INT32_MIN</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the sint type (signed 32bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a36ad4c113cc69c24386becf1a367a901" name="a36ad4c113cc69c24386becf1a367a901"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36ad4c113cc69c24386becf1a367a901">&#9670;&#160;</a></span>sleepFor</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define sleepFor</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">sec</span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::this_thread::sleep_for(sec)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro as the shortcut of thread's sleep_for. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sec</td><td>The chronos's duration object (milliseconds, seconds, etc)</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -542,127 +699,64 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A macro as the shortcut of thread's sleep_until. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>A macro as the shortcut of <b>thread's sleep_until</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sec</td><td>The chronos's duration object (milliseconds, seconds, etc)</td></tr>
   </table>
   </dd>
 </dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00146">146</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00159">159</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
-<a id="af88f6350ab97891347556435dae513ea" name="af88f6350ab97891347556435dae513ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af88f6350ab97891347556435dae513ea">&#9670;&#160;</a></span>UCINT_MAX</h2>
+<a id="a36ad4c113cc69c24386becf1a367a901" name="a36ad4c113cc69c24386becf1a367a901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ad4c113cc69c24386becf1a367a901">&#9670;&#160;</a></span>sleepFor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UCINT_MAX&#160;&#160;&#160;UCHAR_MAX</td>
+          <td class="memname">#define sleepFor</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">sec</span></td><td>)</td>
+          <td>&#160;&#160;&#160;std::this_thread::sleep_for(sec)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Macro for the maximum value of the ucint type (unsigned char/8bit int) </p>
+<p>A macro as the shortcut of <b>thread's sleep_for</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sec</td><td>The chronos's duration object (milliseconds, seconds, etc)</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0ddf3c79e0f07c608007071b380562d3" name="a0ddf3c79e0f07c608007071b380562d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddf3c79e0f07c608007071b380562d3">&#9670;&#160;</a></span>UCINT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UCINT_MIN&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the ucint type (unsigned char/8bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00048">48</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4c5cca78586f61bea3640a1563a43819" name="a4c5cca78586f61bea3640a1563a43819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c5cca78586f61bea3640a1563a43819">&#9670;&#160;</a></span>UINT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UINT_MIN&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the uint type (unsigned long long/64bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac2e8f598ba094050a1c4e13e721cb670" name="ac2e8f598ba094050a1c4e13e721cb670"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2e8f598ba094050a1c4e13e721cb670">&#9670;&#160;</a></span>ULLINT_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ULLINT_MAX&#160;&#160;&#160;ULLONG_MAX</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the maximum value of the ullint type (unsigned long long/64bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2a8699dac884eb81c036a9e9ddd64bd3" name="a2a8699dac884eb81c036a9e9ddd64bd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a8699dac884eb81c036a9e9ddd64bd3">&#9670;&#160;</a></span>ULLINT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ULLINT_MIN&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the ullint type (unsigned long long/64bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00060">60</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a57f617d9cf5cce12e8499f7512ebd948" name="a57f617d9cf5cce12e8499f7512ebd948"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57f617d9cf5cce12e8499f7512ebd948">&#9670;&#160;</a></span>USHRT_MIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define USHRT_MIN&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro for the minimum value of the ushrt type (unsigned short/16bit int) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00163">163</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="ac0a5104b175735b1d5e45290bec04706" name="ac0a5104b175735b1d5e45290bec04706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a5104b175735b1d5e45290bec04706">&#9670;&#160;</a></span>ucint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef uint8_t <a class="el" href="#ac0a5104b175735b1d5e45290bec04706">ucint</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A shortcut for an integer of the <b>unsigned char</b> type (8 bits). </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
 <a id="adabb025f32e720b44bdd40d4e0784710" name="adabb025f32e720b44bdd40d4e0784710"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adabb025f32e720b44bdd40d4e0784710">&#9670;&#160;</a></span>cint</h2>
 
@@ -675,27 +769,27 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for small signed (char) integer (8bit) </p>
+<p>A shortcut for an integer of the <b>signed char</b> type (8 bits). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a84f79c1feb804b7c4e7620b7f8a44b3a" name="a84f79c1feb804b7c4e7620b7f8a44b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84f79c1feb804b7c4e7620b7f8a44b3a">&#9670;&#160;</a></span>HighResClock</h2>
+<a id="a689c96cb00098d457d55842c96cc71eb" name="a689c96cb00098d457d55842c96cc71eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689c96cb00098d457d55842c96cc71eb">&#9670;&#160;</a></span>ullint</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::chrono::high_resolution_clock <a class="el" href="#a84f79c1feb804b7c4e7620b7f8a44b3a">HighResClock</a></td>
+          <td class="memname">typedef unsigned long long <a class="el" href="#a689c96cb00098d457d55842c96cc71eb">ullint</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for chrono's high resolution time. </p>
+<p>A shortcut for an integer of the <b>unsigned long long int</b> type (64 bits). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00032">32</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -711,9 +805,9 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for big signed (long long) integer (64bit) </p>
+<p>A shortcut for an integer of the <b>long long int</b> type (64 bits). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -729,27 +823,65 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for a just signed int (32bit) </p>
+<p>A shortcut for a just <b>signed int</b> (32 bits) </p>
+<dl class="section note"><dt>Note</dt><dd>I don't know if you'd ever use this, but it's there, for completion. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00034">34</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
-<a id="af0e8014f772795c246d043c5e9fb7495" name="af0e8014f772795c246d043c5e9fb7495"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0e8014f772795c246d043c5e9fb7495">&#9670;&#160;</a></span>SteadyClock</h2>
+<a id="a91ad9478d81a7aaf2593e8d9c3d06a14" name="a91ad9478d81a7aaf2593e8d9c3d06a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ad9478d81a7aaf2593e8d9c3d06a14">&#9670;&#160;</a></span>uint</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::chrono::steady_clock <a class="el" href="#af0e8014f772795c246d043c5e9fb7495">SteadyClock</a></td>
+          <td class="memname">typedef unsigned int <a class="el" href="#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for chrono's steady time. </p>
+<p>A shortcut for an integer of the <b>unsigned int</b> (32 bits) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab95f123a6c9bcfee6a343170ef8c5f69" name="ab95f123a6c9bcfee6a343170ef8c5f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab95f123a6c9bcfee6a343170ef8c5f69">&#9670;&#160;</a></span>ushort</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned short <a class="el" href="#ab95f123a6c9bcfee6a343170ef8c5f69">ushort</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A shortcut for an integer of the just <b>unsigned short</b> type (16 bits) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7d14306b3dd8ed2968e138134117808e" name="a7d14306b3dd8ed2968e138134117808e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d14306b3dd8ed2968e138134117808e">&#9670;&#160;</a></span>sshort</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef signed short <a class="el" href="#a7d14306b3dd8ed2968e138134117808e">sshort</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A shortcut for a just <b>signed short</b> (16 bits) </p>
+<dl class="section note"><dt>Note</dt><dd>I don't know if you'd ever use this, but it's there, for completion. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00049">49</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -765,37 +897,45 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for chrono's system time. </p>
+<p>A shortcut for <b>chrono's system clock</b> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a27f32683c736bf47050425ab483d8f1b" name="a27f32683c736bf47050425ab483d8f1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27f32683c736bf47050425ab483d8f1b">&#9670;&#160;</a></span>timeDur</h2>
+<a id="a84f79c1feb804b7c4e7620b7f8a44b3a" name="a84f79c1feb804b7c4e7620b7f8a44b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f79c1feb804b7c4e7620b7f8a44b3a">&#9670;&#160;</a></span>HighResClock</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Rep , class Period  = std::ratio&lt;1&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a27f32683c736bf47050425ab483d8f1b">timeDur</a> = std::chrono::duration&lt;Rep, Period&gt;</td>
+          <td class="memname">typedef std::chrono::high_resolution_clock <a class="el" href="#a84f79c1feb804b7c4e7620b7f8a44b3a">HighResClock</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A macro as the shortcut of chrono's time duration. Same reason as timePoint. </p>
-<p>An alias for the std::chrono::duration to not type as much</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>An arithmetic type representing the number of ticks</td></tr>
-    <tr><td class="paramname">Period</td><td>a std::ratio representing the tick period (i.e. the number of second's fractions per tick)</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>A shortcut for <b>chrono's high resolution clock</b> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00132">132</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af0e8014f772795c246d043c5e9fb7495" name="af0e8014f772795c246d043c5e9fb7495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0e8014f772795c246d043c5e9fb7495">&#9670;&#160;</a></span>SteadyClock</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::chrono::steady_clock <a class="el" href="#af0e8014f772795c246d043c5e9fb7495">SteadyClock</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A shortcut for <b>chrono's steady clock</b> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -813,7 +953,7 @@ template&lt;class Clock , class Duration  = typename Clock::duration&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>An alias for the std::chrono::time_point to not type...as much. </p>
+<p>An alias for the <b>std::chrono::time_point</b> to not type...as much. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Clock</td><td>The clock (system, hi-res, steady) on which this time point is measured</td></tr>
@@ -822,79 +962,34 @@ template&lt;class Clock , class Duration  = typename Clock::duration&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00130">130</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac0a5104b175735b1d5e45290bec04706" name="ac0a5104b175735b1d5e45290bec04706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0a5104b175735b1d5e45290bec04706">&#9670;&#160;</a></span>ucint</h2>
+<a id="a945fabbf0fc03b81ac4836fd4a97c998" name="a945fabbf0fc03b81ac4836fd4a97c998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a945fabbf0fc03b81ac4836fd4a97c998">&#9670;&#160;</a></span>timeDur</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class ticksType , class Period  = std::ratio&lt;1&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef uint8_t <a class="el" href="#ac0a5104b175735b1d5e45290bec04706">ucint</a></td>
+          <td class="memname">using <a class="el" href="#a945fabbf0fc03b81ac4836fd4a97c998">timeDur</a> = std::chrono::duration&lt;ticksType, Period&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A shortcut for small unsigned (char) integer (8bit) </p>
+<p>An alias for the <b>std::chrono::duration</b> to not type as much. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ticksType</td><td>An arithmetic type representing the number of ticks</td></tr>
+    <tr><td class="paramname">Period</td><td>A std::ratio representing the tick period (i.e. the number of second's fractions per tick)</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a91ad9478d81a7aaf2593e8d9c3d06a14" name="a91ad9478d81a7aaf2593e8d9c3d06a14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91ad9478d81a7aaf2593e8d9c3d06a14">&#9670;&#160;</a></span>uint</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef unsigned int <a class="el" href="#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A shortcut for a just unsigned int (32bit) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a689c96cb00098d457d55842c96cc71eb" name="a689c96cb00098d457d55842c96cc71eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a689c96cb00098d457d55842c96cc71eb">&#9670;&#160;</a></span>ullint</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef unsigned long long <a class="el" href="#a689c96cb00098d457d55842c96cc71eb">ullint</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A shortcut for big unsigned (long long) integer (64bit) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab95f123a6c9bcfee6a343170ef8c5f69" name="ab95f123a6c9bcfee6a343170ef8c5f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab95f123a6c9bcfee6a343170ef8c5f69">&#9670;&#160;</a></span>ushort</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef unsigned short <a class="el" href="#ab95f123a6c9bcfee6a343170ef8c5f69">ushort</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A shortcut for a just unsigned short (at least 16 bit) </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00138">138</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -904,7 +999,7 @@ template&lt;class Clock , class Duration  = typename Clock::duration&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html">AETypedefs.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 29 2024 21:13:54 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Thu Mar 14 2024 19:57:53 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

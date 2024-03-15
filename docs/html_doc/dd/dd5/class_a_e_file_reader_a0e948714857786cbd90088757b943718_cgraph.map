@@ -1,0 +1,6 @@
+<map id="AEFileReader::readStringNULL" name="AEFileReader::readStringNULL">
+<area shape="rect" id="Node000001" title="Reads the characters to a std::string untill a NULL character(I guess, you can say &quot;included&quot;?..." alt="" coords="5,29,206,56"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a536c20565ecaf899b97b443807fc7ad3" title="Reads the characters to a std::string untill a NULL character(I guess, you can say &quot;included&quot;?..." alt="" coords="254,29,454,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,40,238,40,238,45,206,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="312,31,305,21,310,11,327,5,354,3,384,5,399,12,397,17,382,10,354,8,328,10,313,15,310,20,316,27"/>
+</map>

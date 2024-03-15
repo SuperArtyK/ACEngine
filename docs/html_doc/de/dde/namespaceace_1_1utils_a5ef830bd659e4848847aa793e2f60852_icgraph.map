@@ -1,0 +1,5 @@
+<map id="ace::utils::getCurrentDate" name="ace::utils::getCurrentDate">
+<area shape="rect" id="Node000001" title="Formats the current date and time as YYYY&#45;MM&#45;DD.HH:mm:SS." alt="" coords="216,5,385,32"/>
+<area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a87dc705d692056229db74fc4bc3c93e9" title="Creates a full name of the log file to open to be fed to the logger, in a format [prefix]_[current da..." alt="" coords="5,5,168,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,21,168,21,168,16,200,16"/>
+</map>

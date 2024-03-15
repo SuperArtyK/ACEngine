@@ -1,0 +1,13 @@
+<map id="AELogger::writeToLogDirectly" name="AELogger::writeToLogDirectly">
+<area shape="rect" id="Node000001" title="Writes to log directly, without thinking of the queue." alt="" coords="5,56,198,83"/>
+<area shape="rect" id="Node000002" href="$db/d15/class_a_e_file_writer.html#a0c238267ee45ca15672d4e9246cdca2c" title="Flushes the opened file." alt="" coords="260,5,411,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,53,255,33,256,38,167,58"/>
+<area shape="rect" id="Node000003" href="$da/dea/struct_a_e_log_entry.html#ab803ea47d06098feab470f265498f617" title="Formats the passed entry to the given c&#45;string." alt="" coords="252,56,419,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,67,236,67,236,72,198,72"/>
+<area shape="rect" id="Node000006" href="$db/d15/class_a_e_file_writer.html#a01d537821c5760615e126f1c159b67da" title="Write binary data, as is, to file, and flush if necessary." alt="" coords="246,107,425,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="167,81,256,100,255,105,166,86"/>
+<area shape="rect" id="Node000004" href="$de/dde/namespaceace_1_1utils.html#a2458b79e1a70255b471414a4bb5680ce" title="Formats the current **(c)time point as YYYY&#45;MM&#45;DD.HH:mm:SS string**." alt="" coords="487,31,632,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="419,57,471,51,471,57,419,63"/>
+<area shape="rect" id="Node000005" href="$da/dea/struct_a_e_log_entry.html#a958d25c57a94cfae8e7f31843e6c63ef" title="Deduces the entry&#39;s log type and returns a c&#45;string of it." alt="" coords="473,81,645,108"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="419,76,458,81,457,86,419,81"/>
+</map>

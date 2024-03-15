@@ -15,6 +15,11 @@
 #include <atomic>
 #include <thread>
 
+// in case you, the programmer undefined it, define it here as 0
+// I don't want to fuck with a lot more if-def lines
+#ifndef ENGINE_FPS
+#define ENGINE_FPS 0 
+#endif // !ENGINE_FPS
 
 /// <summary>
 /// @brief ArtyK's Engine Timer -- the engine's internal timer for, um, timing events or anything, with variable tick speed.
@@ -220,7 +225,7 @@ private:
 };
 
 
-#ifdef ENGINE_ENABLE_GLOBAL_MODULES
+#if ENGINE_ENABLE_GLOBAL_MODULES
 
 /// The global timer of the engine to time engine-wide events.
 /// It starts counting as soon as the program starts.
