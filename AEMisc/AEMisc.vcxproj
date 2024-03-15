@@ -176,6 +176,7 @@
     <ClInclude Include="include\AETrigLookup.hpp" />
     <ClInclude Include="include\AETypedefs.hpp" />
     <ClInclude Include="include\AEUtils.hpp" />
+    <ClInclude Include="include\AEUtilsMacros.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\consoleprog1.rc" />
