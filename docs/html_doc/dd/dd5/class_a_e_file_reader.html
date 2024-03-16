@@ -266,16 +266,16 @@ requires (std::is_floating_point&lt;T&gt;<a class="el" href="#abbc85b7bb94f31f54
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3257ef44350e547976d6199ffdb743f" id="r_ab3257ef44350e547976d6199ffdb743f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">static</a> <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#ab3257ef44350e547976d6199ffdb743f">getModuleAmount</a> (<a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">void</a>) <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">noexcept</a></td></tr>
-<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
+<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>amount of the currently-alive instances of module T</b>  <br /></td></tr>
 <tr class="separator:ab3257ef44350e547976d6199ffdb743f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f3461ab9cf4aa231ba93ce28f7f856c" id="r_a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">static</a> <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">constexpr</a> std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">getModuleName</a> (<a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">void</a>) <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">noexcept</a></td></tr>
-<tr class="memdesc:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
-<tr class="separator:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625c82f27195de3f9ab5af4fc7437e2f" id="r_a625c82f27195de3f9ab5af4fc7437e2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">static</a> <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">constexpr</a> <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">const</a> std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f">getModuleName</a> (<a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">void</a>) <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">noexcept</a></td></tr>
+<tr class="memdesc:a625c82f27195de3f9ab5af4fc7437e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>name of the module</b>  <br /></td></tr>
+<tr class="separator:a625c82f27195de3f9ab5af4fc7437e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:aa6b53ab9e5c623900a03d4ea16eb5a99" id="r_aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">static</a> std::atomic&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of alive module instances.  <br /></td></tr>
+<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the currently-alive (not destroyed) instances of the module.  <br /></td></tr>
 <tr class="separator:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -342,7 +342,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/dd5/class_a_e_file_reader_a7d0c498896f1c10c36330ef4efaee81e_cgraph.svg" width="100%" height="385"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/dd5/class_a_e_file_reader_a7d0c498896f1c10c36330ef4efaee81e_cgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -527,13 +527,13 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d9/d6e/_a_e_file_reader_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d9/d6e/_a_e_file_reader_8cpp_source.html">AEFileReader.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a32412662c108d7b4ae1407274bee52f4">AEFR_ERR_NOERROR</a>, <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#acb87b892819345de8820452e64b8da4a">AEFR_ERR_OPEN_FILE_ALREADY_OPENED</a>, <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a86ed065ec72171c4050da4eb1c9a27db">AEFR_ERR_OPEN_FILE_DOESNT_EXIST</a>, <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#ac46ec7da56400356be1c8d60fb0087a2">AEFR_ERR_OPEN_FILE_NAME_EMPTY</a>, <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c">ace::utils::fopenCC()</a>, <a class="el" href="#a81bb672d7d1a142c7473d880a3842073">isClosed()</a>, <a class="el" href="#a07f32763fbb1df143c8aab2be7b856c1">isOpen()</a>, <a class="el" href="#ae4c35d3e1af1bffbcc684dab2017f24d">m_fpFilestr</a>, <a class="el" href="#aed38f6c7a1032a0d4a0db205ff4ebb15">m_sFilename</a>, and <a class="el" href="#a1bea127bba2ee9a6f13d71f8e17acd3d">m_szLastReadAmount</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a32412662c108d7b4ae1407274bee52f4">AEFR_ERR_NOERROR</a>, <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#acb87b892819345de8820452e64b8da4a">AEFR_ERR_OPEN_FILE_ALREADY_OPENED</a>, <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#a86ed065ec72171c4050da4eb1c9a27db">AEFR_ERR_OPEN_FILE_DOESNT_EXIST</a>, <a class="el" href="../../d3/dda/_a_e_file_reader_8hpp.html#ac46ec7da56400356be1c8d60fb0087a2">AEFR_ERR_OPEN_FILE_NAME_EMPTY</a>, <a class="el" href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c">ace::utils::fopenCC()</a>, <a class="el" href="#a81bb672d7d1a142c7473d880a3842073">isClosed()</a>, <a class="el" href="#a07f32763fbb1df143c8aab2be7b856c1">isOpen()</a>, <a class="el" href="#ae4c35d3e1af1bffbcc684dab2017f24d">m_fpFilestr</a>, <a class="el" href="#aed38f6c7a1032a0d4a0db205ff4ebb15">m_sFilename</a>, <a class="el" href="#a1bea127bba2ee9a6f13d71f8e17acd3d">m_szLastReadAmount</a>, and <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">readVariable()</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/dd5/class_a_e_file_reader_a3afc3610a9a39a170c7f405dc97557ee_cgraph.svg" width="575" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/dd5/class_a_e_file_reader_a3afc3610a9a39a170c7f405dc97557ee_cgraph.svg" width="630" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -2314,15 +2314,16 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 </table>
 </div><div class="memdoc">
 
-<p>Returns the amount of instances of the module currently existing. </p>
-<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+<p>Get the <b>amount of the currently-alive instances of module T</b> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99" title="Amount of the currently-alive (not destroyed) instances of the module.">__AEModuleBase&lt;T&gt;::m_ullModulesAlive</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the alive module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a2f3461ab9cf4aa231ba93ce28f7f856c" name="a2f3461ab9cf4aa231ba93ce28f7f856c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3461ab9cf4aa231ba93ce28f7f856c">&#9670;&#160;</a></span>getModuleName()</h2>
+<a id="a625c82f27195de3f9ab5af4fc7437e2f" name="a625c82f27195de3f9ab5af4fc7437e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a625c82f27195de3f9ab5af4fc7437e2f">&#9670;&#160;</a></span>getModuleName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2331,7 +2332,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">static</a> <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">constexpr</a> std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>  &gt;::getModuleName </td>
+          <td class="memname"><a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">static</a> <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">constexpr</a> <a class="el" href="#abbc85b7bb94f31f54df561d23a38e3dc">const</a> std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a>  &gt;::getModuleName </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -2344,8 +2345,10 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 </table>
 </div><div class="memdoc">
 
-<p>Returns the name of the registered module. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Get the <b>name of the module</b> </p>
+<dl class="section attention"><dt>Attention</dt><dd>You <em>need</em> to add <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a> to the end of the class declarations if you want to use this thing </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The name of the module as a const std::strinv_view type</dd></dl>
 
 </div>
 </div>
@@ -2474,9 +2477,9 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 </table>
 </div><div class="memdoc">
 
-<p>Amount of alive module instances. </p>
+<p>Amount of the currently-alive (not destroyed) instances of the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2490,7 +2493,7 @@ If origin is not SEEK_SET, SEEK_CUR or SEEK_END returns AEFR_ERR_READ_EOF</dd></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/dd5/class_a_e_file_reader.html">AEFileReader</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 12:23:02 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 13:55:15 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

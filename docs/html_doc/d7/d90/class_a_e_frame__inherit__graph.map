@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops." alt="" coords="69,172,146,199"/>
 <area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="5,96,210,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,138,110,172,105,172,105,138"/>
-<area shape="rect" id="Node000003" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor..." alt="" coords="29,5,186,32"/>
+<area shape="rect" id="Node000003" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it." alt="" coords="29,5,186,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,48,110,95,105,95,105,48"/>
 </map>

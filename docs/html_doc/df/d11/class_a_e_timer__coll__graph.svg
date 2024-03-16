@@ -103,7 +103,7 @@ var sectionId = 'dynsection-1';
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html" target="_top" xlink:title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">
+<g id="a_Node000007"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html" target="_top" xlink:title="This is a base class for all the modules in the engine; all basic modules inherit from it.">
 <polygon fill="white" stroke="#666666" points="634.8,-203 517.55,-203 517.55,-183 634.8,-183 634.8,-203"/>
 <text text-anchor="middle" x="576.18" y="-189.5" font-family="Helvetica,sans-Serif" font-size="10.00">__AEModuleBase&lt; T &gt;</text>
 </a>

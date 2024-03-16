@@ -44,7 +44,7 @@ var class_a_e_file_reader =
     [ "isEOF", "dd/dd5/class_a_e_file_reader.html#a3046728446ba80b1e8237161214cc515", null ],
     [ "isError", "dd/dd5/class_a_e_file_reader.html#a7fc8e7455378d078a70400cec11c8981", null ],
     [ "getModuleAmount", "dd/dd5/class_a_e_file_reader.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "dd/dd5/class_a_e_file_reader.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
+    [ "getModuleName", "dd/dd5/class_a_e_file_reader.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
     [ "m_sFilename", "dd/dd5/class_a_e_file_reader.html#aed38f6c7a1032a0d4a0db205ff4ebb15", null ],
     [ "m_ullTotalReads", "dd/dd5/class_a_e_file_reader.html#a95b7e3bd96a862b5be938162aeb9ae46", null ],
     [ "m_szLastReadAmount", "dd/dd5/class_a_e_file_reader.html#a1bea127bba2ee9a6f13d71f8e17acd3d", null ],

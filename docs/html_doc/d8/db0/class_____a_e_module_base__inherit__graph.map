@@ -1,5 +1,5 @@
 <map id="__AEModuleBase&lt; T &gt;" name="__AEModuleBase&lt; T &gt;">
-<area shape="rect" id="Node000001" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor..." alt="" coords="5,133,162,160"/>
+<area shape="rect" id="Node000001" title="This is a base class for all the modules in the engine; all basic modules inherit from it." alt="" coords="5,133,162,160"/>
 <area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="318,5,547,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,121,142,92,185,66,250,42,316,28,318,33,251,47,187,70,145,96,110,125"/>
 <area shape="rect" id="Node000004" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="321,56,544,83"/>

@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" target="_top" xlink:title="Returns the name of the registered module.">
+<g id="a_Node000002"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module">
 <polygon fill="white" stroke="#666666" points="302,-260 147.25,-260 147.25,-228 302,-228 302,-260"/>
 <text text-anchor="start" x="155.25" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">__AEModuleBase&lt; AELogger &gt;</text>
 <text text-anchor="middle" x="224.62" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getModuleName</text>

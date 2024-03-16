@@ -107,7 +107,7 @@ namespace ace::math::lookup::_tables {
 
 
 /// This namespace contains the engine's **math lookup functions**.
-/// These will be insanely fast, since it's almost just an array lookup (ignoring the rounding and casting passed floats to int) <br>
+/// These will be insanely fast, since it's almost just an array lookup (ignoring the rounding and casting passed floats to int). <br>
 /// But since this is a lookup table:
 /// * It won't be as precise -- error within 1 degree (or even less, with the interpolated functions)
 /// * It can increase compile time of the project

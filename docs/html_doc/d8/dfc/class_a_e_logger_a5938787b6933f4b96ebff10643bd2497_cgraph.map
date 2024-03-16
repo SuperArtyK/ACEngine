@@ -6,7 +6,7 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,180,157,135,192,111,230,92,294,74,360,64,425,60,483,60,483,65,425,65,361,69,295,79,232,97,194,116,160,139,110,184"/>
 <area shape="rect" id="Node000004" href="$da/dea/struct_a_e_log_entry.html#ab803ea47d06098feab470f265498f617" title="Formats the passed entry to the given c&#45;string." alt="" coords="491,107,657,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,180,423,143,476,134,477,139,423,148,183,185"/>
-<area shape="rect" id="Node000007" href="$d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module." alt="" coords="471,208,677,251"/>
+<area shape="rect" id="Node000007" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="471,208,677,251"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="183,199,456,218,455,224,183,205"/>
 <area shape="rect" id="Node000008" href="$de/dde/namespaceace_1_1utils.html#ae3cab8babc7164fe97d71c65b247e848" title="Convenient sleep function to sleep the thread for microseconds." alt="" coords="261,401,393,428"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="103,209,120,245,148,293,185,344,208,367,232,387,248,396,245,401,229,392,204,371,181,348,143,296,115,247,98,211"/>

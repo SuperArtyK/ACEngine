@@ -1,12 +1,16 @@
 <map id="AEFileReader::AEFileReader" name="AEFileReader::AEFileReader">
-<area shape="rect" id="Node000001" title="Class constructor – constructs the instance and opens the file of given name." alt="" coords="5,56,195,83"/>
-<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee" title="Opens the file for reading." alt="" coords="243,56,401,83"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,67,227,67,227,72,195,72"/>
-<area shape="rect" id="Node000003" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="463,5,594,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="379,53,456,34,457,39,380,58"/>
-<area shape="rect" id="Node000004" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="449,56,608,83"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="402,67,434,67,434,72,402,72"/>
-<area shape="rect" id="Node000005" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="656,81,807,108"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="380,81,449,92,548,97,641,97,641,102,548,103,449,97,379,86"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="609,77,641,81,640,86,608,82"/>
+<area shape="rect" id="Node000001" title="Class constructor – constructs the instance and opens the file of given name." alt="" coords="5,81,195,108"/>
+<area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee" title="Opens the file for reading." alt="" coords="243,81,401,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,92,227,92,227,97,195,97"/>
+<area shape="rect" id="Node000003" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="474,5,605,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="354,78,448,41,470,34,472,39,450,47,356,83"/>
+<area shape="rect" id="Node000004" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="460,56,619,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="401,83,444,78,445,83,402,88"/>
+<area shape="rect" id="Node000005" href="$dd/dd5/class_a_e_file_reader.html#a07f32763fbb1df143c8aab2be7b856c1" title="Checks if a file is open by this file&#45;reader." alt="" coords="695,81,845,108"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="401,92,679,92,679,97,401,97"/>
+<area shape="rect" id="Node000006" href="$dd/dd5/class_a_e_file_reader.html#abbc85b7bb94f31f54df561d23a38e3dc" title="Reads the bytes (size of T) from the file and dumps/reinterprets them as the value in the passed vari..." alt="" coords="449,157,630,184"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="364,106,485,149,483,154,362,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="620,75,680,82,679,87,620,81"/>
+<area shape="rect" id="Node000007" href="$dd/dd5/class_a_e_file_reader.html#a67d3baebff92aaa0b41216cb67a91e4c" title="Reads an array of dcount elements, each one with a size of dsize bytes, to memory block pointed by cd..." alt="" coords="678,157,862,184"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="631,168,663,168,663,173,631,173"/>
 </map>

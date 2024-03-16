@@ -51,7 +51,8 @@ public:
 		{}
 
 	AEFrame(const AEFrame& two) noexcept :  
-		COPYCONSTRUCT_MODULE(AEFrame, two), m_tdChronoDelay(two.m_tdChronoDelay),
+		//COPYCONSTRUCT_MODULE(AEFrame, two), 
+		m_tdChronoDelay(two.m_tdChronoDelay),
 		m_tpTimepoint(getSteadyTime()), m_fFPS(two.m_fFPS), m_bNoDelay(two.m_bNoDelay)
 		{}
 

@@ -178,16 +178,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0468cc72aa8d96dd32bfed912c75be0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops and sleeps the thread untill the given timer goes through certain tick amount.  <br /></td></tr>
 <tr class="separator:a0468cc72aa8d96dd32bfed912c75be0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3257ef44350e547976d6199ffdb743f" id="r_ab3257ef44350e547976d6199ffdb743f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#ab3257ef44350e547976d6199ffdb743f">getModuleAmount</a> (void) noexcept</td></tr>
-<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
+<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>amount of the currently-alive instances of module T</b>  <br /></td></tr>
 <tr class="separator:ab3257ef44350e547976d6199ffdb743f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f3461ab9cf4aa231ba93ce28f7f856c" id="r_a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memItemLeft" align="right" valign="top">static constexpr std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">getModuleName</a> (void) noexcept</td></tr>
-<tr class="memdesc:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
-<tr class="separator:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625c82f27195de3f9ab5af4fc7437e2f" id="r_a625c82f27195de3f9ab5af4fc7437e2f"><td class="memItemLeft" align="right" valign="top">static constexpr const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f">getModuleName</a> (void) noexcept</td></tr>
+<tr class="memdesc:a625c82f27195de3f9ab5af4fc7437e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>name of the module</b>  <br /></td></tr>
+<tr class="separator:a625c82f27195de3f9ab5af4fc7437e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:aa6b53ab9e5c623900a03d4ea16eb5a99" id="r_aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of alive module instances.  <br /></td></tr>
+<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the currently-alive (not destroyed) instances of the module.  <br /></td></tr>
 <tr class="separator:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -362,7 +362,7 @@ Private Attributes</h2></td></tr>
 
 <p>Class destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00082">82</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a29f3aaf12a9832c55dff8875d94c4548">stopThread()</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -409,7 +409,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the resulting <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> copy</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a306cbf2c0132d5ceb378442d7a894518">m_bRunTrd</a>, <a class="el" href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a>, <a class="el" href="#ab3676309b4854bf561c2d7bce3bc5849">m_ullTicks</a>, and <a class="el" href="#a022b44a8e9b9e2a314e0ac3ecc759062">startThread()</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -448,7 +448,7 @@ Private Attributes</h2></td></tr>
 <p>Starts the timer thread and starts tick counting. </p>
 <dl class="section note"><dt>Note</dt><dd>Does nothing if thread is already started </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a306cbf2c0132d5ceb378442d7a894518">m_bRunTrd</a>, <a class="el" href="#a20051246d7891c71cc0ec19bb38af3fc">m_trdCounting</a>, and <a class="el" href="#ad5fa76b6e9233eaa415a9c70ed6ecc8d">tickTimer()</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -493,7 +493,7 @@ Private Attributes</h2></td></tr>
 
 <p>Stops the timer thread and stops tick counting. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a306cbf2c0132d5ceb378442d7a894518">m_bRunTrd</a>, and <a class="el" href="#a20051246d7891c71cc0ec19bb38af3fc">m_trdCounting</a>.</p>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -531,7 +531,7 @@ Private Attributes</h2></td></tr>
 
 <p>Resets the timer's tick to 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00117">117</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#ab3676309b4854bf561c2d7bce3bc5849">m_ullTicks</a>.</p>
 
@@ -568,7 +568,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00126">126</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#ab3676309b4854bf561c2d7bce3bc5849">m_ullTicks</a>.</p>
 
@@ -606,7 +606,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00134">134</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00135">135</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a>, <a class="el" href="../../df/dd7/class_a_e_frame.html#a95580be55882c4baf46fce5dac036cab">AEFrame::setFps()</a>, <a class="el" href="#a022b44a8e9b9e2a314e0ac3ecc759062">startThread()</a>, and <a class="el" href="#a29f3aaf12a9832c55dff8875d94c4548">stopThread()</a>.</p>
 <div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -646,7 +646,7 @@ Private Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If thread is not started/working, the return value will be the same</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>ullint of the current timer tick</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00146">146</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#ab3676309b4854bf561c2d7bce3bc5849">m_ullTicks</a>.</p>
 
@@ -679,7 +679,7 @@ Private Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If thread is not started/working, the return value will be the same</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>double of the approximate world time the timer has counted (using it's ticks)</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00154">154</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00155">155</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5">AEFrame::getDelay()</a>, <a class="el" href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a>, and <a class="el" href="#ab3676309b4854bf561c2d7bce3bc5849">m_ullTicks</a>.</p>
 <div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -719,7 +719,7 @@ Private Attributes</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e" title="Returns the fps goal of AEFrame instance.">AEFrame::getFrameRate()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Rounded int of the approximated fps goal</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00163">163</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00164">164</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e">AEFrame::getFrameRate()</a>, and <a class="el" href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a>.</p>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -759,7 +759,7 @@ Private Attributes</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5" title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds.">AEFrame::getDelay()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>double of the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s instance in the <a class="el" href="../../da/d62/class_a_e_timer.html" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,...">AETimer</a> delay in real-world seconds</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00172">172</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00173">173</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5">AEFrame::getDelay()</a>, and <a class="el" href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a>.</p>
 <div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -808,7 +808,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00181">181</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00182">182</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13">AEFrame::sleep()</a>.</p>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -864,7 +864,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00193">193</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00194">194</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#ab5e98fa75b71f6280ae8ae16367dd97c">waitForTick()</a>.</p>
 <div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -902,7 +902,7 @@ Private Attributes</h2></td></tr>
 
 <p>The function that does the tick counting for the timer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00204">204</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a306cbf2c0132d5ceb378442d7a894518">m_bRunTrd</a>, <a class="el" href="#a2fe2c92681bbe2eaaf8680ab25bf8c30">m_rDelay</a>, <a class="el" href="#ab3676309b4854bf561c2d7bce3bc5849">m_ullTicks</a>, and <a class="el" href="../../df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13">AEFrame::sleep()</a>.</p>
 <div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -970,15 +970,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the amount of instances of the module currently existing. </p>
-<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+<p>Get the <b>amount of the currently-alive instances of module T</b> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99" title="Amount of the currently-alive (not destroyed) instances of the module.">__AEModuleBase&lt;T&gt;::m_ullModulesAlive</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the alive module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a2f3461ab9cf4aa231ba93ce28f7f856c" name="a2f3461ab9cf4aa231ba93ce28f7f856c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3461ab9cf4aa231ba93ce28f7f856c">&#9670;&#160;</a></span>getModuleName()</h2>
+<a id="a625c82f27195de3f9ab5af4fc7437e2f" name="a625c82f27195de3f9ab5af4fc7437e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a625c82f27195de3f9ab5af4fc7437e2f">&#9670;&#160;</a></span>getModuleName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -987,7 +988,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>  &gt;::getModuleName </td>
+          <td class="memname">static constexpr const std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a>  &gt;::getModuleName </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -1000,8 +1001,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the name of the registered module. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Get the <b>name of the module</b> </p>
+<dl class="section attention"><dt>Attention</dt><dd>You <em>need</em> to add <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a> to the end of the class declarations if you want to use this thing </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The name of the module as a const std::strinv_view type</dd></dl>
 
 </div>
 </div>
@@ -1028,7 +1031,7 @@ Private Attributes</h2></td></tr>
 
 <p>The frame-rater of the timer for proper delay in the tick-counting function loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00215">215</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00216">216</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -1054,7 +1057,7 @@ Private Attributes</h2></td></tr>
 
 <p>The thread that does the tick counting. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00217">217</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00218">218</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -1080,7 +1083,7 @@ Private Attributes</h2></td></tr>
 
 <p>The tick count variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00219">219</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00220">220</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -1106,7 +1109,7 @@ Private Attributes</h2></td></tr>
 
 <p>The flag to continue running the tick counting loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00221">221</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html#l00222">222</a> of file <a class="el" href="../../dc/dc6/_a_e_timer_8hpp_source.html">AETimer.hpp</a>.</p>
 
 </div>
 </div>
@@ -1130,9 +1133,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Amount of alive module instances. </p>
+<p>Amount of the currently-alive (not destroyed) instances of the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1148,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d62/class_a_e_timer.html">AETimer</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 12:23:02 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 13:55:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

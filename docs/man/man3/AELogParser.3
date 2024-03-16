@@ -1,4 +1,4 @@
-.TH "AELogParser" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AELogParser" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -157,11 +157,11 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .ti -1c
 .RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
-.RI "Returns the amount of instances of the module currently existing\&. "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP "
 .ti -1c
-.RI "static constexpr std::string_view \fBgetModuleName\fP (void) noexcept"
+.RI "static constexpr const std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
-.RI "Returns the name of the registered module\&. "
+.RI "Get the \fBname of the module\fP "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -169,7 +169,7 @@ Inherits \fB__AEModuleBase< AELogParser >\fP\&.
 .ti -1c
 .RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP"
 .br
-.RI "Amount of alive module instances\&. "
+.RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
 .in -1c
 .SS "Private Member Functions"
 
@@ -1176,24 +1176,39 @@ Definition at line \fB534\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Returns the amount of instances of the module currently existing\&. 
+Get the \fBamount of the currently-alive instances of module T\fP 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase<T>::m_ullModulesAlive\fP
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the module amount
+Unsigned long long of the alive module amount
 .RE
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "static constexpr std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "static constexpr const std::string_view \fB__AEModuleBase\fP< \fBAELogParser\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Returns the name of the registered module\&. 
+Get the \fBname of the module\fP 
+.PP
+\fBAttention\fP
+.RS 4
+You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declarations if you want to use this thing 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBREGISTER_MODULE()\fP
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-
+The name of the module as a const std::strinv_view type
 .RE
 .PP
 
@@ -1238,9 +1253,9 @@ Definition at line \fB555\fP of file \fBAELogParser\&.hpp\fP\&.
 .SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAELogParser\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
 
 .PP
-Amount of alive module instances\&. 
+Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

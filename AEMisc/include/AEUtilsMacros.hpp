@@ -3,9 +3,9 @@
  *
  *  @brief This file contains the engine's **macros for trivial tasks**.
  *
- *  Stuff that I found that I needed to implement to perform some task, <br>
- *  like debug-mode printing, and thought the engine would benefit from by making it <br>
- *  an engine-wide utility.
+ *  Stuff that I found that I needed to implement to perform some task, like debug-mode printing
+ *  
+ *  And then thought that the engine would benefit from by making it an engine-wide utility.
  *
  *  Less copy-pasted code, yayyy.
  *

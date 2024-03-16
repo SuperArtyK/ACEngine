@@ -1,5 +1,4 @@
 <map id="ace::math::min" name="ace::math::min">
-<area shape="rect" id="Node000001" title="Gets the smallest value between given two values." alt="" coords="5,5,114,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="162,5,267,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,16,146,16,146,21,114,21"/>
+<area shape="rect" id="Node000001" title="Gets the smallest value between given two values." alt="" coords="5,29,114,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="40,30,37,20,39,11,47,5,60,3,73,5,80,12,77,16,71,10,59,8,49,10,43,14,42,20,45,28"/>
 </map>

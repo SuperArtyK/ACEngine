@@ -1,47 +1,48 @@
 <map id="AEMisc/include/AETypedefs.hpp" name="AEMisc/include/AETypedefs.hpp">
-<area shape="rect" id="Node000001" title="This file contains the engine&#39;s typedefs and variable type aliases." alt="" coords="565,5,777,32"/>
+<area shape="rect" id="Node000001" title="This file contains the engine&#39;s typedefs and variable type aliases." alt="" coords="540,5,751,32"/>
 <area shape="rect" id="Node000002" href="$db/dcb/_a_e_log_entry_info_8hpp.html" title=" " alt="" coords="5,80,289,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="565,37,239,82,238,77,564,32"/>
-<area shape="rect" id="Node000005" href="$d1/da4/_a_e_math_8hpp.html" title="This file contains the engine&#39;s math and math&#45;related functions." alt="" coords="334,80,523,107"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="615,39,472,82,470,77,614,34"/>
-<area shape="rect" id="Node000008" href="$de/de8/_a_e_utils_8hpp.html" title="This file contains the engine&#39;s usefull utilities for trivial tasks." alt="" coords="730,155,916,181"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="736,36,770,53,800,78,812,97,819,118,825,154,820,155,814,119,807,99,796,82,767,57,733,40"/>
-<area shape="rect" id="Node000016" href="$d9/d6a/_a_e_utils_macros_8hpp.html" title="This file contains the engine&#39;s macros for trivial tasks." alt="" coords="557,80,785,107"/>
-<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="674,48,674,80,668,80,668,48"/>
-<area shape="rect" id="Node000017" href="$d7/d7f/_a_e_module_base_8hpp.html" title=" " alt="" coords="940,155,1215,181"/>
-<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="721,35,1043,152,1042,157,719,40"/>
-<area shape="rect" id="Node000003" href="$d0/dab/_a_e_log_parser_8hpp.html" title=" " alt="" coords="94,304,344,331"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,122,152,185,159,220,171,255,187,281,207,302,203,306,183,284,166,257,154,222,147,185,143,122"/>
-<area shape="rect" id="Node000004" href="$d2/d77/_a_e_log_parser_8cpp.html" title=" " alt="" coords="106,379,332,405"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,346,222,378,216,378,216,346"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="331,113,259,131,231,143,214,156,205,174,199,193,198,235,206,274,216,303,211,304,201,275,193,235,194,192,200,172,210,153,229,139,257,126,329,108"/>
-<area shape="rect" id="Node000006" href="$d2/d57/_a_e_math_trig_lookup_8hpp.html" title="This file contains the engine&#39;s trigonometric function lookup tables." alt="" coords="224,155,475,181"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="405,120,365,156,361,152,402,116"/>
-<area shape="rect" id="Node000007" href="$d7/d09/_a_e_vector_8hpp.html" title=" " alt="" coords="499,155,707,181"/>
-<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="474,111,573,152,571,156,472,115"/>
-<area shape="rect" id="Node000009" href="$dc/dc6/_a_e_log_entry_8hpp.html" title=" " alt="" coords="669,229,932,256"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="817,197,807,230,802,228,812,196"/>
-<area shape="rect" id="Node000012" href="$d3/dda/_a_e_file_reader_8hpp.html" title=" " alt="" coords="389,229,644,256"/>
-<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="755,188,571,231,569,226,754,183"/>
-<area shape="rect" id="Node000014" href="$db/da4/_a_e_file_writer_8hpp.html" title=" " alt="" coords="956,229,1199,256"/>
-<area shape="poly" id="edge16_Node000008_Node000014" title=" " alt="" coords="882,183,1034,226,1032,231,881,188"/>
-<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="684,261,322,306,321,301,683,256"/>
-<area shape="rect" id="Node000010" href="$d4/d9f/_a_e_logger_8hpp.html" title=" " alt="" coords="714,304,924,331"/>
-<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="810,270,818,303,813,304,805,272"/>
-<area shape="rect" id="Node000011" href="$db/da0/_a_e_logger_8cpp.html" title=" " alt="" coords="726,379,912,405"/>
-<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="822,346,822,378,816,378,816,346"/>
-<area shape="poly" id="edge15_Node000012_Node000003" title=" " alt="" coords="450,263,272,306,270,301,449,258"/>
-<area shape="rect" id="Node000013" href="$d9/d6e/_a_e_file_reader_8cpp.html" title=" " alt="" coords="400,304,633,331"/>
-<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="519,272,519,304,514,304,514,272"/>
-<area shape="poly" id="edge18_Node000014_Node000010" title=" " alt="" coords="1019,263,865,306,864,301,1017,258"/>
-<area shape="rect" id="Node000015" href="$d0/d56/_a_e_file_writer_8cpp.html" title=" " alt="" coords="968,304,1188,331"/>
-<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="1080,272,1080,304,1075,304,1075,272"/>
-<area shape="poly" id="edge20_Node000016_Node000008" title=" " alt="" coords="712,111,797,152,795,156,710,116"/>
-<area shape="poly" id="edge22_Node000017_Node000009" title=" " alt="" coords="1016,188,850,231,848,226,1014,183"/>
-<area shape="poly" id="edge23_Node000017_Node000012" title=" " alt="" coords="965,186,615,231,614,226,964,181"/>
-<area shape="poly" id="edge24_Node000017_Node000014" title=" " alt="" coords="1080,197,1080,229,1075,229,1075,197"/>
-<area shape="rect" id="Node000018" href="$de/d72/_a_e_frame_8hpp.html" title=" " alt="" coords="1223,229,1428,256"/>
-<area shape="poly" id="edge25_Node000017_Node000018" title=" " alt="" coords="1136,184,1283,226,1281,231,1135,189"/>
-<area shape="rect" id="Node000019" href="$dc/dc6/_a_e_timer_8hpp.html" title=" " alt="" coords="1228,304,1423,331"/>
-<area shape="poly" id="edge26_Node000018_Node000019" title=" " alt="" coords="1328,272,1328,304,1323,304,1323,272"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="544,37,235,82,234,77,543,32"/>
+<area shape="rect" id="Node000005" href="$d1/da4/_a_e_math_8hpp.html" title="This file contains the engine&#39;s math and math&#45;related functions." alt="" coords="384,80,572,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="604,41,508,82,506,77,601,36"/>
+<area shape="rect" id="Node000008" href="$de/de8/_a_e_utils_8hpp.html" title="This file contains the engine&#39;s usefull utilities for trivial tasks." alt="" coords="680,155,865,181"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="651,47,658,77,673,105,704,133,739,152,737,157,701,137,669,108,653,78,646,48"/>
+<area shape="rect" id="Node000016" href="$d9/d6a/_a_e_utils_macros_8hpp.html" title="This file contains the engine&#39;s macros for trivial tasks." alt="" coords="684,80,912,107"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="687,37,772,77,770,82,685,41"/>
+<area shape="rect" id="Node000017" href="$d7/d7f/_a_e_module_base_8hpp.html" title="This file contains the engine&#39;s basic module template." alt="" coords="889,155,1165,181"/>
+<area shape="poly" id="edge27_Node000001_Node000017" title=" " alt="" coords="767,30,847,48,925,78,954,95,980,115,1018,153,1014,156,977,119,951,99,923,82,845,53,766,35"/>
+<area shape="rect" id="Node000003" href="$d0/dab/_a_e_log_parser_8hpp.html" title=" " alt="" coords="44,304,293,331"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,121,120,155,111,206,112,228,120,255,136,281,155,302,151,305,131,284,115,257,107,229,105,206,115,154,129,119"/>
+<area shape="rect" id="Node000004" href="$d2/d77/_a_e_log_parser_8cpp.html" title=" " alt="" coords="55,379,282,405"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="171,346,171,378,166,378,166,346"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="369,104,306,111,245,121,195,136,176,146,164,156,153,174,147,193,147,234,155,273,165,303,160,305,150,275,141,235,142,192,148,171,160,153,173,141,193,131,244,116,305,105,368,98"/>
+<area shape="rect" id="Node000006" href="$d2/d57/_a_e_math_trig_lookup_8hpp.html" title="This file contains the engine&#39;s trigonometric function lookup tables." alt="" coords="173,155,425,181"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="434,115,331,157,329,152,432,110"/>
+<area shape="rect" id="Node000007" href="$d7/d09/_a_e_vector_8hpp.html" title=" " alt="" coords="449,155,656,181"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="503,116,541,152,538,156,500,119"/>
+<area shape="rect" id="Node000009" href="$dc/dc6/_a_e_log_entry_8hpp.html" title=" " alt="" coords="618,229,881,256"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="766,197,756,230,751,228,761,196"/>
+<area shape="rect" id="Node000012" href="$d3/dda/_a_e_file_reader_8hpp.html" title=" " alt="" coords="338,229,593,256"/>
+<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="704,188,520,231,519,226,703,183"/>
+<area shape="rect" id="Node000014" href="$db/da4/_a_e_file_writer_8hpp.html" title=" " alt="" coords="905,229,1149,256"/>
+<area shape="poly" id="edge16_Node000008_Node000014" title=" " alt="" coords="832,183,983,226,982,231,830,188"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="633,261,271,306,270,301,632,256"/>
+<area shape="rect" id="Node000010" href="$d4/d9f/_a_e_logger_8hpp.html" title=" " alt="" coords="664,304,873,331"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="759,270,768,303,763,304,754,272"/>
+<area shape="rect" id="Node000011" href="$db/da0/_a_e_logger_8cpp.html" title=" " alt="" coords="675,379,862,405"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="771,346,771,378,766,378,766,346"/>
+<area shape="poly" id="edge15_Node000012_Node000003" title=" " alt="" coords="400,263,221,306,220,301,398,258"/>
+<area shape="rect" id="Node000013" href="$d9/d6e/_a_e_file_reader_8cpp.html" title=" " alt="" coords="350,304,582,331"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="468,272,468,304,463,304,463,272"/>
+<area shape="poly" id="edge18_Node000014_Node000010" title=" " alt="" coords="968,263,814,306,813,301,967,258"/>
+<area shape="rect" id="Node000015" href="$d0/d56/_a_e_file_writer_8cpp.html" title=" " alt="" coords="917,304,1137,331"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="1030,272,1030,304,1024,304,1024,272"/>
+<area shape="poly" id="edge20_Node000016_Node000008" title=" " alt="" coords="791,122,779,155,774,153,786,120"/>
+<area shape="poly" id="edge21_Node000016_Node000017" title=" " alt="" coords="853,109,988,151,986,157,851,114"/>
+<area shape="poly" id="edge22_Node000017_Node000009" title=" " alt="" coords="965,188,799,231,798,226,964,183"/>
+<area shape="poly" id="edge23_Node000017_Node000012" title=" " alt="" coords="914,186,564,231,564,226,913,181"/>
+<area shape="poly" id="edge24_Node000017_Node000014" title=" " alt="" coords="1030,197,1030,229,1024,229,1024,197"/>
+<area shape="rect" id="Node000018" href="$de/d72/_a_e_frame_8hpp.html" title=" " alt="" coords="1172,229,1378,256"/>
+<area shape="poly" id="edge25_Node000017_Node000018" title=" " alt="" coords="1085,184,1232,226,1231,231,1084,189"/>
+<area shape="rect" id="Node000019" href="$dc/dc6/_a_e_timer_8hpp.html" title=" " alt="" coords="1177,304,1373,331"/>
+<area shape="poly" id="edge26_Node000018_Node000019" title=" " alt="" coords="1278,272,1278,304,1272,304,1272,272"/>
 </map>

@@ -151,16 +151,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3257ef44350e547976d6199ffdb743f" id="r_ab3257ef44350e547976d6199ffdb743f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#ab3257ef44350e547976d6199ffdb743f">getModuleAmount</a> (void) noexcept</td></tr>
-<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
+<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>amount of the currently-alive instances of module T</b>  <br /></td></tr>
 <tr class="separator:ab3257ef44350e547976d6199ffdb743f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f3461ab9cf4aa231ba93ce28f7f856c" id="r_a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memItemLeft" align="right" valign="top">static constexpr std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">getModuleName</a> (void) noexcept</td></tr>
-<tr class="memdesc:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
-<tr class="separator:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625c82f27195de3f9ab5af4fc7437e2f" id="r_a625c82f27195de3f9ab5af4fc7437e2f"><td class="memItemLeft" align="right" valign="top">static constexpr const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f">getModuleName</a> (void) noexcept</td></tr>
+<tr class="memdesc:a625c82f27195de3f9ab5af4fc7437e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>name of the module</b>  <br /></td></tr>
+<tr class="separator:a625c82f27195de3f9ab5af4fc7437e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:aa6b53ab9e5c623900a03d4ea16eb5a99" id="r_aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of alive module instances.  <br /></td></tr>
+<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the currently-alive (not destroyed) instances of the module.  <br /></td></tr>
 <tr class="separator:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -274,7 +274,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00058">58</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a4901a9a64a28aca8564f930ac3053bfd">getSteadyTime</a>, <a class="el" href="#a6706c7859abc818a99a5cc93635b3550">m_bNoDelay</a>, <a class="el" href="#ab06c8ac7fefff8614270dff6f4f08ebf">m_fFPS</a>, <a class="el" href="#ad930b5c2e6863df676922364703aceed">m_tdChronoDelay</a>, <a class="el" href="#a250267a04cdb402efe8d0d1f757c75d0">m_tpTimepoint</a>, and <a class="el" href="#a425f5ba8edab14bdf3e34fc06658e451">resetTimePoint()</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -319,7 +319,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00075">75</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00076">76</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a4901a9a64a28aca8564f930ac3053bfd">getSteadyTime</a>, <a class="el" href="#a6706c7859abc818a99a5cc93635b3550">m_bNoDelay</a>, <a class="el" href="#ab06c8ac7fefff8614270dff6f4f08ebf">m_fFPS</a>, <a class="el" href="#ad930b5c2e6863df676922364703aceed">m_tdChronoDelay</a>, <a class="el" href="#a250267a04cdb402efe8d0d1f757c75d0">m_tpTimepoint</a>, and <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#ac0e26bf3aaeae4fcabbff362eb4dd3a4">microSec</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -358,7 +358,7 @@ Private Attributes</h2></td></tr>
 <p>Puts the current thread to sleep up to the set fps goal. </p>
 <p>Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, then the thread will sleep the rest of 20ms to make the game loop run at 30fps. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#a6706c7859abc818a99a5cc93635b3550">m_bNoDelay</a>, <a class="el" href="#ad930b5c2e6863df676922364703aceed">m_tdChronoDelay</a>, <a class="el" href="#a250267a04cdb402efe8d0d1f757c75d0">m_tpTimepoint</a>, and <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a713bf3c1565c4abe7b2e41cd1c795957">sleepUntil</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -397,7 +397,7 @@ Private Attributes</h2></td></tr>
 <p>Resets the time point in the <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> to current system time. </p>
 <p>Helps if the gameloop delay was much bigger than AEFrames for a long time (it causes delay to stop working untill it catches up) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00103">103</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a4901a9a64a28aca8564f930ac3053bfd">getSteadyTime</a>, and <a class="el" href="#a250267a04cdb402efe8d0d1f757c75d0">m_tpTimepoint</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -436,7 +436,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the fps goal of <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a> instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>double of the given fps goal</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00110">110</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#ab06c8ac7fefff8614270dff6f4f08ebf">m_fFPS</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -475,7 +475,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s delay from the set fps, in seconds. </p>
 <dl class="section return"><dt>Returns</dt><dd>double of the maximum <a class="el" href="../../df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops.">AEFrame</a>'s delay in real-world seconds</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00116">116</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00117">117</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 <p class="reference">References <a class="el" href="#ad930b5c2e6863df676922364703aceed">m_tdChronoDelay</a>.</p>
 <div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -511,15 +511,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the amount of instances of the module currently existing. </p>
-<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+<p>Get the <b>amount of the currently-alive instances of module T</b> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99" title="Amount of the currently-alive (not destroyed) instances of the module.">__AEModuleBase&lt;T&gt;::m_ullModulesAlive</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the alive module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a2f3461ab9cf4aa231ba93ce28f7f856c" name="a2f3461ab9cf4aa231ba93ce28f7f856c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3461ab9cf4aa231ba93ce28f7f856c">&#9670;&#160;</a></span>getModuleName()</h2>
+<a id="a625c82f27195de3f9ab5af4fc7437e2f" name="a625c82f27195de3f9ab5af4fc7437e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a625c82f27195de3f9ab5af4fc7437e2f">&#9670;&#160;</a></span>getModuleName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -528,7 +529,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a>  &gt;::getModuleName </td>
+          <td class="memname">static constexpr const std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a>  &gt;::getModuleName </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -541,8 +542,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the name of the registered module. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Get the <b>name of the module</b> </p>
+<dl class="section attention"><dt>Attention</dt><dd>You <em>need</em> to add <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a> to the end of the class declarations if you want to use this thing </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The name of the module as a const std::strinv_view type</dd></dl>
 
 </div>
 </div>
@@ -570,7 +573,7 @@ Private Attributes</h2></td></tr>
 <p>The time duration for the delay in sleeps <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00122">122</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 </div>
 </div>
@@ -596,7 +599,7 @@ Private Attributes</h2></td></tr>
 
 <p>The timepoint, that sets time when to wake up the thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00124">124</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 </div>
 </div>
@@ -620,7 +623,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00124">124</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 </div>
 </div>
@@ -646,7 +649,7 @@ Private Attributes</h2></td></tr>
 
 <p>The flag if we don't need the delay, err, for some reason. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00126">126</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html#l00127">127</a> of file <a class="el" href="../../de/d72/_a_e_frame_8hpp_source.html">AEFrame.hpp</a>.</p>
 
 </div>
 </div>
@@ -670,9 +673,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Amount of alive module instances. </p>
+<p>Amount of the currently-alive (not destroyed) instances of the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +688,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/dd7/class_a_e_frame.html">AEFrame</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 12:23:02 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 13:55:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 <map id="ace::math::isFinite" name="ace::math::isFinite">
-<area shape="rect" id="Node000001" title="Checks if the float is finite (not infinity or NaN)" alt="" coords="5,5,135,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="183,5,288,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,16,167,16,167,21,135,21"/>
+<area shape="rect" id="Node000001" title="Checks if the float is finite (not infinity or NaN)" alt="" coords="5,29,135,56"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b" title="Gets the smallest value between given two values." alt="" coords="183,29,291,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,40,167,40,167,45,135,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="208,30,203,21,206,11,218,5,237,3,257,5,268,12,265,16,255,10,237,8,220,10,210,15,208,20,213,28"/>
 </map>

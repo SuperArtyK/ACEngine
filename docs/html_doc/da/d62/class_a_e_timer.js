@@ -19,7 +19,7 @@ var class_a_e_timer =
     [ "tickTimer", "da/d62/class_a_e_timer.html#ad5fa76b6e9233eaa415a9c70ed6ecc8d", null ],
     [ "REGISTER_MODULE", "da/d62/class_a_e_timer.html#a9d4b98d4917106e0e3a129befb4418aa", null ],
     [ "getModuleAmount", "da/d62/class_a_e_timer.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "da/d62/class_a_e_timer.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
+    [ "getModuleName", "da/d62/class_a_e_timer.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
     [ "m_rDelay", "da/d62/class_a_e_timer.html#a2fe2c92681bbe2eaaf8680ab25bf8c30", null ],
     [ "m_trdCounting", "da/d62/class_a_e_timer.html#a20051246d7891c71cc0ec19bb38af3fc", null ],
     [ "m_ullTicks", "da/d62/class_a_e_timer.html#ab3676309b4854bf561c2d7bce3bc5849", null ],

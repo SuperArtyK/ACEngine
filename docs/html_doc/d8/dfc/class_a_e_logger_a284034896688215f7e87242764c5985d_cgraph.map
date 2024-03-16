@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Starts the log&#45;writing thread." alt="" coords="5,365,153,392"/>
 <area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a2f64d8f5de2f249f7cb973a82ec1e48a" title="Close the file, if it was opened." alt="" coords="201,289,339,316"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,362,219,320,221,325,116,367"/>
-<area shape="rect" id="Node000009" href="$d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module." alt="" coords="873,320,1079,363"/>
+<area shape="rect" id="Node000009" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="873,320,1079,363"/>
 <area shape="poly" id="edge26_Node000001_Node000009" title=" " alt="" coords="153,378,348,381,584,376,726,366,857,353,857,358,726,371,584,381,348,386,153,384"/>
 <area shape="rect" id="Node000010" href="$d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file." alt="" coords="654,177,803,204"/>
 <area shape="poly" id="edge36_Node000001_Node000010" title=" " alt="" coords="90,363,133,317,201,254,242,221,288,190,336,164,386,144,425,135,466,131,546,136,620,151,680,169,678,174,618,156,545,141,466,137,426,140,388,149,338,169,290,195,245,225,204,258,137,320,94,367"/>

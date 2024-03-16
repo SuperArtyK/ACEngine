@@ -1,5 +1,6 @@
 <map id="ace::math::lengthOfInt" name="ace::math::lengthOfInt">
-<area shape="rect" id="Node000001" title="Calculate the length of the given integer number." alt="" coords="5,5,155,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="203,5,308,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,16,187,16,187,21,155,21"/>
+<area shape="rect" id="Node000001" title="Calculate the length of the given integer number." alt="" coords="5,29,155,56"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b" title="Gets the smallest value between given two values." alt="" coords="203,29,311,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,40,187,40,187,45,155,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="226,30,221,21,225,11,237,5,257,3,278,5,289,12,287,16,276,10,257,8,239,10,229,15,226,20,231,28"/>
 </map>

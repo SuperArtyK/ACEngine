@@ -3,11 +3,12 @@
  *  
  *  @brief This file contains the engine's **usefull utilities for trivial tasks**.
  *  
- *  Stuff that I found that I needed to implement to perform some task, <br>
- *  like bool to "true"/"false" string, thought the engine would benefit from by making it <br>
- *  an engine-wide utility.
+ *  Stuff that I found that I needed to implement to perform some simple task, 
+ *  like convert the bool value to "true"/"false" string.
  *  
- *  Less copy-pasted code, yayyy.
+ *  But then thought that the engine would benefit from by making it an engine-wide utility.
+ *  
+ *  Sooooo, lLess copy-pasted code, yayyy.
  *  
  *  @date 2023/09/22
  *

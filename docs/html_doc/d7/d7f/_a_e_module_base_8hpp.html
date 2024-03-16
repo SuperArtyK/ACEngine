@@ -100,8 +100,12 @@ $(function(){initNavTree('d7/d7f/_a_e_module_base_8hpp.html','../../'); initResi
   <div class="headertitle"><div class="title">AEModuleBase.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file contains the engine's <b>basic module template</b>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">include/AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/dd8/_a_e_flags_8hpp_source.html">include/AEFlags.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d6a/_a_e_utils_macros_8hpp_source.html">include/AEUtilsMacros.hpp</a>&quot;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
@@ -110,7 +114,7 @@ $(function(){initNavTree('d7/d7f/_a_e_module_base_8hpp.html','../../'); initResi
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d65/_a_e_module_base_8hpp__incl.svg" width="643" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/d65/_a_e_module_base_8hpp__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -125,24 +129,28 @@ $(function(){initNavTree('d7/d7f/_a_e_module_base_8hpp.html','../../'); initResi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a base class for all basic modules, meaning that the module is not using other modules to work.  <a href="../../d0/d8a/class_____a_e_module_base.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a <b>base class for all the modules in the engine</b>; all basic modules inherit from it.  <a href="../../d0/d8a/class_____a_e_module_base.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a3b64810cd4803a6d80ccd70d17533edf" id="r_a3b64810cd4803a6d80ccd70d17533edf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b64810cd4803a6d80ccd70d17533edf">REGISTER_MODULE</a>(T)</td></tr>
-<tr class="memdesc:a3b64810cd4803a6d80ccd70d17533edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A process to register the module (that inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) (under the hood: finish specialising <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module.">__AEModuleBase::getModuleName()</a> specially for the inheriting class) Usage: Always put it as the <b>last</b> entry to the class, before the closing brace }.  <br /></td></tr>
+<tr class="memdesc:a3b64810cd4803a6d80ccd70d17533edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to <b>complete the module declaration with <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it.">__AEModuleBase</a></b>.  <br /></td></tr>
 <tr class="separator:a3b64810cd4803a6d80ccd70d17533edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1351a24d5f0cb79d18a6fd369a82dd72" id="r_a1351a24d5f0cb79d18a6fd369a82dd72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1351a24d5f0cb79d18a6fd369a82dd72">COPYCONSTRUCT_MODULE</a>(T,  val)&#160;&#160;&#160;<a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt;T&gt;(val)</td></tr>
-<tr class="memdesc:a1351a24d5f0cb79d18a6fd369a82dd72"><td class="mdescLeft">&#160;</td><td class="mdescRight">A process to correctly copy-construct the module (that inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) (under the hood: calls the copy-constructor of the <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) Usage: put it as the first item of the initializer list Example: TestClass(const TestClass&amp; val) : <a class="el" href="#a1351a24d5f0cb79d18a6fd369a82dd72" title="A process to correctly copy-construct the module (that inherited from __AEModuleBase) (under the hood...">COPYCONSTRUCT_MODULE(T, val)</a>, [other member initialisation] {...}.  <br /></td></tr>
-<tr class="separator:a1351a24d5f0cb79d18a6fd369a82dd72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81996a8e3c2e7fad98e16cb177d206f1" id="r_a81996a8e3c2e7fad98e16cb177d206f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81996a8e3c2e7fad98e16cb177d206f1">ENGINE_MODULE_ERR_NOERROR</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a81996a8e3c2e7fad98e16cb177d206f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global "no error" return flag for all engine modules.  <br /></td></tr>
+<tr class="memdesc:a81996a8e3c2e7fad98e16cb177d206f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for the <b>default no error flag</b> for all modules.  <br /></td></tr>
 <tr class="separator:a81996a8e3c2e7fad98e16cb177d206f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class.</p>
-<p>Should not cause everything to break :) </p>
+<div class="textblock"><p>This file contains the engine's <b>basic module template</b>. </p>
+<p>All modules in the engine base on this class (or on other module template classes that base on this class).</p>
+<p>It gives the default behaviour for the classes, such as allowing for naming the module (giving it a module name) and module amount (counting the alive instances).</p>
+<p>Also in the future, I'll add instance names and the instance number.</p>
+<p>With the latter being the number of the instance (increases with every creation), and the first being the combination of a module name and the instance number.</p>
+<dl class="section date"><dt>Date</dt><dd>2023/09/21</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
+<p><em>Should not cause everything to break :)</em> </p>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -160,54 +168,25 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">public</span>: [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> std::string_view getModuleName(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span> { \</div>
-<div class="line">    static_assert(<span class="keyword">sizeof</span>(#T) &lt;= <a class="code hl_define" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a>, <span class="stringliteral">&quot;The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp&quot;</span>); \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">public</span>: \</div>
+<div class="line">    [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> std::string_view getModuleName(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span> { \</div>
+<div class="line">    static_assert(<span class="keyword">sizeof</span>(<a class="code hl_define" href="../../d9/d6a/_a_e_utils_macros_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(T)) &lt;= <a class="code hl_define" href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a>, <span class="stringliteral">&quot;The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp&quot;</span>); \</div>
 <div class="line">    <span class="keywordflow">return</span> #T; }</div>
 <div class="ttc" id="a_a_e_flags_8hpp_html_adef52ac377b8ee82d7beba7c58799bfe"><div class="ttname"><a href="../../dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe">AELE_MODULENAME_SIZE</a></div><div class="ttdeci">#define AELE_MODULENAME_SIZE</div><div class="ttdoc">The size of the AELogEntry's module name in characters (excluding null termination)</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dd8/_a_e_flags_8hpp_source.html#l00103">AEFlags.hpp:103</a></div></div>
+<div class="ttc" id="a_a_e_utils_macros_8hpp_html_a18d295a837ac71add5578860b55e5502"><div class="ttname"><a href="../../d9/d6a/_a_e_utils_macros_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a></div><div class="ttdeci">#define STR(x)</div><div class="ttdoc">Macro to convert the passed non-string literals to a string literal.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d6a/_a_e_utils_macros_8hpp_source.html#l00123">AEUtilsMacros.hpp:123</a></div></div>
 </div><!-- fragment -->
-<p>A process to register the module (that inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) (under the hood: finish specialising <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module.">__AEModuleBase::getModuleName()</a> specially for the inheriting class) Usage: Always put it as the <b>last</b> entry to the class, before the closing brace }. </p>
-<dl class="section warning"><dt>Warning</dt><dd>If you won't do it, the project won't compile with the "unresolved external" error <dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>A macro to <b>complete the module declaration with <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it.">__AEModuleBase</a></b>. </p>
+<p>Under the hood, it finishes specialising <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module">__AEModuleBase::getModuleName()</a> for the inheriting class. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Inheriting module's class name</td></tr>
   </table>
   </dd>
 </dl>
-</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Usage: Always put it as the <b>last</b> entry to the class, before the closing brace **}** </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If you won't do it and use the <a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module">__AEModuleBase&lt;T&gt;::getModuleName()</a>, the project won't compile with the "unresolved external" error </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it.">__AEModuleBase</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1351a24d5f0cb79d18a6fd369a82dd72" name="a1351a24d5f0cb79d18a6fd369a82dd72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1351a24d5f0cb79d18a6fd369a82dd72">&#9670;&#160;</a></span>COPYCONSTRUCT_MODULE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COPYCONSTRUCT_MODULE</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">T, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">val</span>&#160;)&#160;&#160;&#160;<a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt;T&gt;(val)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A process to correctly copy-construct the module (that inherited from <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) (under the hood: calls the copy-constructor of the <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) Usage: put it as the first item of the initializer list Example: TestClass(const TestClass&amp; val) : <a class="el" href="#a1351a24d5f0cb79d18a6fd369a82dd72" title="A process to correctly copy-construct the module (that inherited from __AEModuleBase) (under the hood...">COPYCONSTRUCT_MODULE(T, val)</a>, [other member initialisation] {...}. </p>
-<dl class="section warning"><dt>Warning</dt><dd>If you won't do it, the module count (done by <a class="el" href="../../d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor...">__AEModuleBase</a>) won't be incremented <dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Inheriting module's class name</td></tr>
-    <tr><td class="paramname">val</td><td>The name of the argument to be copy-constructed from</td></tr>
-  </table>
-  </dd>
-</dl>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -223,9 +202,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Global "no error" return flag for all engine modules. </p>
+<p>Macro for the <b>default no error flag</b> for all modules. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +214,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_45777126148804f015c4da13b6453d69.html">AEModuleBase</a></li><li class="navelem"><a class="el" href="../../dir_47464e78d58c188133fdafef465ba07d.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html">AEModuleBase.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 12:23:02 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 13:55:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 <map id="ace::math::hypot" name="ace::math::hypot">
-<area shape="rect" id="Node000001" title="Calculates the hypotenuse length from given values a and b." alt="" coords="5,5,125,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="173,5,278,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,16,157,16,157,21,125,21"/>
+<area shape="rect" id="Node000001" title="Calculates the hypotenuse length from given values a and b." alt="" coords="5,29,125,56"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b" title="Gets the smallest value between given two values." alt="" coords="173,29,281,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,40,157,40,157,45,125,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="199,30,194,21,197,11,209,5,227,3,246,5,257,12,254,16,245,10,227,8,210,10,201,15,199,20,203,28"/>
 </map>

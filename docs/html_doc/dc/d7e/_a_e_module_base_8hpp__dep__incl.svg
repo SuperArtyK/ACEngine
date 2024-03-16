@@ -57,7 +57,7 @@ var sectionId = 'dynsection-1';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="This file contains the engine&#39;s basic module template.">
 <polygon fill="#999999" stroke="#666666" points="648.38,-188 441.88,-188 441.88,-168 648.38,-168 648.38,-188"/>
 <text text-anchor="middle" x="545.12" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEModuleBase/include/AEModuleBase.hpp</text>
 </a>

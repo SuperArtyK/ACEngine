@@ -1,8 +1,8 @@
-.TH "__AEModuleBase< T >" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-__AEModuleBase< T > \- This is a base class for all basic modules, meaning that the module is not using other modules to work\&.  
+__AEModuleBase< T > \- This is a \fBbase class for all the modules in the engine\fP; all basic modules inherit from it\&.  
 
 .SH SYNOPSIS
 .br
@@ -15,19 +15,19 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 .ti -1c
 .RI "\fB__AEModuleBase\fP (void) noexcept"
 .br
-.RI "Basic constructor that increases module count\&. "
+.RI "\fBBasic constructor\fP that increases module count "
 .ti -1c
 .RI "\fB__AEModuleBase\fP (const \fB__AEModuleBase\fP< T > &val) noexcept"
 .br
-.RI "Basic copy constructor that increases module count\&. "
+.RI "\fBBasic copy constructor\fP that increases module count "
 .ti -1c
 .RI "virtual \fB~__AEModuleBase\fP (void) noexcept"
 .br
-.RI "Basic destructor that decreases module count\&. "
+.RI "\fBBasic destructor\fP that decreases module count "
 .ti -1c
 .RI "virtual \fB__AEModuleBase\fP< T > & \fBoperator=\fP (const \fB__AEModuleBase\fP< T > &val)=delete"
 .br
-.RI "Basic assignment operator -- it does nothing, so it's deleted (make your own) "
+.RI "\fBBasic assignment operator -- it does nothing, so it's deleted\fP (make your own) "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -35,11 +35,11 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 .ti -1c
 .RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
-.RI "Returns the amount of instances of the module currently existing\&. "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP "
 .ti -1c
-.RI "static constexpr std::string_view \fBgetModuleName\fP (void) noexcept"
+.RI "static constexpr const std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
-.RI "Returns the name of the registered module\&. "
+.RI "Get the \fBname of the module\fP "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -47,53 +47,73 @@ __AEModuleBase< T > \- This is a base class for all basic modules, meaning that 
 .ti -1c
 .RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP = 0"
 .br
-.RI "Amount of alive module instances\&. "
+.RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 
 .SS "template<typename T>
 .br
-class __AEModuleBase< T >"This is a base class for all basic modules, meaning that the module is not using other modules to work\&. 
+class __AEModuleBase< T >"This is a \fBbase class for all the modules in the engine\fP; all basic modules inherit from it\&. 
 
-
+This allows tracking the name of the module, the amount of alive instances and soon: name and number of the instance\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Intended to be inherited from in class declaration, not direct usage\&. 
+.RE
 .PP
 \fBNote\fP
 .RS 4
-Intended to be inherited from in class declaration, not direct usage\&. Usage: \fRclass [classname] : public \fB__AEModuleBase\fP<[classname]>\fP 
+Usage: 
+.br
+ class \fB[classname]\fP : public \fB__AEModuleBase\fP<\fB[classname]\fP> 
 .RE
 .PP
 \fBWarning\fP
 .RS 4
-If you do not include \fBREGISTER_MODULE(T)\fP after the whole class definition (before closing '}'), the program won't compile 
+If you use the \fB__AEModuleBase<T>::getModuleName()\fP and do not include \fBREGISTER_MODULE(T)\fP after the whole class definition (before closing '}'), the program won't compile 
+.RE
 .PP
-If you do not include \fBCOPYCONSTRUCT_MODULE(T, val)\fP in the copy-constructor, the module increment (every constructing action) won't work!
+\fBSee also\fP
+.RS 4
+\fBREGISTER_MODULE(T)\fP
 .RE
 .PP
 \fBTemplate Parameters\fP
 .RS 4
-\fIT\fP Inheriting module's class name
+\fIT\fP The class name of the module to inherit from this class
 .RE
 .PP
 
 .PP
-Definition at line \fB53\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB76\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "template<typename T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (void)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Basic constructor that increases module count\&. 
+\fBBasic constructor\fP that increases module count 
 .PP
 Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<typename T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (const \fB__AEModuleBase\fP< T > & val)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Basic copy constructor that increases module count\&. 
+\fBBasic copy constructor\fP that increases module count 
+.PP
+\fBRemarks\fP
+.RS 4
+It doesn't get called, unless expicitly called 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Doesn't do anything other than increase module count
+.RE
 .PP
 \fBParameters\fP
 .RS 4
-\fIval\fP The value to be copied\&.\&.\&.useless since we have nothing to copy lol (but we need it)
+\fIval\fP The object passed to the copy constructor (we don't do anything with it)
 .RE
 .PP
 
@@ -102,7 +122,7 @@ Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<typename T > virtual \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (void)\fR [inline]\fP, \fR [virtual]\fP, \fR [noexcept]\fP"
 
 .PP
-Basic destructor that decreases module count\&. 
+\fBBasic destructor\fP that decreases module count 
 .PP
 Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Function Documentation"
@@ -110,41 +130,45 @@ Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<typename T > virtual \fB__AEModuleBase\fP< T > & \fB__AEModuleBase\fP< T >::operator= (const \fB__AEModuleBase\fP< T > & val)\fR [virtual]\fP, \fR [delete]\fP"
 
 .PP
-Basic assignment operator -- it does nothing, so it's deleted (make your own) 
-.PP
-\fBParameters\fP
-.RS 4
-\fIval\fP 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-.RE
-.PP
-
+\fBBasic assignment operator -- it does nothing, so it's deleted\fP (make your own) 
 .SS "template<typename T > static \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
-Returns the amount of instances of the module currently existing\&. 
+Get the \fBamount of the currently-alive instances of module T\fP 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase<T>::m_ullModulesAlive\fP
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the module amount
+Unsigned long long of the alive module amount
 .RE
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 References \fB__AEModuleBase< T >::m_ullModulesAlive\fP\&.
-.SS "template<typename T > static constexpr std::string_view \fB__AEModuleBase\fP< T >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+.SS "template<typename T > static constexpr const std::string_view \fB__AEModuleBase\fP< T >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Returns the name of the registered module\&. 
+Get the \fBname of the module\fP 
+.PP
+\fBAttention\fP
+.RS 4
+You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declarations if you want to use this thing 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBREGISTER_MODULE()\fP
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-
+The name of the module as a const std::strinv_view type
 .RE
 .PP
 
@@ -153,9 +177,9 @@ Returns the name of the registered module\&.
 .SS "template<typename T > std::atomic<std::size_t> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP"
 
 .PP
-Amount of alive module instances\&. 
+Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

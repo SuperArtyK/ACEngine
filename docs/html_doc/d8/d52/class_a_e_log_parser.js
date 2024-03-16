@@ -40,7 +40,7 @@ var class_a_e_log_parser =
     [ "checkMName", "d8/d52/class_a_e_log_parser.html#a8e16a086fe0cb5cc6828b53b0a97a1bf", null ],
     [ "REGISTER_MODULE", "d8/d52/class_a_e_log_parser.html#abfe665d273e635559e15339dd34bace5", null ],
     [ "getModuleAmount", "d8/d52/class_a_e_log_parser.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "d8/d52/class_a_e_log_parser.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
+    [ "getModuleName", "d8/d52/class_a_e_log_parser.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
     [ "m_frLogReader", "d8/d52/class_a_e_log_parser.html#a7a38c688d9485750a19f272ceee513fd", null ],
     [ "m_vecEntryIndices", "d8/d52/class_a_e_log_parser.html#a230f2b4ee8b95592fee2a627e0412c7d", null ],
     [ "m_vecInvalidEntryIndices", "d8/d52/class_a_e_log_parser.html#aafdf325ac835c82df04ce2d327f820c8", null ],

@@ -233,16 +233,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a89fbdf373de904d275768e4eb15432c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters the passed queue according to the given modulename.  <br /></td></tr>
 <tr class="separator:a89fbdf373de904d275768e4eb15432c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3257ef44350e547976d6199ffdb743f" id="r_ab3257ef44350e547976d6199ffdb743f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#ab3257ef44350e547976d6199ffdb743f">getModuleAmount</a> (void) noexcept</td></tr>
-<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of instances of the module currently existing.  <br /></td></tr>
+<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>amount of the currently-alive instances of module T</b>  <br /></td></tr>
 <tr class="separator:ab3257ef44350e547976d6199ffdb743f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f3461ab9cf4aa231ba93ce28f7f856c" id="r_a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memItemLeft" align="right" valign="top">static constexpr std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c">getModuleName</a> (void) noexcept</td></tr>
-<tr class="memdesc:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the registered module.  <br /></td></tr>
-<tr class="separator:a2f3461ab9cf4aa231ba93ce28f7f856c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625c82f27195de3f9ab5af4fc7437e2f" id="r_a625c82f27195de3f9ab5af4fc7437e2f"><td class="memItemLeft" align="right" valign="top">static constexpr const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f">getModuleName</a> (void) noexcept</td></tr>
+<tr class="memdesc:a625c82f27195de3f9ab5af4fc7437e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>name of the module</b>  <br /></td></tr>
+<tr class="separator:a625c82f27195de3f9ab5af4fc7437e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:aa6b53ab9e5c623900a03d4ea16eb5a99" id="r_aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99">m_ullModulesAlive</a></td></tr>
-<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of alive module instances.  <br /></td></tr>
+<tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the currently-alive (not destroyed) instances of the module.  <br /></td></tr>
 <tr class="separator:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -2164,15 +2164,16 @@ If filterSeverity is AELP_SEVERITY_ALL, the function always returns true</dd></d
 </table>
 </div><div class="memdoc">
 
-<p>Returns the amount of instances of the module currently existing. </p>
-<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the module amount</dd></dl>
+<p>Get the <b>amount of the currently-alive instances of module T</b> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99" title="Amount of the currently-alive (not destroyed) instances of the module.">__AEModuleBase&lt;T&gt;::m_ullModulesAlive</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the alive module amount</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a2f3461ab9cf4aa231ba93ce28f7f856c" name="a2f3461ab9cf4aa231ba93ce28f7f856c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3461ab9cf4aa231ba93ce28f7f856c">&#9670;&#160;</a></span>getModuleName()</h2>
+<a id="a625c82f27195de3f9ab5af4fc7437e2f" name="a625c82f27195de3f9ab5af4fc7437e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a625c82f27195de3f9ab5af4fc7437e2f">&#9670;&#160;</a></span>getModuleName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2181,7 +2182,7 @@ If filterSeverity is AELP_SEVERITY_ALL, the function always returns true</dd></d
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../d8/d52/class_a_e_log_parser.html">AELogParser</a>  &gt;::getModuleName </td>
+          <td class="memname">static constexpr const std::string_view <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../d8/d52/class_a_e_log_parser.html">AELogParser</a>  &gt;::getModuleName </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -2194,8 +2195,10 @@ If filterSeverity is AELP_SEVERITY_ALL, the function always returns true</dd></d
 </table>
 </div><div class="memdoc">
 
-<p>Returns the name of the registered module. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Get the <b>name of the module</b> </p>
+<dl class="section attention"><dt>Attention</dt><dd>You <em>need</em> to add <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a> to the end of the class declarations if you want to use this thing </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The name of the module as a const std::strinv_view type</dd></dl>
 
 </div>
 </div>
@@ -2378,9 +2381,9 @@ If filterSeverity is AELP_SEVERITY_ALL, the function always returns true</dd></d
 </table>
 </div><div class="memdoc">
 
-<p>Amount of alive module instances. </p>
+<p>Amount of the currently-alive (not destroyed) instances of the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2394,7 +2397,7 @@ If filterSeverity is AELP_SEVERITY_ALL, the function always returns true</dd></d
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d52/class_a_e_log_parser.html">AELogParser</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 12:23:02 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 13:55:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

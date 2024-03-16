@@ -23,7 +23,7 @@ var searchData=
   ['getlogname_20',['getLogName',['../d8/dfc/class_a_e_logger.html#a969fd219869803f0d6e52a4b37c0b38f',1,'AELogger']]],
   ['getlogpath_21',['getLogPath',['../d8/dfc/class_a_e_logger.html#ae73f71a42c0b77d0cd15818483c6471d',1,'AELogger']]],
   ['getmoduleamount_22',['getModuleAmount',['../d0/d8a/class_____a_e_module_base.html#ab3257ef44350e547976d6199ffdb743f',1,'__AEModuleBase']]],
-  ['getmodulename_23',['getModuleName',['../d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c',1,'__AEModuleBase']]],
+  ['getmodulename_23',['getModuleName',['../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f',1,'__AEModuleBase']]],
   ['getrelativepath_24',['getRelativePath',['../dd/dd5/class_a_e_file_reader.html#aa1f9d6a22bac28f3409558084eb03103',1,'AEFileReader::getRelativePath()'],['../db/d15/class_a_e_file_writer.html#aa7ea0428e5c94d54d9fd1386105db507',1,'AEFileWriter::getRelativePath()'],['../d8/d52/class_a_e_log_parser.html#a0a1f374dbcebcbe44497d593247ac8c6',1,'AELogParser::getRelativePath()']]],
   ['getsteadytime_25',['getSteadyTime',['../dc/d89/_a_e_typedefs_8hpp.html#a4901a9a64a28aca8564f930ac3053bfd',1,'AETypedefs.hpp']]],
   ['getsystime_26',['getSysTime',['../dc/d89/_a_e_typedefs_8hpp.html#a8e611e8409abcf7ddec11f1427452b4c',1,'AETypedefs.hpp']]],

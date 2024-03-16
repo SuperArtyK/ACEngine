@@ -7,7 +7,7 @@
  *	
  *	Especially with the addition of if-consteval in c++23 (and std::is_constant_evaluated() in c++20) :)
  *	
- *  Since it would be possible to use the constexpr implementations in compile time, <br>
+ *  Since it would be possible to use the constexpr implementations in compile time, 
  *  and fast (and proper) runtime versions of them at...runtime.
  *  
  *  @date 2023/09/22

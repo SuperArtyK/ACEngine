@@ -54,7 +54,8 @@ public:
 	/// </summary>
 	/// <param name="tm">The original AETimer instance to make a copy of</param>
 	AETimer(const AETimer& tm) :
-		COPYCONSTRUCT_MODULE(AETimer, tm), m_rDelay(tm.m_rDelay), m_ullTicks(tm.m_ullTicks.load()), m_bRunTrd(tm.m_bRunTrd.load()) {
+		//COPYCONSTRUCT_MODULE(AETimer, tm), 
+		m_rDelay(tm.m_rDelay), m_ullTicks(tm.m_ullTicks.load()), m_bRunTrd(tm.m_bRunTrd.load()) {
 
 		if (this->m_bRunTrd) {
 			this->startThread();

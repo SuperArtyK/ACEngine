@@ -1,14 +1,17 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEModuleBase/include/AEModuleBase.hpp
+AEModuleBase/include/AEModuleBase.hpp \- This file contains the engine's \fBbasic module template\fP\&.  
+
 .SH SYNOPSIS
 .br
 .PP
 \fR#include 'include/AETypedefs\&.hpp'\fP
 .br
 \fR#include 'include/AEFlags\&.hpp'\fP
+.br
+\fR#include 'include/AEUtilsMacros\&.hpp'\fP
 .br
 \fR#include <atomic>\fP
 .br
@@ -23,7 +26,7 @@ AEModuleBase/include/AEModuleBase.hpp
 .ti -1c
 .RI "class \fB__AEModuleBase< T >\fP"
 .br
-.RI "This is a base class for all basic modules, meaning that the module is not using other modules to work\&. "
+.RI "This is a \fBbase class for all the modules in the engine\fP; all basic modules inherit from it\&. "
 .in -1c
 .SS "Macros"
 
@@ -31,21 +34,40 @@ AEModuleBase/include/AEModuleBase.hpp
 .ti -1c
 .RI "#define \fBREGISTER_MODULE\fP(T)"
 .br
-.RI "A process to register the module (that inherited from \fB__AEModuleBase\fP) (under the hood: finish specialising \fB__AEModuleBase::getModuleName()\fP specially for the inheriting class) Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace }\&. "
-.ti -1c
-.RI "#define \fBCOPYCONSTRUCT_MODULE\fP(T,  val)   \fB__AEModuleBase\fP<T>(val)"
-.br
-.RI "A process to correctly copy-construct the module (that inherited from \fB__AEModuleBase\fP) (under the hood: calls the copy-constructor of the \fB__AEModuleBase\fP) Usage: put it as the first item of the initializer list Example: TestClass(const TestClass& val) : \fBCOPYCONSTRUCT_MODULE(T, val)\fP, [other member initialisation] {\&.\&.\&.}\&. "
+.RI "A macro to \fBcomplete the module declaration with \fB__AEModuleBase\fP\fP\&. "
 .ti -1c
 .RI "#define \fBENGINE_MODULE_ERR_NOERROR\fP   0"
 .br
-.RI "Global 'no error' return flag for all engine modules\&. "
+.RI "Macro for the \fBdefault no error flag\fP for all modules\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains the code for the module that all (utility) modules base on in the ArtyK's Console Engine class\&.
+This file contains the engine's \fBbasic module template\fP\&. 
+
+All modules in the engine base on this class (or on other module template classes that base on this class)\&.
 .PP
-Should not cause everything to break :) 
+It gives the default behaviour for the classes, such as allowing for naming the module (giving it a module name) and module amount (counting the alive instances)\&.
+.PP
+Also in the future, I'll add instance names and the instance number\&.
+.PP
+With the latter being the number of the instance (increases with every creation), and the first being the combination of a module name and the instance number\&.
+.PP
+\fBDate\fP
+.RS 4
+2023/09/21
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Artemii Kozhemiak (SuperArtyK)
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MIT License
+.RE
+.PP
+\fIShould not cause everything to break :)\fP 
 .PP
 Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Macro Definition Documentation"
@@ -53,55 +75,44 @@ Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .SS "#define REGISTER_MODULE(T)"
 \fBValue:\fP.PP
 .nf
-    public: [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \\
-    static_assert(sizeof(#T) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
+    public: \\
+    [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \\
+    static_assert(sizeof(STR(T)) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
     return #T; }
 .fi
 
 .PP
-A process to register the module (that inherited from \fB__AEModuleBase\fP) (under the hood: finish specialising \fB__AEModuleBase::getModuleName()\fP specially for the inheriting class) Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace }\&. 
-.PP
-\fBWarning\fP
-.RS 4
-If you won't do it, the project won't compile with the 'unresolved external' error 
+A macro to \fBcomplete the module declaration with \fB__AEModuleBase\fP\fP\&. Under the hood, it finishes specialising \fB__AEModuleBase::getModuleName()\fP for the inheriting class\&. 
 .PP
 \fBTemplate Parameters\fP
 .RS 4
 \fIT\fP Inheriting module's class name
 .RE
 .PP
+\fBNote\fP
+.RS 4
+Usage: Always put it as the \fBlast\fP entry to the class, before the closing brace **}** 
 .RE
-.PP
-
-.PP
-Definition at line \fB24\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "#define COPYCONSTRUCT_MODULE(T, val)   \fB__AEModuleBase\fP<T>(val)"
-
-.PP
-A process to correctly copy-construct the module (that inherited from \fB__AEModuleBase\fP) (under the hood: calls the copy-constructor of the \fB__AEModuleBase\fP) Usage: put it as the first item of the initializer list Example: TestClass(const TestClass& val) : \fBCOPYCONSTRUCT_MODULE(T, val)\fP, [other member initialisation] {\&.\&.\&.}\&. 
 .PP
 \fBWarning\fP
 .RS 4
-If you won't do it, the module count (done by \fB__AEModuleBase\fP) won't be incremented 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Inheriting module's class name
-.br
-\fIval\fP The name of the argument to be copy-constructed from
+If you won't do it and use the \fB__AEModuleBase<T>::getModuleName()\fP, the project won't compile with the 'unresolved external' error 
 .RE
 .PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase\fP 
 .RE
 .PP
 
 .PP
-Definition at line \fB35\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB44\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "#define ENGINE_MODULE_ERR_NOERROR   0"
 
 .PP
-Global 'no error' return flag for all engine modules\&. 
+Macro for the \fBdefault no error flag\fP for all modules\&. 
 .PP
-Definition at line \fB38\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB59\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

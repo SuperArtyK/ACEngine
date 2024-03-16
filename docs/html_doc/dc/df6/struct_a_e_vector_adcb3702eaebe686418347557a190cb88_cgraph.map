@@ -1,5 +1,6 @@
 <map id="AEVector::distanceBetween" name="AEVector::distanceBetween">
-<area shape="rect" id="Node000001" title="Calculate the distance between &quot;this&quot; and another vector." alt="" coords="5,5,190,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="238,5,343,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,16,222,16,222,21,190,21"/>
+<area shape="rect" id="Node000001" title="Calculate the distance between &quot;this&quot; and another vector." alt="" coords="5,29,190,56"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b" title="Gets the smallest value between given two values." alt="" coords="238,29,346,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,40,222,40,222,45,190,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="259,30,253,21,257,11,270,5,292,3,315,5,327,12,325,16,313,10,292,8,272,10,261,15,258,20,263,27"/>
 </map>

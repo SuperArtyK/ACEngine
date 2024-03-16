@@ -9,7 +9,7 @@ var class_a_e_frame =
     [ "getFrameRate", "df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e", null ],
     [ "getDelay", "df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5", null ],
     [ "getModuleAmount", "df/dd7/class_a_e_frame.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "df/dd7/class_a_e_frame.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
+    [ "getModuleName", "df/dd7/class_a_e_frame.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
     [ "m_tdChronoDelay", "df/dd7/class_a_e_frame.html#ad930b5c2e6863df676922364703aceed", null ],
     [ "m_tpTimepoint", "df/dd7/class_a_e_frame.html#a250267a04cdb402efe8d0d1f757c75d0", null ],
     [ "m_fFPS", "df/dd7/class_a_e_frame.html#ab06c8ac7fefff8614270dff6f4f08ebf", null ],

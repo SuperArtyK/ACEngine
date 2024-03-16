@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1391,49,1468,63,1553,85,1638,118,1679,139,1717,163,1766,207,1806,261,1838,320,1862,380,1880,438,1892,491,1903,564,1898,565,1887,492,1874,440,1857,382,1833,322,1802,264,1762,211,1714,167,1676,144,1636,123,1551,90,1467,68,1390,54"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="426,173,598,200"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="531,159,569,117,594,95,620,76,656,58,686,49,756,37,862,23,945,18,1136,25,1168,27,1168,33,1136,31,945,23,863,28,757,43,687,54,658,63,623,81,597,99,573,120,535,163"/>
-<area shape="rect" id="Node000007" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor..." alt="" coords="785,52,941,79"/>
+<area shape="rect" id="Node000007" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it." alt="" coords="785,52,941,79"/>
 <area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="557,164,648,127,756,88,797,77,798,82,758,93,650,132,559,169"/>
 <area shape="rect" id="Node000009" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="1160,211,1383,237"/>
 <area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="613,189,1159,216,1159,221,613,194"/>

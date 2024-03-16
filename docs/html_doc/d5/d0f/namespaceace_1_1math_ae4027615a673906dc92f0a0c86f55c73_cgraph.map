@@ -1,5 +1,6 @@
 <map id="ace::math::floorToInt" name="ace::math::floorToInt">
-<area shape="rect" id="Node000001" title="Floor&#39;s the given float of type Y and converts to integer of type T." alt="" coords="5,5,145,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value." alt="" coords="193,5,298,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,16,177,16,177,21,145,21"/>
+<area shape="rect" id="Node000001" title="Floor&#39;s the given float of type Y and converts to integer of type T." alt="" coords="5,29,145,56"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b" title="Gets the smallest value between given two values." alt="" coords="193,29,301,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,40,177,40,177,45,145,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="217,30,212,21,216,11,228,5,247,3,268,5,279,12,276,16,266,10,247,8,229,10,220,15,217,20,222,28"/>
 </map>

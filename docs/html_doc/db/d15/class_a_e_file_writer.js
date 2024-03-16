@@ -38,7 +38,7 @@ var class_a_e_file_writer =
     [ "autoFlush", "db/d15/class_a_e_file_writer.html#a0fc33128433b317611c12ac0914887ec", null ],
     [ "REGISTER_MODULE", "db/d15/class_a_e_file_writer.html#a1fcbfd672792efb11d0fa194fe462631", null ],
     [ "getModuleAmount", "db/d15/class_a_e_file_writer.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "db/d15/class_a_e_file_writer.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
+    [ "getModuleName", "db/d15/class_a_e_file_writer.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
     [ "m_ullFlushInterval", "db/d15/class_a_e_file_writer.html#a791cbb67210a3bd64922ee4e909b427e", null ],
     [ "m_sFilename", "db/d15/class_a_e_file_writer.html#a594e48c0f16d64a40061395d907e4c9a", null ],
     [ "m_ullTotalWrites", "db/d15/class_a_e_file_writer.html#a472bd7d529b0dac1c91e4c9e7072427a", null ],

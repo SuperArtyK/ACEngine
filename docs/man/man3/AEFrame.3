@@ -1,4 +1,4 @@
-.TH "AEFrame" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFrame" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,11 +51,11 @@ Inherits \fB__AEModuleBase< AEFrame >\fP\&.
 .ti -1c
 .RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
-.RI "Returns the amount of instances of the module currently existing\&. "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP "
 .ti -1c
-.RI "static constexpr std::string_view \fBgetModuleName\fP (void) noexcept"
+.RI "static constexpr const std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
-.RI "Returns the name of the registered module\&. "
+.RI "Get the \fBname of the module\fP "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -63,7 +63,7 @@ Inherits \fB__AEModuleBase< AEFrame >\fP\&.
 .ti -1c
 .RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP"
 .br
-.RI "Amount of alive module instances\&. "
+.RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
 .in -1c
 .SS "Private Attributes"
 
@@ -138,7 +138,7 @@ Definition at line \fB53\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBAEFrame\fP & AEFrame::operator= (const \fBAEFrame\fP & two)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Definition at line \fB58\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB59\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBgetSteadyTime\fP, \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBresetTimePoint()\fP\&.
 .SS "void AEFrame::setFps (const double fps)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -158,7 +158,7 @@ if you pass it 0 or negative number it will disable the delay untill a proper va
 .PP
 
 .PP
-Definition at line \fB75\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB76\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBgetSteadyTime\fP, \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBmicroSec\fP\&.
 .SS "void AEFrame::sleep (void)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -166,7 +166,7 @@ References \fBgetSteadyTime\fP, \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDel
 .PP
 Puts the current thread to sleep up to the set fps goal\&. Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, then the thread will sleep the rest of 20ms to make the game loop run at 30fps\&. 
 .PP
-Definition at line \fB87\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB88\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBm_bNoDelay\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBsleepUntil\fP\&.
 .SS "void AEFrame::resetTimePoint (void)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -174,7 +174,7 @@ References \fBm_bNoDelay\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fB
 .PP
 Resets the time point in the \fBAEFrame\fP to current system time\&. Helps if the gameloop delay was much bigger than AEFrames for a long time (it causes delay to stop working untill it catches up) 
 .PP
-Definition at line \fB102\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB103\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBgetSteadyTime\fP, and \fBm_tpTimepoint\fP\&.
 .SS "double AEFrame::getFrameRate (void) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -189,7 +189,7 @@ double of the given fps goal
 .PP
 
 .PP
-Definition at line \fB110\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB111\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBm_fFPS\fP\&.
 .SS "double AEFrame::getDelay (void) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -204,30 +204,45 @@ double of the maximum \fBAEFrame\fP's delay in real-world seconds
 .PP
 
 .PP
-Definition at line \fB116\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB117\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBm_tdChronoDelay\fP\&.
 .SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Returns the amount of instances of the module currently existing\&. 
+Get the \fBamount of the currently-alive instances of module T\fP 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase<T>::m_ullModulesAlive\fP
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the module amount
+Unsigned long long of the alive module amount
 .RE
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.SS "static constexpr std::string_view \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "static constexpr const std::string_view \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Returns the name of the registered module\&. 
+Get the \fBname of the module\fP 
+.PP
+\fBAttention\fP
+.RS 4
+You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declarations if you want to use this thing 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBREGISTER_MODULE()\fP
+.RE
 .PP
 \fBReturns\fP
 .RS 4
-
+The name of the module as a const std::strinv_view type
 .RE
 .PP
 
@@ -240,29 +255,29 @@ The time duration for the delay in sleeps
 .br
  
 .PP
-Definition at line \fB121\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB122\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBtimePoint\fP<\fBSteadyClock\fP, decltype(\fBm_tdChronoDelay\fP)> AEFrame::m_tpTimepoint\fR [private]\fP"
 
 .PP
 The timepoint, that sets time when to wake up the thread\&. 
 .PP
-Definition at line \fB123\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB124\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "double AEFrame::m_fFPS\fR [private]\fP"
 
 .PP
-Definition at line \fB124\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB125\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "bool AEFrame::m_bNoDelay\fR [private]\fP"
 
 .PP
 The flag if we don't need the delay, err, for some reason\&. 
 .PP
-Definition at line \fB126\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB127\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAEFrame\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
 
 .PP
-Amount of alive module instances\&. 
+Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB109\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

@@ -1,5 +1,5 @@
 <map id="AEModuleBase/include/AEModuleBase.hpp" name="AEModuleBase/include/AEModuleBase.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="595,5,870,32"/>
+<area shape="rect" id="Node000001" title="This file contains the engine&#39;s basic module template." alt="" coords="595,5,870,32"/>
 <area shape="rect" id="Node000002" href="$dc/dc6/_a_e_log_entry_8hpp.html" title=" " alt="" coords="462,80,725,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="696,42,619,82,617,77,693,37"/>
 <area shape="rect" id="Node000007" href="$d3/dda/_a_e_file_reader_8hpp.html" title=" " alt="" coords="182,80,437,107"/>

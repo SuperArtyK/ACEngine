@@ -1,3 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all basic modules, meaning that the module is not using other modules to wor..." alt="" coords="5,5,162,32"/>
+<area shape="rect" id="Node000000" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it." alt="" coords="5,5,162,32"/>
 </map>

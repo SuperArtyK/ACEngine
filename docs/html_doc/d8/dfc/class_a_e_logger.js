@@ -29,7 +29,7 @@ var class_a_e_logger =
     [ "logWriterThread", "d8/dfc/class_a_e_logger.html#a5938787b6933f4b96ebff10643bd2497", null ],
     [ "REGISTER_MODULE", "d8/dfc/class_a_e_logger.html#a72310de43ba6405a5f24aa8f027f8541", null ],
     [ "getModuleAmount", "d8/dfc/class_a_e_logger.html#ab3257ef44350e547976d6199ffdb743f", null ],
-    [ "getModuleName", "d8/dfc/class_a_e_logger.html#a2f3461ab9cf4aa231ba93ce28f7f856c", null ],
+    [ "getModuleName", "d8/dfc/class_a_e_logger.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
     [ "m_fwLogger", "d8/dfc/class_a_e_logger.html#ae9895e282c5bdf81312106acd988e1d8", null ],
     [ "m_mtxAllocLock", "d8/dfc/class_a_e_logger.html#ae91d805ef8866461e0735c9f41f54c24", null ],
     [ "m_vAllocTable", "d8/dfc/class_a_e_logger.html#a92b4e7278fc54d861edeef1850e27510", null ],

@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Open the file to start logging." alt="" coords="5,259,141,285"/>
 <area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a53b588f9874535299d612a4c71de9950" title="Open the file to start logging." alt="" coords="189,259,324,285"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,269,173,269,173,275,141,275"/>
-<area shape="rect" id="Node000003" href="$d0/d8a/class_____a_e_module_base.html#a2f3461ab9cf4aa231ba93ce28f7f856c" title="Returns the name of the registered module." alt="" coords="1239,457,1446,500"/>
+<area shape="rect" id="Node000003" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="1239,457,1446,500"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="270,284,320,344,358,383,403,424,455,461,511,493,572,515,603,521,635,523,854,523,951,520,1049,513,1224,494,1224,499,1050,518,951,525,854,528,635,528,603,526,571,520,509,498,452,466,400,428,354,387,316,348,266,288"/>
 <area shape="rect" id="Node000004" href="$db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag." alt="" coords="1266,56,1419,83"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="270,256,324,207,409,144,461,115,516,90,575,73,635,67,854,67,1251,67,1251,72,854,72,635,72,576,78,518,95,463,119,412,149,327,211,273,260"/>
