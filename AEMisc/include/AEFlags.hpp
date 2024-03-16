@@ -8,7 +8,7 @@
  *
  *  But if you do, **you're welcome to help me in its development too ;)**
  *
- *	@date 2023-2024
+ *	@date 2023/09/21
  *	
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *	

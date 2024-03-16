@@ -83,7 +83,7 @@ var searchData=
   ['aelp_5fseverity_5fall_80',['AELP_SEVERITY_ALL',['../d0/dab/_a_e_log_parser_8hpp.html#a0d27e3d8ac617ee825f2344c7ee147ae',1,'AELogParser.hpp']]],
   ['aenull_81',['AENULL',['../dc/d89/_a_e_typedefs_8hpp.html#a71255fd98ff05f38ca0d8d178b09954d',1,'AETypedefs.hpp']]],
   ['aeoffsetof_82',['aeoffsetof',['../d9/d6a/_a_e_utils_macros_8hpp.html#a6a0a8fe6f06d23e4a7415db5a90d038d',1,'AEUtilsMacros.hpp']]],
-  ['aetrig_5ftable_5fsize_83',['AETRIG_TABLE_SIZE',['../d7/d4a/_a_e_trig_lookup_8hpp.html#a1a9f5c34b7ba2af63aa0b0242fb1f585',1,'AETrigLookup.hpp']]],
+  ['aetrig_5ftable_5fsize_83',['AETRIG_TABLE_SIZE',['../d2/d57/_a_e_math_trig_lookup_8hpp.html#a1a9f5c34b7ba2af63aa0b0242fb1f585',1,'AEMathTrigLookup.hpp']]],
   ['aevec_5fwrap_5fdimensions_84',['AEVEC_WRAP_DIMENSIONS',['../dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9',1,'AEFlags.hpp']]],
   ['arrsize_85',['arrsize',['../d9/d6a/_a_e_utils_macros_8hpp.html#ab9d7a2dfdef90a2f8526373fb708e76c',1,'AEUtilsMacros.hpp']]]
 ];

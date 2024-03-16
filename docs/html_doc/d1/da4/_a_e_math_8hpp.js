@@ -1,10 +1,10 @@
 var _a_e_math_8hpp =
 [
     [ "toRad", "d1/da4/_a_e_math_8hpp.html#a34df987782d57f3ccb8d1cf75deb2fd2", null ],
+    [ "toDeg", "d1/da4/_a_e_math_8hpp.html#a368a7c4b20718dbf45bd3b0b144ec216", null ],
     [ "isInf", "d1/da4/_a_e_math_8hpp.html#aa9419a870e46d869ebdfa5cc88e8734f", null ],
     [ "isNan", "d1/da4/_a_e_math_8hpp.html#a1aab2eb42e4ed66d1b23d44024a1dc1a", null ],
     [ "isFinite", "d1/da4/_a_e_math_8hpp.html#a0fc2674e12ec1434d0c99942366354b4", null ],
-    [ "toDeg", "d1/da4/_a_e_math_8hpp.html#a368a7c4b20718dbf45bd3b0b144ec216", null ],
     [ "sinDeg", "d1/da4/_a_e_math_8hpp.html#a2d1b0ee0e065a1fb3350dad86d582d17", null ],
     [ "cosDeg", "d1/da4/_a_e_math_8hpp.html#a6d6fc7afd09d4c910a45218da9ae2bc6", null ],
     [ "tanDeg", "d1/da4/_a_e_math_8hpp.html#a15512ebb416126f59cdb7669b5c39b48", null ],
@@ -27,6 +27,9 @@ var _a_e_math_8hpp =
     [ "roundToInt", "d1/da4/_a_e_math_8hpp.html#a1874f6e149779f854fc8f84b5173fc1e", null ],
     [ "round", "d1/da4/_a_e_math_8hpp.html#a1003baff2f5bcf504bcab085cc16d034", null ],
     [ "floorToInt", "d1/da4/_a_e_math_8hpp.html#ae4027615a673906dc92f0a0c86f55c73", null ],
+    [ "floor", "d1/da4/_a_e_math_8hpp.html#a7da8fecfc1f1ad2615499512c824f663", null ],
     [ "ceilToInt", "d1/da4/_a_e_math_8hpp.html#acaf4d49d08f5fbb76c75a2d4bc3e212a", null ],
-    [ "truncToInt", "d1/da4/_a_e_math_8hpp.html#aa76b58464f6cbc1a0adfb9f1f7add2c3", null ]
+    [ "ceil", "d1/da4/_a_e_math_8hpp.html#a2b5effb7e682eb714f694c1c6a963551", null ],
+    [ "truncToInt", "d1/da4/_a_e_math_8hpp.html#aa76b58464f6cbc1a0adfb9f1f7add2c3", null ],
+    [ "trunc", "d1/da4/_a_e_math_8hpp.html#ac1f96b72c81b7af8c6fad92cc7aa5d38", null ]
 ];

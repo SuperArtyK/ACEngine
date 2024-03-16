@@ -140,6 +140,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a34df987782d57f3ccb8d1cf75deb2fd2"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a34df987782d57f3ccb8d1cf75deb2fd2">ace::math::toRad</a> (const T deg) noexcept</td></tr>
 <tr class="memdesc:a34df987782d57f3ccb8d1cf75deb2fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert given <b>degrees to radians</b>  <br /></td></tr>
 <tr class="separator:a34df987782d57f3ccb8d1cf75deb2fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368a7c4b20718dbf45bd3b0b144ec216" id="r_a368a7c4b20718dbf45bd3b0b144ec216"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a368a7c4b20718dbf45bd3b0b144ec216"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a368a7c4b20718dbf45bd3b0b144ec216">ace::math::toDeg</a> (const T rad) noexcept</td></tr>
+<tr class="memdesc:a368a7c4b20718dbf45bd3b0b144ec216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert given <b>radians to degrees</b>  <br /></td></tr>
+<tr class="separator:a368a7c4b20718dbf45bd3b0b144ec216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9419a870e46d869ebdfa5cc88e8734f" id="r_aa9419a870e46d869ebdfa5cc88e8734f"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
 <tr class="memitem:aa9419a870e46d869ebdfa5cc88e8734f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#aa9419a870e46d869ebdfa5cc88e8734f">ace::math::isInf</a> (const T num) noexcept</td></tr>
 <tr class="memdesc:aa9419a870e46d869ebdfa5cc88e8734f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <b>if the float is "infinite"</b> (inf)  <br /></td></tr>
@@ -152,10 +156,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a0fc2674e12ec1434d0c99942366354b4"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a0fc2674e12ec1434d0c99942366354b4">ace::math::isFinite</a> (const T num) noexcept</td></tr>
 <tr class="memdesc:a0fc2674e12ec1434d0c99942366354b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <b>if the float is finite</b> (not infinity or NaN)  <br /></td></tr>
 <tr class="separator:a0fc2674e12ec1434d0c99942366354b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a368a7c4b20718dbf45bd3b0b144ec216" id="r_a368a7c4b20718dbf45bd3b0b144ec216"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a368a7c4b20718dbf45bd3b0b144ec216"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a368a7c4b20718dbf45bd3b0b144ec216">ace::math::toDeg</a> (const T rad) noexcept</td></tr>
-<tr class="memdesc:a368a7c4b20718dbf45bd3b0b144ec216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert given <b>radians to degrees</b>  <br /></td></tr>
-<tr class="separator:a368a7c4b20718dbf45bd3b0b144ec216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d1b0ee0e065a1fb3350dad86d582d17" id="r_a2d1b0ee0e065a1fb3350dad86d582d17"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
 <tr class="memitem:a2d1b0ee0e065a1fb3350dad86d582d17"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a2d1b0ee0e065a1fb3350dad86d582d17">ace::math::sinDeg</a> (const T degrees) noexcept</td></tr>
 <tr class="memdesc:a2d1b0ee0e065a1fb3350dad86d582d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>sine of degrees</b>  <br /></td></tr>
@@ -252,31 +252,39 @@ requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral
 <tr class="memdesc:ae4027615a673906dc92f0a0c86f55c73"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
  <b>Floor's the given float</b> of type Y and converts <b>to integer</b> of type T.  <br /></td></tr>
 <tr class="separator:ae4027615a673906dc92f0a0c86f55c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7da8fecfc1f1ad2615499512c824f663" id="r_a7da8fecfc1f1ad2615499512c824f663"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double, typename Y  = T&gt; <br />
+requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_arithmetic&lt;T&gt;::value == true)</td></tr>
+<tr class="memitem:a7da8fecfc1f1ad2615499512c824f663"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a7da8fecfc1f1ad2615499512c824f663">ace::math::floor</a> (const Y num) noexcept</td></tr>
+<tr class="memdesc:a7da8fecfc1f1ad2615499512c824f663"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Floor's the passed number</b> of type Y and converts it to the type T  <br /></td></tr>
+<tr class="separator:a7da8fecfc1f1ad2615499512c824f663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaf4d49d08f5fbb76c75a2d4bc3e212a" id="r_acaf4d49d08f5fbb76c75a2d4bc3e212a"><td class="memTemplParams" colspan="2">template&lt;typename T  = llint, typename Y  = long double&gt; <br />
 requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral&lt;T&gt;::value == true)</td></tr>
 <tr class="memitem:acaf4d49d08f5fbb76c75a2d4bc3e212a"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#acaf4d49d08f5fbb76c75a2d4bc3e212a">ace::math::ceilToInt</a> (const Y num) noexcept</td></tr>
 <tr class="memdesc:acaf4d49d08f5fbb76c75a2d4bc3e212a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Ceil's the given float</b> of type Y and converts <b>to integer</b> of type T.  <br /></td></tr>
 <tr class="separator:acaf4d49d08f5fbb76c75a2d4bc3e212a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b5effb7e682eb714f694c1c6a963551" id="r_a2b5effb7e682eb714f694c1c6a963551"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double, typename Y  = T&gt; <br />
+requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_arithmetic&lt;T&gt;::value == true)</td></tr>
+<tr class="memitem:a2b5effb7e682eb714f694c1c6a963551"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a2b5effb7e682eb714f694c1c6a963551">ace::math::ceil</a> (const Y num) noexcept</td></tr>
+<tr class="memdesc:a2b5effb7e682eb714f694c1c6a963551"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Ceil's the passed number</b> of type Y and converts it to the type T  <br /></td></tr>
+<tr class="separator:a2b5effb7e682eb714f694c1c6a963551"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa76b58464f6cbc1a0adfb9f1f7add2c3" id="r_aa76b58464f6cbc1a0adfb9f1f7add2c3"><td class="memTemplParams" colspan="2">template&lt;typename T  = llint, typename Y  = long double&gt; <br />
 requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral&lt;T&gt;::value == true)</td></tr>
 <tr class="memitem:aa76b58464f6cbc1a0adfb9f1f7add2c3"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3">ace::math::truncToInt</a> (const Y num) noexcept</td></tr>
 <tr class="memdesc:aa76b58464f6cbc1a0adfb9f1f7add2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Truncates the given float</b> of type Y and converts <b>to integer</b> of type T.  <br /></td></tr>
 <tr class="separator:aa76b58464f6cbc1a0adfb9f1f7add2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1f96b72c81b7af8c6fad92cc7aa5d38" id="r_ac1f96b72c81b7af8c6fad92cc7aa5d38"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double, typename Y  = T&gt; <br />
+requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_arithmetic&lt;T&gt;::value == true)</td></tr>
+<tr class="memitem:ac1f96b72c81b7af8c6fad92cc7aa5d38"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#ac1f96b72c81b7af8c6fad92cc7aa5d38">ace::math::trunc</a> (const Y num) noexcept</td></tr>
+<tr class="memdesc:ac1f96b72c81b7af8c6fad92cc7aa5d38"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Truncates the passed number</b> of type Y and converts it to the type T  <br /></td></tr>
+<tr class="separator:ac1f96b72c81b7af8c6fad92cc7aa5d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the engine's <b>math and math-related functions</b>. </p>
-<p>This file contains the engine's <b>math constants</b>.</p>
 <p>These would be quite fast, I tried optimising them for the types that are needed.</p>
 <p>Especially with the addition of if-consteval in c++23 (and std::is_constant_evaluated() in c++20) :)</p>
 <p>Since it would be possible to use the constexpr implementations in compile time, <br  />
  and fast (and proper) runtime versions of them at...runtime.</p>
-<dl class="section date"><dt>Date</dt><dd>2023-2024</dd></dl>
-<dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
-<p><em>Should not cause everything to break :)</em></p>
-<p>The brief description says it all &ndash; this file has the math constants in the engine.</p>
-<p>All those pi's, tau's, sqrt of 2's, etc, which you can call, and cast to the necessary type.</p>
-<dl class="section date"><dt>Date</dt><dd>2023-2024</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023/09/22</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
 <p><em>Should not cause everything to break :)</em> </p>
@@ -288,7 +296,7 @@ requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../d1/da4/_a_e_math_8hpp.html">AEMath.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 11:28:29 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 12:23:02 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

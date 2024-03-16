@@ -7,7 +7,7 @@
  *	
  *	All those pi's, tau's, sqrt of 2's, etc, which you can call, and cast to the necessary type.
  *
- *  @date 2023-2024
+ *  @date 2024/03/14
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
@@ -34,7 +34,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T pi(void) noexcept {
+	[[nodiscard]] constexpr T pi(void) noexcept {
 		return T(3.14159265358979323846L);
 	}
 
@@ -46,7 +46,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T tau(void) noexcept {
+	[[nodiscard]] constexpr T tau(void) noexcept {
 		return T(6.28318530717958647693L);
 	}
 
@@ -59,7 +59,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T piDouble(void) noexcept {
+	[[nodiscard]] constexpr T piDouble(void) noexcept {
 		return ace::math::cst::tau<T>();
 	}
 
@@ -71,7 +71,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T piHalf(void) noexcept {
+	[[nodiscard]] constexpr T piHalf(void) noexcept {
 		return T(1.57079632679489661923L);
 	}
 
@@ -83,7 +83,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T piQuarter(void) noexcept {
+	[[nodiscard]] constexpr T piQuarter(void) noexcept {
 		return T(0.78539816339744830962L);
 	}
 
@@ -95,7 +95,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T piSquared(void) noexcept {
+	[[nodiscard]] constexpr T piSquared(void) noexcept {
 		return T(9.86960440108935861883L);
 	}
 
@@ -107,7 +107,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	///	</returns>
 	template<typename T = long double>
-	constexpr T piInv(void) noexcept {
+	[[nodiscard]] constexpr T piInv(void) noexcept {
 		return T(0.31830988618379067154L);
 	}
 
@@ -119,7 +119,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T log2e(void) noexcept {
+	[[nodiscard]] constexpr T log2e(void) noexcept {
 		return T(1.44269504088896340736L);
 	}
 
@@ -131,7 +131,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T log10e(void) noexcept {
+	[[nodiscard]] constexpr T log10e(void) noexcept {
 		return T(0.43429448190325182765L);
 	}
 
@@ -143,7 +143,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T ln2(void) noexcept {
+	[[nodiscard]] constexpr T ln2(void) noexcept {
 		return T(0.69314718055994530942L);
 	}
 
@@ -155,7 +155,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T ln10(void) noexcept {
+	[[nodiscard]] constexpr T ln10(void) noexcept {
 		return T(2.30258509299404568402L);
 	}
 
@@ -167,7 +167,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T sqrtOf2(void) noexcept {
+	[[nodiscard]] constexpr T sqrtOf2(void) noexcept {
 		return T(1.41421356237309504880L);
 	}
 
@@ -179,7 +179,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T sqrtOf3(void) noexcept {
+	[[nodiscard]] constexpr T sqrtOf3(void) noexcept {
 		return T(1.73205080756887729353L);
 	}
 
@@ -191,7 +191,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T sqrtOf2Inv(void) noexcept {
+	[[nodiscard]] constexpr T sqrtOf2Inv(void) noexcept {
 		return T(0.70710678118654752440L);
 	}
 
@@ -203,7 +203,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T sqrtOf3Inv(void) noexcept {
+	[[nodiscard]] constexpr T sqrtOf3Inv(void) noexcept {
 		return T(0.57735026918962576451L);
 	}
 
@@ -215,7 +215,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T sqrtOfPi(void) noexcept {
+	[[nodiscard]] constexpr T sqrtOfPi(void) noexcept {
 		return T(1.77245385090551602730L);
 	}
 
@@ -227,7 +227,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T sqrtOfPiInv(void) noexcept {
+	[[nodiscard]] constexpr T sqrtOfPiInv(void) noexcept {
 		return T(0.56418958354775628695L);
 	}
 
@@ -239,7 +239,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T e(void) noexcept {
+	[[nodiscard]] constexpr T e(void) noexcept {
 		return T(2.71828182845904523536L);
 	}
 
@@ -252,7 +252,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T eGamma(void) noexcept {
+	[[nodiscard]] constexpr T eGamma(void) noexcept {
 		return T(0.57721566490153286061L);
 	}
 
@@ -264,7 +264,7 @@ namespace ace::math::cst {
 	///		The constant converted/rounded to a given type
 	/// </returns>
 	template<typename T = long double>
-	constexpr T phi(void) noexcept {
+	[[nodiscard]] constexpr T phi(void) noexcept {
 		return T(1.61803398874989484821L);
 	}
 }

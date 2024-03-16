@@ -15,7 +15,7 @@
  *  
  *  @todo Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing
  *	
- *	@date 2023-2024
+ *	@date 2023/09/23
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
@@ -39,7 +39,7 @@
 /// @note For now - do not touch!
 #define AETRIG_TABLE_SIZE 360
 
-/// This namespace contains the engine's **lookup tables**
+/// This namespace contains the engine's **lookup tables** (raw numbers)
 /// @warning Don't touch this! I'll make a separate piece of code for interacting with the lookup tables.
 namespace ace::math::lookup::_tables {
 
@@ -126,7 +126,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		The legal index to the lookup tables
 	/// </returns>
-	constexpr std::size_t _getTrigTableIndex(const llint a) noexcept {
+	[[nodiscard]] constexpr std::size_t _getTrigTableIndex(const llint a) noexcept {
 		if (a < 0) { //a is less than 0; then straiten the value after modulo
 			return (AETRIG_TABLE_SIZE + (a % AETRIG_TABLE_SIZE));
 		}
@@ -140,7 +140,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float sine lookup table value that matches the (rounded) degrees amount
 	/// </returns>
-	constexpr float sinDeg_table(const float degrees) noexcept {
+	[[nodiscard]] constexpr float sinDeg_table(const float degrees) noexcept {
 		return ace::math::lookup::_tables::sinTable[
 			ace::math::lookup::_getTrigTableIndex( ace::math::roundToInt<llint>(degrees) )
 		];
@@ -153,7 +153,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float cosine lookup table value that matches the (rounded) degrees amount
 	/// </returns>
-	constexpr float cosDeg_table(const float degrees) noexcept {
+	[[nodiscard]] constexpr float cosDeg_table(const float degrees) noexcept {
 		return ace::math::lookup::_tables::cosTable[
 			ace::math::lookup::_getTrigTableIndex( ace::math::roundToInt<llint>(degrees) )
 		];
@@ -166,7 +166,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float tangent lookup table value that matches the (rounded) degrees amount
 	/// </returns>
-	constexpr float tanDeg_table(const float degrees) noexcept {
+	[[nodiscard]] constexpr float tanDeg_table(const float degrees) noexcept {
 		return ace::math::lookup::_tables::tanTable[
 			ace::math::lookup::_getTrigTableIndex( ace::math::roundToInt<llint>(degrees) )
 		];
@@ -179,7 +179,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float cotangent lookup table value that matches the (rounded) degrees amount
 	/// </returns>
-	constexpr float cotDeg_table(const float degrees) noexcept {
+	[[nodiscard]] constexpr float cotDeg_table(const float degrees) noexcept {
 		return ace::math::lookup::_tables::cotTable[
 			ace::math::lookup::_getTrigTableIndex( ace::math::roundToInt<llint>(degrees) )
 		];
@@ -192,7 +192,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float cosecant lookup table value that matches the (rounded) degrees amount
 	/// </returns>
-	constexpr float cscDeg_table(const float degrees) noexcept {
+	[[nodiscard]] constexpr float cscDeg_table(const float degrees) noexcept {
 		return ace::math::lookup::_tables::cscTable[
 			ace::math::lookup::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))
 		];
@@ -205,7 +205,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float secant lookup table value that matches the (rounded) degrees amount
 	/// </returns>
-	constexpr float secDeg_table(const float degrees) noexcept {
+	[[nodiscard]] constexpr float secDeg_table(const float degrees) noexcept {
 		return ace::math::lookup::_tables::secTable[
 			ace::math::lookup::_getTrigTableIndex(ace::math::roundToInt<llint>(degrees))
 		];
@@ -219,7 +219,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float of interpolated sine value
 	/// </returns>
-	constexpr float sinDeg_tableInterp(const float degrees) noexcept {
+	[[nodiscard]] constexpr float sinDeg_tableInterp(const float degrees) noexcept {
 		const llint angleF = ace::math::truncToInt<llint>(degrees); //truncated angle
 		return ace::math::lerp<float>(
 			ace::math::lookup::_tables::sinTable[
@@ -240,7 +240,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float of interpolated cosine value
 	/// </returns>
-	constexpr float cosDeg_tableInterp(const float degrees) noexcept {
+	[[nodiscard]] constexpr float cosDeg_tableInterp(const float degrees) noexcept {
 		const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 		return ace::math::lerp<float>(
 			ace::math::lookup::_tables::cosTable[
@@ -261,7 +261,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float of interpolated tangent value
 	/// </returns>
-	constexpr float tanDeg_tableInterp(const float degrees) noexcept {
+	[[nodiscard]] constexpr float tanDeg_tableInterp(const float degrees) noexcept {
 		const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 		return ace::math::lerp<float>(
 			ace::math::lookup::_tables::tanTable[
@@ -282,7 +282,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float of interpolated cotangent value
 	/// </returns>
-	constexpr float cotDeg_tableInterp(const float degrees) noexcept {
+	[[nodiscard]] constexpr float cotDeg_tableInterp(const float degrees) noexcept {
 		const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 		return ace::math::lerp<float>(
 			ace::math::lookup::_tables::cotTable[
@@ -303,7 +303,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float of interpolated cosecant value
 	/// </returns>
-	constexpr float cscDeg_tableInterp(const float degrees) noexcept {
+	[[nodiscard]] constexpr float cscDeg_tableInterp(const float degrees) noexcept {
 		const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 		return ace::math::lerp<float>(
 			ace::math::lookup::_tables::cscTable[
@@ -324,7 +324,7 @@ namespace ace::math::lookup{
 	/// <returns>
 	///		Float of interpolated secant value
 	/// </returns>
-	constexpr float secDeg_tableInterp(const float degrees) noexcept {
+	[[nodiscard]] constexpr float secDeg_tableInterp(const float degrees) noexcept {
 		const llint angleF = ace::math::truncToInt(degrees); //truncated angle
 		return ace::math::lerp<float>(
 			ace::math::lookup::_tables::secTable[ace::math::lookup::_getTrigTableIndex(angleF)],

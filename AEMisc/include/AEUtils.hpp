@@ -9,7 +9,7 @@
  *  
  *  Less copy-pasted code, yayyy.
  *  
- *  @date 2023-2024
+ *  @date 2023/09/22
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
@@ -58,7 +58,7 @@ namespace ace {
 		///		If **b** is false:
 		///		* The **const std::string_view** of "false"
 		/// </returns>
-		constexpr const std::string_view boolToString(const bool b) noexcept {
+		[[nodiscard]] constexpr const std::string_view boolToString(const bool b) noexcept {
 			return (b) ? "true" : "false";
 		}
 
@@ -79,7 +79,7 @@ namespace ace {
 		///		* **False**
 		/// </returns>
 		template<typename T, typename Y = T , typename U = T>
-		constexpr bool isInRange(const T minval, const Y maxval, const U i) noexcept {
+		[[nodiscard]] constexpr bool isInRange(const T minval, const Y maxval, const U i) noexcept {
 			return (minval <= i) && (i <= maxval);
 		}
 
@@ -98,7 +98,7 @@ namespace ace {
 		/// <returns>
 		///		The lowered version of the **str1**
 		///	</returns>
-		inline std::string toLowerVal(std::string str1) { // we aren't passing by const reference....because we'll make a copy anyway
+		[[nodiscard]] inline std::string toLowerVal(std::string str1) { // we aren't passing by const reference....because we'll make a copy anyway
 			std::transform(str1.begin(), str1.end(), str1.begin(), ::tolower); // because c++ decided to add the CharT version in <locale>, that conflicts
 			return str1;
 		}
@@ -118,7 +118,7 @@ namespace ace {
 		/// <returns>
 		///		The uppered version of the **str1**
 		/// </returns>
-		inline std::string toUpperVal(std::string str1) { // we aren't passing by const reference....because we'll make a copy anyway
+		[[nodiscard]] inline std::string toUpperVal(std::string str1) { // we aren't passing by const reference....because we'll make a copy anyway
 			std::transform(str1.begin(), str1.end(), str1.begin(), ::toupper); // because c++ decided to add the CharT version in <locale>, that conflicts
 			return str1;
 		}
@@ -137,7 +137,7 @@ namespace ace {
 		///		* **False**
 		/// </returns>
 		template<const bool checkFloat = true>
-		constexpr bool isNum(const std::string_view strnum) noexcept {
+		[[nodiscard]] constexpr bool isNum(const std::string_view strnum) noexcept {
 			const std::size_t len = strnum.size();
 			//is it empty?
 			if (len == 0) {
@@ -191,7 +191,7 @@ namespace ace {
 		///		Otherwise (**timept** is negative):
 		///		* Emtpy **std::string**
 		/// </returns>
-		inline std::string formatDate(const std::time_t timept) {
+		[[nodiscard]] inline std::string formatDate(const std::time_t timept) {
 			if (timept < 0) {
 				return "";
 			}
@@ -250,7 +250,7 @@ namespace ace {
 		/// <returns>
 		///		**std::string** of the current date in **YYYY-MM-DD.HH:mm:SS** format
 		///	</returns>
-		inline std::string getCurrentDate(void) {
+		[[nodiscard]] inline std::string getCurrentDate(void) {
 			return ace::utils::formatDate(std::time(nullptr));
 		}
 
@@ -267,7 +267,7 @@ namespace ace {
 		///		Otherwise:
 		///		* **-1** as the **std::time_t** object
 		///	</returns>
-		inline std::time_t stringToDate(const char* const timestr, const char* const timeformat = "%Y-%m-%d.%X") {
+		[[nodiscard]] inline std::time_t stringToDate(const char* const timestr, const char* const timeformat = "%Y-%m-%d.%X") {
 			if (!timestr || !timeformat) {
 				return std::time_t(-1);
 			}
@@ -292,7 +292,7 @@ namespace ace {
 		/// <returns>
 		///		**std::string** with the hexadecimal version of the passed address
 		///	</returns>
-		inline std::string addrToStr(const void* const myptr, const bool add0x = true) noexcept {
+		[[nodiscard]] inline std::string addrToStr(const void* const myptr, const bool add0x = true) noexcept {
 			if (add0x) {
 				char myarr[sizeof(void*) * 2 + 3];
 				std::snprintf(myarr, sizeof(myarr), "0x%0*llx", int(sizeof(void*)) * 2, ullint(std::uintptr_t(myptr)));
@@ -340,7 +340,7 @@ namespace ace {
 		/// <returns>
 		///		Pointer to the **std::FILE** as the result of the fopen call
 		///	</returns>
-		inline std::FILE* fopenCC(const char* const fname, const char* const flags) noexcept {
+		[[nodiscard]] inline std::FILE* fopenCC(const char* const fname, const char* const flags) noexcept {
 			//safety, so our compiler shuts up about the unsafe and deprecated function
 			//and trigger only on vc++
 			std::FILE* filestr = nullptr;
@@ -370,7 +370,7 @@ namespace ace {
 		///		* **-1** as the type **T**
 		///	</returns>
 		template<typename T = int>
-		constexpr T numCharToInt(const char c) noexcept requires(std::is_integral<T>::value) {
+		[[nodiscard]] constexpr T numCharToInt(const char c) noexcept requires(std::is_integral<T>::value) {
 			return (ace::utils::isInRange<char, char, char>('0', '9', c)) ? (c - '0') : -1;
 		}
 		
@@ -387,7 +387,7 @@ namespace ace {
 		///		* **-1** as the char type
 		///	</returns>
 		template<typename T = int>
-		constexpr char intToNumChar(const T i) noexcept {
+		[[nodiscard]] constexpr char intToNumChar(const T i) noexcept {
 			return (ace::utils::isInRange<T, T, T>(0, 9, i)) ? (i + '0') : -1;
 		}
 
@@ -402,7 +402,7 @@ namespace ace {
 		///		Otherwise:
 		///		* **False**
 		///	</returns>
-		constexpr inline bool isAlNum(const std::string_view str) {
+		[[nodiscard]] constexpr inline bool isAlNum(const std::string_view str) {
 			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c); }) == str.end();
 		}
 
@@ -417,7 +417,7 @@ namespace ace {
 		///		Otherwise:
 		///		* **False**
 		///	</returns>
-		constexpr inline bool isAlNumUs(const std::string_view str) {
+		[[nodiscard]] constexpr inline bool isAlNumUs(const std::string_view str) {
 			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c) || c == '_'; }) == str.end();
 		}
 

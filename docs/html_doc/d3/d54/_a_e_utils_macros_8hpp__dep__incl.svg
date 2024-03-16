@@ -57,7 +57,7 @@ var sectionId = 'dynsection-1';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="This file contains the engine&#39;s usefull macros for trivial tasks.">
+<g id="a_Node000001"><a xlink:title="This file contains the engine&#39;s macros for trivial tasks.">
 <polygon fill="#999999" stroke="#666666" points="458.75,-244 287.5,-244 287.5,-224 458.75,-224 458.75,-244"/>
 <text text-anchor="middle" x="373.12" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEMisc/include/AEUtilsMacros.hpp</text>
 </a>

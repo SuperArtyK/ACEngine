@@ -1,5 +1,5 @@
 <map id="AEMisc/include/AEUtilsMacros.hpp" name="AEMisc/include/AEUtilsMacros.hpp">
-<area shape="rect" id="Node000001" title="This file contains the engine&#39;s usefull macros for trivial tasks." alt="" coords="288,5,516,32"/>
+<area shape="rect" id="Node000001" title="This file contains the engine&#39;s macros for trivial tasks." alt="" coords="288,5,516,32"/>
 <area shape="rect" id="Node000002" href="$dc/d89/_a_e_typedefs_8hpp.html" title="This file contains the engine&#39;s typedefs and variable type aliases." alt="" coords="61,80,177,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="353,35,184,78,183,73,352,30"/>
 <area shape="rect" id="Node000006" href="$dd/dd8/_a_e_flags_8hpp.html" title="This file contains the flags to manipulate engine&#39;s funcitonality." alt="" coords="202,80,298,107"/>

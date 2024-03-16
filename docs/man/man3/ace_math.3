@@ -1,4 +1,4 @@
-.TH "ace::math" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::math" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,6 +27,10 @@ ace::math \- This namespace contains the engine's \fBmath and math-related funct
 .br
 .RI "Convert given \fBdegrees to radians\fP "
 .ti -1c
+.RI "template<typename T > constexpr T \fBtoDeg\fP (const T rad) noexcept"
+.br
+.RI "Convert given \fBradians to degrees\fP "
+.ti -1c
 .RI "template<typename T  = long double> constexpr bool \fBisInf\fP (const T num) noexcept"
 .br
 .RI "Checks \fBif the float is 'infinite'\fP (inf) "
@@ -38,10 +42,6 @@ ace::math \- This namespace contains the engine's \fBmath and math-related funct
 .RI "template<typename T  = long double> constexpr bool \fBisFinite\fP (const T num) noexcept"
 .br
 .RI "Checks \fBif the float is finite\fP (not infinity or NaN) "
-.ti -1c
-.RI "template<typename T > constexpr T \fBtoDeg\fP (const T rad) noexcept"
-.br
-.RI "Convert given \fBradians to degrees\fP "
 .ti -1c
 .RI "template<typename T  = long double> T \fBsinDeg\fP (const T degrees) noexcept"
 .br
@@ -147,17 +147,35 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .br
  \fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
 .ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBfloor\fP (const Y num) noexcept"
+.br
+.RI "\fBFloor's the passed number\fP of type Y and converts it to the type T "
+.ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBceilToInt\fP (const Y num) noexcept"
 .br
 .RI "\fBCeil's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
 .ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBceil\fP (const Y num) noexcept"
+.br
+.RI "\fBCeil's the passed number\fP of type Y and converts it to the type T "
+.ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBtruncToInt\fP (const Y num) noexcept"
 .br
 .RI "\fBTruncates the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
+.ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBtrunc\fP (const Y num) noexcept"
+.br
+.RI "\fBTruncates the passed number\fP of type Y and converts it to the type T "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -197,6 +215,29 @@ Radians from given degrees as type \fBT\fP
 
 .PP
 Definition at line \fB52\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<typename T > constexpr T ace::math::toDeg (const T rad)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Convert given \fBradians to degrees\fP 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type of the radians value and the resulting operation
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIrad\fP Value of radians to convert
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Degrees from given radians as type \fBT\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB65\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr bool ace::math::isInf (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -223,7 +264,7 @@ False otherwise
 .PP
 
 .PP
-Definition at line \fB66\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB79\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr bool ace::math::isNan (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -250,7 +291,7 @@ False otherwise
 .PP
 
 .PP
-Definition at line \fB81\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB94\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr bool ace::math::isFinite (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -277,30 +318,7 @@ False otherwise
 .PP
 
 .PP
-Definition at line \fB96\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T > constexpr T ace::math::toDeg (const T rad)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Convert given \fBradians to degrees\fP 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP The type of the radians value and the resulting operation
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIrad\fP Value of radians to convert
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Degrees from given radians as type \fBT\fP 
-.RE
-.PP
-
-.PP
-Definition at line \fB110\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB109\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> T ace::math::sinDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -323,7 +341,7 @@ The values of sine of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB123\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB125\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtoRad()\fP\&.
 .SS "template<typename T  = long double> T ace::math::cosDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -348,7 +366,7 @@ The values of cosine of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB136\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB138\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtoRad()\fP\&.
 .SS "template<typename T  = long double> T ace::math::tanDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -373,7 +391,7 @@ The values of tangent of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB149\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB151\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtoRad()\fP\&.
 .SS "template<typename T  = long double> T ace::math::cotDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -398,7 +416,7 @@ The values of cotangent of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB162\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB164\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtanDeg()\fP\&.
 .SS "template<typename T  = long double> T ace::math::cscDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -423,7 +441,7 @@ The values of cosecant of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB175\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB177\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBsinDeg()\fP\&.
 .SS "template<typename T  = long double> T ace::math::secDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -448,7 +466,7 @@ The values of secant of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB188\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB190\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBcosDeg()\fP\&.
 .SS "template<typename T > constexpr T ace::math::absval (const T num)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -473,13 +491,18 @@ Calculates the \fBabsolute value\fP of a given number\&.
 .PP
 
 .PP
-Definition at line \fB201\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB203\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> 
 .br
 requires (std::is_floating_point<T>::value == true)constexpr bool ace::math::fequals (const T num, const T num2, const T _epsilon)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
 \fBCompares two floating\fP point values \fBfor equality\fP, within a given epsilon 
+.PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be a floating-point type
+.RE
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -510,7 +533,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB221\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB224\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> 
 .br
 requires (std::is_floating_point<T>::value == true)constexpr bool ace::math::fequals (const T num, const T num2)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -520,7 +543,9 @@ requires (std::is_floating_point<T>::value == true)constexpr bool ace::math::feq
 .PP
 \fBRemarks\fP
 .RS 4
-This is a helper/shortcut function of \fBace::math::fequals(const T num, const T num2, const T _epsilon)\fP
+This is a helper/shortcut function of \fBace::math::fequals(const T num, const T num2, const T _epsilon)\fP 
+.PP
+Requires the type \fBT\fP to be a floating-point type
 .RE
 .PP
 \fBTemplate Parameters\fP
@@ -550,7 +575,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB243\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB247\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T , typename Y  = T> constexpr bool ace::math::equals (const T & num, const Y & num2)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -595,7 +620,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB265\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB269\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::sqrt (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -636,7 +661,7 @@ If the \fBnum\fP is negative or isn't finite:
 .PP
 
 .PP
-Definition at line \fB296\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB300\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBequals()\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::intPow (const T num, \fBllint\fP power)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -676,7 +701,7 @@ Otherwise, if \fBnum\fP isn't finite, or it's 0 \fIand\fP \fBpower\fP is negativ
 .PP
 
 .PP
-Definition at line \fB336\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB340\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBequals()\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::root (const T num, const \fBuint\fP rtNum)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -716,7 +741,7 @@ std::numeric_limits<T>::max() (largest value of type \fBT\fP)
 .PP
 
 .PP
-Definition at line \fB395\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB399\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBequals()\fP, and \fBsqrt()\fP\&.
 .SS "template<typename T > constexpr T ace::math::max (const T & a, const T & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -751,7 +776,7 @@ A copy of value \fBb\fP (since returned by value)
 .PP
 
 .PP
-Definition at line \fB438\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB442\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > constexpr T ace::math::min (const T & a, const T & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -784,7 +809,7 @@ A copy of value \fBb\fP (since returned by value)
 .PP
 
 .PP
-Definition at line \fB456\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB460\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > 
 .br
 requires (std::is_integral<T>::value == true)constexpr \fBuint\fP ace::math::lengthOfInt (T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -792,9 +817,9 @@ requires (std::is_integral<T>::value == true)constexpr \fBuint\fP ace::math::len
 .PP
 Calculate the \fBlength of the given integer\fP number\&. 
 .PP
-\fBNote\fP
+\fBRemarks\fP
 .RS 4
-Passing non-integral value will not compile
+Requires the type \fBT\fP to be an integral type
 .RE
 .PP
 \fBTemplate Parameters\fP
@@ -814,13 +839,18 @@ The length of the integer \fBnum\fP as \fBuint\fP
 .PP
 
 .PP
-Definition at line \fB470\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB474\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > 
 .br
 requires (std::is_floating_point<T>::value == true)constexpr \fBuint\fP ace::math::lengthOfFloat (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Calculate the \fBlength of the given float\fP number's non-fractional part\&. Essentially \fBace::math::lengthOfInt()\fP for larger numbers\&.
+Calculate the \fBlength of the given float\fP number's non-fractional part\&. Essentially \fBace::math::lengthOfInt()\fP for larger numbers\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be a floating point type
+.RE
 .PP
 \fBTemplate Parameters\fP
 .RS 4
@@ -839,7 +869,7 @@ The length of the \fBnum\fP's non fractional part as \fBuint\fP
 .PP
 
 .PP
-Definition at line \fB488\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB493\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::lerp (const T a, const T b, const T c)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -888,7 +918,7 @@ The inter/extrapolated value of type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB515\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB520\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::hypot (const T a, const T b)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -913,7 +943,7 @@ The length of hypotenuse of type \fBT\fP with given lengths of \fBa\fP and \fBb\
 .PP
 
 .PP
-Definition at line \fB529\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB534\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::roundToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -928,7 +958,14 @@ If value overflows -- return value depends on the overflow behaviour of your pla
 .PP
 \fBAttention\fP
 .RS 4
-\fBnum\fP should be finite (check with \fBace::math::isFinite()\fP)
+\fBnum\fP should be finite (check with \fBace::math::isFinite()\fP) 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be an integral type 
+.PP
+Requires the type \fBY\fP to be an arithmetic type
 .RE
 .PP
 \fBTemplate Parameters\fP
@@ -960,7 +997,7 @@ The rounded integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB549\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB556\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double, typename Y  = T> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T ace::math::round (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1004,7 +1041,7 @@ Types \fBT\fP and \fBY\fP have to be arithmetic types
 .RS 4
 During runtime:
 .IP "\(bu" 2
-Result of the call to std::round()
+Result of the call to \fBstd::round()\fP
 .PP
 .PP
 During compile-time:
@@ -1015,7 +1052,7 @@ Result of the call to \fBace::math::roundToInt()\fP
 .PP
 
 .PP
-Definition at line \fB575\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB582\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBroundToInt()\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
@@ -1039,7 +1076,14 @@ If value overflows -- return value depends on the overflow behaviour of your pla
 .PP
 \fBNote\fP
 .RS 4
-If num is positive, it truncates the decimal digits (towards zero); if negative, it ceil's the decimals (away from zero)
+If num is positive, it truncates the decimal digits (towards zero); if negative, it ceil's the decimals (away from zero) 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be an integral type 
+.PP
+Requires the type \fBY\fP to be an arithmetic type
 .RE
 .PP
 \fBTemplate Parameters\fP
@@ -1071,7 +1115,64 @@ The floored integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB603\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB612\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T ace::math::floor (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+\fBFloor's the passed number\fP of type Y and converts it to the type T 
+.PP
+\fBNote\fP
+.RS 4
+During compile-time calculation, it calls \fBace::math::floorToInt()\fP\&. Mind the overflows 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+When c++23 support appears, change it to a call to std::floor() instead 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBace::math::floorToInt()\fP 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Types \fBT\fP and \fBY\fP have to be arithmetic types
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type to convert the result to
+.br
+\fIY\fP The type of the passed number\&. Defaults to \fBT\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The number to floor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+During runtime:
+.IP "\(bu" 2
+Result of the call to \fBstd::floor()\fP
+.PP
+.PP
+During compile-time:
+.IP "\(bu" 2
+Result of the call to \fBace::math::floorToInt()\fP 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB637\fP of file \fBAEMath\&.hpp\fP\&.
+.PP
+References \fBfloorToInt()\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::ceilToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1086,7 +1187,14 @@ If value overflows -- return value depends on the overflow behaviour of your pla
 .PP
 \fBAttention\fP
 .RS 4
-\fBnum\fP should be finite (check with \fBace::math::isFinite()\fP)
+\fBnum\fP should be finite (check with \fBace::math::isFinite()\fP) 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be an integral type 
+.PP
+Requires the type \fBY\fP to be an arithmetic type
 .RE
 .PP
 \fBTemplate Parameters\fP
@@ -1118,7 +1226,64 @@ The ceiled integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB626\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB665\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T ace::math::ceil (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+\fBCeil's the passed number\fP of type Y and converts it to the type T 
+.PP
+\fBNote\fP
+.RS 4
+During compile-time calculation, it calls \fBace::math::ceilToInt()\fP\&. Mind the overflows 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+When c++23 support appears, change it to a call to std::ceil() instead 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBace::math::ceilToInt()\fP 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Types \fBT\fP and \fBY\fP have to be arithmetic types
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type to convert the result to
+.br
+\fIY\fP The type of the passed number\&. Defaults to \fBT\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The number to ceil
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+During runtime:
+.IP "\(bu" 2
+Result of the call to \fBstd::ceil()\fP
+.PP
+.PP
+During compile-time:
+.IP "\(bu" 2
+Result of the call to \fBace::math::ceilToInt()\fP 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB690\fP of file \fBAEMath\&.hpp\fP\&.
+.PP
+References \fBceilToInt()\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::truncToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1133,7 +1298,14 @@ If value overflows -- return value depends on the overflow behaviour of your pla
 .PP
 \fBAttention\fP
 .RS 4
-\fBnum\fP should be finite (check with \fBace::math::isFinite()\fP)
+\fBnum\fP should be finite (check with \fBace::math::isFinite()\fP) 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be an integral type 
+.PP
+Requires the type \fBY\fP to be an arithmetic type
 .RE
 .PP
 \fBTemplate Parameters\fP
@@ -1163,7 +1335,64 @@ The truncated integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB649\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB718\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T ace::math::trunc (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+\fBTruncates the passed number\fP of type Y and converts it to the type T 
+.PP
+\fBNote\fP
+.RS 4
+During compile-time calculation, it calls \fBace::math::truncToInt()\fP\&. Mind the overflows 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+When c++23 support appears, change it to a call to std::trunc() instead 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBace::math::truncToInt()\fP 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Types \fBT\fP and \fBY\fP have to be arithmetic types
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type to convert the result to
+.br
+\fIY\fP The type of the passed number\&. Defaults to \fBT\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The number to trunc
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+During runtime:
+.IP "\(bu" 2
+Result of the call to \fBstd::trunc()\fP
+.PP
+.PP
+During compile-time:
+.IP "\(bu" 2
+Result of the call to \fBace::math::truncToInt()\fP 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB744\fP of file \fBAEMath\&.hpp\fP\&.
+.PP
+References \fBtruncToInt()\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

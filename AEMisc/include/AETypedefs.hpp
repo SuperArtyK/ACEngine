@@ -7,7 +7,7 @@
  *  
  *  So -- shorter names for easier coding.
  *  
- *  @date 2023-2024
+ *  @date 2023/09/21
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *

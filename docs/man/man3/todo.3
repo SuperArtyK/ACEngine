@@ -1,14 +1,20 @@
-.TH "todo" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "todo" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 todo \- Todo List 
 .PP
 
+.IP "\fBMember \fBace::math::ceil\fP (const Y num) noexcept\fP" 1c
+When c++23 support appears, change it to a call to std::ceil() instead  
+.IP "\fBMember \fBace::math::floor\fP (const Y num) noexcept\fP" 1c
+When c++23 support appears, change it to a call to std::floor() instead  
 .IP "\fBMember \fBace::math::round\fP (const Y num) noexcept\fP" 1c
 When c++23 support appears, change it to a call to std::round() instead  
 .IP "\fBMember \fBace::math::sqrt\fP (const T num) noexcept\fP" 1c
 When C++23 support appears, add if-consteval to use the newton's method in constexpr context, and use classic std::sqrt otherwise  
+.IP "\fBMember \fBace::math::trunc\fP (const Y num) noexcept\fP" 1c
+When c++23 support appears, change it to a call to std::trunc() instead  
 .IP "\fBClass \fBAEFileReader\fP \fP" 1c
 add generic read function  
 .IP "\fBMember \fBAEFileWriter::write\fP (const T &var, const size_t datasz=0, const bool useAutoFlush=AEFW_DEFAULT_AUTOFLUSH) noexcept\fP" 1c
@@ -29,7 +35,7 @@ Implement a container for the queue to prevent this from happening
 Implement a container for the queue to prevent this from happening  
 .IP "\fBMember \fBAELogParser::filterQueueType\fP (\fBAELogEntry\fP *&ptr, const cint severity, const bool strictSeverity=false, const bool reallocQueue=true)\fP" 1c
 Implement a container for the queue to prevent this from happening  
-.IP "\fBFile \fBAETrigLookup\&.hpp\fP \fP" 1c
+.IP "\fBFile \fBAEMathTrigLookup\&.hpp\fP \fP" 1c
 Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing 
 .IP "\fBMember \fBAEVector< T, dimAmount, >::angleBetweenDeg\fP (const AEVector< Y, dimAmount > &two) const noexcept\fP" 1c
 Change this function to constexpr once the constexpr solution appears  

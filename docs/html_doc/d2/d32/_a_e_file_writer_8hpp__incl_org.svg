@@ -335,7 +335,7 @@
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="../../d9/d6a/_a_e_utils_macros_8hpp.html" target="_top" xlink:title="This file contains the engine&#39;s usefull macros for trivial tasks.">
+<g id="a_Node000012"><a xlink:href="../../d9/d6a/_a_e_utils_macros_8hpp.html" target="_top" xlink:title="This file contains the engine&#39;s macros for trivial tasks.">
 <polygon fill="white" stroke="#666666" points="454.62,-132 354.62,-132 354.62,-112 454.62,-112 454.62,-132"/>
 <text text-anchor="middle" x="404.62" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEUtilsMacros.hpp</text>
 </a>

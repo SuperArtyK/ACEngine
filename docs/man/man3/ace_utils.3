@@ -1,4 +1,4 @@
-.TH "ace::utils" 3 "Sat Mar 16 2024 11:28:30" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::utils" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -481,6 +481,11 @@ requires (std::is_integral<T>::value)constexpr T ace::utils::numCharToInt (const
 .PP
 Converts the given \fBnumeric char to int of type T\fP 
 .PP
+\fBRemarks\fP
+.RS 4
+Requires the type \fBT\fP to be an integral type
+.RE
+.PP
 \fBTemplate Parameters\fP
 .RS 4
 \fIT\fP The type of the int to convert the char to
@@ -506,7 +511,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB372\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB373\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "template<typename T  = int> constexpr char ace::utils::intToNumChar (const T i)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -537,7 +542,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB389\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB390\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "constexpr bool ace::utils::isAlNum (const std::string_view str)\fR [inline]\fP, \fR [constexpr]\fP"
 
 .PP
@@ -563,7 +568,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB404\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB405\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "constexpr bool ace::utils::isAlNumUs (const std::string_view str)\fR [inline]\fP, \fR [constexpr]\fP"
 
 .PP
@@ -589,7 +594,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB419\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB420\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

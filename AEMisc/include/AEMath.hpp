@@ -10,7 +10,7 @@
  *  Since it would be possible to use the constexpr implementations in compile time, <br>
  *  and fast (and proper) runtime versions of them at...runtime.
  *  
- *  @date 2023-2024
+ *  @date 2023/09/22
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
@@ -49,7 +49,7 @@ namespace ace::math {
 	///		Radians from given degrees as type **T**
 	/// </returns>
 	template<typename T>
-	constexpr T toRad(const T deg) noexcept {
+	[[nodiscard]] constexpr T toRad(const T deg) noexcept {
 		return (deg * ace::math::cst::pi<T>() / T(180) );
 	}
 
@@ -62,7 +62,7 @@ namespace ace::math {
 	///		Degrees from given radians as type **T**
 	/// </returns>
 	template<typename T>
-	constexpr T toDeg(const T rad) noexcept {
+	[[nodiscard]] constexpr T toDeg(const T rad) noexcept {
 		return (rad * T(180) / ace::math::cst::pi<T>());
 	}
 
@@ -76,7 +76,7 @@ namespace ace::math {
 	///		* False otherwise
 	/// </returns>
 	template<typename T = long double>
-	constexpr bool isInf(const T num) noexcept {
+	[[nodiscard]] constexpr bool isInf(const T num) noexcept {
 		if constexpr (!std::is_floating_point<T>::value) { return false; } // it's always false
 		return (num == std::numeric_limits<T>::infinity());
 	}
@@ -91,7 +91,7 @@ namespace ace::math {
 	///		* False otherwise
 	/// </returns>
 	template<typename T = long double>
-	constexpr bool isNan(const T num) noexcept {
+	[[nodiscard]] constexpr bool isNan(const T num) noexcept {
 		if constexpr (!std::is_floating_point<T>::value) { return false; } // it's always false
 		return (num != num);
 	}
@@ -106,7 +106,7 @@ namespace ace::math {
 	///		* False otherwise
 	/// </returns>
 	template<typename T = long double>
-	constexpr bool isFinite(const T num) noexcept {
+	[[nodiscard]] constexpr bool isFinite(const T num) noexcept {
 		if constexpr (!std::is_floating_point<T>::value) { return true; } // it's always finite
 		return !(ace::math::isInf<T>(num) || ace::math::isNan<T>(num));
 	}
@@ -122,7 +122,7 @@ namespace ace::math {
 	///		The values of sine of given degrees, as type **T**
 	/// </returns>
 	template<typename T = long double>
-	inline T sinDeg(const T degrees) noexcept {
+	[[nodiscard]] inline T sinDeg(const T degrees) noexcept {
 		return std::sin(ace::math::toRad(degrees));
 	}
 
@@ -135,7 +135,7 @@ namespace ace::math {
 	///		The values of cosine of given degrees, as type **T**
 	/// </returns>
 	template<typename T = long double>
-	inline T cosDeg(const T degrees) noexcept {
+	[[nodiscard]] inline T cosDeg(const T degrees) noexcept {
 		return std::cos(ace::math::toRad(degrees));
 	}
 
@@ -148,7 +148,7 @@ namespace ace::math {
 	///		The values of tangent of given degrees, as type **T**
 	/// </returns>
 	template<typename T = long double>
-	inline T tanDeg(const T degrees) noexcept {
+	[[nodiscard]] inline T tanDeg(const T degrees) noexcept {
 		return std::tan(ace::math::toRad(degrees));
 	}
 
@@ -161,7 +161,7 @@ namespace ace::math {
 	///		The values of cotangent of given degrees, as type **T**
 	/// </returns>
 	template<typename T = long double>
-	inline T cotDeg(const T degrees) noexcept {
+	[[nodiscard]] inline T cotDeg(const T degrees) noexcept {
 		return 1 / ace::math::tanDeg(degrees);
 	}
 
@@ -174,7 +174,7 @@ namespace ace::math {
 	///		The values of cosecant of given degrees, as type **T**
 	///	</returns>
 	template<typename T = long double>
-	inline T cscDeg(const T degrees) noexcept {
+	[[nodiscard]] inline T cscDeg(const T degrees) noexcept {
 		return 1 / ace::math::sinDeg(degrees);
 	}
 
@@ -187,7 +187,7 @@ namespace ace::math {
 	///		The values of secant of given degrees, as type **T**
 	/// </returns>
 	template<typename T = long double>
-	inline T secDeg(const T degrees) noexcept {
+	[[nodiscard]] inline T secDeg(const T degrees) noexcept {
 		return 1 / ace::math::cosDeg(degrees);
 	}
 	
@@ -200,7 +200,7 @@ namespace ace::math {
 	///		**Absolute value** of a given number of type **T**
 	/// </returns>
 	template<typename T>
-	constexpr inline T absval(const T num) noexcept {
+	[[nodiscard]] constexpr inline T absval(const T num) noexcept {
 		return (num == 0) ? T(0) : // work with signed 0's...if they exist
 			(num < 0) ? -num : num;
 	}
@@ -221,7 +221,7 @@ namespace ace::math {
 	///		* **False** 
 	/// </returns>
 	template<typename T = long double>
-	constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept requires(std::is_floating_point<T>::value == true) {
+	[[nodiscard]] constexpr bool fequals(const T num, const T num2, const T _epsilon) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in ace::math::fequals()!");
 		const T dif = ace::math::absval<T>(num - num2);
 		return (dif) <= _epsilon;
@@ -244,7 +244,7 @@ namespace ace::math {
 	///		* **False** 
 	/// </returns>
 	template<typename T = long double>
-	constexpr bool fequals(const T num, const T num2) noexcept requires(std::is_floating_point<T>::value == true) {
+	[[nodiscard]] constexpr bool fequals(const T num, const T num2) noexcept requires(std::is_floating_point<T>::value == true) {
 		const T _epsilon = std::numeric_limits<T>::epsilon() * std::min<T>(num, num2);
 		return ace::math::fequals<T>(num, num2, _epsilon);
 	}
@@ -266,7 +266,7 @@ namespace ace::math {
 	///		* **False** 
 	/// </returns>
 	template<typename T, typename Y = T>
-	constexpr bool equals(const T& num, const Y& num2) noexcept {
+	[[nodiscard]] constexpr bool equals(const T& num, const Y& num2) noexcept {
 		if constexpr ((std::is_floating_point<T>::value && !std::is_floating_point<Y>::value) || // 1st type is float, 2nd one isn't
 			(std::numeric_limits<T>::max_digits10 > std::numeric_limits<Y>::max_digits10) ) // or...both are float, but 1'st one is larger
 			{ 
@@ -297,7 +297,7 @@ namespace ace::math {
 	///		* **std::numeric_limits<T>::max()** (largest value of type **T**)
 	///	</returns>
 	template<typename T = long double>
-	constexpr T sqrt(const T num) noexcept {
+	[[nodiscard]] constexpr T sqrt(const T num) noexcept {
 		if (num < 0 || ace::math::isFinite<T>(num)) {
 			return std::numeric_limits<T>::max();
 		}
@@ -337,7 +337,7 @@ namespace ace::math {
 	///		* **std::numeric_limits<T>::max()** (largest value of type **T**)
 	/// </returns>
 	template<typename T = long double>
-	constexpr T intPow(const T num, llint power) noexcept {
+	[[nodiscard]] constexpr T intPow(const T num, llint power) noexcept {
 		if (ace::math::isFinite<T>(num) || // check if number is finite
 			(ace::math::equals(num, T(0)) && power < 0)) { // or 0 raised to negative exponent
 			
@@ -396,7 +396,7 @@ namespace ace::math {
 	///		* std::numeric_limits<T>::max() (largest value of type **T**)
 	/// </returns>
 	template<typename T = long double>
-	constexpr T root(const T num, const uint rtNum) noexcept {
+	[[nodiscard]] constexpr T root(const T num, const uint rtNum) noexcept {
 
 		if (rtNum == 2) {
 			return ace::math::sqrt(num);
@@ -439,7 +439,7 @@ namespace ace::math {
 	///		* A copy of value **b** (since returned by value)
 	/// </returns>
 	template<typename T>
-	constexpr T max(const T& a, const T& b) noexcept {
+	[[nodiscard]] constexpr T max(const T& a, const T& b) noexcept {
 		return (a > b) ? a : b;
 	}
 
@@ -457,7 +457,7 @@ namespace ace::math {
 	///		* A copy of value **b** (since returned by value)
 	/// </returns>
 	template<typename T>
-	constexpr T min(const T& a, const T& b) noexcept {
+	[[nodiscard]] constexpr T min(const T& a, const T& b) noexcept {
 		return (a < b) ? a : b;
 	}
 
@@ -471,7 +471,7 @@ namespace ace::math {
 	///		The length of the integer **num** as ::uint
 	/// </returns>
 	template<typename T>
-	constexpr uint lengthOfInt(T num) noexcept requires(std::is_integral<T>::value == true) {
+	[[nodiscard]] constexpr uint lengthOfInt(T num) noexcept requires(std::is_integral<T>::value == true) {
 		static_assert(std::is_integral<T>::value, "Cannot use non-integral types in the ace::math::lengthOfInt()");
 		unsigned int dig = 1;
 		while (num /= 10)
@@ -490,7 +490,7 @@ namespace ace::math {
 	///		The length of the **num**'s non fractional part as ::uint
 	/// </returns>
 	template<typename T>
-	constexpr uint lengthOfFloat(const T num) noexcept requires(std::is_floating_point<T>::value == true) {
+	[[nodiscard]] constexpr uint lengthOfFloat(const T num) noexcept requires(std::is_floating_point<T>::value == true) {
 		static_assert(std::is_floating_point<T>::value, "Cannot use non-float types in the ace::math::lengthOfFloat()!");
 		return ((num == 0) ? 1 : (unsigned int)std::log10(std::abs(num))) + 1;
 	}
@@ -517,7 +517,7 @@ namespace ace::math {
 	///		The inter/extrapolated value of type **T**
 	/// </returns>
 	template<typename T = long double>
-	constexpr T lerp(const T a, const T b, const T c) noexcept {
+	[[nodiscard]] constexpr T lerp(const T a, const T b, const T c) noexcept {
 		return  a + c * (b - a);
 	}
 
@@ -531,7 +531,7 @@ namespace ace::math {
 	///		The length of hypotenuse of type **T** with given lengths of **a** and **b** sides
 	/// </returns>
 	template<typename T = long double>
-	constexpr T hypot(const T a, const T b) noexcept {
+	[[nodiscard]] constexpr T hypot(const T a, const T b) noexcept {
 		return ace::math::sqrt<T>(a * a + b * b);
 	}
 
@@ -553,7 +553,7 @@ namespace ace::math {
 	///		* The rounded integer of type **T**, from the given **num** value		
 	/// </returns>
 	template<typename T = llint, typename Y = long double>
-	constexpr T roundToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
+	[[nodiscard]] constexpr T roundToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
 			//static_assert(std::is_floating_point<Y>::value, "Cannot use non-float types as the float type in ace::math::roundtoint()!");
@@ -579,7 +579,7 @@ namespace ace::math {
 	///		* Result of the call to ace::math::roundToInt() 
 	/// </returns>
 	template<typename T = long double, typename Y = T>
-	constexpr T round(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true){
+	[[nodiscard]] constexpr T round(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true){
 		if (std::is_constant_evaluated()) {
 			ace::math::roundToInt(num);
 		}
@@ -609,7 +609,7 @@ namespace ace::math {
 	///		* The floored integer of type **T**, from the given **num** value	
 	/// </returns>
 	template<typename T = llint, typename Y = long double>
-	constexpr T floorToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
+	[[nodiscard]] constexpr T floorToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
 			return (num < 0 && !ace::math::fequals<Y>(T(num), num)) ? T(num) - 1 : T(num);
@@ -634,7 +634,7 @@ namespace ace::math {
 	///		* Result of the call to ace::math::floorToInt() 
 	/// </returns>
 	template<typename T = long double, typename Y = T>
-	constexpr T floor(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
+	[[nodiscard]] constexpr T floor(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
 		if (std::is_constant_evaluated()) {
 			ace::math::floorToInt(num);
 		}
@@ -662,7 +662,7 @@ namespace ace::math {
 	///		* The ceiled integer of type **T**, from the given **num** value	
 	/// </returns>
 	template<typename T = llint, typename Y = long double>
-	constexpr T ceilToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
+	[[nodiscard]] constexpr T ceilToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
 			return (ace::math::fequals<Y>(num, T(num))) ? T(num) : T(num) + 1;
@@ -687,7 +687,7 @@ namespace ace::math {
 	///		* Result of the call to ace::math::ceilToInt() 
 	/// </returns>
 	template<typename T = long double, typename Y = T>
-	constexpr T ceil(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
+	[[nodiscard]] constexpr T ceil(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
 		if (std::is_constant_evaluated()) {
 			ace::math::ceilToInt(num);
 		}
@@ -715,7 +715,7 @@ namespace ace::math {
 	///		* The truncated integer of type **T**, from the given **num** value	
 	/// </returns>
 	template<typename T = llint, typename Y = long double>
-	constexpr T truncToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
+	[[nodiscard]] constexpr T truncToInt(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true) {
 		if constexpr (std::is_integral<Y>::value) { return num; } // it's an int anyway
 		else {
 			return T(num);
@@ -741,7 +741,7 @@ namespace ace::math {
 	///		* Result of the call to ace::math::truncToInt() 
 	/// </returns>
 	template<typename T = long double, typename Y = T>
-	constexpr T trunc(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
+	[[nodiscard]] constexpr T trunc(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
 		if (std::is_constant_evaluated()) {
 			ace::math::truncToInt(num);
 		}

@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -38,6 +38,10 @@ AEMisc/include/AEMath.hpp \- This file contains the engine's \fBmath and math-re
 .br
 .RI "Convert given \fBdegrees to radians\fP "
 .ti -1c
+.RI "template<typename T > constexpr T \fBace::math::toDeg\fP (const T rad) noexcept"
+.br
+.RI "Convert given \fBradians to degrees\fP "
+.ti -1c
 .RI "template<typename T  = long double> constexpr bool \fBace::math::isInf\fP (const T num) noexcept"
 .br
 .RI "Checks \fBif the float is 'infinite'\fP (inf) "
@@ -49,10 +53,6 @@ AEMisc/include/AEMath.hpp \- This file contains the engine's \fBmath and math-re
 .RI "template<typename T  = long double> constexpr bool \fBace::math::isFinite\fP (const T num) noexcept"
 .br
 .RI "Checks \fBif the float is finite\fP (not infinity or NaN) "
-.ti -1c
-.RI "template<typename T > constexpr T \fBace::math::toDeg\fP (const T rad) noexcept"
-.br
-.RI "Convert given \fBradians to degrees\fP "
 .ti -1c
 .RI "template<typename T  = long double> T \fBace::math::sinDeg\fP (const T degrees) noexcept"
 .br
@@ -158,24 +158,40 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .br
  \fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
 .ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::floor\fP (const Y num) noexcept"
+.br
+.RI "\fBFloor's the passed number\fP of type Y and converts it to the type T "
+.ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBace::math::ceilToInt\fP (const Y num) noexcept"
 .br
 .RI "\fBCeil's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
 .ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::ceil\fP (const Y num) noexcept"
+.br
+.RI "\fBCeil's the passed number\fP of type Y and converts it to the type T "
+.ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBace::math::truncToInt\fP (const Y num) noexcept"
 .br
 .RI "\fBTruncates the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
+.ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::trunc\fP (const Y num) noexcept"
+.br
+.RI "\fBTruncates the passed number\fP of type Y and converts it to the type T "
 .in -1c
 .SH "Detailed Description"
 .PP 
 This file contains the engine's \fBmath and math-related functions\fP\&. 
 
-This file contains the engine's \fBmath constants\fP\&.
-.PP
 These would be quite fast, I tried optimising them for the types that are needed\&.
 .PP
 Especially with the addition of if-consteval in c++23 (and std::is_constant_evaluated() in c++20) :)
@@ -186,28 +202,7 @@ Since it would be possible to use the constexpr implementations in compile time,
 .PP
 \fBDate\fP
 .RS 4
-2023-2024
-.RE
-.PP
-\fBAuthor\fP
-.RS 4
-Artemii Kozhemiak (SuperArtyK)
-.RE
-.PP
-\fBCopyright\fP
-.RS 4
-MIT License
-.RE
-.PP
-\fIShould not cause everything to break :)\fP
-.PP
-The brief description says it all -- this file has the math constants in the engine\&.
-.PP
-All those pi's, tau's, sqrt of 2's, etc, which you can call, and cast to the necessary type\&.
-.PP
-\fBDate\fP
-.RS 4
-2023-2024
+2023/09/22
 .RE
 .PP
 \fBAuthor\fP

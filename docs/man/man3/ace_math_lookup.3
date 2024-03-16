@@ -1,4 +1,4 @@
-.TH "ace::math::lookup" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::math::lookup" 3 "Sat Mar 16 2024 12:23:02" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,7 @@ ace::math::lookup \- This namespace contains the engine's \fBmath lookup functio
 .ti -1c
 .RI "namespace \fB_tables\fP"
 .br
-.RI "This namespace contains the engine's \fBlookup tables\fP "
+.RI "This namespace contains the engine's \fBlookup tables\fP (raw numbers) "
 .in -1c
 .SS "Functions"
 
@@ -117,7 +117,7 @@ The legal index to the lookup tables
 .PP
 
 .PP
-Definition at line \fB129\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB129\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fBAETRIG_TABLE_SIZE\fP\&.
 .SS "constexpr float ace::math::lookup::sinDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -137,7 +137,7 @@ Float sine lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB143\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB143\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::sinTable\fP\&.
 .SS "constexpr float ace::math::lookup::cosDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -157,7 +157,7 @@ Float cosine lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB156\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB156\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::cosTable\fP\&.
 .SS "constexpr float ace::math::lookup::tanDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -177,7 +177,7 @@ Float tangent lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB169\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB169\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::tanTable\fP\&.
 .SS "constexpr float ace::math::lookup::cotDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -197,7 +197,7 @@ Float cotangent lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB182\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB182\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::cotTable\fP\&.
 .SS "constexpr float ace::math::lookup::cscDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -217,7 +217,7 @@ Float cosecant lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB195\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB195\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::cscTable\fP\&.
 .SS "constexpr float ace::math::lookup::secDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -237,7 +237,7 @@ Float secant lookup table value that matches the (rounded) degrees amount
 .PP
 
 .PP
-Definition at line \fB208\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB208\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::secTable\fP\&.
 .SS "constexpr float ace::math::lookup::sinDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -262,7 +262,7 @@ Float of interpolated sine value
 .PP
 
 .PP
-Definition at line \fB222\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB222\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::sinTable\fP\&.
 .SS "constexpr float ace::math::lookup::cosDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -287,7 +287,7 @@ Float of interpolated cosine value
 .PP
 
 .PP
-Definition at line \fB243\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB243\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::cosTable\fP, and \fBace::math::truncToInt()\fP\&.
 .SS "constexpr float ace::math::lookup::tanDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -312,7 +312,7 @@ Float of interpolated tangent value
 .PP
 
 .PP
-Definition at line \fB264\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB264\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::tanTable\fP, and \fBace::math::truncToInt()\fP\&.
 .SS "constexpr float ace::math::lookup::cotDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -337,7 +337,7 @@ Float of interpolated cotangent value
 .PP
 
 .PP
-Definition at line \fB285\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB285\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::cotTable\fP, and \fBace::math::truncToInt()\fP\&.
 .SS "constexpr float ace::math::lookup::cscDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -362,7 +362,7 @@ Float of interpolated cosecant value
 .PP
 
 .PP
-Definition at line \fB306\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB306\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::cscTable\fP, and \fBace::math::truncToInt()\fP\&.
 .SS "constexpr float ace::math::lookup::secDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -387,7 +387,7 @@ Float of interpolated secant value
 .PP
 
 .PP
-Definition at line \fB327\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB327\fP of file \fBAEMathTrigLookup\&.hpp\fP\&.
 .PP
 References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::secTable\fP, and \fBace::math::truncToInt()\fP\&.
 .SH "Author"

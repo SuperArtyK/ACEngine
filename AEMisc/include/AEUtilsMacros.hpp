@@ -9,7 +9,7 @@
  *
  *  Less copy-pasted code, yayyy.
  *
- *  @date 2023-2024
+ *  @date 2024/03/14
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
