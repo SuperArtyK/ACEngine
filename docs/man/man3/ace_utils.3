@@ -1,4 +1,4 @@
-.TH "ace::utils" 3 "Thu Mar 14 2024 20:55:56" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::utils" 3 "Sat Mar 16 2024 11:28:30" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -121,7 +121,7 @@ The \fBconst std::string_view\fP of 'false'
 .PP
 
 .PP
-Definition at line \fB192\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB61\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "template<typename T , typename Y  = T, typename U  = T> constexpr bool ace::utils::isInRange (const T minval, const Y maxval, const U i)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -160,7 +160,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB213\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB82\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "void ace::utils::toLowerRef (std::string & str1)\fR [inline]\fP"
 
 .PP
@@ -173,7 +173,7 @@ Definition at line \fB213\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 
 .PP
-Definition at line \fB221\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB90\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::toLowerVal (std::string str1)\fR [inline]\fP"
 
 .PP
@@ -191,7 +191,7 @@ The lowered version of the \fBstr1\fP
 .PP
 
 .PP
-Definition at line \fB232\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB101\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "void ace::utils::toUpperRef (std::string & str1)\fR [inline]\fP"
 
 .PP
@@ -204,7 +204,7 @@ Definition at line \fB232\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 
 .PP
-Definition at line \fB241\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB110\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::toUpperVal (std::string str1)\fR [inline]\fP"
 
 .PP
@@ -222,7 +222,7 @@ The uppered version of the \fBstr1\fP
 .PP
 
 .PP
-Definition at line \fB252\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB121\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "template<const bool checkFloat = true> constexpr bool ace::utils::isNum (const std::string_view strnum)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -253,7 +253,7 @@ Otherwise, or if the size of \fBstrnum\fP is 0:
 .PP
 
 .PP
-Definition at line \fB271\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB140\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::formatDate (const std::time_t timept)\fR [inline]\fP"
 
 .PP
@@ -279,7 +279,7 @@ Emtpy \fBstd::string\fP
 .PP
 
 .PP
-Definition at line \fB325\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB194\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 References \fBDATETIME_STRING_SIZE\fP\&.
 .SS "char * ace::utils::formatDate (const std::time_t timept, char *const str)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -319,7 +319,7 @@ Unmodified \fBstr\fP
 .PP
 
 .PP
-Definition at line \fB358\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB227\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 References \fBDATETIME_STRING_SIZE\fP\&.
 .SS "std::string ace::utils::getCurrentDate (void)\fR [inline]\fP"
@@ -339,7 +339,7 @@ Formats the \fBcurrent date and time as YYYY-MM-DD\&.HH:mm:SS\fP\&.
 .PP
 
 .PP
-Definition at line \fB384\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB253\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 References \fBformatDate()\fP\&.
 .SS "std::time_t ace::utils::stringToDate (const char *const timestr, const char *const timeformat = \fR'%Y\-%m\-%d\&.%X'\fP)\fR [inline]\fP"
@@ -374,7 +374,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB401\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB270\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "std::string ace::utils::addrToStr (const void *const myptr, const bool add0x = \fRtrue\fP)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -399,7 +399,7 @@ The pointer value is not evaluated (passing nullptr is fine :) )
 .PP
 
 .PP
-Definition at line \fB426\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB295\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "void ace::utils::sleepMS (const int ms)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -424,7 +424,7 @@ May be inaccurate in delay (as\&.\&.\&.all sleep functions are) Uses \fBsleepFor
 .PP
 
 .PP
-Definition at line \fB446\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB315\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 References \fBmilliSec\fP, and \fBsleepFor\fP\&.
 .SS "void ace::utils::sleepUS (const int us)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -451,7 +451,7 @@ May be inaccurate in delay (as\&.\&.\&.all sleep functions are) Uses \fBsleepFor
 .PP
 
 .PP
-Definition at line \fB458\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB327\fP of file \fBAEUtils\&.hpp\fP\&.
 .PP
 References \fBmicroSec\fP, and \fBsleepFor\fP\&.
 .SS "std::FILE * ace::utils::fopenCC (const char *const fname, const char *const flags)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -473,7 +473,7 @@ Pointer to the \fBstd::FILE\fP as the result of the fopen call
 .PP
 
 .PP
-Definition at line \fB474\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB343\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "template<typename T  = int> 
 .br
 requires (std::is_integral<T>::value)constexpr T ace::utils::numCharToInt (const char c)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -506,7 +506,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB503\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB372\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "template<typename T  = int> constexpr char ace::utils::intToNumChar (const T i)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -537,7 +537,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB520\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB389\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "constexpr bool ace::utils::isAlNum (const std::string_view str)\fR [inline]\fP, \fR [constexpr]\fP"
 
 .PP
@@ -563,7 +563,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB535\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB404\fP of file \fBAEUtils\&.hpp\fP\&.
 .SS "constexpr bool ace::utils::isAlNumUs (const std::string_view str)\fR [inline]\fP, \fR [constexpr]\fP"
 
 .PP
@@ -589,7 +589,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB550\fP of file \fBAEUtils\&.hpp\fP\&.
+Definition at line \fB419\fP of file \fBAEUtils\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

@@ -1,5 +1,5 @@
 
-/*! @file AEMisc/include/AEMath.hpp
+/*! @file AEMisc/include/AEMathConst.hpp
  *
  *  @brief This file contains the engine's **math constants**.
  *

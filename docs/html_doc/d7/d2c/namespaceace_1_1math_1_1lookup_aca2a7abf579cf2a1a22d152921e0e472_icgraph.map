@@ -1,0 +1,27 @@
+<map id="ace::math::lookup::_getTrigTableIndex" name="ace::math::lookup::_getTrigTableIndex">
+<area shape="rect" id="Node000001" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="298,284,539,311"/>
+<area shape="rect" id="Node000002" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#ac23a61031b3bff79b3493ece248abff5" title="Rounds the degrees value, and looks up the value of cosine in the table." alt="" coords="21,5,234,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="404,270,383,221,350,160,305,98,278,70,248,46,227,35,229,30,251,42,282,66,309,94,354,157,388,219,409,268"/>
+<area shape="rect" id="Node000003" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#abbfe8148837eadb3a83a33ba9a02d19f" title="Calculates the interpolated cosine value from the cosine lookup table." alt="" coords="5,56,250,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="401,272,377,232,342,184,299,137,248,97,224,86,227,81,251,92,303,133,346,181,381,229,405,269"/>
+<area shape="rect" id="Node000004" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a781bfcb5fee0cbf82eae216210e344cc" title="Rounds the degrees value, and looks up the value of cotangent in the table." alt="" coords="23,107,232,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="395,273,334,209,293,176,248,148,220,136,222,131,251,143,296,171,337,205,398,270"/>
+<area shape="rect" id="Node000005" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#abf04874acf4316d96c1a0b532453dc3a" title="Calculates the interpolated cotangent value from the cotangent lookup table." alt="" coords="7,157,248,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="385,277,324,237,249,198,212,187,214,182,251,194,327,232,388,273"/>
+<area shape="rect" id="Node000006" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a53e01dcdf28ba329b81af2059158e056" title="Rounds the degrees value, and looks up the value of cosecant in the table." alt="" coords="21,208,234,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="359,281,249,249,200,238,201,233,250,244,361,276"/>
+<area shape="rect" id="Node000007" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a3ee63cea375c99c44db7d659427de5cc" title="Approximates the interpolated cosecant value from the cosecant lookup table." alt="" coords="5,259,250,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="282,288,250,285,250,280,282,283"/>
+<area shape="rect" id="Node000008" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a16435af856f99fd268d2524648be0bb1" title="Rounds the degrees value, and looks up the value of secant in the table." alt="" coords="21,309,234,336"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="283,312,234,316,234,311,282,307"/>
+<area shape="rect" id="Node000009" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#af24f87d23914edec32fa064024aeade4" title="Calculates the interpolated secant value from the secant lookup table." alt="" coords="5,360,250,387"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="361,318,250,351,201,362,200,357,249,345,359,313"/>
+<area shape="rect" id="Node000010" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a3cc7b50ad2dcc013691b83d2edccee25" title="Rounds the degrees value, and looks up the value of sine in the table." alt="" coords="23,411,232,437"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="388,322,327,363,251,401,214,413,212,408,249,396,324,358,385,318"/>
+<area shape="rect" id="Node000011" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a113d607ceb372cae6509c0217174c396" title="Calculates the interpolated sine value from the sine lookup table." alt="" coords="7,461,248,488"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="398,325,337,389,296,423,251,452,222,463,220,458,248,447,293,419,334,385,395,321"/>
+<area shape="rect" id="Node000012" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a16414468904411af523271b8004dd710" title="Rounds the degrees value, and looks up the value of tangent in the table." alt="" coords="23,512,232,539"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="405,325,381,365,346,414,303,462,251,502,227,514,224,509,248,498,299,458,342,410,377,362,401,323"/>
+<area shape="rect" id="Node000013" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#a815acb61180fa295b7eb03314fe13ca3" title="Calculates the interpolated tangent value from the tangent lookup table." alt="" coords="7,563,248,589"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="409,326,388,376,354,438,309,501,282,529,251,553,229,564,227,560,248,548,278,525,305,497,350,435,383,374,404,324"/>
+</map>

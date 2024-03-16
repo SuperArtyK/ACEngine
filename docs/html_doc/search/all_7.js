@@ -1,7 +1,7 @@
 var searchData=
 [
   ['genlogname_0',['genLogName',['../d8/dfc/class_a_e_logger.html#a87dc705d692056229db74fc4bc3c93e9',1,'AELogger']]],
-  ['getbit_1',['getBit',['../de/de8/_a_e_utils_8hpp.html#ad79dd34fd474eec49ab69b41e1bd1a95',1,'AEUtils.hpp']]],
+  ['getbit_1',['getBit',['../d9/d6a/_a_e_utils_macros_8hpp.html#ad79dd34fd474eec49ab69b41e1bd1a95',1,'AEUtilsMacros.hpp']]],
   ['getcurrentdate_2',['getCurrentDate',['../de/dde/namespaceace_1_1utils.html#a5ef830bd659e4848847aa793e2f60852',1,'ace::utils']]],
   ['getcurrententryindex_3',['getCurrentEntryIndex',['../d8/d52/class_a_e_log_parser.html#a6ba4173940c2f7a0bcad84032309e453',1,'AELogParser']]],
   ['getcursorpos_4',['getCursorPos',['../dd/dd5/class_a_e_file_reader.html#a4f23e9b7f6465dc50432ee4f20f6f73e',1,'AEFileReader::getCursorPos()'],['../db/d15/class_a_e_file_writer.html#a2f8e2a3e987a119f061ae38701edc2f5',1,'AEFileWriter::getCursorPos()']]],

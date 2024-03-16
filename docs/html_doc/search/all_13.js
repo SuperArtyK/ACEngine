@@ -19,5 +19,5 @@ var searchData=
   ['writetologdebug_16',['writeToLogDebug',['../d8/dfc/class_a_e_logger.html#a50dfd96a74d13471faebd4de499db5bf',1,'AELogger']]],
   ['writetologdirectly_17',['writeToLogDirectly',['../d8/dfc/class_a_e_logger.html#a54bad71bcfea05c3d17d7ba1bacfec8c',1,'AELogger']]],
   ['writeuint_18',['writeUInt',['../db/d15/class_a_e_file_writer.html#a43d9cf8585c27a5ec995ac72ec8eec9c',1,'AEFileWriter']]],
-  ['wstr_19',['WSTR',['../de/de8/_a_e_utils_8hpp.html#aa5ef465b3cfb7b096648181199e8029c',1,'AEUtils.hpp']]]
+  ['wstr_19',['WSTR',['../d9/d6a/_a_e_utils_macros_8hpp.html#aa5ef465b3cfb7b096648181199e8029c',1,'AEUtilsMacros.hpp']]]
 ];

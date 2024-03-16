@@ -113,7 +113,7 @@ $(function(){initNavTree('d7/d4a/_a_e_trig_lookup_8hpp.html','../../'); initResi
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/dcf/_a_e_trig_lookup_8hpp__incl.svg" width="446" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/dcf/_a_e_trig_lookup_8hpp__incl.svg" width="542" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="../../d7/d4a/_a_e_trig_lookup_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -124,7 +124,13 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:d8/d23/namespaceace"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains <b>everything that belongs to the engine</b>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d5/d0f/namespaceace_1_1math" id="r_d5/d0f/namespaceace_1_1math"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html">ace::math</a></td></tr>
-<tr class="memdesc:d5/d0f/namespaceace_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mathematical functions and other things usefull in math. <br /></td></tr>
+<tr class="memdesc:d5/d0f/namespaceace_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the engine's <b>math and math-related functions</b>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/d2c/namespaceace_1_1math_1_1lookup" id="r_d7/d2c/namespaceace_1_1math_1_1lookup"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html">ace::math::lookup</a></td></tr>
+<tr class="memdesc:d7/d2c/namespaceace_1_1math_1_1lookup"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the engine's <b>math lookup functions</b>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables" id="r_d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html">ace::math::lookup::_tables</a></td></tr>
+<tr class="memdesc:d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the engine's <b>lookup tables</b> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -135,66 +141,66 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a979611f412d7ed1d25ff28bf50e5463a" id="r_a979611f412d7ed1d25ff28bf50e5463a"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a">ace::math::_getTrigTableIndex</a> (const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a01c88e5c03ebee098af42984516b9aaf">llint</a> a) noexcept</td></tr>
-<tr class="memdesc:a979611f412d7ed1d25ff28bf50e5463a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <b>index to the trig table</b> from the given (int) degree number.  <br /></td></tr>
-<tr class="separator:a979611f412d7ed1d25ff28bf50e5463a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42d54b758ac8f4209a9e73cd654a9df9" id="r_a42d54b758ac8f4209a9e73cd654a9df9"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a42d54b758ac8f4209a9e73cd654a9df9">ace::math::sinDeg_table</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a42d54b758ac8f4209a9e73cd654a9df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of sine</b> in the table.  <br /></td></tr>
-<tr class="separator:a42d54b758ac8f4209a9e73cd654a9df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87335418d422478a1c6ed62a58d0cd0c" id="r_a87335418d422478a1c6ed62a58d0cd0c"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a87335418d422478a1c6ed62a58d0cd0c">ace::math::cosDeg_table</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a87335418d422478a1c6ed62a58d0cd0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of cosine</b> in the table.  <br /></td></tr>
-<tr class="separator:a87335418d422478a1c6ed62a58d0cd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a786f18fe82d4392ed2d3ac2a9672b769" id="r_a786f18fe82d4392ed2d3ac2a9672b769"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a786f18fe82d4392ed2d3ac2a9672b769">ace::math::tanDeg_table</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a786f18fe82d4392ed2d3ac2a9672b769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of tangent</b> in the table.  <br /></td></tr>
-<tr class="separator:a786f18fe82d4392ed2d3ac2a9672b769"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add8d8d764538a610f0e7502f6fb772fb" id="r_add8d8d764538a610f0e7502f6fb772fb"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#add8d8d764538a610f0e7502f6fb772fb">ace::math::cotDeg_table</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:add8d8d764538a610f0e7502f6fb772fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of cotangent</b> in the table.  <br /></td></tr>
-<tr class="separator:add8d8d764538a610f0e7502f6fb772fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99c321c1ec7c050aa5cb7fdba6feda7d" id="r_a99c321c1ec7c050aa5cb7fdba6feda7d"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a99c321c1ec7c050aa5cb7fdba6feda7d">ace::math::cscDeg_table</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a99c321c1ec7c050aa5cb7fdba6feda7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of cosecant</b> in the table.  <br /></td></tr>
-<tr class="separator:a99c321c1ec7c050aa5cb7fdba6feda7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b2d519345e0c179128b55b5c71e388c" id="r_a3b2d519345e0c179128b55b5c71e388c"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a3b2d519345e0c179128b55b5c71e388c">ace::math::secDeg_table</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a3b2d519345e0c179128b55b5c71e388c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of secant</b> in the table.  <br /></td></tr>
-<tr class="separator:a3b2d519345e0c179128b55b5c71e388c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b735b9dcfe704b66ea207694f61a44a" id="r_a8b735b9dcfe704b66ea207694f61a44a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a8b735b9dcfe704b66ea207694f61a44a">ace::math::sinDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a8b735b9dcfe704b66ea207694f61a44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated sine value</b> from the sine lookup table.  <br /></td></tr>
-<tr class="separator:a8b735b9dcfe704b66ea207694f61a44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ebf5127edf0556e8f1e25dffd8c1a1" id="r_a18ebf5127edf0556e8f1e25dffd8c1a1"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a18ebf5127edf0556e8f1e25dffd8c1a1">ace::math::cosDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a18ebf5127edf0556e8f1e25dffd8c1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated cosine value</b> from the cosine lookup table.  <br /></td></tr>
-<tr class="separator:a18ebf5127edf0556e8f1e25dffd8c1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e57c9ac7e4386cbbdd36c5f61498685" id="r_a6e57c9ac7e4386cbbdd36c5f61498685"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a6e57c9ac7e4386cbbdd36c5f61498685">ace::math::tanDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a6e57c9ac7e4386cbbdd36c5f61498685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated tangent value</b> from the tangent lookup table.  <br /></td></tr>
-<tr class="separator:a6e57c9ac7e4386cbbdd36c5f61498685"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9251fed86320f2ebdb6ab999631d538c" id="r_a9251fed86320f2ebdb6ab999631d538c"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a9251fed86320f2ebdb6ab999631d538c">ace::math::cotDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a9251fed86320f2ebdb6ab999631d538c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated cotangent value</b> from the cotangent lookup table.  <br /></td></tr>
-<tr class="separator:a9251fed86320f2ebdb6ab999631d538c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6707069eefabdb087b2fd2d38da37435" id="r_a6707069eefabdb087b2fd2d38da37435"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a6707069eefabdb087b2fd2d38da37435">ace::math::cscDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:a6707069eefabdb087b2fd2d38da37435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximates the <b>interpolated cosecant value</b> from the cosecant lookup table.  <br /></td></tr>
-<tr class="separator:a6707069eefabdb087b2fd2d38da37435"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae64a12ecfbee0650dd5137ea7e592316" id="r_ae64a12ecfbee0650dd5137ea7e592316"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#ae64a12ecfbee0650dd5137ea7e592316">ace::math::secDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
-<tr class="memdesc:ae64a12ecfbee0650dd5137ea7e592316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated secant value</b> from the secant lookup table.  <br /></td></tr>
-<tr class="separator:ae64a12ecfbee0650dd5137ea7e592316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca2a7abf579cf2a1a22d152921e0e472" id="r_aca2a7abf579cf2a1a22d152921e0e472"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#aca2a7abf579cf2a1a22d152921e0e472">ace::math::lookup::_getTrigTableIndex</a> (const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a01c88e5c03ebee098af42984516b9aaf">llint</a> a) noexcept</td></tr>
+<tr class="memdesc:aca2a7abf579cf2a1a22d152921e0e472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <b>index to the trig table</b> from the given (int) degree number.  <br /></td></tr>
+<tr class="separator:aca2a7abf579cf2a1a22d152921e0e472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cc7b50ad2dcc013691b83d2edccee25" id="r_a3cc7b50ad2dcc013691b83d2edccee25"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a3cc7b50ad2dcc013691b83d2edccee25">ace::math::lookup::sinDeg_table</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a3cc7b50ad2dcc013691b83d2edccee25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of sine</b> in the table.  <br /></td></tr>
+<tr class="separator:a3cc7b50ad2dcc013691b83d2edccee25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac23a61031b3bff79b3493ece248abff5" id="r_ac23a61031b3bff79b3493ece248abff5"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#ac23a61031b3bff79b3493ece248abff5">ace::math::lookup::cosDeg_table</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:ac23a61031b3bff79b3493ece248abff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of cosine</b> in the table.  <br /></td></tr>
+<tr class="separator:ac23a61031b3bff79b3493ece248abff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16414468904411af523271b8004dd710" id="r_a16414468904411af523271b8004dd710"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a16414468904411af523271b8004dd710">ace::math::lookup::tanDeg_table</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a16414468904411af523271b8004dd710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of tangent</b> in the table.  <br /></td></tr>
+<tr class="separator:a16414468904411af523271b8004dd710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781bfcb5fee0cbf82eae216210e344cc" id="r_a781bfcb5fee0cbf82eae216210e344cc"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a781bfcb5fee0cbf82eae216210e344cc">ace::math::lookup::cotDeg_table</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a781bfcb5fee0cbf82eae216210e344cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of cotangent</b> in the table.  <br /></td></tr>
+<tr class="separator:a781bfcb5fee0cbf82eae216210e344cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e01dcdf28ba329b81af2059158e056" id="r_a53e01dcdf28ba329b81af2059158e056"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a53e01dcdf28ba329b81af2059158e056">ace::math::lookup::cscDeg_table</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a53e01dcdf28ba329b81af2059158e056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of cosecant</b> in the table.  <br /></td></tr>
+<tr class="separator:a53e01dcdf28ba329b81af2059158e056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16435af856f99fd268d2524648be0bb1" id="r_a16435af856f99fd268d2524648be0bb1"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a16435af856f99fd268d2524648be0bb1">ace::math::lookup::secDeg_table</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a16435af856f99fd268d2524648be0bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rounds the degrees value, and <b>looks up the value of secant</b> in the table.  <br /></td></tr>
+<tr class="separator:a16435af856f99fd268d2524648be0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113d607ceb372cae6509c0217174c396" id="r_a113d607ceb372cae6509c0217174c396"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a113d607ceb372cae6509c0217174c396">ace::math::lookup::sinDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a113d607ceb372cae6509c0217174c396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated sine value</b> from the sine lookup table.  <br /></td></tr>
+<tr class="separator:a113d607ceb372cae6509c0217174c396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbfe8148837eadb3a83a33ba9a02d19f" id="r_abbfe8148837eadb3a83a33ba9a02d19f"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#abbfe8148837eadb3a83a33ba9a02d19f">ace::math::lookup::cosDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:abbfe8148837eadb3a83a33ba9a02d19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated cosine value</b> from the cosine lookup table.  <br /></td></tr>
+<tr class="separator:abbfe8148837eadb3a83a33ba9a02d19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a815acb61180fa295b7eb03314fe13ca3" id="r_a815acb61180fa295b7eb03314fe13ca3"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a815acb61180fa295b7eb03314fe13ca3">ace::math::lookup::tanDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a815acb61180fa295b7eb03314fe13ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated tangent value</b> from the tangent lookup table.  <br /></td></tr>
+<tr class="separator:a815acb61180fa295b7eb03314fe13ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf04874acf4316d96c1a0b532453dc3a" id="r_abf04874acf4316d96c1a0b532453dc3a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#abf04874acf4316d96c1a0b532453dc3a">ace::math::lookup::cotDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:abf04874acf4316d96c1a0b532453dc3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated cotangent value</b> from the cotangent lookup table.  <br /></td></tr>
+<tr class="separator:abf04874acf4316d96c1a0b532453dc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee63cea375c99c44db7d659427de5cc" id="r_a3ee63cea375c99c44db7d659427de5cc"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#a3ee63cea375c99c44db7d659427de5cc">ace::math::lookup::cscDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:a3ee63cea375c99c44db7d659427de5cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximates the <b>interpolated cosecant value</b> from the cosecant lookup table.  <br /></td></tr>
+<tr class="separator:a3ee63cea375c99c44db7d659427de5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af24f87d23914edec32fa064024aeade4" id="r_af24f87d23914edec32fa064024aeade4"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2c/namespaceace_1_1math_1_1lookup.html#af24f87d23914edec32fa064024aeade4">ace::math::lookup::secDeg_tableInterp</a> (const float degrees) noexcept</td></tr>
+<tr class="memdesc:af24f87d23914edec32fa064024aeade4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the <b>interpolated secant value</b> from the secant lookup table.  <br /></td></tr>
+<tr class="separator:af24f87d23914edec32fa064024aeade4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1377ec602169925b7d84d2fb65c7c363" id="r_a1377ec602169925b7d84d2fb65c7c363"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a1377ec602169925b7d84d2fb65c7c363">ace::math::sinTable</a> [360]</td></tr>
-<tr class="memdesc:a1377ec602169925b7d84d2fb65c7c363"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for sine values (degrees)  <br /></td></tr>
-<tr class="separator:a1377ec602169925b7d84d2fb65c7c363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcbae3c4abff8b62074886e1e0fb5cf1" id="r_abcbae3c4abff8b62074886e1e0fb5cf1"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#abcbae3c4abff8b62074886e1e0fb5cf1">ace::math::cosTable</a> [360]</td></tr>
-<tr class="memdesc:abcbae3c4abff8b62074886e1e0fb5cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for cosine values (degrees)  <br /></td></tr>
-<tr class="separator:abcbae3c4abff8b62074886e1e0fb5cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3402154e4676c5860a7adf3ca140fdc0" id="r_a3402154e4676c5860a7adf3ca140fdc0"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a3402154e4676c5860a7adf3ca140fdc0">ace::math::tanTable</a> [360]</td></tr>
-<tr class="memdesc:a3402154e4676c5860a7adf3ca140fdc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for tangent values (degrees)  <br /></td></tr>
-<tr class="separator:a3402154e4676c5860a7adf3ca140fdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae263b3231a5d96b8f92f660887cc6a50" id="r_ae263b3231a5d96b8f92f660887cc6a50"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#ae263b3231a5d96b8f92f660887cc6a50">ace::math::cotTable</a> [360]</td></tr>
-<tr class="memdesc:ae263b3231a5d96b8f92f660887cc6a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for cotangent values (degrees)  <br /></td></tr>
-<tr class="separator:ae263b3231a5d96b8f92f660887cc6a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a407e7fcaa7b1d1f48b2ed01a1fac27ee" id="r_a407e7fcaa7b1d1f48b2ed01a1fac27ee"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a407e7fcaa7b1d1f48b2ed01a1fac27ee">ace::math::cscTable</a> [360]</td></tr>
-<tr class="memdesc:a407e7fcaa7b1d1f48b2ed01a1fac27ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for cosecant values (degrees)  <br /></td></tr>
-<tr class="separator:a407e7fcaa7b1d1f48b2ed01a1fac27ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4cb827e5278f342eb4d8cbc31dfefc6" id="r_ad4cb827e5278f342eb4d8cbc31dfefc6"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#ad4cb827e5278f342eb4d8cbc31dfefc6">ace::math::secTable</a> [360]</td></tr>
-<tr class="memdesc:ad4cb827e5278f342eb4d8cbc31dfefc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for secant values (degrees)  <br /></td></tr>
-<tr class="separator:ad4cb827e5278f342eb4d8cbc31dfefc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16468950eb731c2e6d2e0c15c5789d9b" id="r_a16468950eb731c2e6d2e0c15c5789d9b"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html#a16468950eb731c2e6d2e0c15c5789d9b">ace::math::lookup::_tables::sinTable</a> [360]</td></tr>
+<tr class="memdesc:a16468950eb731c2e6d2e0c15c5789d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for sine values (degrees)  <br /></td></tr>
+<tr class="separator:a16468950eb731c2e6d2e0c15c5789d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28776e4e74b9e51e54846f30884f2907" id="r_a28776e4e74b9e51e54846f30884f2907"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html#a28776e4e74b9e51e54846f30884f2907">ace::math::lookup::_tables::cosTable</a> [360]</td></tr>
+<tr class="memdesc:a28776e4e74b9e51e54846f30884f2907"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for cosine values (degrees)  <br /></td></tr>
+<tr class="separator:a28776e4e74b9e51e54846f30884f2907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64ac995d8cd701bd69150669924dfe31" id="r_a64ac995d8cd701bd69150669924dfe31"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html#a64ac995d8cd701bd69150669924dfe31">ace::math::lookup::_tables::tanTable</a> [360]</td></tr>
+<tr class="memdesc:a64ac995d8cd701bd69150669924dfe31"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for tangent values (degrees)  <br /></td></tr>
+<tr class="separator:a64ac995d8cd701bd69150669924dfe31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b9c3fe99654743baa3b12861e49159a" id="r_a5b9c3fe99654743baa3b12861e49159a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html#a5b9c3fe99654743baa3b12861e49159a">ace::math::lookup::_tables::cotTable</a> [360]</td></tr>
+<tr class="memdesc:a5b9c3fe99654743baa3b12861e49159a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for cotangent values (degrees)  <br /></td></tr>
+<tr class="separator:a5b9c3fe99654743baa3b12861e49159a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f82093ae58c913bef90bcb746b8582" id="r_a42f82093ae58c913bef90bcb746b8582"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html#a42f82093ae58c913bef90bcb746b8582">ace::math::lookup::_tables::cscTable</a> [360]</td></tr>
+<tr class="memdesc:a42f82093ae58c913bef90bcb746b8582"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for cosecant values (degrees)  <br /></td></tr>
+<tr class="separator:a42f82093ae58c913bef90bcb746b8582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7e927bf8fc397335bdcceed28f6bfa" id="r_aef7e927bf8fc397335bdcceed28f6bfa"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da4/namespaceace_1_1math_1_1lookup_1_1__tables.html#aef7e927bf8fc397335bdcceed28f6bfa">ace::math::lookup::_tables::secTable</a> [360]</td></tr>
+<tr class="memdesc:aef7e927bf8fc397335bdcceed28f6bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lookup table for secant values (degrees)  <br /></td></tr>
+<tr class="separator:aef7e927bf8fc397335bdcceed28f6bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the engine's <b>trigonometric function lookup tables</b>. </p>
@@ -206,7 +212,7 @@ Variables</h2></td></tr>
 <li><strike>It can increase memory usage</strike> (will be true whenever the lookup table size ever becomes custom-controlled)</li>
 </ul>
 <p>Set <a class="el" href="../../dd/dd8/_a_e_flags_8hpp.html#a98c70397d2bc966f6444683fc44f645a" title="Macro to enable the engine&#39;s trigonometry lookup tables and code.">ENGINE_ENABLE_MATH_LOOKUP</a> to completely disable this and effectively not include this file.</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo</a></b></dt><dd>Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo</a></b></dt><dd>Add the ability to calculate the tables at compile time + control the size (36 elements or 3600, etc) Maybe it's a future (c++26) thing</dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-2024</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
@@ -239,7 +245,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../d7/d4a/_a_e_trig_lookup_8hpp.html">AETrigLookup.hpp</a></li>
-    <li class="footer">Generated on Thu Mar 14 2024 20:55:55 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 11:28:29 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

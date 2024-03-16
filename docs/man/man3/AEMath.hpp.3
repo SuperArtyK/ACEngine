@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Thu Mar 14 2024 20:55:55" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,6 +7,8 @@ AEMisc/include/AEMath.hpp \- This file contains the engine's \fBmath and math-re
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'AEMathConst\&.hpp'\fP
+.br
 \fR#include 'AETypedefs\&.hpp'\fP
 .br
 \fR#include <limits>\fP
@@ -26,91 +28,11 @@ AEMisc/include/AEMath.hpp \- This file contains the engine's \fBmath and math-re
 .ti -1c
 .RI "namespace \fBace::math\fP"
 .br
-.RI "Mathematical functions and other things usefull in math\&. "
+.RI "This namespace contains the engine's \fBmath and math-related functions\fP\&. "
 .in -1c
 .SS "Functions"
 
 .in +1c
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::pi\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::tau\fP (void) noexcept"
-.br
-.RI "Engine's \fBtau (pi*2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::piDouble\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi*2\fP (tau) value Just another name for \fBace::math::tau()\fP "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::piHalf\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi/2\fP (half) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::piQuarter\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi/4\fP (quarter) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::piSquared\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi^2\fP (squared) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::piInv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/pi\fP (inverse) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::log2e\fP (void) noexcept"
-.br
-.RI "Engine's \fBlog2(e)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::log10e\fP (void) noexcept"
-.br
-.RI "Engine's \fBlog10(e)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::ln2\fP (void) noexcept"
-.br
-.RI "Engine's \fBln(2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::ln10\fP (void) noexcept"
-.br
-.RI "Engine's \fBln(10)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::sqrtOf2\fP (void) noexcept"
-.br
-.RI "Engine's \fBsqrt(2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::sqrtOf3\fP (void) noexcept"
-.br
-.RI "Engine's \fBsqrt(3)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::sqrtOf2Inv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/sqrt(2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::sqrtOf3Inv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/sqrt(3)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::sqrtOfPi\fP (void) noexcept"
-.br
-.RI "Engine's \fBsqrt(pi)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::sqrtOfPiInv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/sqrt(pi)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::e\fP (void) noexcept"
-.br
-.RI "Engine's \fBeuler's number\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::eGamma\fP (void) noexcept"
-.br
-.RI "Engine's \fBeuler's gamma function\fP (euler's constant) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBace::math::phi\fP (void) noexcept"
-.br
-.RI "Engine's \fBgolden ratio\fP (phi) value\&. "
 .ti -1c
 .RI "template<typename T > constexpr T \fBace::math::toRad\fP (const T deg) noexcept"
 .br
@@ -220,13 +142,21 @@ requires (std::is_floating_point<T>::value == true)constexpr \fBuint\fP \fBace::
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBace::math::roundToInt\fP (const Y num) noexcept"
 .br
-.RI "\fBRounds the given float\fP of type Y \fBto integer\fP of type T\&. "
+.RI "\fBRounds the given number\fP of type Y \fBto integer\fP of type T\&. "
+.ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::round\fP (const Y num) noexcept"
+.br
+.RI "\fBRounds the passed number\fP of type Y and converts it to the type T "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBace::math::floorToInt\fP (const Y num) noexcept"
 .br
-.RI "\fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
+.RI "
+.br
+ \fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
@@ -244,6 +174,8 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .PP 
 This file contains the engine's \fBmath and math-related functions\fP\&. 
 
+This file contains the engine's \fBmath constants\fP\&.
+.PP
 These would be quite fast, I tried optimising them for the types that are needed\&.
 .PP
 Especially with the addition of if-consteval in c++23 (and std::is_constant_evaluated() in c++20) :)
@@ -251,6 +183,27 @@ Especially with the addition of if-consteval in c++23 (and std::is_constant_eval
 Since it would be possible to use the constexpr implementations in compile time, 
 .br
  and fast (and proper) runtime versions of them at\&.\&.\&.runtime\&.
+.PP
+\fBDate\fP
+.RS 4
+2023-2024
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Artemii Kozhemiak (SuperArtyK)
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MIT License
+.RE
+.PP
+\fIShould not cause everything to break :)\fP
+.PP
+The brief description says it all -- this file has the math constants in the engine\&.
+.PP
+All those pi's, tau's, sqrt of 2's, etc, which you can call, and cast to the necessary type\&.
 .PP
 \fBDate\fP
 .RS 4

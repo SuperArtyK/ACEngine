@@ -19,5 +19,6 @@ var searchData=
   ['resettick_16',['resetTick',['../da/d62/class_a_e_timer.html#a8ae59d1447bcae7a65ef8099f7e14ac6',1,'AETimer']]],
   ['resettimepoint_17',['resetTimePoint',['../df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451',1,'AEFrame']]],
   ['root_18',['root',['../d5/d0f/namespaceace_1_1math.html#a43dfe745f66a0345771e8ba5d70e184e',1,'ace::math']]],
-  ['roundtoint_19',['roundToInt',['../d5/d0f/namespaceace_1_1math.html#a1874f6e149779f854fc8f84b5173fc1e',1,'ace::math']]]
+  ['round_19',['round',['../d5/d0f/namespaceace_1_1math.html#a1003baff2f5bcf504bcab085cc16d034',1,'ace::math']]],
+  ['roundtoint_20',['roundToInt',['../d5/d0f/namespaceace_1_1math.html#a1874f6e149779f854fc8f84b5173fc1e',1,'ace::math']]]
 ];

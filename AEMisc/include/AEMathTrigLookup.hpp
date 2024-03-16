@@ -1,5 +1,5 @@
 
-/*! @file AEMisc/include/AETrigLookup.hpp
+/*! @file AEMisc/include/AEMathTrigLookup.hpp
  *  
  *  @brief This file contains the engine's **trigonometric function lookup tables**.
  *  

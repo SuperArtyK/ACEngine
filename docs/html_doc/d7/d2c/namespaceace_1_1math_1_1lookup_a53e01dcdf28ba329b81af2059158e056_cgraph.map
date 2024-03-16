@@ -1,0 +1,5 @@
+<map id="ace::math::lookup::cscDeg_table" name="ace::math::lookup::cscDeg_table">
+<area shape="rect" id="Node000001" title="Rounds the degrees value, and looks up the value of cosecant in the table." alt="" coords="5,5,218,32"/>
+<area shape="rect" id="Node000002" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#aca2a7abf579cf2a1a22d152921e0e472" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="266,5,507,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,16,250,16,250,21,218,21"/>
+</map>

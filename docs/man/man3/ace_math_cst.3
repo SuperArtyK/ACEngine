@@ -1,0 +1,470 @@
+.TH "ace::math::cst" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ace::math::cst \- This namespace contains the engine's \fBmath constants\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBpi\fP (void) noexcept"
+.br
+.RI "Engine's \fBpi\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBtau\fP (void) noexcept"
+.br
+.RI "Engine's \fBtau (pi*2)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBpiDouble\fP (void) noexcept"
+.br
+.RI "Engine's \fBpi*2\fP (tau) value Just another name for ace::math::tau() "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBpiHalf\fP (void) noexcept"
+.br
+.RI "Engine's \fBpi/2\fP (half) value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBpiQuarter\fP (void) noexcept"
+.br
+.RI "Engine's \fBpi/4\fP (quarter) value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBpiSquared\fP (void) noexcept"
+.br
+.RI "Engine's \fBpi^2\fP (squared) value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBpiInv\fP (void) noexcept"
+.br
+.RI "Engine's \fB1/pi\fP (inverse) value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBlog2e\fP (void) noexcept"
+.br
+.RI "Engine's \fBlog2(e)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBlog10e\fP (void) noexcept"
+.br
+.RI "Engine's \fBlog10(e)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBln2\fP (void) noexcept"
+.br
+.RI "Engine's \fBln(2)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBln10\fP (void) noexcept"
+.br
+.RI "Engine's \fBln(10)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBsqrtOf2\fP (void) noexcept"
+.br
+.RI "Engine's \fBsqrt(2)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBsqrtOf3\fP (void) noexcept"
+.br
+.RI "Engine's \fBsqrt(3)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBsqrtOf2Inv\fP (void) noexcept"
+.br
+.RI "Engine's \fB1/sqrt(2)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBsqrtOf3Inv\fP (void) noexcept"
+.br
+.RI "Engine's \fB1/sqrt(3)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBsqrtOfPi\fP (void) noexcept"
+.br
+.RI "Engine's \fBsqrt(pi)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBsqrtOfPiInv\fP (void) noexcept"
+.br
+.RI "Engine's \fB1/sqrt(pi)\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBe\fP (void) noexcept"
+.br
+.RI "Engine's \fBeuler's number\fP value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBeGamma\fP (void) noexcept"
+.br
+.RI "Engine's \fBeuler's gamma function\fP (euler's constant) value\&. "
+.ti -1c
+.RI "template<typename T  = long double> constexpr T \fBphi\fP (void) noexcept"
+.br
+.RI "Engine's \fBgolden ratio\fP (phi) value\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This namespace contains the engine's \fBmath constants\fP\&. 
+
+The brief description says it all-- this file has the math constants in the engine\&. 
+.br
+ All those pi's, tau's, sqrt of 2's, etc, which you can call, and cast to the necessary type\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename T  = long double> constexpr T ace::math::cst::pi (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBpi\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB37\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::tau (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBtau (pi*2)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB49\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::piDouble (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBpi*2\fP (tau) value Just another name for ace::math::tau() 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB62\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::piHalf (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBpi/2\fP (half) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB74\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::piQuarter (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBpi/4\fP (quarter) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB86\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::piSquared (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBpi^2\fP (squared) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB98\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::piInv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fB1/pi\fP (inverse) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB110\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::log2e (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBlog2(e)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB122\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::log10e (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBlog10(e)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB134\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::ln2 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBln(2)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB146\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::ln10 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBln(10)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB158\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::sqrtOf2 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBsqrt(2)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB170\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::sqrtOf3 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBsqrt(3)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB182\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::sqrtOf2Inv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fB1/sqrt(2)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB194\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::sqrtOf3Inv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fB1/sqrt(3)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB206\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::sqrtOfPi (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBsqrt(pi)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB218\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::sqrtOfPiInv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fB1/sqrt(pi)\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB230\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::e (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBeuler's number\fP value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB242\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::eGamma (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBeuler's gamma function\fP (euler's constant) value\&. 
+.PP
+\fBNote\fP
+.RS 4
+Don't confuse with euler's number ace::math::e()
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB255\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SS "template<typename T  = long double> constexpr T ace::math::cst::phi (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Engine's \fBgolden ratio\fP (phi) value\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP Type to convert the constant to
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The constant converted/rounded to a given type 
+.RE
+.PP
+
+.PP
+Definition at line \fB267\fP of file \fBAEMathConst\&.hpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

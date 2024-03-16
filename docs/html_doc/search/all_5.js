@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['e_0',['e',['../d5/d0f/namespaceace_1_1math.html#a29f540f67e8572c879eb4b68090c90c8',1,'ace::math']]],
-  ['egamma_1',['eGamma',['../d5/d0f/namespaceace_1_1math.html#a1fcac4f4c693aef2dac4dca3a2a38aff',1,'ace::math']]],
+  ['e_0',['e',['../d2/dca/namespaceace_1_1math_1_1cst.html#af752f51d62afa79338167d4e5948b506',1,'ace::math::cst']]],
+  ['egamma_1',['eGamma',['../d2/dca/namespaceace_1_1math_1_1cst.html#a388d110e2dcd232ca3217b64ceeea852',1,'ace::math::cst']]],
   ['emptyentry_2',['emptyEntry',['../da/dea/struct_a_e_log_entry.html#a14c3ab073da8e87ef544799cfeeef9ee',1,'AELogEntry']]],
   ['engine_5fdebug_3',['ENGINE_DEBUG',['../dd/dd8/_a_e_flags_8hpp.html#a1a4015effd65ce85fe7463f88aa6833c',1,'AEFlags.hpp']]],
   ['engine_5fenable_5fassert_4',['ENGINE_ENABLE_ASSERT',['../dd/dd8/_a_e_flags_8hpp.html#a8749da27990f03045abeda28135e36f4',1,'AEFlags.hpp']]],

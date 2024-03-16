@@ -1,7 +1,7 @@
 
 /*! @file AEMisc/include/AEUtilsMacros.hpp
  *
- *  @brief This file contains the engine's **usefull macros for trivial tasks**.
+ *  @brief This file contains the engine's **macros for trivial tasks**.
  *
  *  Stuff that I found that I needed to implement to perform some task, <br>
  *  like debug-mode printing, and thought the engine would benefit from by making it <br>

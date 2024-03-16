@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AETrigLookup.hpp" 3 "Thu Mar 14 2024 20:55:55" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AETrigLookup.hpp" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -24,7 +24,15 @@ AEMisc/include/AETrigLookup.hpp \- This file contains the engine's \fBtrigonomet
 .ti -1c
 .RI "namespace \fBace::math\fP"
 .br
-.RI "Mathematical functions and other things usefull in math\&. "
+.RI "This namespace contains the engine's \fBmath and math-related functions\fP\&. "
+.ti -1c
+.RI "namespace \fBace::math::lookup\fP"
+.br
+.RI "This namespace contains the engine's \fBmath lookup functions\fP\&. "
+.ti -1c
+.RI "namespace \fBace::math::lookup::_tables\fP"
+.br
+.RI "This namespace contains the engine's \fBlookup tables\fP "
 .in -1c
 .SS "Macros"
 
@@ -38,55 +46,55 @@ AEMisc/include/AETrigLookup.hpp \- This file contains the engine's \fBtrigonomet
 
 .in +1c
 .ti -1c
-.RI "constexpr std::size_t \fBace::math::_getTrigTableIndex\fP (const \fBllint\fP a) noexcept"
+.RI "constexpr std::size_t \fBace::math::lookup::_getTrigTableIndex\fP (const \fBllint\fP a) noexcept"
 .br
 .RI "Returns the \fBindex to the trig table\fP from the given (int) degree number\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::sinDeg_table\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::sinDeg_table\fP (const float degrees) noexcept"
 .br
 .RI "Rounds the degrees value, and \fBlooks up the value of sine\fP in the table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::cosDeg_table\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::cosDeg_table\fP (const float degrees) noexcept"
 .br
 .RI "Rounds the degrees value, and \fBlooks up the value of cosine\fP in the table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::tanDeg_table\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::tanDeg_table\fP (const float degrees) noexcept"
 .br
 .RI "Rounds the degrees value, and \fBlooks up the value of tangent\fP in the table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::cotDeg_table\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::cotDeg_table\fP (const float degrees) noexcept"
 .br
 .RI "Rounds the degrees value, and \fBlooks up the value of cotangent\fP in the table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::cscDeg_table\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::cscDeg_table\fP (const float degrees) noexcept"
 .br
 .RI "Rounds the degrees value, and \fBlooks up the value of cosecant\fP in the table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::secDeg_table\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::secDeg_table\fP (const float degrees) noexcept"
 .br
 .RI "Rounds the degrees value, and \fBlooks up the value of secant\fP in the table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::sinDeg_tableInterp\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::sinDeg_tableInterp\fP (const float degrees) noexcept"
 .br
 .RI "Calculates the \fBinterpolated sine value\fP from the sine lookup table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::cosDeg_tableInterp\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::cosDeg_tableInterp\fP (const float degrees) noexcept"
 .br
 .RI "Calculates the \fBinterpolated cosine value\fP from the cosine lookup table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::tanDeg_tableInterp\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::tanDeg_tableInterp\fP (const float degrees) noexcept"
 .br
 .RI "Calculates the \fBinterpolated tangent value\fP from the tangent lookup table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::cotDeg_tableInterp\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::cotDeg_tableInterp\fP (const float degrees) noexcept"
 .br
 .RI "Calculates the \fBinterpolated cotangent value\fP from the cotangent lookup table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::cscDeg_tableInterp\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::cscDeg_tableInterp\fP (const float degrees) noexcept"
 .br
 .RI "Approximates the \fBinterpolated cosecant value\fP from the cosecant lookup table\&. "
 .ti -1c
-.RI "constexpr float \fBace::math::secDeg_tableInterp\fP (const float degrees) noexcept"
+.RI "constexpr float \fBace::math::lookup::secDeg_tableInterp\fP (const float degrees) noexcept"
 .br
 .RI "Calculates the \fBinterpolated secant value\fP from the secant lookup table\&. "
 .in -1c
@@ -94,27 +102,27 @@ AEMisc/include/AETrigLookup.hpp \- This file contains the engine's \fBtrigonomet
 
 .in +1c
 .ti -1c
-.RI "constexpr float \fBace::math::sinTable\fP [360]"
+.RI "constexpr float \fBace::math::lookup::_tables::sinTable\fP [360]"
 .br
 .RI "A lookup table for sine values (degrees) "
 .ti -1c
-.RI "constexpr float \fBace::math::cosTable\fP [360]"
+.RI "constexpr float \fBace::math::lookup::_tables::cosTable\fP [360]"
 .br
 .RI "A lookup table for cosine values (degrees) "
 .ti -1c
-.RI "constexpr float \fBace::math::tanTable\fP [360]"
+.RI "constexpr float \fBace::math::lookup::_tables::tanTable\fP [360]"
 .br
 .RI "A lookup table for tangent values (degrees) "
 .ti -1c
-.RI "constexpr float \fBace::math::cotTable\fP [360]"
+.RI "constexpr float \fBace::math::lookup::_tables::cotTable\fP [360]"
 .br
 .RI "A lookup table for cotangent values (degrees) "
 .ti -1c
-.RI "constexpr float \fBace::math::cscTable\fP [360]"
+.RI "constexpr float \fBace::math::lookup::_tables::cscTable\fP [360]"
 .br
 .RI "A lookup table for cosecant values (degrees) "
 .ti -1c
-.RI "constexpr float \fBace::math::secTable\fP [360]"
+.RI "constexpr float \fBace::math::lookup::_tables::secTable\fP [360]"
 .br
 .RI "A lookup table for secant values (degrees) "
 .in -1c

@@ -59,7 +59,7 @@
     <ClInclude Include="..\AEMisc\include\AEMath.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\AEMisc\include\AETrigLookup.hpp">
+    <ClInclude Include="..\AEMisc\include\AEMathTrigLookup.hpp">
       <Filter>Header Files\engine modules</Filter>
     </ClInclude>
     <ClInclude Include="..\AEMisc\include\AETypedefs.hpp">

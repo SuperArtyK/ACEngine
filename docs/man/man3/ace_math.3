@@ -1,95 +1,27 @@
-.TH "ace::math" 3 "Thu Mar 14 2024 20:55:56" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "ace::math" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-ace::math \- Mathematical functions and other things usefull in math\&.  
+ace::math \- This namespace contains the engine's \fBmath and math-related functions\fP\&.  
 
 .SH SYNOPSIS
 .br
 .PP
-.SS "Functions"
+.SS "Namespaces"
 
 .in +1c
 .ti -1c
-.RI "template<typename T  = long double> constexpr T \fBpi\fP (void) noexcept"
+.RI "namespace \fBcst\fP"
 .br
-.RI "Engine's \fBpi\fP value\&. "
+.RI "This namespace contains the engine's \fBmath constants\fP\&. "
 .ti -1c
-.RI "template<typename T  = long double> constexpr T \fBtau\fP (void) noexcept"
+.RI "namespace \fBlookup\fP"
 .br
-.RI "Engine's \fBtau (pi*2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBpiDouble\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi*2\fP (tau) value Just another name for \fBace::math::tau()\fP "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBpiHalf\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi/2\fP (half) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBpiQuarter\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi/4\fP (quarter) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBpiSquared\fP (void) noexcept"
-.br
-.RI "Engine's \fBpi^2\fP (squared) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBpiInv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/pi\fP (inverse) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBlog2e\fP (void) noexcept"
-.br
-.RI "Engine's \fBlog2(e)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBlog10e\fP (void) noexcept"
-.br
-.RI "Engine's \fBlog10(e)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBln2\fP (void) noexcept"
-.br
-.RI "Engine's \fBln(2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBln10\fP (void) noexcept"
-.br
-.RI "Engine's \fBln(10)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBsqrtOf2\fP (void) noexcept"
-.br
-.RI "Engine's \fBsqrt(2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBsqrtOf3\fP (void) noexcept"
-.br
-.RI "Engine's \fBsqrt(3)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBsqrtOf2Inv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/sqrt(2)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBsqrtOf3Inv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/sqrt(3)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBsqrtOfPi\fP (void) noexcept"
-.br
-.RI "Engine's \fBsqrt(pi)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBsqrtOfPiInv\fP (void) noexcept"
-.br
-.RI "Engine's \fB1/sqrt(pi)\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBe\fP (void) noexcept"
-.br
-.RI "Engine's \fBeuler's number\fP value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBeGamma\fP (void) noexcept"
-.br
-.RI "Engine's \fBeuler's gamma function\fP (euler's constant) value\&. "
-.ti -1c
-.RI "template<typename T  = long double> constexpr T \fBphi\fP (void) noexcept"
-.br
-.RI "Engine's \fBgolden ratio\fP (phi) value\&. "
+.RI "This namespace contains the engine's \fBmath lookup functions\fP\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
 .ti -1c
 .RI "template<typename T > constexpr T \fBtoRad\fP (const T deg) noexcept"
 .br
@@ -199,13 +131,21 @@ requires (std::is_floating_point<T>::value == true)constexpr \fBuint\fP \fBlengt
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBroundToInt\fP (const Y num) noexcept"
 .br
-.RI "\fBRounds the given float\fP of type Y \fBto integer\fP of type T\&. "
+.RI "\fBRounds the given number\fP of type Y \fBto integer\fP of type T\&. "
+.ti -1c
+.RI "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBround\fP (const Y num) noexcept"
+.br
+.RI "\fBRounds the passed number\fP of type Y and converts it to the type T "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBfloorToInt\fP (const Y num) noexcept"
 .br
-.RI "\fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
+.RI "
+.br
+ \fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
@@ -218,92 +158,14 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T \fBtruncToInt\fP (const Y num) noexcept"
 .br
 .RI "\fBTruncates the given float\fP of type Y and converts \fBto integer\fP of type T\&. "
-.ti -1c
-.RI "constexpr std::size_t \fB_getTrigTableIndex\fP (const \fBllint\fP a) noexcept"
-.br
-.RI "Returns the \fBindex to the trig table\fP from the given (int) degree number\&. "
-.ti -1c
-.RI "constexpr float \fBsinDeg_table\fP (const float degrees) noexcept"
-.br
-.RI "Rounds the degrees value, and \fBlooks up the value of sine\fP in the table\&. "
-.ti -1c
-.RI "constexpr float \fBcosDeg_table\fP (const float degrees) noexcept"
-.br
-.RI "Rounds the degrees value, and \fBlooks up the value of cosine\fP in the table\&. "
-.ti -1c
-.RI "constexpr float \fBtanDeg_table\fP (const float degrees) noexcept"
-.br
-.RI "Rounds the degrees value, and \fBlooks up the value of tangent\fP in the table\&. "
-.ti -1c
-.RI "constexpr float \fBcotDeg_table\fP (const float degrees) noexcept"
-.br
-.RI "Rounds the degrees value, and \fBlooks up the value of cotangent\fP in the table\&. "
-.ti -1c
-.RI "constexpr float \fBcscDeg_table\fP (const float degrees) noexcept"
-.br
-.RI "Rounds the degrees value, and \fBlooks up the value of cosecant\fP in the table\&. "
-.ti -1c
-.RI "constexpr float \fBsecDeg_table\fP (const float degrees) noexcept"
-.br
-.RI "Rounds the degrees value, and \fBlooks up the value of secant\fP in the table\&. "
-.ti -1c
-.RI "constexpr float \fBsinDeg_tableInterp\fP (const float degrees) noexcept"
-.br
-.RI "Calculates the \fBinterpolated sine value\fP from the sine lookup table\&. "
-.ti -1c
-.RI "constexpr float \fBcosDeg_tableInterp\fP (const float degrees) noexcept"
-.br
-.RI "Calculates the \fBinterpolated cosine value\fP from the cosine lookup table\&. "
-.ti -1c
-.RI "constexpr float \fBtanDeg_tableInterp\fP (const float degrees) noexcept"
-.br
-.RI "Calculates the \fBinterpolated tangent value\fP from the tangent lookup table\&. "
-.ti -1c
-.RI "constexpr float \fBcotDeg_tableInterp\fP (const float degrees) noexcept"
-.br
-.RI "Calculates the \fBinterpolated cotangent value\fP from the cotangent lookup table\&. "
-.ti -1c
-.RI "constexpr float \fBcscDeg_tableInterp\fP (const float degrees) noexcept"
-.br
-.RI "Approximates the \fBinterpolated cosecant value\fP from the cosecant lookup table\&. "
-.ti -1c
-.RI "constexpr float \fBsecDeg_tableInterp\fP (const float degrees) noexcept"
-.br
-.RI "Calculates the \fBinterpolated secant value\fP from the secant lookup table\&. "
-.in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "constexpr float \fBsinTable\fP [360]"
-.br
-.RI "A lookup table for sine values (degrees) "
-.ti -1c
-.RI "constexpr float \fBcosTable\fP [360]"
-.br
-.RI "A lookup table for cosine values (degrees) "
-.ti -1c
-.RI "constexpr float \fBtanTable\fP [360]"
-.br
-.RI "A lookup table for tangent values (degrees) "
-.ti -1c
-.RI "constexpr float \fBcotTable\fP [360]"
-.br
-.RI "A lookup table for cotangent values (degrees) "
-.ti -1c
-.RI "constexpr float \fBcscTable\fP [360]"
-.br
-.RI "A lookup table for cosecant values (degrees) "
-.ti -1c
-.RI "constexpr float \fBsecTable\fP [360]"
-.br
-.RI "A lookup table for secant values (degrees) "
 .in -1c
 .SH "Detailed Description"
 .PP 
-Mathematical functions and other things usefull in math\&. 
+This namespace contains the engine's \fBmath and math-related functions\fP\&. 
 
-Almost all functions have a template parameter for the type of the operation\&. 
+Mathematical functions and other things usefull in math\&. 
+.br
+ Almost all functions have a template parameter for the type of the operation\&. 
 .br
  That's made so you won't need to make the operation of a wider type, if you need it in the narrower type\&. 
 .br
@@ -312,371 +174,6 @@ Almost all functions have a template parameter for the type of the operation\&.
  
 .SH "Function Documentation"
 .PP 
-.SS "template<typename T  = long double> constexpr T ace::math::pi (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBpi\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB49\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::tau (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBtau (pi*2)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB61\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::piDouble (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBpi*2\fP (tau) value Just another name for \fBace::math::tau()\fP 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB74\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::piHalf (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBpi/2\fP (half) value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB86\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::piQuarter (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBpi/4\fP (quarter) value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB98\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::piSquared (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBpi^2\fP (squared) value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB110\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::piInv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fB1/pi\fP (inverse) value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB122\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::log2e (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBlog2(e)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB134\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::log10e (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBlog10(e)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB146\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::ln2 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBln(2)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB158\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::ln10 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBln(10)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB170\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::sqrtOf2 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBsqrt(2)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB182\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::sqrtOf3 (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBsqrt(3)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB194\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::sqrtOf2Inv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fB1/sqrt(2)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB206\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::sqrtOf3Inv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fB1/sqrt(3)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB218\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::sqrtOfPi (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBsqrt(pi)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB230\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::sqrtOfPiInv (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fB1/sqrt(pi)\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB242\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::e (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBeuler's number\fP value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB254\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::eGamma (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBeuler's gamma function\fP (euler's constant) value\&. 
-.PP
-\fBNote\fP
-.RS 4
-Don't confuse with euler's number \fBace::math::e()\fP
-.RE
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB267\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "template<typename T  = long double> constexpr T ace::math::phi (void)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Engine's \fBgolden ratio\fP (phi) value\&. 
-.PP
-\fBTemplate Parameters\fP
-.RS 4
-\fIT\fP Type to convert the constant to
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The constant converted/rounded to a given type 
-.RE
-.PP
-
-.PP
-Definition at line \fB279\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > constexpr T ace::math::toRad (const T deg)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -699,7 +196,7 @@ Radians from given degrees as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB292\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB52\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr bool ace::math::isInf (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -726,7 +223,7 @@ False otherwise
 .PP
 
 .PP
-Definition at line \fB306\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB66\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr bool ace::math::isNan (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -753,7 +250,7 @@ False otherwise
 .PP
 
 .PP
-Definition at line \fB321\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB81\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr bool ace::math::isFinite (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -780,7 +277,7 @@ False otherwise
 .PP
 
 .PP
-Definition at line \fB336\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB96\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > constexpr T ace::math::toDeg (const T rad)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -803,7 +300,7 @@ Degrees from given radians as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB350\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB110\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> T ace::math::sinDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -826,7 +323,7 @@ The values of sine of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB363\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB123\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtoRad()\fP\&.
 .SS "template<typename T  = long double> T ace::math::cosDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -851,7 +348,7 @@ The values of cosine of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB376\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB136\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtoRad()\fP\&.
 .SS "template<typename T  = long double> T ace::math::tanDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -876,7 +373,7 @@ The values of tangent of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB389\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB149\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtoRad()\fP\&.
 .SS "template<typename T  = long double> T ace::math::cotDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -901,7 +398,7 @@ The values of cotangent of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB402\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB162\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBtanDeg()\fP\&.
 .SS "template<typename T  = long double> T ace::math::cscDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -926,7 +423,7 @@ The values of cosecant of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB415\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB175\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBsinDeg()\fP\&.
 .SS "template<typename T  = long double> T ace::math::secDeg (const T degrees)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -951,7 +448,7 @@ The values of secant of given degrees, as type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB428\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB188\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBcosDeg()\fP\&.
 .SS "template<typename T > constexpr T ace::math::absval (const T num)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -976,7 +473,7 @@ Calculates the \fBabsolute value\fP of a given number\&.
 .PP
 
 .PP
-Definition at line \fB441\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB201\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> 
 .br
 requires (std::is_floating_point<T>::value == true)constexpr bool ace::math::fequals (const T num, const T num2, const T _epsilon)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1013,7 +510,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB461\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB221\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> 
 .br
 requires (std::is_floating_point<T>::value == true)constexpr bool ace::math::fequals (const T num, const T num2)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1053,7 +550,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB483\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB243\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T , typename Y  = T> constexpr bool ace::math::equals (const T & num, const Y & num2)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -1098,7 +595,7 @@ Otherwise:
 .PP
 
 .PP
-Definition at line \fB505\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB265\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::sqrt (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -1139,7 +636,7 @@ If the \fBnum\fP is negative or isn't finite:
 .PP
 
 .PP
-Definition at line \fB536\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB296\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBequals()\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::intPow (const T num, \fBllint\fP power)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1179,7 +676,7 @@ Otherwise, if \fBnum\fP isn't finite, or it's 0 \fIand\fP \fBpower\fP is negativ
 .PP
 
 .PP
-Definition at line \fB569\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB336\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBequals()\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::root (const T num, const \fBuint\fP rtNum)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1219,7 +716,7 @@ std::numeric_limits<T>::max() (largest value of type \fBT\fP)
 .PP
 
 .PP
-Definition at line \fB628\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB395\fP of file \fBAEMath\&.hpp\fP\&.
 .PP
 References \fBequals()\fP, and \fBsqrt()\fP\&.
 .SS "template<typename T > constexpr T ace::math::max (const T & a, const T & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1254,7 +751,7 @@ A copy of value \fBb\fP (since returned by value)
 .PP
 
 .PP
-Definition at line \fB666\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB438\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > constexpr T ace::math::min (const T & a, const T & b)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -1287,7 +784,7 @@ A copy of value \fBb\fP (since returned by value)
 .PP
 
 .PP
-Definition at line \fB684\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB456\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > 
 .br
 requires (std::is_integral<T>::value == true)constexpr \fBuint\fP ace::math::lengthOfInt (T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1317,7 +814,7 @@ The length of the integer \fBnum\fP as \fBuint\fP
 .PP
 
 .PP
-Definition at line \fB698\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB470\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T > 
 .br
 requires (std::is_floating_point<T>::value == true)constexpr \fBuint\fP ace::math::lengthOfFloat (const T num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1342,7 +839,7 @@ The length of the \fBnum\fP's non fractional part as \fBuint\fP
 .PP
 
 .PP
-Definition at line \fB716\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB488\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::lerp (const T a, const T b, const T c)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -1391,7 +888,7 @@ The inter/extrapolated value of type \fBT\fP
 .PP
 
 .PP
-Definition at line \fB743\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB515\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = long double> constexpr T ace::math::hypot (const T a, const T b)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
@@ -1416,13 +913,13 @@ The length of hypotenuse of type \fBT\fP with given lengths of \fBa\fP and \fBb\
 .PP
 
 .PP
-Definition at line \fB757\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB529\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::roundToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-\fBRounds the given float\fP of type Y \fBto integer\fP of type T\&. 
+\fBRounds the given number\fP of type Y \fBto integer\fP of type T\&. 
 .PP
 \fBRemarks\fP
 .RS 4
@@ -1463,13 +960,72 @@ The rounded integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB777\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB549\fP of file \fBAEMath\&.hpp\fP\&.
+.SS "template<typename T  = long double, typename Y  = T> 
+.br
+requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T ace::math::round (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+\fBRounds the passed number\fP of type Y and converts it to the type T 
+.PP
+\fBNote\fP
+.RS 4
+During compile-time calculation, it calls \fBace::math::roundToInt()\fP\&. Mind the overflows 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+When c++23 support appears, change it to a call to std::round() instead 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBace::math::roundToInt()\fP 
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Types \fBT\fP and \fBY\fP have to be arithmetic types
+.RE
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP The type to convert the result to
+.br
+\fIY\fP The type of the passed number\&. Defaults to \fBT\fP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fInum\fP The number to round
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+During runtime:
+.IP "\(bu" 2
+Result of the call to std::round()
+.PP
+.PP
+During compile-time:
+.IP "\(bu" 2
+Result of the call to \fBace::math::roundToInt()\fP 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line \fB575\fP of file \fBAEMath\&.hpp\fP\&.
+.PP
+References \fBroundToInt()\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::floorToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-\fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. 
+
+.br
+ \fBFloor's the given float\fP of type Y and converts \fBto integer\fP of type T\&. 
 .PP
 \fBRemarks\fP
 .RS 4
@@ -1515,7 +1071,7 @@ The floored integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB802\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB603\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::ceilToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1562,7 +1118,7 @@ The ceiled integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB825\fP of file \fBAEMath\&.hpp\fP\&.
+Definition at line \fB626\fP of file \fBAEMath\&.hpp\fP\&.
 .SS "template<typename T  = llint, typename Y  = long double> 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == true)constexpr T ace::math::truncToInt (const Y num)\fR [constexpr]\fP, \fR [noexcept]\fP"
@@ -1607,411 +1163,7 @@ The truncated integer of type \fBT\fP, from the given \fBnum\fP value
 .PP
 
 .PP
-Definition at line \fB848\fP of file \fBAEMath\&.hpp\fP\&.
-.SS "constexpr std::size_t ace::math::_getTrigTableIndex (const \fBllint\fP a)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Returns the \fBindex to the trig table\fP from the given (int) degree number\&. 
-.PP
-\fBRemarks\fP
-.RS 4
-If the number is negative, it wraps it from the end (-1 is the last item of the table) 
-.RE
-.PP
-\fBNote\fP
-.RS 4
-Not recommended to use directly\&. It's a helper function for the trig lookup table functions
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIa\fP The integer degree number
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-The legal index to the lookup tables 
-.RE
-.PP
-
-.PP
-Definition at line \fB115\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fBAETRIG_TABLE_SIZE\fP\&.
-.SS "constexpr float ace::math::sinDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Rounds the degrees value, and \fBlooks up the value of sine\fP in the table\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a sine from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float sine lookup table value that matches the (rounded) degrees amount 
-.RE
-.PP
-
-.PP
-Definition at line \fB129\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, and \fBsinTable\fP\&.
-.SS "constexpr float ace::math::cosDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Rounds the degrees value, and \fBlooks up the value of cosine\fP in the table\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a cosine from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float cosine lookup table value that matches the (rounded) degrees amount 
-.RE
-.PP
-
-.PP
-Definition at line \fB140\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, and \fBcosTable\fP\&.
-.SS "constexpr float ace::math::tanDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Rounds the degrees value, and \fBlooks up the value of tangent\fP in the table\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a tangent from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float tangent lookup table value that matches the (rounded) degrees amount 
-.RE
-.PP
-
-.PP
-Definition at line \fB151\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, and \fBtanTable\fP\&.
-.SS "constexpr float ace::math::cotDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Rounds the degrees value, and \fBlooks up the value of cotangent\fP in the table\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a cotangent from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float cotangent lookup table value that matches the (rounded) degrees amount 
-.RE
-.PP
-
-.PP
-Definition at line \fB162\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, and \fBcotTable\fP\&.
-.SS "constexpr float ace::math::cscDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Rounds the degrees value, and \fBlooks up the value of cosecant\fP in the table\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a cosecant from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float cosecant lookup table value that matches the (rounded) degrees amount 
-.RE
-.PP
-
-.PP
-Definition at line \fB173\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, and \fBcscTable\fP\&.
-.SS "constexpr float ace::math::secDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Rounds the degrees value, and \fBlooks up the value of secant\fP in the table\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a secant from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float secant lookup table value that matches the (rounded) degrees amount 
-.RE
-.PP
-
-.PP
-Definition at line \fB184\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, and \fBsecTable\fP\&.
-.SS "constexpr float ace::math::sinDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the \fBinterpolated sine value\fP from the sine lookup table\&. 
-.PP
-\fBNote\fP
-.RS 4
-Correct to the sine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a sine from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float of interpolated sine value 
-.RE
-.PP
-
-.PP
-Definition at line \fB196\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, \fBsinTable\fP, and \fBtruncToInt()\fP\&.
-.SS "constexpr float ace::math::cosDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the \fBinterpolated cosine value\fP from the cosine lookup table\&. 
-.PP
-\fBNote\fP
-.RS 4
-Correct to the cosine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a cosine from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float of interpolated cosine value 
-.RE
-.PP
-
-.PP
-Definition at line \fB209\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, \fBcosTable\fP, and \fBtruncToInt()\fP\&.
-.SS "constexpr float ace::math::tanDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the \fBinterpolated tangent value\fP from the tangent lookup table\&. 
-.PP
-\fBNote\fP
-.RS 4
-Correct to the tangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a tangent from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float of interpolated tangent value 
-.RE
-.PP
-
-.PP
-Definition at line \fB222\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, \fBtanTable\fP, and \fBtruncToInt()\fP\&.
-.SS "constexpr float ace::math::cotDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the \fBinterpolated cotangent value\fP from the cotangent lookup table\&. 
-.PP
-\fBNote\fP
-.RS 4
-Correct to the cotangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a cotangent from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float of interpolated cotangent value 
-.RE
-.PP
-
-.PP
-Definition at line \fB235\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, \fBcotTable\fP, and \fBtruncToInt()\fP\&.
-.SS "constexpr float ace::math::cscDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Approximates the \fBinterpolated cosecant value\fP from the cosecant lookup table\&. 
-.PP
-\fBNote\fP
-.RS 4
-Correct to the cosecant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a cosecant from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float of interpolated cosecant value 
-.RE
-.PP
-
-.PP
-Definition at line \fB248\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, \fBcscTable\fP, and \fBtruncToInt()\fP\&.
-.SS "constexpr float ace::math::secDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
-
-.PP
-Calculates the \fBinterpolated secant value\fP from the secant lookup table\&. 
-.PP
-\fBNote\fP
-.RS 4
-Correct to the secant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
-.RE
-.PP
-\fBParameters\fP
-.RS 4
-\fIdegrees\fP The value of degrees to find a secant from
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Float of interpolated secant value 
-.RE
-.PP
-
-.PP
-Definition at line \fB261\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.PP
-References \fB_getTrigTableIndex()\fP, \fBsecTable\fP, and \fBtruncToInt()\fP\&.
-.SH "Variable Documentation"
-.PP 
-.SS "constexpr float ace::math::sinTable[360]\fR [constexpr]\fP"
-\fBInitial value:\fP.PP
-.nf
-{
-        0\&.00000000f, 0\&.01745241f, 0\&.03489950f, 0\&.05233596f, 0\&.06975647f, 0\&.08715574f, 0\&.10452846f, 0\&.12186934f, 0\&.13917310f, 0\&.15643447f, 0\&.17364818f, 0\&.19080900f, 0\&.20791169f, 0\&.22495105f, 0\&.24192190f, 0\&.25881905f, 0\&.27563736f, 0\&.29237170f, 0\&.30901699f, 0\&.32556815f, 0\&.34202014f, 0\&.35836795f, 0\&.37460659f, 0\&.39073113f, 0\&.40673664f, 0\&.42261826f, 0\&.43837115f, 0\&.45399050f, 0\&.46947156f, 0\&.48480962f, 0\&.50000000f, 0\&.51503807f, 0\&.52991926f, 0\&.54463904f, 0\&.55919290f, 0\&.57357644f, 0\&.58778525f, 0\&.60181502f, 0\&.61566148f, 0\&.62932039f, 0\&.64278761f, 0\&.65605903f, 0\&.66913061f, 0\&.68199836f, 0\&.69465837f, 0\&.70710678f, 0\&.71933980f, 0\&.73135370f, 0\&.74314483f, 0\&.75470958f, 0\&.76604444f, 0\&.77714596f, 0\&.78801075f, 0\&.79863551f, 0\&.80901699f, 0\&.81915204f, 0\&.82903757f, 0\&.83867057f, 0\&.84804810f, 0\&.85716730f,
-        0\&.86602540f, 0\&.87461971f, 0\&.88294759f, 0\&.89100652f, 0\&.89879405f, 0\&.90630779f, 0\&.91354546f, 0\&.92050485f, 0\&.92718385f, 0\&.93358043f, 0\&.93969262f, 0\&.94551858f, 0\&.95105652f, 0\&.95630476f, 0\&.96126170f, 0\&.96592583f, 0\&.97029573f, 0\&.97437006f, 0\&.97814760f, 0\&.98162718f, 0\&.98480775f, 0\&.98768834f, 0\&.99026807f, 0\&.99254615f, 0\&.99452190f, 0\&.99619470f, 0\&.99756405f, 0\&.99862953f, 0\&.99939083f, 0\&.99984770f, 1\&.00000000f, 0\&.99984770f, 0\&.99939083f, 0\&.99862953f, 0\&.99756405f, 0\&.99619470f, 0\&.99452190f, 0\&.99254615f, 0\&.99026807f, 0\&.98768834f, 0\&.98480775f, 0\&.98162718f, 0\&.97814760f, 0\&.97437006f, 0\&.97029573f, 0\&.96592583f, 0\&.96126170f, 0\&.95630476f, 0\&.95105652f, 0\&.94551858f, 0\&.93969262f, 0\&.93358043f, 0\&.92718385f, 0\&.92050485f, 0\&.91354546f, 0\&.90630779f, 0\&.89879405f, 0\&.89100652f, 0\&.88294759f, 0\&.87461971f,
-        0\&.86602540f, 0\&.85716730f, 0\&.84804810f, 0\&.83867057f, 0\&.82903757f, 0\&.81915204f, 0\&.80901699f, 0\&.79863551f, 0\&.78801075f, 0\&.77714596f, 0\&.76604444f, 0\&.75470958f, 0\&.74314483f, 0\&.73135370f, 0\&.71933980f, 0\&.70710678f, 0\&.69465837f, 0\&.68199836f, 0\&.66913061f, 0\&.65605903f, 0\&.64278761f, 0\&.62932039f, 0\&.61566148f, 0\&.60181502f, 0\&.58778525f, 0\&.57357644f, 0\&.55919290f, 0\&.54463904f, 0\&.52991926f, 0\&.51503807f, 0\&.50000000f, 0\&.48480962f, 0\&.46947156f, 0\&.45399050f, 0\&.43837115f, 0\&.42261826f, 0\&.40673664f, 0\&.39073113f, 0\&.37460659f, 0\&.35836795f, 0\&.34202014f, 0\&.32556815f, 0\&.30901699f, 0\&.29237170f, 0\&.27563736f, 0\&.25881905f, 0\&.24192190f, 0\&.22495105f, 0\&.20791169f, 0\&.19080900f, 0\&.17364818f, 0\&.15643447f, 0\&.13917310f, 0\&.12186934f, 0\&.10452846f, 0\&.08715574f, 0\&.06975647f, 0\&.05233596f, 0\&.03489950f, 0\&.01745241f,
-        0\&.00000000f, \-0\&.01745241f, \-0\&.03489950f, \-0\&.05233596f, \-0\&.06975647f, \-0\&.08715574f, \-0\&.10452846f, \-0\&.12186934f, \-0\&.13917310f, \-0\&.15643447f, \-0\&.17364818f, \-0\&.19080900f, \-0\&.20791169f, \-0\&.22495105f, \-0\&.24192190f, \-0\&.25881905f, \-0\&.27563736f, \-0\&.29237170f, \-0\&.30901699f, \-0\&.32556815f, \-0\&.34202014f, \-0\&.35836795f, \-0\&.37460659f, \-0\&.39073113f, \-0\&.40673664f, \-0\&.42261826f, \-0\&.43837115f, \-0\&.45399050f, \-0\&.46947156f, \-0\&.48480962f, \-0\&.50000000f, \-0\&.51503807f, \-0\&.52991926f, \-0\&.54463904f, \-0\&.55919290f, \-0\&.57357644f, \-0\&.58778525f, \-0\&.60181502f, \-0\&.61566148f, \-0\&.62932039f, \-0\&.64278761f, \-0\&.65605903f, \-0\&.66913061f, \-0\&.68199836f, \-0\&.69465837f, \-0\&.70710678f, \-0\&.71933980f, \-0\&.73135370f, \-0\&.74314483f, \-0\&.75470958f, \-0\&.76604444f, \-0\&.77714596f, \-0\&.78801075f, \-0\&.79863551f, \-0\&.80901699f, \-0\&.81915204f, \-0\&.82903757f, \-0\&.83867057f, \-0\&.84804810f, \-0\&.85716730f,
-        \-0\&.86602540f, \-0\&.87461971f, \-0\&.88294759f, \-0\&.89100652f, \-0\&.89879405f, \-0\&.90630779f, \-0\&.91354546f, \-0\&.92050485f, \-0\&.92718385f, \-0\&.93358043f, \-0\&.93969262f, \-0\&.94551858f, \-0\&.95105652f, \-0\&.95630476f, \-0\&.96126170f, \-0\&.96592583f, \-0\&.97029573f, \-0\&.97437006f, \-0\&.97814760f, \-0\&.98162718f, \-0\&.98480775f, \-0\&.98768834f, \-0\&.99026807f, \-0\&.99254615f, \-0\&.99452190f, \-0\&.99619470f, \-0\&.99756405f, \-0\&.99862953f, \-0\&.99939083f, \-0\&.99984770f, \-1\&.00000000f, \-0\&.99984770f, \-0\&.99939083f, \-0\&.99862953f, \-0\&.99756405f, \-0\&.99619470f, \-0\&.99452190f, \-0\&.99254615f, \-0\&.99026807f, \-0\&.98768834f, \-0\&.98480775f, \-0\&.98162718f, \-0\&.97814760f, \-0\&.97437006f, \-0\&.97029573f, \-0\&.96592583f, \-0\&.96126170f, \-0\&.95630476f, \-0\&.95105652f, \-0\&.94551858f, \-0\&.93969262f, \-0\&.93358043f, \-0\&.92718385f, \-0\&.92050485f, \-0\&.91354546f, \-0\&.90630779f, \-0\&.89879405f, \-0\&.89100652f, \-0\&.88294759f, \-0\&.87461971f,
-        \-0\&.86602540f, \-0\&.85716730f, \-0\&.84804810f, \-0\&.83867057f, \-0\&.82903757f, \-0\&.81915204f, \-0\&.80901699f, \-0\&.79863551f, \-0\&.78801075f, \-0\&.77714596f, \-0\&.76604444f, \-0\&.75470958f, \-0\&.74314483f, \-0\&.73135370f, \-0\&.71933980f, \-0\&.70710678f, \-0\&.69465837f, \-0\&.68199836f, \-0\&.66913061f, \-0\&.65605903f, \-0\&.64278761f, \-0\&.62932039f, \-0\&.61566148f, \-0\&.60181502f, \-0\&.58778525f, \-0\&.57357644f, \-0\&.55919290f, \-0\&.54463904f, \-0\&.52991926f, \-0\&.51503807f, \-0\&.50000000f, \-0\&.48480962f, \-0\&.46947156f, \-0\&.45399050f, \-0\&.43837115f, \-0\&.42261826f, \-0\&.40673664f, \-0\&.39073113f, \-0\&.37460659f, \-0\&.35836795f, \-0\&.34202014f, \-0\&.32556815f, \-0\&.30901699f, \-0\&.29237170f, \-0\&.27563736f, \-0\&.25881905f, \-0\&.24192190f, \-0\&.22495105f, \-0\&.20791169f, \-0\&.19080900f, \-0\&.17364818f, \-0\&.15643447f, \-0\&.13917310f, \-0\&.12186934f, \-0\&.10452846f, \-0\&.08715574f, \-0\&.06975647f, \-0\&.05233596f, \-0\&.03489950f, \-0\&.01745241f,
-    }
-.fi
-
-.PP
-A lookup table for sine values (degrees) 
-.PP
-Definition at line \fB47\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.SS "constexpr float ace::math::cosTable[360]\fR [constexpr]\fP"
-\fBInitial value:\fP.PP
-.nf
-{
-        1\&.00000000f, 0\&.99984770f, 0\&.99939083f, 0\&.99862953f, 0\&.99756405f, 0\&.99619470f, 0\&.99452190f, 0\&.99254615f, 0\&.99026807f, 0\&.98768834f, 0\&.98480775f, 0\&.98162718f, 0\&.97814760f, 0\&.97437006f, 0\&.97029573f, 0\&.96592583f, 0\&.96126170f, 0\&.95630476f, 0\&.95105652f, 0\&.94551858f, 0\&.93969262f, 0\&.93358043f, 0\&.92718385f, 0\&.92050485f, 0\&.91354546f, 0\&.90630779f, 0\&.89879405f, 0\&.89100652f, 0\&.88294759f, 0\&.87461971f, 0\&.86602540f, 0\&.85716730f, 0\&.84804810f, 0\&.83867057f, 0\&.82903757f, 0\&.81915204f, 0\&.80901699f, 0\&.79863551f, 0\&.78801075f, 0\&.77714596f, 0\&.76604444f, 0\&.75470958f, 0\&.74314483f, 0\&.73135370f, 0\&.71933980f, 0\&.70710678f, 0\&.69465837f, 0\&.68199836f, 0\&.66913061f, 0\&.65605903f, 0\&.64278761f, 0\&.62932039f, 0\&.61566148f, 0\&.60181502f, 0\&.58778525f, 0\&.57357644f, 0\&.55919290f, 0\&.54463904f, 0\&.52991926f, 0\&.51503807f,
-        0\&.50000000f, 0\&.48480962f, 0\&.46947156f, 0\&.45399050f, 0\&.43837115f, 0\&.42261826f, 0\&.40673664f, 0\&.39073113f, 0\&.37460659f, 0\&.35836795f, 0\&.34202014f, 0\&.32556815f, 0\&.30901699f, 0\&.29237170f, 0\&.27563736f, 0\&.25881905f, 0\&.24192190f, 0\&.22495105f, 0\&.20791169f, 0\&.19080900f, 0\&.17364818f, 0\&.15643447f, 0\&.13917310f, 0\&.12186934f, 0\&.10452846f, 0\&.08715574f, 0\&.06975647f, 0\&.05233596f, 0\&.03489950f, 0\&.01745241f, 0\&.00000000f, \-0\&.01745241f, \-0\&.03489950f, \-0\&.05233596f, \-0\&.06975647f, \-0\&.08715574f, \-0\&.10452846f, \-0\&.12186934f, \-0\&.13917310f, \-0\&.15643447f, \-0\&.17364818f, \-0\&.19080900f, \-0\&.20791169f, \-0\&.22495105f, \-0\&.24192190f, \-0\&.25881905f, \-0\&.27563736f, \-0\&.29237170f, \-0\&.30901699f, \-0\&.32556815f, \-0\&.34202014f, \-0\&.35836795f, \-0\&.37460659f, \-0\&.39073113f, \-0\&.40673664f, \-0\&.42261826f, \-0\&.43837115f, \-0\&.45399050f, \-0\&.46947156f, \-0\&.48480962f,
-        \-0\&.50000000f, \-0\&.51503807f, \-0\&.52991926f, \-0\&.54463904f, \-0\&.55919290f, \-0\&.57357644f, \-0\&.58778525f, \-0\&.60181502f, \-0\&.61566148f, \-0\&.62932039f, \-0\&.64278761f, \-0\&.65605903f, \-0\&.66913061f, \-0\&.68199836f, \-0\&.69465837f, \-0\&.70710678f, \-0\&.71933980f, \-0\&.73135370f, \-0\&.74314483f, \-0\&.75470958f, \-0\&.76604444f, \-0\&.77714596f, \-0\&.78801075f, \-0\&.79863551f, \-0\&.80901699f, \-0\&.81915204f, \-0\&.82903757f, \-0\&.83867057f, \-0\&.84804810f, \-0\&.85716730f, \-0\&.86602540f, \-0\&.87461971f, \-0\&.88294759f, \-0\&.89100652f, \-0\&.89879405f, \-0\&.90630779f, \-0\&.91354546f, \-0\&.92050485f, \-0\&.92718385f, \-0\&.93358043f, \-0\&.93969262f, \-0\&.94551858f, \-0\&.95105652f, \-0\&.95630476f, \-0\&.96126170f, \-0\&.96592583f, \-0\&.97029573f, \-0\&.97437006f, \-0\&.97814760f, \-0\&.98162718f, \-0\&.98480775f, \-0\&.98768834f, \-0\&.99026807f, \-0\&.99254615f, \-0\&.99452190f, \-0\&.99619470f, \-0\&.99756405f, \-0\&.99862953f, \-0\&.99939083f, \-0\&.99984770f,
-        \-1\&.00000000f, \-0\&.99984770f, \-0\&.99939083f, \-0\&.99862953f, \-0\&.99756405f, \-0\&.99619470f, \-0\&.99452190f, \-0\&.99254615f, \-0\&.99026807f, \-0\&.98768834f, \-0\&.98480775f, \-0\&.98162718f, \-0\&.97814760f, \-0\&.97437006f, \-0\&.97029573f, \-0\&.96592583f, \-0\&.96126170f, \-0\&.95630476f, \-0\&.95105652f, \-0\&.94551858f, \-0\&.93969262f, \-0\&.93358043f, \-0\&.92718385f, \-0\&.92050485f, \-0\&.91354546f, \-0\&.90630779f, \-0\&.89879405f, \-0\&.89100652f, \-0\&.88294759f, \-0\&.87461971f, \-0\&.86602540f, \-0\&.85716730f, \-0\&.84804810f, \-0\&.83867057f, \-0\&.82903757f, \-0\&.81915204f, \-0\&.80901699f, \-0\&.79863551f, \-0\&.78801075f, \-0\&.77714596f, \-0\&.76604444f, \-0\&.75470958f, \-0\&.74314483f, \-0\&.73135370f, \-0\&.71933980f, \-0\&.70710678f, \-0\&.69465837f, \-0\&.68199836f, \-0\&.66913061f, \-0\&.65605903f, \-0\&.64278761f, \-0\&.62932039f, \-0\&.61566148f, \-0\&.60181502f, \-0\&.58778525f, \-0\&.57357644f, \-0\&.55919290f, \-0\&.54463904f, \-0\&.52991926f, \-0\&.51503807f,
-        \-0\&.50000000f, \-0\&.48480962f, \-0\&.46947156f, \-0\&.45399050f, \-0\&.43837115f, \-0\&.42261826f, \-0\&.40673664f, \-0\&.39073113f, \-0\&.37460659f, \-0\&.35836795f, \-0\&.34202014f, \-0\&.32556815f, \-0\&.30901699f, \-0\&.29237170f, \-0\&.27563736f, \-0\&.25881905f, \-0\&.24192190f, \-0\&.22495105f, \-0\&.20791169f, \-0\&.19080900f, \-0\&.17364818f, \-0\&.15643447f, \-0\&.13917310f, \-0\&.12186934f, \-0\&.10452846f, \-0\&.08715574f, \-0\&.06975647f, \-0\&.05233596f, \-0\&.03489950f, \-0\&.01745241f, \-0\&.00000000f, 0\&.01745241f, 0\&.03489950f, 0\&.05233596f, 0\&.06975647f, 0\&.08715574f, 0\&.10452846f, 0\&.12186934f, 0\&.13917310f, 0\&.15643447f, 0\&.17364818f, 0\&.19080900f, 0\&.20791169f, 0\&.22495105f, 0\&.24192190f, 0\&.25881905f, 0\&.27563736f, 0\&.29237170f, 0\&.30901699f, 0\&.32556815f, 0\&.34202014f, 0\&.35836795f, 0\&.37460659f, 0\&.39073113f, 0\&.40673664f, 0\&.42261826f, 0\&.43837115f, 0\&.45399050f, 0\&.46947156f, 0\&.48480962f,
-        0\&.50000000f, 0\&.51503807f, 0\&.52991926f, 0\&.54463904f, 0\&.55919290f, 0\&.57357644f, 0\&.58778525f, 0\&.60181502f, 0\&.61566148f, 0\&.62932039f, 0\&.64278761f, 0\&.65605903f, 0\&.66913061f, 0\&.68199836f, 0\&.69465837f, 0\&.70710678f, 0\&.71933980f, 0\&.73135370f, 0\&.74314483f, 0\&.75470958f, 0\&.76604444f, 0\&.77714596f, 0\&.78801075f, 0\&.79863551f, 0\&.80901699f, 0\&.81915204f, 0\&.82903757f, 0\&.83867057f, 0\&.84804810f, 0\&.85716730f, 0\&.86602540f, 0\&.87461971f, 0\&.88294759f, 0\&.89100652f, 0\&.89879405f, 0\&.90630779f, 0\&.91354546f, 0\&.92050485f, 0\&.92718385f, 0\&.93358043f, 0\&.93969262f, 0\&.94551858f, 0\&.95105652f, 0\&.95630476f, 0\&.96126170f, 0\&.96592583f, 0\&.97029573f, 0\&.97437006f, 0\&.97814760f, 0\&.98162718f, 0\&.98480775f, 0\&.98768834f, 0\&.99026807f, 0\&.99254615f, 0\&.99452190f, 0\&.99619470f, 0\&.99756405f, 0\&.99862953f, 0\&.99939083f, 0\&.99984770f,
-    }
-.fi
-
-.PP
-A lookup table for cosine values (degrees) 
-.PP
-Definition at line \fB57\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.SS "constexpr float ace::math::tanTable[360]\fR [constexpr]\fP"
-\fBInitial value:\fP.PP
-.nf
-{
-        0\&.00000000f, 0\&.01745506f, 0\&.03492077f, 0\&.05240778f, 0\&.06992681f, 0\&.08748866f, 0\&.10510424f, 0\&.12278456f, 0\&.14054083f, 0\&.15838444f, 0\&.17632698f, 0\&.19438031f, 0\&.21255656f, 0\&.23086819f, 0\&.24932800f, 0\&.26794919f, 0\&.28674539f, 0\&.30573068f, 0\&.32491970f, 0\&.34432761f, 0\&.36397023f, 0\&.38386404f, 0\&.40402623f, 0\&.42447482f, 0\&.44522869f, 0\&.46630766f, 0\&.48773259f, 0\&.50952545f, 0\&.53170943f, 0\&.55430905f, 0\&.57735027f, 0\&.60086062f, 0\&.62486935f, 0\&.64940759f, 0\&.67450852f, 0\&.70020754f, 0\&.72654253f, 0\&.75355405f, 0\&.78128563f, 0\&.80978403f, 0\&.83909963f, 0\&.86928674f, 0\&.90040404f, 0\&.93251509f, 0\&.96568877f, 1\&.00000000f, 1\&.03553031f, 1\&.07236871f, 1\&.11061251f, 1\&.15036841f, 1\&.19175359f, 1\&.23489716f, 1\&.27994163f, 1\&.32704482f, 1\&.37638192f, 1\&.42814801f, 1\&.48256097f, 1\&.53986496f, 1\&.60033453f, 1\&.66427948f,
-        1\&.73205081f, 1\&.80404776f, 1\&.88072647f, 1\&.96261051f, 2\&.05030384f, 2\&.14450692f, 2\&.24603677f, 2\&.35585237f, 2\&.47508685f, 2\&.60508906f, 2\&.74747742f, 2\&.90421088f, 3\&.07768354f, 3\&.27085262f, 3\&.48741444f, 3\&.73205081f, 4\&.01078093f, 4\&.33147587f, 4\&.70463011f, 5\&.14455402f, 5\&.67128182f, 6\&.31375151f, 7\&.11536972f, 8\&.14434643f, 9\&.51436445f, 11\&.43005230f, 14\&.30066626f, 19\&.08113669f, 28\&.63625328f, 57\&.28996163f, FLT_MAX, \-57\&.28996163f, \-28\&.63625328f, \-19\&.08113669f, \-14\&.30066626f, \-11\&.43005230f, \-9\&.51436445f, \-8\&.14434643f, \-7\&.11536972f, \-6\&.31375151f, \-5\&.67128182f, \-5\&.14455402f, \-4\&.70463011f, \-4\&.33147587f, \-4\&.01078093f, \-3\&.73205081f, \-3\&.48741444f, \-3\&.27085262f, \-3\&.07768354f, \-2\&.90421088f, \-2\&.74747742f, \-2\&.60508906f, \-2\&.47508685f, \-2\&.35585237f, \-2\&.24603677f, \-2\&.14450692f, \-2\&.05030384f, \-1\&.96261051f, \-1\&.88072647f, \-1\&.80404776f,
-        \-1\&.73205081f, \-1\&.66427948f, \-1\&.60033453f, \-1\&.53986496f, \-1\&.48256097f, \-1\&.42814801f, \-1\&.37638192f, \-1\&.32704482f, \-1\&.27994163f, \-1\&.23489716f, \-1\&.19175359f, \-1\&.15036841f, \-1\&.11061251f, \-1\&.07236871f, \-1\&.03553031f, \-1\&.00000000f, \-0\&.96568877f, \-0\&.93251509f, \-0\&.90040404f, \-0\&.86928674f, \-0\&.83909963f, \-0\&.80978403f, \-0\&.78128563f, \-0\&.75355405f, \-0\&.72654253f, \-0\&.70020754f, \-0\&.67450852f, \-0\&.64940759f, \-0\&.62486935f, \-0\&.60086062f, \-0\&.57735027f, \-0\&.55430905f, \-0\&.53170943f, \-0\&.50952545f, \-0\&.48773259f, \-0\&.46630766f, \-0\&.44522869f, \-0\&.42447482f, \-0\&.40402623f, \-0\&.38386404f, \-0\&.36397023f, \-0\&.34432761f, \-0\&.32491970f, \-0\&.30573068f, \-0\&.28674539f, \-0\&.26794919f, \-0\&.24932800f, \-0\&.23086819f, \-0\&.21255656f, \-0\&.19438031f, \-0\&.17632698f, \-0\&.15838444f, \-0\&.14054083f, \-0\&.12278456f, \-0\&.10510424f, \-0\&.08748866f, \-0\&.06992681f, \-0\&.05240778f, \-0\&.03492077f, \-0\&.01745506f,
-        \-0\&.00000000f, 0\&.01745506f, 0\&.03492077f, 0\&.05240778f, 0\&.06992681f, 0\&.08748866f, 0\&.10510424f, 0\&.12278456f, 0\&.14054083f, 0\&.15838444f, 0\&.17632698f, 0\&.19438031f, 0\&.21255656f, 0\&.23086819f, 0\&.24932800f, 0\&.26794919f, 0\&.28674539f, 0\&.30573068f, 0\&.32491970f, 0\&.34432761f, 0\&.36397023f, 0\&.38386404f, 0\&.40402623f, 0\&.42447482f, 0\&.44522869f, 0\&.46630766f, 0\&.48773259f, 0\&.50952545f, 0\&.53170943f, 0\&.55430905f, 0\&.57735027f, 0\&.60086062f, 0\&.62486935f, 0\&.64940759f, 0\&.67450852f, 0\&.70020754f, 0\&.72654253f, 0\&.75355405f, 0\&.78128563f, 0\&.80978403f, 0\&.83909963f, 0\&.86928674f, 0\&.90040404f, 0\&.93251509f, 0\&.96568877f, 1\&.00000000f, 1\&.03553031f, 1\&.07236871f, 1\&.11061251f, 1\&.15036841f, 1\&.19175359f, 1\&.23489716f, 1\&.27994163f, 1\&.32704482f, 1\&.37638192f, 1\&.42814801f, 1\&.48256097f, 1\&.53986496f, 1\&.60033453f, 1\&.66427948f,
-        1\&.73205081f, 1\&.80404776f, 1\&.88072647f, 1\&.96261051f, 2\&.05030384f, 2\&.14450692f, 2\&.24603677f, 2\&.35585237f, 2\&.47508685f, 2\&.60508906f, 2\&.74747742f, 2\&.90421088f, 3\&.07768354f, 3\&.27085262f, 3\&.48741444f, 3\&.73205081f, 4\&.01078093f, 4\&.33147587f, 4\&.70463011f, 5\&.14455402f, 5\&.67128182f, 6\&.31375151f, 7\&.11536972f, 8\&.14434643f, 9\&.51436445f, 11\&.43005230f, 14\&.30066626f, 19\&.08113669f, 28\&.63625328f, 57\&.28996163f, FLT_MAX, \-57\&.28996163f, \-28\&.63625328f, \-19\&.08113669f, \-14\&.30066626f, \-11\&.43005230f, \-9\&.51436445f, \-8\&.14434643f, \-7\&.11536972f, \-6\&.31375151f, \-5\&.67128182f, \-5\&.14455402f, \-4\&.70463011f, \-4\&.33147587f, \-4\&.01078093f, \-3\&.73205081f, \-3\&.48741444f, \-3\&.27085262f, \-3\&.07768354f, \-2\&.90421088f, \-2\&.74747742f, \-2\&.60508906f, \-2\&.47508685f, \-2\&.35585237f, \-2\&.24603677f, \-2\&.14450692f, \-2\&.05030384f, \-1\&.96261051f, \-1\&.88072647f, \-1\&.80404776f,
-        \-1\&.73205081f, \-1\&.66427948f, \-1\&.60033453f, \-1\&.53986496f, \-1\&.48256097f, \-1\&.42814801f, \-1\&.37638192f, \-1\&.32704482f, \-1\&.27994163f, \-1\&.23489716f, \-1\&.19175359f, \-1\&.15036841f, \-1\&.11061251f, \-1\&.07236871f, \-1\&.03553031f, \-1\&.00000000f, \-0\&.96568877f, \-0\&.93251509f, \-0\&.90040404f, \-0\&.86928674f, \-0\&.83909963f, \-0\&.80978403f, \-0\&.78128563f, \-0\&.75355405f, \-0\&.72654253f, \-0\&.70020754f, \-0\&.67450852f, \-0\&.64940759f, \-0\&.62486935f, \-0\&.60086062f, \-0\&.57735027f, \-0\&.55430905f, \-0\&.53170943f, \-0\&.50952545f, \-0\&.48773259f, \-0\&.46630766f, \-0\&.44522869f, \-0\&.42447482f, \-0\&.40402623f, \-0\&.38386404f, \-0\&.36397023f, \-0\&.34432761f, \-0\&.32491970f, \-0\&.30573068f, \-0\&.28674539f, \-0\&.26794919f, \-0\&.24932800f, \-0\&.23086819f, \-0\&.21255656f, \-0\&.19438031f, \-0\&.17632698f, \-0\&.15838444f, \-0\&.14054083f, \-0\&.12278456f, \-0\&.10510424f, \-0\&.08748866f, \-0\&.06992681f, \-0\&.05240778f, \-0\&.03492077f, \-0\&.01745506f,
-    }
-.fi
-
-.PP
-A lookup table for tangent values (degrees) 
-.PP
-Definition at line \fB67\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.SS "constexpr float ace::math::cotTable[360]\fR [constexpr]\fP"
-\fBInitial value:\fP.PP
-.nf
-{
-        FLT_MAX, 57\&.28996163f, 28\&.63625328f, 19\&.08113669f, 14\&.30066626f, 11\&.43005230f, 9\&.51436445f, 8\&.14434643f, 7\&.11536972f, 6\&.31375151f, 5\&.67128182f, 5\&.14455402f, 4\&.70463011f, 4\&.33147587f, 4\&.01078093f, 3\&.73205081f, 3\&.48741444f, 3\&.27085262f, 3\&.07768354f, 2\&.90421088f, 2\&.74747742f, 2\&.60508906f, 2\&.47508685f, 2\&.35585237f, 2\&.24603677f, 2\&.14450692f, 2\&.05030384f, 1\&.96261051f, 1\&.88072647f, 1\&.80404776f, 1\&.73205081f, 1\&.66427948f, 1\&.60033453f, 1\&.53986496f, 1\&.48256097f, 1\&.42814801f, 1\&.37638192f, 1\&.32704482f, 1\&.27994163f, 1\&.23489716f, 1\&.19175359f, 1\&.15036841f, 1\&.11061251f, 1\&.07236871f, 1\&.03553031f, 1\&.00000000f, 0\&.96568877f, 0\&.93251509f, 0\&.90040404f, 0\&.86928674f, 0\&.83909963f, 0\&.80978403f, 0\&.78128563f, 0\&.75355405f, 0\&.72654253f, 0\&.70020754f, 0\&.67450852f, 0\&.64940759f, 0\&.62486935f, 0\&.60086062f,
-        0\&.57735027f, 0\&.55430905f, 0\&.53170943f, 0\&.50952545f, 0\&.48773259f, 0\&.46630766f, 0\&.44522869f, 0\&.42447482f, 0\&.40402623f, 0\&.38386404f, 0\&.36397023f, 0\&.34432761f, 0\&.32491970f, 0\&.30573068f, 0\&.28674539f, 0\&.26794919f, 0\&.24932800f, 0\&.23086819f, 0\&.21255656f, 0\&.19438031f, 0\&.17632698f, 0\&.15838444f, 0\&.14054083f, 0\&.12278456f, 0\&.10510424f, 0\&.08748866f, 0\&.06992681f, 0\&.05240778f, 0\&.03492077f, 0\&.01745506f, 0\&.00000000f, \-0\&.01745506f, \-0\&.03492077f, \-0\&.05240778f, \-0\&.06992681f, \-0\&.08748866f, \-0\&.10510424f, \-0\&.12278456f, \-0\&.14054083f, \-0\&.15838444f, \-0\&.17632698f, \-0\&.19438031f, \-0\&.21255656f, \-0\&.23086819f, \-0\&.24932800f, \-0\&.26794919f, \-0\&.28674539f, \-0\&.30573068f, \-0\&.32491970f, \-0\&.34432761f, \-0\&.36397023f, \-0\&.38386404f, \-0\&.40402623f, \-0\&.42447482f, \-0\&.44522869f, \-0\&.46630766f, \-0\&.48773259f, \-0\&.50952545f, \-0\&.53170943f, \-0\&.55430905f,
-        \-0\&.57735027f, \-0\&.60086062f, \-0\&.62486935f, \-0\&.64940759f, \-0\&.67450852f, \-0\&.70020754f, \-0\&.72654253f, \-0\&.75355405f, \-0\&.78128563f, \-0\&.80978403f, \-0\&.83909963f, \-0\&.86928674f, \-0\&.90040404f, \-0\&.93251509f, \-0\&.96568877f, \-1\&.00000000f, \-1\&.03553031f, \-1\&.07236871f, \-1\&.11061251f, \-1\&.15036841f, \-1\&.19175359f, \-1\&.23489716f, \-1\&.27994163f, \-1\&.32704482f, \-1\&.37638192f, \-1\&.42814801f, \-1\&.48256097f, \-1\&.53986496f, \-1\&.60033453f, \-1\&.66427948f, \-1\&.73205081f, \-1\&.80404776f, \-1\&.88072647f, \-1\&.96261051f, \-2\&.05030384f, \-2\&.14450692f, \-2\&.24603677f, \-2\&.35585237f, \-2\&.47508685f, \-2\&.60508906f, \-2\&.74747742f, \-2\&.90421088f, \-3\&.07768354f, \-3\&.27085262f, \-3\&.48741444f, \-3\&.73205081f, \-4\&.01078093f, \-4\&.33147587f, \-4\&.70463011f, \-5\&.14455402f, \-5\&.67128182f, \-6\&.31375151f, \-7\&.11536972f, \-8\&.14434643f, \-9\&.51436445f, \-11\&.43005230f, \-14\&.30066626f, \-19\&.08113669f, \-28\&.63625328f, \-57\&.28996163f,
-        \-FLT_MAX, 57\&.28996163f, 28\&.63625328f, 19\&.08113669f, 14\&.30066626f, 11\&.43005230f, 9\&.51436445f, 8\&.14434643f, 7\&.11536972f, 6\&.31375151f, 5\&.67128182f, 5\&.14455402f, 4\&.70463011f, 4\&.33147587f, 4\&.01078093f, 3\&.73205081f, 3\&.48741444f, 3\&.27085262f, 3\&.07768354f, 2\&.90421088f, 2\&.74747742f, 2\&.60508906f, 2\&.47508685f, 2\&.35585237f, 2\&.24603677f, 2\&.14450692f, 2\&.05030384f, 1\&.96261051f, 1\&.88072647f, 1\&.80404776f, 1\&.73205081f, 1\&.66427948f, 1\&.60033453f, 1\&.53986496f, 1\&.48256097f, 1\&.42814801f, 1\&.37638192f, 1\&.32704482f, 1\&.27994163f, 1\&.23489716f, 1\&.19175359f, 1\&.15036841f, 1\&.11061251f, 1\&.07236871f, 1\&.03553031f, 1\&.00000000f, 0\&.96568877f, 0\&.93251509f, 0\&.90040404f, 0\&.86928674f, 0\&.83909963f, 0\&.80978403f, 0\&.78128563f, 0\&.75355405f, 0\&.72654253f, 0\&.70020754f, 0\&.67450852f, 0\&.64940759f, 0\&.62486935f, 0\&.60086062f,
-        0\&.57735027f, 0\&.55430905f, 0\&.53170943f, 0\&.50952545f, 0\&.48773259f, 0\&.46630766f, 0\&.44522869f, 0\&.42447482f, 0\&.40402623f, 0\&.38386404f, 0\&.36397023f, 0\&.34432761f, 0\&.32491970f, 0\&.30573068f, 0\&.28674539f, 0\&.26794919f, 0\&.24932800f, 0\&.23086819f, 0\&.21255656f, 0\&.19438031f, 0\&.17632698f, 0\&.15838444f, 0\&.14054083f, 0\&.12278456f, 0\&.10510424f, 0\&.08748866f, 0\&.06992681f, 0\&.05240778f, 0\&.03492077f, 0\&.01745506f, 0\&.00000000f, \-0\&.01745506f, \-0\&.03492077f, \-0\&.05240778f, \-0\&.06992681f, \-0\&.08748866f, \-0\&.10510424f, \-0\&.12278456f, \-0\&.14054083f, \-0\&.15838444f, \-0\&.17632698f, \-0\&.19438031f, \-0\&.21255656f, \-0\&.23086819f, \-0\&.24932800f, \-0\&.26794919f, \-0\&.28674539f, \-0\&.30573068f, \-0\&.32491970f, \-0\&.34432761f, \-0\&.36397023f, \-0\&.38386404f, \-0\&.40402623f, \-0\&.42447482f, \-0\&.44522869f, \-0\&.46630766f, \-0\&.48773259f, \-0\&.50952545f, \-0\&.53170943f, \-0\&.55430905f,
-        \-0\&.57735027f, \-0\&.60086062f, \-0\&.62486935f, \-0\&.64940759f, \-0\&.67450852f, \-0\&.70020754f, \-0\&.72654253f, \-0\&.75355405f, \-0\&.78128563f, \-0\&.80978403f, \-0\&.83909963f, \-0\&.86928674f, \-0\&.90040404f, \-0\&.93251509f, \-0\&.96568877f, \-1\&.00000000f, \-1\&.03553031f, \-1\&.07236871f, \-1\&.11061251f, \-1\&.15036841f, \-1\&.19175359f, \-1\&.23489716f, \-1\&.27994163f, \-1\&.32704482f, \-1\&.37638192f, \-1\&.42814801f, \-1\&.48256097f, \-1\&.53986496f, \-1\&.60033453f, \-1\&.66427948f, \-1\&.73205081f, \-1\&.80404776f, \-1\&.88072647f, \-1\&.96261051f, \-2\&.05030384f, \-2\&.14450692f, \-2\&.24603677f, \-2\&.35585237f, \-2\&.47508685f, \-2\&.60508906f, \-2\&.74747742f, \-2\&.90421088f, \-3\&.07768354f, \-3\&.27085262f, \-3\&.48741444f, \-3\&.73205081f, \-4\&.01078093f, \-4\&.33147587f, \-4\&.70463011f, \-5\&.14455402f, \-5\&.67128182f, \-6\&.31375151f, \-7\&.11536972f, \-8\&.14434643f, \-9\&.51436445f, \-11\&.43005230f, \-14\&.30066626f, \-19\&.08113669f, \-28\&.63625328f, \-57\&.28996163f,
-    }
-.fi
-
-.PP
-A lookup table for cotangent values (degrees) 
-.PP
-Definition at line \fB77\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.SS "constexpr float ace::math::cscTable[360]\fR [constexpr]\fP"
-\fBInitial value:\fP.PP
-.nf
-{
-        FLT_MAX, 57\&.29868850f, 28\&.65370835f, 19\&.10732261f, 14\&.33558703f, 11\&.47371325f, 9\&.56677223f, 8\&.20550905f, 7\&.18529653f, 6\&.39245322f, 5\&.75877048f, 5\&.24084306f, 4\&.80973434f, 4\&.44541148f, 4\&.13356549f, 3\&.86370331f, 3\&.62795528f, 3\&.42030362f, 3\&.23606798f, 3\&.07155349f, 2\&.92380440f, 2\&.79042811f, 2\&.66946716f, 2\&.55930467f, 2\&.45859334f, 2\&.36620158f, 2\&.28117203f, 2\&.20268926f, 2\&.13005447f, 2\&.06266534f, 2\&.00000000f, 1\&.94160403f, 1\&.88707991f, 1\&.83607846f, 1\&.78829165f, 1\&.74344680f, 1\&.70130162f, 1\&.66164014f, 1\&.62426925f, 1\&.58901573f, 1\&.55572383f, 1\&.52425309f, 1\&.49447655f, 1\&.46627919f, 1\&.43955654f, 1\&.41421356f, 1\&.39016359f, 1\&.36732746f, 1\&.34563273f, 1\&.32501299f, 1\&.30540729f, 1\&.28675957f, 1\&.26901822f, 1\&.25213566f, 1\&.23606798f, 1\&.22077459f, 1\&.20621795f, 1\&.19236329f, 1\&.17917840f, 1\&.16663340f,
-        1\&.15470054f, 1\&.14335407f, 1\&.13257005f, 1\&.12232624f, 1\&.11260194f, 1\&.10337792f, 1\&.09463628f, 1\&.08636038f, 1\&.07853474f, 1\&.07114499f, 1\&.06417777f, 1\&.05762068f, 1\&.05146222f, 1\&.04569176f, 1\&.04029944f, 1\&.03527618f, 1\&.03061363f, 1\&.02630411f, 1\&.02234059f, 1\&.01871669f, 1\&.01542661f, 1\&.01246513f, 1\&.00982757f, 1\&.00750983f, 1\&.00550828f, 1\&.00381984f, 1\&.00244190f, 1\&.00137235f, 1\&.00060954f, 1\&.00015233f, 1\&.00000000f, 1\&.00015233f, 1\&.00060954f, 1\&.00137235f, 1\&.00244190f, 1\&.00381984f, 1\&.00550828f, 1\&.00750983f, 1\&.00982757f, 1\&.01246513f, 1\&.01542661f, 1\&.01871669f, 1\&.02234059f, 1\&.02630411f, 1\&.03061363f, 1\&.03527618f, 1\&.04029944f, 1\&.04569176f, 1\&.05146222f, 1\&.05762068f, 1\&.06417777f, 1\&.07114499f, 1\&.07853474f, 1\&.08636038f, 1\&.09463628f, 1\&.10337792f, 1\&.11260194f, 1\&.12232624f, 1\&.13257005f, 1\&.14335407f,
-        1\&.15470054f, 1\&.16663340f, 1\&.17917840f, 1\&.19236329f, 1\&.20621795f, 1\&.22077459f, 1\&.23606798f, 1\&.25213566f, 1\&.26901822f, 1\&.28675957f, 1\&.30540729f, 1\&.32501299f, 1\&.34563273f, 1\&.36732746f, 1\&.39016359f, 1\&.41421356f, 1\&.43955654f, 1\&.46627919f, 1\&.49447655f, 1\&.52425309f, 1\&.55572383f, 1\&.58901573f, 1\&.62426925f, 1\&.66164014f, 1\&.70130162f, 1\&.74344680f, 1\&.78829165f, 1\&.83607846f, 1\&.88707991f, 1\&.94160403f, 2\&.00000000f, 2\&.06266534f, 2\&.13005447f, 2\&.20268926f, 2\&.28117203f, 2\&.36620158f, 2\&.45859334f, 2\&.55930467f, 2\&.66946716f, 2\&.79042811f, 2\&.92380440f, 3\&.07155349f, 3\&.23606798f, 3\&.42030362f, 3\&.62795528f, 3\&.86370331f, 4\&.13356549f, 4\&.44541148f, 4\&.80973434f, 5\&.24084306f, 5\&.75877048f, 6\&.39245322f, 7\&.18529653f, 8\&.20550905f, 9\&.56677223f, 11\&.47371325f, 14\&.33558703f, 19\&.10732261f, 28\&.65370835f, 57\&.29868850f,
-        \-FLT_MAX, \-57\&.29868850f, \-28\&.65370835f, \-19\&.10732261f, \-14\&.33558703f, \-11\&.47371325f, \-9\&.56677223f, \-8\&.20550905f, \-7\&.18529653f, \-6\&.39245322f, \-5\&.75877048f, \-5\&.24084306f, \-4\&.80973434f, \-4\&.44541148f, \-4\&.13356549f, \-3\&.86370331f, \-3\&.62795528f, \-3\&.42030362f, \-3\&.23606798f, \-3\&.07155349f, \-2\&.92380440f, \-2\&.79042811f, \-2\&.66946716f, \-2\&.55930467f, \-2\&.45859334f, \-2\&.36620158f, \-2\&.28117203f, \-2\&.20268926f, \-2\&.13005447f, \-2\&.06266534f, \-2\&.00000000f, \-1\&.94160403f, \-1\&.88707991f, \-1\&.83607846f, \-1\&.78829165f, \-1\&.74344680f, \-1\&.70130162f, \-1\&.66164014f, \-1\&.62426925f, \-1\&.58901573f, \-1\&.55572383f, \-1\&.52425309f, \-1\&.49447655f, \-1\&.46627919f, \-1\&.43955654f, \-1\&.41421356f, \-1\&.39016359f, \-1\&.36732746f, \-1\&.34563273f, \-1\&.32501299f, \-1\&.30540729f, \-1\&.28675957f, \-1\&.26901822f, \-1\&.25213566f, \-1\&.23606798f, \-1\&.22077459f, \-1\&.20621795f, \-1\&.19236329f, \-1\&.17917840f, \-1\&.16663340f,
-        \-1\&.15470054f, \-1\&.14335407f, \-1\&.13257005f, \-1\&.12232624f, \-1\&.11260194f, \-1\&.10337792f, \-1\&.09463628f, \-1\&.08636038f, \-1\&.07853474f, \-1\&.07114499f, \-1\&.06417777f, \-1\&.05762068f, \-1\&.05146222f, \-1\&.04569176f, \-1\&.04029944f, \-1\&.03527618f, \-1\&.03061363f, \-1\&.02630411f, \-1\&.02234059f, \-1\&.01871669f, \-1\&.01542661f, \-1\&.01246513f, \-1\&.00982757f, \-1\&.00750983f, \-1\&.00550828f, \-1\&.00381984f, \-1\&.00244190f, \-1\&.00137235f, \-1\&.00060954f, \-1\&.00015233f, \-1\&.00000000f, \-1\&.00015233f, \-1\&.00060954f, \-1\&.00137235f, \-1\&.00244190f, \-1\&.00381984f, \-1\&.00550828f, \-1\&.00750983f, \-1\&.00982757f, \-1\&.01246513f, \-1\&.01542661f, \-1\&.01871669f, \-1\&.02234059f, \-1\&.02630411f, \-1\&.03061363f, \-1\&.03527618f, \-1\&.04029944f, \-1\&.04569176f, \-1\&.05146222f, \-1\&.05762068f, \-1\&.06417777f, \-1\&.07114499f, \-1\&.07853474f, \-1\&.08636038f, \-1\&.09463628f, \-1\&.10337792f, \-1\&.11260194f, \-1\&.12232624f, \-1\&.13257005f, \-1\&.14335407f,
-        \-1\&.15470054f, \-1\&.16663340f, \-1\&.17917840f, \-1\&.19236329f, \-1\&.20621795f, \-1\&.22077459f, \-1\&.23606798f, \-1\&.25213566f, \-1\&.26901822f, \-1\&.28675957f, \-1\&.30540729f, \-1\&.32501299f, \-1\&.34563273f, \-1\&.36732746f, \-1\&.39016359f, \-1\&.41421356f, \-1\&.43955654f, \-1\&.46627919f, \-1\&.49447655f, \-1\&.52425309f, \-1\&.55572383f, \-1\&.58901573f, \-1\&.62426925f, \-1\&.66164014f, \-1\&.70130162f, \-1\&.74344680f, \-1\&.78829165f, \-1\&.83607846f, \-1\&.88707991f, \-1\&.94160403f, \-2\&.00000000f, \-2\&.06266534f, \-2\&.13005447f, \-2\&.20268926f, \-2\&.28117203f, \-2\&.36620158f, \-2\&.45859334f, \-2\&.55930467f, \-2\&.66946716f, \-2\&.79042811f, \-2\&.92380440f, \-3\&.07155349f, \-3\&.23606798f, \-3\&.42030362f, \-3\&.62795528f, \-3\&.86370331f, \-4\&.13356549f, \-4\&.44541148f, \-4\&.80973434f, \-5\&.24084306f, \-5\&.75877048f, \-6\&.39245322f, \-7\&.18529653f, \-8\&.20550905f, \-9\&.56677223f, \-11\&.47371325f, \-14\&.33558703f, \-19\&.10732261f, \-28\&.65370835f, \-57\&.29868850f,
-    }
-.fi
-
-.PP
-A lookup table for cosecant values (degrees) 
-.PP
-Definition at line \fB87\fP of file \fBAETrigLookup\&.hpp\fP\&.
-.SS "constexpr float ace::math::secTable[360]\fR [constexpr]\fP"
-\fBInitial value:\fP.PP
-.nf
-{
-        1\&.00000000f, 1\&.00015233f, 1\&.00060954f, 1\&.00137235f, 1\&.00244190f, 1\&.00381984f, 1\&.00550828f, 1\&.00750983f, 1\&.00982757f, 1\&.01246513f, 1\&.01542661f, 1\&.01871669f, 1\&.02234059f, 1\&.02630411f, 1\&.03061363f, 1\&.03527618f, 1\&.04029944f, 1\&.04569176f, 1\&.05146222f, 1\&.05762068f, 1\&.06417777f, 1\&.07114499f, 1\&.07853474f, 1\&.08636038f, 1\&.09463628f, 1\&.10337792f, 1\&.11260194f, 1\&.12232624f, 1\&.13257005f, 1\&.14335407f, 1\&.15470054f, 1\&.16663340f, 1\&.17917840f, 1\&.19236329f, 1\&.20621795f, 1\&.22077459f, 1\&.23606798f, 1\&.25213566f, 1\&.26901822f, 1\&.28675957f, 1\&.30540729f, 1\&.32501299f, 1\&.34563273f, 1\&.36732746f, 1\&.39016359f, 1\&.41421356f, 1\&.43955654f, 1\&.46627919f, 1\&.49447655f, 1\&.52425309f, 1\&.55572383f, 1\&.58901573f, 1\&.62426925f, 1\&.66164014f, 1\&.70130162f, 1\&.74344680f, 1\&.78829165f, 1\&.83607846f, 1\&.88707991f, 1\&.94160403f,
-        2\&.00000000f, 2\&.06266534f, 2\&.13005447f, 2\&.20268926f, 2\&.28117203f, 2\&.36620158f, 2\&.45859334f, 2\&.55930467f, 2\&.66946716f, 2\&.79042811f, 2\&.92380440f, 3\&.07155349f, 3\&.23606798f, 3\&.42030362f, 3\&.62795528f, 3\&.86370331f, 4\&.13356549f, 4\&.44541148f, 4\&.80973434f, 5\&.24084306f, 5\&.75877048f, 6\&.39245322f, 7\&.18529653f, 8\&.20550905f, 9\&.56677223f, 11\&.47371325f, 14\&.33558703f, 19\&.10732261f, 28\&.65370835f, 57\&.29868850f, FLT_MAX, \-57\&.29868850f, \-28\&.65370835f, \-19\&.10732261f, \-14\&.33558703f, \-11\&.47371325f, \-9\&.56677223f, \-8\&.20550905f, \-7\&.18529653f, \-6\&.39245322f, \-5\&.75877048f, \-5\&.24084306f, \-4\&.80973434f, \-4\&.44541148f, \-4\&.13356549f, \-3\&.86370331f, \-3\&.62795528f, \-3\&.42030362f, \-3\&.23606798f, \-3\&.07155349f, \-2\&.92380440f, \-2\&.79042811f, \-2\&.66946716f, \-2\&.55930467f, \-2\&.45859334f, \-2\&.36620158f, \-2\&.28117203f, \-2\&.20268926f, \-2\&.13005447f, \-2\&.06266534f,
-        \-2\&.00000000f, \-1\&.94160403f, \-1\&.88707991f, \-1\&.83607846f, \-1\&.78829165f, \-1\&.74344680f, \-1\&.70130162f, \-1\&.66164014f, \-1\&.62426925f, \-1\&.58901573f, \-1\&.55572383f, \-1\&.52425309f, \-1\&.49447655f, \-1\&.46627919f, \-1\&.43955654f, \-1\&.41421356f, \-1\&.39016359f, \-1\&.36732746f, \-1\&.34563273f, \-1\&.32501299f, \-1\&.30540729f, \-1\&.28675957f, \-1\&.26901822f, \-1\&.25213566f, \-1\&.23606798f, \-1\&.22077459f, \-1\&.20621795f, \-1\&.19236329f, \-1\&.17917840f, \-1\&.16663340f, \-1\&.15470054f, \-1\&.14335407f, \-1\&.13257005f, \-1\&.12232624f, \-1\&.11260194f, \-1\&.10337792f, \-1\&.09463628f, \-1\&.08636038f, \-1\&.07853474f, \-1\&.07114499f, \-1\&.06417777f, \-1\&.05762068f, \-1\&.05146222f, \-1\&.04569176f, \-1\&.04029944f, \-1\&.03527618f, \-1\&.03061363f, \-1\&.02630411f, \-1\&.02234059f, \-1\&.01871669f, \-1\&.01542661f, \-1\&.01246513f, \-1\&.00982757f, \-1\&.00750983f, \-1\&.00550828f, \-1\&.00381984f, \-1\&.00244190f, \-1\&.00137235f, \-1\&.00060954f, \-1\&.00015233f,
-        \-1\&.00000000f, \-1\&.00015233f, \-1\&.00060954f, \-1\&.00137235f, \-1\&.00244190f, \-1\&.00381984f, \-1\&.00550828f, \-1\&.00750983f, \-1\&.00982757f, \-1\&.01246513f, \-1\&.01542661f, \-1\&.01871669f, \-1\&.02234059f, \-1\&.02630411f, \-1\&.03061363f, \-1\&.03527618f, \-1\&.04029944f, \-1\&.04569176f, \-1\&.05146222f, \-1\&.05762068f, \-1\&.06417777f, \-1\&.07114499f, \-1\&.07853474f, \-1\&.08636038f, \-1\&.09463628f, \-1\&.10337792f, \-1\&.11260194f, \-1\&.12232624f, \-1\&.13257005f, \-1\&.14335407f, \-1\&.15470054f, \-1\&.16663340f, \-1\&.17917840f, \-1\&.19236329f, \-1\&.20621795f, \-1\&.22077459f, \-1\&.23606798f, \-1\&.25213566f, \-1\&.26901822f, \-1\&.28675957f, \-1\&.30540729f, \-1\&.32501299f, \-1\&.34563273f, \-1\&.36732746f, \-1\&.39016359f, \-1\&.41421356f, \-1\&.43955654f, \-1\&.46627919f, \-1\&.49447655f, \-1\&.52425309f, \-1\&.55572383f, \-1\&.58901573f, \-1\&.62426925f, \-1\&.66164014f, \-1\&.70130162f, \-1\&.74344680f, \-1\&.78829165f, \-1\&.83607846f, \-1\&.88707991f, \-1\&.94160403f,
-        \-2\&.00000000f, \-2\&.06266534f, \-2\&.13005447f, \-2\&.20268926f, \-2\&.28117203f, \-2\&.36620158f, \-2\&.45859334f, \-2\&.55930467f, \-2\&.66946716f, \-2\&.79042811f, \-2\&.92380440f, \-3\&.07155349f, \-3\&.23606798f, \-3\&.42030362f, \-3\&.62795528f, \-3\&.86370331f, \-4\&.13356549f, \-4\&.44541148f, \-4\&.80973434f, \-5\&.24084306f, \-5\&.75877048f, \-6\&.39245322f, \-7\&.18529653f, \-8\&.20550905f, \-9\&.56677223f, \-11\&.47371325f, \-14\&.33558703f, \-19\&.10732261f, \-28\&.65370835f, \-57\&.29868850f, \-FLT_MAX, 57\&.29868850f, 28\&.65370835f, 19\&.10732261f, 14\&.33558703f, 11\&.47371325f, 9\&.56677223f, 8\&.20550905f, 7\&.18529653f, 6\&.39245322f, 5\&.75877048f, 5\&.24084306f, 4\&.80973434f, 4\&.44541148f, 4\&.13356549f, 3\&.86370331f, 3\&.62795528f, 3\&.42030362f, 3\&.23606798f, 3\&.07155349f, 2\&.92380440f, 2\&.79042811f, 2\&.66946716f, 2\&.55930467f, 2\&.45859334f, 2\&.36620158f, 2\&.28117203f, 2\&.20268926f, 2\&.13005447f, 2\&.06266534f,
-        2\&.00000000f, 1\&.94160403f, 1\&.88707991f, 1\&.83607846f, 1\&.78829165f, 1\&.74344680f, 1\&.70130162f, 1\&.66164014f, 1\&.62426925f, 1\&.58901573f, 1\&.55572383f, 1\&.52425309f, 1\&.49447655f, 1\&.46627919f, 1\&.43955654f, 1\&.41421356f, 1\&.39016359f, 1\&.36732746f, 1\&.34563273f, 1\&.32501299f, 1\&.30540729f, 1\&.28675957f, 1\&.26901822f, 1\&.25213566f, 1\&.23606798f, 1\&.22077459f, 1\&.20621795f, 1\&.19236329f, 1\&.17917840f, 1\&.16663340f, 1\&.15470054f, 1\&.14335407f, 1\&.13257005f, 1\&.12232624f, 1\&.11260194f, 1\&.10337792f, 1\&.09463628f, 1\&.08636038f, 1\&.07853474f, 1\&.07114499f, 1\&.06417777f, 1\&.05762068f, 1\&.05146222f, 1\&.04569176f, 1\&.04029944f, 1\&.03527618f, 1\&.03061363f, 1\&.02630411f, 1\&.02234059f, 1\&.01871669f, 1\&.01542661f, 1\&.01246513f, 1\&.00982757f, 1\&.00750983f, 1\&.00550828f, 1\&.00381984f, 1\&.00244190f, 1\&.00137235f, 1\&.00060954f, 1\&.00015233f,
-    }
-.fi
-
-.PP
-A lookup table for secant values (degrees) 
-.PP
-Definition at line \fB97\fP of file \fBAETrigLookup\&.hpp\fP\&.
+Definition at line \fB649\fP of file \fBAEMath\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

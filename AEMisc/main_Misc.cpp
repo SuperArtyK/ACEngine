@@ -4,7 +4,7 @@
 #include "AEUtils.hpp"
 #include "AEFlags.hpp"
 #include "AEMath.hpp"
-#include "AETrigLookup.hpp"
+#include "AEMathTrigLookup.hpp"
 #include <iomanip>
 #include <vector>
 using std::cout;

@@ -1,0 +1,7 @@
+<map id="ace::math::lookup::cscDeg_tableInterp" name="ace::math::lookup::cscDeg_tableInterp">
+<area shape="rect" id="Node000001" title="Approximates the interpolated cosecant value from the cosecant lookup table." alt="" coords="5,31,250,57"/>
+<area shape="rect" id="Node000002" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#aca2a7abf579cf2a1a22d152921e0e472" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="298,5,539,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,31,282,28,282,33,250,36"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="346,56,491,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,52,331,59,331,64,250,57"/>
+</map>

@@ -40,7 +40,7 @@
     <ClInclude Include="include\AEMath.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\AETrigLookup.hpp">
+    <ClInclude Include="include\AEMathTrigLookup.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\resources\resource1.h">

@@ -1,0 +1,7 @@
+<map id="ace::math::lookup::tanDeg_tableInterp" name="ace::math::lookup::tanDeg_tableInterp">
+<area shape="rect" id="Node000001" title="Calculates the interpolated tangent value from the tangent lookup table." alt="" coords="5,31,247,57"/>
+<area shape="rect" id="Node000002" href="$d7/d2c/namespaceace_1_1math_1_1lookup.html#aca2a7abf579cf2a1a22d152921e0e472" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="295,5,536,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,31,279,28,279,33,247,36"/>
+<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="343,56,488,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,52,328,59,328,64,247,57"/>
+</map>

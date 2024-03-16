@@ -174,7 +174,7 @@
     <ClInclude Include="include\AEFlags.hpp" />
     <ClInclude Include="include\AEMath.hpp" />
     <ClInclude Include="include\AEMathConst.hpp" />
-    <ClInclude Include="include\AETrigLookup.hpp" />
+    <ClInclude Include="include\AEMathTrigLookup.hpp" />
     <ClInclude Include="include\AETypedefs.hpp" />
     <ClInclude Include="include\AEUtils.hpp" />
     <ClInclude Include="include\AEUtilsMacros.hpp" />

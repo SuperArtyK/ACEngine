@@ -358,6 +358,7 @@ namespace ace {
 
 		/// <summary>
 		/// Converts the given **numeric char to int of type T**
+		/// @remark Requires the type **T** to be an integral type
 		/// </summary>
 		/// <typeparam name="T">The type of the int to convert the char to</typeparam>
 		/// <param name="c">The numeric char to convert</param>

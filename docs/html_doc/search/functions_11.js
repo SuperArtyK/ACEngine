@@ -1,9 +1,9 @@
 var searchData=
 [
   ['tandeg_0',['tanDeg',['../d5/d0f/namespaceace_1_1math.html#a15512ebb416126f59cdb7669b5c39b48',1,'ace::math']]],
-  ['tandeg_5ftable_1',['tanDeg_table',['../d5/d0f/namespaceace_1_1math.html#a786f18fe82d4392ed2d3ac2a9672b769',1,'ace::math']]],
-  ['tandeg_5ftableinterp_2',['tanDeg_tableInterp',['../d5/d0f/namespaceace_1_1math.html#a6e57c9ac7e4386cbbdd36c5f61498685',1,'ace::math']]],
-  ['tau_3',['tau',['../d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f',1,'ace::math']]],
+  ['tandeg_5ftable_1',['tanDeg_table',['../d7/d2c/namespaceace_1_1math_1_1lookup.html#a16414468904411af523271b8004dd710',1,'ace::math::lookup']]],
+  ['tandeg_5ftableinterp_2',['tanDeg_tableInterp',['../d7/d2c/namespaceace_1_1math_1_1lookup.html#a815acb61180fa295b7eb03314fe13ca3',1,'ace::math::lookup']]],
+  ['tau_3',['tau',['../d2/dca/namespaceace_1_1math_1_1cst.html#a9b4cda918e151c978ae863e5babcd53d',1,'ace::math::cst']]],
   ['ticktimer_4',['tickTimer',['../da/d62/class_a_e_timer.html#ad5fa76b6e9233eaa415a9c70ed6ecc8d',1,'AETimer']]],
   ['todeg_5',['toDeg',['../d5/d0f/namespaceace_1_1math.html#a368a7c4b20718dbf45bd3b0b144ec216',1,'ace::math']]],
   ['tolowerref_6',['toLowerRef',['../de/dde/namespaceace_1_1utils.html#ad1fe69eba9650c6affc6344e67a2d998',1,'ace::utils']]],

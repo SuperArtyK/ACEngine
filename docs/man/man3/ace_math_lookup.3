@@ -1,0 +1,395 @@
+.TH "ace::math::lookup" 3 "Sat Mar 16 2024 11:28:29" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ace::math::lookup \- This namespace contains the engine's \fBmath lookup functions\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fB_tables\fP"
+.br
+.RI "This namespace contains the engine's \fBlookup tables\fP "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "constexpr std::size_t \fB_getTrigTableIndex\fP (const \fBllint\fP a) noexcept"
+.br
+.RI "Returns the \fBindex to the trig table\fP from the given (int) degree number\&. "
+.ti -1c
+.RI "constexpr float \fBsinDeg_table\fP (const float degrees) noexcept"
+.br
+.RI "Rounds the degrees value, and \fBlooks up the value of sine\fP in the table\&. "
+.ti -1c
+.RI "constexpr float \fBcosDeg_table\fP (const float degrees) noexcept"
+.br
+.RI "Rounds the degrees value, and \fBlooks up the value of cosine\fP in the table\&. "
+.ti -1c
+.RI "constexpr float \fBtanDeg_table\fP (const float degrees) noexcept"
+.br
+.RI "Rounds the degrees value, and \fBlooks up the value of tangent\fP in the table\&. "
+.ti -1c
+.RI "constexpr float \fBcotDeg_table\fP (const float degrees) noexcept"
+.br
+.RI "Rounds the degrees value, and \fBlooks up the value of cotangent\fP in the table\&. "
+.ti -1c
+.RI "constexpr float \fBcscDeg_table\fP (const float degrees) noexcept"
+.br
+.RI "Rounds the degrees value, and \fBlooks up the value of cosecant\fP in the table\&. "
+.ti -1c
+.RI "constexpr float \fBsecDeg_table\fP (const float degrees) noexcept"
+.br
+.RI "Rounds the degrees value, and \fBlooks up the value of secant\fP in the table\&. "
+.ti -1c
+.RI "constexpr float \fBsinDeg_tableInterp\fP (const float degrees) noexcept"
+.br
+.RI "Calculates the \fBinterpolated sine value\fP from the sine lookup table\&. "
+.ti -1c
+.RI "constexpr float \fBcosDeg_tableInterp\fP (const float degrees) noexcept"
+.br
+.RI "Calculates the \fBinterpolated cosine value\fP from the cosine lookup table\&. "
+.ti -1c
+.RI "constexpr float \fBtanDeg_tableInterp\fP (const float degrees) noexcept"
+.br
+.RI "Calculates the \fBinterpolated tangent value\fP from the tangent lookup table\&. "
+.ti -1c
+.RI "constexpr float \fBcotDeg_tableInterp\fP (const float degrees) noexcept"
+.br
+.RI "Calculates the \fBinterpolated cotangent value\fP from the cotangent lookup table\&. "
+.ti -1c
+.RI "constexpr float \fBcscDeg_tableInterp\fP (const float degrees) noexcept"
+.br
+.RI "Approximates the \fBinterpolated cosecant value\fP from the cosecant lookup table\&. "
+.ti -1c
+.RI "constexpr float \fBsecDeg_tableInterp\fP (const float degrees) noexcept"
+.br
+.RI "Calculates the \fBinterpolated secant value\fP from the secant lookup table\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This namespace contains the engine's \fBmath lookup functions\fP\&. 
+
+These will be insanely fast, since it's almost just an array lookup (ignoring the rounding and casting passed floats to int) 
+.br
+ But since this is a lookup table:
+.IP "\(bu" 2
+It won't be as precise -- error within 1 degree (or even less, with the interpolated functions)
+.IP "\(bu" 2
+It can increase compile time of the project
+.IP "\(bu" 2
+Also it can put a strain on cache and increase misses
+.IP "\(bu" 2
+It can increase memory usage (will be true whenever the lookup table size ever becomes custom-controlled) 
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "constexpr std::size_t ace::math::lookup::_getTrigTableIndex (const \fBllint\fP a)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Returns the \fBindex to the trig table\fP from the given (int) degree number\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+If the number is negative, it wraps it from the end (-1 is the last item of the table) 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Not recommended to use directly\&. It's a helper function for the trig lookup table functions
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP The integer degree number
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The legal index to the lookup tables 
+.RE
+.PP
+
+.PP
+Definition at line \fB129\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fBAETRIG_TABLE_SIZE\fP\&.
+.SS "constexpr float ace::math::lookup::sinDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Rounds the degrees value, and \fBlooks up the value of sine\fP in the table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a sine from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float sine lookup table value that matches the (rounded) degrees amount 
+.RE
+.PP
+
+.PP
+Definition at line \fB143\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::sinTable\fP\&.
+.SS "constexpr float ace::math::lookup::cosDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Rounds the degrees value, and \fBlooks up the value of cosine\fP in the table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a cosine from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float cosine lookup table value that matches the (rounded) degrees amount 
+.RE
+.PP
+
+.PP
+Definition at line \fB156\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::cosTable\fP\&.
+.SS "constexpr float ace::math::lookup::tanDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Rounds the degrees value, and \fBlooks up the value of tangent\fP in the table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a tangent from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float tangent lookup table value that matches the (rounded) degrees amount 
+.RE
+.PP
+
+.PP
+Definition at line \fB169\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::tanTable\fP\&.
+.SS "constexpr float ace::math::lookup::cotDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Rounds the degrees value, and \fBlooks up the value of cotangent\fP in the table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a cotangent from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float cotangent lookup table value that matches the (rounded) degrees amount 
+.RE
+.PP
+
+.PP
+Definition at line \fB182\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::cotTable\fP\&.
+.SS "constexpr float ace::math::lookup::cscDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Rounds the degrees value, and \fBlooks up the value of cosecant\fP in the table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a cosecant from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float cosecant lookup table value that matches the (rounded) degrees amount 
+.RE
+.PP
+
+.PP
+Definition at line \fB195\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::cscTable\fP\&.
+.SS "constexpr float ace::math::lookup::secDeg_table (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Rounds the degrees value, and \fBlooks up the value of secant\fP in the table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a secant from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float secant lookup table value that matches the (rounded) degrees amount 
+.RE
+.PP
+
+.PP
+Definition at line \fB208\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::secTable\fP\&.
+.SS "constexpr float ace::math::lookup::sinDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the \fBinterpolated sine value\fP from the sine lookup table\&. 
+.PP
+\fBNote\fP
+.RS 4
+Correct to the sine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a sine from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of interpolated sine value 
+.RE
+.PP
+
+.PP
+Definition at line \fB222\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, and \fBace::math::lookup::_tables::sinTable\fP\&.
+.SS "constexpr float ace::math::lookup::cosDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the \fBinterpolated cosine value\fP from the cosine lookup table\&. 
+.PP
+\fBNote\fP
+.RS 4
+Correct to the cosine value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a cosine from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of interpolated cosine value 
+.RE
+.PP
+
+.PP
+Definition at line \fB243\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::cosTable\fP, and \fBace::math::truncToInt()\fP\&.
+.SS "constexpr float ace::math::lookup::tanDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the \fBinterpolated tangent value\fP from the tangent lookup table\&. 
+.PP
+\fBNote\fP
+.RS 4
+Correct to the tangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a tangent from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of interpolated tangent value 
+.RE
+.PP
+
+.PP
+Definition at line \fB264\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::tanTable\fP, and \fBace::math::truncToInt()\fP\&.
+.SS "constexpr float ace::math::lookup::cotDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the \fBinterpolated cotangent value\fP from the cotangent lookup table\&. 
+.PP
+\fBNote\fP
+.RS 4
+Correct to the cotangent value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a cotangent from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of interpolated cotangent value 
+.RE
+.PP
+
+.PP
+Definition at line \fB285\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::cotTable\fP, and \fBace::math::truncToInt()\fP\&.
+.SS "constexpr float ace::math::lookup::cscDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Approximates the \fBinterpolated cosecant value\fP from the cosecant lookup table\&. 
+.PP
+\fBNote\fP
+.RS 4
+Correct to the cosecant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a cosecant from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of interpolated cosecant value 
+.RE
+.PP
+
+.PP
+Definition at line \fB306\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::cscTable\fP, and \fBace::math::truncToInt()\fP\&.
+.SS "constexpr float ace::math::lookup::secDeg_tableInterp (const float degrees)\fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Calculates the \fBinterpolated secant value\fP from the secant lookup table\&. 
+.PP
+\fBNote\fP
+.RS 4
+Correct to the secant value up to a few decimal point digits: truncating digits -> up to 3, rounding digits -> up to 4
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdegrees\fP The value of degrees to find a secant from
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float of interpolated secant value 
+.RE
+.PP
+
+.PP
+Definition at line \fB327\fP of file \fBAETrigLookup\&.hpp\fP\&.
+.PP
+References \fB_getTrigTableIndex()\fP, \fBace::math::lookup::_tables::secTable\fP, and \fBace::math::truncToInt()\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

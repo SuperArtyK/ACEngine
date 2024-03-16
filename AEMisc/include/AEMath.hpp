@@ -54,6 +54,19 @@ namespace ace::math {
 	}
 
 	/// <summary>
+	/// Convert given **radians to degrees**
+	/// </summary>
+	/// <typeparam name="T">The type of the radians value and the resulting operation</typeparam>
+	/// <param name="rad">Value of radians to convert</param>
+	/// <returns>
+	///		Degrees from given radians as type **T**
+	/// </returns>
+	template<typename T>
+	constexpr T toDeg(const T rad) noexcept {
+		return (rad * T(180) / ace::math::cst::pi<T>());
+	}
+
+	/// <summary>
 	/// Checks **if the float is "infinite"** (inf)
 	/// </summary>
 	/// <typeparam name="T">The type of a floating point number</typeparam>
@@ -94,22 +107,11 @@ namespace ace::math {
 	/// </returns>
 	template<typename T = long double>
 	constexpr bool isFinite(const T num) noexcept {
-		if constexpr (!std::is_floating_point<T>::value) { return true; } // it's always false
+		if constexpr (!std::is_floating_point<T>::value) { return true; } // it's always finite
 		return !(ace::math::isInf<T>(num) || ace::math::isNan<T>(num));
 	}
 
-	/// <summary>
-	/// Convert given **radians to degrees**
-	/// </summary>
-	/// <typeparam name="T">The type of the radians value and the resulting operation</typeparam>
-	/// <param name="rad">Value of radians to convert</param>
-	/// <returns>
-	///		Degrees from given radians as type **T**
-	/// </returns>
-	template<typename T>
-	constexpr T toDeg(const T rad) noexcept {
-		return (rad * T(180) / ace::math::cst::pi<T>() );
-	}
+	
 
 	/// <summary>
 	/// Calculates the **sine of degrees**
@@ -205,6 +207,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Compares two floating** point values **for equality**, within a given epsilon
+	/// @remark Requires the type **T** to be a floating-point type
 	/// </summary>
 	/// <typeparam name="T">The type of the floating point value</typeparam>
 	/// <param name="num">The first float to compare</param>
@@ -228,6 +231,7 @@ namespace ace::math {
 	/// **Compares two floating** point values **for equality**, within a default (scaled) epsilon.
 	/// The epsilon is std::numeric_limits<T>::epsilon() * the smallest number of the 2
 	/// @remark This is a helper/shortcut function of ace::math::fequals(const T num, const T num2, const T _epsilon)
+	/// @remark Requires the type **T** to be a floating-point type
 	/// </summary>
 	/// <typeparam name="T">The type of the floats</typeparam>
 	/// <param name="num">The first float to compare</param>
@@ -298,17 +302,24 @@ namespace ace::math {
 			return std::numeric_limits<T>::max();
 		}
 
-		T val[2] = { num,0 };
-		while (!ace::math::equals(val[0], val[1])) {
-			val[1] = val[0];
-			val[0] = (val[0] + num / val[0]) / T(2);
-			if constexpr (std::is_integral<T>::value) {
-				if (val[1] < val[0]) {
-					break;
+		if (std::is_constant_evaluated()) {
+			
+
+			T val[2] = { num,0 };
+			while (!ace::math::equals(val[0], val[1])) {
+				val[1] = val[0];
+				val[0] = (val[0] + num / val[0]) / T(2);
+				if constexpr (std::is_integral<T>::value) {
+					if (val[1] < val[0]) {
+						break;
+					}
 				}
 			}
+			return val[1];
 		}
-		return val[1];
+		else {
+			return std::sqrt(num);
+		}
 	}
 
 	/// <summary>
@@ -395,18 +406,23 @@ namespace ace::math {
 			return std::numeric_limits<T>::max();
 		}
 
-		const uint rtMinusOne = rtNum - 1;
-		T val[2] = { num,0 };
-		while (!ace::math::equals(val[0], val[1])) {
-			val[1] = val[0];
-			val[0] = (rtMinusOne * val[0] + (num / ace::math::intPow<long double>(val[0], rtMinusOne))) / T(rtNum);
-			if constexpr (std::is_integral<T>::value) {
-				if (val[1] < val[0]) {
-					break;
+		if (std::is_constant_evaluated()) {
+			const uint rtMinusOne = rtNum - 1;
+			T val[2] = { num,0 };
+			while (!ace::math::equals(val[0], val[1])) {
+				val[1] = val[0];
+				val[0] = (rtMinusOne * val[0] + (num / ace::math::intPow<long double>(val[0], rtMinusOne))) / T(rtNum);
+				if constexpr (std::is_integral<T>::value) {
+					if (val[1] < val[0]) {
+						break;
+					}
 				}
 			}
+			return val[1];
 		}
-		return val[1];
+		else {
+			return std::pow(num, 1.0L / rtNum);
+		}
 	}
 
 	/// <summary>
@@ -447,7 +463,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Calculate the **length of the given integer** number.
-	/// @note Passing non-integral value will not compile
+	/// @remark Requires the type **T** to be an integral type
 	/// </summary>
 	/// <typeparam name="T">The type of the integer number</typeparam>
 	/// <param name="num">The number to calculate the length of</param>
@@ -466,6 +482,7 @@ namespace ace::math {
 	/// <summary>
 	/// Calculate the **length of the given float** number's non-fractional part.
 	/// Essentially ace::math::lengthOfInt() for larger numbers.
+	/// @remark Requires the type **T** to be a floating point type
 	/// </summary>
 	/// <typeparam name="T">The type of the float number</typeparam>
 	/// <param name="num">The number to calculate the length of</param>
@@ -519,9 +536,11 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// **Rounds the given float** of type Y **to integer** of type T.
+	/// **Rounds the given number** of type Y **to integer** of type T.
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
+	/// @remark Requires the type **T** to be an integral type
+	/// @remark Requires the type **Y** to be an arithmetic type
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to round to</typeparam>
 	/// <typeparam name="Y">The type of the float to round</typeparam>
@@ -543,10 +562,41 @@ namespace ace::math {
 	}
 
 	/// <summary>
+	/// **Rounds the passed number** of type Y and converts it to the type T
+	/// @note During compile-time calculation, it calls ace::math::roundToInt(). Mind the overflows
+	/// @todo When c++23 support appears, change it to a call to std::round() instead
+	/// @see ace::math::roundToInt()
+	/// @remark Types **T** and **Y** have to be arithmetic types
+	/// </summary>
+	/// <typeparam name="T">The type to convert the result to</typeparam>
+	/// <typeparam name="Y">The type of the passed number. Defaults to **T**</typeparam>
+	/// <param name="num">The number to round</param>
+	/// <returns>
+	///		During runtime:
+	///		* Result of the call to **std::round()**
+	///		
+	///		During compile-time:
+	///		* Result of the call to ace::math::roundToInt() 
+	/// </returns>
+	template<typename T = long double, typename Y = T>
+	constexpr T round(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true){
+		if (std::is_constant_evaluated()) {
+			ace::math::roundToInt(num);
+		}
+		else {
+			return std::round(num);
+		}
+	}
+
+
+
+	/// <summary>	
 	/// **Floor's the given float** of type Y and converts **to integer** of type T.
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// @note If num is positive, it truncates the decimal digits (towards zero); if negative, it ceil's the decimals (away from zero)
+	/// @remark Requires the type **T** to be an integral type
+	/// @remark Requires the type **Y** to be an arithmetic type
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to floor to</typeparam>
 	/// <typeparam name="Y">The type of the float to floor</typeparam>
@@ -567,9 +617,39 @@ namespace ace::math {
 	}
 
 	/// <summary>
+	/// **Floor's the passed number** of type Y and converts it to the type T
+	/// @note During compile-time calculation, it calls ace::math::floorToInt(). Mind the overflows
+	/// @todo When c++23 support appears, change it to a call to std::floor() instead
+	/// @see ace::math::floorToInt()
+	/// @remark Types **T** and **Y** have to be arithmetic types
+	/// </summary>
+	/// <typeparam name="T">The type to convert the result to</typeparam>
+	/// <typeparam name="Y">The type of the passed number. Defaults to **T**</typeparam>
+	/// <param name="num">The number to floor</param>
+	/// <returns>
+	///		During runtime:
+	///		* Result of the call to **std::floor()**
+	///		
+	///		During compile-time:
+	///		* Result of the call to ace::math::floorToInt() 
+	/// </returns>
+	template<typename T = long double, typename Y = T>
+	constexpr T floor(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
+		if (std::is_constant_evaluated()) {
+			ace::math::floorToInt(num);
+		}
+		else {
+			return std::floor(num);
+		}
+	}
+
+
+	/// <summary>
 	/// **Ceil's the given float** of type Y and converts **to integer** of type T.
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
+	/// @remark Requires the type **T** to be an integral type
+	/// @remark Requires the type **Y** to be an arithmetic type
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to ceil to</typeparam>
 	/// <typeparam name="Y">The type of the float to ceil</typeparam>
@@ -590,9 +670,39 @@ namespace ace::math {
 	}
 	
 	/// <summary>
+	/// **Ceil's the passed number** of type Y and converts it to the type T
+	/// @note During compile-time calculation, it calls ace::math::ceilToInt(). Mind the overflows
+	/// @todo When c++23 support appears, change it to a call to std::ceil() instead
+	/// @see ace::math::ceilToInt()
+	/// @remark Types **T** and **Y** have to be arithmetic types
+	/// </summary>
+	/// <typeparam name="T">The type to convert the result to</typeparam>
+	/// <typeparam name="Y">The type of the passed number. Defaults to **T**</typeparam>
+	/// <param name="num">The number to ceil</param>
+	/// <returns>
+	///		During runtime:
+	///		* Result of the call to **std::ceil()**
+	///		
+	///		During compile-time:
+	///		* Result of the call to ace::math::ceilToInt() 
+	/// </returns>
+	template<typename T = long double, typename Y = T>
+	constexpr T ceil(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
+		if (std::is_constant_evaluated()) {
+			ace::math::ceilToInt(num);
+		}
+		else {
+			return std::ceil(num);
+		}
+	}
+
+
+	/// <summary>
 	/// **Truncates the given float** of type Y and converts **to integer** of type T.
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
+	/// @remark Requires the type **T** to be an integral type
+	/// @remark Requires the type **Y** to be an arithmetic type
 	/// </summary>
 	/// <typeparam name="T">The type of the integer to truncate to</typeparam>
 	/// <typeparam name="Y">The type of the float to truncate</typeparam>
@@ -612,6 +722,34 @@ namespace ace::math {
 		}
 
 	}
+
+	/// <summary>
+	/// **Truncates the passed number** of type Y and converts it to the type T
+	/// @note During compile-time calculation, it calls ace::math::truncToInt(). Mind the overflows
+	/// @todo When c++23 support appears, change it to a call to std::trunc() instead
+	/// @see ace::math::truncToInt()
+	/// @remark Types **T** and **Y** have to be arithmetic types
+	/// </summary>
+	/// <typeparam name="T">The type to convert the result to</typeparam>
+	/// <typeparam name="Y">The type of the passed number. Defaults to **T**</typeparam>
+	/// <param name="num">The number to trunc</param>
+	/// <returns>
+	///		During runtime:
+	///		* Result of the call to **std::trunc()**
+	///		
+	///		During compile-time:
+	///		* Result of the call to ace::math::truncToInt() 
+	/// </returns>
+	template<typename T = long double, typename Y = T>
+	constexpr T trunc(const Y num) noexcept requires(std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true) {
+		if (std::is_constant_evaluated()) {
+			ace::math::truncToInt(num);
+		}
+		else {
+			return std::trunc(num);
+		}
+	}
+
 }
 
 #endif // ENGINE_MATH_HPP

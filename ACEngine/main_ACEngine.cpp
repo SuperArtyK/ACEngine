@@ -21,7 +21,7 @@
 #include "include/AEFlags.hpp"
 #include "include/AEMath.hpp"
 #include "include/AEUtils.hpp"
-#include "include/AETrigLookup.hpp"
+#include "include/AEMathTrigLookup.hpp"
 //aelg
 #include "include/AELogger.hpp"
 //aer

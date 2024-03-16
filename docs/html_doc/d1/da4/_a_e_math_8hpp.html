@@ -103,7 +103,8 @@ $(function(){initNavTree('d1/da4/_a_e_math_8hpp.html','../../'); initResizable()
 
 <p>This file contains the engine's <b>math and math-related functions</b>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d5a/_a_e_math_const_8hpp_source.html">AEMathConst.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>&quot;</code><br />
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
@@ -112,7 +113,7 @@ $(function(){initNavTree('d1/da4/_a_e_math_8hpp.html','../../'); initResizable()
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d9f/_a_e_math_8hpp__incl.svg" width="446" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d9f/_a_e_math_8hpp__incl.svg" width="542" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -130,91 +131,11 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:d8/d23/namespaceace"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains <b>everything that belongs to the engine</b>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d5/d0f/namespaceace_1_1math" id="r_d5/d0f/namespaceace_1_1math"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html">ace::math</a></td></tr>
-<tr class="memdesc:d5/d0f/namespaceace_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mathematical functions and other things usefull in math. <br /></td></tr>
+<tr class="memdesc:d5/d0f/namespaceace_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the engine's <b>math and math-related functions</b>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa0a6e86cf56576a0c0bed60a719407f7" id="r_aa0a6e86cf56576a0c0bed60a719407f7"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:aa0a6e86cf56576a0c0bed60a719407f7"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#aa0a6e86cf56576a0c0bed60a719407f7">ace::math::pi</a> (void) noexcept</td></tr>
-<tr class="memdesc:aa0a6e86cf56576a0c0bed60a719407f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>pi</b> value.  <br /></td></tr>
-<tr class="separator:aa0a6e86cf56576a0c0bed60a719407f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f990bc18b68137376f1f2c2cf54bf3f" id="r_a1f990bc18b68137376f1f2c2cf54bf3f"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a1f990bc18b68137376f1f2c2cf54bf3f"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f">ace::math::tau</a> (void) noexcept</td></tr>
-<tr class="memdesc:a1f990bc18b68137376f1f2c2cf54bf3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>tau (pi*2)</b> value.  <br /></td></tr>
-<tr class="separator:a1f990bc18b68137376f1f2c2cf54bf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ddbd8fa1d940c41daf629f0e6a97cb2" id="r_a6ddbd8fa1d940c41daf629f0e6a97cb2"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a6ddbd8fa1d940c41daf629f0e6a97cb2"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a6ddbd8fa1d940c41daf629f0e6a97cb2">ace::math::piDouble</a> (void) noexcept</td></tr>
-<tr class="memdesc:a6ddbd8fa1d940c41daf629f0e6a97cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>pi*2</b> (tau) value Just another name for <a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a1f990bc18b68137376f1f2c2cf54bf3f" title="Engine&#39;s tau (pi*2) value.">ace::math::tau()</a>  <br /></td></tr>
-<tr class="separator:a6ddbd8fa1d940c41daf629f0e6a97cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adca41810774196d90e26dce83d488568" id="r_adca41810774196d90e26dce83d488568"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:adca41810774196d90e26dce83d488568"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#adca41810774196d90e26dce83d488568">ace::math::piHalf</a> (void) noexcept</td></tr>
-<tr class="memdesc:adca41810774196d90e26dce83d488568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>pi/2</b> (half) value.  <br /></td></tr>
-<tr class="separator:adca41810774196d90e26dce83d488568"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48365e7bc6675c1ae664a5244446d167" id="r_a48365e7bc6675c1ae664a5244446d167"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a48365e7bc6675c1ae664a5244446d167"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a48365e7bc6675c1ae664a5244446d167">ace::math::piQuarter</a> (void) noexcept</td></tr>
-<tr class="memdesc:a48365e7bc6675c1ae664a5244446d167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>pi/4</b> (quarter) value.  <br /></td></tr>
-<tr class="separator:a48365e7bc6675c1ae664a5244446d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afabe32762652bd4be26bf7e58e52795d" id="r_afabe32762652bd4be26bf7e58e52795d"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:afabe32762652bd4be26bf7e58e52795d"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#afabe32762652bd4be26bf7e58e52795d">ace::math::piSquared</a> (void) noexcept</td></tr>
-<tr class="memdesc:afabe32762652bd4be26bf7e58e52795d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>pi^2</b> (squared) value.  <br /></td></tr>
-<tr class="separator:afabe32762652bd4be26bf7e58e52795d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32820371377b9ad4d7baaa3da06fa243" id="r_a32820371377b9ad4d7baaa3da06fa243"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a32820371377b9ad4d7baaa3da06fa243"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a32820371377b9ad4d7baaa3da06fa243">ace::math::piInv</a> (void) noexcept</td></tr>
-<tr class="memdesc:a32820371377b9ad4d7baaa3da06fa243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>1/pi</b> (inverse) value.  <br /></td></tr>
-<tr class="separator:a32820371377b9ad4d7baaa3da06fa243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4224e25b5b30a139e3bb327612094c6" id="r_ae4224e25b5b30a139e3bb327612094c6"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:ae4224e25b5b30a139e3bb327612094c6"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#ae4224e25b5b30a139e3bb327612094c6">ace::math::log2e</a> (void) noexcept</td></tr>
-<tr class="memdesc:ae4224e25b5b30a139e3bb327612094c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>log2(e)</b> value.  <br /></td></tr>
-<tr class="separator:ae4224e25b5b30a139e3bb327612094c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc6819e628c59f489e5a081de3363c54" id="r_acc6819e628c59f489e5a081de3363c54"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:acc6819e628c59f489e5a081de3363c54"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#acc6819e628c59f489e5a081de3363c54">ace::math::log10e</a> (void) noexcept</td></tr>
-<tr class="memdesc:acc6819e628c59f489e5a081de3363c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>log10(e)</b> value.  <br /></td></tr>
-<tr class="separator:acc6819e628c59f489e5a081de3363c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fd85a17e0f314642a99ad954f9727c2" id="r_a4fd85a17e0f314642a99ad954f9727c2"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a4fd85a17e0f314642a99ad954f9727c2"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a4fd85a17e0f314642a99ad954f9727c2">ace::math::ln2</a> (void) noexcept</td></tr>
-<tr class="memdesc:a4fd85a17e0f314642a99ad954f9727c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>ln(2)</b> value.  <br /></td></tr>
-<tr class="separator:a4fd85a17e0f314642a99ad954f9727c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf47e71c0360f95e5f08f41842b42125" id="r_aaf47e71c0360f95e5f08f41842b42125"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:aaf47e71c0360f95e5f08f41842b42125"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#aaf47e71c0360f95e5f08f41842b42125">ace::math::ln10</a> (void) noexcept</td></tr>
-<tr class="memdesc:aaf47e71c0360f95e5f08f41842b42125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>ln(10)</b> value.  <br /></td></tr>
-<tr class="separator:aaf47e71c0360f95e5f08f41842b42125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a646e1ba78eda9cf3ccc7f0c7b65153c6" id="r_a646e1ba78eda9cf3ccc7f0c7b65153c6"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a646e1ba78eda9cf3ccc7f0c7b65153c6"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a646e1ba78eda9cf3ccc7f0c7b65153c6">ace::math::sqrtOf2</a> (void) noexcept</td></tr>
-<tr class="memdesc:a646e1ba78eda9cf3ccc7f0c7b65153c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>sqrt(2)</b> value.  <br /></td></tr>
-<tr class="separator:a646e1ba78eda9cf3ccc7f0c7b65153c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2afc14ae054e1c35a965910eca02bf70" id="r_a2afc14ae054e1c35a965910eca02bf70"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a2afc14ae054e1c35a965910eca02bf70"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a2afc14ae054e1c35a965910eca02bf70">ace::math::sqrtOf3</a> (void) noexcept</td></tr>
-<tr class="memdesc:a2afc14ae054e1c35a965910eca02bf70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>sqrt(3)</b> value.  <br /></td></tr>
-<tr class="separator:a2afc14ae054e1c35a965910eca02bf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e843bc624f63908443d81c58f2a7549" id="r_a8e843bc624f63908443d81c58f2a7549"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a8e843bc624f63908443d81c58f2a7549"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a8e843bc624f63908443d81c58f2a7549">ace::math::sqrtOf2Inv</a> (void) noexcept</td></tr>
-<tr class="memdesc:a8e843bc624f63908443d81c58f2a7549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>1/sqrt(2)</b> value.  <br /></td></tr>
-<tr class="separator:a8e843bc624f63908443d81c58f2a7549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4504d9d305cf4736cba69482ff1e8c99" id="r_a4504d9d305cf4736cba69482ff1e8c99"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a4504d9d305cf4736cba69482ff1e8c99"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a4504d9d305cf4736cba69482ff1e8c99">ace::math::sqrtOf3Inv</a> (void) noexcept</td></tr>
-<tr class="memdesc:a4504d9d305cf4736cba69482ff1e8c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>1/sqrt(3)</b> value.  <br /></td></tr>
-<tr class="separator:a4504d9d305cf4736cba69482ff1e8c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af648cde32629b17ce949b2b5afa4eefe" id="r_af648cde32629b17ce949b2b5afa4eefe"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:af648cde32629b17ce949b2b5afa4eefe"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#af648cde32629b17ce949b2b5afa4eefe">ace::math::sqrtOfPi</a> (void) noexcept</td></tr>
-<tr class="memdesc:af648cde32629b17ce949b2b5afa4eefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>sqrt(pi)</b> value.  <br /></td></tr>
-<tr class="separator:af648cde32629b17ce949b2b5afa4eefe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45e5289c2553584d77826e44a79e9995" id="r_a45e5289c2553584d77826e44a79e9995"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a45e5289c2553584d77826e44a79e9995"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a45e5289c2553584d77826e44a79e9995">ace::math::sqrtOfPiInv</a> (void) noexcept</td></tr>
-<tr class="memdesc:a45e5289c2553584d77826e44a79e9995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>1/sqrt(pi)</b> value.  <br /></td></tr>
-<tr class="separator:a45e5289c2553584d77826e44a79e9995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f540f67e8572c879eb4b68090c90c8" id="r_a29f540f67e8572c879eb4b68090c90c8"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a29f540f67e8572c879eb4b68090c90c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a29f540f67e8572c879eb4b68090c90c8">ace::math::e</a> (void) noexcept</td></tr>
-<tr class="memdesc:a29f540f67e8572c879eb4b68090c90c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>euler's number</b> value.  <br /></td></tr>
-<tr class="separator:a29f540f67e8572c879eb4b68090c90c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fcac4f4c693aef2dac4dca3a2a38aff" id="r_a1fcac4f4c693aef2dac4dca3a2a38aff"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a1fcac4f4c693aef2dac4dca3a2a38aff"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a1fcac4f4c693aef2dac4dca3a2a38aff">ace::math::eGamma</a> (void) noexcept</td></tr>
-<tr class="memdesc:a1fcac4f4c693aef2dac4dca3a2a38aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>euler's gamma function</b> (euler's constant) value.  <br /></td></tr>
-<tr class="separator:a1fcac4f4c693aef2dac4dca3a2a38aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8730146052c1afecf389cfc04c3b79df" id="r_a8730146052c1afecf389cfc04c3b79df"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double&gt; </td></tr>
-<tr class="memitem:a8730146052c1afecf389cfc04c3b79df"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a8730146052c1afecf389cfc04c3b79df">ace::math::phi</a> (void) noexcept</td></tr>
-<tr class="memdesc:a8730146052c1afecf389cfc04c3b79df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Engine's <b>golden ratio</b> (phi) value.  <br /></td></tr>
-<tr class="separator:a8730146052c1afecf389cfc04c3b79df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34df987782d57f3ccb8d1cf75deb2fd2" id="r_a34df987782d57f3ccb8d1cf75deb2fd2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a34df987782d57f3ccb8d1cf75deb2fd2"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a34df987782d57f3ccb8d1cf75deb2fd2">ace::math::toRad</a> (const T deg) noexcept</td></tr>
 <tr class="memdesc:a34df987782d57f3ccb8d1cf75deb2fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert given <b>degrees to radians</b>  <br /></td></tr>
@@ -318,12 +239,18 @@ requires (std::is_floating_point&lt;T&gt;::value == true)</td></tr>
 <tr class="memitem:a1874f6e149779f854fc8f84b5173fc1e" id="r_a1874f6e149779f854fc8f84b5173fc1e"><td class="memTemplParams" colspan="2">template&lt;typename T  = llint, typename Y  = long double&gt; <br />
 requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral&lt;T&gt;::value == true)</td></tr>
 <tr class="memitem:a1874f6e149779f854fc8f84b5173fc1e"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a1874f6e149779f854fc8f84b5173fc1e">ace::math::roundToInt</a> (const Y num) noexcept</td></tr>
-<tr class="memdesc:a1874f6e149779f854fc8f84b5173fc1e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Rounds the given float</b> of type Y <b>to integer</b> of type T.  <br /></td></tr>
+<tr class="memdesc:a1874f6e149779f854fc8f84b5173fc1e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Rounds the given number</b> of type Y <b>to integer</b> of type T.  <br /></td></tr>
 <tr class="separator:a1874f6e149779f854fc8f84b5173fc1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1003baff2f5bcf504bcab085cc16d034" id="r_a1003baff2f5bcf504bcab085cc16d034"><td class="memTemplParams" colspan="2">template&lt;typename T  = long double, typename Y  = T&gt; <br />
+requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_arithmetic&lt;T&gt;::value == true)</td></tr>
+<tr class="memitem:a1003baff2f5bcf504bcab085cc16d034"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#a1003baff2f5bcf504bcab085cc16d034">ace::math::round</a> (const Y num) noexcept</td></tr>
+<tr class="memdesc:a1003baff2f5bcf504bcab085cc16d034"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Rounds the passed number</b> of type Y and converts it to the type T  <br /></td></tr>
+<tr class="separator:a1003baff2f5bcf504bcab085cc16d034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4027615a673906dc92f0a0c86f55c73" id="r_ae4027615a673906dc92f0a0c86f55c73"><td class="memTemplParams" colspan="2">template&lt;typename T  = llint, typename Y  = long double&gt; <br />
 requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral&lt;T&gt;::value == true)</td></tr>
 <tr class="memitem:ae4027615a673906dc92f0a0c86f55c73"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d0f/namespaceace_1_1math.html#ae4027615a673906dc92f0a0c86f55c73">ace::math::floorToInt</a> (const Y num) noexcept</td></tr>
-<tr class="memdesc:ae4027615a673906dc92f0a0c86f55c73"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Floor's the given float</b> of type Y and converts <b>to integer</b> of type T.  <br /></td></tr>
+<tr class="memdesc:ae4027615a673906dc92f0a0c86f55c73"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+ <b>Floor's the given float</b> of type Y and converts <b>to integer</b> of type T.  <br /></td></tr>
 <tr class="separator:ae4027615a673906dc92f0a0c86f55c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaf4d49d08f5fbb76c75a2d4bc3e212a" id="r_acaf4d49d08f5fbb76c75a2d4bc3e212a"><td class="memTemplParams" colspan="2">template&lt;typename T  = llint, typename Y  = long double&gt; <br />
 requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral&lt;T&gt;::value == true)</td></tr>
@@ -338,10 +265,17 @@ requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the engine's <b>math and math-related functions</b>. </p>
+<p>This file contains the engine's <b>math constants</b>.</p>
 <p>These would be quite fast, I tried optimising them for the types that are needed.</p>
 <p>Especially with the addition of if-consteval in c++23 (and std::is_constant_evaluated() in c++20) :)</p>
 <p>Since it would be possible to use the constexpr implementations in compile time, <br  />
  and fast (and proper) runtime versions of them at...runtime.</p>
+<dl class="section date"><dt>Date</dt><dd>2023-2024</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
+<p><em>Should not cause everything to break :)</em></p>
+<p>The brief description says it all &ndash; this file has the math constants in the engine.</p>
+<p>All those pi's, tau's, sqrt of 2's, etc, which you can call, and cast to the necessary type.</p>
 <dl class="section date"><dt>Date</dt><dd>2023-2024</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Artemii Kozhemiak (SuperArtyK)</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT License</dd></dl>
@@ -354,7 +288,7 @@ requires (std::is_arithmetic&lt;Y&gt;::value == true &amp;&amp; std::is_integral
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../d1/da4/_a_e_math_8hpp.html">AEMath.hpp</a></li>
-    <li class="footer">Generated on Thu Mar 14 2024 20:55:55 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Sat Mar 16 2024 11:28:29 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

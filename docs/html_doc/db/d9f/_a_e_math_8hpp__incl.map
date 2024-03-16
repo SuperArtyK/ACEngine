@@ -1,17 +1,19 @@
 <map id="AEMisc/include/AEMath.hpp" name="AEMisc/include/AEMath.hpp">
-<area shape="rect" id="Node000001" title="This file contains the engine&#39;s math and math&#45;related functions." alt="" coords="172,5,360,32"/>
-<area shape="rect" id="Node000002" href="$dc/d89/_a_e_typedefs_8hpp.html" title="This file contains the engine&#39;s typedefs and variable type aliases." alt="" coords="61,80,177,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,35,159,75,157,70,239,30"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="201,80,253,107"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="261,34,243,68,238,65,257,31"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="277,80,334,107"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="275,31,294,65,289,68,270,34"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="358,80,440,107"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="290,30,364,70,361,75,288,35"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,65,181"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,109,63,146,59,142,103,105"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="89,155,149,181"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="122,107,122,139,116,139,116,107"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="173,155,230,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="135,105,178,142,174,146,132,109"/>
+<area shape="rect" id="Node000001" title="This file contains the engine&#39;s math and math&#45;related functions." alt="" coords="228,5,417,32"/>
+<area shape="rect" id="Node000002" href="$d2/d5a/_a_e_math_const_8hpp.html" title=" " alt="" coords="5,80,133,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,35,128,78,127,73,277,30"/>
+<area shape="rect" id="Node000003" href="$dc/d89/_a_e_typedefs_8hpp.html" title="This file contains the engine&#39;s typedefs and variable type aliases." alt="" coords="156,80,273,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="305,35,247,73,244,69,302,30"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="296,80,349,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="325,33,325,64,320,64,320,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="372,80,430,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="338,31,378,67,374,71,334,35"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="453,80,536,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="353,30,451,71,449,76,351,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,155,160,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,109,158,146,155,142,198,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="184,155,245,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="217,107,217,139,212,139,212,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="268,155,326,181"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="230,105,273,142,270,146,227,109"/>
 </map>

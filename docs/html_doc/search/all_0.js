@@ -13,6 +13,6 @@ var searchData=
   ['_5faefw_5fexit_5fon_5fno_5fcursor_5fmove_10',['_AEFW_EXIT_ON_NO_CURSOR_MOVE',['../db/da4/_a_e_file_writer_8hpp.html#a56e561b3c7182bea9946ea98acc2aaa2',1,'AEFileWriter.hpp']]],
   ['_5faefw_5fexit_5fon_5fwrite_5fclosed_5ffile_11',['_AEFW_EXIT_ON_WRITE_CLOSED_FILE',['../db/da4/_a_e_file_writer_8hpp.html#ada79b127cc72e03786a33b74a8009e31',1,'AEFileWriter.hpp']]],
   ['_5faelp_5fcheck_5fif_5ffile_5fopen_12',['_AELP_CHECK_IF_FILE_OPEN',['../d0/dab/_a_e_log_parser_8hpp.html#a38b3381dd8a29aa28fc59d89a25bb51d',1,'AELogParser.hpp']]],
-  ['_5fgettrigtableindex_13',['_getTrigTableIndex',['../d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a',1,'ace::math']]],
-  ['_5fstr_5fhelper_14',['_STR_HELPER',['../de/de8/_a_e_utils_8hpp.html#a935ab8eba47cbe4b0bf865931bfd4901',1,'AEUtils.hpp']]]
+  ['_5fgettrigtableindex_13',['_getTrigTableIndex',['../d7/d2c/namespaceace_1_1math_1_1lookup.html#aca2a7abf579cf2a1a22d152921e0e472',1,'ace::math::lookup']]],
+  ['_5fstr_5fhelper_14',['_STR_HELPER',['../d9/d6a/_a_e_utils_macros_8hpp.html#a935ab8eba47cbe4b0bf865931bfd4901',1,'AEUtilsMacros.hpp']]]
 ];
