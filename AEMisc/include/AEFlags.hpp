@@ -33,6 +33,7 @@
 /// Macro for the engine's **default delay** in frames/ticks per second (used in AEFrame and AETimer).
 /// @note Set to any positive value to enable, and any negative value or 0 to disable this feature
 /// @attention Disabling this disables the sleep functionality in instances of AEFrame and AETimer that use the default delay.
+/// @warning Undefining this macro will produce a compilation error!
 /// @see AEFrame
 /// @see AETimer
 #define ENGINE_FPS 60.0
@@ -87,14 +88,14 @@
 #define AELOG_DEFAULT_LOG_PATH "./logs/"
 
 //AELogEntry flags
-/// The size of the AELogEntry's **message in characters** (excluding null termination)
+/// Macro for the size of the AELogEntry's **message in characters** (excluding null termination)
 /// @note Changing this -- changes the size of the AELogEntry structure
 /// @attention Mind the size here:
 ///		* Too little will make the messages cut off
 /// 	* Too large will increase the memory usage by a lot
 /// @see AELogEntry::m_sLogMessage[]
 #define AELE_MESSAGE_SIZE 511
-/// The size of the AELogEntry's **module name in characters** (excluding null termination)
+/// Macro for the size of the AELogEntry's **module name in characters** (excluding null termination)
 /// @note Changing this -- changes the size of the AELogEntry structure
 /// @attention Mind the size here:
 ///		* Too little will make the messages cut off
@@ -109,5 +110,22 @@
 /// @attention If this is disabled, and you try exceeding the dimension amount -- **sigsegv** will smack you in the face.
 /// @see AEVector::operator[]()
 #define AEVEC_WRAP_DIMENSIONS 1
+
+//AEFrame
+/// Macro for the AEFrame to **reset the timepoint when behind X milliseconds**.
+/// This makes the AEFrame to perform a lateness check when calling the AEFrame::sleep() function. <br>
+/// It checks if the difference between the current time and the timepoint stored in the AEFrame instance
+///		is larger than the time in milliseconds indicated by this macro
+///	@attention Setting this to a low value can decrease the program performance
+///		as well as the accuracy of the AEFrame
+/// @note Set to positive integer value to enable, and 0 to disable this feature
+/// @see AEFrame::sleep()
+#define AEF_RESET_TIME_WHEN_BEHIND_MS 100
+/// Macro for the clock for the AEFrame to use for counting internally
+/// @note This clock needs to be a chrono-compatible clock
+/// @see SysClock
+/// @see HighResClock
+/// @see SteadyClock
+#define AEF_CLOCK HighResClock
 
 #endif // !ENGINE_FLAGS_HPP

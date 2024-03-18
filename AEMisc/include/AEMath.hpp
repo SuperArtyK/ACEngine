@@ -32,6 +32,7 @@
 
 
 /// This namespace contains the engine's **math and math-related functions**.
+/// 
 /// Mathematical functions and other things usefull in math. <br>
 /// Almost all functions have a template parameter for the type of the operation. <br>
 /// That's made so you won't need to make the operation of a wider type, if you need it in the narrower type. <br>
@@ -207,6 +208,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Compares two floating** point values **for equality**, within a given epsilon
+	/// 
 	/// @remark Requires the type **T** to be a floating-point type
 	/// </summary>
 	/// <typeparam name="T">The type of the floating point value</typeparam>
@@ -229,7 +231,9 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Compares two floating** point values **for equality**, within a default (scaled) epsilon.
-	/// The epsilon is std::numeric_limits<T>::epsilon() * the smallest number of the 2
+	/// 
+	/// The epsilon is std::numeric_limits<T>::epsilon() * the smallest number of the 2.
+	/// 
 	/// @remark This is a helper/shortcut function of ace::math::fequals(const T num, const T num2, const T _epsilon)
 	/// @remark Requires the type **T** to be a floating-point type
 	/// </summary>
@@ -251,6 +255,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Checks **if given 2 numbers are equal**, a generic function for all types.
+	/// 
 	/// @note If the T type is a float, returns the result of ace::math::fequals() with the default epsilon values
 	/// @see ace::math::fequals(const T num, const T num2)
 	/// </summary>
@@ -284,6 +289,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Newton's method **sqrt implementation, compatible with constexpr** evaluation.
+	/// 
 	/// @remark Exists here for the only reason that std::sqrt isn't constexpr untill c++26 (https://en.cppreference.com/w/cpp/numeric/math/sqrt)
 	/// @todo When C++23 support appears, add if-consteval to use the newton's method in constexpr context, and use classic std::sqrt otherwise
 	/// </summary>
@@ -324,6 +330,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Calculate the **integer exponent** of a given number
+	/// 
 	/// @attention If the type T cannot hold the result, it will overflow!
 	/// </summary>
 	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
@@ -382,7 +389,9 @@ namespace ace::math {
 
 	/// <summary>
 	/// Calculate the **n'th root** of a number.
+	/// 
 	/// Thanks, Newton!
+	/// 
 	/// @remark If **rtNum** is 2, calls ace::math::sqrt() instead
 	/// </summary>
 	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
@@ -463,6 +472,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Calculate the **length of the given integer** number.
+	/// 
 	/// @remark Requires the type **T** to be an integral type
 	/// </summary>
 	/// <typeparam name="T">The type of the integer number</typeparam>
@@ -481,7 +491,9 @@ namespace ace::math {
 
 	/// <summary>
 	/// Calculate the **length of the given float** number's non-fractional part.
+	/// 
 	/// Essentially ace::math::lengthOfInt() for larger numbers.
+	/// 
 	/// @remark Requires the type **T** to be a floating point type
 	/// </summary>
 	/// <typeparam name="T">The type of the float number</typeparam>
@@ -497,6 +509,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// Computes the **linear inter/extrapolation** with the given interval boundaries a and b, and the interval percentage **c**.
+	/// 
 	/// The value of **c** is the percentage of the distance between values **a** and **c**:
 	/// * 0% is **a**
 	/// * 100% is **b**
@@ -504,6 +517,7 @@ namespace ace::math {
 	/// * 150% is **b**+half of distance **a** and **b**. 
 	/// Example: lower boundary **a** is 0, higher boundary **b** is 10, interval coefficient **c** is 0.75; The result is 7.5. <br>
 	/// Example: lower boundary **a** is 0, higher boundary **b** is 10, interval coefficient **c** is 1.5; The result is 15. <br>
+	/// 
 	/// @note if **c** is outside of 0 and 1, computes linear extrapolation.
 	/// @note If **c** is between 0 (closest to boundary **a**) and 1 (closest to boundary **b**), computes linear interpolation.
 	/// 
@@ -522,7 +536,7 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculates the **hypotenuse length** from given values a and b
+	/// Calculates the **hypotenuse length** from given values a and b.
 	/// </summary>
 	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
 	/// <param name="a">The length of side a in the right triangle</param>
@@ -537,6 +551,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Rounds the given number** of type Y **to integer** of type T.
+	/// 
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// @remark Requires the type **T** to be an integral type
@@ -562,7 +577,8 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// **Rounds the passed number** of type Y and converts it to the type T
+	/// **Rounds the passed number** of type Y and converts it to the type T.
+	/// 
 	/// @note During compile-time calculation, it calls ace::math::roundToInt(). Mind the overflows
 	/// @todo When c++23 support appears, change it to a call to std::round() instead
 	/// @see ace::math::roundToInt()
@@ -592,6 +608,7 @@ namespace ace::math {
 
 	/// <summary>	
 	/// **Floor's the given float** of type Y and converts **to integer** of type T.
+	/// 
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// @note If num is positive, it truncates the decimal digits (towards zero); if negative, it ceil's the decimals (away from zero)
@@ -617,7 +634,8 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// **Floor's the passed number** of type Y and converts it to the type T
+	/// **Floor's the passed number** of type Y and converts it to the type T.
+	/// 
 	/// @note During compile-time calculation, it calls ace::math::floorToInt(). Mind the overflows
 	/// @todo When c++23 support appears, change it to a call to std::floor() instead
 	/// @see ace::math::floorToInt()
@@ -646,6 +664,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Ceil's the given float** of type Y and converts **to integer** of type T.
+	/// 
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// @remark Requires the type **T** to be an integral type
@@ -670,7 +689,8 @@ namespace ace::math {
 	}
 	
 	/// <summary>
-	/// **Ceil's the passed number** of type Y and converts it to the type T
+	/// **Ceil's the passed number** of type Y and converts it to the type T.
+	/// 
 	/// @note During compile-time calculation, it calls ace::math::ceilToInt(). Mind the overflows
 	/// @todo When c++23 support appears, change it to a call to std::ceil() instead
 	/// @see ace::math::ceilToInt()
@@ -699,6 +719,7 @@ namespace ace::math {
 
 	/// <summary>
 	/// **Truncates the given float** of type Y and converts **to integer** of type T.
+	/// 
 	/// @remark If value overflows -- return value depends on the overflow behaviour of your platform/compiler
 	/// @attention **num** should be finite (check with ace::math::isFinite())
 	/// @remark Requires the type **T** to be an integral type
@@ -724,7 +745,8 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// **Truncates the passed number** of type Y and converts it to the type T
+	/// **Truncates the passed number** of type Y and converts it to the type T.
+	/// 
 	/// @note During compile-time calculation, it calls ace::math::truncToInt(). Mind the overflows
 	/// @todo When c++23 support appears, change it to a call to std::trunc() instead
 	/// @see ace::math::truncToInt()

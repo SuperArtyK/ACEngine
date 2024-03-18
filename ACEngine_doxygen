@@ -2476,7 +2476,8 @@ PREDEFINED             = _DEBUG \
                          ENGINE_ENABLE_ASSERT=1 \
                          ENGINE_ENABLE_MATH_LOOKUP=1 \
                          AEFW_AUTOFLUSH_ENABLE=1 \
-                         AEVEC_WRAP_DIMENSIONS=1
+                         AEVEC_WRAP_DIMENSIONS=1 \
+                         AEF_RESET_TIME_WHEN_BEHIND_MS=100
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

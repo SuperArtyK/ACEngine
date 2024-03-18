@@ -144,20 +144,20 @@ template<class ticksType, class Period = std::ratio<1>>
 using timeDur = std::chrono::duration<ticksType, Period>;
 
 
-/// A macro as the shortcut of **chrono's milliseconds**.
-/// <param name="ms">The number of milliseconds to convert to</param>
-#define milliSec(ms) std::chrono::milliseconds(ms)
+/// An an alias as the shortcut of **chrono's milliseconds**.
+using milliSec = std::chrono::milliseconds;
 
-/// A macro as the shortcut of **chrono's microseconds**.
-/// <param name="us">The number of microseconds to convert to</param>
-#define microSec(us) std::chrono::microseconds(us)
+/// An alias as the shortcut of **chrono's microseconds**.
+using microSec = std::chrono::microseconds;
 
-/// A macro to **calculate time between 2 timepoints** as some type.
+/// An alias as the shortcut of **chrono's nanoseconds**.
+using nanoSec = std::chrono::nanoseconds;
+
+/// A macro to calculate **time between 2 timepoints** as some type.
 /// <param name="tp1">The first, starting point of time (time point)</param>
 /// <param name="tp2">The second, starting point of time (time point)</param>
 /// <param name="type">The type of the resulting operation</param>
-#define calculateTime(tp1, tp2, type) std::chrono::duration<type>(tp2 - tp1).count()
-
+#define timeBetween(tp1, tp2, type) std::chrono::duration<type>(tp2 - tp1).count()
 
 //thread
 /// A macro as the shortcut of **thread's sleep_until**

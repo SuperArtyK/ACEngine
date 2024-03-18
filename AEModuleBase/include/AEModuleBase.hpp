@@ -64,7 +64,9 @@
 
 /// <summary>
 /// This is a **base class for all the modules in the engine**; all basic modules inherit from it.
+/// 
 /// This allows tracking the name of the module, the amount of alive instances and soon: name and number of the instance.
+/// 
 /// @remark Intended to be inherited from in class declaration, not direct usage.
 /// @note Usage: <br>
 ///		class **[classname]** : public __AEModuleBase<**[classname]**>
@@ -80,7 +82,7 @@ public:
 	/// <summary>
 	/// **Basic constructor** that increases module count
 	/// </summary>
-	__AEModuleBase<T>(void) noexcept {
+	__AEModuleBase(void) noexcept {
 		this->m_ullModulesAlive++;
 	}
 
@@ -90,14 +92,14 @@ public:
 	/// @note Doesn't do anything other than increase module count
 	/// </summary>
 	/// <param name="val">The object passed to the copy constructor (we don't do anything with it)</param>
-	__AEModuleBase<T>(const __AEModuleBase<T>& val) noexcept {
+	__AEModuleBase(const __AEModuleBase<T>& val) noexcept {
 		this->m_ullModulesAlive++;
 	}
 
 	/// <summary>
 	/// **Basic destructor** that decreases module count
 	/// </summary>
-	virtual ~__AEModuleBase<T>(void) noexcept {
+	virtual ~__AEModuleBase(void) noexcept {
 		this->m_ullModulesAlive--;
 	}
 

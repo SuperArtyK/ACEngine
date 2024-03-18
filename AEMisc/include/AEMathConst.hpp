@@ -51,7 +51,8 @@ namespace ace::math::cst {
 	}
 
 	/// <summary>
-	/// Engine's **pi*2** (tau) value 
+	/// Engine's **pi*2** (tau) value.
+	/// 
 	/// Just another name for ace::math::tau()
 	/// </summary>
 	/// <typeparam name="T">Type to convert the constant to</typeparam>
@@ -245,6 +246,7 @@ namespace ace::math::cst {
 
 	/// <summary>
 	/// Engine's **euler's gamma function** (euler's constant) value.
+	/// 
 	/// @note Don't confuse with euler's number ace::math::e()
 	/// </summary>
 	/// <typeparam name="T">Type to convert the constant to</typeparam>

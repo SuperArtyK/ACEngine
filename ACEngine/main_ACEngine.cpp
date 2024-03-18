@@ -80,7 +80,7 @@ int main() {
 		mylog.writeToLog("Successfully have gone through a loop!");
 
 		std::cout << "The time it took to run the loop is: ";
-		std::cout << calculateTime(tp1, getHighResTime(), float)<<NLC;
+		std::cout << timeBetween(tp1, getHighResTime(), float)<<NLC;
 
 		
 		

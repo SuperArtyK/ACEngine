@@ -15,11 +15,11 @@
 #include <atomic>
 #include <thread>
 
-// in case you, the programmer undefined it, define it here as 0
-// I don't want to fuck with a lot more if-def lines
+ // in case you, the programmer undefined it
 #ifndef ENGINE_FPS
-#define ENGINE_FPS 0 
+#error Hey you! You undefined the ENGINE_FPS and want to use the AETimer module(or something that depends on it). If you wanted to disable the default delay functionality, set the ENGINE_FPS to 0 or negative instead!
 #endif // !ENGINE_FPS
+
 
 /// <summary>
 /// @brief ArtyK's Engine Timer -- the engine's internal timer for, um, timing events or anything, with variable tick speed.

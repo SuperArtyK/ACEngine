@@ -38,6 +38,7 @@
 
 
 /// This namespace contains **everything that belongs to the engine**.
+/// 
 /// Everything but the typedefs and macros. <br>
 /// That includes modules, custom types (structs), version and current status values, handles to windows, etc.
 /// 
@@ -213,6 +214,7 @@ namespace ace {
 
 		/// <summary>
 		/// Formats the current **(c)time point as YYYY-MM-DD.HH:mm:SS c-string**.
+		/// 
 		/// @warning **str** must be at least #DATETIME_STRING_SIZE bytes long. Otherwise you'll get a sigsev in your face.
 		/// @see #DATETIME_STRING_SIZE
 		/// </summary>
@@ -246,6 +248,7 @@ namespace ace {
 
 		/// <summary>
 		/// Formats the **current date and time as YYYY-MM-DD.HH:mm:SS**.
+		/// 
 		/// @see ace::utils::formatDate(const std::time_t)
 		/// </summary>
 		/// <returns>
@@ -256,7 +259,8 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Converts the given c-string to a (c)time point (std::time_t), using a set format
+		/// Converts the given c-string to a (c)time point (std::time_t), using a set format.
+		/// 
 		/// @note Format specifiers https://en.cppreference.com/w/cpp/io/manip/get_time
 		/// </summary>
 		/// <param name="timestr">The c-string to a formatted time</param>
@@ -285,7 +289,9 @@ namespace ace {
 
 		/// <summary>
 		/// Converts the **hex address value to std::string**.
-		/// This keeps the leading zeros of the address. So passing the nullptr, which is 0, will result in something like 0x00000000
+		/// 
+		/// This keeps the leading zeros of the address. So passing the nullptr, which is 0, will result in something like 0x00000000.
+		/// 
 		/// @note The pointer value is not evaluated (passing nullptr is fine :) )
 		/// </summary>
 		/// <param name="myptr">Pointer to whatever memory adress</param>
@@ -307,8 +313,10 @@ namespace ace {
 		
 		/// <summary>
 		/// Convenient sleep function to **sleep the thread for milliseconds**.
+		/// 
+		/// Uses #sleepFor() inside.
+		/// 
 		/// @note May be inaccurate in delay (as...all sleep functions are)
-		/// Uses #sleepFor() inside
 		/// @see #sleepFor()
 		/// @see #milliSec()
 		/// </summary>
@@ -319,8 +327,10 @@ namespace ace {
 
 		/// <summary>
 		/// Convenient sleep function to **sleep the thread for microseconds**.
+		/// 
+		/// Uses #sleepFor() inside.
+		/// 
 		/// @note May be inaccurate in delay (as...all sleep functions are)
-		/// Uses #sleepFor() inside
 		/// @see #sleepFor()
 		/// @see #microSec()
 		/// </summary>
@@ -330,7 +340,8 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// A wrapper to make the proper **cross-compiler version of fopen()**
+		/// A wrapper to make the proper **cross-compiler version of fopen()**.
+		/// 
 		/// Opens the file with given name and flags.
 		/// Needed so i don't need to retype ifdef for each of file openings
 		/// Or pragma-disable warnings
@@ -358,7 +369,8 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Converts the given **numeric char to int of type T**
+		/// Converts the given **numeric char to int of type T**.
+		/// 
 		/// @remark Requires the type **T** to be an integral type
 		/// </summary>
 		/// <typeparam name="T">The type of the int to convert the char to</typeparam>
@@ -376,7 +388,7 @@ namespace ace {
 		}
 		
 		/// <summary>
-		/// Converts the given **int of type T to numeric char**
+		/// Converts the given **int of type T to numeric char**.
 		/// </summary>
 		/// <typeparam name="T">The type of the int to check</typeparam>
 		/// <param name="i">The integer value to convert</param>
@@ -393,7 +405,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Checks **if the passed string is alpha-numeric** (contains only numbers and english letters)
+		/// Checks **if the passed string is alpha-numeric** (contains only numbers and english letters).
 		/// </summary>
 		/// <param name="str">The passed string to check</param>
 		/// <returns>
@@ -408,7 +420,7 @@ namespace ace {
 		}
 
 		/// <summary>
-		/// Checks **if the passed string is alpha-numeric with underscores** (contains only numbers, english letters, and underscores)
+		/// Checks **if the passed string is alpha-numeric with underscores** (contains only numbers, english letters, and underscores).
 		/// </summary>
 		/// <param name="str">The passed string to check</param>
 		/// <returns>

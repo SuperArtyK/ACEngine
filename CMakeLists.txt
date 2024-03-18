@@ -39,9 +39,9 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set(CMAKE_CXX_FLAGS_DEBUG "")
     set(CMAKE_CXX_FLAGS_RELEASE "")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Walloc-zero -Wcast-qual -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Warith-conversion -Wfloat-conversion -Wfloat-equal -Wformat=2 -Wformat-signedness -Winit-self -Wlogical-op -Wlogical-not-parentheses -Wpadded -Wshadow -Wundef -Wunused-macros -Wwrite-strings -Wsign-conversion -Wsign-compare -Wstrict-overflow=5 -Wcast-align=strict")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Walloc-zero -Wcast-qual -Wdouble-promotion -Wduplicated-cond -Wduplicated-branches -Warith-conversion -Wfloat-conversion -Wfloat-equal -Wformat=2 -Wformat-signedness -Winit-self -Wlogical-op -Wlogical-not-parentheses -Wpadded -Wshadow -Wundef -Wunused-macros -Wwrite-strings -Wsign-conversion -Wsign-compare -Wstrict-overflow=5 -Wcast-align=strict -O3")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wcast-qual -Wdouble-promotion -Wconversion -Wfloat-conversion -Wfloat-equal -Wformat -Winit-self -Wparentheses -Wlogical-not-parentheses -Wpadded -Wshadow-all -Wundef -Wunused-macros -Wwrite-strings -Wsign-conversion -Wsign-compare -Wstrict-overflow=5 -Wcast-align")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wcast-qual -Wdouble-promotion -Wconversion -Wfloat-conversion -Wfloat-equal -Wformat -Winit-self -Wparentheses -Wlogical-not-parentheses -Wpadded -Wshadow-all -Wundef -Wunused-macros -Wwrite-strings -Wsign-conversion -Wsign-compare -Wstrict-overflow=5 -Wcast-align -O3")
 endif()
 
 ################################################################################
