@@ -212,7 +212,7 @@ private:
 	/// The timepoint, that sets time **when to wake up the thread**.
 	timePoint<AEFrameClock, decltype(m_tdChronoDelay)> m_tpTimepoint;
 	double m_fFPS;
-	/// The flag if **we don't need the delay** err, for some reason.
+	/// The flag if **we don't need the delay**, err, for some reason.
 	bool m_bNoDelay;
 
 	//aaand we have to register it too
