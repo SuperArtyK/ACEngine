@@ -286,6 +286,64 @@ namespace ace::math {
 		}
 	}
 
+	/// <summary>
+	/// Calculate the **integer exponent** of a given number
+	/// 
+	/// @attention If the type T cannot hold the result, it will overflow!
+	/// </summary>
+	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
+	/// <param name="num">The value to raise to power</param>
+	/// <param name="power">Integer power to raise the number to</param>
+	/// <returns>
+	///		If the passed **num** is valid and finite:
+	///		* Number **num** raised to the exponent **power**
+	///		
+	///		Otherwise, if **num** isn't finite, or it's 0 *and* **power** is negative:
+	///		* **std::numeric_limits<T>::max()** (largest value of type **T**)
+	/// </returns>
+	template<typename T = long double>
+	[[nodiscard]] constexpr T intPow(const T num, llint power) noexcept {
+		if (ace::math::isFinite<T>(num) || // check if number is finite
+			(ace::math::equals(num, T(0)) && power < 0)) { // or 0 raised to negative exponent
+
+			return std::numeric_limits<T>::max();
+		}
+
+		switch (power) {
+
+			case -1:
+				return T(1) / num;
+				break;
+
+			case 0: // power is 0, anything to power 0 is 1
+				return T(1);
+				break;
+
+			case 1: // power is 0, anything to power 1 is itself
+				return num;
+				break;
+
+			default:
+				if (ace::math::equals(num, T(1))) { return T(1); } // 1 to power of anything is still 1
+				break;
+		}
+
+		T res;
+		if (power > 1) {
+			res = num;
+			for (int i = 1; i < power; i++) {
+				res *= num;
+			}
+		}
+		else {
+			res = 1;
+			power = -power;
+			for (int i = 1; i < power; i++) {
+				res /= num;
+			}
+		}
+		return res;
+	}
 
 	/// <summary>
 	/// Newton's method **sqrt implementation, compatible with constexpr** evaluation.
@@ -329,62 +387,43 @@ namespace ace::math {
 	}
 
 	/// <summary>
-	/// Calculate the **integer exponent** of a given number
+	/// Newton's method **cbrt implementation, compatible with constexpr** evaluation.
 	/// 
-	/// @attention If the type T cannot hold the result, it will overflow!
+	/// @remark Exists here for the only reason that std::cbrt isn't constexpr untill c++26 (https://en.cppreference.com/w/cpp/numeric/math/cbrt)
+	/// @todo When C++23 support appears, add if-consteval to use the newton's method in constexpr context, and use classic std::cbrt otherwise
 	/// </summary>
-	/// <typeparam name="T">The type of the variable to calculate it with</typeparam>
-	/// <param name="num">The value to raise to power</param>
-	/// <param name="power">Integer power to raise the number to</param>
+	/// <typeparam name="T">The type of the passed value and type to calculate it with</typeparam>
+	/// <param name="num">The value to calculate the cube root from</param>
 	/// <returns>
-	///		If the passed **num** is valid and finite:
-	///		* Number **num** raised to the exponent **power**
+	///		If the **num** is finite:
+	///		* The cube root of **num** as type **T**
 	///		
-	///		Otherwise, if **num** isn't finite, or it's 0 *and* **power** is negative:
+	///		If the **num** isn't finite:
 	///		* **std::numeric_limits<T>::max()** (largest value of type **T**)
-	/// </returns>
+	///	</returns>
 	template<typename T = long double>
-	[[nodiscard]] constexpr T intPow(const T num, llint power) noexcept {
-		if (ace::math::isFinite<T>(num) || // check if number is finite
-			(ace::math::equals(num, T(0)) && power < 0)) { // or 0 raised to negative exponent
-			
-			return std::numeric_limits<T>::max(); 
+	[[nodiscard]] constexpr T cbrt(const T num) noexcept {
+
+		if (ace::math::isFinite<T>(num)) {
+			return std::numeric_limits<T>::max();
 		}
 
-		switch (power) {
-
-			case -1:
-				return T(1) / num;
-				break;
-
-			case 0: // power is 0, anything to power 0 is 1
-				return T(1);
-				break;
-
-			case 1: // power is 0, anything to power 1 is itself
-				return num;
-				break;
-			
-			default:
-				if(ace::math::equals(num, T(1))) { return T(1); } // 1 to power of anything is still 1
-				break;
-		}
-
-		T res;
-		if (power > 1) {
-			res = num;
-			for (int i = 1; i < power; i++) {
-				res *= num;
+		if (std::is_constant_evaluated()) {
+			T val[2] = { num,0 };
+			while (!ace::math::equals(val[0], val[1])) {
+				val[1] = val[0];
+				val[0] = (2 * val[0] + (num / (val[0] * val[0]))) / 3;
+				if constexpr (std::is_integral<T>::value) {
+					if (val[1] < val[0]) {
+						break;
+					}
+				}
 			}
+			return val[1];
 		}
 		else {
-			res = 1;
-			power = -power;
-			for (int i = 1; i < power; i++) {
-				res /= num;
-			}
+			return std::cbrt(num);
 		}
-		return res;
 	}
 
 	/// <summary>
@@ -407,8 +446,14 @@ namespace ace::math {
 	template<typename T = long double>
 	[[nodiscard]] constexpr T root(const T num, const uint rtNum) noexcept {
 
-		if (rtNum == 2) {
-			return ace::math::sqrt(num);
+		switch (rtNum) {
+			case 2:
+				return ace::math::sqrt(num);
+				break;
+
+			case 3:
+				return ace::math::cbrt(num);
+				break;
 		}
 
 		if (ace::math::isFinite<T>(num) || (num < 0 && !(rtNum % 2))) {
