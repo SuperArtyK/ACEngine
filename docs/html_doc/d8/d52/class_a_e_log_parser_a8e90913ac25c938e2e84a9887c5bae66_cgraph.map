@@ -18,7 +18,7 @@
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="381,222,501,217,568,209,634,193,691,169,740,140,743,145,694,174,635,199,569,214,501,223,381,227"/>
 <area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="334,104,404,67,452,42,471,35,473,40,454,46,406,72,336,108"/>
 <area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="386,117,683,117,683,123,386,123"/>
-<area shape="rect" id="Node000008" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="478,157,609,184"/>
+<area shape="rect" id="Node000008" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen()." alt="" coords="478,157,609,184"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="373,131,464,151,462,156,372,137"/>
 <area shape="rect" id="Node000009" href="$dd/dd5/class_a_e_file_reader.html#a81bb672d7d1a142c7473d880a3842073" title="Checks if a file isn&#39;t open by this file&#45;reader." alt="" coords="464,56,623,83"/>
 <area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="372,103,462,84,464,89,373,109"/>

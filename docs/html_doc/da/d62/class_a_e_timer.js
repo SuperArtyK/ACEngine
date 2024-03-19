@@ -1,6 +1,6 @@
 var class_a_e_timer =
 [
-    [ "AETimer", "da/d62/class_a_e_timer.html#a0ae04d9de43161195777f7ee26a55dd5", null ],
+    [ "AETimer", "da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3", null ],
     [ "AETimer", "da/d62/class_a_e_timer.html#a0b1e5c5a58f637dd811fe3c4e76e4207", null ],
     [ "AETimer", "da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b", null ],
     [ "~AETimer", "da/d62/class_a_e_timer.html#a57e2aab044b69dc3ca834709c46876b1", null ],
@@ -20,9 +20,13 @@ var class_a_e_timer =
     [ "REGISTER_MODULE", "da/d62/class_a_e_timer.html#a9d4b98d4917106e0e3a129befb4418aa", null ],
     [ "getModuleAmount", "da/d62/class_a_e_timer.html#ab3257ef44350e547976d6199ffdb743f", null ],
     [ "getModuleName", "da/d62/class_a_e_timer.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
+    [ "getModuleID", "da/d62/class_a_e_timer.html#aab73fd66ed267a2162b7c4a29b8bb929", null ],
+    [ "getInstanceCounter", "da/d62/class_a_e_timer.html#a9570242b740ac89f86c5980957a42153", null ],
     [ "m_rDelay", "da/d62/class_a_e_timer.html#a2fe2c92681bbe2eaaf8680ab25bf8c30", null ],
     [ "m_trdCounting", "da/d62/class_a_e_timer.html#a20051246d7891c71cc0ec19bb38af3fc", null ],
     [ "m_ullTicks", "da/d62/class_a_e_timer.html#ab3676309b4854bf561c2d7bce3bc5849", null ],
     [ "m_bRunTrd", "da/d62/class_a_e_timer.html#a306cbf2c0132d5ceb378442d7a894518", null ],
-    [ "m_ullModulesAlive", "da/d62/class_a_e_timer.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ]
+    [ "m_ullModulesAlive", "da/d62/class_a_e_timer.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ],
+    [ "m_ullInstanceCounter", "da/d62/class_a_e_timer.html#a3c2c7b00cb494225f6465fbeeb4267d4", null ],
+    [ "m_ullModuleId", "da/d62/class_a_e_timer.html#a0bcad11d499e8999dc0252ffa3c4eca3", null ]
 ];

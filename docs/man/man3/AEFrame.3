@@ -1,8 +1,8 @@
-.TH "AEFrame" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFrame" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEFrame \- This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops\&.  
+AEFrame \- This module is the engine's \fBprecise frame/loop-cycle limiter\fP\&.  
 
 .SH SYNOPSIS
 .br
@@ -11,39 +11,57 @@ AEFrame \- This is the ArtyK's Engine's frame delay module -- it allows to creat
 \fR#include <AEFrame\&.hpp>\fP
 .PP
 Inherits \fB__AEModuleBase< AEFrame >\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBAEFrameClock\fP = \fBAEF_CLOCK\fP"
+.br
+.RI "This is an an \fBalias for the internal clock\fP of the \fBAEFrame\fP module\&. "
+.in -1c
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBAEFrame\fP (const double fps=0) noexcept"
+.RI "\fBAEFrame\fP (const double fps=\fBENGINE_FPS\fP) noexcept"
 .br
-.RI "Class constructor\&. "
+.RI "\fBClass constructor\fP -- constructs the instance with the \fBfps as the delay\fP\&. "
 .ti -1c
 .RI "\fBAEFrame\fP (const \fBAEFrame\fP &two) noexcept"
 .br
+.RI "\fBCopy constructor\fP -- copies data from a passed \fBAEFrame\fP instance\&. "
 .ti -1c
 .RI "\fBAEFrame\fP & \fBoperator=\fP (const \fBAEFrame\fP &two) noexcept"
 .br
+.RI "\fBCopy-assignment operator\fP -- copies data from a passed \fBAEFrame\fP instance\&. "
 .ti -1c
 .RI "void \fBsetFps\fP (const double fps) noexcept"
 .br
-.RI "Resets the delay value to what you pass to it\&. "
+.RI "Sets the delay of the instance as the \fBframes (loop cycles) per second\fP to reach in execution (fps goal)\&. "
+.ti -1c
+.RI "void \fBsetDelay\fP (const double sec)"
+.br
+.RI "Sets the delay of the instance as \fBmaximum time for each loop cycle\fP\&. "
 .ti -1c
 .RI "void \fBsleep\fP (void) noexcept"
 .br
-.RI "Puts the current thread to sleep up to the set fps goal\&. "
+.RI "Puts the current thread to \fBsleep for the delay that was set earlier\fP\&. "
 .ti -1c
 .RI "void \fBresetTimePoint\fP (void) noexcept"
 .br
-.RI "Resets the time point in the \fBAEFrame\fP to current system time\&. "
+.RI "\fBResets the time point\fP in the \fBAEFrame\fP to the real (current) time\&. "
 .ti -1c
 .RI "double \fBgetFrameRate\fP (void) const noexcept"
 .br
-.RI "Returns the fps goal of \fBAEFrame\fP instance\&. "
+.RI "Returns the \fBfps goal of the instance\fP\&. "
 .ti -1c
 .RI "double \fBgetDelay\fP (void) const noexcept"
 .br
-.RI "Returns the maximum \fBAEFrame\fP's delay from the set fps, in seconds\&. "
+.RI "Returns the \fBmaximum loop delay in the instance\fP in seconds\&. "
+.ti -1c
+.RI "constexpr const \fBullint\fP \fBgetModuleID\fP (void) noexcept"
+.br
+.RI "Get the \fBid number of the instance\fP of the module\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -51,11 +69,23 @@ Inherits \fB__AEModuleBase< AEFrame >\fP\&.
 .ti -1c
 .RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
-.RI "Get the \fBamount of the currently-alive instances of module T\fP "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP\&. "
 .ti -1c
 .RI "static constexpr const std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
-.RI "Get the \fBname of the module\fP "
+.RI "Get the \fBname of the module\fP\&. "
+.ti -1c
+.RI "static constexpr const \fBullint\fP \fBgetInstanceCounter\fP (void) noexcept"
+.br
+.RI "Get the current value of the \fBinstance counter\fP of the module\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "const \fBullint\fP \fBm_ullModuleId\fP"
+.br
+.RI "The ID number of the current module\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -64,6 +94,17 @@ Inherits \fB__AEModuleBase< AEFrame >\fP\&.
 .RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP"
 .br
 .RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
+.ti -1c
+.RI "static std::atomic< \fBullint\fP > \fBm_ullInstanceCounter\fP"
+.br
+.RI "Amount of the instances of the module ever created during the program's runtime\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBREGISTER_MODULE\fP (\fBAEFrame\fP)"
+.br
 .in -1c
 .SS "Private Attributes"
 
@@ -71,54 +112,86 @@ Inherits \fB__AEModuleBase< AEFrame >\fP\&.
 .ti -1c
 .RI "\fBtimeDur\fP< double > \fBm_tdChronoDelay\fP"
 .br
-.RI "The time duration for the delay in sleeps 
-.br
- "
+.RI "The time duration for the \fBsleeping delay\fP "
 .ti -1c
-.RI "\fBtimePoint\fP< \fBSteadyClock\fP, decltype(\fBm_tdChronoDelay\fP)> \fBm_tpTimepoint\fP"
+.RI "\fBtimePoint\fP< \fBAEFrameClock\fP, decltype(\fBm_tdChronoDelay\fP)> \fBm_tpTimepoint\fP"
 .br
-.RI "The timepoint, that sets time when to wake up the thread\&. "
+.RI "The timepoint, that sets time \fBwhen to wake up the thread\fP\&. "
 .ti -1c
 .RI "double \fBm_fFPS\fP"
 .br
 .ti -1c
 .RI "bool \fBm_bNoDelay\fP"
 .br
-.RI "The flag if we don't need the delay, err, for some reason\&. "
+.RI "The flag if \fBwe don't need the delay\fP, err, for some reason\&. "
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static constexpr \fBtimeDur\fP< double > \fBm_tdResetTime\fP = \fBmicroSec\fP(\fBmilliSec\fP(\fBllint\fP(100)))"
+.br
+.RI "The \fBtime duration for resetting the \fBAEFrame::m_tpTimepoint\fP\fP if it gets too different with real time\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops\&. 
+This module is the engine's \fBprecise frame/loop-cycle limiter\fP\&. 
 
+It allows to limit the execution of a loop to a set amount of iterations per second\&. 
+.br
+ Or, instead have the set delay per each loop cycle\&.
+.PP
 It works by sleeping the difference between the time spent by code in the loop and the time per each frame\&.
 .PP
-For example: if you want the loop to have 100 cycles/second or fps (10 milliseconds), and the code takes 5ms to complete, then the \fBAEFrame\fP will sleep that loop thread for 5ms\&.
-.PP
-Hungarian notation is fd\&. (m_fdMyFrameDelay) 
+For example: 
+.br
+ If you want the loop to have 100 cycles/second or fps (10 milliseconds per cycle), and the code takes \fB4ms\fP to complete, then the \fBAEFrame\fP will sleep the difference\&. 
+.br
+ In this case it's \fB6ms\fP to make it up to the 10ms per cycle\&.
 .PP
 \fBNote\fP
 .RS 4
-To get this to work properly, make an object outside of the loop, and put the call to \fBAEFrame::sleep()\fP as the very last/first thing in the loop\&. 
+By default it uses the value of \fBENGINE_FPS\fP as the fps target for the loops 
 .RE
+.PP
+
+.PP
+Definition at line \fB52\fP of file \fBAEFrame\&.hpp\fP\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBAEFrame::AEFrameClock\fP = \fBAEF_CLOCK\fP"
+
+.PP
+This is an an \fBalias for the internal clock\fP of the \fBAEFrame\fP module\&. 
 .PP
 \fBWarning\fP
 .RS 4
-If the game loop takes more time than the set fps goal amount, the frame times can be unpredictable (and\&.\&.\&.delay might also not work) (working to fix that) 
+The resulution of the AEFrameClock that your compiler gives must be at least 1 microsecond, otherwise it won't compile (breaks assertion)\&. 
 .RE
 .PP
 
 .PP
-Definition at line \fB38\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB59\fP of file \fBAEFrame\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "AEFrame::AEFrame (const double fps = \fR0\fP)\fR [inline]\fP, \fR [explicit]\fP, \fR [noexcept]\fP"
+.SS "AEFrame::AEFrame (const double fps = \fR\fBENGINE_FPS\fP\fP)\fR [inline]\fP, \fR [explicit]\fP, \fR [noexcept]\fP"
 
 .PP
-Class constructor\&. 
+\fBClass constructor\fP -- constructs the instance with the \fBfps as the delay\fP\&. 
+.PP
+\fBSee also\fP
+.RS 4
+AEFrame::setFPS() 
+.RE
+.PP
+\fBAttention\fP
+.RS 4
+If you pass it negative, 0, or more than 1 million, it will disable the delay (sets \fBAEFrame::m_bNoDelay\fP to \fBtrue\fP) 
+.RE
 .PP
 \fBNote\fP
 .RS 4
-if you pass it 0 or negative number it will disable the delay untill a proper value is given
+Defaults the fps delay to \fBENGINE_FPS\fP
 .RE
 .PP
 \fBParameters\fP
@@ -128,89 +201,158 @@ if you pass it 0 or negative number it will disable the delay untill a proper va
 .PP
 
 .PP
-Definition at line \fB48\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB71\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "AEFrame::AEFrame (const \fBAEFrame\fP & two)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Definition at line \fB53\fP of file \fBAEFrame\&.hpp\fP\&.
+\fBCopy constructor\fP -- copies data from a passed \fBAEFrame\fP instance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItwo\fP The second \fBAEFrame\fP instance
+.RE
+.PP
+
+.PP
+Definition at line \fB80\fP of file \fBAEFrame\&.hpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBAEFrame\fP & AEFrame::operator= (const \fBAEFrame\fP & two)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Definition at line \fB59\fP of file \fBAEFrame\&.hpp\fP\&.
-.PP
-References \fBgetSteadyTime\fP, \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBresetTimePoint()\fP\&.
-.SS "void AEFrame::setFps (const double fps)\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Resets the delay value to what you pass to it\&. 
+\fBCopy-assignment operator\fP -- copies data from a passed \fBAEFrame\fP instance\&. 
 .PP
 \fBNote\fP
 .RS 4
-if you pass it 0 or negative number it will disable the delay untill a proper value is given
+This resets the internal time point (calls \fBAEFrame::resetTimePoint()\fP)
 .RE
 .PP
 \fBParameters\fP
 .RS 4
-\fIfps\fP The fps goal that the frame delay module will try to achieve
+\fItwo\fP The second \fBAEFrame\fP instance
 .RE
-.PP
-
-.PP
-Definition at line \fB76\fP of file \fBAEFrame\&.hpp\fP\&.
-.PP
-References \fBgetSteadyTime\fP, \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBmicroSec\fP\&.
-.SS "void AEFrame::sleep (void)\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Puts the current thread to sleep up to the set fps goal\&. Example: if the fps goal was set to 30fps (~~33ms) and a game loop takes 13ms, then the thread will sleep the rest of 20ms to make the game loop run at 30fps\&. 
-.PP
-Definition at line \fB88\fP of file \fBAEFrame\&.hpp\fP\&.
-.PP
-References \fBm_bNoDelay\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBsleepUntil\fP\&.
-.SS "void AEFrame::resetTimePoint (void)\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Resets the time point in the \fBAEFrame\fP to current system time\&. Helps if the gameloop delay was much bigger than AEFrames for a long time (it causes delay to stop working untill it catches up) 
-.PP
-Definition at line \fB103\fP of file \fBAEFrame\&.hpp\fP\&.
-.PP
-References \fBgetSteadyTime\fP, and \fBm_tpTimepoint\fP\&.
-.SS "double AEFrame::getFrameRate (void) const\fR [inline]\fP, \fR [noexcept]\fP"
-
-.PP
-Returns the fps goal of \fBAEFrame\fP instance\&. 
 .PP
 \fBReturns\fP
 .RS 4
-double of the given fps goal
+The reference to the resulting \fBAEFrame\fP instance\&. 
 .RE
 .PP
 
 .PP
-Definition at line \fB111\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB95\fP of file \fBAEFrame\&.hpp\fP\&.
+.PP
+References \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, \fBm_tpTimepoint\fP, and \fBresetTimePoint()\fP\&.
+.SS "void AEFrame::setFps (const double fps)\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Sets the delay of the instance as the \fBframes (loop cycles) per second\fP to reach in execution (fps goal)\&. 
+.PP
+\fBAttention\fP
+.RS 4
+If you pass it negative, 0, or more than 1 million, it will disable the delay (sets \fBAEFrame::m_bNoDelay\fP to \fBtrue\fP) 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This resets the internal time point (calls \fBAEFrame::resetTimePoint()\fP)
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIfps\fP The frames(cycles) per second to set the delay as
+.RE
+.PP
+
+.PP
+Definition at line \fB115\fP of file \fBAEFrame\&.hpp\fP\&.
+.PP
+References \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, and \fBm_tpTimepoint\fP\&.
+.SS "void AEFrame::setDelay (const double sec)\fR [inline]\fP"
+
+.PP
+Sets the delay of the instance as \fBmaximum time for each loop cycle\fP\&. 
+.PP
+\fBAttention\fP
+.RS 4
+If you pass negative or 0, it will disable the delay (sets \fBAEFrame::m_bNoDelay\fP to \fBtrue\fP)
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIsec\fP The delay of instance/time for each loop cycle
+.RE
+.PP
+
+.PP
+Definition at line \fB129\fP of file \fBAEFrame\&.hpp\fP\&.
+.PP
+References \fBm_bNoDelay\fP, \fBm_fFPS\fP, \fBm_tdChronoDelay\fP, and \fBm_tpTimepoint\fP\&.
+.SS "void AEFrame::sleep (void)\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Puts the current thread to \fBsleep for the delay that was set earlier\fP\&. Example: if the fps delay was set to 30fps (~~33ms delay in real time) and a game loop takes just 13ms, then the thread will sleep the rest of 20ms to make the game loop run at around ~~33ms of delay or around 30fps\&.
+.PP
+\fBAttention\fP
+.RS 4
+If the delay is disabled (\fBAEFrame::m_bNoDelay\fP is \fBtrue\fP), just returns and doesn't do anything 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+If the \fBAEFrame::m_tpTimepoint\fP gets too out of touch with real time, resets the time point (calls \fBAEFrame::resetTimePoint()\fP) The definition of 'out of touch' is controlled by \fBAEF_RESET_TIME_WHEN_BEHIND_MS\fP\&. 
+.PP
+Automatic timepoint resetting works \fBonly\fP if \fBAEF_RESET_TIME_WHEN_BEHIND_MS\fP is \fBenabled\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB149\fP of file \fBAEFrame\&.hpp\fP\&.
+.PP
+References \fBm_bNoDelay\fP, \fBm_tdChronoDelay\fP, \fBm_tdResetTime\fP, \fBm_tpTimepoint\fP, \fBresetTimePoint()\fP, and \fBsleepUntil\fP\&.
+.SS "void AEFrame::resetTimePoint (void)\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+\fBResets the time point\fP in the \fBAEFrame\fP to the real (current) time\&. Helps if the \fBAEFrame::m_tpTimepoint\fP time point drifted far from the reality\&. 
+.PP
+Definition at line \fB169\fP of file \fBAEFrame\&.hpp\fP\&.
+.PP
+References \fBm_tpTimepoint\fP\&.
+.SS "double AEFrame::getFrameRate (void) const\fR [inline]\fP, \fR [noexcept]\fP"
+
+.PP
+Returns the \fBfps goal of the instance\fP\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The fps goal of the instance as type \fBdouble\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB179\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBm_fFPS\fP\&.
 .SS "double AEFrame::getDelay (void) const\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-Returns the maximum \fBAEFrame\fP's delay from the set fps, in seconds\&. 
+Returns the \fBmaximum loop delay in the instance\fP in seconds\&. Or better: the time, in seconds, for each loop cycle that \fBAEFrame::sleep()\fP is called
 .PP
 \fBReturns\fP
 .RS 4
-double of the maximum \fBAEFrame\fP's delay in real-world seconds
+The delay of the instance as seconds as type \fBdouble\fP\&. 
 .RE
 .PP
 
 .PP
-Definition at line \fB117\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB191\fP of file \fBAEFrame\&.hpp\fP\&.
 .PP
 References \fBm_tdChronoDelay\fP\&.
+.SS "AEFrame::REGISTER_MODULE (\fBAEFrame\fP)\fR [private]\fP"
+
 .SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Get the \fBamount of the currently-alive instances of module T\fP 
+Get the \fBamount of the currently-alive instances of module T\fP\&. 
 .PP
 \fBSee also\fP
 .RS 4
@@ -219,16 +361,16 @@ Get the \fBamount of the currently-alive instances of module T\fP
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the alive module amount
+Unsigned long long of the alive module amount 
 .RE
 .PP
 
 .PP
-Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB121\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "static constexpr const std::string_view \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Get the \fBname of the module\fP 
+Get the \fBname of the module\fP\&. 
 .PP
 \fBAttention\fP
 .RS 4
@@ -242,42 +384,101 @@ You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declaratio
 .PP
 \fBReturns\fP
 .RS 4
-The name of the module as a const std::strinv_view type
+The name of the module as a const std::strinv_view type 
 .RE
 .PP
 
+.SS "constexpr const \fBullint\fP \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getModuleID (void)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Get the \fBid number of the instance\fP of the module\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Every module has its own instance counter
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The id number of the instance of the module as \fBullint\fP type 
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "static constexpr const \fBullint\fP \fB__AEModuleBase\fP< \fBAEFrame\fP  >::getInstanceCounter (void)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Get the current value of the \fBinstance counter\fP of the module\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase::m_ullInstanceCounter\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The amount of the module's instances overall created throughout the program's runtime 
+.RE
+.PP
+
+.PP
+Definition at line \fB156\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
+.SS "constexpr \fBtimeDur\fP<double> AEFrame::m_tdResetTime = \fBmicroSec\fP(\fBmilliSec\fP(\fBllint\fP(100)))\fR [static]\fP, \fR [constexpr]\fP, \fR [private]\fP"
+
+.PP
+The \fBtime duration for resetting the \fBAEFrame::m_tpTimepoint\fP\fP if it gets too different with real time\&. Only exists if \fBAEF_RESET_TIME_WHEN_BEHIND_MS\fP is defined 
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEF_RESET_TIME_WHEN_BEHIND_MS\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB207\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "\fBtimeDur\fP<double> AEFrame::m_tdChronoDelay\fR [private]\fP"
 
 .PP
-The time duration for the delay in sleeps 
-.br
- 
+The time duration for the \fBsleeping delay\fP 
 .PP
-Definition at line \fB122\fP of file \fBAEFrame\&.hpp\fP\&.
-.SS "\fBtimePoint\fP<\fBSteadyClock\fP, decltype(\fBm_tdChronoDelay\fP)> AEFrame::m_tpTimepoint\fR [private]\fP"
+Definition at line \fB211\fP of file \fBAEFrame\&.hpp\fP\&.
+.SS "\fBtimePoint\fP<\fBAEFrameClock\fP, decltype(\fBm_tdChronoDelay\fP)> AEFrame::m_tpTimepoint\fR [private]\fP"
 
 .PP
-The timepoint, that sets time when to wake up the thread\&. 
+The timepoint, that sets time \fBwhen to wake up the thread\fP\&. 
 .PP
-Definition at line \fB124\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB213\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "double AEFrame::m_fFPS\fR [private]\fP"
 
 .PP
-Definition at line \fB125\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB214\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "bool AEFrame::m_bNoDelay\fR [private]\fP"
 
 .PP
-The flag if we don't need the delay, err, for some reason\&. 
+The flag if \fBwe don't need the delay\fP, err, for some reason\&. 
 .PP
-Definition at line \fB127\fP of file \fBAEFrame\&.hpp\fP\&.
+Definition at line \fB216\fP of file \fBAEFrame\&.hpp\fP\&.
 .SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAEFrame\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
 
 .PP
 Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB165\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAEFrame\fP  >::m_ullInstanceCounter\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+Amount of the instances of the module ever created during the program's runtime\&. 
+.PP
+Definition at line \fB170\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "const \fBullint\fP \fB__AEModuleBase\fP< \fBAEFrame\fP  >::m_ullModuleId\fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+The ID number of the current module\&. 
+.PP
+Definition at line \fB175\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

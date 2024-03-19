@@ -113,6 +113,7 @@ var menudata={children:[
 {text:"d",url:"functions_vars.html#index_d"},
 {text:"l",url:"functions_vars.html#index_l"},
 {text:"m",url:"functions_vars.html#index_m"}]},
+{text:"Typedefs",url:"functions_type.html"},
 {text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
@@ -149,5 +150,6 @@ var menudata={children:[
 {text:"n",url:"globals_defs.html#index_n"},
 {text:"r",url:"globals_defs.html#index_r"},
 {text:"s",url:"globals_defs.html#index_s"},
+{text:"t",url:"globals_defs.html#index_t"},
 {text:"u",url:"globals_defs.html#index_u"},
 {text:"w",url:"globals_defs.html#index_w"}]}]}]}]}

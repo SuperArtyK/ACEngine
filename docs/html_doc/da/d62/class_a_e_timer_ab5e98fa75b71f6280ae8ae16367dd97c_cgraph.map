@@ -1,5 +1,7 @@
 <map id="AETimer::waitForTick" name="AETimer::waitForTick">
 <area shape="rect" id="Node000001" title="Stops and sleeps the thread untill the given timer hits the certain tick number." alt="" coords="5,5,151,32"/>
-<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" title="Puts the current thread to sleep up to the set fps goal." alt="" coords="199,5,314,32"/>
+<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" title="Puts the current thread to sleep for the delay that was set earlier." alt="" coords="199,5,314,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,16,183,16,183,21,151,21"/>
+<area shape="rect" id="Node000003" href="$df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" title="Resets the time point in the AEFrame to the real (current) time." alt="" coords="362,5,533,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="314,16,346,16,346,21,314,21"/>
 </map>

@@ -84,7 +84,7 @@ var sectionId = 'dynsection-10';
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module">
+<g id="a_Node000003"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module.">
 <polygon fill="white" stroke="#666666" points="1080.25,-322 925.5,-322 925.5,-290 1080.25,-290 1080.25,-322"/>
 <text text-anchor="start" x="933.5" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">__AEModuleBase&lt; AELogger &gt;</text>
 <text text-anchor="middle" x="1002.88" y="-296.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getModuleName</text>
@@ -157,7 +157,7 @@ var sectionId = 'dynsection-10';
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" target="_top" xlink:title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla...">
+<g id="a_Node000005"><a xlink:href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" target="_top" xlink:title="A wrapper to make the proper cross&#45;compiler version of fopen().">
 <polygon fill="white" stroke="#666666" points="1230.12,-661 1131.62,-661 1131.62,-641 1230.12,-641 1230.12,-661"/>
 <text text-anchor="middle" x="1180.88" y="-647.5" font-family="Helvetica,sans-Serif" font-size="10.00">ace::utils::fopenCC</text>
 </a>

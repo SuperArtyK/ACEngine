@@ -1,6 +1,6 @@
 <map id="AELogger::stopWriter" name="AELogger::stopWriter">
 <area shape="rect" id="Node000001" title="Stops the log&#45;writing thread (after flushing the log queue)." alt="" coords="5,199,152,225"/>
-<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="440,5,646,48"/>
+<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module." alt="" coords="440,5,646,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,196,251,134,439,58,457,51,459,56,441,62,253,138,111,201"/>
 <area shape="rect" id="Node000003" href="$d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file." alt="" coords="222,199,370,225"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,209,206,209,206,215,152,215"/>

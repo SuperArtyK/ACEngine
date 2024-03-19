@@ -18,9 +18,7 @@ var _a_e_typedefs_8hpp =
     [ "getSysTime", "dc/d89/_a_e_typedefs_8hpp.html#a8e611e8409abcf7ddec11f1427452b4c", null ],
     [ "getHighResTime", "dc/d89/_a_e_typedefs_8hpp.html#ad5ae2d20243e4338f9f7376085f28304", null ],
     [ "getSteadyTime", "dc/d89/_a_e_typedefs_8hpp.html#a4901a9a64a28aca8564f930ac3053bfd", null ],
-    [ "milliSec", "dc/d89/_a_e_typedefs_8hpp.html#a559364c19c1c80c7a63a7ca43ec71874", null ],
-    [ "microSec", "dc/d89/_a_e_typedefs_8hpp.html#ac0e26bf3aaeae4fcabbff362eb4dd3a4", null ],
-    [ "calculateTime", "dc/d89/_a_e_typedefs_8hpp.html#af72a119acd49a0eaaf8caf36930cbb07", null ],
+    [ "timeBetween", "dc/d89/_a_e_typedefs_8hpp.html#a4c11c6f505bef8e30a80b9afe2927d9c", null ],
     [ "sleepUntil", "dc/d89/_a_e_typedefs_8hpp.html#a713bf3c1565c4abe7b2e41cd1c795957", null ],
     [ "sleepFor", "dc/d89/_a_e_typedefs_8hpp.html#a36ad4c113cc69c24386becf1a367a901", null ],
     [ "ucint", "dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706", null ],
@@ -35,5 +33,8 @@ var _a_e_typedefs_8hpp =
     [ "HighResClock", "dc/d89/_a_e_typedefs_8hpp.html#a84f79c1feb804b7c4e7620b7f8a44b3a", null ],
     [ "SteadyClock", "dc/d89/_a_e_typedefs_8hpp.html#af0e8014f772795c246d043c5e9fb7495", null ],
     [ "timePoint", "dc/d89/_a_e_typedefs_8hpp.html#a5299101d3d66ef569007eb3d8012505e", null ],
-    [ "timeDur", "dc/d89/_a_e_typedefs_8hpp.html#a945fabbf0fc03b81ac4836fd4a97c998", null ]
+    [ "timeDur", "dc/d89/_a_e_typedefs_8hpp.html#a945fabbf0fc03b81ac4836fd4a97c998", null ],
+    [ "milliSec", "dc/d89/_a_e_typedefs_8hpp.html#ab5c1b3663b1c18513251fbb017ad8036", null ],
+    [ "microSec", "dc/d89/_a_e_typedefs_8hpp.html#a679b306654b58b289bc7cc43de6bfad1", null ],
+    [ "nanoSec", "dc/d89/_a_e_typedefs_8hpp.html#ae3d7a9ec1e8c07f5fe16d8f9458930dd", null ]
 ];

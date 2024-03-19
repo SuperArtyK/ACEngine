@@ -1,5 +1,5 @@
 <map id="AEFrame/include/AEFrame.hpp" name="AEFrame/include/AEFrame.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="566,5,771,32"/>
+<area shape="rect" id="Node000001" title="This file contains the engine&#39;s module for frame&#45;precise loop delays." alt="" coords="566,5,771,32"/>
 <area shape="rect" id="Node000002" href="$dd/dd8/_a_e_flags_8hpp.html" title="This file contains the flags to manipulate engine&#39;s funcitonality." alt="" coords="594,229,735,256"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="689,30,722,57,758,94,771,115,780,137,781,160,773,183,751,208,723,225,720,220,748,204,769,180,776,159,775,138,767,118,753,97,719,61,685,34"/>
 <area shape="rect" id="Node000003" href="$d7/d7f/_a_e_module_base_8hpp.html" title="This file contains the engine&#39;s basic module template." alt="" coords="451,80,632,107"/>

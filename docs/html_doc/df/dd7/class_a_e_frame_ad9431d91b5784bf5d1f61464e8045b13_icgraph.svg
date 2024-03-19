@@ -48,7 +48,7 @@
 <script type="application/ecmascript">
 var viewWidth = 521;
 var viewHeight = 142;
-var sectionId = 'dynsection-4';
+var sectionId = 'dynsection-5';
 </script>
 <script type="application/ecmascript" xlink:href="../../svg.min.js"/>
 <svg id="graph" class="graph">
@@ -57,7 +57,7 @@ var sectionId = 'dynsection-4';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Puts the current thread to sleep up to the set fps goal.">
+<g id="a_Node000001"><a xlink:title="Puts the current thread to sleep for the delay that was set earlier.">
 <polygon fill="#999999" stroke="#666666" points="512.5,-58 426,-58 426,-38 512.5,-38 512.5,-58"/>
 <text text-anchor="middle" x="469.25" y="-44.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::sleep</text>
 </a>
@@ -138,7 +138,7 @@ var sectionId = 'dynsection-4';
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="../../da/d62/class_a_e_timer.html#a0ae04d9de43161195777f7ee26a55dd5" target="_top" xlink:title="Class constructor – starts the timer automatically.">
+<g id="a_Node000005"><a xlink:href="../../da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3" target="_top" xlink:title="Class constructor – starts the timer automatically.">
 <polygon fill="white" stroke="#666666" points="98.88,-96 1.88,-96 1.88,-76 98.88,-76 98.88,-96"/>
 <text text-anchor="middle" x="50.38" y="-82.5" font-family="Helvetica,sans-Serif" font-size="10.00">AETimer::AETimer</text>
 </a>

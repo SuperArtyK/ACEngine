@@ -120,7 +120,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="../../d5/d0f/namespaceace_1_1math.html#ac1f96b72c81b7af8c6fad92cc7aa5d38" target="_top" xlink:title="Truncates the passed number of type Y and converts it to the type T">
+<g id="a_Node000007"><a xlink:href="../../d5/d0f/namespaceace_1_1math.html#ac1f96b72c81b7af8c6fad92cc7aa5d38" target="_top" xlink:title="Truncates the passed number of type Y and converts it to the type T.">
 <polygon fill="white" stroke="#666666" points="135.25,-20 48,-20 48,0 135.25,0 135.25,-20"/>
 <text text-anchor="middle" x="91.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ace::math::trunc</text>
 </a>

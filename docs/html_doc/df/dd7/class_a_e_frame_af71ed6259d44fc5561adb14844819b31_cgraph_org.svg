@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Copy&#45;assignment operator – copies data from a passed AEFrame instance.">
 <polygon fill="#999999" stroke="#666666" points="104.5,-20 0,-20 0,0 104.5,0 104.5,-20"/>
 <text text-anchor="middle" x="52.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::operator=</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" target="_top" xlink:title="Resets the time point in the AEFrame to current system time.">
+<g id="a_Node000002"><a xlink:href="../../df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" target="_top" xlink:title="Resets the time point in the AEFrame to the real (current) time.">
 <polygon fill="white" stroke="#666666" points="269,-20 140.5,-20 140.5,0 269,0 269,-20"/>
 <text text-anchor="middle" x="204.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::resetTimePoint</text>
 </a>

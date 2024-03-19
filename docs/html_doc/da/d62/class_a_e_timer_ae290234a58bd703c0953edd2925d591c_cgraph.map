@@ -1,13 +1,15 @@
 <map id="AETimer::setDelay" name="AETimer::setDelay">
 <area shape="rect" id="Node000001" title="Sets the new delay instead of the current." alt="" coords="5,56,136,83"/>
-<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#a95580be55882c4baf46fce5dac036cab" title="Resets the delay value to what you pass to it." alt="" coords="194,5,318,32"/>
+<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#a95580be55882c4baf46fce5dac036cab" title="Sets the delay of the instance as the frames (loop cycles) per second to reach in execution (fps goal..." alt="" coords="194,5,318,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,53,189,34,191,39,123,58"/>
 <area shape="rect" id="Node000003" href="$da/d62/class_a_e_timer.html#a022b44a8e9b9e2a314e0ac3ecc759062" title="Starts the timer thread and starts tick counting." alt="" coords="184,56,328,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,67,168,67,168,72,136,72"/>
-<area shape="rect" id="Node000006" href="$da/d62/class_a_e_timer.html#a29f3aaf12a9832c55dff8875d94c4548" title="Stops the timer thread and stops tick counting." alt="" coords="184,107,328,133"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="123,81,191,100,189,105,122,86"/>
+<area shape="rect" id="Node000007" href="$da/d62/class_a_e_timer.html#a29f3aaf12a9832c55dff8875d94c4548" title="Stops the timer thread and stops tick counting." alt="" coords="184,107,328,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="123,81,191,100,189,105,122,86"/>
 <area shape="rect" id="Node000004" href="$da/d62/class_a_e_timer.html#ad5fa76b6e9233eaa415a9c70ed6ecc8d" title="The function that does the tick counting for the timer." alt="" coords="376,56,508,83"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="328,67,360,67,360,72,328,72"/>
-<area shape="rect" id="Node000005" href="$df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" title="Puts the current thread to sleep up to the set fps goal." alt="" coords="556,56,672,83"/>
+<area shape="rect" id="Node000005" href="$df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" title="Puts the current thread to sleep for the delay that was set earlier." alt="" coords="556,56,672,83"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="509,67,541,67,541,72,509,72"/>
+<area shape="rect" id="Node000006" href="$df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" title="Resets the time point in the AEFrame to the real (current) time." alt="" coords="720,56,891,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="672,67,704,67,704,72,672,72"/>
 </map>

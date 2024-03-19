@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e" target="_top" xlink:title="Returns the fps goal of AEFrame instance.">
+<g id="a_Node000002"><a xlink:href="../../df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e" target="_top" xlink:title="Returns the fps goal of the instance.">
 <polygon fill="white" stroke="#666666" points="281.75,-20 157,-20 157,0 281.75,0 281.75,-20"/>
 <text text-anchor="middle" x="219.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::getFrameRate</text>
 </a>

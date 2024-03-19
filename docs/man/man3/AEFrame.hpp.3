@@ -1,8 +1,9 @@
-.TH "AEFrame/include/AEFrame.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFrame/include/AEFrame.hpp" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-AEFrame/include/AEFrame.hpp
+AEFrame/include/AEFrame.hpp \- This file contains the engine's \fBmodule for frame-precise loop delays\fP\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -17,28 +18,36 @@ AEFrame/include/AEFrame.hpp
 .ti -1c
 .RI "class \fBAEFrame\fP"
 .br
-.RI "This is the ArtyK's Engine's frame delay module -- it allows to create precise delays for game loops\&. "
-.in -1c
-.SS "Macros"
-
-.in +1c
-.ti -1c
-.RI "#define \fBENGINE_FPS\fP   0"
-.br
+.RI "This module is the engine's \fBprecise frame/loop-cycle limiter\fP\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-This file contains the frame delay module code\&. Useful if you need to limit the execution time of the program\&. It makes sure that the loop executes with same delay, if contents of loop are processed faster than you need\&.
+This file contains the engine's \fBmodule for frame-precise loop delays\fP\&. 
+
+This is usefull when you need to limit the execution of the program in the loop\&.
 .PP
-Should not cause everything to break :) 
+Limit the loop cycle execution to precisely set amount (let's say 60 times per second), if the contents of the loop are processed faster than you need\&.
+.PP
+Example of usage (and reason for the name): game loop, that you need to limit to some fps\&.
+.PP
+\fBDate\fP
+.RS 4
+2023/09/21
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Artemii Kozhemiak (SuperArtyK)
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MIT License
+.RE
+.PP
+\fIShould not cause everything to break :)\fP 
 .PP
 Definition in file \fBAEFrame\&.hpp\fP\&.
-.SH "Macro Definition Documentation"
-.PP 
-.SS "#define ENGINE_FPS   0"
-
-.PP
-Definition at line \fB22\fP of file \fBAEFrame\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

@@ -1,4 +1,4 @@
-.TH "AEFileReader" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEFileReader" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -192,6 +192,10 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBcint\fP \fBrea
 .RI "bool \fBisError\fP (\fBvoid\fP) \fBconst\fP \fBnoexcept\fP"
 .br
 .RI "Checks if error was encountered while reading the file data (ferror) "
+.ti -1c
+.RI "\fBconstexpr\fP \fBconst\fP \fBullint\fP \fBgetModuleID\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Get the \fBid number of the instance\fP of the module\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -199,11 +203,23 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBcint\fP \fBrea
 .ti -1c
 .RI "\fBstatic\fP \fBullint\fP \fBgetModuleAmount\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Get the \fBamount of the currently-alive instances of module T\fP "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP\&. "
 .ti -1c
 .RI "\fBstatic\fP \fBconstexpr\fP \fBconst\fP std::string_view \fBgetModuleName\fP (\fBvoid\fP) \fBnoexcept\fP"
 .br
-.RI "Get the \fBname of the module\fP "
+.RI "Get the \fBname of the module\fP\&. "
+.ti -1c
+.RI "\fBstatic\fP \fBconstexpr\fP \fBconst\fP \fBullint\fP \fBgetInstanceCounter\fP (\fBvoid\fP) \fBnoexcept\fP"
+.br
+.RI "Get the current value of the \fBinstance counter\fP of the module\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBconst\fP \fBullint\fP \fBm_ullModuleId\fP"
+.br
+.RI "The ID number of the current module\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -212,6 +228,10 @@ requires (std::is_floating_point<T>\fB::value\fP == \fBtrue\fP)\fBcint\fP \fBrea
 .RI "\fBstatic\fP std::atomic< std::size_t > \fBm_ullModulesAlive\fP"
 .br
 .RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
+.ti -1c
+.RI "\fBstatic\fP std::atomic< \fBullint\fP > \fBm_ullInstanceCounter\fP"
+.br
+.RI "Amount of the instances of the module ever created during the program's runtime\&. "
 .in -1c
 .SS "Private Attributes"
 
@@ -1236,7 +1256,7 @@ References \fBm_fpFilestr\fP\&.
 .SS "\fBstatic\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Get the \fBamount of the currently-alive instances of module T\fP 
+Get the \fBamount of the currently-alive instances of module T\fP\&. 
 .PP
 \fBSee also\fP
 .RS 4
@@ -1245,16 +1265,16 @@ Get the \fBamount of the currently-alive instances of module T\fP
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the alive module amount
+Unsigned long long of the alive module amount 
 .RE
 .PP
 
 .PP
-Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB121\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "\fBstatic\fP \fBconstexpr\fP \fBconst\fP std::string_view \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Get the \fBname of the module\fP 
+Get the \fBname of the module\fP\&. 
 .PP
 \fBAttention\fP
 .RS 4
@@ -1268,10 +1288,46 @@ You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declaratio
 .PP
 \fBReturns\fP
 .RS 4
-The name of the module as a const std::strinv_view type
+The name of the module as a const std::strinv_view type 
 .RE
 .PP
 
+.SS "\fBconstexpr\fP \fBconst\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getModuleID (void)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Get the \fBid number of the instance\fP of the module\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Every module has its own instance counter
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The id number of the instance of the module as \fBullint\fP type 
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBstatic\fP \fBconstexpr\fP \fBconst\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::getInstanceCounter (void)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Get the current value of the \fBinstance counter\fP of the module\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase::m_ullInstanceCounter\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The amount of the module's instances overall created throughout the program's runtime 
+.RE
+.PP
+
+.PP
+Definition at line \fB156\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "std::string AEFileReader::m_sFilename\fR [private]\fP"
@@ -1303,7 +1359,19 @@ Definition at line \fB633\fP of file \fBAEFileReader\&.hpp\fP\&.
 .PP
 Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB165\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::m_ullInstanceCounter\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+Amount of the instances of the module ever created during the program's runtime\&. 
+.PP
+Definition at line \fB170\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "\fBconst\fP \fBullint\fP \fB__AEModuleBase\fP< \fBAEFileReader\fP  >::m_ullModuleId\fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+The ID number of the current module\&. 
+.PP
+Definition at line \fB175\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

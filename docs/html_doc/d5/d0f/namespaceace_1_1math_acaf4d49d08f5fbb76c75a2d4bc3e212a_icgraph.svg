@@ -30,7 +30,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d5/d0f/namespaceace_1_1math.html#a2b5effb7e682eb714f694c1c6a963551" target="_top" xlink:title="Ceil&#39;s the passed number of type Y and converts it to the type T">
+<g id="a_Node000002"><a xlink:href="../../d5/d0f/namespaceace_1_1math.html#a2b5effb7e682eb714f694c1c6a963551" target="_top" xlink:title="Ceil&#39;s the passed number of type Y and converts it to the type T.">
 <polygon fill="white" stroke="#666666" points="80.5,-20 0,-20 0,0 80.5,0 80.5,-20"/>
 <text text-anchor="middle" x="40.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ace::math::ceil</text>
 </a>

@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../de/d72/_a_e_frame_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="../../de/d72/_a_e_frame_8hpp.html" target="_top" xlink:title="This file contains the engine&#39;s module for frame&#45;precise loop delays.">
 <polygon fill="white" stroke="#666666" points="154,-132 0,-132 0,-112 154,-112 154,-132"/>
 <text text-anchor="middle" x="77" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame/include/AEFrame.hpp</text>
 </a>

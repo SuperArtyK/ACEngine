@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5" target="_top" xlink:title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds.">
+<g id="a_Node000002"><a xlink:href="../../df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5" target="_top" xlink:title="Returns the maximum loop delay in the instance in seconds.">
 <polygon fill="white" stroke="#666666" points="257,-20 155.5,-20 155.5,0 257,0 257,-20"/>
 <text text-anchor="middle" x="206.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::getDelay</text>
 </a>

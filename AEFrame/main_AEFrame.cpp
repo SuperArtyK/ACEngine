@@ -14,7 +14,7 @@ std::atomic<bool> stopTrd = true;
 int worker() noexcept {
 	AEFrame myfr;
 	myfr.setFps(10);
-
+	cout << "id: " << myfr.getInstanceCounter() << NLC;
 	while (stopTrd) {
 		//tp1 = getSteadyTime();
 		//a = time(nullptr);
@@ -39,6 +39,8 @@ int main()
 	myfr.setFps(1);
 
 	std::thread mytrd(worker);
+
+	
 
 	ullint previ = i;
 	ullint curi = i;

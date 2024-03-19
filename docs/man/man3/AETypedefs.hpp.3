@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AETypedefs.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AETypedefs.hpp" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -90,17 +90,9 @@ AEMisc/include/AETypedefs.hpp \- This file contains the engine's \fBtypedefs and
 .br
 .RI "A macro to get the \fBsteady clock's current time\fP (now()) "
 .ti -1c
-.RI "#define \fBmilliSec\fP(ms)   std::chrono::milliseconds(ms)"
+.RI "#define \fBtimeBetween\fP(tp1,  tp2,  type)   std::chrono::duration<type>(tp2 \- tp1)\&.count()"
 .br
-.RI "A macro as the shortcut of \fBchrono's milliseconds\fP\&. "
-.ti -1c
-.RI "#define \fBmicroSec\fP(us)   std::chrono::microseconds(us)"
-.br
-.RI "A macro as the shortcut of \fBchrono's microseconds\fP\&. "
-.ti -1c
-.RI "#define \fBcalculateTime\fP(tp1,  tp2,  type)   std::chrono::duration<type>(tp2 \- tp1)\&.count()"
-.br
-.RI "A macro to \fBcalculate time between 2 timepoints\fP as some type\&. "
+.RI "A macro to calculate \fBtime between 2 timepoints\fP as some type\&. "
 .ti -1c
 .RI "#define \fBsleepUntil\fP(sec)   std::this_thread::sleep_until(sec)"
 .br
@@ -179,6 +171,18 @@ AEMisc/include/AETypedefs.hpp \- This file contains the engine's \fBtypedefs and
 .RI "template<class ticksType , class Period  = std::ratio<1>> using \fBtimeDur\fP = std::chrono::duration<ticksType, Period>"
 .br
 .RI "An alias for the \fBstd::chrono::duration\fP to not type as much\&. "
+.ti -1c
+.RI "using \fBmilliSec\fP = std::chrono::milliseconds"
+.br
+.RI "An an alias as the shortcut of \fBchrono's milliseconds\fP\&. "
+.ti -1c
+.RI "using \fBmicroSec\fP = std::chrono::microseconds"
+.br
+.RI "An alias as the shortcut of \fBchrono's microseconds\fP\&. "
+.ti -1c
+.RI "using \fBnanoSec\fP = std::chrono::nanoseconds"
+.br
+.RI "An alias as the shortcut of \fBchrono's nanoseconds\fP\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -316,36 +320,10 @@ Definition at line \fB124\fP of file \fBAETypedefs\&.hpp\fP\&.
 A macro to get the \fBsteady clock's current time\fP (now()) 
 .PP
 Definition at line \fB127\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#define milliSec(ms)   std::chrono::milliseconds(ms)"
+.SS "#define timeBetween(tp1, tp2, type)   std::chrono::duration<type>(tp2 \- tp1)\&.count()"
 
 .PP
-A macro as the shortcut of \fBchrono's milliseconds\fP\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIms\fP The number of milliseconds to convert to
-.RE
-.PP
-
-.PP
-Definition at line \fB149\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#define microSec(us)   std::chrono::microseconds(us)"
-
-.PP
-A macro as the shortcut of \fBchrono's microseconds\fP\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIus\fP The number of microseconds to convert to
-.RE
-.PP
-
-.PP
-Definition at line \fB153\fP of file \fBAETypedefs\&.hpp\fP\&.
-.SS "#define calculateTime(tp1, tp2, type)   std::chrono::duration<type>(tp2 \- tp1)\&.count()"
-
-.PP
-A macro to \fBcalculate time between 2 timepoints\fP as some type\&. 
+A macro to calculate \fBtime between 2 timepoints\fP as some type\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -358,7 +336,7 @@ A macro to \fBcalculate time between 2 timepoints\fP as some type\&.
 .PP
 
 .PP
-Definition at line \fB159\fP of file \fBAETypedefs\&.hpp\fP\&.
+Definition at line \fB160\fP of file \fBAETypedefs\&.hpp\fP\&.
 .SS "#define sleepUntil(sec)   std::this_thread::sleep_until(sec)"
 
 .PP
@@ -497,6 +475,24 @@ An alias for the \fBstd::chrono::duration\fP to not type as much\&.
 
 .PP
 Definition at line \fB144\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "using \fBmilliSec\fP = std::chrono::milliseconds"
+
+.PP
+An an alias as the shortcut of \fBchrono's milliseconds\fP\&. 
+.PP
+Definition at line \fB148\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "using \fBmicroSec\fP = std::chrono::microseconds"
+
+.PP
+An alias as the shortcut of \fBchrono's microseconds\fP\&. 
+.PP
+Definition at line \fB151\fP of file \fBAETypedefs\&.hpp\fP\&.
+.SS "using \fBnanoSec\fP = std::chrono::nanoseconds"
+
+.PP
+An alias as the shortcut of \fBchrono's nanoseconds\fP\&. 
+.PP
+Definition at line \fB154\fP of file \fBAETypedefs\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

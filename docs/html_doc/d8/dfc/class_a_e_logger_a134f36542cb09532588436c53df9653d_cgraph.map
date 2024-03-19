@@ -1,6 +1,6 @@
 <map id="AELogger::AELogger" name="AELogger::AELogger">
 <area shape="rect" id="Node000001" title="Class constructor – it opens the file with the given path and name and start logging to it." alt="" coords="5,317,149,344"/>
-<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="1064,309,1270,352"/>
+<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module." alt="" coords="1064,309,1270,352"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,328,1048,328,1048,333,149,333"/>
 <area shape="rect" id="Node000003" href="$db/d15/class_a_e_file_writer.html#a47e3c08c276394bce7b612331cf4762d" title="Checks if a file is open by this file&#45;writer." alt="" coords="1539,647,1683,673"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,344,125,435,158,498,201,565,253,629,282,658,313,683,347,704,383,720,420,730,460,733,1168,733,1273,727,1376,713,1470,694,1546,675,1547,680,1471,699,1377,718,1273,733,1169,739,460,739,419,735,381,725,344,708,310,687,279,662,249,633,197,569,154,501,120,437,81,346"/>

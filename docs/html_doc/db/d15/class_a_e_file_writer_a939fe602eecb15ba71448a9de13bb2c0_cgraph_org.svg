@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" target="_top" xlink:title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla...">
+<g id="a_Node000002"><a xlink:href="../../de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" target="_top" xlink:title="A wrapper to make the proper cross&#45;compiler version of fopen().">
 <polygon fill="white" stroke="#666666" points="257,-77 158.5,-77 158.5,-57 257,-57 257,-77"/>
 <text text-anchor="middle" x="207.75" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ace::utils::fopenCC</text>
 </a>

@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEUtils.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEUtils.hpp" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -100,25 +100,25 @@ AEMisc/include/AEUtils.hpp \- This file contains the engine's \fBusefull utiliti
 .ti -1c
 .RI "std::FILE * \fBace::utils::fopenCC\fP (const char *const fname, const char *const flags) noexcept"
 .br
-.RI "A wrapper to make the proper \fBcross-compiler version of fopen()\fP Opens the file with given name and flags\&. "
+.RI "A wrapper to make the proper \fBcross-compiler version of fopen()\fP\&. "
 .ti -1c
 .RI "template<typename T  = int> 
 .br
 requires (std::is_integral<T>::value)constexpr T \fBace::utils::numCharToInt\fP (const char c) noexcept"
 .br
-.RI "Converts the given \fBnumeric char to int of type T\fP "
+.RI "Converts the given \fBnumeric char to int of type T\fP\&. "
 .ti -1c
 .RI "template<typename T  = int> constexpr char \fBace::utils::intToNumChar\fP (const T i) noexcept"
 .br
-.RI "Converts the given \fBint of type T to numeric char\fP "
+.RI "Converts the given \fBint of type T to numeric char\fP\&. "
 .ti -1c
 .RI "constexpr bool \fBace::utils::isAlNum\fP (const std::string_view str)"
 .br
-.RI "Checks \fBif the passed string is alpha-numeric\fP (contains only numbers and english letters) "
+.RI "Checks \fBif the passed string is alpha-numeric\fP (contains only numbers and english letters)\&. "
 .ti -1c
 .RI "constexpr bool \fBace::utils::isAlNumUs\fP (const std::string_view str)"
 .br
-.RI "Checks \fBif the passed string is alpha-numeric with underscores\fP (contains only numbers, english letters, and underscores) "
+.RI "Checks \fBif the passed string is alpha-numeric with underscores\fP (contains only numbers, english letters, and underscores)\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 

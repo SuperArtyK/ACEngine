@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEMath.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEMath.hpp" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -148,7 +148,7 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::round\fP (const Y num) noexcept"
 .br
-.RI "\fBRounds the passed number\fP of type Y and converts it to the type T "
+.RI "\fBRounds the passed number\fP of type Y and converts it to the type T\&. "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
@@ -162,7 +162,7 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::floor\fP (const Y num) noexcept"
 .br
-.RI "\fBFloor's the passed number\fP of type Y and converts it to the type T "
+.RI "\fBFloor's the passed number\fP of type Y and converts it to the type T\&. "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
@@ -174,7 +174,7 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::ceil\fP (const Y num) noexcept"
 .br
-.RI "\fBCeil's the passed number\fP of type Y and converts it to the type T "
+.RI "\fBCeil's the passed number\fP of type Y and converts it to the type T\&. "
 .ti -1c
 .RI "template<typename T  = llint, typename Y  = long double> 
 .br
@@ -186,7 +186,7 @@ requires (std::is_arithmetic<Y>::value == true && std::is_integral<T>::value == 
 .br
 requires (std::is_arithmetic<Y>::value == true && std::is_arithmetic<T>::value == true)constexpr T \fBace::math::trunc\fP (const Y num) noexcept"
 .br
-.RI "\fBTruncates the passed number\fP of type Y and converts it to the type T "
+.RI "\fBTruncates the passed number\fP of type Y and converts it to the type T\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 

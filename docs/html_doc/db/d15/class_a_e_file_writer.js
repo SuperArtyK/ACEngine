@@ -39,11 +39,15 @@ var class_a_e_file_writer =
     [ "REGISTER_MODULE", "db/d15/class_a_e_file_writer.html#a1fcbfd672792efb11d0fa194fe462631", null ],
     [ "getModuleAmount", "db/d15/class_a_e_file_writer.html#ab3257ef44350e547976d6199ffdb743f", null ],
     [ "getModuleName", "db/d15/class_a_e_file_writer.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
+    [ "getModuleID", "db/d15/class_a_e_file_writer.html#aab73fd66ed267a2162b7c4a29b8bb929", null ],
+    [ "getInstanceCounter", "db/d15/class_a_e_file_writer.html#a9570242b740ac89f86c5980957a42153", null ],
     [ "m_ullFlushInterval", "db/d15/class_a_e_file_writer.html#a791cbb67210a3bd64922ee4e909b427e", null ],
     [ "m_sFilename", "db/d15/class_a_e_file_writer.html#a594e48c0f16d64a40061395d907e4c9a", null ],
     [ "m_ullTotalWrites", "db/d15/class_a_e_file_writer.html#a472bd7d529b0dac1c91e4c9e7072427a", null ],
     [ "m_szLastWrittenAmount", "db/d15/class_a_e_file_writer.html#a905e5fdf00a01574ad703c3143d67060", null ],
     [ "m_fpFilestr", "db/d15/class_a_e_file_writer.html#ad5269db1c4bfe2416840f8e92f2ac9f6", null ],
     [ "m_cFlags", "db/d15/class_a_e_file_writer.html#a6eaacea74250a28e1250e745c938324a", null ],
-    [ "m_ullModulesAlive", "db/d15/class_a_e_file_writer.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ]
+    [ "m_ullModulesAlive", "db/d15/class_a_e_file_writer.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ],
+    [ "m_ullInstanceCounter", "db/d15/class_a_e_file_writer.html#a3c2c7b00cb494225f6465fbeeb4267d4", null ],
+    [ "m_ullModuleId", "db/d15/class_a_e_file_writer.html#a0bcad11d499e8999dc0252ffa3c4eca3", null ]
 ];

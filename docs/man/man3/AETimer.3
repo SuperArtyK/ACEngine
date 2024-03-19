@@ -1,4 +1,4 @@
-.TH "AETimer" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AETimer" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,7 +15,7 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBAETimer\fP (const double tps=0)"
+.RI "\fBAETimer\fP (const double tps=\fBENGINE_FPS\fP)"
 .br
 .RI "Class constructor -- starts the timer automatically\&. "
 .ti -1c
@@ -70,6 +70,10 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 .RI "double \fBgetDelay\fP (void) const noexcept"
 .br
 .RI "Returns the maximum \fBAEFrame\fP's instance in the \fBAETimer\fP delay from the set fps, in seconds\&. "
+.ti -1c
+.RI "constexpr const \fBullint\fP \fBgetModuleID\fP (void) noexcept"
+.br
+.RI "Get the \fBid number of the instance\fP of the module\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -85,11 +89,23 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 .ti -1c
 .RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
-.RI "Get the \fBamount of the currently-alive instances of module T\fP "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP\&. "
 .ti -1c
 .RI "static constexpr const std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
-.RI "Get the \fBname of the module\fP "
+.RI "Get the \fBname of the module\fP\&. "
+.ti -1c
+.RI "static constexpr const \fBullint\fP \fBgetInstanceCounter\fP (void) noexcept"
+.br
+.RI "Get the current value of the \fBinstance counter\fP of the module\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "const \fBullint\fP \fBm_ullModuleId\fP"
+.br
+.RI "The ID number of the current module\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -98,6 +114,10 @@ Inherits \fB__AEModuleBase< AETimer >\fP\&.
 .RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP"
 .br
 .RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
+.ti -1c
+.RI "static std::atomic< \fBullint\fP > \fBm_ullInstanceCounter\fP"
+.br
+.RI "Amount of the instances of the module ever created during the program's runtime\&. "
 .in -1c
 .SS "Private Member Functions"
 
@@ -138,10 +158,10 @@ It makes a separate thread that increments the tick number every set time period
 .PP
 Just create it and look at the ticks of the timer from anywhere in the program\&.\&.\&.that you can access it\&. Hungarian notation is tm\&. (m_tmMyTimer) 
 .PP
-Definition at line \fB31\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB26\fP of file \fBAETimer\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "AETimer::AETimer (const double tps = \fR0\fP)\fR [inline]\fP, \fR [explicit]\fP"
+.SS "AETimer::AETimer (const double tps = \fR\fBENGINE_FPS\fP\fP)\fR [inline]\fP, \fR [explicit]\fP"
 
 .PP
 Class constructor -- starts the timer automatically\&. 
@@ -153,7 +173,7 @@ Class constructor -- starts the timer automatically\&.
 .PP
 
 .PP
-Definition at line \fB40\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB35\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBstartThread()\fP\&.
 .SS "AETimer::AETimer (void)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -161,7 +181,7 @@ References \fBstartThread()\fP\&.
 .PP
 Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread\&. 
 .PP
-Definition at line \fB48\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB43\fP of file \fBAETimer\&.hpp\fP\&.
 .SS "AETimer::AETimer (const \fBAETimer\fP & tm)\fR [inline]\fP"
 
 .PP
@@ -174,7 +194,7 @@ Copy constructor -- Just copies the data and then starts the timer if original t
 .PP
 
 .PP
-Definition at line \fB56\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB51\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_bRunTrd\fP, and \fBstartThread()\fP\&.
 .SS "AETimer::~AETimer (void)\fR [inline]\fP"
@@ -182,7 +202,7 @@ References \fBm_bRunTrd\fP, and \fBstartThread()\fP\&.
 .PP
 Class destructor\&. 
 .PP
-Definition at line \fB83\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB78\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBstopThread()\fP\&.
 .SH "Member Function Documentation"
@@ -204,7 +224,7 @@ Reference to the resulting \fBAETimer\fP copy
 .PP
 
 .PP
-Definition at line \fB70\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB65\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_bRunTrd\fP, \fBm_rDelay\fP, \fBm_ullTicks\fP, and \fBstartThread()\fP\&.
 .SS "void AETimer::startThread (void)\fR [inline]\fP"
@@ -219,7 +239,7 @@ Does nothing if thread is already started
 .PP
 
 .PP
-Definition at line \fB91\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB86\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_bRunTrd\fP, \fBm_trdCounting\fP, and \fBtickTimer()\fP\&.
 .SS "void AETimer::stopThread (void)\fR [inline]\fP"
@@ -227,7 +247,7 @@ References \fBm_bRunTrd\fP, \fBm_trdCounting\fP, and \fBtickTimer()\fP\&.
 .PP
 Stops the timer thread and stops tick counting\&. 
 .PP
-Definition at line \fB106\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB101\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_bRunTrd\fP, and \fBm_trdCounting\fP\&.
 .SS "void AETimer::resetTick (void)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -235,7 +255,7 @@ References \fBm_bRunTrd\fP, and \fBm_trdCounting\fP\&.
 .PP
 Resets the timer's tick to 0\&. 
 .PP
-Definition at line \fB118\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB113\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_ullTicks\fP\&.
 .SS "void AETimer::setTick (const \fBullint\fP tick)\fR [inline]\fP, \fR [noexcept]\fP"
@@ -250,7 +270,7 @@ Sets the new tick value instead of the current\&.
 .PP
 
 .PP
-Definition at line \fB126\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB121\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_ullTicks\fP\&.
 .SS "void AETimer::setDelay (const double tps)\fR [inline]\fP"
@@ -270,7 +290,7 @@ It stops the thread and starts it again -- don't expect the counting to start im
 .PP
 
 .PP
-Definition at line \fB135\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB130\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_rDelay\fP, \fBAEFrame::setFps()\fP, \fBstartThread()\fP, and \fBstopThread()\fP\&.
 .SS "\fBullint\fP AETimer::getTick (void) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -290,7 +310,7 @@ ullint of the current timer tick
 .PP
 
 .PP
-Definition at line \fB146\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB141\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_ullTicks\fP\&.
 .SS "long double AETimer::getWorldTime (void) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -310,7 +330,7 @@ double of the approximate world time the timer has counted (using it's ticks)
 .PP
 
 .PP
-Definition at line \fB155\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB150\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBAEFrame::getDelay()\fP, \fBm_rDelay\fP, and \fBm_ullTicks\fP\&.
 .SS "double AETimer::getFrameRate (void) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -330,7 +350,7 @@ Rounded int of the approximated fps goal
 .PP
 
 .PP
-Definition at line \fB164\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB159\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBAEFrame::getFrameRate()\fP, and \fBm_rDelay\fP\&.
 .SS "double AETimer::getDelay (void) const\fR [inline]\fP, \fR [noexcept]\fP"
@@ -350,7 +370,7 @@ double of the maximum \fBAEFrame\fP's instance in the \fBAETimer\fP delay in rea
 .PP
 
 .PP
-Definition at line \fB173\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB168\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBAEFrame::getDelay()\fP, and \fBm_rDelay\fP\&.
 .SS "static void AETimer::waitForTick (const \fBAETimer\fP & timer, const \fBullint\fP tick)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
@@ -367,7 +387,7 @@ Stops and sleeps the thread untill the given timer hits the certain tick number\
 .PP
 
 .PP
-Definition at line \fB182\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB177\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBAEFrame::sleep()\fP\&.
 .SS "static void AETimer::waitTicks (const \fBAETimer\fP & timer, const \fBullint\fP tick)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
@@ -384,7 +404,7 @@ Stops and sleeps the thread untill the given timer goes through certain tick amo
 .PP
 
 .PP
-Definition at line \fB194\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB189\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBwaitForTick()\fP\&.
 .SS "void AETimer::tickTimer (void)\fR [inline]\fP, \fR [private]\fP, \fR [noexcept]\fP"
@@ -392,7 +412,7 @@ References \fBwaitForTick()\fP\&.
 .PP
 The function that does the tick counting for the timer\&. 
 .PP
-Definition at line \fB204\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB199\fP of file \fBAETimer\&.hpp\fP\&.
 .PP
 References \fBm_bRunTrd\fP, \fBm_rDelay\fP, \fBm_ullTicks\fP, and \fBAEFrame::sleep()\fP\&.
 .SS "AETimer::REGISTER_MODULE (\fBAETimer\fP)\fR [private]\fP"
@@ -400,7 +420,7 @@ References \fBm_bRunTrd\fP, \fBm_rDelay\fP, \fBm_ullTicks\fP, and \fBAEFrame::sl
 .SS "static \fBullint\fP \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Get the \fBamount of the currently-alive instances of module T\fP 
+Get the \fBamount of the currently-alive instances of module T\fP\&. 
 .PP
 \fBSee also\fP
 .RS 4
@@ -409,16 +429,16 @@ Get the \fBamount of the currently-alive instances of module T\fP
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the alive module amount
+Unsigned long long of the alive module amount 
 .RE
 .PP
 
 .PP
-Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB121\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "static constexpr const std::string_view \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
 
 .PP
-Get the \fBname of the module\fP 
+Get the \fBname of the module\fP\&. 
 .PP
 \fBAttention\fP
 .RS 4
@@ -432,10 +452,46 @@ You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declaratio
 .PP
 \fBReturns\fP
 .RS 4
-The name of the module as a const std::strinv_view type
+The name of the module as a const std::strinv_view type 
 .RE
 .PP
 
+.SS "constexpr const \fBullint\fP \fB__AEModuleBase\fP< \fBAETimer\fP  >::getModuleID (void)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Get the \fBid number of the instance\fP of the module\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Every module has its own instance counter
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The id number of the instance of the module as \fBullint\fP type 
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "static constexpr const \fBullint\fP \fB__AEModuleBase\fP< \fBAETimer\fP  >::getInstanceCounter (void)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP, \fR [inherited]\fP"
+
+.PP
+Get the current value of the \fBinstance counter\fP of the module\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase::m_ullInstanceCounter\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The amount of the module's instances overall created throughout the program's runtime 
+.RE
+.PP
+
+.PP
+Definition at line \fB156\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBAEFrame\fP AETimer::m_rDelay\fR [private]\fP"
@@ -443,31 +499,43 @@ The name of the module as a const std::strinv_view type
 .PP
 The frame-rater of the timer for proper delay in the tick-counting function loop\&. 
 .PP
-Definition at line \fB216\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB211\fP of file \fBAETimer\&.hpp\fP\&.
 .SS "std::thread AETimer::m_trdCounting\fR [private]\fP"
 
 .PP
 The thread that does the tick counting\&. 
 .PP
-Definition at line \fB218\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB213\fP of file \fBAETimer\&.hpp\fP\&.
 .SS "std::atomic<\fBullint\fP> AETimer::m_ullTicks\fR [private]\fP"
 
 .PP
 The tick count variable\&. 
 .PP
-Definition at line \fB220\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB215\fP of file \fBAETimer\&.hpp\fP\&.
 .SS "std::atomic<bool> AETimer::m_bRunTrd\fR [private]\fP"
 
 .PP
 The flag to continue running the tick counting loop\&. 
 .PP
-Definition at line \fB222\fP of file \fBAETimer\&.hpp\fP\&.
+Definition at line \fB217\fP of file \fBAETimer\&.hpp\fP\&.
 .SS "std::atomic<std::size_t> \fB__AEModuleBase\fP< \fBAETimer\fP  >::m_ullModulesAlive\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
 
 .PP
 Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB165\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< \fBAETimer\fP  >::m_ullInstanceCounter\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+Amount of the instances of the module ever created during the program's runtime\&. 
+.PP
+Definition at line \fB170\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "const \fBullint\fP \fB__AEModuleBase\fP< \fBAETimer\fP  >::m_ullModuleId\fR [protected]\fP, \fR [inherited]\fP"
+
+.PP
+The ID number of the current module\&. 
+.PP
+Definition at line \fB175\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

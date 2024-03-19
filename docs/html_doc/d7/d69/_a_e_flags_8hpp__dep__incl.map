@@ -1,6 +1,6 @@
 <map id="AEMisc/include/AEFlags.hpp" name="AEMisc/include/AEFlags.hpp">
 <area shape="rect" id="Node000001" title="This file contains the flags to manipulate engine&#39;s funcitonality." alt="" coords="455,5,646,32"/>
-<area shape="rect" id="Node000002" href="$de/d72/_a_e_frame_8hpp.html" title=" " alt="" coords="5,229,211,256"/>
+<area shape="rect" id="Node000002" href="$de/d72/_a_e_frame_8hpp.html" title="This file contains the engine&#39;s module for frame&#45;precise loop delays." alt="" coords="5,229,211,256"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="475,39,407,57,337,82,273,115,214,157,163,196,123,231,120,227,160,192,210,153,270,111,335,78,405,52,473,34"/>
 <area shape="rect" id="Node000004" href="$d2/d57/_a_e_math_trig_lookup_8hpp.html" title="This file contains the engine&#39;s trigonometric function lookup tables." alt="" coords="664,80,915,107"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="608,34,748,77,747,82,606,39"/>

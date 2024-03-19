@@ -1,7 +1,0 @@
-<map id="ace::math::cosDeg_tableInterp" name="ace::math::cosDeg_tableInterp">
-<area shape="rect" id="Node000001" title="Calculates the interpolated cosine value from the cosine lookup table." alt="" coords="5,31,204,57"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a979611f412d7ed1d25ff28bf50e5463a" title="Returns the index to the trig table from the given (int) degree number." alt="" coords="252,5,447,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,31,236,28,236,33,205,36"/>
-<area shape="rect" id="Node000003" href="$d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="277,56,422,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,52,262,58,261,63,204,57"/>
-</map>

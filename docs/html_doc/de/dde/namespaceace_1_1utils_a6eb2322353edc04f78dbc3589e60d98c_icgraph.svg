@@ -57,7 +57,7 @@ var sectionId = 'dynsection-7';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla...">
+<g id="a_Node000001"><a xlink:title="A wrapper to make the proper cross&#45;compiler version of fopen().">
 <polygon fill="#999999" stroke="#666666" points="568.75,-96 470.25,-96 470.25,-76 568.75,-76 568.75,-96"/>
 <text text-anchor="middle" x="519.5" y="-82.5" font-family="Helvetica,sans-Serif" font-size="10.00">ace::utils::fopenCC</text>
 </a>

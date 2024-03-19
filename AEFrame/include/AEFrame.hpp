@@ -53,15 +53,16 @@ class AEFrame : public __AEModuleBase<AEFrame> {
 
 public:
 
-	/// This is an an alias for the internal clock of the AEFrame module.
+	/// This is an an **alias for the internal clock** of the AEFrame module.
 	/// @warning The resulution of the AEFrameClock that your compiler gives
 	///		must be at least 1 microsecond, otherwise it won't compile (breaks assertion).
 	using AEFrameClock = AEF_CLOCK;
 
 //constructors
 	/// <summary>
-	/// Class constructor.
+	/// **Class constructor** -- constructs the instance with the **fps as the delay**.
 	/// 
+	/// @see AEFrame::setFPS()
 	/// @attention If you pass it negative, 0, or more than 1 million, it will disable the
 	///		delay (sets AEFrame::m_bNoDelay to **true**)
 	/// @note Defaults the fps delay to #ENGINE_FPS
@@ -73,7 +74,7 @@ public:
 		{}
 
 	/// <summary>
-	/// Copy constructor -- copies data from a passed AEFrame instance.
+	/// **Copy constructor** -- copies data from a passed AEFrame instance.
 	/// </summary>
 	/// <param name="two">The second AEFrame instance</param>
 	AEFrame(const AEFrame& two) noexcept :
@@ -83,7 +84,7 @@ public:
 		{}
 
 	/// <summary>
-	/// Copy-assignment operator -- copies data from a passed AEFrame instance.
+	/// **Copy-assignment operator** -- copies data from a passed AEFrame instance.
 	/// 
 	/// @note This resets the internal time point (calls AEFrame::resetTimePoint())
 	/// </summary>
@@ -104,7 +105,7 @@ public:
 
 //utils
 	/// <summary>
-	/// Sets the delay of the instance as the frames (loop cycles) per second to reach in execution (fps goal).
+	/// Sets the delay of the instance as the **frames (loop cycles) per second** to reach in execution (fps goal).
 	/// 
 	/// @attention If you pass it negative, 0, or more than 1 million, it will disable the
 	///		delay (sets AEFrame::m_bNoDelay to **true**)
@@ -120,7 +121,7 @@ public:
 	}
 
 	/// <summary>
-	/// Sets the delay of the instance as maximum time for each loop cycle.
+	/// Sets the delay of the instance as **maximum time for each loop cycle**.
 	/// 
 	/// @attention If you pass negative or 0, it will disable the delay (sets AEFrame::m_bNoDelay to **true**)
 	/// </summary>
@@ -134,7 +135,7 @@ public:
 	}
 
 	/// <summary>
-	/// Puts the current thread for the delay that was set earlier.
+	/// Puts the current thread to **sleep for the delay that was set earlier**.
 	/// 
 	/// Example: if the fps delay was set to 30fps (~~33ms delay in real time) and a game
 	///		loop takes just 13ms, then the thread will sleep the rest of 20ms to make the
@@ -162,7 +163,7 @@ public:
 	}
 
 	/// <summary>
-	/// Resets the time point in the AEFrame to the real (current) time.
+	/// **Resets the time point** in the AEFrame to the real (current) time.
 	/// Helps if the AEFrame::m_tpTimepoint time point drifted far from the reality.
 	/// </summary>
 	inline void resetTimePoint(void) noexcept {
@@ -170,7 +171,7 @@ public:
 	}
 
 	/// <summary>
-	/// Returns the fps goal of AEFrame instance.
+	/// Returns the **fps goal of the instance**.
 	/// </summary>
 	/// <returns>
 	///		The fps goal of the instance as type **double**.
@@ -180,7 +181,7 @@ public:
 	}
 
 	/// <summary>
-	/// Returns the maximum AEFrame's delay from the set fps, in seconds.
+	/// Returns the **maximum loop delay in the instance** in seconds
 	/// 
 	/// Or better: the time, in seconds, for each loop cycle that AEFrame::sleep() is called
 	/// </summary>
@@ -199,19 +200,19 @@ private:
 	);
 
 
-	/// The time duration for resetting the AEFrame::m_tpTimepoint if it gets too different with real time.
+	/// The **time duration for resetting the AEFrame::m_tpTimepoint** if it gets too different with real time.
 	/// Only exists if #AEF_RESET_TIME_WHEN_BEHIND_MS is defined
 	/// @see #AEF_RESET_TIME_WHEN_BEHIND_MS
 #if AEF_RESET_TIME_WHEN_BEHIND_MS > 0
 	static constexpr timeDur<double> m_tdResetTime = microSec(milliSec(llint(AEF_RESET_TIME_WHEN_BEHIND_MS)));
 #endif
 
-	/// The time duration for the sleeping delay
+	/// The time duration for the **sleeping delay**
 	timeDur<double> m_tdChronoDelay;
-	/// The timepoint, that sets time when to wake up the thread.
+	/// The timepoint, that sets time **when to wake up the thread**.
 	timePoint<AEFrameClock, decltype(m_tdChronoDelay)> m_tpTimepoint;
 	double m_fFPS;
-	/// The flag if we don't need the delay, err, for some reason.
+	/// The flag if **we don't need the delay**, err, for some reason.
 	bool m_bNoDelay;
 
 	//aaand we have to register it too
