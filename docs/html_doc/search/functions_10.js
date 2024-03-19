@@ -4,7 +4,7 @@ var searchData=
   ['secdeg_5ftable_1',['secDeg_table',['../d7/d2c/namespaceace_1_1math_1_1lookup.html#a16435af856f99fd268d2524648be0bb1',1,'ace::math::lookup']]],
   ['secdeg_5ftableinterp_2',['secDeg_tableInterp',['../d7/d2c/namespaceace_1_1math_1_1lookup.html#af24f87d23914edec32fa064024aeade4',1,'ace::math::lookup']]],
   ['setcursorpos_3',['setCursorPos',['../dd/dd5/class_a_e_file_reader.html#a477effa6d568ec7993c4d506d0d0420c',1,'AEFileReader::setCursorPos()'],['../db/d15/class_a_e_file_writer.html#aaa1e8dbbbc6e653397df93490d78b821',1,'AEFileWriter::setCursorPos()']]],
-  ['setdelay_4',['setDelay',['../da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c',1,'AETimer']]],
+  ['setdelay_4',['setDelay',['../df/dd7/class_a_e_frame.html#a8a5893bceeff5c5759d12ef6cf34225e',1,'AEFrame::setDelay()'],['../da/d62/class_a_e_timer.html#ae290234a58bd703c0953edd2925d591c',1,'AETimer::setDelay()']]],
   ['setfps_5',['setFps',['../df/dd7/class_a_e_frame.html#a95580be55882c4baf46fce5dac036cab',1,'AEFrame']]],
   ['setnextentryindex_6',['setNextEntryIndex',['../d8/d52/class_a_e_log_parser.html#aa4c1d23fe1fb7303afc76c0e5a6c73b4',1,'AELogParser']]],
   ['settick_7',['setTick',['../da/d62/class_a_e_timer.html#af5b764f92d2e3fd7a6c9a1b0f1065964',1,'AETimer']]],

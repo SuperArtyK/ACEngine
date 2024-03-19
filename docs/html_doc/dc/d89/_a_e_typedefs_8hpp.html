@@ -179,15 +179,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a4901a9a64a28aca8564f930ac3053bfd" id="r_a4901a9a64a28aca8564f930ac3053bfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4901a9a64a28aca8564f930ac3053bfd">getSteadyTime</a>()&#160;&#160;&#160;SteadyClock::now()</td></tr>
 <tr class="memdesc:a4901a9a64a28aca8564f930ac3053bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to get the <b>steady clock's current time</b> (now())  <br /></td></tr>
 <tr class="separator:a4901a9a64a28aca8564f930ac3053bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a559364c19c1c80c7a63a7ca43ec71874" id="r_a559364c19c1c80c7a63a7ca43ec71874"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a559364c19c1c80c7a63a7ca43ec71874">milliSec</a>(ms)&#160;&#160;&#160;std::chrono::milliseconds(ms)</td></tr>
-<tr class="memdesc:a559364c19c1c80c7a63a7ca43ec71874"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>chrono's milliseconds</b>.  <br /></td></tr>
-<tr class="separator:a559364c19c1c80c7a63a7ca43ec71874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e26bf3aaeae4fcabbff362eb4dd3a4" id="r_ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0e26bf3aaeae4fcabbff362eb4dd3a4">microSec</a>(us)&#160;&#160;&#160;std::chrono::microseconds(us)</td></tr>
-<tr class="memdesc:ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>chrono's microseconds</b>.  <br /></td></tr>
-<tr class="separator:ac0e26bf3aaeae4fcabbff362eb4dd3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af72a119acd49a0eaaf8caf36930cbb07" id="r_af72a119acd49a0eaaf8caf36930cbb07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af72a119acd49a0eaaf8caf36930cbb07">calculateTime</a>(tp1,  tp2,  type)&#160;&#160;&#160;std::chrono::duration&lt;type&gt;(tp2 - tp1).count()</td></tr>
-<tr class="memdesc:af72a119acd49a0eaaf8caf36930cbb07"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to <b>calculate time between 2 timepoints</b> as some type.  <br /></td></tr>
-<tr class="separator:af72a119acd49a0eaaf8caf36930cbb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c11c6f505bef8e30a80b9afe2927d9c" id="r_a4c11c6f505bef8e30a80b9afe2927d9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c11c6f505bef8e30a80b9afe2927d9c">timeBetween</a>(tp1,  tp2,  type)&#160;&#160;&#160;std::chrono::duration&lt;type&gt;(tp2 - tp1).count()</td></tr>
+<tr class="memdesc:a4c11c6f505bef8e30a80b9afe2927d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro to calculate <b>time between 2 timepoints</b> as some type.  <br /></td></tr>
+<tr class="separator:a4c11c6f505bef8e30a80b9afe2927d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a713bf3c1565c4abe7b2e41cd1c795957" id="r_a713bf3c1565c4abe7b2e41cd1c795957"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a713bf3c1565c4abe7b2e41cd1c795957">sleepUntil</a>(sec)&#160;&#160;&#160;std::this_thread::sleep_until(sec)</td></tr>
 <tr class="memdesc:a713bf3c1565c4abe7b2e41cd1c795957"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro as the shortcut of <b>thread's sleep_until</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -250,6 +244,15 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a945fabbf0fc03b81ac4836fd4a97c998"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a945fabbf0fc03b81ac4836fd4a97c998">timeDur</a> = std::chrono::duration&lt;ticksType, Period&gt;</td></tr>
 <tr class="memdesc:a945fabbf0fc03b81ac4836fd4a97c998"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias for the <b>std::chrono::duration</b> to not type as much.  <br /></td></tr>
 <tr class="separator:a945fabbf0fc03b81ac4836fd4a97c998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5c1b3663b1c18513251fbb017ad8036" id="r_ab5c1b3663b1c18513251fbb017ad8036"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5c1b3663b1c18513251fbb017ad8036">milliSec</a> = std::chrono::milliseconds</td></tr>
+<tr class="memdesc:ab5c1b3663b1c18513251fbb017ad8036"><td class="mdescLeft">&#160;</td><td class="mdescRight">An an alias as the shortcut of <b>chrono's milliseconds</b>.  <br /></td></tr>
+<tr class="separator:ab5c1b3663b1c18513251fbb017ad8036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a679b306654b58b289bc7cc43de6bfad1" id="r_a679b306654b58b289bc7cc43de6bfad1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679b306654b58b289bc7cc43de6bfad1">microSec</a> = std::chrono::microseconds</td></tr>
+<tr class="memdesc:a679b306654b58b289bc7cc43de6bfad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias as the shortcut of <b>chrono's microseconds</b>.  <br /></td></tr>
+<tr class="separator:a679b306654b58b289bc7cc43de6bfad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3d7a9ec1e8c07f5fe16d8f9458930dd" id="r_ae3d7a9ec1e8c07f5fe16d8f9458930dd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3d7a9ec1e8c07f5fe16d8f9458930dd">nanoSec</a> = std::chrono::nanoseconds</td></tr>
+<tr class="memdesc:ae3d7a9ec1e8c07f5fe16d8f9458930dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias as the shortcut of <b>chrono's nanoseconds</b>.  <br /></td></tr>
+<tr class="separator:ae3d7a9ec1e8c07f5fe16d8f9458930dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the engine's <b>typedefs and variable type aliases</b>. </p>
@@ -595,68 +598,14 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a id="a559364c19c1c80c7a63a7ca43ec71874" name="a559364c19c1c80c7a63a7ca43ec71874"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a559364c19c1c80c7a63a7ca43ec71874">&#9670;&#160;</a></span>milliSec</h2>
+<a id="a4c11c6f505bef8e30a80b9afe2927d9c" name="a4c11c6f505bef8e30a80b9afe2927d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c11c6f505bef8e30a80b9afe2927d9c">&#9670;&#160;</a></span>timeBetween</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define milliSec</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">ms</span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::milliseconds(ms)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro as the shortcut of <b>chrono's milliseconds</b>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ms</td><td>The number of milliseconds to convert to</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac0e26bf3aaeae4fcabbff362eb4dd3a4" name="ac0e26bf3aaeae4fcabbff362eb4dd3a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0e26bf3aaeae4fcabbff362eb4dd3a4">&#9670;&#160;</a></span>microSec</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define microSec</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">us</span></td><td>)</td>
-          <td>&#160;&#160;&#160;std::chrono::microseconds(us)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A macro as the shortcut of <b>chrono's microseconds</b>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">us</td><td>The number of microseconds to convert to</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af72a119acd49a0eaaf8caf36930cbb07" name="af72a119acd49a0eaaf8caf36930cbb07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af72a119acd49a0eaaf8caf36930cbb07">&#9670;&#160;</a></span>calculateTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define calculateTime</td>
+          <td class="memname">#define timeBetween</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname">tp1, </span></td>
         </tr>
@@ -673,7 +622,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A macro to <b>calculate time between 2 timepoints</b> as some type. </p>
+<p>A macro to calculate <b>time between 2 timepoints</b> as some type. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp1</td><td>The first, starting point of time (time point)</td></tr>
@@ -683,7 +632,7 @@ Typedefs</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00159">159</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00160">160</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
 
 </div>
 </div>
@@ -996,13 +945,67 @@ template&lt;class ticksType , class Period  = std::ratio&lt;1&gt;&gt; </div>
 
 </div>
 </div>
+<a id="ab5c1b3663b1c18513251fbb017ad8036" name="ab5c1b3663b1c18513251fbb017ad8036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5c1b3663b1c18513251fbb017ad8036">&#9670;&#160;</a></span>milliSec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ab5c1b3663b1c18513251fbb017ad8036">milliSec</a> = std::chrono::milliseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An an alias as the shortcut of <b>chrono's milliseconds</b>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00148">148</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a679b306654b58b289bc7cc43de6bfad1" name="a679b306654b58b289bc7cc43de6bfad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a679b306654b58b289bc7cc43de6bfad1">&#9670;&#160;</a></span>microSec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a679b306654b58b289bc7cc43de6bfad1">microSec</a> = std::chrono::microseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An alias as the shortcut of <b>chrono's microseconds</b>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00151">151</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae3d7a9ec1e8c07f5fe16d8f9458930dd" name="ae3d7a9ec1e8c07f5fe16d8f9458930dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d7a9ec1e8c07f5fe16d8f9458930dd">&#9670;&#160;</a></span>nanoSec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ae3d7a9ec1e8c07f5fe16d8f9458930dd">nanoSec</a> = std::chrono::nanoseconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An alias as the shortcut of <b>chrono's nanoseconds</b>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html#l00154">154</a> of file <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp_source.html">AETypedefs.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_b40c0ca7e8103e5b097cbee7a89fd34d.html">AEMisc</a></li><li class="navelem"><a class="el" href="../../dir_4e83d3dd3cd0caf7ac98a7c111dd677e.html">include</a></li><li class="navelem"><a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html">AETypedefs.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 13:55:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Mon Mar 18 2024 18:44:24 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

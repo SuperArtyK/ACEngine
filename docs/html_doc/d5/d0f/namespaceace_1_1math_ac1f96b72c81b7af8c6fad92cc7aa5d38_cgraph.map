@@ -1,5 +1,5 @@
 <map id="ace::math::trunc" name="ace::math::trunc">
-<area shape="rect" id="Node000001" title="Truncates the passed number of type Y and converts it to the type T" alt="" coords="5,5,122,32"/>
+<area shape="rect" id="Node000001" title="Truncates the passed number of type Y and converts it to the type T." alt="" coords="5,5,122,32"/>
 <area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#aa76b58464f6cbc1a0adfb9f1f7add2c3" title="Truncates the given float of type Y and converts to integer of type T." alt="" coords="170,5,314,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,16,155,16,155,21,122,21"/>
 </map>

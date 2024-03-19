@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ucint_0',['ucint',['../dc/d89/_a_e_typedefs_8hpp.html#ac0a5104b175735b1d5e45290bec04706',1,'AETypedefs.hpp']]],
-  ['uint_1',['uint',['../dc/d89/_a_e_typedefs_8hpp.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'AETypedefs.hpp']]],
-  ['ullint_2',['ullint',['../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb',1,'AETypedefs.hpp']]],
-  ['ushort_3',['ushort',['../dc/d89/_a_e_typedefs_8hpp.html#ab95f123a6c9bcfee6a343170ef8c5f69',1,'AETypedefs.hpp']]]
+  ['sint_0',['sint',['../dc/d89/_a_e_typedefs_8hpp.html#ada7e83fdfe943aba4f1d5bf80cb66f40',1,'AETypedefs.hpp']]],
+  ['sshort_1',['sshort',['../dc/d89/_a_e_typedefs_8hpp.html#a7d14306b3dd8ed2968e138134117808e',1,'AETypedefs.hpp']]],
+  ['steadyclock_2',['SteadyClock',['../dc/d89/_a_e_typedefs_8hpp.html#af0e8014f772795c246d043c5e9fb7495',1,'AETypedefs.hpp']]],
+  ['sysclock_3',['SysClock',['../dc/d89/_a_e_typedefs_8hpp.html#a05bbdee750e8a97dc3d923843c35715b',1,'AETypedefs.hpp']]]
 ];

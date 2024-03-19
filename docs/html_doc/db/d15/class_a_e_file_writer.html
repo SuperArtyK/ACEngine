@@ -98,6 +98,7 @@ $(function(){initNavTree('db/d15/class_a_e_file_writer.html','../../'); initResi
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -236,15 +237,21 @@ requires (std::is_floating_point&lt;T&gt;::value == true)</td></tr>
 <tr class="memitem:a7d7be6bc7ff7ef3bc063c957e9b4d832" id="r_a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d7be6bc7ff7ef3bc063c957e9b4d832">getLastWrittenAmount</a> (void) const noexcept</td></tr>
 <tr class="memdesc:a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the last written amount of bytes from the opened file.  <br /></td></tr>
 <tr class="separator:a7d7be6bc7ff7ef3bc063c957e9b4d832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab73fd66ed267a2162b7c4a29b8bb929" id="r_aab73fd66ed267a2162b7c4a29b8bb929"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aab73fd66ed267a2162b7c4a29b8bb929">getModuleID</a> (void) noexcept</td></tr>
+<tr class="memdesc:aab73fd66ed267a2162b7c4a29b8bb929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>id number of the instance</b> of the module.  <br /></td></tr>
+<tr class="separator:aab73fd66ed267a2162b7c4a29b8bb929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3257ef44350e547976d6199ffdb743f" id="r_ab3257ef44350e547976d6199ffdb743f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#ab3257ef44350e547976d6199ffdb743f">getModuleAmount</a> (void) noexcept</td></tr>
-<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>amount of the currently-alive instances of module T</b>  <br /></td></tr>
+<tr class="memdesc:ab3257ef44350e547976d6199ffdb743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>amount of the currently-alive instances of module T</b>.  <br /></td></tr>
 <tr class="separator:ab3257ef44350e547976d6199ffdb743f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625c82f27195de3f9ab5af4fc7437e2f" id="r_a625c82f27195de3f9ab5af4fc7437e2f"><td class="memItemLeft" align="right" valign="top">static constexpr const std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f">getModuleName</a> (void) noexcept</td></tr>
-<tr class="memdesc:a625c82f27195de3f9ab5af4fc7437e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>name of the module</b>  <br /></td></tr>
+<tr class="memdesc:a625c82f27195de3f9ab5af4fc7437e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <b>name of the module</b>.  <br /></td></tr>
 <tr class="separator:a625c82f27195de3f9ab5af4fc7437e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9570242b740ac89f86c5980957a42153" id="r_a9570242b740ac89f86c5980957a42153"><td class="memItemLeft" align="right" valign="top">static constexpr const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a9570242b740ac89f86c5980957a42153">getInstanceCounter</a> (void) noexcept</td></tr>
+<tr class="memdesc:a9570242b740ac89f86c5980957a42153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current value of the <b>instance counter</b> of the module.  <br /></td></tr>
+<tr class="separator:a9570242b740ac89f86c5980957a42153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -252,11 +259,20 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a791cbb67210a3bd64922ee4e909b427e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interval in write operations before automatic flush operation.  <br /></td></tr>
 <tr class="separator:a791cbb67210a3bd64922ee4e909b427e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0bcad11d499e8999dc0252ffa3c4eca3" id="r_a0bcad11d499e8999dc0252ffa3c4eca3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a0bcad11d499e8999dc0252ffa3c4eca3">m_ullModuleId</a></td></tr>
+<tr class="memdesc:a0bcad11d499e8999dc0252ffa3c4eca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID number of the current module.  <br /></td></tr>
+<tr class="separator:a0bcad11d499e8999dc0252ffa3c4eca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:aa6b53ab9e5c623900a03d4ea16eb5a99" id="r_aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99">m_ullModulesAlive</a></td></tr>
 <tr class="memdesc:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the currently-alive (not destroyed) instances of the module.  <br /></td></tr>
 <tr class="separator:aa6b53ab9e5c623900a03d4ea16eb5a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c2c7b00cb494225f6465fbeeb4267d4" id="r_a3c2c7b00cb494225f6465fbeeb4267d4"><td class="memItemLeft" align="right" valign="top">static std::atomic&lt; <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a3c2c7b00cb494225f6465fbeeb4267d4">m_ullInstanceCounter</a></td></tr>
+<tr class="memdesc:a3c2c7b00cb494225f6465fbeeb4267d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of the instances of the module ever created during the program's runtime.  <br /></td></tr>
+<tr class="separator:a3c2c7b00cb494225f6465fbeeb4267d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -698,7 +714,7 @@ Supported types: char, bool, integers, floats, strings; everything else is treat
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>Add a way to add custom types to this generic write function. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd>Add a way to add custom types to this generic write function. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00623">623</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
@@ -1021,7 +1037,7 @@ requires (std::is_floating_point&lt;T&gt;::value == true)</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>AEFW_ERR_WRITE_SUCCESS on success; otherwise AEFW_ERR_FILE_NOT_OPEN if file isn't open, AEFW_ERR_WRITE_* flags (like AEFW_ERR_WRITE_ZERO_SIZE) on write error, AEFW_ERR_FLUSH_ERROR on flush error</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo</a></b></dt><dd>Add custom way to format the float number </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>Add custom way to format the float number </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html#l00598">598</a> of file <a class="el" href="../../db/da4/_a_e_file_writer_8hpp_source.html">AEFileWriter.hpp</a>.</p>
 
@@ -1975,11 +1991,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the <b>amount of the currently-alive instances of module T</b> </p>
+<p>Get the <b>amount of the currently-alive instances of module T</b>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#aa6b53ab9e5c623900a03d4ea16eb5a99" title="Amount of the currently-alive (not destroyed) instances of the module.">__AEModuleBase&lt;T&gt;::m_ullModulesAlive</a></dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the alive module amount</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned long long of the alive module amount </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2006,10 +2022,72 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the <b>name of the module</b> </p>
+<p>Get the <b>name of the module</b>. </p>
 <dl class="section attention"><dt>Attention</dt><dd>You <em>need</em> to add <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a> to the end of the class declarations if you want to use this thing </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d7f/_a_e_module_base_8hpp.html#a3b64810cd4803a6d80ccd70d17533edf" title="A macro to complete the module declaration with __AEModuleBase.">REGISTER_MODULE()</a></dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>The name of the module as a const std::strinv_view type</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The name of the module as a const std::strinv_view type </dd></dl>
+
+</div>
+</div>
+<a id="aab73fd66ed267a2162b7c4a29b8bb929" name="aab73fd66ed267a2162b7c4a29b8bb929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab73fd66ed267a2162b7c4a29b8bb929">&#9670;&#160;</a></span>getModuleID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::getModuleID </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the <b>id number of the instance</b> of the module. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Every module has its own instance counter</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The id number of the instance of the module as <b>ullint</b> type </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9570242b740ac89f86c5980957a42153" name="a9570242b740ac89f86c5980957a42153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9570242b740ac89f86c5980957a42153">&#9670;&#160;</a></span>getInstanceCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::getInstanceCounter </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the current value of the <b>instance counter</b> of the module. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d8a/class_____a_e_module_base.html#a3c2c7b00cb494225f6465fbeeb4267d4" title="Amount of the instances of the module ever created during the program&#39;s runtime.">__AEModuleBase::m_ullInstanceCounter</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The amount of the module's instances overall created throughout the program's runtime </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00156">156</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2185,7 +2263,59 @@ template&lt;typename T &gt; </div>
 
 <p>Amount of the currently-alive (not destroyed) instances of the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00165">165</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3c2c7b00cb494225f6465fbeeb4267d4" name="a3c2c7b00cb494225f6465fbeeb4267d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c2c7b00cb494225f6465fbeeb4267d4">&#9670;&#160;</a></span>m_ullInstanceCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a>&gt; <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::m_ullInstanceCounter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of the instances of the module ever created during the program's runtime. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00170">170</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0bcad11d499e8999dc0252ffa3c4eca3" name="a0bcad11d499e8999dc0252ffa3c4eca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcad11d499e8999dc0252ffa3c4eca3">&#9670;&#160;</a></span>m_ullModuleId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../dc/d89/_a_e_typedefs_8hpp.html#a689c96cb00098d457d55842c96cc71eb">ullint</a> <a class="el" href="../../d0/d8a/class_____a_e_module_base.html">__AEModuleBase</a>&lt; <a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a>  &gt;::m_ullModuleId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The ID number of the current module. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html#l00175">175</a> of file <a class="el" href="../../d7/d7f/_a_e_module_base_8hpp_source.html">AEModuleBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -2199,7 +2329,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d15/class_a_e_file_writer.html">AEFileWriter</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 13:55:14 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Mon Mar 18 2024 18:44:24 for ArtyK&#39;s Console Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

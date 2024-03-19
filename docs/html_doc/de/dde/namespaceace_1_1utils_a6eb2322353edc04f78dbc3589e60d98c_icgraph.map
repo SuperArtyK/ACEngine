@@ -1,5 +1,5 @@
 <map id="ace::utils::fopenCC" name="ace::utils::fopenCC">
-<area shape="rect" id="Node000001" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="632,81,764,108"/>
+<area shape="rect" id="Node000001" title="A wrapper to make the proper cross&#45;compiler version of fopen()." alt="" coords="632,81,764,108"/>
 <area shape="rect" id="Node000002" href="$dd/dd5/class_a_e_file_reader.html#a3afc3610a9a39a170c7f405dc97557ee" title="Opens the file for reading." alt="" coords="426,56,584,83"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,87,585,82,585,77,617,81"/>
 <area shape="rect" id="Node000005" href="$db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag." alt="" coords="429,107,581,133"/>

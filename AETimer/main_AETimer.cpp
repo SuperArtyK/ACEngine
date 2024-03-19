@@ -12,7 +12,7 @@ int main() {
 	std::cout << mytm.getModuleAmount() << " " << mytm.getModuleName() << NLC;
 	while (1) {
 		AETimer::waitTicks(globalTimer, 1);
-		std::cout << "Seconds passed: " << globalTimer.getWorldTime() << NLC<<"Ticks passed: "<< globalTimer.getTick();
+		std::cout << "Seconds passed: " << globalTimer.getWorldTime() << "; Ticks passed: "<< globalTimer.getTick()<<NLC;
 	}
 
 

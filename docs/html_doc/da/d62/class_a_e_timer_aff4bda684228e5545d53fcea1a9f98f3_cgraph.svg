@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 507;
+var viewWidth = 672;
 var viewHeight = 28;
 var sectionId = 'dynsection-2';
 </script>
@@ -102,7 +102,7 @@ var sectionId = 'dynsection-2';
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="../../df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" target="_top" xlink:title="Puts the current thread to sleep up to the set fps goal.">
+<g id="a_Node000004"><a xlink:href="../../df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" target="_top" xlink:title="Puts the current thread to sleep for the delay that was set earlier.">
 <polygon fill="white" stroke="#666666" points="499,-20 412.5,-20 412.5,0 499,0 499,-20"/>
 <text text-anchor="middle" x="455.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::sleep</text>
 </a>
@@ -114,6 +114,24 @@ var sectionId = 'dynsection-2';
 <g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M376.93,-10C384.71,-10 392.79,-10 400.67,-10"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="400.51,-13.5 410.51,-10 400.51,-6.5 400.51,-13.5"/>
+</a>
+</g>
+</g>
+<!-- Node5 -->
+<g id="Node000005" class="node">
+<title>Node5</title>
+<g id="a_Node000005"><a xlink:href="../../df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" target="_top" xlink:title="Resets the time point in the AEFrame to the real (current) time.">
+<polygon fill="white" stroke="#666666" points="663.5,-20 535,-20 535,0 663.5,0 663.5,-20"/>
+<text text-anchor="middle" x="599.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::resetTimePoint</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4_Node000004_Node000005" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M499.2,-10C506.87,-10 515.07,-10 523.34,-10"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="523.12,-13.5 533.12,-10 523.12,-6.5 523.12,-13.5"/>
 </a>
 </g>
 </g>

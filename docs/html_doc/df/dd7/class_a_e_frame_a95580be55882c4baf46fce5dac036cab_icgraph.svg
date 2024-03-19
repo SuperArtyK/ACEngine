@@ -21,7 +21,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Resets the delay value to what you pass to it.">
+<g id="a_Node000001"><a xlink:title="Sets the delay of the instance as the frames (loop cycles) per second to reach in execution (fps goal...">
 <polygon fill="#999999" stroke="#666666" points="227,-20 133.75,-20 133.75,0 227,0 227,-20"/>
 <text text-anchor="middle" x="180.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::setFps</text>
 </a>

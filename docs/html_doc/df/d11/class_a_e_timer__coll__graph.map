@@ -1,41 +1,50 @@
 <map id="AETimer" name="AETimer">
-<area shape="rect" id="Node000001" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,..." alt="" coords="1627,225,1699,252"/>
-<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="993,5,1192,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1208,32,1299,50,1402,79,1507,120,1557,145,1605,174,1633,198,1654,223,1650,227,1629,202,1602,178,1555,150,1505,124,1400,84,1298,56,1207,37"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="365,197,536,224"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="504,189,559,169,716,109,785,84,875,57,1001,30,1002,35,876,63,786,89,718,114,561,175,506,194"/>
-<area shape="rect" id="Node000007" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it." alt="" coords="695,171,852,197"/>
-<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="552,200,695,188,695,193,552,205"/>
-<area shape="rect" id="Node000009" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="990,224,1195,251"/>
-<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="552,215,696,223,990,232,990,238,695,228,552,220"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="141,197,198,224"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="213,208,365,208,365,213,213,213"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="111,332,228,359"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="212,322,420,222,422,227,214,327"/>
-<area shape="rect" id="Node000015" title=" " alt="" coords="382,393,519,420"/>
-<area shape="poly" id="edge19_Node000015_Node000005" title=" " alt="" coords="213,363,253,377,319,391,382,399,381,405,318,397,251,383,211,368"/>
-<area shape="rect" id="Node000017" title=" " alt="" coords="1357,288,1491,315"/>
-<area shape="poly" id="edge22_Node000017_Node000005" title=" " alt="" coords="244,343,449,343,1094,343,1164,340,1235,332,1357,313,1358,318,1236,338,1165,345,1094,348,449,348,244,348"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="5,332,44,359"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="59,343,110,343,110,348,59,348"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="819,161,887,125,923,101,957,74,968,58,981,42,1004,30,1007,35,984,46,972,61,961,78,926,105,890,129,822,166"/>
-<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="867,197,1009,221,1008,226,867,202"/>
-<area shape="rect" id="Node000008" href="$df/dd7/class_a_e_frame.html" title="This is the ArtyK&#39;s Engine&#39;s frame delay module – it allows to create precise delays for game loops." alt="" coords="1386,168,1462,195"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="1478,187,1604,215,1628,222,1626,227,1603,220,1477,192"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="1190,218,1385,185,1386,190,1191,223"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="1028,56,1157,83"/>
-<area shape="poly" id="edge12_Node000008_Node000010" title=" " alt="" coords="1173,78,1252,96,1334,123,1374,143,1406,165,1403,170,1371,148,1332,128,1250,101,1171,84"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="983,107,1202,149"/>
-<area shape="poly" id="edge13_Node000008_Node000011" title=" " alt="" coords="1218,142,1334,160,1386,170,1385,176,1333,165,1217,147"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="1063,173,1122,200"/>
-<area shape="poly" id="edge14_Node000008_Node000012" title=" " alt="" coords="1138,183,1386,179,1386,185,1138,189"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="1070,279,1115,305"/>
-<area shape="poly" id="edge15_Node000008_Node000013" title=" " alt="" coords="1130,287,1225,272,1280,256,1332,234,1344,223,1355,211,1388,193,1391,198,1359,215,1347,227,1334,238,1281,261,1226,277,1131,292"/>
-<area shape="poly" id="edge21_Node000017_Node000013" title=" " alt="" coords="1131,292,1226,297,1357,299,1357,304,1226,303,1131,297"/>
-<area shape="rect" id="Node000014" title=" " alt="" coords="1383,225,1466,252"/>
-<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="1481,236,1627,236,1627,241,1481,241"/>
-<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="535,404,772,404,1425,404,1464,399,1501,386,1535,366,1566,343,1618,292,1650,251,1654,254,1622,295,1570,347,1538,371,1503,391,1465,404,1426,409,772,409,535,409"/>
-<area shape="rect" id="Node000016" title=" " alt="" coords="145,415,194,441"/>
-<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="209,427,271,427,341,424,384,418,385,423,341,429,271,433,209,432"/>
-<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="1506,282,1603,257,1626,250,1628,255,1604,263,1507,287"/>
+<area shape="rect" id="Node000001" title="ArtyK&#39;s Engine Timer – the engine&#39;s internal timer for, um, timing events or anything,..." alt="" coords="1659,296,1731,323"/>
+<area shape="rect" id="Node000002" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="1018,128,1217,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1232,123,1299,119,1373,119,1449,124,1524,137,1559,147,1586,158,1610,174,1637,198,1657,222,1672,249,1692,295,1687,297,1668,251,1652,225,1633,202,1607,178,1584,163,1558,152,1523,143,1449,129,1373,124,1299,124,1233,129"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="365,236,536,263"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="552,235,869,192,1052,153,1053,158,870,197,552,240"/>
+<area shape="rect" id="Node000010" href="$d0/d8a/class_____a_e_module_base.html" title="This is a base class for all the modules in the engine; all basic modules inherit from it." alt="" coords="713,261,870,288"/>
+<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="552,254,713,266,713,272,552,259"/>
+<area shape="rect" id="Node000012" href="$d0/d8a/class_____a_e_module_base.html" title=" " alt="" coords="1015,296,1220,323"/>
+<area shape="poly" id="edge16_Node000012_Node000003" title=" " alt="" coords="480,271,517,298,561,319,627,335,695,344,764,347,831,347,955,336,1052,321,1053,326,956,341,831,352,764,353,695,349,626,340,560,324,514,302,477,275"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="141,212,198,239"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="213,226,365,239,365,245,213,232"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="111,263,228,289"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="244,267,341,259,365,256,365,262,341,264,244,273"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="382,391,519,417"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="216,294,420,388,418,392,214,299"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="1389,152,1523,179"/>
+<area shape="poly" id="edge29_Node000019_Node000005" title=" " alt="" coords="222,252,226,249,239,231,250,211,275,175,296,141,332,80,352,55,377,35,408,23,449,19,1119,19,1169,23,1218,34,1265,51,1310,71,1387,114,1439,149,1436,154,1384,118,1308,75,1264,56,1216,39,1168,28,1119,24,450,24,410,28,379,40,355,59,336,83,300,144,280,178,254,213,243,234,230,252,225,256"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,263,44,289"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="59,273,110,273,110,279,59,279"/>
+<area shape="poly" id="edge26_Node000001_Node000007" title=" " alt="" coords="487,424,543,455,617,489,702,516,746,524,790,527,1457,527,1501,520,1540,502,1576,475,1607,443,1634,408,1657,374,1685,322,1690,324,1661,377,1639,411,1611,446,1579,479,1543,506,1502,525,1458,532,790,532,745,529,701,521,615,494,541,460,485,428"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="535,406,608,406,692,402,782,390,869,369,930,348,952,333,974,307,984,288,987,270,983,235,981,201,986,183,999,165,1016,152,1019,156,1003,169,991,185,986,201,988,235,992,270,989,290,979,309,956,337,933,353,870,375,783,396,693,407,608,412,535,411"/>
+<area shape="poly" id="edge12_Node000010_Node000007" title=" " alt="" coords="502,382,753,286,755,291,503,387"/>
+<area shape="poly" id="edge17_Node000012_Node000007" title=" " alt="" coords="522,419,594,433,681,445,775,451,870,447,928,444,951,438,975,421,983,411,986,400,986,379,986,356,990,344,999,333,1015,321,1018,325,1003,337,995,347,991,357,991,379,991,401,987,413,979,425,953,443,929,449,870,452,775,457,681,451,593,438,521,424"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="145,391,194,417"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="209,401,382,401,382,407,209,407"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="409,120,493,147"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="508,119,560,112,677,106,769,110,977,128,1017,131,1017,136,977,133,768,115,677,111,561,117,509,124"/>
+<area shape="poly" id="edge13_Node000010_Node000009" title=" " alt="" coords="501,151,714,240,758,258,756,263,712,245,499,156"/>
+<area shape="poly" id="edge18_Node000012_Node000009" title=" " alt="" coords="509,131,673,142,772,155,870,176,929,191,953,203,979,225,988,241,991,256,993,269,1003,282,1020,293,1017,298,999,286,988,271,985,257,983,242,975,228,950,208,928,196,869,181,771,160,672,147,508,137"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="885,268,940,260,961,254,975,246,983,237,986,228,986,208,987,186,991,175,999,165,1016,153,1019,157,1003,169,995,178,992,187,992,208,991,229,987,240,978,250,963,259,941,265,886,273"/>
+<area shape="poly" id="edge19_Node000012_Node000010" title=" " alt="" coords="872,289,894,292,1015,303,1015,308,893,297,871,294"/>
+<area shape="rect" id="Node000011" href="$df/dd7/class_a_e_frame.html" title="This module is the engine&#39;s precise frame/loop&#45;cycle limiter." alt="" coords="1418,296,1494,323"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="1510,307,1659,307,1659,312,1510,312"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="1235,307,1418,307,1418,312,1235,312"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1005,397,1230,424"/>
+<area shape="poly" id="edge20_Node000011_Node000013" title=" " alt="" coords="1245,405,1306,391,1336,380,1364,366,1371,359,1375,351,1379,342,1387,333,1416,317,1419,322,1391,337,1384,345,1380,353,1375,362,1367,370,1338,385,1308,396,1246,410"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1053,347,1182,373"/>
+<area shape="poly" id="edge21_Node000011_Node000014" title=" " alt="" coords="1197,350,1365,328,1417,317,1418,322,1366,333,1197,356"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1001,229,1234,272"/>
+<area shape="poly" id="edge22_Node000011_Node000015" title=" " alt="" coords="1249,268,1366,288,1418,299,1417,304,1365,293,1249,273"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1088,448,1147,475"/>
+<area shape="poly" id="edge23_Node000011_Node000016" title=" " alt="" coords="1163,466,1209,468,1263,465,1317,451,1341,439,1363,423,1372,413,1375,403,1376,381,1375,358,1379,345,1387,333,1401,322,1417,314,1419,319,1404,326,1391,336,1384,347,1381,358,1381,381,1381,404,1376,416,1367,427,1344,444,1319,456,1264,470,1209,474,1162,471"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1095,179,1140,205"/>
+<area shape="poly" id="edge24_Node000011_Node000017" title=" " alt="" coords="1156,194,1253,213,1310,229,1366,250,1406,271,1438,293,1435,298,1403,276,1364,254,1309,234,1252,218,1155,200"/>
+<area shape="poly" id="edge28_Node000019_Node000017" title=" " alt="" coords="1155,186,1388,168,1389,173,1155,192"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="1415,347,1498,373"/>
+<area shape="poly" id="edge25_Node000001_Node000018" title=" " alt="" coords="1513,351,1572,342,1635,328,1658,321,1660,326,1636,333,1573,347,1514,356"/>
+<area shape="poly" id="edge27_Node000001_Node000019" title=" " alt="" coords="1494,185,1672,293,1669,298,1492,189"/>
 </map>

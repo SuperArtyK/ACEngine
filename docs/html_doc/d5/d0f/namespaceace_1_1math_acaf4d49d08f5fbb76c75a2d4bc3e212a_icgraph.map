@@ -1,5 +1,5 @@
 <map id="ace::math::ceilToInt" name="ace::math::ceilToInt">
 <area shape="rect" id="Node000001" title="Ceil&#39;s the given float of type Y and converts to integer of type T." alt="" coords="161,5,296,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a2b5effb7e682eb714f694c1c6a963551" title="Ceil&#39;s the passed number of type Y and converts it to the type T" alt="" coords="5,5,113,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a2b5effb7e682eb714f694c1c6a963551" title="Ceil&#39;s the passed number of type Y and converts it to the type T." alt="" coords="5,5,113,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,21,113,21,113,16,145,16"/>
 </map>

@@ -1,4 +1,4 @@
-.TH "__AEModuleBase< T >" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "__AEModuleBase< T >" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,19 +15,23 @@ __AEModuleBase< T > \- This is a \fBbase class for all the modules in the engine
 .ti -1c
 .RI "\fB__AEModuleBase\fP (void) noexcept"
 .br
-.RI "\fBBasic constructor\fP that increases module count "
+.RI "\fBBasic constructor\fP that increases module count\&.d "
 .ti -1c
 .RI "\fB__AEModuleBase\fP (const \fB__AEModuleBase\fP< T > &val) noexcept"
 .br
-.RI "\fBBasic copy constructor\fP that increases module count "
+.RI "\fBBasic copy constructor\fP that increases module count\&. "
 .ti -1c
 .RI "virtual \fB~__AEModuleBase\fP (void) noexcept"
 .br
-.RI "\fBBasic destructor\fP that decreases module count "
+.RI "\fBBasic destructor\fP that decreases module count\&. "
 .ti -1c
-.RI "virtual \fB__AEModuleBase\fP< T > & \fBoperator=\fP (const \fB__AEModuleBase\fP< T > &val)=delete"
+.RI "\fB__AEModuleBase\fP< T > & \fBoperator=\fP (const \fB__AEModuleBase\fP< T > &val)=delete"
 .br
-.RI "\fBBasic assignment operator -- it does nothing, so it's deleted\fP (make your own) "
+.RI "\fBBasic assignment operator -- it does nothing, so it's deleted\fP (make your own)\&. "
+.ti -1c
+.RI "constexpr const \fBullint\fP \fBgetModuleID\fP (void) noexcept"
+.br
+.RI "Get the \fBid number of the instance\fP of the module\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -35,11 +39,23 @@ __AEModuleBase< T > \- This is a \fBbase class for all the modules in the engine
 .ti -1c
 .RI "static \fBullint\fP \fBgetModuleAmount\fP (void) noexcept"
 .br
-.RI "Get the \fBamount of the currently-alive instances of module T\fP "
+.RI "Get the \fBamount of the currently-alive instances of module T\fP\&. "
 .ti -1c
 .RI "static constexpr const std::string_view \fBgetModuleName\fP (void) noexcept"
 .br
-.RI "Get the \fBname of the module\fP "
+.RI "Get the \fBname of the module\fP\&. "
+.ti -1c
+.RI "static constexpr const \fBullint\fP \fBgetInstanceCounter\fP (void) noexcept"
+.br
+.RI "Get the current value of the \fBinstance counter\fP of the module\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "const \fBullint\fP \fBm_ullModuleId\fP"
+.br
+.RI "The ID number of the current module\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
@@ -48,6 +64,10 @@ __AEModuleBase< T > \- This is a \fBbase class for all the modules in the engine
 .RI "static std::atomic< std::size_t > \fBm_ullModulesAlive\fP = 0"
 .br
 .RI "Amount of the currently-alive (not destroyed) instances of the module\&. "
+.ti -1c
+.RI "static std::atomic< \fBullint\fP > \fBm_ullInstanceCounter\fP = 0"
+.br
+.RI "Amount of the instances of the module ever created during the program's runtime\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -56,7 +76,7 @@ __AEModuleBase< T > \- This is a \fBbase class for all the modules in the engine
 .br
 class __AEModuleBase< T >"This is a \fBbase class for all the modules in the engine\fP; all basic modules inherit from it\&. 
 
-This allows tracking the name of the module, the amount of alive instances and soon: name and number of the instance\&. 
+This allows tracking the name of the module, the amount of alive instances and soon: name and number of the instance\&.
 .PP
 \fBRemarks\fP
 .RS 4
@@ -87,19 +107,21 @@ If you use the \fB__AEModuleBase<T>::getModuleName()\fP and do not include \fBRE
 .PP
 
 .PP
-Definition at line \fB76\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB79\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "template<typename T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (void)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-\fBBasic constructor\fP that increases module count 
+\fBBasic constructor\fP that increases module count\&.d 
 .PP
-Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB86\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.PP
+References \fB__AEModuleBase< T >::m_ullModulesAlive\fP\&.
 .SS "template<typename T > \fB__AEModuleBase\fP< T >\fB::__AEModuleBase\fP (const \fB__AEModuleBase\fP< T > & val)\fR [inline]\fP, \fR [noexcept]\fP"
 
 .PP
-\fBBasic copy constructor\fP that increases module count 
+\fBBasic copy constructor\fP that increases module count\&. 
 .PP
 \fBRemarks\fP
 .RS 4
@@ -118,23 +140,27 @@ Doesn't do anything other than increase module count
 .PP
 
 .PP
-Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB97\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.PP
+References \fB__AEModuleBase< T >::m_ullModulesAlive\fP\&.
 .SS "template<typename T > virtual \fB__AEModuleBase\fP< T >::~\fB__AEModuleBase\fP (void)\fR [inline]\fP, \fR [virtual]\fP, \fR [noexcept]\fP"
 
 .PP
-\fBBasic destructor\fP that decreases module count 
+\fBBasic destructor\fP that decreases module count\&. 
 .PP
-Definition at line \fB1\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB104\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.PP
+References \fB__AEModuleBase< T >::m_ullModulesAlive\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "template<typename T > virtual \fB__AEModuleBase\fP< T > & \fB__AEModuleBase\fP< T >::operator= (const \fB__AEModuleBase\fP< T > & val)\fR [virtual]\fP, \fR [delete]\fP"
+.SS "template<typename T > \fB__AEModuleBase\fP< T > & \fB__AEModuleBase\fP< T >::operator= (const \fB__AEModuleBase\fP< T > & val)\fR [delete]\fP"
 
 .PP
-\fBBasic assignment operator -- it does nothing, so it's deleted\fP (make your own) 
+\fBBasic assignment operator -- it does nothing, so it's deleted\fP (make your own)\&. 
 .SS "template<typename T > static \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleAmount (void)\fR [inline]\fP, \fR [static]\fP, \fR [noexcept]\fP"
 
 .PP
-Get the \fBamount of the currently-alive instances of module T\fP 
+Get the \fBamount of the currently-alive instances of module T\fP\&. 
 .PP
 \fBSee also\fP
 .RS 4
@@ -143,18 +169,16 @@ Get the \fBamount of the currently-alive instances of module T\fP
 .PP
 \fBReturns\fP
 .RS 4
-Unsigned long long of the alive module amount
+Unsigned long long of the alive module amount 
 .RE
 .PP
 
 .PP
-Definition at line \fB114\fP of file \fBAEModuleBase\&.hpp\fP\&.
-.PP
-References \fB__AEModuleBase< T >::m_ullModulesAlive\fP\&.
+Definition at line \fB121\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SS "template<typename T > static constexpr const std::string_view \fB__AEModuleBase\fP< T >::getModuleName (void)\fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
 
 .PP
-Get the \fBname of the module\fP 
+Get the \fBname of the module\fP\&. 
 .PP
 \fBAttention\fP
 .RS 4
@@ -168,10 +192,50 @@ You \fIneed\fP to add \fBREGISTER_MODULE()\fP to the end of the class declaratio
 .PP
 \fBReturns\fP
 .RS 4
-The name of the module as a const std::strinv_view type
+The name of the module as a const std::strinv_view type 
 .RE
 .PP
 
+.SS "template<typename T > constexpr const \fBullint\fP \fB__AEModuleBase\fP< T >::getModuleID (void)\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the \fBid number of the instance\fP of the module\&. 
+.PP
+\fBRemarks\fP
+.RS 4
+Every module has its own instance counter
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The id number of the instance of the module as \fBullint\fP type 
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.PP
+References \fB__AEModuleBase< T >::m_ullModuleId\fP\&.
+.SS "template<typename T > static constexpr const \fBullint\fP \fB__AEModuleBase\fP< T >::getInstanceCounter (void)\fR [inline]\fP, \fR [static]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+
+.PP
+Get the current value of the \fBinstance counter\fP of the module\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fB__AEModuleBase::m_ullInstanceCounter\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The amount of the module's instances overall created throughout the program's runtime 
+.RE
+.PP
+
+.PP
+Definition at line \fB156\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.PP
+References \fB__AEModuleBase< T >::m_ullInstanceCounter\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "template<typename T > std::atomic<std::size_t> \fB__AEModuleBase\fP< T >::m_ullModulesAlive = 0\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP"
@@ -179,7 +243,19 @@ The name of the module as a const std::strinv_view type
 .PP
 Amount of the currently-alive (not destroyed) instances of the module\&. 
 .PP
-Definition at line \fB131\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB165\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "template<typename T > std::atomic<\fBullint\fP> \fB__AEModuleBase\fP< T >::m_ullInstanceCounter = 0\fR [inline]\fP, \fR [static]\fP, \fR [protected]\fP"
+
+.PP
+Amount of the instances of the module ever created during the program's runtime\&. 
+.PP
+Definition at line \fB170\fP of file \fBAEModuleBase\&.hpp\fP\&.
+.SS "template<typename T > const \fBullint\fP \fB__AEModuleBase\fP< T >::m_ullModuleId\fR [protected]\fP"
+
+.PP
+The ID number of the current module\&. 
+.PP
+Definition at line \fB175\fP of file \fBAEModuleBase\&.hpp\fP\&.
 
 .SH "Author"
 .PP 

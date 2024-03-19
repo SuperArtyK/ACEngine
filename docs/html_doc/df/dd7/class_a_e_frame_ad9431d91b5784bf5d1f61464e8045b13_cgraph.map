@@ -1,0 +1,5 @@
+<map id="AEFrame::sleep" name="AEFrame::sleep">
+<area shape="rect" id="Node000001" title="Puts the current thread to sleep for the delay that was set earlier." alt="" coords="5,5,121,32"/>
+<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" title="Resets the time point in the AEFrame to the real (current) time." alt="" coords="169,5,340,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,16,153,16,153,21,121,21"/>
+</map>

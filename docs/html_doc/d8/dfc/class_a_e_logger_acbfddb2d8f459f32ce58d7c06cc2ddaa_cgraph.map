@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Open the file to start logging." alt="" coords="5,259,141,285"/>
 <area shape="rect" id="Node000002" href="$d8/dfc/class_a_e_logger.html#a53b588f9874535299d612a4c71de9950" title="Open the file to start logging." alt="" coords="189,259,324,285"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,269,173,269,173,275,141,275"/>
-<area shape="rect" id="Node000003" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="1239,457,1446,500"/>
+<area shape="rect" id="Node000003" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module." alt="" coords="1239,457,1446,500"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="270,284,320,344,358,383,403,424,455,461,511,493,572,515,603,521,635,523,854,523,951,520,1049,513,1224,494,1224,499,1050,518,951,525,854,528,635,528,603,526,571,520,509,498,452,466,400,428,354,387,316,348,266,288"/>
 <area shape="rect" id="Node000004" href="$db/d15/class_a_e_file_writer.html#a939fe602eecb15ba71448a9de13bb2c0" title="Open(and create) file with given name and flag." alt="" coords="1266,56,1419,83"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="270,256,324,207,409,144,461,115,516,90,575,73,635,67,854,67,1251,67,1251,72,854,72,635,72,576,78,518,95,463,119,412,149,327,211,273,260"/>
@@ -10,7 +10,7 @@
 <area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="285,284,407,350,405,355,282,288"/>
 <area shape="rect" id="Node000014" href="$d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file." alt="" coords="1021,356,1169,383"/>
 <area shape="poly" id="edge44_Node000002_Node000014" title=" " alt="" coords="287,256,399,212,479,187,568,166,664,153,762,150,811,154,860,162,907,175,952,194,976,207,997,224,1035,264,1063,305,1084,341,1079,344,1059,308,1030,267,994,228,973,212,950,198,905,180,858,168,811,159,762,155,664,158,569,171,480,192,401,217,289,261"/>
-<area shape="rect" id="Node000005" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="1514,5,1646,32"/>
+<area shape="rect" id="Node000005" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen()." alt="" coords="1514,5,1646,32"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1408,53,1499,33,1500,38,1409,58"/>
 <area shape="rect" id="Node000006" href="$db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090" title="Checks if a file isn&#39;t open by this file&#45;writer." alt="" coords="1503,107,1657,133"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1409,81,1500,100,1499,106,1408,86"/>

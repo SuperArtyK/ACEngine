@@ -1,4 +1,4 @@
-.TH "AEMisc/include/AEFlags.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEMisc/include/AEFlags.hpp" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -61,15 +61,23 @@ AEMisc/include/AEFlags.hpp \- This file contains the \fBflags to manipulate engi
 .ti -1c
 .RI "#define \fBAELE_MESSAGE_SIZE\fP   511"
 .br
-.RI "The size of the \fBAELogEntry\fP's \fBmessage in characters\fP (excluding null termination) "
+.RI "Macro for the size of the \fBAELogEntry\fP's \fBmessage in characters\fP (excluding null termination) "
 .ti -1c
 .RI "#define \fBAELE_MODULENAME_SIZE\fP   31"
 .br
-.RI "The size of the \fBAELogEntry\fP's \fBmodule name in characters\fP (excluding null termination) "
+.RI "Macro for the size of the \fBAELogEntry\fP's \fBmodule name in characters\fP (excluding null termination) "
 .ti -1c
 .RI "#define \fBAEVEC_WRAP_DIMENSIONS\fP   1"
 .br
 .RI "A macro for the \fBAEVector::operator[]\fP to \fBwrap dimension index around\fP if the index is bigger than the dimension amount\&. "
+.ti -1c
+.RI "#define \fBAEF_RESET_TIME_WHEN_BEHIND_MS\fP   100"
+.br
+.RI "Macro for the \fBAEFrame\fP to \fBreset the timepoint when behind X milliseconds\fP\&. "
+.ti -1c
+.RI "#define \fBAEF_CLOCK\fP   \fBHighResClock\fP"
+.br
+.RI "Macro for the clock for the \fBAEFrame\fP to use for counting internally\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -127,6 +135,11 @@ Set to any positive value to enable, and any negative value or 0 to disable this
 Disabling this disables the sleep functionality in instances of \fBAEFrame\fP and \fBAETimer\fP that use the default delay\&. 
 .RE
 .PP
+\fBWarning\fP
+.RS 4
+Undefining this macro will produce a compilation error! 
+.RE
+.PP
 \fBSee also\fP
 .RS 4
 \fBAEFrame\fP 
@@ -136,7 +149,7 @@ Disabling this disables the sleep functionality in instances of \fBAEFrame\fP an
 .PP
 
 .PP
-Definition at line \fB38\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB39\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define ENGINE_ENABLE_GLOBAL_MODULES   1"
 
 .PP
@@ -154,7 +167,7 @@ Disabling this code \fImay\fP break your code (from compiling), as it removes th
 .PP
 
 .PP
-Definition at line \fB42\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB43\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define ENGINE_ENABLE_ASSERT   1"
 
 .PP
@@ -174,7 +187,7 @@ Set to 1 to enable, and 0 to disable this feature
 .PP
 
 .PP
-Definition at line \fB47\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB48\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define ENGINE_ENABLE_MATH_LOOKUP   1"
 
 .PP
@@ -192,7 +205,7 @@ AETrigLookup\&.hpp
 .PP
 
 .PP
-Definition at line \fB51\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB52\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AEFW_AUTOFLUSH_ENABLE   1"
 
 .PP
@@ -210,7 +223,7 @@ Set to 1 to enable, and 0 to disable this feature
 .PP
 
 .PP
-Definition at line \fB57\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB58\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AEFW_DEFAULT_AUTOFLUSH   true"
 
 .PP
@@ -228,7 +241,7 @@ This only works/matters if the auto-flushing feature is enabled (\fBAEFW_AUTOFLU
 .PP
 
 .PP
-Definition at line \fB61\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB62\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AEFW_DEFAULT_AUTOFLUSH_INTERVAL   (\fBullint\fP)\-1"
 
 .PP
@@ -251,7 +264,7 @@ This only works/matters if the auto-flushing feature is enabled (\fBAEFW_AUTOFLU
 .PP
 
 .PP
-Definition at line \fB66\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB67\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AELOG_DEFAULT_QUEUE_SIZE   (\fBullint\fP)2048"
 
 .PP
@@ -266,7 +279,7 @@ All because the queue too is large to be allocated\&.
 .PP
 
 .PP
-Definition at line \fB72\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB73\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AELOG_DEFAULT_MODULE_NAME   'ACEngine'"
 
 .PP
@@ -290,7 +303,7 @@ Otherwise any logs invoked with a default module name will fail\&.
 .PP
 
 .PP
-Definition at line \fB79\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB80\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AELOG_DEFAULT_ALLOC_VECTOR_RESERVE   32"
 
 .PP
@@ -310,7 +323,7 @@ I think that's enough :)
 .PP
 
 .PP
-Definition at line \fB84\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB85\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AELOG_DEFAULT_LOG_PATH   '\&./logs/'"
 
 .PP
@@ -323,11 +336,11 @@ Macro for the \fBAELogger\fP's \fBdefault log file path\fP
 .PP
 
 .PP
-Definition at line \fB87\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB88\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AELE_MESSAGE_SIZE   511"
 
 .PP
-The size of the \fBAELogEntry\fP's \fBmessage in characters\fP (excluding null termination) 
+Macro for the size of the \fBAELogEntry\fP's \fBmessage in characters\fP (excluding null termination) 
 .PP
 \fBNote\fP
 .RS 4
@@ -351,11 +364,11 @@ Too large will increase the memory usage by a lot
 .PP
 
 .PP
-Definition at line \fB96\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB97\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AELE_MODULENAME_SIZE   31"
 
 .PP
-The size of the \fBAELogEntry\fP's \fBmodule name in characters\fP (excluding null termination) 
+Macro for the size of the \fBAELogEntry\fP's \fBmodule name in characters\fP (excluding null termination) 
 .PP
 \fBNote\fP
 .RS 4
@@ -379,7 +392,7 @@ Too large will increase the memory usage by a lot
 .PP
 
 .PP
-Definition at line \fB103\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB104\fP of file \fBAEFlags\&.hpp\fP\&.
 .SS "#define AEVEC_WRAP_DIMENSIONS   1"
 
 .PP
@@ -402,7 +415,54 @@ If this is disabled, and you try exceeding the dimension amount -- \fBsigsegv\fP
 .PP
 
 .PP
-Definition at line \fB111\fP of file \fBAEFlags\&.hpp\fP\&.
+Definition at line \fB112\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AEF_RESET_TIME_WHEN_BEHIND_MS   100"
+
+.PP
+Macro for the \fBAEFrame\fP to \fBreset the timepoint when behind X milliseconds\fP\&. This makes the \fBAEFrame\fP to perform a lateness check when calling the \fBAEFrame::sleep()\fP function\&. 
+.br
+ It checks if the difference between the current time and the timepoint stored in the \fBAEFrame\fP instance is larger than the time in milliseconds indicated by this macro 
+.PP
+\fBAttention\fP
+.RS 4
+Setting this to a low value can decrease the program performance as well as the accuracy of the \fBAEFrame\fP 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Set to positive integer value to enable, and 0 to disable this feature 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBAEFrame::sleep()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB123\fP of file \fBAEFlags\&.hpp\fP\&.
+.SS "#define AEF_CLOCK   \fBHighResClock\fP"
+
+.PP
+Macro for the clock for the \fBAEFrame\fP to use for counting internally\&. 
+.PP
+\fBNote\fP
+.RS 4
+This clock needs to be a chrono-compatible clock 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBSysClock\fP 
+.PP
+\fBHighResClock\fP 
+.PP
+\fBSteadyClock\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB129\fP of file \fBAEFlags\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.

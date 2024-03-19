@@ -1,6 +1,0 @@
-<map id="ace::math::equals" name="ace::math::equals">
-<area shape="rect" id="Node000001" title="Checks if given 2 numbers are equal, a generic function for all types." alt="" coords="5,29,131,56"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a3fe0b48ce2d8fd78f7758ae1b6cef83b" title="Gets the smallest value between given two values." alt="" coords="179,29,287,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,40,163,40,163,45,131,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="204,30,199,21,203,11,214,5,233,3,253,5,263,12,261,16,251,10,233,8,216,10,207,15,205,20,209,28"/>
-</map>

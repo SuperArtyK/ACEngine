@@ -38,7 +38,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module">
+<g id="a_Node000009"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module.">
 <polygon fill="white" stroke="#666666" points="805.25,-312 650.5,-312 650.5,-280 805.25,-280 805.25,-312"/>
 <text text-anchor="start" x="658.5" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">__AEModuleBase&lt; AELogger &gt;</text>
 <text text-anchor="middle" x="727.88" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getModuleName</text>

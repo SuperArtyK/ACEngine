@@ -1,5 +1,5 @@
 <map id="AEFrame::sleep" name="AEFrame::sleep">
-<area shape="rect" id="Node000001" title="Puts the current thread to sleep up to the set fps goal." alt="" coords="573,107,689,133"/>
+<area shape="rect" id="Node000001" title="Puts the current thread to sleep for the delay that was set earlier." alt="" coords="573,107,689,133"/>
 <area shape="rect" id="Node000002" href="$da/d62/class_a_e_timer.html#ad5fa76b6e9233eaa415a9c70ed6ecc8d" title="The function that does the tick counting for the timer." alt="" coords="387,81,519,108"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="558,112,519,107,519,101,559,107"/>
 <area shape="rect" id="Node000008" href="$da/d62/class_a_e_timer.html#ab5e98fa75b71f6280ae8ae16367dd97c" title="Stops and sleeps the thread untill the given timer hits the certain tick number." alt="" coords="380,132,525,159"/>
@@ -8,7 +8,7 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,97,333,97,333,92,371,92"/>
 <area shape="rect" id="Node000004" href="$da/d62/class_a_e_timer.html#ab6d5a811e0d1d8f3ab3427ae3c15756b" title="Copy constructor – Just copies the data and then starts the timer if original timer was started." alt="" coords="8,5,137,32"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="212,77,139,46,110,35,112,30,141,42,214,72"/>
-<area shape="rect" id="Node000005" href="$da/d62/class_a_e_timer.html#a0ae04d9de43161195777f7ee26a55dd5" title="Class constructor – starts the timer automatically." alt="" coords="8,56,137,83"/>
+<area shape="rect" id="Node000005" href="$da/d62/class_a_e_timer.html#aff4bda684228e5545d53fcea1a9f98f3" title="Class constructor – starts the timer automatically." alt="" coords="8,56,137,83"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="172,85,137,81,138,75,172,80"/>
 <area shape="rect" id="Node000006" href="$da/d62/class_a_e_timer.html#a7bdf64ddc743a1223164764b9cb15091" title="The copy assignment operator." alt="" coords="5,107,140,133"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="172,109,141,114,140,108,172,104"/>

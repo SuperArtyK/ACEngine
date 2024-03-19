@@ -309,7 +309,7 @@ var sectionId = 'dynsection-1';
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="../../de/d72/_a_e_frame_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000013"><a xlink:href="../../de/d72/_a_e_frame_8hpp.html" target="_top" xlink:title="This file contains the engine&#39;s module for frame&#45;precise loop delays.">
 <polygon fill="white" stroke="#666666" points="911.62,-132 757.62,-132 757.62,-112 911.62,-112 911.62,-132"/>
 <text text-anchor="middle" x="834.62" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame/include/AEFrame.hpp</text>
 </a>

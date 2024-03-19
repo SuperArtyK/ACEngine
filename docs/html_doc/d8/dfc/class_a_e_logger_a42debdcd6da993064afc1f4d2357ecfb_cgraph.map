@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,175,189,172,189,177,158,181"/>
 <area shape="rect" id="Node000003" href="$d8/dfc/class_a_e_logger.html#ac533941173224cb21fe09326726ce754" title="Request a log entry to be written to the opened log file." alt="" coords="229,199,378,225"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,193,214,199,214,205,157,198"/>
-<area shape="rect" id="Node000004" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module" alt="" coords="450,5,656,48"/>
+<area shape="rect" id="Node000004" href="$d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" title="Get the name of the module." alt="" coords="450,5,656,48"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="376,199,400,185,413,170,420,155,424,124,428,91,435,74,448,58,451,55,455,59,452,62,440,77,433,92,429,124,425,156,417,173,404,189,379,204"/>
 <area shape="rect" id="Node000005" href="$de/dde/namespaceace_1_1utils.html#ac3eadc5f289b54059322023f3c5eed96" title="Checks if the passed string is alpha&#45;numeric with underscores (contains only numbers,..." alt="" coords="480,72,627,99"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="377,197,400,185,416,167,423,148,431,128,448,109,464,99,467,104,452,113,436,130,428,150,421,170,404,189,379,202"/>

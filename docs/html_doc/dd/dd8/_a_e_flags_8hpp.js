@@ -14,5 +14,7 @@ var _a_e_flags_8hpp =
     [ "AELOG_DEFAULT_LOG_PATH", "dd/dd8/_a_e_flags_8hpp.html#a677404c9fb1978178daad33fc55a3ccd", null ],
     [ "AELE_MESSAGE_SIZE", "dd/dd8/_a_e_flags_8hpp.html#ae249445ee4dfcc31b987df25a3e2785c", null ],
     [ "AELE_MODULENAME_SIZE", "dd/dd8/_a_e_flags_8hpp.html#adef52ac377b8ee82d7beba7c58799bfe", null ],
-    [ "AEVEC_WRAP_DIMENSIONS", "dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9", null ]
+    [ "AEVEC_WRAP_DIMENSIONS", "dd/dd8/_a_e_flags_8hpp.html#ab5aa4a5360259365ff849c8bfdae6ed9", null ],
+    [ "AEF_RESET_TIME_WHEN_BEHIND_MS", "dd/dd8/_a_e_flags_8hpp.html#a252e7d269c0de0f65e783dae4642b126", null ],
+    [ "AEF_CLOCK", "dd/dd8/_a_e_flags_8hpp.html#ad81a0af35b133fdf15d18c6c6829b011", null ]
 ];

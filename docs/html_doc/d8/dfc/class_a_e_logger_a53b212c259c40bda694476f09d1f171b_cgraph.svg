@@ -66,7 +66,7 @@ var sectionId = 'dynsection-6';
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module">
+<g id="a_Node000002"><a xlink:href="../../d0/d8a/class_____a_e_module_base.html#a625c82f27195de3f9ab5af4fc7437e2f" target="_top" xlink:title="Get the name of the module.">
 <polygon fill="white" stroke="#666666" points="480.75,-374 326,-374 326,-342 480.75,-342 480.75,-374"/>
 <text text-anchor="start" x="334" y="-360.5" font-family="Helvetica,sans-Serif" font-size="10.00">__AEModuleBase&lt; AELogger &gt;</text>
 <text text-anchor="middle" x="403.38" y="-348.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getModuleName</text>

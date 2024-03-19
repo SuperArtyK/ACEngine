@@ -1,5 +1,5 @@
 <map id="ace::math::roundToInt" name="ace::math::roundToInt">
 <area shape="rect" id="Node000001" title="Rounds the given number of type Y to integer of type T." alt="" coords="173,5,320,32"/>
-<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1003baff2f5bcf504bcab085cc16d034" title="Rounds the passed number of type Y and converts it to the type T" alt="" coords="5,5,125,32"/>
+<area shape="rect" id="Node000002" href="$d5/d0f/namespaceace_1_1math.html#a1003baff2f5bcf504bcab085cc16d034" title="Rounds the passed number of type Y and converts it to the type T." alt="" coords="5,5,125,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,21,125,21,125,16,157,16"/>
 </map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds.">
+<g id="a_Node000001"><a xlink:title="Returns the maximum loop delay in the instance in seconds.">
 <polygon fill="#999999" stroke="#666666" points="257,-39 155.5,-39 155.5,-19 257,-19 257,-39"/>
 <text text-anchor="middle" x="206.25" y="-25.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::getDelay</text>
 </a>

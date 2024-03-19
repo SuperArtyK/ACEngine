@@ -1,5 +1,5 @@
 <map id="AETimer::getWorldTime" name="AETimer::getWorldTime">
 <area shape="rect" id="Node000001" title="Calculates the approximate world time of the timer in seconds (from the ticks)" alt="" coords="5,5,165,32"/>
-<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5" title="Returns the maximum AEFrame&#39;s delay from the set fps, in seconds." alt="" coords="213,5,348,32"/>
+<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#a69cb06707bdf2df69bb9bf84e1c52ec5" title="Returns the maximum loop delay in the instance in seconds." alt="" coords="213,5,348,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,16,197,16,197,21,165,21"/>
 </map>

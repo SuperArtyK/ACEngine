@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 511;
+var viewWidth = 675;
 var viewHeight = 28;
 var sectionId = 'dynsection-5';
 </script>
@@ -102,7 +102,7 @@ var sectionId = 'dynsection-5';
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="../../df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" target="_top" xlink:title="Puts the current thread to sleep up to the set fps goal.">
+<g id="a_Node000004"><a xlink:href="../../df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" target="_top" xlink:title="Puts the current thread to sleep for the delay that was set earlier.">
 <polygon fill="white" stroke="#666666" points="502.75,-20 416.25,-20 416.25,0 502.75,0 502.75,-20"/>
 <text text-anchor="middle" x="459.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::sleep</text>
 </a>
@@ -114,6 +114,24 @@ var sectionId = 'dynsection-5';
 <g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M380.68,-10C388.46,-10 396.54,-10 404.42,-10"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="404.26,-13.5 414.26,-10 404.26,-6.5 404.26,-13.5"/>
+</a>
+</g>
+</g>
+<!-- Node5 -->
+<g id="Node000005" class="node">
+<title>Node5</title>
+<g id="a_Node000005"><a xlink:href="../../df/dd7/class_a_e_frame.html#a425f5ba8edab14bdf3e34fc06658e451" target="_top" xlink:title="Resets the time point in the AEFrame to the real (current) time.">
+<polygon fill="white" stroke="#666666" points="667.25,-20 538.75,-20 538.75,0 667.25,0 667.25,-20"/>
+<text text-anchor="middle" x="603" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AEFrame::resetTimePoint</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4_Node000004_Node000005" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M502.95,-10C510.62,-10 518.82,-10 527.09,-10"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="526.87,-13.5 536.87,-10 526.87,-6.5 526.87,-13.5"/>
 </a>
 </g>
 </g>

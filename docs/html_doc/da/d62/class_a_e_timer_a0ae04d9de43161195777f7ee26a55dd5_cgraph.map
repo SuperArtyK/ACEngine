@@ -1,9 +1,0 @@
-<map id="AETimer::AETimer" name="AETimer::AETimer">
-<area shape="rect" id="Node000001" title="Class constructor – starts the timer automatically." alt="" coords="5,5,135,32"/>
-<area shape="rect" id="Node000002" href="$da/d62/class_a_e_timer.html#a022b44a8e9b9e2a314e0ac3ecc759062" title="Starts the timer thread and starts tick counting." alt="" coords="183,5,327,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,16,167,16,167,21,135,21"/>
-<area shape="rect" id="Node000003" href="$da/d62/class_a_e_timer.html#ad5fa76b6e9233eaa415a9c70ed6ecc8d" title="The function that does the tick counting for the timer." alt="" coords="375,5,507,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="327,16,359,16,359,21,327,21"/>
-<area shape="rect" id="Node000004" href="$df/dd7/class_a_e_frame.html#ad9431d91b5784bf5d1f61464e8045b13" title="Puts the current thread to sleep up to the set fps goal." alt="" coords="555,5,671,32"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="508,16,540,16,540,21,508,21"/>
-</map>

@@ -1,6 +1,6 @@
 <map id="AEFileWriter::openFile" name="AEFileWriter::openFile">
 <area shape="rect" id="Node000001" title="Open(and create) file with given name and flag." alt="" coords="5,56,158,83"/>
-<area shape="rect" id="Node000002" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen() Opens the file with given name and fla..." alt="" coords="217,5,348,32"/>
+<area shape="rect" id="Node000002" href="$de/dde/namespaceace_1_1utils.html#a6eb2322353edc04f78dbc3589e60d98c" title="A wrapper to make the proper cross&#45;compiler version of fopen()." alt="" coords="217,5,348,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,53,211,34,212,39,138,58"/>
 <area shape="rect" id="Node000003" href="$db/d15/class_a_e_file_writer.html#a0743145db01b527ae9612f359e5c0090" title="Checks if a file isn&#39;t open by this file&#45;writer." alt="" coords="206,56,359,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,67,190,67,190,72,158,72"/>

@@ -1,5 +1,5 @@
 <map id="AETimer::getFrameRate" name="AETimer::getFrameRate">
 <area shape="rect" id="Node000001" title="Returns the fps goal of AEFrame instance in the AETimer." alt="" coords="5,5,167,32"/>
-<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e" title="Returns the fps goal of AEFrame instance." alt="" coords="215,5,381,32"/>
+<area shape="rect" id="Node000002" href="$df/dd7/class_a_e_frame.html#ac1d9365bca92756e4735f92e4f81183e" title="Returns the fps goal of the instance." alt="" coords="215,5,381,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,16,199,16,199,21,167,21"/>
 </map>

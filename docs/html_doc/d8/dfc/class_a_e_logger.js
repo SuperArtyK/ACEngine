@@ -30,6 +30,8 @@ var class_a_e_logger =
     [ "REGISTER_MODULE", "d8/dfc/class_a_e_logger.html#a72310de43ba6405a5f24aa8f027f8541", null ],
     [ "getModuleAmount", "d8/dfc/class_a_e_logger.html#ab3257ef44350e547976d6199ffdb743f", null ],
     [ "getModuleName", "d8/dfc/class_a_e_logger.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
+    [ "getModuleID", "d8/dfc/class_a_e_logger.html#aab73fd66ed267a2162b7c4a29b8bb929", null ],
+    [ "getInstanceCounter", "d8/dfc/class_a_e_logger.html#a9570242b740ac89f86c5980957a42153", null ],
     [ "m_fwLogger", "d8/dfc/class_a_e_logger.html#ae9895e282c5bdf81312106acd988e1d8", null ],
     [ "m_mtxAllocLock", "d8/dfc/class_a_e_logger.html#ae91d805ef8866461e0735c9f41f54c24", null ],
     [ "m_vAllocTable", "d8/dfc/class_a_e_logger.html#a92b4e7278fc54d861edeef1850e27510", null ],
@@ -41,5 +43,7 @@ var class_a_e_logger =
     [ "m_lepLastNode", "d8/dfc/class_a_e_logger.html#a5fb2a77428439b46c140f2d84132f2d0", null ],
     [ "m_bRunTrd", "d8/dfc/class_a_e_logger.html#a23f088382dd66962d0d0fbf1ea3b430d", null ],
     [ "m_bQueueFilled", "d8/dfc/class_a_e_logger.html#a61134ade640af22d54575b62a50c03ca", null ],
-    [ "m_ullModulesAlive", "d8/dfc/class_a_e_logger.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ]
+    [ "m_ullModulesAlive", "d8/dfc/class_a_e_logger.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ],
+    [ "m_ullInstanceCounter", "d8/dfc/class_a_e_logger.html#a3c2c7b00cb494225f6465fbeeb4267d4", null ],
+    [ "m_ullModuleId", "d8/dfc/class_a_e_logger.html#a0bcad11d499e8999dc0252ffa3c4eca3", null ]
 ];

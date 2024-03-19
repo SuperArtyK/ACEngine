@@ -6,6 +6,21 @@
  *  Should not cause everything to break :)
  */
 
+/*! @file AETimer/include/AETimer.hpp
+ *
+ *	@brief This file contains the engine's **tick-based timer**.
+ *
+ *	
+ *	
+ *	@date 2023/09/21
+ *
+ *	@author	Artemii Kozhemiak (SuperArtyK)
+ *
+ *	@copyright MIT License
+ *
+ *  *Should not cause everything to break :)*
+ */
+
 #pragma once
 
 #ifndef ENGINE_TIMER_HPP
@@ -14,11 +29,6 @@
 #include "include/AEFrame.hpp"
 #include <atomic>
 #include <thread>
-
- // in case you, the programmer undefined it
-#ifndef ENGINE_FPS
-#error Hey you! You undefined the ENGINE_FPS and want to use the AETimer module(or something that depends on it). If you wanted to disable the default delay functionality, set the ENGINE_FPS to 0 or negative instead!
-#endif // !ENGINE_FPS
 
 
 /// <summary>

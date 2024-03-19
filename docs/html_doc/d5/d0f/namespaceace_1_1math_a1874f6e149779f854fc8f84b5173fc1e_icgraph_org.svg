@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d5/d0f/namespaceace_1_1math.html#a1003baff2f5bcf504bcab085cc16d034" target="_top" xlink:title="Rounds the passed number of type Y and converts it to the type T">
+<g id="a_Node000002"><a xlink:href="../../d5/d0f/namespaceace_1_1math.html#a1003baff2f5bcf504bcab085cc16d034" target="_top" xlink:title="Rounds the passed number of type Y and converts it to the type T.">
 <polygon fill="white" stroke="#666666" points="89.5,-20 0,-20 0,0 89.5,0 89.5,-20"/>
 <text text-anchor="middle" x="44.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ace::math::round</text>
 </a>

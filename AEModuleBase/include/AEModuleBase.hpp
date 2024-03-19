@@ -43,8 +43,9 @@
 /// @see __AEModuleBase
 #define REGISTER_MODULE(T) public: \
 	[[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \
-	static_assert(sizeof(STR(T)) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp"); \
-	return #T; }
+		static_assert(sizeof(STR(T)) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags.hpp"); \
+			return #T; \
+	}
 
 // A process to correctly copy-construct the module (that inherited from __AEModuleBase)
 // (under the hood: calls the copy-constructor of the __AEModuleBase)
@@ -80,50 +81,81 @@ class __AEModuleBase
 public:
 
 	/// <summary>
-	/// **Basic constructor** that increases module count
+	/// **Basic constructor** that increases module count.d
 	/// </summary>
-	__AEModuleBase(void) noexcept {
+	__AEModuleBase(void) noexcept : m_ullModuleId(++m_ullInstanceCounter) {
 		this->m_ullModulesAlive++;
 	}
 
 	/// <summary>
-	/// **Basic copy constructor** that increases module count
+	/// **Basic copy constructor** that increases module count.
+	/// 
 	/// @remark It doesn't get called, unless expicitly called
 	/// @note Doesn't do anything other than increase module count
 	/// </summary>
 	/// <param name="val">The object passed to the copy constructor (we don't do anything with it)</param>
-	__AEModuleBase(const __AEModuleBase<T>& val) noexcept {
+	__AEModuleBase(const __AEModuleBase<T>& val) noexcept : m_ullModuleId(++m_ullInstanceCounter) {
 		this->m_ullModulesAlive++;
 	}
 
 	/// <summary>
-	/// **Basic destructor** that decreases module count
+	/// **Basic destructor** that decreases module count.
 	/// </summary>
 	virtual ~__AEModuleBase(void) noexcept {
 		this->m_ullModulesAlive--;
 	}
 
 	/// <summary>
-	/// **Basic assignment operator -- it does nothing, so it's deleted** (make your own)
+	/// **Basic assignment operator -- it does nothing, so it's deleted** (make your own).
 	/// </summary>
-	virtual __AEModuleBase<T>& operator=(const __AEModuleBase<T>& val) = delete;
+	__AEModuleBase<T>& operator=(const __AEModuleBase<T>& val) = delete;
 
 	/// <summary>
-	/// Get the **amount of the currently-alive instances of module T**
+	/// Get the **amount of the currently-alive instances of module T**.
+	/// 
 	/// @see __AEModuleBase<T>::m_ullModulesAlive
 	/// </summary>
-	/// <returns>Unsigned long long of the alive module amount</returns>
+	/// <returns>
+	///		Unsigned long long of the alive module amount
+	///	</returns>
 	[[nodiscard]] static inline ullint getModuleAmount(void) noexcept {
-		return m_ullModulesAlive.load();
+		return __AEModuleBase<T>::m_ullModulesAlive.load();
 	}
 	
 	/// <summary>
-	/// Get the **name of the module**
+	/// Get the **name of the module**.
+	/// 
 	/// @attention You *need* to add #REGISTER_MODULE() to the end of the class declarations if you want to use this thing
 	/// @see #REGISTER_MODULE()
 	/// </summary>
-	/// <returns>The name of the module as a const std::strinv_view type</returns>
+	/// <returns>
+	///		The name of the module as a const std::strinv_view type
+	///	</returns>
 	[[nodiscard]] static constexpr const std::string_view getModuleName(void) noexcept;
+
+	/// <summary>
+	/// Get the **id number of the instance** of the module.
+	/// 
+	/// @remark Every module has its own instance counter
+	/// </summary>
+	/// <returns>
+	///		The id number of the instance of the module as **ullint** type
+	/// </returns>
+	[[nodiscard]] constexpr const ullint getModuleID(void) noexcept {
+		return m_ullModuleId;
+	}
+
+	/// <summary>
+	/// Get the current value of the **instance counter** of the module.
+	/// 
+	/// @see __AEModuleBase::m_ullInstanceCounter
+	/// </summary>
+	/// <returns>
+	///		The amount of the module's instances overall created throughout the program's runtime
+	/// </returns>
+	[[nodiscard]] static constexpr const ullint getInstanceCounter(void) noexcept {
+		return m_ullInstanceCounter;
+	}
 
 protected:
 
@@ -131,6 +163,16 @@ protected:
 	/// Amount of the currently-alive (not destroyed) instances of the module.
 	/// </summary>
 	static inline std::atomic<std::size_t> m_ullModulesAlive = 0;
+
+	/// <summary>
+	/// Amount of the instances of the module ever created during the program's runtime
+	/// </summary>
+	static inline std::atomic<ullint> m_ullInstanceCounter = 0;
+
+	/// <summary>
+	/// The ID number of the current module
+	/// </summary>
+	const ullint m_ullModuleId;
 
 	//REGISTER_MODULE(__AEModuleBase)
 };

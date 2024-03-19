@@ -41,11 +41,15 @@ var class_a_e_log_parser =
     [ "REGISTER_MODULE", "d8/d52/class_a_e_log_parser.html#abfe665d273e635559e15339dd34bace5", null ],
     [ "getModuleAmount", "d8/d52/class_a_e_log_parser.html#ab3257ef44350e547976d6199ffdb743f", null ],
     [ "getModuleName", "d8/d52/class_a_e_log_parser.html#a625c82f27195de3f9ab5af4fc7437e2f", null ],
+    [ "getModuleID", "d8/d52/class_a_e_log_parser.html#aab73fd66ed267a2162b7c4a29b8bb929", null ],
+    [ "getInstanceCounter", "d8/d52/class_a_e_log_parser.html#a9570242b740ac89f86c5980957a42153", null ],
     [ "m_frLogReader", "d8/d52/class_a_e_log_parser.html#a7a38c688d9485750a19f272ceee513fd", null ],
     [ "m_vecEntryIndices", "d8/d52/class_a_e_log_parser.html#a230f2b4ee8b95592fee2a627e0412c7d", null ],
     [ "m_vecInvalidEntryIndices", "d8/d52/class_a_e_log_parser.html#aafdf325ac835c82df04ce2d327f820c8", null ],
     [ "m_mapModuleNames", "d8/d52/class_a_e_log_parser.html#a8013f4b6fa684c9b2346835e1ab1d84f", null ],
     [ "m_arrEntryAmount", "d8/d52/class_a_e_log_parser.html#a9c7c7db04ea7f316e6c8905d6bb43984", null ],
     [ "m_ullCurrentEntry", "d8/d52/class_a_e_log_parser.html#a61389d7cbc5253a1ee578d8be67ea078", null ],
-    [ "m_ullModulesAlive", "d8/d52/class_a_e_log_parser.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ]
+    [ "m_ullModulesAlive", "d8/d52/class_a_e_log_parser.html#aa6b53ab9e5c623900a03d4ea16eb5a99", null ],
+    [ "m_ullInstanceCounter", "d8/d52/class_a_e_log_parser.html#a3c2c7b00cb494225f6465fbeeb4267d4", null ],
+    [ "m_ullModuleId", "d8/d52/class_a_e_log_parser.html#a0bcad11d499e8999dc0252ffa3c4eca3", null ]
 ];

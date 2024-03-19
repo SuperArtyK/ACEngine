@@ -1,4 +1,4 @@
-.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Sat Mar 16 2024 13:55:14" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
+.TH "AEModuleBase/include/AEModuleBase.hpp" 3 "Mon Mar 18 2024 18:44:24" "Version v0.0.8.5a" "ArtyK's Console Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -77,8 +77,9 @@ Definition in file \fBAEModuleBase\&.hpp\fP\&.
 .nf
     public: \\
     [[nodiscard]] static constexpr std::string_view getModuleName(void) noexcept { \\
-    static_assert(sizeof(STR(T)) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
-    return #T; }
+        static_assert(sizeof(STR(T)) <= AELE_MODULENAME_SIZE, "The module name is TOO BIG! (check AELE_MODULENAME_SIZE in AEMisc/include/AEFlags\&.hpp"); \\
+            return #T; \\
+    }
 .fi
 
 .PP
@@ -112,7 +113,7 @@ Definition at line \fB44\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .PP
 Macro for the \fBdefault no error flag\fP for all modules\&. 
 .PP
-Definition at line \fB59\fP of file \fBAEModuleBase\&.hpp\fP\&.
+Definition at line \fB60\fP of file \fBAEModuleBase\&.hpp\fP\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for ArtyK's Console Engine from the source code\&.
