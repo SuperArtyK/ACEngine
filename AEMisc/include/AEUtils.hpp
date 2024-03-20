@@ -302,12 +302,12 @@ namespace ace {
 		[[nodiscard]] inline std::string addrToStr(const void* const myptr, const bool add0x = true) noexcept {
 			if (add0x) {
 				char myarr[sizeof(void*) * 2 + 3];
-				std::snprintf(myarr, sizeof(myarr), "0x%0*llx", int(sizeof(void*)) * 2, ullint(std::uintptr_t(myptr)));
+				std::snprintf(myarr, sizeof(myarr), "0x%0*llX", int(sizeof(void*)) * 2, ullint(std::uintptr_t(myptr)));
 				return myarr;
 			}
 			// add0x is false
 			char myarr[sizeof(void*) * 2 + 1];
-			std::snprintf(myarr, sizeof(myarr), "%0*llx", int(sizeof(void*)) * 2, ullint(std::uintptr_t(myptr)));
+			std::snprintf(myarr, sizeof(myarr), "%0*llX", int(sizeof(void*)) * 2, ullint(std::uintptr_t(myptr)));
 			return myarr;
 		}
 		
@@ -433,6 +433,77 @@ namespace ace {
 		[[nodiscard]] constexpr inline bool isAlNumUs(const std::string_view str) {
 			return std::find_if_not(str.begin(), str.end(), [](char c) noexcept { return std::isalnum(c) || c == '_'; }) == str.end();
 		}
+
+
+		/// <summary>
+		/// Converts the passed **byte value to hex** representation, into a passed c-string.
+		/// @attention The c-string **str** needs to be at least 3 bytes in length (2 characters + null terminator)
+		/// @note It sets the null-terminator as the 3rd character of the c-string
+		/// </summary>
+		/// <param name="ptr">The c-string to write the data into</param>
+		/// <param name="bt">The byte to convert</param>
+		/// <returns>
+		///		If **nullptr** pas passed for the **ptr** argument:
+		///		* **nullptr**
+		///		
+		///		Otherwise:
+		///		* The passed c-string **ptr** containing the hex representation of the passed byte.
+		/// </returns>
+		inline constexpr const char* const byteToHex(char* const ptr, const ucint bt) noexcept {
+
+			constexpr char hexUpper[]{
+				'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+				'A', 'B', 'C', 'D', 'E', 'F',
+			};
+
+			if (ptr) {
+				ptr[0] = hexUpper[bt / 16];
+				ptr[1] = hexUpper[bt % 16];
+				ptr[2] = '\0';
+			}
+			
+			return ptr;
+		}
+
+		/// <summary>
+		/// Converts the passed **byte value to hex** representation.
+		/// </summary>
+		/// <param name="bt">The byte to convert</param>
+		/// <returns>
+		///		The passed byte as hex as **std::string type**; it has the length 2.
+		/// </returns>
+		[[nodiscard]] inline std::string byteToHex(const ucint bt) {
+			std::string result = "00";
+			ace::utils::byteToHex(result.data(), bt);
+			return result;
+		}
+
+		/// <summary>
+		/// Reads the raw data at a given address and **converts the read bytes to hex**.
+		/// </summary>
+		/// <param name="myptr">The pointer to memory address to read from</param>
+		/// <param name="szRead">The amount of bytes to read</param>
+		/// <param name="useDeilm">A flag to whether use any delimeter between the bytes</param>
+		/// <param name="delim">The string representing the delimeter</param>
+		/// <returns>
+		///		The raw bytes at the memory address as hex as the **std::string** type.
+		/// </returns>
+		[[nodiscard]] inline std::string readBytesAsHex(const void* const myptr, const std::size_t szRead, const bool useDeilm = true, const std::string_view delim = " ") {
+			const ucint* const ptr = (const ucint*)myptr;
+			
+			char strhex[] = "00";
+
+			std::string result;
+			result.reserve(szRead * 2 + (useDeilm)? delim.size() * szRead : 0);
+			for (std::size_t i = 0; i < szRead; i++) {
+				result.append(byteToHex(strhex, ptr[i]));
+				if (useDeilm) {
+					result.append(delim);
+				}
+			}
+			return result;
+		}
+
 
 	}	
 }

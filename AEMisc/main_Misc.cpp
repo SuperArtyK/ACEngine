@@ -32,6 +32,13 @@ int main() {
 
 	cout << (IS_SAME_NOCV(const int, int)) << " " << (std::is_same < std::remove_cv<const char[]>::type, const char*>::value) << NLC;
 
+	cout << ace::utils::byteToHex(0xFF)<<NLC;
+
+	char myarr[] = "Hello World!";
+
+	cout << ace::utils::readBytesAsHex(myarr, sizeof(myarr)) << NLC;
+	cout << ace::utils::readBytesAsHex(myarr, sizeof(myarr), true, "; ") << NLC;
+	cout << ace::utils::readBytesAsHex(myarr, sizeof(myarr), false) << NLC;
 
 
 	cout << (std::is_same< std::remove_cv<std::decay<const char[]>::type>::type, std::remove_cv<std::decay<const char*>::type>::type>::value)<<" "<< IS_SAME_NOCV_DECAY(const char[], const char*) << NLC;
