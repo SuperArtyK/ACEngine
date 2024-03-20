@@ -1,18 +1,18 @@
 
 /*! @file AETimer/include/AETimer.hpp
- *  This file contains the code for engine's timer. You can use it to time events.
- *  Or like...wait for the tick of the timer for a certain delay or even to happen.
- *  
- *  Should not cause everything to break :)
- */
-
-/*! @file AETimer/include/AETimer.hpp
  *
  *	@brief This file contains the engine's **tick-based timer**.
  *
+ *	This timer operates using AEFrame, and ticks with the delay you can set.
  *	
+ *	It allows to time or predict certain events.
  *	
- *	@date 2023/09/21
+ *	Or as a weird alternative to sleep functionality.
+ *	
+ *	@see AETimer::waitForTick()
+ *	@see AETimer::waitTicks()
+ *	
+ *	@date 2023/09/24
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
@@ -28,15 +28,19 @@
 
 #include "include/AEFrame.hpp"
 #include <atomic>
+#include <mutex>
 #include <thread>
 
 
 /// <summary>
-/// @brief ArtyK's Engine Timer -- the engine's internal timer for, um, timing events or anything, with variable tick speed.
-/// It makes a separate thread that increments the tick number every set time period. For the delay, it uses AEFrame.
+/// This module is the engine's **tick timer**.
 /// 
-/// Just create it and look at the ticks of the timer from anywhere in the program...that you can access it.
-/// Hungarian notation is tm. (m_tmMyTimer)
+/// It allows to time or predict events ("happen at tick X"), with the variable tick speed. <br>
+/// Internally it uses the AEFrame module for the delay, so the same limitations apply.
+/// 
+/// Internally it makes a separate thread that increments the tick number every set time period, and sleeping after.
+/// @see AEFrame
+/// @note This is multithreading-safe! :D
 /// </summary>
 class AETimer : public __AEModuleBase<AETimer> {
 
@@ -44,23 +48,23 @@ public:
 
 //constructors
 	/// <summary>
-	/// Class constructor -- starts the timer automatically
+	/// Class constructor -- **sets the delay** in ticks per second, and **starts the thread**.
 	/// </summary>
-	/// <param name="tps">The amount of ticks per second, as the float</param>
-	explicit AETimer(const double tps = ENGINE_FPS) :
+	/// <param name="tps">The amount of ticks per second, as the double</param>
+	explicit AETimer(const double tps) :
 		m_rDelay(tps), m_ullTicks(0), m_bRunTrd(true) {
 		this->startThread();
 	}
 
 	/// <summary>
-	/// Class constructor -- just assigns default delay (ENGINE_FPS) and doesn't start the thread
+	/// Class constructor -- assigns **default delay (ENGINE_FPS) and doesn't start the thread**
 	/// </summary>
 	AETimer(void) noexcept : 
 		m_rDelay(ENGINE_FPS), m_ullTicks(0), m_bRunTrd(false) 
 		{}
 
 	/// <summary>
-	/// Copy constructor -- Just copies the data and then starts the timer if original timer was started.
+	/// Copy constructor -- **copies the data** and, if the original timer was started, **starts the timer**.
 	/// </summary>
 	/// <param name="tm">The original AETimer instance to make a copy of</param>
 	AETimer(const AETimer& tm) :
@@ -73,7 +77,7 @@ public:
 	}
 
 	/// <summary>
-	/// The copy assignment operator. Just copies the data and then starts the timer if original timer was started.
+	/// Copy assignment operator -- **copies the data** and, if the original timer was started, **starts the timer**.
 	/// </summary>
 	/// <param name="tm">The original AETimer instance to make a copy of</param>
 	/// <returns>Reference to the resulting AETimer copy</returns>
@@ -88,19 +92,28 @@ public:
 	}
 
 	/// <summary>
-	/// Class destructor
+	/// **Class destructor**
 	/// </summary>
 	~AETimer(void) {
 		this->stopThread();
 	}
 
 	/// <summary>
-	/// Starts the timer thread and starts tick counting
+	/// **Starts the timer thread** and starts tick counting.
 	/// @note Does nothing if thread is already started
+	/// @note Throws std::runtime_error if the thread wasn't started for some reason(std::thread::joinable() returns false)
+	/// @attention If the delay/fps, previously, was set to an invalid value, doesn't start thread.
+	/// @see AEFrame::isValidFPS()
+	/// @see AEFrame::isValidDelay()
+	/// @see AEFrame::hasDelay()
 	/// </summary>
 	inline void startThread(void) {
 		if (this->m_trdCounting.joinable()) {
 			return; // we're already running, silly
+		}
+
+		if (!this->m_rDelay.hasDelay()) {
+			return; // invalid fps
 		}
 
 		this->m_bRunTrd = true;
@@ -111,10 +124,12 @@ public:
 	}
 
 	/// <summary>
-	/// Stops the timer thread and stops tick counting
+	/// **Stops the timer thread** and stops tick counting.
+	/// @note Does nothing if the thread was already stopped.
+	/// @warning Not thread-safe! *Can* (but unlikely) crash if called from 2 threads at the **same time** (closing the thread the thread twice)
 	/// </summary>
 	inline void stopThread(void) {
-		if (!this->m_trdCounting.joinable() || !this->m_bRunTrd) {
+		if (!this->m_bRunTrd) {
 			return; //maybe it was closed already?
 		}
 
@@ -123,14 +138,14 @@ public:
 	}
 
 	/// <summary>
-	/// Resets the timer's tick to 0
+	/// Sets the **timer tick back to 0**.
 	/// </summary>
 	inline void resetTick(void) noexcept {
 		this->m_ullTicks = 0;
 	}
 
 	/// <summary>
-	/// Sets the new tick value instead of the current
+	/// Sets the timer's **new tick value to the passed value**.
 	/// </summary>
 	/// <param name="tick">The tick value to set instance's tick value to</param>
 	inline void setTick(const ullint tick) noexcept {
@@ -138,66 +153,81 @@ public:
 	}
 
 	/// <summary>
-	/// Sets the new delay instead of the current
-	/// @note It stops the thread and starts it again -- don't expect the counting to start immediately
+	/// Sets the timer's **new delay as ticks-per-second**
+	/// @attention If the value invalid, stops the thread.
+	/// @see AEFrame::isValidFPS()
+	/// @attention The thread will not be launched untill a proper tps is set.
+	/// @see AETimer::startThread()
+	/// @note Uses a mutex, so there *could* be some delay. Check the mutex behaviour on your system.
 	/// </summary>
 	/// <param name="tps">The amount of ticks per second to set the delay to</param>
-	inline void setDelay(const double tps) {
-		this->stopThread();
+	inline void setTPS(const double tps) {
+		if (!AEFrame::isValidFPS(tps)) {
+			this->stopThread();
+		}
+		std::lock_guard mtx(this->m_mtxThreadMutex);
 		this->m_rDelay.setFps(tps);
-		this->startThread();
+
 	}
 	
 	/// <summary>
-	/// Returns the current tick of the timer.
-	/// @note If thread is not started/working, the return value will be the same
+	/// Returns the **current tick** of the timer.
+	/// @note If thread is not started/working, the return value will be the same (duh)
 	/// </summary>
-	/// <returns>ullint of the current timer tick</returns>
+	/// <returns>
+	///		Current timer tick as **ullint** type.
+	///	</returns>
 	inline ullint getTick(void) const noexcept {
 		return this->m_ullTicks;
 	}
 
 	/// <summary>
-	/// Calculates the approximate world time of the timer in seconds (from the ticks)
-	/// @note If thread is not started/working, the return value will be the same
+	/// Calculates the *approximate world time* of the timer's ticks as seconds
+	/// @note If thread is not started/working, the return value will be the same (duh)
 	/// </summary>
-	/// <returns>double of the approximate world time the timer has counted (using it's ticks)</returns>
+	/// <returns>
+	///		The approximation of the counted world time in seconds using the timer's ticks, as the **double** type.
+	///	</returns>
 	inline long double getWorldTime(void) const noexcept {
 		return this->m_ullTicks.load() * (long double) this->m_rDelay.getDelay();
 	}
 
 	/// <summary>
-	/// Returns the fps goal of AEFrame instance in the AETimer
-	/// @see AEFrame::getFrameRate()
+	/// Returns the **ticks-per-second** of the AETimer's instance (aka AEFrame's fps goal).
+	/// @see AEFrame::getFPS()
 	/// </summary>
-	/// <returns>Rounded int of the approximated fps goal</returns>
-	inline double getFrameRate(void) const noexcept {
-		return this->m_rDelay.getFrameRate(); 
+	/// <returns>
+	///		The ticks-per-second rate of the instance as **double** type.
+	///	</returns>
+	inline double getTPS(void) const noexcept {
+		return this->m_rDelay.getFPS(); 
 	}
 
 	/// <summary>
-	/// Returns the maximum AEFrame's instance in the AETimer delay from the set fps, in seconds
+	/// Returns the **delay-per-tick** of the instance, as seconds (aka AEFrame's delay).
 	/// @see AEFrame::getDelay()
 	/// </summary>
-	/// <returns>double of the maximum AEFrame's instance in the AETimer delay in real-world seconds</returns>
+	/// <returns>
+	///		Delay-per-tick of the instance as seconds, as the **double** type.
+	///	</returns>
 	inline double getDelay(void) const noexcept {
 		return this->m_rDelay.getDelay();
 	}
 
 	/// <summary>
-	/// Stops and sleeps the thread untill the given timer hits the certain tick number.
+	/// Stops and **sleeps the thread untill** the given timer **hits the certain tick number**.
 	/// </summary>
 	/// <param name="timer">The instance of the AETimer to wait for</param>
 	/// <param name="tick">The AETimer instance tick value to wait for</param>
 	static inline void waitForTick(const AETimer& timer, const ullint tick) noexcept {
-		AEFrame fr(timer.getFrameRate()*2);
+		AEFrame fr(timer.getTPS()*2);
 		while (tick > timer.getTick()){
 			fr.sleep();
 		}
 	}
 
 	/// <summary>
-	/// Stops and sleeps the thread untill the given timer goes through certain tick amount
+	/// Stops and **sleeps the thread untill** the given timer **goes through certain amount of ticks**.
 	/// </summary>
 	/// <param name="timer">The instance of the AETimer to wait for</param>
 	/// <param name="tick">The amount of ticks to wait for in the AETimer instance</param>
@@ -222,13 +252,16 @@ private:
 		}
 	}
 
-	/// The frame-rater of the timer for proper delay in the tick-counting function loop
+	/// The **frame-rater of the timer** for proper delay in the tick-counting function loop
+	/// @see AETimer::tickTimer()
 	AEFrame m_rDelay;
-	/// The thread that does the tick counting
+	/// The thread object to launch the thread for the tick counting
 	std::thread m_trdCounting;
-	/// The tick count variable
+	/// The mutex to **syncronise changes with the AETimer::m_rDelay**
+	std::mutex m_mtxThreadMutex;
+	/// The **tick counter** variable
 	std::atomic<ullint> m_ullTicks;
-	/// The flag to continue running the tick counting loop
+	/// The **flag to continue running the tick counting loop
 	std::atomic<bool> m_bRunTrd;
 
 	//aaaand yeah, register the class
@@ -238,9 +271,12 @@ private:
 
 #if ENGINE_ENABLE_GLOBAL_MODULES
 
-/// The global timer of the engine to time engine-wide events.
-/// It starts counting as soon as the program starts.
-inline AETimer globalTimer(ENGINE_FPS);
+namespace ace {
+	/// The engine's **global timer**, using the default delay (explicitly).
+	/// @note It starts counting as soon as the program starts.
+	/// @see #ENGINE_FPS
+	inline AETimer globalTimer(ENGINE_FPS);
+}
 
 #endif // ENGINE_ENABLE_GLOBAL_MODULES
 

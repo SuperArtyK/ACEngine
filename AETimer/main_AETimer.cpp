@@ -10,9 +10,13 @@ int main() {
 	AETimer mytm(a);
 
 	std::cout << mytm.getModuleAmount() << " " << mytm.getModuleName() << NLC;
+
+	//AETimer::waitForTick(globalTimer)
+
+
 	while (1) {
-		AETimer::waitTicks(globalTimer, 1);
-		std::cout << "Seconds passed: " << globalTimer.getWorldTime() << "; Ticks passed: "<< globalTimer.getTick()<<NLC;
+		AETimer::waitTicks(ace::globalTimer, 1);
+		std::cout << "Seconds passed: " << ace::globalTimer.getWorldTime() << "; Ticks passed: "<< ace::globalTimer.getTick()<<NLC;
 	}
 
 

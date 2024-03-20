@@ -10,7 +10,7 @@
  *
  *	Example of usage (and reason for the name): game loop, that you need to limit to some fps.
  *	
- *	@date 2023/09/21
+ *	@date 2023/09/23
  *
  *	@author	Artemii Kozhemiak (SuperArtyK)
  *
@@ -60,21 +60,22 @@ public:
 
 //constructors
 	/// <summary>
-	/// **Class constructor** -- constructs the instance with the **fps as the delay**.
+	/// Class constructor -- constructs the instance with the **fps as the delay**.
 	/// 
 	/// @see AEFrame::setFPS()
-	/// @attention If you pass it negative, 0, or more than 1 million, it will disable the
-	///		delay (sets AEFrame::m_bNoDelay to **true**)
+	/// @attention If you pass the invalid fps value, it will disable the delay 
+	///		(sets AEFrame::m_bNoDelay to **true**); Setting it to a valid value enables it back.
+	///	@see AEFrame::isValidFPS()
 	/// @note Defaults the fps delay to #ENGINE_FPS
 	/// </summary>
 	/// <param name="fps">The fps goal that the frame delay module will try to achieve</param>
 	explicit AEFrame(const double fps = ENGINE_FPS) noexcept :
-		m_tdChronoDelay((fps <= 0 || fps > 1000000.0) ? microSec(0) : microSec(llint(1000000.0 / fps))),
+		m_tdChronoDelay((!AEFrame::isValidFPS(fps)) ? microSec(0) : microSec(llint(1000000.0 / fps))),
 		m_tpTimepoint(AEFrameClock::now()), m_fFPS(fps), m_bNoDelay((fps <= 0 || fps > 1000000.0))
 		{}
 
 	/// <summary>
-	/// **Copy constructor** -- copies data from a passed AEFrame instance.
+	/// Copy constructor -- **copies data from a passed AEFrame instance**.
 	/// </summary>
 	/// <param name="two">The second AEFrame instance</param>
 	AEFrame(const AEFrame& two) noexcept :
@@ -84,7 +85,7 @@ public:
 		{}
 
 	/// <summary>
-	/// **Copy-assignment operator** -- copies data from a passed AEFrame instance.
+	/// Copy-assignment operator -- **copies data from a passed AEFrame instance**
 	/// 
 	/// @note This resets the internal time point (calls AEFrame::resetTimePoint())
 	/// </summary>
@@ -107,13 +108,16 @@ public:
 	/// <summary>
 	/// Sets the delay of the instance as the **frames (loop cycles) per second** to reach in execution (fps goal).
 	/// 
-	/// @attention If you pass it negative, 0, or more than 1 million, it will disable the
-	///		delay (sets AEFrame::m_bNoDelay to **true**)
+	/// @attention If you pass the invalid fps value, it will disable the delay 
+	///		(sets AEFrame::m_bNoDelay to **true**); Setting it to a valid value enables it back.
+	///	@see AEFrame::isValidFPS()
 	/// @note This resets the internal time point (calls AEFrame::resetTimePoint())
 	/// </summary>
 	/// <param name="fps">The frames(cycles) per second to set the delay as</param>
 	inline void setFps(const double fps) noexcept {
-		if (fps <= 0.0 || fps > 1000000.0) { this->m_bNoDelay = true; return; }
+		if (!AEFrame::isValidFPS(fps)) {
+			this->m_bNoDelay = true; return; 
+		}
 		this->m_tdChronoDelay = microSec(llint(1000000.0 / fps));
 		this->m_tpTimepoint = AEFrameClock::now();
 		this->m_fFPS = fps;
@@ -176,7 +180,7 @@ public:
 	/// <returns>
 	///		The fps goal of the instance as type **double**.
 	/// </returns>
-	inline double getFrameRate(void) const noexcept {
+	inline double getFPS(void) const noexcept {
 		return this->m_fFPS; 
 	}
 
@@ -190,6 +194,51 @@ public:
 	/// </returns>
 	inline double getDelay(void) const noexcept {
 		return this->m_tdChronoDelay.count(); 
+	}
+
+	/// <summary>
+	/// Returns whether the instance has a delay or not (invalid fps/delay was set)
+	/// @see AEFrame::isValidDelay()
+	/// </summary>
+	/// <returns>
+	///		If the instance has delay enabled (valid fps/delay):
+	///		* **True**
+	///		
+	///		If the instance has delay disabled (invalid fps/delay):
+	///		* **False**
+	/// </returns>
+	inline bool hasDelay(void) const noexcept {
+		return !this->m_bNoDelay;
+	}
+
+	/// <summary>
+	/// Returns whether the passed delay as fps is valid
+	/// </summary>
+	/// <param name="fps">The frames per second value to check</param>
+	/// <returns>
+	///		If the fps value is valid -- more than 0 and less than/equal to 1 million:
+	///		* **True**
+	///		
+	///		Otherwise: 
+	///		* **False**
+	/// </returns>
+	static constexpr bool isValidFPS(const double fps) noexcept {
+		return (fps > 0.0 && fps <= 1000000.0);
+	}
+
+	/// <summary>
+	/// Returns whether the passed delay as seconds is valid
+	/// </summary>
+	/// <param name="fps">The frames per second value to check</param>
+	/// <returns>
+	///		If the delay value is valid -- more than 0 and less than int32_t max (2^31 - 1):
+	///		* **True**
+	///		
+	///		Otherwise: 
+	///		* **False**
+	/// </returns>
+	static constexpr bool isValidDelay(const double sec) noexcept {
+		return (sec > 0.0 && sec <= (double)std::numeric_limits<int32_t>::max());
 	}
 
 private:
